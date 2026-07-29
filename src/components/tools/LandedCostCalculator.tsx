@@ -49,6 +49,9 @@ type NumericFieldName = Exclude<
   'shippingMode' | 'hsCode' | 'destinationMarket'
 >;
 
+const SELECT_CLASS =
+  'w-full rounded-lg bg-[#0d1210] border border-white/[0.08] text-gray-200 text-sm px-3 py-2 focus:outline-none focus:border-[#c7ff6b]/60 transition-colors';
+
 function parseNumber(value: string): number {
   if (!value.trim()) return Number.NaN;
   return Number(value);
@@ -117,7 +120,7 @@ const NumberField: React.FC<{
   onChange: (name: NumericFieldName, value: string) => void;
 }> = ({ id, name, label, value, error, hint, step = '0.01', onChange }) => (
   <div>
-    <label htmlFor={id} className="block text-xs text-gray-400 mb-1">
+    <label htmlFor={id} className="mb-1 block text-xs text-[#849188]">
       {label}
     </label>
     <input
@@ -133,17 +136,17 @@ const NumberField: React.FC<{
           .filter(Boolean)
           .join(' ') || undefined
       }
-      className={`w-full px-3 py-2 rounded-lg bg-slate-950 border text-white text-sm focus:outline-none ${
-        error ? 'border-red-500' : 'border-gray-800 focus:border-blue-500'
+      className={`w-full rounded-lg border bg-[#0d1210] px-3 py-2 text-sm text-white focus:outline-none ${
+        error ? 'border-[#ff9e9e]' : 'border-white/[0.08] focus:border-[#c7ff6b]/60'
       }`}
     />
     {hint && (
-      <p id={`${id}-hint`} className="text-[10px] text-gray-500 mt-1">
+      <p id={`${id}-hint`} className="mt-1 text-[10px] text-[#6f7c74]">
         {hint}
       </p>
     )}
     {error && (
-      <p id={`${id}-error`} className="text-xs text-red-400 mt-1">
+      <p id={`${id}-error`} className="mt-1 text-xs text-[#ffb4b4]">
         {error}
       </p>
     )}
@@ -173,15 +176,15 @@ export const LandedCostCalculator: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="p-4 rounded-xl bg-slate-900/90 border border-gray-800 flex items-start gap-3">
-        <div className="p-2 rounded-lg bg-purple-500/10 text-purple-400 shrink-0">
-          <Calculator className="w-5 h-5" aria-hidden="true" />
+      <div className="surface-panel flex items-start gap-3 rounded-2xl p-5">
+        <div className="shrink-0 rounded-xl bg-[#c7ff6b]/12 p-2.5 text-[#c7ff6b]">
+          <Calculator className="h-5 w-5" aria-hidden="true" />
         </div>
         <div>
           <h3 className="text-base font-bold text-white">
             Landed Cost Calculator
           </h3>
-          <p className="text-xs text-gray-400">
+          <p className="mt-0.5 text-xs leading-relaxed text-[#849188]">
             Deterministic calculation. Verify the HS code and duty rate with an
             official customs source or qualified specialist before making a decision.
           </p>
@@ -190,21 +193,21 @@ export const LandedCostCalculator: React.FC = () => {
 
       {!validation.success && (
         <p
-          className="p-3 rounded-xl bg-red-950/30 border border-red-500/30 text-sm text-red-300"
+          className="rounded-xl border border-[#ff9e9e]/30 bg-[#ff9e9e]/[0.08] p-3 text-sm text-[#ffb4b4]"
           role="alert"
         >
           Correct the highlighted fields to calculate a reliable estimate.
         </p>
       )}
 
-      <div className="grid lg:grid-cols-12 gap-8">
-        <div className="lg:col-span-6 p-6 rounded-2xl bg-slate-900/90 border border-gray-800 space-y-4">
-          <h4 className="text-sm font-bold text-white border-b border-gray-800 pb-3 flex items-center gap-2">
-            <DollarSign className="w-4 h-4 text-emerald-400" aria-hidden="true" />
+      <div className="grid gap-8 lg:grid-cols-12">
+        <div className="soft-panel space-y-4 rounded-2xl p-6 lg:col-span-6">
+          <h4 className="flex items-center gap-2 border-b border-white/[0.07] pb-3 text-sm font-bold text-white">
+            <DollarSign className="h-4 w-4 text-[#c7ff6b]" aria-hidden="true" />
             Order & Logistics Inputs
           </h4>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <NumberField
               id="landed-unit-price"
               name="unitPriceFob"
@@ -224,9 +227,9 @@ export const LandedCostCalculator: React.FC = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <div>
-              <label htmlFor="landed-destination" className="block text-xs text-gray-400 mb-1">
+              <label htmlFor="landed-destination" className="mb-1 block text-xs text-[#849188]">
                 Destination
               </label>
               <select
@@ -239,7 +242,7 @@ export const LandedCostCalculator: React.FC = () => {
                       .value as LandedCostInput['destinationMarket'],
                   }))
                 }
-                className="w-full px-3 py-2 rounded-lg bg-slate-950 border border-gray-800 text-gray-200 text-sm focus:outline-none focus:border-blue-500"
+                className={SELECT_CLASS}
               >
                 {Object.entries(DESTINATION_MARKET_LABELS).map(([value, label]) => (
                   <option key={value} value={value}>
@@ -249,7 +252,7 @@ export const LandedCostCalculator: React.FC = () => {
               </select>
             </div>
             <div>
-              <label htmlFor="landed-shipping-mode" className="block text-xs text-gray-400 mb-1">
+              <label htmlFor="landed-shipping-mode" className="mb-1 block text-xs text-[#849188]">
                 Shipping mode
               </label>
               <select
@@ -262,7 +265,7 @@ export const LandedCostCalculator: React.FC = () => {
                       .value as LandedCostInput['shippingMode'],
                   }))
                 }
-                className="w-full px-3 py-2 rounded-lg bg-slate-950 border border-gray-800 text-gray-200 text-sm focus:outline-none focus:border-blue-500"
+                className={SELECT_CLASS}
               >
                 {Object.entries(SHIPPING_MODE_LABELS).map(([value, label]) => (
                   <option key={value} value={value}>
@@ -273,9 +276,9 @@ export const LandedCostCalculator: React.FC = () => {
             </div>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <div>
-              <label htmlFor="landed-hs-code" className="block text-xs text-gray-400 mb-1">
+              <label htmlFor="landed-hs-code" className="mb-1 block text-xs text-[#849188]">
                 Verified HS code
               </label>
               <input
@@ -291,14 +294,14 @@ export const LandedCostCalculator: React.FC = () => {
                 }
                 aria-invalid={errors.hsCode ? 'true' : undefined}
                 aria-describedby={errors.hsCode ? 'landed-hs-code-error' : undefined}
-                className={`w-full px-3 py-2 rounded-lg bg-slate-950 border text-white text-sm font-mono focus:outline-none ${
+                className={`w-full rounded-lg border bg-[#0d1210] px-3 py-2 font-mono text-sm text-white focus:outline-none ${
                   errors.hsCode
-                    ? 'border-red-500'
-                    : 'border-gray-800 focus:border-blue-500'
+                    ? 'border-[#ff9e9e]'
+                    : 'border-white/[0.08] focus:border-[#c7ff6b]/60'
                 }`}
               />
               {errors.hsCode && (
-                <p id="landed-hs-code-error" className="text-xs text-red-400 mt-1">
+                <p id="landed-hs-code-error" className="mt-1 text-xs text-[#ffb4b4]">
                   {errors.hsCode}
                 </p>
               )}
@@ -314,7 +317,7 @@ export const LandedCostCalculator: React.FC = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <NumberField
               id="landed-freight"
               name="freightCostTotal"
@@ -334,7 +337,7 @@ export const LandedCostCalculator: React.FC = () => {
             />
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <NumberField
               id="landed-port"
               name="localPortCharges"
@@ -353,7 +356,7 @@ export const LandedCostCalculator: React.FC = () => {
             />
           </div>
 
-          <div className="pt-2 border-t border-gray-800">
+          <div className="border-t border-white/[0.07] pt-2">
             <NumberField
               id="landed-retail"
               name="targetRetailPrice"
@@ -365,75 +368,75 @@ export const LandedCostCalculator: React.FC = () => {
           </div>
         </div>
 
-        <div className="lg:col-span-6 space-y-6">
+        <div className="space-y-6 lg:col-span-6">
           {result ? (
             <>
-              <div className="p-6 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950/50 border border-blue-500/30 space-y-6">
+              <div className="space-y-6 rounded-2xl border border-[#c7ff6b]/25 bg-gradient-to-br from-[#c7ff6b]/[0.08] via-[#70e1b2]/[0.03] to-transparent p-6">
                 <div className="flex flex-wrap items-center justify-between gap-2">
-                  <span className="text-xs font-bold text-blue-400 uppercase tracking-wider">
+                  <span className="text-xs font-black uppercase tracking-[0.08em] text-[#dfffab]">
                     Landed Cost Estimate
                   </span>
-                  <span className="text-xs px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 font-semibold border border-emerald-500/30">
+                  <span className="rounded-full border border-[#70e1b2]/30 bg-[#70e1b2]/15 px-2.5 py-1 text-xs font-semibold text-[#9ff0cf]">
                     Valid inputs
                   </span>
                 </div>
 
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                  <div className="p-4 rounded-xl bg-slate-950 border border-gray-800">
-                    <span className="text-xs text-gray-400 block">
+                <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
+                  <div className="rounded-xl border border-white/[0.07] bg-[#0d1210] p-4">
+                    <span className="block text-xs text-[#849188]">
                       Estimated landed cost per unit
                     </span>
                     <span className="text-3xl font-black text-white">
                       ${result.unitLandedCost}
                     </span>
-                    <span className="text-[11px] text-gray-500 block mt-0.5">
+                    <span className="mt-0.5 block text-[11px] text-[#6f7c74]">
                       Excludes the taxes and fees noted below
                     </span>
                   </div>
-                  <div className="p-4 rounded-xl bg-slate-950 border border-gray-800">
-                    <span className="text-xs text-gray-400 block">
+                  <div className="rounded-xl border border-white/[0.07] bg-[#0d1210] p-4">
+                    <span className="block text-xs text-[#849188]">
                       Gross margin / unit
                     </span>
                     <span
                       className={`text-3xl font-black ${
-                        result.marginPerUnit >= 0 ? 'text-emerald-400' : 'text-red-400'
+                        result.marginPerUnit >= 0 ? 'text-[#9ff0cf]' : 'text-[#ffb4b4]'
                       }`}
                     >
                       ${result.marginPerUnit}
                     </span>
-                    <span className="text-[11px] text-gray-400 block mt-0.5">
+                    <span className="mt-0.5 block text-[11px] text-[#849188]">
                       Margin: {result.marginPercent}% • ROI: {result.roiPercent}%
                     </span>
                   </div>
                 </div>
 
-                <dl className="p-4 rounded-xl bg-slate-950/80 border border-gray-800/80 space-y-2 text-xs">
+                <dl className="space-y-2 rounded-xl border border-white/[0.06] bg-[#0d1210]/80 p-4 text-xs">
                   <div className="flex justify-between gap-3">
-                    <dt className="text-gray-400">Total investment</dt>
+                    <dt className="text-[#849188]">Total investment</dt>
                     <dd className="font-bold text-white">
                       ${result.totalLandedCost.toLocaleString('en-US')}
                     </dd>
                   </div>
                   <div className="flex justify-between gap-3">
-                    <dt className="text-gray-400">Calculated duties</dt>
-                    <dd className="font-bold text-purple-300">
+                    <dt className="text-[#849188]">Calculated duties</dt>
+                    <dd className="font-bold text-[#cebaff]">
                       ${result.customsDutyTotal.toLocaleString('en-US')}
                     </dd>
                   </div>
                   <div className="flex justify-between gap-3">
-                    <dt className="text-gray-400">
+                    <dt className="text-[#849188]">
                       Insurance
                       {result.calculationContext.insuranceWasEstimated
                         ? ' (estimated)'
                         : ''}
                     </dt>
-                    <dd className="font-bold text-blue-300">
+                    <dd className="font-bold text-[#aebfff]">
                       ${result.insuranceCostTotal.toLocaleString('en-US')}
                     </dd>
                   </div>
                   <div className="flex justify-between gap-3">
-                    <dt className="text-gray-400">Potential gross revenue</dt>
-                    <dd className="font-bold text-emerald-400">
+                    <dt className="text-[#849188]">Potential gross revenue</dt>
+                    <dd className="font-bold text-[#9ff0cf]">
                       $
                       {(
                         Number(rawInput.targetRetailPrice) *
@@ -444,32 +447,38 @@ export const LandedCostCalculator: React.FC = () => {
                 </dl>
 
                 <div className="space-y-2">
-                  <div className="flex justify-between text-xs text-gray-400">
+                  <div className="flex justify-between text-xs text-[#849188]">
                     <span className="flex items-center gap-1">
-                      <PieChart className="w-3.5 h-3.5 text-blue-400" aria-hidden="true" />
+                      <PieChart className="h-3.5 w-3.5 text-[#c7ff6b]" aria-hidden="true" />
                       Cost breakdown
                     </span>
                     <span className="font-mono">100 %</span>
                   </div>
                   <div
-                    className="h-4 w-full bg-slate-950 rounded-full overflow-hidden flex"
+                    className="flex h-4 w-full overflow-hidden rounded-full bg-[#0d1210]"
                     role="img"
                     aria-label={`Factory ${result.breakdownPct.factoryPct}%, freight ${result.breakdownPct.freightPct}%, duties ${result.breakdownPct.dutyPct}%, other ${result.breakdownPct.localPct}%`}
                   >
-                    <span style={{ width: `${result.breakdownPct.factoryPct}%` }} className="bg-blue-500" />
-                    <span style={{ width: `${result.breakdownPct.freightPct}%` }} className="bg-indigo-500" />
-                    <span style={{ width: `${result.breakdownPct.dutyPct}%` }} className="bg-purple-500" />
-                    <span style={{ width: `${result.breakdownPct.localPct}%` }} className="bg-emerald-400" />
+                    <span style={{ width: `${result.breakdownPct.factoryPct}%` }} className="bg-[#c7ff6b]" />
+                    <span style={{ width: `${result.breakdownPct.freightPct}%` }} className="bg-[#70e1b2]" />
+                    <span style={{ width: `${result.breakdownPct.dutyPct}%` }} className="bg-[#b99cff]" />
+                    <span style={{ width: `${result.breakdownPct.localPct}%` }} className="bg-[#7e9cff]" />
+                  </div>
+                  <div className="flex flex-wrap gap-x-4 gap-y-1 text-[10px] text-[#849188]">
+                    <span className="flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-[#c7ff6b]" />Factory {result.breakdownPct.factoryPct}%</span>
+                    <span className="flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-[#70e1b2]" />Freight {result.breakdownPct.freightPct}%</span>
+                    <span className="flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-[#b99cff]" />Duties {result.breakdownPct.dutyPct}%</span>
+                    <span className="flex items-center gap-1"><span className="h-2 w-2 rounded-full bg-[#7e9cff]" />Other {result.breakdownPct.localPct}%</span>
                   </div>
                 </div>
               </div>
 
-              <div className="p-4 rounded-xl bg-amber-950/20 border border-amber-500/30">
-                <h4 className="text-sm font-bold text-amber-300 flex items-center gap-2 mb-2">
-                  <AlertTriangle className="w-4 h-4" aria-hidden="true" />
+              <div className="rounded-2xl border border-[#f1b47d]/30 bg-[#f1b47d]/[0.06] p-4">
+                <h4 className="mb-2 flex items-center gap-2 text-sm font-bold text-[#f1b47d]">
+                  <AlertTriangle className="h-4 w-4" aria-hidden="true" />
                   Items to Verify
                 </h4>
-                <ul className="space-y-1.5 text-xs text-amber-100/80">
+                <ul className="space-y-1.5 text-xs text-[#f7cfa3]">
                   {result.warnings.map((warning) => (
                     <li key={warning}>• {formatWarning(warning)}</li>
                   ))}
@@ -477,8 +486,8 @@ export const LandedCostCalculator: React.FC = () => {
               </div>
             </>
           ) : (
-            <div className="p-12 rounded-2xl bg-slate-900/60 border border-dashed border-gray-800 text-center">
-              <Calculator className="w-10 h-10 text-gray-600 mx-auto mb-3" aria-hidden="true" />
+            <div className="rounded-2xl border border-dashed border-white/[0.1] bg-white/[0.015] p-12 text-center">
+              <Calculator className="mx-auto mb-3 h-10 w-10 text-[#3a4941]" aria-hidden="true" />
               <p className="text-sm text-gray-300">
                 Enter valid values to display the calculation.
               </p>

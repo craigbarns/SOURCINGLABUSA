@@ -34,6 +34,9 @@ const SUPPLIER_EMAIL_ERROR_TRANSLATIONS: Record<string, string> = {
     'The server returned an invalid response.',
 };
 
+const FIELD_CLASS =
+  'w-full rounded-lg bg-[#0d1210] border border-white/[0.08] text-white text-sm px-3 py-2 focus:outline-none focus:border-[#b99cff]/60 transition-colors';
+
 export const SupplierEmailGenerator: React.FC = () => {
   const [input, setInput] = useState<EmailGeneratorInput>({
     supplierName: 'Shenzhen Precision Industrial Co., Ltd.',
@@ -98,15 +101,15 @@ export const SupplierEmailGenerator: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="p-4 rounded-xl bg-slate-900/90 border border-gray-800 flex items-start gap-3">
-        <div className="p-2 rounded-lg bg-amber-500/10 text-amber-400 shrink-0">
-          <Mail className="w-5 h-5" aria-hidden="true" />
+      <div className="surface-panel flex items-start gap-3 rounded-2xl p-5">
+        <div className="shrink-0 rounded-xl bg-[#b99cff]/12 p-2.5 text-[#b99cff]">
+          <Mail className="h-5 w-5" aria-hidden="true" />
         </div>
         <div>
           <h3 className="text-base font-bold text-white">
             Supplier Email Generator
           </h3>
-          <p className="text-xs text-gray-400">
+          <p className="mt-0.5 text-xs leading-relaxed text-[#849188]">
             Create structured supplier email templates on the server. Always
             verify commercial and regulatory details before sending.
           </p>
@@ -115,24 +118,24 @@ export const SupplierEmailGenerator: React.FC = () => {
 
       {errorMessage && (
         <p
-          className="p-3 rounded-xl bg-red-950/30 border border-red-500/30 text-sm text-red-300"
+          className="rounded-xl border border-[#ff9e9e]/30 bg-[#ff9e9e]/[0.08] p-3 text-sm text-[#ffb4b4]"
           role="alert"
         >
           {errorMessage}
         </p>
       )}
 
-      <div className="grid lg:grid-cols-12 gap-8">
-        <div className="lg:col-span-5 p-6 rounded-2xl bg-slate-900/90 border border-gray-800 space-y-4">
-          <h4 className="text-sm font-bold text-white border-b border-gray-800 pb-3 flex items-center gap-2">
-            <Send className="w-4 h-4 text-blue-400" aria-hidden="true" />
+      <div className="grid gap-8 lg:grid-cols-12">
+        <div className="soft-panel space-y-4 rounded-2xl p-6 lg:col-span-5">
+          <h4 className="flex items-center gap-2 border-b border-white/[0.07] pb-3 text-sm font-bold text-white">
+            <Send className="h-4 w-4 text-[#b99cff]" aria-hidden="true" />
             Email Details
           </h4>
 
           <div>
             <label
               htmlFor="supplier-email-type"
-              className="block text-xs text-gray-400 mb-1"
+              className="mb-1 block text-xs text-[#849188]"
             >
               Email purpose
             </label>
@@ -146,7 +149,7 @@ export const SupplierEmailGenerator: React.FC = () => {
                     .value as EmailGeneratorInput['emailType'],
                 }))
               }
-              className="w-full px-3 py-2.5 rounded-lg bg-slate-950 border border-gray-800 text-white text-sm focus:border-blue-500"
+              className={`${FIELD_CLASS} py-2.5`}
             >
               {Object.entries(EMAIL_TYPE_LABELS).map(([value, label]) => (
                 <option key={value} value={value}>
@@ -159,9 +162,9 @@ export const SupplierEmailGenerator: React.FC = () => {
           <div>
             <label
               htmlFor="supplier-email-language"
-              className="text-xs text-gray-400 mb-1 flex items-center gap-1.5"
+              className="mb-1 flex items-center gap-1.5 text-xs text-[#849188]"
             >
-              <Globe className="w-3.5 h-3.5" aria-hidden="true" />
+              <Globe className="h-3.5 w-3.5" aria-hidden="true" />
               Message language
             </label>
             <select
@@ -174,7 +177,7 @@ export const SupplierEmailGenerator: React.FC = () => {
                     .value as EmailGeneratorInput['language'],
                 }))
               }
-              className="w-full px-3 py-2.5 rounded-lg bg-slate-950 border border-gray-800 text-white text-sm focus:border-blue-500"
+              className={`${FIELD_CLASS} py-2.5`}
             >
               {Object.entries(LANGUAGE_LABELS).map(([value, label]) => (
                 <option key={value} value={value}>
@@ -184,11 +187,11 @@ export const SupplierEmailGenerator: React.FC = () => {
             </select>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+          <div className="grid grid-cols-1 gap-3 sm:grid-cols-2">
             <div>
               <label
                 htmlFor="supplier-name"
-                className="block text-xs text-gray-400 mb-1"
+                className="mb-1 block text-xs text-[#849188]"
               >
                 Supplier name
               </label>
@@ -203,13 +206,13 @@ export const SupplierEmailGenerator: React.FC = () => {
                   }))
                 }
                 required
-                className="w-full px-3 py-2 rounded-lg bg-slate-950 border border-gray-800 text-white text-sm focus:border-blue-500"
+                className={FIELD_CLASS}
               />
             </div>
             <div>
               <label
                 htmlFor="supplier-quantity"
-                className="block text-xs text-gray-400 mb-1"
+                className="mb-1 block text-xs text-[#849188]"
               >
                 Quantity (units)
               </label>
@@ -231,7 +234,7 @@ export const SupplierEmailGenerator: React.FC = () => {
                     ? undefined
                     : 'true'
                 }
-                className="w-full px-3 py-2 rounded-lg bg-slate-950 border border-gray-800 text-white text-sm focus:border-blue-500"
+                className={FIELD_CLASS}
               />
             </div>
           </div>
@@ -239,7 +242,7 @@ export const SupplierEmailGenerator: React.FC = () => {
           <div>
             <label
               htmlFor="supplier-product"
-              className="block text-xs text-gray-400 mb-1"
+              className="mb-1 block text-xs text-[#849188]"
             >
               Product name
             </label>
@@ -254,7 +257,7 @@ export const SupplierEmailGenerator: React.FC = () => {
                 }))
               }
               required
-              className="w-full px-3 py-2 rounded-lg bg-slate-950 border border-gray-800 text-white text-sm focus:border-blue-500"
+              className={FIELD_CLASS}
             />
           </div>
 
@@ -262,7 +265,7 @@ export const SupplierEmailGenerator: React.FC = () => {
             <div>
               <label
                 htmlFor="supplier-target-price"
-                className="block text-xs text-gray-400 mb-1"
+                className="mb-1 block text-xs text-[#849188]"
               >
                 Target price
               </label>
@@ -277,7 +280,7 @@ export const SupplierEmailGenerator: React.FC = () => {
                   }))
                 }
                 placeholder="Example: $4.10 / unit"
-                className="w-full px-3 py-2 rounded-lg bg-slate-950 border border-gray-800 text-white text-sm focus:border-blue-500"
+                className={FIELD_CLASS}
               />
             </div>
           )}
@@ -285,7 +288,7 @@ export const SupplierEmailGenerator: React.FC = () => {
           <div>
             <label
               htmlFor="supplier-requirements"
-              className="block text-xs text-gray-400 mb-1"
+              className="mb-1 block text-xs text-[#849188]"
             >
               Requirements to request or verify
             </label>
@@ -300,7 +303,7 @@ export const SupplierEmailGenerator: React.FC = () => {
                 }))
               }
               placeholder="Test reports, packaging, tolerances..."
-              className="w-full px-3 py-2 rounded-lg bg-slate-950 border border-gray-800 text-white text-xs focus:border-blue-500"
+              className={`${FIELD_CLASS} text-xs`}
             />
           </div>
 
@@ -308,23 +311,23 @@ export const SupplierEmailGenerator: React.FC = () => {
             type="button"
             onClick={handleGenerate}
             disabled={loading || !formIsValid}
-            className="w-full py-3 rounded-xl bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-400 hover:to-amber-500 text-slate-950 font-bold text-sm transition-all shadow-lg shadow-amber-500/20 flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amber-200"
+            className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#c7ff6b] to-[#70e1b2] py-3 text-sm font-black text-[#07130c] transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c7ff6b] disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {loading ? (
               <span>Generating email…</span>
             ) : (
               <>
-                <Sparkles className="w-4 h-4" aria-hidden="true" />
+                <Sparkles className="h-4 w-4" aria-hidden="true" />
                 <span>Generate Email Template</span>
               </>
             )}
           </button>
         </div>
 
-        <div className="lg:col-span-7 space-y-4">
+        <div className="space-y-4 lg:col-span-7">
           {!result && !loading && (
-            <div className="p-12 rounded-2xl bg-slate-900/60 border border-dashed border-gray-800 text-center space-y-3">
-              <Mail className="w-10 h-10 text-gray-600 mx-auto" aria-hidden="true" />
+            <div className="space-y-3 rounded-2xl border border-dashed border-white/[0.1] bg-white/[0.015] p-12 text-center">
+              <Mail className="mx-auto h-10 w-10 text-[#3a4941]" aria-hidden="true" />
               <p className="text-sm font-semibold text-gray-300">
                 Enter the request details to prepare a message for review.
               </p>
@@ -332,30 +335,30 @@ export const SupplierEmailGenerator: React.FC = () => {
           )}
 
           {result && (
-            <div className="p-6 rounded-2xl bg-slate-900 border border-gray-800 space-y-4 animate-fadeIn">
-              <div className="flex items-center justify-between gap-3 border-b border-gray-800 pb-3">
-                <span className="text-xs px-2.5 py-1 rounded bg-amber-500/20 text-amber-400 font-bold border border-amber-500/30 uppercase">
+            <div className="animate-rise surface-panel space-y-4 rounded-2xl p-6">
+              <div className="flex items-center justify-between gap-3 border-b border-white/[0.07] pb-3">
+                <span className="rounded border border-[#b99cff]/30 bg-[#b99cff]/15 px-2.5 py-1 text-xs font-bold uppercase text-[#cebaff]">
                   Review before sending
                 </span>
                 <button
                   type="button"
                   onClick={handleCopy}
-                  className="px-3.5 py-1.5 rounded-lg bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-white flex items-center gap-2 border border-gray-700 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                  className="flex items-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold text-white transition-all hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b99cff]"
                 >
                   {copied ? (
                     <Check
-                      className="w-3.5 h-3.5 text-emerald-400"
+                      className="h-3.5 w-3.5 text-[#70e1b2]"
                       aria-hidden="true"
                     />
                   ) : (
-                    <Copy className="w-3.5 h-3.5" aria-hidden="true" />
+                    <Copy className="h-3.5 w-3.5" aria-hidden="true" />
                   )}
                   <span>{copied ? 'Copied!' : 'Copy All'}</span>
                 </button>
               </div>
 
-              <div className="p-3 rounded-lg bg-slate-950 border border-gray-800">
-                <span className="text-[11px] text-gray-500 uppercase font-semibold block mb-0.5">
+              <div className="rounded-lg border border-white/[0.07] bg-[#0d1210] p-3">
+                <span className="mb-0.5 block text-[11px] font-semibold uppercase text-[#6f7c74]">
                   Subject
                 </span>
                 <span className="text-sm font-bold text-white">
@@ -363,18 +366,18 @@ export const SupplierEmailGenerator: React.FC = () => {
                 </span>
               </div>
 
-              <div className="p-4 rounded-xl bg-slate-950 border border-gray-800">
-                <pre className="text-xs font-mono text-gray-200 whitespace-pre-wrap leading-relaxed">
+              <div className="rounded-xl border border-white/[0.07] bg-[#0d1210] p-4">
+                <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed text-gray-200">
                   {result.body}
                 </pre>
               </div>
 
-              <div className="p-4 rounded-xl bg-blue-950/20 border border-blue-900/40 space-y-2">
-                <span className="text-xs font-bold text-blue-400 flex items-center gap-1.5">
-                  <AlertCircle className="w-3.5 h-3.5" aria-hidden="true" />
+              <div className="space-y-2 rounded-xl border border-[#7e9cff]/25 bg-[#7e9cff]/[0.06] p-4">
+                <span className="flex items-center gap-1.5 text-xs font-bold text-[#aebfff]">
+                  <AlertCircle className="h-3.5 w-3.5" aria-hidden="true" />
                   Review Notes
                 </span>
-                <ul className="space-y-1 text-xs text-blue-200/80">
+                <ul className="space-y-1 text-xs text-gray-300">
                   {result.tips.map((tip) => (
                     <li key={tip}>• {tip}</li>
                   ))}
