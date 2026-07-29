@@ -1,11 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import { FileText, ShieldAlert, Calculator, Mail, Sparkles, ArrowLeft, CheckCircle2, Zap } from 'lucide-react';
+import { FileText, ShieldAlert, Calculator, Mail, Sparkles, ArrowLeft, CheckCircle2, Zap, Search } from 'lucide-react';
 import { ProductSpecGenerator } from './tools/ProductSpecGenerator';
 import { QuoteAnalyzer } from './tools/QuoteAnalyzer';
 import { LandedCostCalculator } from './tools/LandedCostCalculator';
 import { SupplierEmailGenerator } from './tools/SupplierEmailGenerator';
+import { HsCodeAnalyzer } from './tools/HsCodeAnalyzer';
 
 interface AppDashboardProps {
   onBackToLanding?: () => void;
@@ -20,7 +21,7 @@ export const AppDashboard: React.FC<AppDashboardProps> = ({
   onOpenSettings,
   marketingHref = '/',
 }) => {
-  const [activeTool, setActiveTool] = useState<'specs' | 'quote' | 'cost' | 'email'>('specs');
+  const [activeTool, setActiveTool] = useState<'specs' | 'quote' | 'cost' | 'email' | 'hscode'>('specs');
 
   return (
     <div className="min-h-screen bg-[#08090d] text-gray-100 pb-20">
@@ -47,7 +48,7 @@ export const AppDashboard: React.FC<AppDashboardProps> = ({
                 <Sparkles className="w-6 h-6 text-blue-400" />
               </h1>
               <p className="text-xs sm:text-sm text-gray-400 mt-0.5">
-                Vos 4 assistants IA automatisés pour le sourcing de produits et la négociation d&apos;usines.
+                Vos assistants IA automatisés pour le sourcing de produits, l&apos;analyse douanière et la négociation d&apos;usines.
               </p>
             </div>
 
@@ -108,6 +109,19 @@ export const AppDashboard: React.FC<AppDashboardProps> = ({
             </button>
 
             <button
+              onClick={() => setActiveTool('hscode')}
+              className={`px-4 py-3 rounded-t-xl font-bold text-xs sm:text-sm flex items-center gap-2 border-t border-x transition-all duration-200 ${
+                activeTool === 'hscode'
+                  ? 'bg-slate-900 border-blue-400 text-white shadow-lg shadow-blue-400/10'
+                  : 'bg-slate-950/60 border-transparent text-gray-400 hover:text-white hover:bg-slate-900/50'
+              }`}
+            >
+              <span className="w-5 h-5 rounded-full bg-blue-400/20 text-blue-300 text-xs flex items-center justify-center font-bold">4</span>
+              <Search className="w-4 h-4 text-blue-400" />
+              <span>Codes SH & Douanes</span>
+            </button>
+
+            <button
               onClick={() => setActiveTool('email')}
               className={`px-4 py-3 rounded-t-xl font-bold text-xs sm:text-sm flex items-center gap-2 border-t border-x transition-all duration-200 ${
                 activeTool === 'email'
@@ -115,7 +129,7 @@ export const AppDashboard: React.FC<AppDashboardProps> = ({
                   : 'bg-slate-950/60 border-transparent text-gray-400 hover:text-white hover:bg-slate-900/50'
               }`}
             >
-              <span className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 text-xs flex items-center justify-center font-bold">4</span>
+              <span className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 text-xs flex items-center justify-center font-bold">5</span>
               <Mail className="w-4 h-4 text-emerald-400" />
               <span>E-mails Fournisseurs</span>
             </button>
@@ -128,6 +142,7 @@ export const AppDashboard: React.FC<AppDashboardProps> = ({
         {activeTool === 'specs' && <ProductSpecGenerator userApiKey={userApiKey} />}
         {activeTool === 'quote' && <QuoteAnalyzer userApiKey={userApiKey} />}
         {activeTool === 'cost' && <LandedCostCalculator />}
+        {activeTool === 'hscode' && <HsCodeAnalyzer />}
         {activeTool === 'email' && <SupplierEmailGenerator />}
       </main>
     </div>

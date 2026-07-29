@@ -1,6 +1,8 @@
 import type {
   EmailGeneratorInput,
   EmailGeneratorResult,
+  HsCodeAnalysisInput,
+  HsCodeAnalysisResult,
   ProductSpecResult,
 } from '@/lib/types';
 import {
@@ -81,3 +83,25 @@ export async function generateSupplierEmail(
 
   return validation.data;
 }
+
+export async function analyzeHsCode(
+  input: HsCodeAnalysisInput,
+): Promise<HsCodeAnalysisResult> {
+  const response = await fetch('/api/ai/hscode', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(input),
+  });
+
+  if (!response.ok) {
+    throw await parseError(
+      response,
+      "L'analyse du Code SH a échoué.",
+    );
+  }
+
+  return (await response.json()) as HsCodeAnalysisResult;
+}
+

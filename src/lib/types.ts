@@ -184,3 +184,34 @@ export interface EmailGeneratorResult {
   body: string;
   tips: string[];
 }
+
+export interface HsCodeAnalysisInput {
+  query: string;
+  destinationMarket?: 'US' | 'EU';
+  originCountry?: string;
+}
+
+export interface HsCodeAnalysisResult {
+  mode: 'live' | 'demo';
+  sourceLabel: string;
+  hsCode6Digit: string;
+  hsCode10Digit: string;
+  productDescription: string;
+  categoryName: string;
+  destinationMarket: 'US' | 'EU';
+  originCountry: string;
+  dutyRates: {
+    baseDutyPercent: number;
+    section301Percent: number;
+    additionalTaxesPercent: number;
+    effectiveDutyPercent: number;
+  };
+  dutyBreakdownNotes: string[];
+  regulatoryWarnings: string[];
+  alternativeHsCodes: Array<{
+    code: string;
+    description: string;
+    dutyRate: string;
+  }>;
+}
+
