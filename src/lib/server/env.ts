@@ -19,7 +19,7 @@ export function getOpenAiServerConfig(): OpenAiServerConfig | null {
 
   return {
     apiKey,
-    model: process.env.OPENAI_MODEL?.trim() || 'gpt-4o-mini',
+    model: process.env.OPENAI_MODEL?.trim() || 'gpt-4o',
   };
 }
 
