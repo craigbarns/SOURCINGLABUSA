@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { FileText, ShieldAlert, Calculator, Mail, Sparkles, ArrowLeft, CheckCircle2, Zap, Search } from 'lucide-react';
+import { FileText, ShieldAlert, Calculator, Mail, Sparkles, ArrowLeft, Search } from 'lucide-react';
 import { ProductSpecGenerator } from './tools/ProductSpecGenerator';
 import { QuoteAnalyzer } from './tools/QuoteAnalyzer';
 import { LandedCostCalculator } from './tools/LandedCostCalculator';
@@ -40,15 +40,15 @@ export const AppDashboard: React.FC<AppDashboardProps> = ({
                 </button>
                 <span className="text-gray-700">•</span>
                 <span className="text-xs px-2.5 py-0.5 rounded-full bg-blue-500/20 text-blue-400 font-bold border border-blue-500/30 uppercase tracking-wide">
-                  Espace Copilote IA Live
+                  Live AI Workspace
                 </span>
               </div>
               <h1 className="text-2xl sm:text-3xl font-black text-white mt-1.5 flex items-center gap-2.5">
-                Copilote IA SourcingLab
+                SourcingLab AI Copilot Workspace
                 <Sparkles className="w-6 h-6 text-blue-400" />
               </h1>
               <p className="text-xs sm:text-sm text-gray-400 mt-0.5">
-                Vos assistants IA automatisés pour le sourcing de produits, l&apos;analyse douanière et la négociation d&apos;usines.
+                Your automated AI tools for product tech specs, quote audits, customs duties, and factory negotiation.
               </p>
             </div>
 
@@ -56,13 +56,13 @@ export const AppDashboard: React.FC<AppDashboardProps> = ({
             <div className="flex items-center gap-3">
               <div className="px-3.5 py-2 rounded-xl bg-slate-900 border border-gray-800 text-xs text-gray-300 flex items-center gap-2 shadow-inner">
                 <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
-                <span className="font-mono text-xs">Moteur : {userApiKey ? 'OpenAI GPT-4o' : 'Mistral OCR & OpenAI Active'}</span>
+                <span className="font-mono text-xs">Engine: {userApiKey ? 'OpenAI GPT-4o' : 'Mistral OCR & GPT-4o Active'}</span>
               </div>
               <button
                 onClick={onOpenSettings}
                 className="px-3.5 py-2 rounded-xl border border-gray-800 bg-slate-900 text-xs text-blue-400 hover:text-white hover:border-blue-500/50 transition-all font-mono"
               >
-                {userApiKey ? 'Clé API active ✓' : '+ Clé OpenAI'}
+                {userApiKey ? 'API Key Active ✓' : '+ OpenAI Key'}
               </button>
             </div>
           </div>
@@ -79,7 +79,7 @@ export const AppDashboard: React.FC<AppDashboardProps> = ({
             >
               <span className="w-5 h-5 rounded-full bg-blue-500/20 text-blue-400 text-xs flex items-center justify-center font-bold">1</span>
               <FileText className="w-4 h-4 text-blue-400" />
-              <span>Cahier des charges</span>
+              <span>Product Tech Specs</span>
             </button>
 
             <button
@@ -92,7 +92,7 @@ export const AppDashboard: React.FC<AppDashboardProps> = ({
             >
               <span className="w-5 h-5 rounded-full bg-amber-500/20 text-amber-400 text-xs flex items-center justify-center font-bold">2</span>
               <ShieldAlert className="w-4 h-4 text-amber-400" />
-              <span>Analyse de Devis PDF</span>
+              <span>Quote PDF Audit</span>
             </button>
 
             <button
@@ -105,7 +105,7 @@ export const AppDashboard: React.FC<AppDashboardProps> = ({
             >
               <span className="w-5 h-5 rounded-full bg-purple-500/20 text-purple-400 text-xs flex items-center justify-center font-bold">3</span>
               <Calculator className="w-4 h-4 text-purple-400" />
-              <span>Calcul des Coûts Rendu</span>
+              <span>Landed Cost (DDP)</span>
             </button>
 
             <button
@@ -118,7 +118,7 @@ export const AppDashboard: React.FC<AppDashboardProps> = ({
             >
               <span className="w-5 h-5 rounded-full bg-blue-400/20 text-blue-300 text-xs flex items-center justify-center font-bold">4</span>
               <Search className="w-4 h-4 text-blue-400" />
-              <span>Codes SH & Douanes</span>
+              <span>HS Codes & Customs</span>
             </button>
 
             <button
@@ -131,7 +131,7 @@ export const AppDashboard: React.FC<AppDashboardProps> = ({
             >
               <span className="w-5 h-5 rounded-full bg-emerald-500/20 text-emerald-400 text-xs flex items-center justify-center font-bold">5</span>
               <Mail className="w-4 h-4 text-emerald-400" />
-              <span>E-mails Fournisseurs</span>
+              <span>Supplier Emails</span>
             </button>
           </div>
         </div>

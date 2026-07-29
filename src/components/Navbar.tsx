@@ -3,7 +3,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { Logo } from './Logo';
-import { Sparkles, ShieldCheck, ArrowRight, Settings, Zap, Activity } from 'lucide-react';
+import { ShieldCheck, ArrowRight, Settings, Zap, Activity } from 'lucide-react';
 
 interface NavbarProps {
   activeTab?: 'landing' | 'app';
@@ -21,7 +21,6 @@ export const Navbar: React.FC<NavbarProps> = ({
   area,
 }) => {
   const isAppArea = area === 'app';
-  const isMarketingArea = area === 'marketing';
   const currentTab = isAppArea ? 'app' : activeTab;
 
   const marketingHref = isAppArea ? '/marketing' : '/';
@@ -33,7 +32,7 @@ export const Navbar: React.FC<NavbarProps> = ({
         {/* Brand Logo Link */}
         <Link
           href={marketingHref}
-          aria-label="Retour à l’accueil SourcingLab"
+          aria-label="Back to SourcingLab USA homepage"
           onClick={(e) => {
             if (setActiveTab && !area) {
               e.preventDefault();
@@ -80,7 +79,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             }`}
           >
             <Zap className="w-3.5 h-3.5 fill-emerald-400" />
-            <span>Lancer l'App Copilote</span>
+            <span>Launch AI Copilot</span>
           </Link>
         </div>
 
@@ -89,13 +88,13 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Status Badge */}
           <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-gray-800 text-[11px] text-gray-300 font-mono">
             <Activity className="w-3.5 h-3.5 text-emerald-400" />
-            <span>IA Prête • 2026</span>
+            <span>AI Engine Active • 2026</span>
           </div>
 
           {onOpenSettings && (
             <button
               onClick={onOpenSettings}
-              title="Configuration Clé API OpenAI (Optionnel)"
+              title="OpenAI API Key Configuration (Optional)"
               className={`p-2.5 rounded-xl border transition-all duration-200 ${
                 hasApiKey
                   ? 'border-emerald-500/50 bg-emerald-500/10 text-emerald-400'
@@ -117,7 +116,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               }}
               className="inline-flex items-center gap-2 px-4 py-2.5 text-xs sm:text-sm font-bold rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-500 text-white hover:opacity-95 transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 group"
             >
-              <span>Ouvrir l&apos;App</span>
+              <span>Open AI App</span>
               <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
             </Link>
           ) : (
@@ -132,7 +131,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="inline-flex items-center gap-2 px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-xl border border-gray-800 bg-slate-900 text-gray-300 hover:bg-slate-800 hover:text-white transition-all"
             >
               <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span>Voir Offres & Liste d'attente</span>
+              <span>View Pricing & Waitlist</span>
             </Link>
           )}
         </div>

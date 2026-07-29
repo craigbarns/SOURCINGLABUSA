@@ -10,10 +10,10 @@ export const WAITLIST_ROLE_VALUES = [
 export type WaitlistRole = (typeof WAITLIST_ROLE_VALUES)[number];
 
 export const WAITLIST_ROLE_LABELS: Record<WaitlistRole, string> = {
-  brand_owner_ecommerce: 'Marque E-Commerce / D2C Owner',
-  amazon_fba_seller: 'Vendeur Amazon FBA / Private Label',
-  industrial_sourcing_manager: 'Responsable Sourcing & Achats Industriel',
-  sourcing_consultant: 'Consultant ou Agent de Sourcing',
+  brand_owner_ecommerce: 'E-Commerce / D2C Brand Owner',
+  amazon_fba_seller: 'Amazon FBA / Private Label Seller',
+  industrial_sourcing_manager: 'Industrial Procurement & Sourcing Manager',
+  sourcing_consultant: 'Sourcing Consultant or Freight Agent',
 };
 
 export const waitlistInputSchema = z
@@ -21,9 +21,9 @@ export const waitlistInputSchema = z
     email: z
       .string()
       .trim()
-      .min(1, 'Saisissez une adresse e-mail.')
-      .max(254, "L'adresse e-mail est trop longue.")
-      .email("L'adresse e-mail n'est pas valide.")
+      .min(1, 'Please enter a work email address.')
+      .max(254, 'The email address is too long.')
+      .email('Please enter a valid email address.')
       .transform((value) => value.toLowerCase()),
     role: z.enum(WAITLIST_ROLE_VALUES),
   })

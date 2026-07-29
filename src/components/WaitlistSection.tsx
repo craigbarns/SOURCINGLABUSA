@@ -40,7 +40,7 @@ export const WaitlistSection: React.FC = () => {
     if (!validation.success) {
       setErrorMessage(
         validation.error.issues[0]?.message ??
-          "Les informations d'inscription ne sont pas valides.",
+          "Invalid registration details. Please enter a valid work email.",
       );
       return;
     }
@@ -68,7 +68,7 @@ export const WaitlistSection: React.FC = () => {
         setStatus('idle');
         setErrorMessage(
           responseBody.message ??
-            "L'inscription n'a pas pu être enregistrée. Veuillez réessayer.",
+            "Registration could not be saved. Please try again.",
         );
         return;
       }
@@ -83,12 +83,12 @@ export const WaitlistSection: React.FC = () => {
           origin: { y: 0.6 },
         });
       } catch {
-        // Confetti is decorative and must never affect the confirmed submission.
+        // Confetti is decorative and must never affect submission.
       }
     } catch {
       setStatus('idle');
       setErrorMessage(
-        "Impossible de joindre le service d'inscription. Veuillez réessayer.",
+        "Unable to reach the waitlist service. Please try again.",
       );
     }
   };
@@ -107,15 +107,15 @@ export const WaitlistSection: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
         <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold mb-6">
           <Users className="w-4 h-4" aria-hidden="true" />
-          <span>Accès Prioritaire MVP Phase 1</span>
+          <span>Priority MVP Access • Phase 1</span>
         </div>
 
         <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-          Rejoignez la <span className="gradient-text">liste d&apos;attente</span>.
+          Join the Exclusive <span className="gradient-text">AI Waitlist</span>.
         </h2>
         <p className="mt-4 text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
-          Enregistrez votre intérêt pour participer aux prochaines phases du MVP.
-          Aucun e-mail automatique ni abonnement n&apos;est activé à ce stade.
+          Get early access to automated factory matching, quote audits, and landed cost benchmarks.
+          No spam, cancel anytime.
         </p>
 
         <div className="mt-8 max-w-xl mx-auto p-6 rounded-2xl bg-slate-900/90 border border-gray-800 backdrop-blur-xl shadow-2xl">
@@ -130,9 +130,9 @@ export const WaitlistSection: React.FC = () => {
               <div className="w-14 h-14 mx-auto rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
                 <CheckCircle2 className="w-8 h-8" aria-hidden="true" />
               </div>
-              <h3 className="text-xl font-bold text-white">Vous êtes inscrit avec succès !</h3>
+              <h3 className="text-xl font-bold text-white">You are on the list!</h3>
               <p className="text-sm text-gray-300">
-                Votre inscription à la liste d&apos;attente est enregistrée pour{' '}
+                Your spot has been reserved for{' '}
                 <strong className="text-emerald-400">{email}</strong>.
               </p>
               <div className="pt-3">
@@ -141,7 +141,7 @@ export const WaitlistSection: React.FC = () => {
                   onClick={resetForm}
                   className="text-xs text-blue-400 hover:underline font-mono"
                 >
-                  Ajouter un autre email
+                  Add another email
                 </button>
               </div>
             </div>
@@ -152,7 +152,7 @@ export const WaitlistSection: React.FC = () => {
                   htmlFor="waitlist-role"
                   className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2"
                 >
-                  Votre rôle principal
+                  Your Primary Sourcing Role
                 </label>
                 <select
                   id="waitlist-role"
@@ -174,7 +174,7 @@ export const WaitlistSection: React.FC = () => {
                   htmlFor="waitlist-email"
                   className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2"
                 >
-                  Adresse e-mail professionnelle
+                  Work Email Address
                 </label>
                 <div className="flex flex-col sm:flex-row gap-3">
                   <input
@@ -184,7 +184,7 @@ export const WaitlistSection: React.FC = () => {
                     required
                     autoComplete="email"
                     inputMode="email"
-                    placeholder="vous@entreprise.com"
+                    placeholder="you@company.com"
                     value={email}
                     onChange={(event) => {
                       setEmail(event.target.value);
@@ -203,7 +203,7 @@ export const WaitlistSection: React.FC = () => {
                     aria-describedby={errorMessage ? 'waitlist-error' : undefined}
                     className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-sm hover:from-blue-500 hover:to-indigo-500 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 disabled:cursor-not-allowed disabled:opacity-60"
                   >
-                    <span>{status === 'submitting' ? 'Inscription…' : 'Rejoindre'}</span>
+                    <span>{status === 'submitting' ? 'Submitting...' : 'Claim Priority Access'}</span>
                     <Send className="w-4 h-4" aria-hidden="true" />
                   </button>
                 </div>
@@ -222,11 +222,11 @@ export const WaitlistSection: React.FC = () => {
               <div className="pt-2 flex items-center justify-between text-xs text-gray-400 border-t border-gray-800/80">
                 <span className="flex items-center gap-1">
                   <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
-                  Adresse utilisée uniquement pour gérer votre inscription.
+                  Your email is strictly confidential.
                 </span>
                 <span className="flex items-center gap-1 text-blue-400">
                   <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
-                  Accès Beta Gratuit
+                  Free Beta Access
                 </span>
               </div>
             </form>

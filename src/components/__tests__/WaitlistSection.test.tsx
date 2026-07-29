@@ -23,23 +23,23 @@ describe('WaitlistSection', () => {
     vi.unstubAllGlobals();
   });
 
-  it("affiche un succès uniquement après l'enregistrement serveur", async () => {
+  it("shows success message only after server confirmation", async () => {
     const user = userEvent.setup();
     fetchMock.mockResolvedValue({
       ok: true,
       status: 201,
       json: vi.fn().mockResolvedValue({
-        message: 'Votre inscription a bien été enregistrée.',
+        message: 'Your registration has been saved.',
       }),
     } as unknown as Response);
 
     render(<WaitlistSection />);
 
     await user.type(
-      screen.getByRole('textbox', { name: /adresse e-mail professionnelle/i }),
+      screen.getByRole('textbox', { name: /Work Email Address/i }),
       'OWNER@EXAMPLE.COM',
     );
-    await user.click(screen.getByRole('button', { name: /rejoindre/i }));
+    await user.click(screen.getByRole('button', { name: /Claim Priority Access/i }));
 
     await waitFor(() => {
       expect(fetchMock).toHaveBeenCalledTimes(1);
@@ -57,68 +57,68 @@ describe('WaitlistSection', () => {
     );
     expect(
       await screen.findByRole('heading', {
-        name: /vous êtes inscrit avec succès/i,
+        name: /You are on the list!/i,
       }),
     ).toBeInTheDocument();
     expect(screen.getByText('owner@example.com')).toBeInTheDocument();
   });
 
-  it('annonce un doublon et conserve le formulaire', async () => {
+  it('shows duplicate error message and keeps form filled', async () => {
     const user = userEvent.setup();
     fetchMock.mockResolvedValue({
       ok: false,
       status: 409,
       json: vi.fn().mockResolvedValue({
-        message: 'Cette adresse e-mail est déjà inscrite.',
+        message: 'This email address is already registered.',
       }),
     } as unknown as Response);
 
     render(<WaitlistSection />);
 
     await user.type(
-      screen.getByRole('textbox', { name: /adresse e-mail professionnelle/i }),
+      screen.getByRole('textbox', { name: /Work Email Address/i }),
       'deja@example.com',
     );
-    await user.click(screen.getByRole('button', { name: /rejoindre/i }));
+    await user.click(screen.getByRole('button', { name: /Claim Priority Access/i }));
 
     expect(await screen.findByRole('alert')).toHaveTextContent(
-      'Cette adresse e-mail est déjà inscrite.',
+      'This email address is already registered.',
     );
     expect(
-      screen.getByRole('textbox', { name: /adresse e-mail professionnelle/i }),
+      screen.getByRole('textbox', { name: /Work Email Address/i }),
     ).toHaveValue('deja@example.com');
     expect(
       screen.queryByRole('heading', {
-        name: /vous êtes inscrit avec succès/i,
+        name: /You are on the list!/i,
       }),
     ).not.toBeInTheDocument();
   });
 
-  it("annonce une indisponibilité sans afficher de faux succès", async () => {
+  it("shows temporary unavailable notice without false success", async () => {
     const user = userEvent.setup();
     fetchMock.mockResolvedValue({
       ok: false,
       status: 503,
       json: vi.fn().mockResolvedValue({
         message:
-          "L'inscription est temporairement indisponible. Veuillez réessayer plus tard.",
+          "Registration is temporarily unavailable. Please try again later.",
       }),
     } as unknown as Response);
 
     render(<WaitlistSection />);
 
     await user.type(
-      screen.getByRole('textbox', { name: /adresse e-mail professionnelle/i }),
+      screen.getByRole('textbox', { name: /Work Email Address/i }),
       'buyer@example.com',
     );
-    await user.click(screen.getByRole('button', { name: /rejoindre/i }));
+    await user.click(screen.getByRole('button', { name: /Claim Priority Access/i }));
 
     expect(await screen.findByRole('alert')).toHaveTextContent(
-      "L'inscription est temporairement indisponible.",
+      "Registration is temporarily unavailable.",
     );
     expect(
       screen.queryByRole('heading', {
-        name: /vous êtes inscrit avec succès/i,
+        name: /You are on the list!/i,
       }),
     ).not.toBeInTheDocument();
   });

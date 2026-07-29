@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import { ArrowRight, Sparkles, ShieldAlert, FileText, Calculator, Mail, Play, CheckCircle2, TrendingUp, Clock, ShieldCheck, Zap, Command, Layers } from 'lucide-react';
+import { ArrowRight, Sparkles, ShieldAlert, FileText, Calculator, Mail, Play, CheckCircle2, TrendingUp, Clock, ShieldCheck, Search } from 'lucide-react';
 
 interface HeroProps {
   onLaunchApp?: () => void;
@@ -16,7 +16,7 @@ export const Hero: React.FC<HeroProps> = ({
   onOpenDemo,
   appHref = '/app',
 }) => {
-  const [activePreviewTab, setActivePreviewTab] = useState<'specs' | 'quote' | 'cost' | 'email'>('specs');
+  const [activePreviewTab, setActivePreviewTab] = useState<'specs' | 'quote' | 'cost' | 'hscode' | 'email'>('specs');
 
   return (
     <section className="relative pt-12 pb-24 overflow-hidden bg-grid-pattern spotlight-bg">
@@ -33,7 +33,7 @@ export const Hero: React.FC<HeroProps> = ({
               <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
             </span>
             <span className="text-xs sm:text-sm font-bold text-blue-200">
-              Copilote IA N°1 pour le Sourcing & la Négociation Usines 2026
+              #1 AI Copilot for Global Product Sourcing & Factory Negotiation 2026
             </span>
             <span className="hidden sm:inline-block text-[11px] font-mono text-gray-400 pl-1 border-l border-gray-700">
               Press <kbd>⌘K</kbd>
@@ -48,9 +48,9 @@ export const Hero: React.FC<HeroProps> = ({
 
           {/* Subtitle */}
           <p className="text-base sm:text-xl text-gray-300 font-normal leading-relaxed max-w-3xl mx-auto">
-            <strong className="text-white font-semibold">Pas un annuaire. Pas une marketplace.</strong>
+            <strong className="text-white font-semibold">Not a directory. Not a marketplace.</strong>
             <br />
-            Un expert IA dédié qui rédige vos cahiers des charges, inspecte vos devis PDF, calcule votre coût rendu net DDP et négocie directement avec vos fournisseurs.
+            An expert AI copilot that drafts technical product specs, audits PDF factory quotes, calculates net landed cost (DDP), and negotiates directly with suppliers.
           </p>
 
           {/* Primary Action Buttons */}
@@ -65,7 +65,7 @@ export const Hero: React.FC<HeroProps> = ({
               }}
               className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-500 text-white font-black text-base hover:opacity-95 transition-all shadow-xl shadow-blue-500/25 hover:shadow-blue-500/40 flex items-center justify-center gap-3 group cursor-pointer"
             >
-              <span>Tester le Copilote IA (Accès Direct)</span>
+              <span>Try AI Copilot (Direct Access)</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </a>
 
@@ -76,7 +76,7 @@ export const Hero: React.FC<HeroProps> = ({
               <div className="w-7 h-7 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400 group-hover:scale-110 transition-transform">
                 <Play className="w-3.5 h-3.5 fill-blue-400" />
               </div>
-              <span>Démo vidéo (60s)</span>
+              <span>Watch 60s Demo</span>
             </button>
           </div>
 
@@ -87,8 +87,8 @@ export const Hero: React.FC<HeroProps> = ({
                 <Clock className="w-4 h-4" />
               </div>
               <div>
-                <p className="text-xs text-gray-400 font-medium">Gain de Temps</p>
-                <p className="text-sm font-extrabold text-white">85% plus rapide</p>
+                <p className="text-xs text-gray-400 font-medium">Time Saved</p>
+                <p className="text-sm font-extrabold text-white">85% Faster</p>
               </div>
             </div>
 
@@ -97,8 +97,8 @@ export const Hero: React.FC<HeroProps> = ({
                 <TrendingUp className="w-4 h-4" />
               </div>
               <div>
-                <p className="text-xs text-gray-400 font-medium">Prix Négociés</p>
-                <p className="text-sm font-extrabold text-emerald-400">+14.2% Marge</p>
+                <p className="text-xs text-gray-400 font-medium">Negotiated Savings</p>
+                <p className="text-sm font-extrabold text-emerald-400">+14.2% Margin</p>
               </div>
             </div>
 
@@ -107,8 +107,8 @@ export const Hero: React.FC<HeroProps> = ({
                 <Calculator className="w-4 h-4" />
               </div>
               <div>
-                <p className="text-xs text-gray-400 font-medium">Calcul Douanes</p>
-                <p className="text-sm font-extrabold text-white">DDP Précis à 100%</p>
+                <p className="text-xs text-gray-400 font-medium">Customs Duties</p>
+                <p className="text-sm font-extrabold text-white">100% Precise DDP</p>
               </div>
             </div>
 
@@ -117,21 +117,21 @@ export const Hero: React.FC<HeroProps> = ({
                 <ShieldCheck className="w-4 h-4" />
               </div>
               <div>
-                <p className="text-xs text-gray-400 font-medium">Normes US/EU</p>
+                <p className="text-xs text-gray-400 font-medium">US & EU Standards</p>
                 <p className="text-sm font-extrabold text-amber-300">FDA, Prop65, CE</p>
               </div>
             </div>
           </div>
         </div>
 
-        {/* Bento Grid Feature Architecture Showcase (Linear / Stripe Inspired) */}
+        {/* Bento Grid Feature Architecture Showcase */}
         <div className="mt-16 max-w-6xl mx-auto space-y-6">
           <div className="text-center space-y-2">
             <span className="text-xs font-mono px-3 py-1 rounded-full bg-blue-500/10 text-blue-400 border border-blue-500/30 uppercase tracking-widest">
-              Architecture Bento Grid
+              Bento Grid Suite
             </span>
             <h2 className="text-2xl sm:text-4xl font-extrabold text-white">
-              Une suite complète d&apos;outils IA d&apos;ingénierie d&apos;achats.
+              An End-to-End AI Sourcing Engineering Suite
             </h2>
           </div>
 
@@ -147,14 +147,14 @@ export const Hero: React.FC<HeroProps> = ({
                 <div className="p-3 rounded-2xl bg-blue-500/10 text-blue-400">
                   <FileText className="w-6 h-6" />
                 </div>
-                <span className="text-xs font-mono text-gray-400">01. SPECS IA</span>
+                <span className="text-xs font-mono text-gray-400">01. PRODUCT SPECS</span>
               </div>
-              <h3 className="text-xl font-bold text-white">1. Décris ton produit (Cahier des charges)</h3>
+              <h3 className="text-xl font-bold text-white">1. Describe Your Product (AI Specs & Compliance)</h3>
               <p className="text-xs text-gray-300 mt-2 leading-relaxed">
-                Matériaux exacts, tolérances, certifications obligatoires (FDA, California Prop 65, CE) et laboratoire de contrôle recommandé.
+                Exact materials, tolerances, mandatory certifications (FDA, California Prop 65, CE), and recommended testing labs.
               </p>
               <div className="mt-4 p-3 rounded-xl bg-slate-950 border border-gray-800 text-xs font-mono text-blue-300">
-                ⚡ Ex: &quot;Gourde isotherme inox 18/8 750ml pour marché US&quot; ➔ Specs générées en 0.8s
+                ⚡ E.g. &quot;Insulated stainless steel 24oz water bottle for US market&quot; ➔ Generated in 0.8s
               </div>
             </div>
 
@@ -171,9 +171,9 @@ export const Hero: React.FC<HeroProps> = ({
                 </div>
                 <span className="text-xs font-mono text-amber-400 font-bold">SCORE 0-100</span>
               </div>
-              <h3 className="text-xl font-bold text-white">2. Analyse de Devis PDF</h3>
+              <h3 className="text-xl font-bold text-white">2. PDF Quote Audit & OCR</h3>
               <p className="text-xs text-gray-300 mt-2 leading-relaxed">
-                OCR Mistral + IA : Détection automatique des surtarifications (+14%), red flags d&apos;acompte et clauses manquantes (AQL 2.5, NNN).
+                Mistral OCR + GPT-4o: Automatic detection of overpricing (+14%), deposit risks, and missing clauses (AQL 2.5, NNN).
               </p>
             </div>
 
@@ -188,11 +188,11 @@ export const Hero: React.FC<HeroProps> = ({
                 <div className="p-3 rounded-2xl bg-purple-500/10 text-purple-400">
                   <Calculator className="w-6 h-6" />
                 </div>
-                <span className="text-xs font-mono text-purple-400 font-bold">DDP REAL-TIME</span>
+                <span className="text-xs font-mono text-purple-400 font-bold">REAL-TIME DDP</span>
               </div>
-              <h3 className="text-xl font-bold text-white">3. Calculateur de Coût Rendu</h3>
+              <h3 className="text-xl font-bold text-white">3. Landed Cost Calculator</h3>
               <p className="text-xs text-gray-300 mt-2 leading-relaxed">
-                Prix usine + Fret (Maritime/Aérien) + Douanes (% Code SH) + Assurance = Coût unitaire DDP net & Marge brute estimée.
+                Factory FOB Price + Freight (Ocean/Air) + Customs Duties (% HS Code) + Insurance = Net DDP Unit Cost & Margin.
               </p>
             </div>
 
@@ -209,12 +209,12 @@ export const Hero: React.FC<HeroProps> = ({
                 </div>
                 <span className="text-xs font-mono text-emerald-400 font-bold">1-CLICK OUTREACH</span>
               </div>
-              <h3 className="text-xl font-bold text-white">4. Générateur d&apos;E-mails Usine</h3>
+              <h3 className="text-xl font-bold text-white">4. Factory Outreach & Email Generator</h3>
               <p className="text-xs text-gray-300 mt-2 leading-relaxed">
-                Rédige en 1 clic des e-mails RFQ, contre-propositions de prix négociées et commandes d&apos;échantillons en anglais, français et chinois.
+                Draft 1-click RFQs, negotiated price counter-offers, and sample requests in English, French, and Chinese.
               </p>
               <div className="mt-4 p-3 rounded-xl bg-slate-950 border border-gray-800 text-xs font-mono text-emerald-300">
-                ✉️ Objet : RFQ: Quotation Request for Stainless Water Bottle (3,000 units)
+                ✉️ Subject: RFQ: Quotation Request for Stainless Water Bottle (3,000 units)
               </div>
             </div>
           </div>
