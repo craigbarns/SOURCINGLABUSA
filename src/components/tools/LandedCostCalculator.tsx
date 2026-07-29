@@ -54,6 +54,40 @@ function parseNumber(value: string): number {
   return Number(value);
 }
 
+function formatWarning(warning: string): string {
+  const dutyRateMatch = warning.match(
+    /^Le taux de (.+)% est fourni par l’utilisateur pour le code HS (.+); le calculateur ne consulte pas encore une base tarifaire officielle\.$/,
+  );
+
+  if (dutyRateMatch) {
+    return `The ${dutyRateMatch[1]}% rate for HS code ${dutyRateMatch[2]} was provided by the user; the calculator does not yet query an official tariff database.`;
+  }
+
+  const insuranceMatch = warning.match(
+    /^Assurance estimée selon le mode (.+); remplacez-la par le montant réel du transitaire dès qu’il est connu\.$/,
+  );
+
+  if (insuranceMatch) {
+    return `Insurance was estimated for ${insuranceMatch[1]} shipping; replace it with the forwarder's actual charge when available.`;
+  }
+
+  if (
+    warning ===
+    "La TVA à l’importation n’est pas incluse : son traitement dépend du pays, du régime fiscal et de la récupération éventuelle."
+  ) {
+    return 'Import VAT is not included; its treatment depends on the country, tax status, and potential recoverability.';
+  }
+
+  if (
+    warning ===
+    'Les frais MPF/HMF et droits additionnels éventuels ne sont pas inclus.'
+  ) {
+    return 'Potential MPF/HMF fees and additional duties are not included.';
+  }
+
+  return warning;
+}
+
 function validateRawInput(raw: RawCalculatorInput) {
   return landedCostInputSchema.safeParse({
     unitPriceFob: parseNumber(raw.unitPriceFob),
@@ -145,11 +179,11 @@ export const LandedCostCalculator: React.FC = () => {
         </div>
         <div>
           <h3 className="text-base font-bold text-white">
-            Calculateur de coût rendu validé
+            Landed Cost Calculator
           </h3>
           <p className="text-xs text-gray-400">
-            Calcul déterministe. Le code HS et son taux doivent être vérifiés auprès
-            d&apos;une source douanière ou d&apos;un spécialiste avant décision.
+            Deterministic calculation. Verify the HS code and duty rate with an
+            official customs source or qualified specialist before making a decision.
           </p>
         </div>
       </div>
@@ -159,7 +193,7 @@ export const LandedCostCalculator: React.FC = () => {
           className="p-3 rounded-xl bg-red-950/30 border border-red-500/30 text-sm text-red-300"
           role="alert"
         >
-          Corrigez les champs signalés pour obtenir un calcul fiable.
+          Correct the highlighted fields to calculate a reliable estimate.
         </p>
       )}
 
@@ -167,14 +201,14 @@ export const LandedCostCalculator: React.FC = () => {
         <div className="lg:col-span-6 p-6 rounded-2xl bg-slate-900/90 border border-gray-800 space-y-4">
           <h4 className="text-sm font-bold text-white border-b border-gray-800 pb-3 flex items-center gap-2">
             <DollarSign className="w-4 h-4 text-emerald-400" aria-hidden="true" />
-            Paramètres de commande et de logistique
+            Order & Logistics Inputs
           </h4>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <NumberField
               id="landed-unit-price"
               name="unitPriceFob"
-              label="Prix usine FOB ($ / unité)"
+              label="Factory FOB price ($ / unit)"
               value={rawInput.unitPriceFob}
               error={errors.unitPriceFob}
               onChange={updateNumber}
@@ -182,7 +216,7 @@ export const LandedCostCalculator: React.FC = () => {
             <NumberField
               id="landed-quantity"
               name="quantity"
-              label="Quantité"
+              label="Quantity"
               value={rawInput.quantity}
               error={errors.quantity}
               step="1"
@@ -216,7 +250,7 @@ export const LandedCostCalculator: React.FC = () => {
             </div>
             <div>
               <label htmlFor="landed-shipping-mode" className="block text-xs text-gray-400 mb-1">
-                Mode de transport
+                Shipping mode
               </label>
               <select
                 id="landed-shipping-mode"
@@ -242,7 +276,7 @@ export const LandedCostCalculator: React.FC = () => {
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
             <div>
               <label htmlFor="landed-hs-code" className="block text-xs text-gray-400 mb-1">
-                Code HS vérifié
+                Verified HS code
               </label>
               <input
                 id="landed-hs-code"
@@ -272,7 +306,7 @@ export const LandedCostCalculator: React.FC = () => {
             <NumberField
               id="landed-duty-rate"
               name="customsDutyRate"
-              label="Taux associé au code HS (%)"
+              label="HS code duty rate (%)"
               value={rawInput.customsDutyRate}
               error={errors.customsDutyRate}
               step="0.1"
@@ -284,7 +318,7 @@ export const LandedCostCalculator: React.FC = () => {
             <NumberField
               id="landed-freight"
               name="freightCostTotal"
-              label="Fret international total ($)"
+              label="Total international freight ($)"
               value={rawInput.freightCostTotal}
               error={errors.freightCostTotal}
               onChange={updateNumber}
@@ -292,10 +326,10 @@ export const LandedCostCalculator: React.FC = () => {
             <NumberField
               id="landed-insurance"
               name="insuranceCost"
-              label="Assurance cargo ($)"
+              label="Cargo insurance ($)"
               value={rawInput.insuranceCost}
               error={errors.insuranceCost}
-              hint="Laisser vide pour une estimation selon le mode de transport."
+              hint="Leave blank to estimate based on the shipping mode."
               onChange={updateNumber}
             />
           </div>
@@ -304,7 +338,7 @@ export const LandedCostCalculator: React.FC = () => {
             <NumberField
               id="landed-port"
               name="localPortCharges"
-              label="Frais portuaires / douane ($)"
+              label="Port / customs charges ($)"
               value={rawInput.localPortCharges}
               error={errors.localPortCharges}
               onChange={updateNumber}
@@ -312,7 +346,7 @@ export const LandedCostCalculator: React.FC = () => {
             <NumberField
               id="landed-last-mile"
               name="lastMileDelivery"
-              label="Livraison entrepôt ($)"
+              label="Warehouse delivery ($)"
               value={rawInput.lastMileDelivery}
               error={errors.lastMileDelivery}
               onChange={updateNumber}
@@ -323,7 +357,7 @@ export const LandedCostCalculator: React.FC = () => {
             <NumberField
               id="landed-retail"
               name="targetRetailPrice"
-              label="Prix de vente public cible ($)"
+              label="Target retail price ($)"
               value={rawInput.targetRetailPrice}
               error={errors.targetRetailPrice}
               onChange={updateNumber}
@@ -337,28 +371,28 @@ export const LandedCostCalculator: React.FC = () => {
               <div className="p-6 rounded-2xl bg-gradient-to-br from-slate-900 via-slate-900 to-indigo-950/50 border border-blue-500/30 space-y-6">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   <span className="text-xs font-bold text-blue-400 uppercase tracking-wider">
-                    Estimation du coût rendu
+                    Landed Cost Estimate
                   </span>
                   <span className="text-xs px-2.5 py-1 rounded-full bg-emerald-500/20 text-emerald-400 font-semibold border border-emerald-500/30">
-                    Entrées valides
+                    Valid inputs
                   </span>
                 </div>
 
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div className="p-4 rounded-xl bg-slate-950 border border-gray-800">
                     <span className="text-xs text-gray-400 block">
-                      Coût rendu unitaire estimé
+                      Estimated landed cost per unit
                     </span>
                     <span className="text-3xl font-black text-white">
                       ${result.unitLandedCost}
                     </span>
                     <span className="text-[11px] text-gray-500 block mt-0.5">
-                      Hors taxes/frais signalés ci-dessous
+                      Excludes the taxes and fees noted below
                     </span>
                   </div>
                   <div className="p-4 rounded-xl bg-slate-950 border border-gray-800">
                     <span className="text-xs text-gray-400 block">
-                      Marge brute / unité
+                      Gross margin / unit
                     </span>
                     <span
                       className={`text-3xl font-black ${
@@ -368,43 +402,43 @@ export const LandedCostCalculator: React.FC = () => {
                       ${result.marginPerUnit}
                     </span>
                     <span className="text-[11px] text-gray-400 block mt-0.5">
-                      Marge : {result.marginPercent}% • ROI : {result.roiPercent}%
+                      Margin: {result.marginPercent}% • ROI: {result.roiPercent}%
                     </span>
                   </div>
                 </div>
 
                 <dl className="p-4 rounded-xl bg-slate-950/80 border border-gray-800/80 space-y-2 text-xs">
                   <div className="flex justify-between gap-3">
-                    <dt className="text-gray-400">Investissement total</dt>
+                    <dt className="text-gray-400">Total investment</dt>
                     <dd className="font-bold text-white">
-                      ${result.totalLandedCost.toLocaleString('fr-FR')}
+                      ${result.totalLandedCost.toLocaleString('en-US')}
                     </dd>
                   </div>
                   <div className="flex justify-between gap-3">
-                    <dt className="text-gray-400">Droits calculés</dt>
+                    <dt className="text-gray-400">Calculated duties</dt>
                     <dd className="font-bold text-purple-300">
-                      ${result.customsDutyTotal.toLocaleString('fr-FR')}
+                      ${result.customsDutyTotal.toLocaleString('en-US')}
                     </dd>
                   </div>
                   <div className="flex justify-between gap-3">
                     <dt className="text-gray-400">
-                      Assurance
+                      Insurance
                       {result.calculationContext.insuranceWasEstimated
-                        ? ' (estimée)'
+                        ? ' (estimated)'
                         : ''}
                     </dt>
                     <dd className="font-bold text-blue-300">
-                      ${result.insuranceCostTotal.toLocaleString('fr-FR')}
+                      ${result.insuranceCostTotal.toLocaleString('en-US')}
                     </dd>
                   </div>
                   <div className="flex justify-between gap-3">
-                    <dt className="text-gray-400">CA brut possible</dt>
+                    <dt className="text-gray-400">Potential gross revenue</dt>
                     <dd className="font-bold text-emerald-400">
                       $
                       {(
                         Number(rawInput.targetRetailPrice) *
                         Number(rawInput.quantity)
-                      ).toLocaleString('fr-FR')}
+                      ).toLocaleString('en-US')}
                     </dd>
                   </div>
                 </dl>
@@ -413,14 +447,14 @@ export const LandedCostCalculator: React.FC = () => {
                   <div className="flex justify-between text-xs text-gray-400">
                     <span className="flex items-center gap-1">
                       <PieChart className="w-3.5 h-3.5 text-blue-400" aria-hidden="true" />
-                      Répartition du coût
+                      Cost breakdown
                     </span>
                     <span className="font-mono">100 %</span>
                   </div>
                   <div
                     className="h-4 w-full bg-slate-950 rounded-full overflow-hidden flex"
                     role="img"
-                    aria-label={`Usine ${result.breakdownPct.factoryPct} %, fret ${result.breakdownPct.freightPct} %, douanes ${result.breakdownPct.dutyPct} %, autres ${result.breakdownPct.localPct} %`}
+                    aria-label={`Factory ${result.breakdownPct.factoryPct}%, freight ${result.breakdownPct.freightPct}%, duties ${result.breakdownPct.dutyPct}%, other ${result.breakdownPct.localPct}%`}
                   >
                     <span style={{ width: `${result.breakdownPct.factoryPct}%` }} className="bg-blue-500" />
                     <span style={{ width: `${result.breakdownPct.freightPct}%` }} className="bg-indigo-500" />
@@ -433,11 +467,11 @@ export const LandedCostCalculator: React.FC = () => {
               <div className="p-4 rounded-xl bg-amber-950/20 border border-amber-500/30">
                 <h4 className="text-sm font-bold text-amber-300 flex items-center gap-2 mb-2">
                   <AlertTriangle className="w-4 h-4" aria-hidden="true" />
-                  Limites à vérifier
+                  Items to Verify
                 </h4>
                 <ul className="space-y-1.5 text-xs text-amber-100/80">
                   {result.warnings.map((warning) => (
-                    <li key={warning}>• {warning}</li>
+                    <li key={warning}>• {formatWarning(warning)}</li>
                   ))}
                 </ul>
               </div>
@@ -446,7 +480,7 @@ export const LandedCostCalculator: React.FC = () => {
             <div className="p-12 rounded-2xl bg-slate-900/60 border border-dashed border-gray-800 text-center">
               <Calculator className="w-10 h-10 text-gray-600 mx-auto mb-3" aria-hidden="true" />
               <p className="text-sm text-gray-300">
-                Complétez des valeurs valides pour afficher le calcul.
+                Enter valid values to display the calculation.
               </p>
             </div>
           )}

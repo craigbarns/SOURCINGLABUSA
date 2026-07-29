@@ -1,189 +1,304 @@
 import 'server-only';
 
+import { z } from 'zod';
+
 import { getOpenAiServerConfig } from './env';
-import { hsCodeInputSchema, type HsCodeInputSchema } from '@/lib/validation/hscode';
+import {
+  hsCodeInputSchema,
+  normalizeHsCodeAnalysisResult,
+  type ValidatedHsCodeInput,
+} from '@/lib/validation/hscode';
 import type { HsCodeAnalysisResult } from '@/lib/types';
 
-const DETERMINISTIC_TARIFFS: Record<string, HsCodeAnalysisResult> = {
+const OPENAI_CHAT_COMPLETIONS_URL =
+  'https://api.openai.com/v1/chat/completions';
+const PROVIDER_TIMEOUT_MS = 25_000;
+
+type DemoCategory = 'drinkware' | 'textile' | 'backpack';
+
+const DETERMINISTIC_TARIFFS: Record<DemoCategory, HsCodeAnalysisResult> = {
   drinkware: {
     mode: 'demo',
-    sourceLabel: 'Tarifaires Officiels US/EU (Base Déterministe)',
+    sourceLabel: 'Limited U.S. tariff demo data',
     hsCode6Digit: '7323.93',
     hsCode10Digit: '7323.93.00.80',
-    productDescription: 'Articles de ménage en acier inoxydable (gourdes, mugs isothermes)',
-    categoryName: 'Articles de ménage & Gourdes Inox',
+    productDescription: 'Stainless steel household articles (water bottles and insulated mugs)',
+    categoryName: 'Stainless Steel Household Articles & Drinkware',
     destinationMarket: 'US',
-    originCountry: 'Chine (CN)',
+    originCountry: 'China (CN)',
     dutyRates: {
       baseDutyPercent: 3.4,
       section301Percent: 7.5,
-      additionalTaxesPercent: 0.35,
-      effectiveDutyPercent: 11.25,
+      additionalTaxesPercent: 0.3464,
+      effectiveDutyPercent: 11.2464,
     },
     dutyBreakdownNotes: [
-      'Droits de douane de base US (HTSUS 7323.93.00) : 3.4%',
-      'Surtaxe Section 301 Chine (List 3) : +7.5%',
-      'Frais de gestion douanière US (MPF) : 0.3464% (Min $31.67)',
-      'Taux effectif global d’importation US : 11.25%',
+      'Base U.S. customs duty (HTSUS 7323.93.00): 3.4%',
+      'China Section 301 tariff (List 3): +7.5%',
+      'U.S. Merchandise Processing Fee (MPF): 0.3464% (minimum $31.67)',
+      'Calculated component total: 11.2464%',
     ],
     regulatoryWarnings: [
-      'FDA 21 CFR : Conformité contact alimentaire obligatoire',
-      'California Prop 65 : Test de plomb et cadmium requis',
+      'FDA 21 CFR: Verify applicable food-contact requirements',
+      'California Proposition 65: Verify whether lead and cadmium testing applies',
     ],
     alternativeHsCodes: [
-      { code: '3924.10.40', description: 'Gourdes en plastique (BPA Free)', dutyRate: '6.5% + 7.5% Sec 301' },
-      { code: '7013.49.20', description: 'Gourdes et bouteilles en verre', dutyRate: '7.2% + 7.5% Sec 301' },
+      { code: '3924.10.40', description: 'BPA-free plastic drinkware', dutyRate: '6.5% + 7.5% Sec 301' },
+      { code: '7013.49.20', description: 'Glass water bottles and drinkware', dutyRate: '7.2% + 7.5% Sec 301' },
     ],
   },
   textile: {
     mode: 'demo',
-    sourceLabel: 'Tarifaires Officiels US/EU (Base Déterministe)',
+    sourceLabel: 'Limited U.S. tariff demo data',
     hsCode6Digit: '6109.10',
     hsCode10Digit: '6109.10.00.12',
-    productDescription: 'T-shirts, maillots de corps et tricots en coton',
-    categoryName: 'Textiles & Vêtements Coton',
+    productDescription: 'Cotton T-shirts, undershirts, and knit tops',
+    categoryName: 'Cotton Textiles & Apparel',
     destinationMarket: 'US',
-    originCountry: 'Chine (CN)',
+    originCountry: 'China (CN)',
     dutyRates: {
       baseDutyPercent: 16.5,
       section301Percent: 7.5,
-      additionalTaxesPercent: 0.35,
-      effectiveDutyPercent: 24.35,
+      additionalTaxesPercent: 0.3464,
+      effectiveDutyPercent: 24.3464,
     },
     dutyBreakdownNotes: [
-      'Droits de douane de base US (HTSUS 6109.10) : 16.5%',
-      'Surtaxe Section 301 Chine : +7.5%',
-      'Frais de dossier MPF : 0.3464%',
-      'Taux effectif global d’importation US : 24.35%',
+      'Base U.S. customs duty (HTSUS 6109.10): 16.5%',
+      'China Section 301 tariff: +7.5%',
+      'MPF processing fee: 0.3464%',
+      'Calculated component total: 24.3464%',
     ],
     regulatoryWarnings: [
-      'CPSIA : Certificat de conformité enfants (si applicable)',
-      'Étiquetage obligatoire de la composition textile en Anglais (FTC)',
+      "CPSIA: Verify whether a Children's Product Certificate applies",
+      'FTC: Verify fiber-content and country-of-origin labeling requirements',
     ],
     alternativeHsCodes: [
-      { code: '6109.90.10', description: 'T-shirts en fibres synthétiques', dutyRate: '32.0% + 7.5% Sec 301' },
-      { code: '6205.20.20', description: 'Chemises tissées en coton', dutyRate: '19.7% + 7.5% Sec 301' },
+      { code: '6109.90.10', description: 'Synthetic-fiber T-shirts', dutyRate: '32.0% + 7.5% Sec 301' },
+      { code: '6205.20.20', description: 'Woven cotton shirts', dutyRate: '19.7% + 7.5% Sec 301' },
     ],
   },
   backpack: {
     mode: 'demo',
-    sourceLabel: 'Tarifaires Officiels US/EU (Base Déterministe)',
+    sourceLabel: 'Limited U.S. tariff demo data',
     hsCode6Digit: '4202.92',
     hsCode10Digit: '4202.92.31.20',
-    productDescription: 'Sacs à dos, sacs de voyage et sacs isothermes à surface extérieure en matière textile',
-    categoryName: 'Bagagerie & Sacs à Dos',
+    productDescription: 'Backpacks, travel bags, and insulated bags with an outer surface of textile materials',
+    categoryName: 'Luggage & Backpacks',
     destinationMarket: 'US',
-    originCountry: 'Chine (CN)',
+    originCountry: 'China (CN)',
     dutyRates: {
       baseDutyPercent: 17.6,
       section301Percent: 25.0,
-      additionalTaxesPercent: 0.35,
-      effectiveDutyPercent: 42.95,
+      additionalTaxesPercent: 0.3464,
+      effectiveDutyPercent: 42.9464,
     },
     dutyBreakdownNotes: [
-      'Droits de douane de base US (HTSUS 4202.92.31) : 17.6%',
-      'Surtaxe Section 301 Chine (List 3) : +25.0%',
-      'Frais de traitement MPF : 0.3464%',
-      'Taux effectif global d’importation US : 42.95%',
+      'Base U.S. customs duty (HTSUS 4202.92.31): 17.6%',
+      'China Section 301 tariff (List 3): +25.0%',
+      'MPF processing fee: 0.3464%',
+      'Calculated component total: 42.9464%',
     ],
     regulatoryWarnings: [
-      'Attention aux droits anti-dumping selon les composants plastiques',
-      'Test de phtalates REACH / CPSIA obligatoire',
+      'Review potential antidumping duties based on plastic components',
+      'CPSIA phthalates testing may apply; verify based on the product and intended age group',
     ],
     alternativeHsCodes: [
-      { code: '4202.91.00', description: 'Sacs à dos en cuir véritable', dutyRate: '4.5% + 25.0% Sec 301' },
-      { code: '4202.99.90', description: 'Sacs à dos rigides', dutyRate: '20.0% + 25.0% Sec 301' },
+      { code: '4202.91.00', description: 'Genuine-leather backpacks', dutyRate: '4.5% + 25.0% Sec 301' },
+      { code: '4202.99.90', description: 'Hard-shell backpacks', dutyRate: '20.0% + 25.0% Sec 301' },
     ],
   },
 };
 
-export async function analyzeHsCodeServer(rawInput: unknown): Promise<HsCodeAnalysisResult> {
-  const parsed = hsCodeInputSchema.parse(rawInput);
-  const openAiConfig = getOpenAiServerConfig();
+const providerEnvelopeSchema = z
+  .object({
+    choices: z
+      .array(
+        z
+          .object({
+            message: z
+              .object({
+                content: z.string().min(1),
+              })
+              .passthrough(),
+          })
+          .passthrough(),
+      )
+      .min(1),
+  })
+  .passthrough();
 
-  if (!openAiConfig) {
-    const q = parsed.query.toLowerCase();
-    if (q.includes('gourde') || q.includes('inox') || q.includes('7323')) return DETERMINISTIC_TARIFFS.drinkware;
-    if (q.includes('shirt') || q.includes('coton') || q.includes('textile') || q.includes('6109')) return DETERMINISTIC_TARIFFS.textile;
-    return DETERMINISTIC_TARIFFS.backpack;
+const SYSTEM_PROMPT = `You produce cautious HS-code and tariff estimates for sourcing teams.
+Return one JSON object with these fields: mode, sourceLabel, hsCode6Digit, hsCode10Digit, productDescription, categoryName, destinationMarket, originCountry, dutyRates, dutyBreakdownNotes, regulatoryWarnings, and alternativeHsCodes.
+dutyRates must contain baseDutyPercent, section301Percent, additionalTaxesPercent, and effectiveDutyPercent as non-negative numbers.
+Each alternativeHsCodes item must contain code, description, and dutyRate.
+Use the destination market and country of origin supplied in the user message.
+Write all user-facing text in U.S. English.
+For requests outside the United States or products not originating in China, set section301Percent to 0.
+Use cautious language and clearly state that classifications, rates, trade remedies, fees, and requirements need independent verification.
+Return JSON only, with no markdown or surrounding commentary.`;
+
+export class HsCodeDemoUnavailableError extends Error {
+  constructor() {
+    super(
+      'This request is not covered by the limited demo data. Live analysis is required for this product, market, or country of origin.',
+    );
+    this.name = 'HsCodeDemoUnavailableError';
   }
-
-  const destination = parsed.destinationMarket || 'US';
-  const origin = parsed.originCountry || 'CN';
-
-  const systemPrompt = `Tu es un expert douanier international spécialisé dans le Système Harmonisé (Codes SH / HTSUS / TARIC) et le calcul des droits de douane pour le marché ${destination}.
-Analyse la requête de l'utilisateur ("${parsed.query}") et retourne un objet JSON STRICT respectant le schéma suivant :
-
-{
-  "mode": "live",
-  "sourceLabel": "Base Tarifaire Officielle HTSUS / TARIC par IA",
-  "hsCode6Digit": "Code SH à 6 chiffres (ex: 7323.93)",
-  "hsCode10Digit": "Code HTSUS/TARIC à 10 chiffres exact",
-  "productDescription": "Description exacte du produit et de sa sous-position tarifaire",
-  "categoryName": "Nom de la catégorie produit",
-  "destinationMarket": "${destination}",
-  "originCountry": "${origin}",
-  "dutyRates": {
-    "baseDutyPercent": 3.4,
-    "section301Percent": 7.5,
-    "additionalTaxesPercent": 0.35,
-    "effectiveDutyPercent": 11.25
-  },
-  "dutyBreakdownNotes": [
-    "Droits de douane de base...",
-    "Surtaxe Section 301...",
-    "Frais MPF/HMF..."
-  ],
-  "regulatoryWarnings": [
-    "Avertissement ou normes requises à l'importation..."
-  ],
-  "alternativeHsCodes": [
-    { "code": "3924.10.40", "description": "Alternative...", "dutyRate": "6.5%" }
-  ]
 }
 
-Attention :
-- Calcule "effectiveDutyPercent" comme la somme exacte de baseDutyPercent + section301Percent + additionalTaxesPercent.
-- Réponds UNIQUEMENT en JSON valide sans aucun texte avant ou après.`;
+export class HsCodeProviderError extends Error {
+  constructor(message = 'The tariff analysis provider could not complete the request.') {
+    super(message);
+    this.name = 'HsCodeProviderError';
+  }
+}
+
+function recognizeDemoCategory(query: string): DemoCategory | null {
+  const normalized = query.toLocaleLowerCase('en-US');
+
+  if (
+    /(water bottle|drinkware|tumbler|thermos|stainless|gourde|inox|\b7323(?:\.93)?\b)/.test(
+      normalized,
+    )
+  ) {
+    return 'drinkware';
+  }
+
+  if (
+    /(\bt-?shirt\b|cotton|textile|coton|\b6109(?:\.10)?\b)/.test(normalized)
+  ) {
+    return 'textile';
+  }
+
+  if (
+    /(backpack|rucksack|travel bag|insulated bag|sac à dos|\b4202(?:\.92)?\b)/.test(
+      normalized,
+    )
+  ) {
+    return 'backpack';
+  }
+
+  return null;
+}
+
+function isChinaOrigin(originCountry: string): boolean {
+  return originCountry === 'CN';
+}
+
+function displayOriginCountry(originCountry: string): string {
+  const labels: Record<string, string> = {
+    CN: 'China (CN)',
+    IN: 'India (IN)',
+    MX: 'Mexico (MX)',
+    TR: 'Türkiye (TR)',
+    VN: 'Vietnam (VN)',
+  };
+  const code = originCountry.trim().toUpperCase();
+  return labels[code] ?? originCountry.trim();
+}
+
+function limitedDemoResult(
+  input: ValidatedHsCodeInput,
+): HsCodeAnalysisResult {
+  const category = recognizeDemoCategory(input.query);
+
+  if (
+    input.destinationMarket !== 'US' ||
+    !isChinaOrigin(input.originCountry) ||
+    category === null
+  ) {
+    throw new HsCodeDemoUnavailableError();
+  }
+
+  return normalizeHsCodeAnalysisResult(DETERMINISTIC_TARIFFS[category]);
+}
+
+async function requestProviderAnalysis(
+  input: ValidatedHsCodeInput,
+  config: { apiKey: string; model: string },
+): Promise<HsCodeAnalysisResult> {
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), PROVIDER_TIMEOUT_MS);
 
   try {
-    const response = await fetch('https://api.openai.com/v1/chat/completions', {
+    const response = await fetch(OPENAI_CHAT_COMPLETIONS_URL, {
       method: 'POST',
       headers: {
-        Authorization: `Bearer ${openAiConfig.apiKey}`,
+        Authorization: `Bearer ${config.apiKey}`,
         'Content-Type': 'application/json',
       },
+      signal: controller.signal,
       body: JSON.stringify({
-        model: openAiConfig.model,
-        temperature: 0.2,
+        model: config.model,
+        temperature: 0.1,
         response_format: { type: 'json_object' },
         messages: [
-          { role: 'system', content: systemPrompt },
-          { role: 'user', content: `Recherche Code SH / Droits de douanes pour : ${parsed.query}` },
+          { role: 'system', content: SYSTEM_PROMPT },
+          {
+            role: 'user',
+            content: JSON.stringify({
+              task: 'Estimate a potential HS classification and tariff components for verification.',
+              query: input.query,
+              destinationMarket: input.destinationMarket,
+              originCountry: input.originCountry,
+            }),
+          },
         ],
       }),
     });
 
     if (!response.ok) {
-      throw new Error(`OpenAI API error ${response.status}`);
+      throw new HsCodeProviderError(
+        `The tariff analysis provider rejected the request (status ${response.status}).`,
+      );
     }
 
-    const data = await response.json();
-    const content = data.choices?.[0]?.message?.content;
+    const envelope = providerEnvelopeSchema.parse(await response.json());
+    const providerResult = JSON.parse(envelope.choices[0].message.content) as unknown;
+    const normalized = normalizeHsCodeAnalysisResult(providerResult);
+    const section301Percent =
+      input.destinationMarket === 'US' && isChinaOrigin(input.originCountry)
+        ? normalized.dutyRates.section301Percent
+        : 0;
 
-    if (!content) {
-      throw new Error('Aucun contenu renvoyé par OpenAI');
-    }
-
-    const result = JSON.parse(content) as HsCodeAnalysisResult;
-    result.mode = 'live';
-    result.sourceLabel = 'HSPay & Custom Tariffs Engine IA';
-    return result;
+    return normalizeHsCodeAnalysisResult({
+      ...normalized,
+      mode: 'live',
+      sourceLabel: 'AI-generated tariff estimate',
+      destinationMarket: input.destinationMarket,
+      originCountry: displayOriginCountry(input.originCountry),
+      dutyRates: {
+        ...normalized.dutyRates,
+        section301Percent,
+      },
+    });
   } catch (error) {
-    console.error('Erreur API HS Code AI:', error);
-    const q = parsed.query.toLowerCase();
-    if (q.includes('gourde') || q.includes('inox') || q.includes('7323')) return DETERMINISTIC_TARIFFS.drinkware;
-    if (q.includes('shirt') || q.includes('coton') || q.includes('textile') || q.includes('6109')) return DETERMINISTIC_TARIFFS.textile;
-    return DETERMINISTIC_TARIFFS.backpack;
+    if (error instanceof HsCodeProviderError) {
+      throw error;
+    }
+
+    if (error instanceof Error && error.name === 'AbortError') {
+      throw new HsCodeProviderError('The tariff analysis provider timed out.');
+    }
+
+    console.error('HS code provider request failed', {
+      error: error instanceof Error ? error.message : 'Unknown error',
+    });
+    throw new HsCodeProviderError();
+  } finally {
+    clearTimeout(timeout);
   }
+}
+
+export async function analyzeHsCodeServer(
+  rawInput: unknown,
+): Promise<HsCodeAnalysisResult> {
+  const input = hsCodeInputSchema.parse(rawInput);
+  const providerConfig = getOpenAiServerConfig();
+
+  if (!providerConfig) {
+    return limitedDemoResult(input);
+  }
+
+  return requestProviderAnalysis(input, providerConfig);
 }

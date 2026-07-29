@@ -88,7 +88,7 @@ export async function analyzeQuoteFiles(
           ...deterministic,
           warnings: [
             ...deterministic.warnings,
-            "L'extraction IA a échoué ; extraction déterministe appliquée au texte OCR réel.",
+            'AI extraction failed; deterministic extraction was applied to the actual OCR text.',
           ],
         };
       }
@@ -129,7 +129,7 @@ export async function analyzeQuoteFiles(
     quotes,
     comparison,
     warning: isPartial
-      ? 'OCR réel effectué par Mistral. Une partie de la structuration ou de l’analyse utilise des contrôles déterministes car OpenAI est absent ou indisponible.'
+      ? 'Mistral completed OCR on the uploaded files. Some structuring or analysis uses deterministic checks because OpenAI is unavailable or not configured.'
       : null,
   };
 }

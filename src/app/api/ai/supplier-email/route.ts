@@ -12,14 +12,14 @@ export const runtime = 'nodejs';
 export async function POST(request: Request) {
   if (!isSameOriginRequest(request)) {
     return NextResponse.json(
-      { message: 'Origine de requête refusée.' },
+      { message: 'Request origin not allowed.' },
       { status: 403, headers: { 'Cache-Control': 'no-store' } },
     );
   }
 
   if (exceedsContentLength(request, 5 * 1024)) {
     return NextResponse.json(
-      { message: 'La requête est trop volumineuse.' },
+      { message: 'The request is too large.' },
       { status: 413, headers: { 'Cache-Control': 'no-store' } },
     );
   }
@@ -30,7 +30,7 @@ export async function POST(request: Request) {
     body = await request.json();
   } catch {
     return NextResponse.json(
-      { message: 'La requête JSON est invalide.' },
+      { message: 'Invalid JSON request.' },
       { status: 400 },
     );
   }
@@ -42,7 +42,7 @@ export async function POST(request: Request) {
       {
         message:
           validation.error.issues[0]?.message ??
-          "Les paramètres de l'e-mail sont invalides.",
+          'The email parameters are invalid.',
       },
       { status: 400 },
     );

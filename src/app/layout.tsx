@@ -9,21 +9,36 @@ const { marketingOrigin } = getDomainRoutingConfig();
 export const metadata: Metadata = {
   metadataBase: new URL(marketingOrigin),
   applicationName: 'SourcingLab USA',
+  manifest: '/manifest.webmanifest',
   title: {
-    default: 'SourcingLab USA - Comparateur de devis fournisseurs',
+    default: 'AI Factory Quote Analyzer | SourcingLab USA',
     template: '%s | SourcingLab USA',
   },
   description:
-    'Source Smarter. Buy Better. Téléversez des devis fournisseurs, structurez leur contenu et contrôlez leurs montants dans un pipeline serveur sécurisé.',
-  keywords: ['sourcing', 'copilot IA', 'achats', 'landed cost', 'devis PDF', 'négociation usine', 'WEMADE USA'],
+    'Turn supplier quotes into comparable costs, risk flags, landed-cost estimates, and ready-to-review RFQs. Try SourcingLab USA in minutes.',
+  keywords: [
+    'factory quote analyzer',
+    'supplier quote comparison',
+    'landed cost calculator',
+    'product sourcing',
+    'supplier negotiation',
+    'HS code research',
+    'procurement software',
+  ],
   openGraph: {
     type: 'website',
-    locale: 'fr_FR',
+    locale: 'en_US',
     siteName: 'SourcingLab USA',
     url: marketingOrigin,
-    title: 'SourcingLab USA - Comparateur de devis fournisseurs',
+    title: 'AI Factory Quote Analyzer | SourcingLab USA',
     description:
-      'Structurez et comparez vos devis fournisseurs dans un pipeline serveur sécurisé.',
+      'Compare factory quotes, surface costly gaps, and prepare your next supplier move.',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'AI Factory Quote Analyzer | SourcingLab USA',
+    description:
+      'Compare factory quotes, surface costly gaps, and prepare your next supplier move.',
   },
 };
 
@@ -33,10 +48,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="fr" className="dark">
-      <body className="bg-[#08090d] text-gray-100 antialiased min-h-screen">
-        {children}
-      </body>
+    <html lang="en-US" className="dark">
+      <body className="min-h-screen bg-[#070a09] text-gray-100 antialiased">{children}</body>
     </html>
   );
 }

@@ -1,15 +1,15 @@
 import { z } from 'zod';
 
 export const SHIPPING_MODE_LABELS = {
-  sea_fcl: 'Maritime FCL',
-  sea_lcl: 'Maritime LCL',
-  air_express: 'Express aérien',
-  air_freight: 'Fret aérien',
+  sea_fcl: 'Ocean freight (FCL)',
+  sea_lcl: 'Ocean freight (LCL)',
+  air_express: 'Air express',
+  air_freight: 'Air freight',
 } as const;
 
 export const DESTINATION_MARKET_LABELS = {
-  US: 'États-Unis',
-  EU: 'Union européenne',
+  US: 'United States',
+  EU: 'European Union',
 } as const;
 
 export const landedCostInputSchema = z
@@ -21,8 +21,8 @@ export const landedCostInputSchema = z
       .string()
       .trim()
       .regex(
-        /^\d{4}(?:\.\d{2}){0,2}$/,
-        'Le code HS doit contenir 4, 6 ou 8 chiffres (ex. 9617.00).',
+        /^(?:\d{4}(?:\.\d{2}){0,3}|\d{6}|\d{8}|\d{10})$/,
+        'The HS or HTS code must contain 4, 6, 8, or 10 digits, with optional dots between two-digit groups (e.g., 7323.93.00.80).',
       ),
     destinationMarket: z.enum(['US', 'EU']),
     customsDutyRate: z.number().finite().min(0).max(100),
@@ -35,4 +35,3 @@ export const landedCostInputSchema = z
   .strict();
 
 export type ValidatedLandedCostInput = z.output<typeof landedCostInputSchema>;
-

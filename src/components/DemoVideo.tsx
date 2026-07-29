@@ -1,7 +1,19 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-import { Play, Pause, RotateCcw, X, Sparkles, CheckCircle2, FileText, ShieldAlert, Calculator, Mail } from 'lucide-react';
+import {
+  Calculator,
+  CheckCircle2,
+  FileSearch,
+  GitCompareArrows,
+  Mail,
+  Pause,
+  Play,
+  RotateCcw,
+  Sparkles,
+  X,
+} from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
+
 import { AccessibleModal } from './AccessibleModal';
 
 interface DemoVideoProps {
@@ -9,6 +21,41 @@ interface DemoVideoProps {
   onClose: () => void;
   appHref: string;
 }
+
+const STEPS = [
+  {
+    time: 'Step 1 of 4',
+    title: 'Validate and read the files',
+    icon: FileSearch,
+    description:
+      'The server validates each document, extracts its contents, and keeps the analysis source clearly labeled.',
+    signal: '3 supplier quotes accepted • PDF + image support',
+  },
+  {
+    time: 'Step 2 of 4',
+    title: 'Structure comparable terms',
+    icon: GitCompareArrows,
+    description:
+      'Prices, quantities, Incoterms, payment terms, and lead times are normalized into one reviewable report.',
+    signal: '2 comparable FOB offers • 1 EXW offer separated',
+  },
+  {
+    time: 'Step 3 of 4',
+    title: 'Check the math and assumptions',
+    icon: Calculator,
+    description:
+      'Code-controlled checks recalculate totals and flag the missing inputs that still need human verification.',
+    signal: 'Line totals match • AQL level missing',
+  },
+  {
+    time: 'Step 4 of 4',
+    title: 'Prepare the next supplier response',
+    icon: Mail,
+    description:
+      'Turn the review into a focused RFQ follow-up, sample request, or counteroffer that remains yours to approve and send.',
+    signal: 'Draft ready for review • Nothing sent automatically',
+  },
+];
 
 export const DemoVideo: React.FC<DemoVideoProps> = ({
   isOpen,
@@ -19,188 +66,191 @@ export const DemoVideo: React.FC<DemoVideoProps> = ({
   const [currentStep, setCurrentStep] = useState(0);
   const closeButtonRef = useRef<HTMLButtonElement>(null);
 
-  const steps = [
-    {
-      time: "0:00 - 0:15",
-      title: "1. Prompt & Cahier des charges",
-      icon: FileText,
-      desc: "L'acheteur décrit son produit. Le système prépare des matériaux, dimensions, tests et exigences potentielles qui restent à vérifier pour le marché visé.",
-      codeSnippet: `Prompt: "Gourde inox 750ml isotherme pour marché US"`
-    },
-    {
-      time: "0:15 - 0:30",
-      title: "2. Audit Flash de Devis PDF",
-      icon: ShieldAlert,
-      desc: "Le serveur transmet le document à Mistral OCR, structure les lignes et signale les clauses absentes ainsi que les écarts mathématiques.",
-      codeSnippet: `Contrôle: total déclaré ≠ somme des lignes`
-    },
-    {
-      time: "0:30 - 0:45",
-      title: "3. Calculateur du Coût Rendu Net",
-      icon: Calculator,
-      desc: "Calcul instantané: Prix Usine + Fret + Douanes (HS Code) + Port = Coût rendu unitaire & simulation de marge nette.",
-      codeSnippet: `Landed Cost: $5.85 / unit | Marge Estimée: 72%`
-    },
-    {
-      time: "0:45 - 1:00",
-      title: "4. Négociation & RFQ en 1 Clic",
-      icon: Mail,
-      desc: "Préparation d'un modèle d'e-mail dans la langue choisie, à relire et valider avant tout envoi manuel.",
-      codeSnippet: `Modèle à vérifier: RFQ & contre-offre FOB`
-    }
-  ];
-
   useEffect(() => {
-    let interval: NodeJS.Timeout;
-    if (isOpen && isPlaying) {
-      interval = setInterval(() => {
-        setCurrentStep((prev) => (prev + 1) % steps.length);
-      }, 3500);
+    if (
+      !isOpen ||
+      !isPlaying ||
+      window.matchMedia('(prefers-reduced-motion: reduce)').matches
+    ) {
+      return;
     }
-    return () => clearInterval(interval);
-  }, [isOpen, isPlaying, steps.length]);
+
+    const interval = window.setInterval(() => {
+      setCurrentStep((previous) => (previous + 1) % STEPS.length);
+    }, 4200);
+
+    return () => window.clearInterval(interval);
+  }, [isOpen, isPlaying]);
+
+  const activeStep = STEPS[currentStep];
+  const ActiveIcon = activeStep.icon;
 
   return (
     <AccessibleModal
       isOpen={isOpen}
       onClose={onClose}
-      title="Démo Vidéo Interactive (60 Seconds)"
-      description="Comment SourcingLab transforme 3 heures de travail en 60 secondes."
-      labelledBy="demo-video-title"
-      describedBy="demo-video-description"
+      title="Sample supplier quote report"
+      description="A guided preview of the SourcingLab quote-analysis workflow."
+      labelledBy="sample-report-title"
+      describedBy="sample-report-description"
       initialFocusRef={closeButtonRef}
       backdropClassName="backdrop-blur-xl"
-      contentClassName="relative w-full max-w-4xl rounded-2xl bg-slate-900 border border-gray-800 shadow-2xl overflow-hidden"
+      contentClassName="relative w-full max-w-4xl overflow-hidden rounded-[24px] border border-white/10 bg-[#0d1210] shadow-2xl"
     >
-        {/* Header */}
-        <div className="flex items-center justify-between p-4 border-b border-gray-800 bg-slate-950">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-8 rounded-lg bg-blue-500/10 border border-blue-500/30 flex items-center justify-center text-blue-400">
-              <Sparkles className="w-4 h-4" aria-hidden="true" />
-            </div>
-            <div>
-              <h3 id="demo-video-title" className="text-base font-bold text-white">Démo Vidéo Interactive (60 Seconds)</h3>
-              <p id="demo-video-description" className="text-xs text-gray-400">Comment SourcingLab transforme 3 heures de travail en 60 secondes.</p>
-            </div>
+      <div className="flex items-center justify-between border-b border-white/[0.08] bg-[#0a0e0c] p-4 sm:px-5">
+        <div className="flex min-w-0 items-center gap-3">
+          <div className="grid h-9 w-9 shrink-0 place-items-center rounded-xl bg-[#c7ff6b]/10 text-[#c7ff6b]">
+            <Sparkles className="h-4 w-4" aria-hidden="true" />
           </div>
-          <button
-            ref={closeButtonRef}
-            type="button"
-            onClick={onClose}
-            aria-label="Fermer la démo"
-            className="p-1.5 rounded-lg text-gray-400 hover:text-white hover:bg-gray-800 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
-          >
-            <X className="w-5 h-5" aria-hidden="true" />
-          </button>
+          <div className="min-w-0">
+            <h3 id="sample-report-title" className="truncate text-sm font-bold text-white sm:text-base">
+              Sample supplier quote report
+            </h3>
+            <p id="sample-report-description" className="truncate text-[11px] text-[#748179] sm:text-xs">
+              See how raw documents become a decision-ready review.
+            </p>
+          </div>
         </div>
+        <button
+          ref={closeButtonRef}
+          type="button"
+          onClick={onClose}
+          aria-label="Close sample report"
+          className="grid h-9 w-9 shrink-0 place-items-center rounded-xl text-[#89958d] transition hover:bg-white/[0.06] hover:text-white"
+        >
+          <X className="h-5 w-5" aria-hidden="true" />
+        </button>
+      </div>
 
-        {/* Video Simulation Canvas */}
-        <div className="relative bg-slate-950 p-6 md:p-8 min-h-[380px] flex flex-col justify-between">
-          {/* Active Step Showcase Card */}
-          <div className="space-y-6">
+      <div className="grid min-h-[470px] lg:grid-cols-[1fr_0.82fr]">
+        <div className="flex flex-col justify-between border-b border-white/[0.08] p-5 sm:p-8 lg:border-b-0 lg:border-r">
+          <div>
             <div className="flex items-center justify-between">
-              <span className="text-xs font-mono px-3 py-1 rounded-full bg-blue-500/20 text-blue-400 border border-blue-500/30">
-                Temps : {steps[currentStep].time}
+              <span className="rounded-full border border-[#70e1b2]/20 bg-[#70e1b2]/8 px-3 py-1 text-[10px] font-black uppercase tracking-[0.13em] text-[#9ff0cf]">
+                Guided sample
               </span>
-              <div className="flex items-center gap-2">
-                <span className="w-2 h-2 rounded-full bg-emerald-400 animate-ping" aria-hidden="true" />
-                <span className="text-xs text-emerald-400 font-semibold uppercase">Simulation en direct</span>
-              </div>
+              <span className="font-mono text-[10px] text-[#68756d]">{activeStep.time}</span>
             </div>
 
-            <div className="grid md:grid-cols-2 gap-6 items-center">
-              <div className="space-y-4">
-                <div className="flex items-center gap-3">
-                  {React.createElement(steps[currentStep].icon, {
-                    className: "w-8 h-8 text-blue-400",
-                    'aria-hidden': true,
-                  })}
-                  <h4 className="text-xl font-bold text-white">{steps[currentStep].title}</h4>
-                </div>
-                <p className="text-sm text-gray-300 leading-relaxed">
-                  {steps[currentStep].desc}
-                </p>
-                <div className="p-3 rounded-lg bg-slate-900 border border-gray-800 text-xs font-mono text-emerald-300">
-                  ⚡ {steps[currentStep].codeSnippet}
-                </div>
-              </div>
+            <div className="mt-10 grid h-14 w-14 place-items-center rounded-2xl border border-[#c7ff6b]/15 bg-[#c7ff6b]/8 text-[#c7ff6b]">
+              <ActiveIcon className="h-6 w-6" aria-hidden="true" />
+            </div>
+            <h4 className="mt-6 text-2xl font-black tracking-[-0.035em] text-white">
+              {activeStep.title}
+            </h4>
+            <p className="mt-4 text-sm leading-7 text-[#929f96]">
+              {activeStep.description}
+            </p>
 
-              {/* Graphical Visualizer */}
-              <div className="p-5 rounded-xl bg-slate-900 border border-gray-800/80 space-y-3">
-                <div className="flex items-center justify-between text-xs text-gray-400">
-                  <span>Modèle IA Sourcing Engine</span>
-                  <span className="text-emerald-400 font-mono">DÉMONSTRATION</span>
-                </div>
-                <div
-                  className="h-2 w-full bg-gray-800 rounded-full overflow-hidden"
-                  role="progressbar"
-                  aria-label="Progression de la démonstration"
-                  aria-valuemin={1}
-                  aria-valuemax={steps.length}
-                  aria-valuenow={currentStep + 1}
-                  aria-valuetext={`Étape ${currentStep + 1} sur ${steps.length}`}
-                >
-                  <div 
-                    className="h-full bg-gradient-to-r from-blue-500 to-emerald-400 transition-all duration-500"
-                    style={{ width: `${((currentStep + 1) / steps.length) * 100}%` }}
-                  />
-                </div>
-                <div className="pt-2 flex flex-col gap-2">
-                  {steps.map((step, idx) => (
-                    <button
-                      type="button"
-                      key={idx}
-                      onClick={() => setCurrentStep(idx)}
-                      aria-current={idx === currentStep ? 'step' : undefined}
-                      className={`w-full p-2.5 rounded-lg border text-left text-xs flex items-center justify-between cursor-pointer transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 ${
-                        idx === currentStep
-                          ? 'border-blue-500/50 bg-blue-500/10 text-white font-semibold'
-                          : 'border-gray-800/50 bg-slate-950 text-gray-500 hover:text-gray-300'
-                      }`}
-                    >
-                      <span className="flex items-center gap-2">
-                        {idx === currentStep ? <CheckCircle2 className="w-3.5 h-3.5 text-blue-400" aria-hidden="true" /> : <span className="w-3.5 h-3.5" aria-hidden="true" />}
-                        {step.title}
-                      </span>
-                      <span className="font-mono text-[10px]">{step.time}</span>
-                    </button>
-                  ))}
-                </div>
-              </div>
+            <div className="mt-7 rounded-2xl border border-white/[0.08] bg-[#070a09] p-4">
+              <p className="text-[10px] font-black uppercase tracking-[0.13em] text-[#647169]">
+                Report signal
+              </p>
+              <p className="mt-2 flex items-center gap-2 text-xs font-semibold text-[#dce5df]">
+                <CheckCircle2 className="h-4 w-4 shrink-0 text-[#70e1b2]" aria-hidden="true" />
+                {activeStep.signal}
+              </p>
             </div>
           </div>
 
-          {/* Controls Bar */}
-          <div className="mt-8 pt-4 border-t border-gray-800/80 flex items-center justify-between">
-            <div className="flex items-center gap-3">
+          <div className="mt-9 flex items-center justify-between border-t border-white/[0.08] pt-5">
+            <div className="flex items-center gap-2">
               <button
                 type="button"
-                onClick={() => setIsPlaying(!isPlaying)}
-                aria-label={isPlaying ? 'Mettre la démo en pause' : 'Lire la démo'}
+                onClick={() => setIsPlaying((playing) => !playing)}
+                aria-label={isPlaying ? 'Pause sample report' : 'Play sample report'}
                 aria-pressed={!isPlaying}
-                className="p-2 rounded-lg bg-slate-800 text-white hover:bg-slate-700 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                className="grid h-9 w-9 place-items-center rounded-xl border border-white/10 bg-white/[0.04] text-white transition hover:bg-white/[0.08]"
               >
-                {isPlaying ? <Pause className="w-4 h-4" aria-hidden="true" /> : <Play className="w-4 h-4" aria-hidden="true" />}
+                {isPlaying ? (
+                  <Pause className="h-4 w-4" aria-hidden="true" />
+                ) : (
+                  <Play className="h-4 w-4" aria-hidden="true" />
+                )}
               </button>
               <button
                 type="button"
                 onClick={() => setCurrentStep(0)}
-                aria-label="Revenir à la première étape"
-                className="p-2 rounded-lg bg-slate-800 text-gray-300 hover:text-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
+                aria-label="Return to the first step"
+                className="grid h-9 w-9 place-items-center rounded-xl border border-white/10 bg-white/[0.04] text-[#9aa69f] transition hover:bg-white/[0.08] hover:text-white"
               >
-                <RotateCcw className="w-4 h-4" aria-hidden="true" />
+                <RotateCcw className="h-4 w-4" aria-hidden="true" />
               </button>
             </div>
-
             <a
               href={appHref}
               onClick={onClose}
-              className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-emerald-500 text-white font-bold text-sm hover:opacity-95 transition-all shadow-md shadow-blue-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
+              className="rounded-xl bg-[#c7ff6b] px-4 py-2.5 text-xs font-extrabold text-[#0a0d0b] transition hover:bg-[#d7ff94]"
             >
-              Tester l&apos;Application Directement →
+              Try it free
             </a>
           </div>
         </div>
+
+        <div className="bg-[#0a0e0c] p-4 sm:p-6">
+          <p className="px-2 text-[10px] font-black uppercase tracking-[0.14em] text-[#69766e]">
+            Workflow preview
+          </p>
+          <div className="mt-4 space-y-2">
+            {STEPS.map((step, index) => {
+              const StepIcon = step.icon;
+              const isActive = index === currentStep;
+
+              return (
+                <button
+                  type="button"
+                  key={step.title}
+                  onClick={() => setCurrentStep(index)}
+                  aria-current={isActive ? 'step' : undefined}
+                  className={`w-full rounded-2xl border p-4 text-left transition ${
+                    isActive
+                      ? 'border-[#c7ff6b]/25 bg-[#c7ff6b]/[0.055]'
+                      : 'border-white/[0.07] bg-white/[0.02] hover:bg-white/[0.045]'
+                  }`}
+                >
+                  <div className="flex items-center gap-3">
+                    <div
+                      className={`grid h-9 w-9 shrink-0 place-items-center rounded-xl ${
+                        isActive
+                          ? 'bg-[#c7ff6b] text-[#0a0d0b]'
+                          : 'bg-white/[0.05] text-[#75827a]'
+                      }`}
+                    >
+                      <StepIcon className="h-4 w-4" aria-hidden="true" />
+                    </div>
+                    <div className="min-w-0">
+                      <p
+                        className={`truncate text-xs font-bold ${
+                          isActive ? 'text-white' : 'text-[#8e9a92]'
+                        }`}
+                      >
+                        {step.title}
+                      </p>
+                      <p className="mt-1 text-[9px] font-bold uppercase tracking-[0.11em] text-[#5e6a63]">
+                        {step.time}
+                      </p>
+                    </div>
+                  </div>
+                </button>
+              );
+            })}
+          </div>
+          <div
+            className="mt-5 h-1.5 overflow-hidden rounded-full bg-white/[0.06]"
+            role="progressbar"
+            aria-label="Sample report progress"
+            aria-valuemin={1}
+            aria-valuemax={STEPS.length}
+            aria-valuenow={currentStep + 1}
+            aria-valuetext={`Step ${currentStep + 1} of ${STEPS.length}`}
+          >
+            <div
+              className="h-full rounded-full bg-gradient-to-r from-[#c7ff6b] to-[#70e1b2] transition-[width] duration-500"
+              style={{ width: `${((currentStep + 1) / STEPS.length) * 100}%` }}
+            />
+          </div>
+        </div>
+      </div>
     </AccessibleModal>
   );
 };

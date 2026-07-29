@@ -1,198 +1,110 @@
-'use client';
-
-import React, { useState } from 'react';
-import { Check, Sparkles, Zap, Building2, ArrowRight } from 'lucide-react';
+import {
+  ArrowRight,
+  Check,
+  CircleDollarSign,
+  Clock3,
+  Sparkles,
+} from 'lucide-react';
 
 interface PricingSectionProps {
-  onSelectPlan: (planName: string) => void;
+  appHref?: string;
 }
 
-export const PricingSection: React.FC<PricingSectionProps> = ({ onSelectPlan }) => {
-  const [isAnnual, setIsAnnual] = useState(true);
+export const PricingSection: React.FC<PricingSectionProps> = ({
+  appHref = '/app',
+}) => (
+  <section id="pricing" className="scroll-mt-20 border-t border-white/[0.07] bg-[#0a0e0c] py-24 sm:py-28">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <div className="mx-auto max-w-3xl text-center">
+        <span className="eyebrow">Open beta pricing</span>
+        <h2 className="text-balance mt-6 text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
+          Use the full workspace free during beta.
+        </h2>
+        <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-[#94a198]">
+          No pretend checkout and no surprise subscription. Test the workflow,
+          share what your team needs, and help shape the paid plans that come next.
+        </p>
+      </div>
 
-  return (
-    <section id="pricing" className="py-24 bg-slate-950/80 relative border-t border-gray-800/80">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="text-xs font-mono px-3 py-1 rounded-full bg-emerald-500/10 text-emerald-400 border border-emerald-500/30 uppercase tracking-wider">
-            High ROI Investment
-          </span>
-          <h2 className="text-3xl sm:text-5xl font-black text-white tracking-tight">
-            Transparent Pricing. <br />
-            <span className="gradient-text">Pays for itself on your 1st factory negotiation.</span>
-          </h2>
-          <p className="text-base sm:text-lg text-gray-300">
-            Save thousands of dollars by eliminating supplier overpricing, deposit traps, and hidden customs fees.
-          </p>
-
-          {/* Billing Toggle */}
-          <div className="pt-4 flex items-center justify-center gap-4">
-            <span className={`text-sm ${!isAnnual ? 'text-white font-semibold' : 'text-gray-400'}`}>Monthly</span>
-            <button
-              onClick={() => setIsAnnual(!isAnnual)}
-              className="w-14 h-8 rounded-full bg-slate-900 p-1 border border-gray-700 transition-colors relative cursor-pointer"
-            >
-              <div
-                className={`w-6 h-6 rounded-full transition-transform duration-300 ${
-                  isAnnual ? 'translate-x-6 bg-emerald-400' : 'translate-x-0 bg-blue-500'
-                }`}
-              />
-            </button>
-            <span className={`text-sm flex items-center gap-1.5 ${isAnnual ? 'text-white font-semibold' : 'text-gray-400'}`}>
-              Annual
-              <span className="px-2 py-0.5 rounded-full bg-emerald-500/20 text-emerald-400 text-xs font-bold border border-emerald-500/30">
-                Save 20%
+      <div className="surface-panel mx-auto mt-14 grid max-w-5xl overflow-hidden rounded-[26px] lg:grid-cols-[1.1fr_0.9fr]">
+        <div className="relative p-7 sm:p-10">
+          <div className="pointer-events-none absolute right-0 top-0 h-64 w-64 bg-[radial-gradient(circle,rgba(199,255,107,0.09),transparent_66%)]" />
+          <div className="relative">
+            <div className="flex flex-wrap items-center gap-3">
+              <span className="rounded-full border border-[#c7ff6b]/20 bg-[#c7ff6b]/8 px-3 py-1 text-[10px] font-black uppercase tracking-[0.15em] text-[#dfffab]">
+                Available now
               </span>
-            </span>
+              <span className="inline-flex items-center gap-1.5 text-xs font-semibold text-[#7f8d85]">
+                <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
+                Limited beta period
+              </span>
+            </div>
+
+            <h3 className="mt-7 text-2xl font-black tracking-[-0.035em] text-white">
+              SourcingLab Beta
+            </h3>
+            <p className="mt-2 text-sm leading-6 text-[#8e9a92]">
+              For founders, importers, and lean sourcing teams validating supplier offers.
+            </p>
+
+            <div className="mt-7 flex items-end gap-2">
+              <span className="text-6xl font-black tracking-[-0.06em] text-white">$0</span>
+              <span className="pb-2 text-sm font-semibold text-[#78857d]">during beta</span>
+            </div>
+
+            <a
+              href={appHref}
+              className="group mt-8 inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[14px] bg-[#c7ff6b] px-6 py-3.5 text-sm font-extrabold text-[#0a0d0b] transition hover:bg-[#d7ff94] sm:w-auto"
+            >
+              Start analyzing
+              <ArrowRight
+                className="h-4 w-4 transition-transform group-hover:translate-x-1"
+                aria-hidden="true"
+              />
+            </a>
+            <p className="mt-3 text-[11px] text-[#69766e]">No credit card required.</p>
           </div>
         </div>
 
-        {/* Cards Grid */}
-        <div className="mt-14 grid md:grid-cols-3 gap-8 items-stretch">
-          {/* Starter Plan */}
-          <div className="p-8 rounded-3xl bento-card flex flex-col justify-between hover:border-gray-700 transition-all">
-            <div>
-              <div className="flex items-center justify-between">
-                <h3 className="text-xl font-bold text-white">Starter</h3>
-                <Zap className="w-5 h-5 text-gray-400" />
-              </div>
-              <p className="mt-2 text-xs text-gray-400">For brand founders & 1st product sourcing</p>
-
-              <div className="mt-6">
-                <span className="text-5xl font-black text-white">
-                  ${isAnnual ? '29' : '39'}
+        <div className="border-t border-white/[0.08] bg-white/[0.025] p-7 sm:p-10 lg:border-l lg:border-t-0">
+          <p className="text-xs font-black uppercase tracking-[0.14em] text-[#aeb9b2]">
+            Included in the beta
+          </p>
+          <ul className="mt-6 space-y-4">
+            {[
+              'Supplier quote comparison and math checks',
+              'Product specification starting points',
+              'Landed-cost modeling',
+              'HS-code research briefs',
+              'RFQ and negotiation email drafts',
+            ].map((feature) => (
+              <li key={feature} className="flex items-start gap-3 text-sm text-[#d3dbd6]">
+                <span className="mt-0.5 grid h-5 w-5 shrink-0 place-items-center rounded-full bg-[#70e1b2]/10 text-[#70e1b2]">
+                  <Check className="h-3 w-3" aria-hidden="true" />
                 </span>
-                <span className="text-xs text-gray-400"> / month</span>
-              </div>
+                {feature}
+              </li>
+            ))}
+          </ul>
 
-              <ul className="mt-8 space-y-3.5 text-xs text-gray-300">
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>10 Product Tech Specs AI / month</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>5 PDF Factory Quote Audits / month</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Unlimited Landed Cost DDP Calculator</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Supplier Outreach RFQ Email Generator</span>
-                </li>
-              </ul>
+          <div className="mt-8 border-t border-white/[0.08] pt-6">
+            <div className="flex items-start gap-3">
+              <CircleDollarSign className="mt-0.5 h-4 w-4 shrink-0 text-[#7e9cff]" aria-hidden="true" />
+              <p className="text-xs leading-5 text-[#7e8a82]">
+                Paid individual and team plans are being designed. Want to influence
+                limits, collaboration, or reporting?
+              </p>
             </div>
-
-            <button
-              onClick={() => onSelectPlan('Starter')}
-              className="mt-8 w-full py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-800 text-white font-bold text-xs transition-all cursor-pointer"
+            <a
+              href="#waitlist"
+              className="mt-4 inline-flex items-center gap-2 text-xs font-bold text-[#b4c4ff] hover:text-white"
             >
-              Get Started with Starter
-            </button>
-          </div>
-
-          {/* Pro Copilot Plan (Featured) */}
-          <div className="relative p-8 rounded-3xl bento-card bg-gradient-to-b from-slate-900 via-slate-900 to-indigo-950/60 border-2 border-blue-500 shadow-2xl shadow-blue-500/25 flex flex-col justify-between animated-glow-border">
-            <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 text-white text-[11px] font-extrabold uppercase tracking-wider shadow-lg">
-              Most Popular • Recommended
-            </div>
-
-            <div>
-              <div className="flex items-center justify-between">
-                <h3 className="text-xl font-extrabold text-white flex items-center gap-2">
-                  Pro Copilot
-                  <Sparkles className="w-5 h-5 text-blue-400" />
-                </h3>
-              </div>
-              <p className="mt-2 text-xs text-blue-200">For e-commerce sellers & active buyers</p>
-
-              <div className="mt-6">
-                <span className="text-6xl font-black text-white">
-                  ${isAnnual ? '79' : '99'}
-                </span>
-                <span className="text-xs text-gray-400"> / month</span>
-              </div>
-
-              <ul className="mt-8 space-y-3.5 text-xs text-gray-200">
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <strong className="text-white">Unlimited Product Tech Specs</strong>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>30 PDF Factory Quote Audits / month</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Overpricing Detection & Red Flag Alerts</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Advanced Price Negotiation Email Suite</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Priority SourcingLab Support Access</span>
-                </li>
-              </ul>
-            </div>
-
-            <button
-              onClick={() => onSelectPlan('Pro Copilot')}
-              className="mt-8 w-full py-4 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-500 hover:to-indigo-500 text-white font-extrabold text-xs transition-all shadow-lg shadow-blue-500/30 flex items-center justify-center gap-2 cursor-pointer"
-            >
-              <span>Choose Pro Copilot</span>
-              <ArrowRight className="w-4 h-4" />
-            </button>
-          </div>
-
-          {/* Enterprise Plan */}
-          <div className="p-8 rounded-3xl bento-card flex flex-col justify-between hover:border-gray-700 transition-all">
-            <div>
-              <div className="flex items-center justify-between">
-                <h3 className="text-xl font-bold text-white">Enterprise</h3>
-                <Building2 className="w-5 h-5 text-purple-400" />
-              </div>
-              <p className="mt-2 text-xs text-gray-400">For procurement teams & multi-SKU brands</p>
-
-              <div className="mt-6">
-                <span className="text-5xl font-black text-white">
-                  ${isAnnual ? '249' : '299'}
-                </span>
-                <span className="text-xs text-gray-400"> / month</span>
-              </div>
-
-              <ul className="mt-8 space-y-3.5 text-xs text-gray-300">
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Everything in Pro with Unlimited usage</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Multi-user seat access (5 seats)</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>Direct WEMADE USA Sourcing Services Integration</span>
-                </li>
-                <li className="flex items-center gap-3">
-                  <Check className="w-4 h-4 text-emerald-400 shrink-0" />
-                  <span>1-on-1 Factory Audit Consultation</span>
-                </li>
-              </ul>
-            </div>
-
-            <button
-              onClick={() => onSelectPlan('Enterprise')}
-              className="mt-8 w-full py-3.5 rounded-xl bg-slate-900 hover:bg-slate-800 border border-gray-800 text-white font-bold text-xs transition-all cursor-pointer"
-            >
-              Contact Enterprise Team
-            </button>
+              <Sparkles className="h-3.5 w-3.5" aria-hidden="true" />
+              Join product updates
+            </a>
           </div>
         </div>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);

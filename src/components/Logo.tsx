@@ -5,73 +5,76 @@ import React from 'react';
 interface LogoProps {
   size?: 'sm' | 'md' | 'lg';
   showBadge?: boolean;
+  compactOnMobile?: boolean;
 }
 
-export const Logo: React.FC<LogoProps> = ({ size = 'md', showBadge = true }) => {
+export const Logo: React.FC<LogoProps> = ({
+  size = 'md',
+  showBadge = true,
+  compactOnMobile = false,
+}) => {
   const iconSizeClass = {
-    sm: 'w-8 h-8 rounded-lg',
-    md: 'w-10 h-10 rounded-xl',
-    lg: 'w-12 h-12 rounded-2xl',
+    sm: 'h-8 w-8 rounded-[10px]',
+    md: 'h-9 w-9 rounded-xl',
+    lg: 'h-11 w-11 rounded-[14px]',
   }[size];
 
   const textSizeClass = {
-    sm: 'text-lg',
-    md: 'text-xl',
-    lg: 'text-2xl sm:text-3xl',
+    sm: 'text-[15px]',
+    md: 'text-[17px]',
+    lg: 'text-xl',
   }[size];
 
   return (
-    <div className="flex items-center gap-3 select-none group">
-      {/* Emblem Frame with Glassmorphism & Neon Glow */}
-      <div className={`relative ${iconSizeClass} bg-gradient-to-tr from-blue-600 via-indigo-500 to-emerald-400 p-[1.5px] shadow-lg shadow-blue-500/30 group-hover:shadow-blue-500/50 group-hover:scale-105 transition-all duration-300`}>
-        <div className="w-full h-full bg-slate-950 rounded-[inherit] flex items-center justify-center overflow-hidden relative">
-          {/* Hexagonal Isometric Vector Sourcing Emblem */}
-          <svg
-            viewBox="0 0 40 40"
-            className="w-3/4 h-3/4 text-blue-400 group-hover:scale-110 transition-transform duration-300"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M20 4L34 12V28L20 36L6 28V12L20 4Z"
-              stroke="url(#blue_emerald_grad)"
-              strokeWidth="2.5"
-              strokeLinejoin="round"
-            />
-            <path
-              d="M20 4V20M34 12L20 20M6 12L20 20"
-              stroke="url(#blue_emerald_grad)"
-              strokeWidth="2"
-              strokeLinejoin="round"
-            />
-            <circle cx="20" cy="20" r="3" fill="#10b981" />
-            <defs>
-              <linearGradient id="blue_emerald_grad" x1="6" y1="4" x2="34" y2="36" gradientUnits="userSpaceOnUse">
-                <stop stopColor="#60A5FA" />
-                <stop offset="0.5" stopColor="#3B82F6" />
-                <stop offset="1" stopColor="#10B981" />
-              </linearGradient>
-            </defs>
-          </svg>
-          <div className="absolute inset-0 bg-blue-500/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-        </div>
+    <div className="group flex select-none items-center gap-2.5">
+      <div
+        className={`${iconSizeClass} relative grid shrink-0 place-items-center overflow-hidden border border-white/10 bg-[#151d19] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)] transition-transform duration-200 group-hover:-rotate-3`}
+        aria-hidden="true"
+      >
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(199,255,107,0.25),transparent_55%)]" />
+        <svg viewBox="0 0 32 32" className="relative h-6 w-6" fill="none">
+          <path
+            d="M7.2 9.1 16 4l8.8 5.1v10.2L16 24.4l-8.8-5.1V9.1Z"
+            stroke="#C7FF6B"
+            strokeWidth="1.8"
+            strokeLinejoin="round"
+          />
+          <path
+            d="m7.2 9.1 8.8 5.1 8.8-5.1M16 14.2v10.2"
+            stroke="#70E1B2"
+            strokeWidth="1.8"
+            strokeLinejoin="round"
+          />
+          <path
+            d="M10.5 24.6 16 27.8l5.5-3.2"
+            stroke="#7E9CFF"
+            strokeWidth="1.8"
+            strokeLinecap="round"
+          />
+        </svg>
       </div>
 
-      {/* Brand Typography */}
-      <div>
+      <div className="leading-none">
         <div className="flex items-center gap-1.5">
-          <span className={`${textSizeClass} font-black tracking-tight text-white font-mono`}>
-            SOURCING<span className="text-blue-500">LAB</span>
+          <span className={`${textSizeClass} font-extrabold tracking-[-0.035em] text-[#F4F8F5]`}>
+            SourcingLab
           </span>
           {showBadge && (
-            <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-extrabold border border-emerald-500/30 uppercase tracking-widest shadow-sm">
+            <span
+              className={`rounded-md border border-[#c7ff6b]/20 bg-[#c7ff6b]/8 px-1.5 py-1 text-[8px] font-black tracking-[0.16em] text-[#dfffab] ${
+                compactOnMobile ? 'hidden min-[400px]:inline-flex' : ''
+              }`}
+            >
               USA
             </span>
           )}
         </div>
-        <p className="text-[10px] text-gray-400 -mt-1 tracking-wider uppercase font-semibold flex items-center gap-1">
-          <span>AI Sourcing Copilot</span>
-          <span className="inline-block w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping" />
+        <p
+          className={`mt-1 text-[9px] font-semibold uppercase tracking-[0.18em] text-[#7d8b83] ${
+            compactOnMobile ? 'hidden min-[480px]:block' : ''
+          }`}
+        >
+          Procurement intelligence
         </p>
       </div>
     </div>

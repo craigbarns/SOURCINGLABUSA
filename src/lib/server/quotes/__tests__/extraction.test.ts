@@ -65,6 +65,21 @@ describe('structured quote extraction', () => {
     expect(parseLocalizedNumber('not a number')).toBeNull();
   });
 
+  it('does not extract a total from the subtotal label', () => {
+    const quote = extractQuoteDeterministically({
+      ...OCR_DOCUMENT,
+      markdown: `
+Supplier: Shenzhen Reliable Products Co., Ltd.
+Currency: USD
+Subtotal: USD 100.00
+Grand Total: USD 150.00
+`,
+    });
+
+    expect(quote.totals.subtotal).toBe(100);
+    expect(quote.totals.total).toBe(150);
+  });
+
   it('runs mathematical checks and ranks only comparable quotes', () => {
     const first = extractQuoteDeterministically(OCR_DOCUMENT);
     const second = extractQuoteDeterministically({
@@ -88,6 +103,64 @@ describe('structured quote extraction', () => {
       'matched',
       'matched',
     ]);
+  });
+
+  it('does not rank quotes with different product identities', () => {
+    const first = extractQuoteDeterministically(OCR_DOCUMENT);
+    const second = extractQuoteDeterministically({
+      ...OCR_DOCUMENT,
+      fileName: 'supplier-b.pdf',
+      markdown: OCR_DOCUMENT.markdown.replace(
+        'Travel backpack 35 L',
+        'Stainless steel bottle 1 L',
+      ),
+    });
+
+    const comparison = compareQuotesDeterministically([first, second]);
+
+    expect(comparison.comparability).toBe('limited');
+    expect(comparison.ranking.map((item) => item.rank)).toEqual([null, null]);
+    expect(comparison.vigilancePoints).toContain(
+      'The extracted product descriptions differ, so the quotes may not cover equivalent products.',
+    );
+  });
+
+  it('does not rank quotes with different total quantities', () => {
+    const first = extractQuoteDeterministically(OCR_DOCUMENT);
+    const second = {
+      ...extractQuoteDeterministically({
+        ...OCR_DOCUMENT,
+        fileName: 'supplier-b.pdf',
+      }),
+      totalQuantity: 1_000,
+    };
+
+    const comparison = compareQuotesDeterministically([first, second]);
+
+    expect(comparison.comparability).toBe('limited');
+    expect(comparison.ranking.map((item) => item.rank)).toEqual([null, null]);
+    expect(comparison.vigilancePoints).toContain(
+      'The extracted total quantities differ, so volume pricing may not be directly equivalent.',
+    );
+  });
+
+  it('treats duplicate file names as ambiguous and keeps checks positional', () => {
+    const first = extractQuoteDeterministically(OCR_DOCUMENT);
+    const second = extractQuoteDeterministically(OCR_DOCUMENT);
+    second.totals.total = 4_500;
+
+    const comparison = compareQuotesDeterministically([first, second]);
+
+    expect(comparison.comparability).toBe('limited');
+    expect(comparison.recommendedQuoteFileName).toBeNull();
+    expect(comparison.ranking.map((item) => item.rank)).toEqual([null, null]);
+    expect(comparison.mathChecks.map((check) => check.status)).toEqual([
+      'matched',
+      'mismatch',
+    ]);
+    expect(comparison.vigilancePoints).toContain(
+      'Duplicate file names were detected. Rename each file so every quote can be tracked unambiguously.',
+    );
   });
 
   it('reconciles a grand total with separately extracted charges', () => {

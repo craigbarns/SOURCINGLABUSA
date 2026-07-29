@@ -11,22 +11,22 @@ import {
 import { getSupabaseAdminClient } from '@/lib/server/supabase';
 import { waitlistInputSchema } from '@/lib/validation/waitlist';
 
-const INVALID_REQUEST_MESSAGE = "Les informations d'inscription ne sont pas valides.";
-const DUPLICATE_EMAIL_MESSAGE = 'Cette adresse e-mail est déjà inscrite.';
+const INVALID_REQUEST_MESSAGE = 'The information provided is invalid.';
+const DUPLICATE_EMAIL_MESSAGE = 'This email address is already on the waitlist.';
 const UNAVAILABLE_MESSAGE =
-  "L'inscription est temporairement indisponible. Veuillez réessayer plus tard.";
+  'Signup is temporarily unavailable. Please try again later.';
 
 export async function POST(request: Request) {
   if (!isSameOriginRequest(request)) {
     return NextResponse.json(
-      { message: 'Origine de requête refusée.' },
+      { message: 'Request origin not allowed.' },
       { status: 403, headers: { 'Cache-Control': 'no-store' } },
     );
   }
 
   if (exceedsContentLength(request, 2 * 1024)) {
     return NextResponse.json(
-      { message: 'La requête est trop volumineuse.' },
+      { message: 'The request is too large.' },
       { status: 413, headers: { 'Cache-Control': 'no-store' } },
     );
   }
@@ -38,7 +38,7 @@ export async function POST(request: Request) {
 
   if (!rateLimit.allowed) {
     return NextResponse.json(
-      { message: 'Trop de tentatives. Veuillez réessayer plus tard.' },
+      { message: 'Too many attempts. Please try again later.' },
       {
         status: 429,
         headers: {
@@ -113,7 +113,7 @@ export async function POST(request: Request) {
 
   return NextResponse.json(
     {
-      message: 'Votre inscription a bien été enregistrée.',
+      message: "You're on the waitlist.",
       email: validation.data.email,
     },
     { status: 201 },

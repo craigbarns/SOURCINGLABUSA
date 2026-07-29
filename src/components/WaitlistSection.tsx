@@ -1,8 +1,7 @@
 'use client';
 
-import React, { useEffect, useRef, useState } from 'react';
-import { Send, CheckCircle2, Users, ShieldCheck, Sparkles } from 'lucide-react';
-import confetti from 'canvas-confetti';
+import { CheckCircle2, Send, ShieldCheck, Sparkles } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
 import {
   WAITLIST_ROLE_LABELS,
@@ -40,7 +39,7 @@ export const WaitlistSection: React.FC = () => {
     if (!validation.success) {
       setErrorMessage(
         validation.error.issues[0]?.message ??
-          "Invalid registration details. Please enter a valid work email.",
+          'Please enter a valid work email address.',
       );
       return;
     }
@@ -61,14 +60,14 @@ export const WaitlistSection: React.FC = () => {
       try {
         responseBody = (await response.json()) as WaitlistApiResponse;
       } catch {
-        // A non-JSON server response is handled by the generic message below.
+        // A non-JSON response is handled by the generic message below.
       }
 
       if (!response.ok) {
         setStatus('idle');
         setErrorMessage(
           responseBody.message ??
-            "Registration could not be saved. Please try again.",
+            'Your registration could not be saved. Please try again.',
         );
         return;
       }
@@ -77,18 +76,22 @@ export const WaitlistSection: React.FC = () => {
       setStatus('success');
 
       try {
-        confetti({
-          particleCount: 80,
-          spread: 70,
-          origin: { y: 0.6 },
-        });
+        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+          const { default: confetti } = await import('canvas-confetti');
+          confetti({
+            particleCount: 60,
+            spread: 64,
+            colors: ['#c7ff6b', '#70e1b2', '#7e9cff'],
+            origin: { y: 0.68 },
+          });
+        }
       } catch {
         // Confetti is decorative and must never affect submission.
       }
     } catch {
       setStatus('idle');
       setErrorMessage(
-        "Unable to reach the waitlist service. Please try again.",
+        'Unable to reach the product updates service. Please try again.',
       );
     }
   };
@@ -101,82 +104,98 @@ export const WaitlistSection: React.FC = () => {
   };
 
   return (
-    <section id="waitlist" className="py-20 relative overflow-hidden bg-slate-950 border-t border-gray-800/80">
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[300px] bg-indigo-600/10 rounded-full blur-[140px] pointer-events-none" />
+    <section id="waitlist" className="relative scroll-mt-20 overflow-hidden border-t border-white/[0.07] py-24 sm:py-28">
+      <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_50%_100%,rgba(126,156,255,0.09),transparent_42%)]" />
+      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <div className="surface-panel mx-auto grid max-w-5xl overflow-hidden rounded-[26px] lg:grid-cols-[0.9fr_1.1fr]">
+          <div className="border-b border-white/[0.08] p-7 sm:p-10 lg:border-b-0 lg:border-r">
+            <span className="eyebrow">Help shape SourcingLab</span>
+            <h2 className="text-balance mt-6 text-3xl font-black tracking-[-0.045em] text-white sm:text-4xl">
+              Get product updates worth opening.
+            </h2>
+            <p className="mt-4 text-sm leading-7 text-[#91a097]">
+              Join the build list for beta notes, new sourcing workflows, and an
+              invitation to give direct product feedback. No sales sequence.
+            </p>
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 text-center">
-        <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full border border-emerald-500/30 bg-emerald-500/10 text-emerald-400 text-xs font-semibold mb-6">
-          <Users className="w-4 h-4" aria-hidden="true" />
-          <span>Priority MVP Access • Phase 1</span>
-        </div>
-
-        <h2 className="text-3xl sm:text-5xl font-extrabold text-white tracking-tight">
-          Join the Exclusive <span className="gradient-text">AI Waitlist</span>.
-        </h2>
-        <p className="mt-4 text-base sm:text-lg text-gray-300 max-w-2xl mx-auto">
-          Get early access to automated factory matching, quote audits, and landed cost benchmarks.
-          No spam, cancel anytime.
-        </p>
-
-        <div className="mt-8 max-w-xl mx-auto p-6 rounded-2xl bg-slate-900/90 border border-gray-800 backdrop-blur-xl shadow-2xl">
-          {status === 'success' ? (
-            <div
-              ref={successMessageRef}
-              className="py-8 space-y-3 outline-none"
-              role="status"
-              aria-live="polite"
-              tabIndex={-1}
-            >
-              <div className="w-14 h-14 mx-auto rounded-full bg-emerald-500/20 text-emerald-400 flex items-center justify-center">
-                <CheckCircle2 className="w-8 h-8" aria-hidden="true" />
+            <div className="mt-8 space-y-4 border-t border-white/[0.08] pt-7">
+              <div className="flex items-start gap-3">
+                <Sparkles className="mt-0.5 h-4 w-4 shrink-0 text-[#c7ff6b]" aria-hidden="true" />
+                <div>
+                  <p className="text-sm font-bold text-white">Early feature previews</p>
+                  <p className="mt-1 text-xs leading-5 text-[#748179]">
+                    See what is shipping before the public release.
+                  </p>
+                </div>
               </div>
-              <h3 className="text-xl font-bold text-white">You are on the list!</h3>
-              <p className="text-sm text-gray-300">
-                Your spot has been reserved for{' '}
-                <strong className="text-emerald-400">{email}</strong>.
-              </p>
-              <div className="pt-3">
+              <div className="flex items-start gap-3">
+                <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-[#70e1b2]" aria-hidden="true" />
+                <div>
+                  <p className="text-sm font-bold text-white">Your email stays private</p>
+                  <p className="mt-1 text-xs leading-5 text-[#748179]">
+                    Used only for SourcingLab product communication.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div className="p-7 sm:p-10">
+            {status === 'success' ? (
+              <div
+                ref={successMessageRef}
+                className="flex min-h-[330px] flex-col items-center justify-center text-center outline-none"
+                role="status"
+                aria-live="polite"
+                tabIndex={-1}
+              >
+                <div className="grid h-14 w-14 place-items-center rounded-2xl bg-[#70e1b2]/10 text-[#70e1b2]">
+                  <CheckCircle2 className="h-7 w-7" aria-hidden="true" />
+                </div>
+                <h3 className="mt-5 text-xl font-black text-white">You&apos;re on the list.</h3>
+                <p className="mt-2 max-w-sm text-sm leading-6 text-[#87948b]">
+                  Product updates will go to{' '}
+                  <strong className="font-bold text-[#dfffab]">{email}</strong>.
+                </p>
                 <button
                   type="button"
                   onClick={resetForm}
-                  className="text-xs text-blue-400 hover:underline font-mono"
+                  className="mt-6 text-xs font-bold text-[#aebfff] hover:text-white"
                 >
-                  Add another email
+                  Use a different email
                 </button>
               </div>
-            </div>
-          ) : (
-            <form onSubmit={handleSubmit} className="space-y-4 text-left">
-              <div>
-                <label
-                  htmlFor="waitlist-role"
-                  className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2"
-                >
-                  Your Primary Sourcing Role
-                </label>
-                <select
-                  id="waitlist-role"
-                  value={role}
-                  onChange={(event) => setRole(event.target.value as WaitlistRole)}
-                  disabled={status === 'submitting'}
-                  className="w-full px-4 py-3 rounded-xl bg-slate-950 border border-gray-800 text-gray-200 text-sm focus:outline-none focus:border-blue-500 transition-colors"
-                >
-                  {WAITLIST_ROLE_VALUES.map((roleValue) => (
-                    <option key={roleValue} value={roleValue}>
-                      {WAITLIST_ROLE_LABELS[roleValue]}
-                    </option>
-                  ))}
-                </select>
-              </div>
+            ) : (
+              <form onSubmit={handleSubmit} className="space-y-5">
+                <div>
+                  <label
+                    htmlFor="waitlist-role"
+                    className="mb-2 block text-[11px] font-bold uppercase tracking-[0.13em] text-[#8f9c94]"
+                  >
+                    Your sourcing role
+                  </label>
+                  <select
+                    id="waitlist-role"
+                    value={role}
+                    onChange={(event) => setRole(event.target.value as WaitlistRole)}
+                    disabled={status === 'submitting'}
+                    className="min-h-12 w-full rounded-[13px] border border-white/10 bg-[#0a0e0c] px-4 py-3 text-sm text-[#e8eee9] transition-colors focus:border-[#c7ff6b]/60 focus:outline-none disabled:opacity-60"
+                  >
+                    {WAITLIST_ROLE_VALUES.map((roleValue) => (
+                      <option key={roleValue} value={roleValue}>
+                        {WAITLIST_ROLE_LABELS[roleValue]}
+                      </option>
+                    ))}
+                  </select>
+                </div>
 
-              <div>
-                <label
-                  htmlFor="waitlist-email"
-                  className="block text-xs font-semibold text-gray-400 uppercase tracking-wider mb-2"
-                >
-                  Work Email Address
-                </label>
-                <div className="flex flex-col sm:flex-row gap-3">
+                <div>
+                  <label
+                    htmlFor="waitlist-email"
+                    className="mb-2 block text-[11px] font-bold uppercase tracking-[0.13em] text-[#8f9c94]"
+                  >
+                    Work email address
+                  </label>
                   <input
                     ref={emailInputRef}
                     id="waitlist-email"
@@ -194,43 +213,36 @@ export const WaitlistSection: React.FC = () => {
                     }}
                     disabled={status === 'submitting'}
                     aria-invalid={errorMessage ? 'true' : undefined}
-                    aria-describedby={errorMessage ? 'waitlist-error' : undefined}
-                    className="flex-1 px-4 py-3 rounded-xl bg-slate-950 border border-gray-800 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-blue-500 transition-colors"
+                    aria-describedby={errorMessage ? 'waitlist-error' : 'waitlist-helper'}
+                    className="min-h-12 w-full rounded-[13px] border border-white/10 bg-[#0a0e0c] px-4 py-3 text-sm text-white placeholder:text-[#536058] transition-colors focus:border-[#c7ff6b]/60 focus:outline-none disabled:opacity-60"
                   />
-                  <button
-                    type="submit"
-                    disabled={status === 'submitting'}
-                    aria-describedby={errorMessage ? 'waitlist-error' : undefined}
-                    className="px-6 py-3 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white font-bold text-sm hover:from-blue-500 hover:to-indigo-500 transition-all flex items-center justify-center gap-2 shadow-lg shadow-blue-500/25 disabled:cursor-not-allowed disabled:opacity-60"
-                  >
-                    <span>{status === 'submitting' ? 'Submitting...' : 'Claim Priority Access'}</span>
-                    <Send className="w-4 h-4" aria-hidden="true" />
-                  </button>
-                </div>
-                {errorMessage && (
-                  <p
-                    id="waitlist-error"
-                    className="mt-2 text-sm text-red-400"
-                    role="alert"
-                    aria-live="assertive"
-                  >
-                    {errorMessage}
+                  <p id="waitlist-helper" className="mt-2 text-[11px] text-[#65726a]">
+                    Occasional product emails. Unsubscribe anytime.
                   </p>
-                )}
-              </div>
+                  {errorMessage && (
+                    <p
+                      id="waitlist-error"
+                      className="mt-2 text-sm text-[#ff9d96]"
+                      role="alert"
+                      aria-live="assertive"
+                    >
+                      {errorMessage}
+                    </p>
+                  )}
+                </div>
 
-              <div className="pt-2 flex items-center justify-between text-xs text-gray-400 border-t border-gray-800/80">
-                <span className="flex items-center gap-1">
-                  <ShieldCheck className="w-3.5 h-3.5 text-emerald-400" aria-hidden="true" />
-                  Your email is strictly confidential.
-                </span>
-                <span className="flex items-center gap-1 text-blue-400">
-                  <Sparkles className="w-3.5 h-3.5" aria-hidden="true" />
-                  Free Beta Access
-                </span>
-              </div>
-            </form>
-          )}
+                <button
+                  type="submit"
+                  disabled={status === 'submitting'}
+                  aria-describedby={errorMessage ? 'waitlist-error' : undefined}
+                  className="inline-flex min-h-12 w-full items-center justify-center gap-2 rounded-[13px] bg-white px-5 py-3.5 text-sm font-extrabold text-[#0a0d0b] transition hover:bg-[#eaf0ec] disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  <span>{status === 'submitting' ? 'Joining…' : 'Join product updates'}</span>
+                  <Send className="h-4 w-4" aria-hidden="true" />
+                </button>
+              </form>
+            )}
+          </div>
         </div>
       </div>
     </section>

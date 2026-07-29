@@ -8,6 +8,10 @@ import type {
 import {
   productSpecResultSchema,
 } from '@/lib/validation/product-spec';
+import {
+  hsCodeAnalysisResultSchema,
+  normalizeHsCodeAnalysisResult,
+} from '@/lib/validation/hscode';
 import { supplierEmailResultSchema } from '@/lib/validation/supplier-email';
 
 export class ClientApiError extends Error {
@@ -44,14 +48,14 @@ export async function generateProductSpecs(
   if (!response.ok) {
     throw await parseError(
       response,
-      "Le cahier des charges n'a pas pu être généré.",
+      'The product specification could not be generated.',
     );
   }
 
   const validation = productSpecResultSchema.safeParse(await response.json());
 
   if (!validation.success) {
-    throw new ClientApiError('La réponse du serveur est invalide.');
+    throw new ClientApiError('The server returned an invalid response.');
   }
 
   return validation.data;
@@ -71,14 +75,14 @@ export async function generateSupplierEmail(
   if (!response.ok) {
     throw await parseError(
       response,
-      "L'e-mail fournisseur n'a pas pu être généré.",
+      'The supplier email could not be generated.',
     );
   }
 
   const validation = supplierEmailResultSchema.safeParse(await response.json());
 
   if (!validation.success) {
-    throw new ClientApiError('La réponse du serveur est invalide.');
+    throw new ClientApiError('The server returned an invalid response.');
   }
 
   return validation.data;
@@ -98,10 +102,23 @@ export async function analyzeHsCode(
   if (!response.ok) {
     throw await parseError(
       response,
-      "L'analyse du Code SH a échoué.",
+      'HS-code analysis failed.',
     );
   }
 
-  return (await response.json()) as HsCodeAnalysisResult;
-}
+  let payload: unknown;
 
+  try {
+    payload = await response.json();
+  } catch {
+    throw new ClientApiError('The server returned an invalid HS-code response.');
+  }
+
+  const validation = hsCodeAnalysisResultSchema.safeParse(payload);
+
+  if (!validation.success) {
+    throw new ClientApiError('The server returned an invalid HS-code response.');
+  }
+
+  return normalizeHsCodeAnalysisResult(validation.data);
+}

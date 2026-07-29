@@ -32,8 +32,7 @@ export function getMistralServerConfig(): MistralServerConfig | null {
 
   return {
     apiKey,
-    // Modèle officiel Mistral OCR 4 (mistral-ocr-latest / mistral-ocr-4)
+    // Official Mistral OCR 4 model (mistral-ocr-latest / mistral-ocr-4)
     model: process.env.MISTRAL_OCR_MODEL?.trim() || 'mistral-ocr-latest',
   };
 }
-

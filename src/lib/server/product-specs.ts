@@ -1,12 +1,12 @@
 import type { ProductSpecResult } from '@/lib/types';
 
 const VERIFICATION_NOTICE =
-  "Les certifications et exigences réglementaires ci-dessous sont des pistes de vérification, pas une qualification juridique. Leur applicabilité dépend du produit exact, de son usage, du public visé, du marché de destination et des règles en vigueur.";
+  'The certifications and regulatory requirements below are items to verify, not legal advice. Applicability depends on the exact product, intended use, target users, destination market, and current regulations.';
 
 export function detectProductCategory(
   prompt: string,
 ): ProductSpecResult['category'] {
-  const normalized = prompt.toLocaleLowerCase('fr');
+  const normalized = prompt.toLocaleLowerCase('en-US');
 
   if (
     /(gourde|bouteille|thermos|drinkware|tumbler|water bottle|inox)/.test(normalized)
@@ -39,10 +39,11 @@ export function detectProductCategory(
 
 function sharedPricing(): ProductSpecResult['pricingTarget'] {
   return {
-    estimatedFob: 'À chiffrer avec au moins 3 devis comparables',
-    targetLandCost: 'À calculer après fret, origine, code HS et droits vérifiés',
-    recommendedMSRP: 'À définir selon le canal de vente et les coûts réels',
-    marginPotential: 'Non calculée tant que les coûts réels ne sont pas connus',
+    estimatedFob: 'To be quoted using at least 3 comparable supplier quotes',
+    targetLandCost:
+      'To be calculated after freight, country of origin, HS code, and duties are verified',
+    recommendedMSRP: 'To be determined based on sales channel and actual costs',
+    marginPotential: 'Not calculated until actual costs are known',
   };
 }
 
@@ -51,231 +52,236 @@ const DEMO_PROFILES: Record<
   Omit<ProductSpecResult, 'mode' | 'sourceLabel' | 'category'>
 > = {
   drinkware: {
-    productTitle: 'Contenant alimentaire isotherme — spécification de départ',
-    targetMarket: 'Marché à confirmer avec le demandeur',
+    productTitle: 'Insulated food container — starter specification',
+    targetMarket: 'Target market to be confirmed with requester',
     specsSummary:
-      "Base de cadrage cohérente pour un contenant isotherme. Les valeurs finales doivent être validées sur plan, prototype et essais d'usage.",
+      'A coherent starting point for an insulated container. Final values must be validated against drawings, prototypes, and use testing.',
     technicalSpecs: {
       materials: [
-        'Acier inoxydable de nuance à confirmer par certificat matière',
-        'Joint en matériau apte au contact alimentaire, formulation à documenter',
-        'Revêtement extérieur dont la composition et la tenue doivent être testées',
+        'Stainless steel grade to be confirmed by material certificate',
+        'Food-contact-safe gasket material; formulation must be documented',
+        'Exterior coating composition and durability to be tested',
       ],
-      dimensions: 'À définir selon la capacité utile, le bouchon et les porte-gobelets visés',
-      weight: 'Cible à fixer après CAO et prototype',
+      dimensions: 'Define based on usable capacity, lid, and target cup holders',
+      weight: 'Target to be set after CAD and prototype',
       tolerances:
-        "Tolérances dimensionnelles à indiquer sur le plan industriel, avec points critiques d'étanchéité",
+        'Specify dimensional tolerances on production drawings, including critical leak-tightness points',
       keyFeatures: [
-        'Étanchéité mesurable avec protocole et durée définis',
-        'Performance thermique mesurée dans des conditions reproductibles',
-        'Pièces démontables et nettoyables sans zone de rétention',
+        'Measurable leak resistance with a defined procedure and duration',
+        'Thermal performance measured under repeatable conditions',
+        'Removable, cleanable components with no residue-trap areas',
       ],
     },
     certifications: {
       toVerify: [
-        'Règles de contact alimentaire applicables aux matériaux et revêtements du marché cible',
-        'Exigences locales relatives aux substances restreintes et à l’étiquetage',
+        'Food-contact rules applicable to materials and coatings in the target market',
+        'Local restricted-substance and labeling requirements',
       ],
       recommended: [
-        'Système qualité de l’usine et traçabilité des lots à auditer',
-        'Rapports de migration émis pour la configuration matière finale',
+        'Audit the factory quality system and lot traceability',
+        'Migration test reports for the final material configuration',
       ],
-      testingLabs: ['Laboratoire accrédité ISO/IEC 17025 à sélectionner selon les essais'],
+      testingLabs: [
+        'ISO/IEC 17025-accredited laboratory selected for the required tests',
+      ],
       verificationNotice: VERIFICATION_NOTICE,
     },
     moq: {
       recommended: 0,
       sampleMoq: 1,
       unit: 'pcs',
-      notes: 'MOQ inconnue : demander séparément prototype, pilote et série.',
+      notes:
+        'MOQ unknown: request separate quotes for prototype, pilot, and production runs.',
     },
     pricingTarget: sharedPricing(),
     qualityControl: [
-      'Contrôle visuel et dimensionnel selon plan approuvé',
-      'Essai d’étanchéité documenté sur échantillonnage défini',
-      'Essai de performance thermique avec température, durée et tolérance définies',
-      'Vérification des certificats matière par lot',
+      'Visual and dimensional inspection against the approved drawing',
+      'Documented leak test using a defined sampling plan',
+      'Thermal performance test with defined temperature, duration, and tolerance',
+      'Verify material certificates by lot',
     ],
   },
   textile: {
-    productTitle: 'Article textile — spécification de départ',
-    targetMarket: 'Marché, catégorie d’âge et canal de vente à confirmer',
+    productTitle: 'Textile product — starter specification',
+    targetMarket: 'Target market, age group, and sales channel to be confirmed',
     specsSummary:
-      'Base de tech pack textile couvrant matière, construction, tailles, coloris et contrôles. Le patronage et les mesures finales restent à fournir.',
+      'Starter textile tech pack covering materials, construction, sizing, colors, and inspections. Final patterns and measurements still need to be provided.',
     technicalSpecs: {
       materials: [
-        'Composition fibre exacte en pourcentage',
-        'Poids matière (GSM) avec tolérance convenue',
-        'Fil, bord-côte, étiquettes et accessoires décrits séparément',
+        'Exact fiber composition by percentage',
+        'Fabric weight (GSM) with agreed tolerance',
+        'Thread, ribbing, labels, and trims specified separately',
       ],
-      dimensions: 'Tableau de mesures par taille à joindre au tech pack',
-      weight: 'Poids du vêtement à confirmer par taille après prototype',
+      dimensions: 'Include a size measurement chart in the tech pack',
+      weight: 'Confirm garment weight by size after prototype',
       tolerances:
-        'Tolérances de mesures, GSM, retrait et colorimétrie à convenir dans le tech pack',
+        'Agree on measurement, GSM, shrinkage, and color tolerances in the tech pack',
       keyFeatures: [
-        'Construction des coutures et densité de points définies',
-        'Référence couleur mesurable et méthode de validation du lab dip',
-        'Étiquetage de composition, entretien et origine à valider',
+        'Define seam construction and stitch density',
+        'Measurable color standard and lab-dip approval method',
+        'Validate fiber content, care, and country-of-origin labeling',
       ],
     },
     certifications: {
       toVerify: [
-        'Exigences d’étiquetage textile du marché cible',
-        'Exigences chimiques et sécurité produit selon matière, décoration et public visé',
+        'Textile labeling requirements for the target market',
+        'Chemical and product-safety requirements based on material, decoration, and target user',
       ],
       recommended: [
-        'Allégation biologique ou recyclée à justifier par une chaîne de traçabilité appropriée',
-        'Audit social ou environnemental selon la politique d’achat',
+        'Support organic or recycled claims with appropriate chain-of-custody records',
+        'Social or environmental audit based on purchasing policy',
       ],
-      testingLabs: ['Laboratoire textile accrédité à choisir selon le plan d’essais'],
+      testingLabs: ['Accredited textile laboratory selected for the test plan'],
       verificationNotice: VERIFICATION_NOTICE,
     },
     moq: {
       recommended: 0,
       sampleMoq: 1,
-      unit: 'pcs / coloris / taille',
-      notes: 'MOQ à négocier par coloris et grille de tailles après validation du prototype.',
+      unit: 'pcs / color / size',
+      notes: 'Negotiate MOQ by color and size range after prototype approval.',
     },
     pricingTarget: sharedPricing(),
     qualityControl: [
-      'Mesures à plat par taille selon tableau approuvé',
-      'Tests de retrait, solidité des couleurs et boulochage selon usage',
-      'Contrôle des coutures, impressions, broderies et accessoires',
-      'Validation d’un échantillon de préproduction signé',
+      'Flat measurements by size against the approved chart',
+      'Shrinkage, colorfastness, and pilling tests based on intended use',
+      'Inspect seams, prints, embroidery, and trims',
+      'Approve and sign a preproduction sample',
     ],
   },
   electronics: {
-    productTitle: 'Produit électronique — spécification de départ',
-    targetMarket: 'Pays de vente, radiofréquences et alimentation à confirmer',
+    productTitle: 'Electronic product — starter specification',
+    targetMarket: 'Sales country, radio frequencies, and power requirements to be confirmed',
     specsSummary:
-      'Base de cadrage électronique. La conception électrique, le logiciel, la batterie et les essais réglementaires doivent être validés par des spécialistes compétents.',
+      'Electronic product planning baseline. Electrical design, software, battery, and regulatory testing must be validated by qualified specialists.',
     technicalSpecs: {
       materials: [
-        'Boîtier et classe d’inflammabilité à définir selon la conception',
-        'Batterie, cellule et circuit de protection documentés le cas échéant',
-        'BOM électronique avec références critiques et alternatives approuvées',
+        'Enclosure and flammability rating to be defined by the design',
+        'Document battery, cell, and protection circuitry when applicable',
+        'Electronic BOM with critical part numbers and approved alternates',
       ],
-      dimensions: 'Enveloppe CAO et interfaces mécaniques à fournir',
-      weight: 'Cible à confirmer après prototype EVT/DVT',
+      dimensions: 'Provide CAD envelope and mechanical interfaces',
+      weight: 'Confirm target after EVT/DVT prototype',
       tolerances:
-        'Tolérances mécaniques, électriques et radio à définir dans les plans et spécifications',
+        'Define mechanical, electrical, and RF tolerances in drawings and specifications',
       keyFeatures: [
-        'Spécification d’autonomie et protocole de mesure reproductible',
-        'Versions matériel/firmware traçables',
-        'Critères de sécurité, charge, température et vieillissement documentés',
+        'Battery-life specification and repeatable test method',
+        'Traceable hardware and firmware versions',
+        'Documented safety, charging, temperature, and aging criteria',
       ],
     },
     certifications: {
       toVerify: [
-        'Autorisations radio et compatibilité électromagnétique du marché cible',
-        'Sécurité électrique, batterie et exigences de transport applicables à la conception finale',
-        'Substances restreintes, recyclage et marquage selon les pays vendus',
+        'Target-market radio approvals and electromagnetic compatibility',
+        'Electrical safety, battery, and transport requirements applicable to the final design',
+        'Restricted substances, recycling, and marking requirements for countries of sale',
       ],
       recommended: [
-        'Rapports d’essais sur l’échantillon représentatif de production',
-        'Audit du contrôle des composants critiques et de la traçabilité firmware',
+        'Test reports for a production-representative sample',
+        'Audit critical-component controls and firmware traceability',
       ],
-      testingLabs: ['Laboratoire accrédité et reconnu pour le marché cible'],
+      testingLabs: ['Accredited laboratory recognized in the target market'],
       verificationNotice: VERIFICATION_NOTICE,
     },
     moq: {
       recommended: 0,
       sampleMoq: 3,
       unit: 'pcs',
-      notes: 'Prévoir des lots distincts EVT, DVT et PVT avant la série.',
+      notes: 'Plan separate EVT, DVT, and PVT builds before mass production.',
     },
     pricingTarget: sharedPricing(),
     qualityControl: [
-      'Test fonctionnel documenté sur chaque unité ou selon risque justifié',
-      'Traçabilité des composants critiques et versions firmware',
-      'Essais de charge, autonomie, température et vieillissement',
-      'Contrôle final sur échantillon représentatif de la série',
+      'Documented functional testing on every unit or based on justified risk',
+      'Traceability for critical components and firmware versions',
+      'Charging, battery-life, temperature, and aging tests',
+      'Final inspection using a production-representative sample',
     ],
   },
   backpack: {
-    productTitle: 'Sac à dos — spécification de départ',
-    targetMarket: 'Usage, volume, charge et marché à confirmer',
+    productTitle: 'Backpack — starter specification',
+    targetMarket: 'Intended use, capacity, load, and target market to be confirmed',
     specsSummary:
-      'Base cohérente pour construire un tech pack de bagagerie avec matière, renforts, accessoires, dimensions et tests de résistance.',
+      'A coherent foundation for a luggage tech pack covering materials, reinforcements, hardware, dimensions, and durability tests.',
     technicalSpecs: {
       materials: [
-        'Tissu extérieur avec composition, denier, enduction et couleur définis',
-        'Doublure, mousse et renforts spécifiés par zone',
-        'Fermetures, boucles, sangles et fils avec références approuvées',
+        'Outer fabric with specified composition, denier, coating, and color',
+        'Specify lining, foam, and reinforcements by area',
+        'Approved part numbers for zippers, buckles, webbing, and thread',
       ],
-      dimensions: 'Hauteur × largeur × profondeur et volume utile à définir sur plan',
-      weight: 'Poids cible à confirmer après échantillon de développement',
+      dimensions: 'Define height × width × depth and usable volume on the drawing',
+      weight: 'Confirm target weight after development sample',
       tolerances:
-        'Tolérances de patronage, coutures, symétrie et emplacement accessoires à définir',
+        'Define pattern, seam, symmetry, and hardware-placement tolerances',
       keyFeatures: [
-        'Charge utile et protocole d’essai des anses/bretelles',
-        'Résistance à l’eau définie par une méthode d’essai mesurable',
-        'Compartiments et accès cotés sur le plan',
+        'Payload rating and handle/strap test protocol',
+        'Water resistance defined by a measurable test method',
+        'Dimension compartments and access points on the drawing',
       ],
     },
     certifications: {
       toVerify: [
-        'Exigences chimiques des matériaux, revêtements et accessoires du marché cible',
-        'Exigences spécifiques si le produit vise les enfants ou comporte de l’électronique',
+        'Target-market chemical requirements for materials, coatings, and hardware',
+        'Additional requirements if intended for children or containing electronics',
       ],
       recommended: [
-        'Traçabilité des matières revendiquées recyclées',
-        'Audit qualité de la coupe, couture et pose des accessoires',
+        'Traceability for claimed recycled materials',
+        'Quality audit of cutting, sewing, and hardware installation',
       ],
-      testingLabs: ['Laboratoire matériaux/textile accrédité selon le plan d’essais'],
+      testingLabs: [
+        'Accredited materials/textile laboratory selected for the test plan',
+      ],
       verificationNotice: VERIFICATION_NOTICE,
     },
     moq: {
       recommended: 0,
       sampleMoq: 1,
-      unit: 'pcs / coloris',
-      notes: 'MOQ à confirmer par coloris, matière et niveau de personnalisation.',
+      unit: 'pcs / color',
+      notes: 'Confirm MOQ by color, material, and customization level.',
     },
     pricingTarget: sharedPricing(),
     qualityControl: [
-      'Mesure complète selon patronage et tolérances approuvés',
-      'Essais de traction des bretelles, poignées et coutures critiques',
-      'Cycles d’ouverture des fermetures et boucles',
-      'Essai d’abrasion et de résistance à l’eau selon l’usage annoncé',
+      'Complete measurements against approved pattern and tolerances',
+      'Tensile tests for straps, handles, and critical seams',
+      'Cycle testing for zippers and buckles',
+      'Abrasion and water-resistance testing based on claimed use',
     ],
   },
   generic: {
-    productTitle: 'Produit à préciser — trame de spécification',
-    targetMarket: 'À préciser',
+    productTitle: 'Product details required — specification template',
+    targetMarket: 'To be determined',
     specsSummary:
-      'La description ne permet pas encore de produire un cahier des charges spécifique sans inventer de données. Cette trame indique les informations à collecter.',
+      'The description is not detailed enough to create a product-specific specification without inventing data. This template lists the information to collect.',
     technicalSpecs: {
       materials: [
-        'Matières exactes, grades et fournisseurs approuvés à préciser',
-        'Finitions, couleurs et traitements à documenter',
+        'Exact materials, grades, and approved suppliers to be specified',
+        'Document finishes, colors, and treatments',
       ],
-      dimensions: 'Plan coté et interfaces critiques à fournir',
-      weight: 'Poids cible et tolérance à définir',
-      tolerances: 'Tolérances fonctionnelles à définir à partir de l’usage réel',
+      dimensions: 'Provide a dimensioned drawing and critical interfaces',
+      weight: 'Define target weight and tolerance',
+      tolerances: 'Define functional tolerances based on actual use',
       keyFeatures: [
-        'Fonctions essentielles et critères mesurables à décrire',
-        'Conditions d’utilisation, durée de vie et environnement à préciser',
+        'Describe essential functions and measurable criteria',
+        'Specify use conditions, service life, and operating environment',
       ],
     },
     certifications: {
       toVerify: [
-        'Identifier les réglementations applicables après confirmation du produit, de son usage et du marché',
+        'Identify applicable regulations after confirming the product, use, and market',
       ],
-      recommended: ['Faire valider le plan d’essais par un spécialiste du produit'],
-      testingLabs: ['Laboratoire à sélectionner après définition du plan d’essais'],
+      recommended: ['Have a product specialist validate the test plan'],
+      testingLabs: ['Select a laboratory after defining the test plan'],
       verificationNotice: VERIFICATION_NOTICE,
     },
     moq: {
       recommended: 0,
       sampleMoq: 1,
-      unit: 'unités',
-      notes: 'MOQ impossible à estimer sans procédé, matière et personnalisation.',
+      unit: 'units',
+      notes: 'Cannot estimate MOQ without process, material, and customization details.',
     },
     pricingTarget: sharedPricing(),
     qualityControl: [
-      'Définir les caractéristiques critiques pour la qualité',
-      'Créer un plan de contrôle relié aux plans et spécifications approuvés',
-      'Valider un échantillon de référence avant production',
+      'Define critical-to-quality characteristics',
+      'Create a control plan linked to approved drawings and specifications',
+      'Approve a reference sample before production',
     ],
   },
 };
@@ -285,7 +291,7 @@ export function createDemoProductSpecs(prompt: string): ProductSpecResult {
 
   return {
     mode: 'demo',
-    sourceLabel: 'Trame de démonstration — aucune analyse IA',
+    sourceLabel: 'Demo template — no AI analysis',
     category,
     ...DEMO_PROFILES[category],
   };

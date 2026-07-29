@@ -1,10 +1,6 @@
-'use client';
-
-import { useState } from 'react';
-
-import { DemoVideo } from '@/components/DemoVideo';
 import { Footer } from '@/components/Footer';
-import { Hero } from '@/components/Hero';
+import { HeroExperience } from '@/components/HeroExperience';
+import { MarketingSections } from '@/components/MarketingSections';
 import { Navbar } from '@/components/Navbar';
 import { PricingSection } from '@/components/PricingSection';
 import { WaitlistSection } from '@/components/WaitlistSection';
@@ -12,40 +8,27 @@ import { WaitlistSection } from '@/components/WaitlistSection';
 const APP_ENTRY_PATH = '/app';
 
 export function LandingPage() {
-  const [isDemoOpen, setIsDemoOpen] = useState(false);
-
-  const handleScrollToWaitlist = () => {
-    document
-      .getElementById('waitlist')
-      ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-  };
-
   return (
-    <div className="min-h-screen flex flex-col bg-[#08090d]">
+    <div className="marketing-shell flex min-h-screen flex-col">
+      <a
+        href="#main-content"
+        className="sr-only z-[100] rounded-lg bg-[#c7ff6b] px-4 py-2 font-bold text-[#0a0d0b] focus:fixed focus:left-4 focus:top-4 focus:not-sr-only"
+      >
+        Skip to content
+      </a>
       <Navbar area="marketing" />
 
-      <main className="flex-1">
-        <Hero
-          appHref={APP_ENTRY_PATH}
-          onScrollToWaitlist={handleScrollToWaitlist}
-          onOpenDemo={() => setIsDemoOpen(true)}
-        />
+      <main id="main-content" className="flex-1">
+        <HeroExperience appHref={APP_ENTRY_PATH} />
+
+        <MarketingSections />
+
+        <PricingSection appHref={APP_ENTRY_PATH} />
 
         <WaitlistSection />
-
-        <PricingSection onSelectPlan={handleScrollToWaitlist} />
-
-        <Footer
-          appHref={APP_ENTRY_PATH}
-          onScrollToWaitlist={handleScrollToWaitlist}
-        />
       </main>
 
-      <DemoVideo
-        isOpen={isDemoOpen}
-        onClose={() => setIsDemoOpen(false)}
-        appHref={APP_ENTRY_PATH}
-      />
+      <Footer appHref={APP_ENTRY_PATH} />
     </div>
   );
 }

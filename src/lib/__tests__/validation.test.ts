@@ -32,6 +32,27 @@ describe('validation partagée', () => {
     expect(result.success).toBe(false);
   });
 
+  it.each(['7323.93.00.80', '7323930080'])(
+    'accepts a valid 10-digit HTS code: %s',
+    (hsCode) => {
+      const result = landedCostInputSchema.safeParse({
+        unitPriceFob: 4.5,
+        quantity: 1_000,
+        shippingMode: 'sea_lcl',
+        hsCode,
+        destinationMarket: 'US',
+        customsDutyRate: 3.4,
+        freightCostTotal: 1_200,
+        insuranceCost: null,
+        localPortCharges: 300,
+        lastMileDelivery: 250,
+        targetRetailPrice: 24,
+      });
+
+      expect(result.success).toBe(true);
+    },
+  );
+
   it('rejette une extraction structurée avec montant négatif', () => {
     const result = structuredQuoteSchema.safeParse({
       fileName: 'quote.pdf',
@@ -62,4 +83,3 @@ describe('validation partagée', () => {
     expect(result.success).toBe(false);
   });
 });
-

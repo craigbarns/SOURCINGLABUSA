@@ -53,7 +53,7 @@ function parseOrigin(value: string | undefined, fallback: string, name: string) 
     return url;
   } catch {
     throw new Error(
-      `${name} doit être une origine HTTP(S) absolue sans chemin, par exemple ${fallback}.`,
+      `${name} must be an absolute HTTP(S) origin without a path, for example ${fallback}.`,
     );
   }
 }
@@ -142,9 +142,31 @@ export function resolveDomainRoute(
   const isMarketingHost = hostname === config.marketingHostname;
   const isMarketingAlias = hostname === `www.${config.marketingHostname}`;
   const isAppHost = hostname === config.appHostname;
+  const usesSharedHost =
+    config.marketingHostname === config.appHostname &&
+    hostname === config.marketingHostname;
   const isLocalMarketingHost =
     hostname === 'localhost' || hostname === '127.0.0.1' || hostname === '::1';
   const isLocalAppHost = hostname === 'app.localhost';
+
+  if (usesSharedHost) {
+    if (isMarketingAliasPath) {
+      return {
+        kind: 'redirect',
+        destination: targetUrl(
+          config.marketingOrigin,
+          pathAfterPrefix(pathname, '/marketing'),
+          requestUrl,
+        ),
+        permanent: true,
+      };
+    }
+
+    return {
+      kind: 'next',
+      area: isAppPath ? 'app' : 'marketing',
+    };
+  }
 
   if (isAppHost) {
     if (pathname === '/robots.txt') {

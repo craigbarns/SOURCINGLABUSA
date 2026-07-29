@@ -5,6 +5,7 @@ import { z } from 'zod';
 import { getMistralServerConfig, type MistralServerConfig } from '@/lib/server/env';
 import {
   ACCEPTED_QUOTE_MIME_TYPES,
+  formatQuoteUploadBytes,
   MAX_QUOTE_FILE_BYTES,
   MAX_QUOTE_FILES,
   MAX_QUOTE_UPLOAD_BYTES,
@@ -112,13 +113,13 @@ export async function validateQuoteUploads(
 
   if (entries.length === 0) {
     throw new UploadValidationError(
-      'Sélectionnez au moins un devis PDF, JPEG, PNG ou WebP.',
+      'Select at least one PDF, JPEG, PNG, or WebP quote.',
     );
   }
 
   if (entries.length > MAX_QUOTE_FILES) {
     throw new UploadValidationError(
-      `Vous pouvez comparer au maximum ${MAX_QUOTE_FILES} devis à la fois.`,
+      `You can compare up to ${MAX_QUOTE_FILES} quotes at a time.`,
     );
   }
 
@@ -126,19 +127,21 @@ export async function validateQuoteUploads(
 
   if (totalBytes > MAX_QUOTE_UPLOAD_BYTES) {
     throw new UploadValidationError(
-      "La taille totale des fichiers dépasse la limite de 25 Mo.",
+      `The combined file size exceeds the ${formatQuoteUploadBytes(MAX_QUOTE_UPLOAD_BYTES)} limit.`,
     );
   }
 
   return Promise.all(
     entries.map(async (file): Promise<ValidatedQuoteFile> => {
       if (file.size === 0) {
-        throw new UploadValidationError(`Le fichier « ${safeFileName(file.name)} » est vide.`);
+        throw new UploadValidationError(
+          `File "${safeFileName(file.name)}" is empty.`,
+        );
       }
 
       if (file.size > MAX_QUOTE_FILE_BYTES) {
         throw new UploadValidationError(
-          `Le fichier « ${safeFileName(file.name)} » dépasse la limite de 12 Mo.`,
+          `File "${safeFileName(file.name)}" exceeds the ${formatQuoteUploadBytes(MAX_QUOTE_FILE_BYTES)} per-file limit.`,
         );
       }
 
@@ -148,7 +151,7 @@ export async function validateQuoteUploads(
         )
       ) {
         throw new UploadValidationError(
-          `Le format de « ${safeFileName(file.name)} » n'est pas accepté.`,
+          `The file type for "${safeFileName(file.name)}" is not supported.`,
         );
       }
 
@@ -157,7 +160,7 @@ export async function validateQuoteUploads(
 
       if (!hasExpectedMagicBytes(bytes, mimeType)) {
         throw new UploadValidationError(
-          `Le contenu de « ${safeFileName(file.name)} » ne correspond pas à son format déclaré.`,
+          `The contents of "${safeFileName(file.name)}" do not match its declared file type.`,
         );
       }
 
@@ -215,7 +218,7 @@ async function processOneDocument(
 
     if (!response.ok) {
       throw new OcrProviderError(
-        `Mistral OCR a refusé « ${file.fileName} » (statut ${response.status}).`,
+        `Mistral OCR rejected "${file.fileName}" (status ${response.status}).`,
       );
     }
 
@@ -223,7 +226,7 @@ async function processOneDocument(
 
     if (!parsed.success) {
       throw new OcrProviderError(
-        `La réponse OCR de « ${file.fileName} » est invalide.`,
+        `The OCR response for "${file.fileName}" is invalid.`,
       );
     }
 
@@ -232,7 +235,9 @@ async function processOneDocument(
       .join('\n\n');
 
     if (!markdown.trim()) {
-      throw new OcrProviderError(`Aucun texte n'a été extrait de « ${file.fileName} ».`);
+      throw new OcrProviderError(
+        `No text was extracted from "${file.fileName}".`,
+      );
     }
 
     const confidenceValues = parsed.data.pages.flatMap((page) => {
@@ -253,12 +258,12 @@ async function processOneDocument(
 
     if (error instanceof Error && error.name === 'AbortError') {
       throw new OcrProviderError(
-        `Le traitement OCR de « ${file.fileName} » a dépassé le délai autorisé.`,
+        `OCR processing for "${file.fileName}" timed out.`,
       );
     }
 
     throw new OcrProviderError(
-      `Le traitement OCR de « ${file.fileName} » a échoué.`,
+      `OCR processing for "${file.fileName}" failed.`,
     );
   } finally {
     clearTimeout(timeout);
@@ -275,9 +280,8 @@ export async function runMistralOcr(
   const config = getMistralServerConfig();
 
   if (!config) {
-    throw new OcrProviderError("Mistral OCR n'est pas configuré.");
+    throw new OcrProviderError('Mistral OCR is not configured.');
   }
 
   return Promise.all(files.map((file) => processOneDocument(file, config)));
 }
-

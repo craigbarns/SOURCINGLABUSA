@@ -39,7 +39,7 @@ describe('WaitlistSection', () => {
       screen.getByRole('textbox', { name: /Work Email Address/i }),
       'OWNER@EXAMPLE.COM',
     );
-    await user.click(screen.getByRole('button', { name: /Claim Priority Access/i }));
+    await user.click(screen.getByRole('button', { name: /Join product updates/i }));
 
     await waitFor(() => {
       expect(fetchMock).toHaveBeenCalledTimes(1);
@@ -57,7 +57,7 @@ describe('WaitlistSection', () => {
     );
     expect(
       await screen.findByRole('heading', {
-        name: /You are on the list!/i,
+        name: /You're on the list/i,
       }),
     ).toBeInTheDocument();
     expect(screen.getByText('owner@example.com')).toBeInTheDocument();
@@ -79,7 +79,7 @@ describe('WaitlistSection', () => {
       screen.getByRole('textbox', { name: /Work Email Address/i }),
       'deja@example.com',
     );
-    await user.click(screen.getByRole('button', { name: /Claim Priority Access/i }));
+    await user.click(screen.getByRole('button', { name: /Join product updates/i }));
 
     expect(await screen.findByRole('alert')).toHaveTextContent(
       'This email address is already registered.',
@@ -89,7 +89,7 @@ describe('WaitlistSection', () => {
     ).toHaveValue('deja@example.com');
     expect(
       screen.queryByRole('heading', {
-        name: /You are on the list!/i,
+        name: /You're on the list/i,
       }),
     ).not.toBeInTheDocument();
   });
@@ -111,14 +111,14 @@ describe('WaitlistSection', () => {
       screen.getByRole('textbox', { name: /Work Email Address/i }),
       'buyer@example.com',
     );
-    await user.click(screen.getByRole('button', { name: /Claim Priority Access/i }));
+    await user.click(screen.getByRole('button', { name: /Join product updates/i }));
 
     expect(await screen.findByRole('alert')).toHaveTextContent(
       "Registration is temporarily unavailable.",
     );
     expect(
       screen.queryByRole('heading', {
-        name: /You are on the list!/i,
+        name: /You're on the list/i,
       }),
     ).not.toBeInTheDocument();
   });

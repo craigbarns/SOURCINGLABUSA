@@ -44,7 +44,7 @@ const DEMO_QUOTES: StructuredQuote[] = [
     ],
     evidence: [],
     extractionConfidence: 1,
-    warnings: ['Fixture pédagogique : aucune donnée ne provient de votre fichier.'],
+    warnings: ['Demo data: no information was read from your file.'],
   },
   {
     fileName: 'DEMO_Beta.pdf',
@@ -86,7 +86,7 @@ const DEMO_QUOTES: StructuredQuote[] = [
     ],
     evidence: [],
     extractionConfidence: 1,
-    warnings: ['Fixture pédagogique : aucune donnée ne provient de votre fichier.'],
+    warnings: ['Demo data: no information was read from your file.'],
   },
   {
     fileName: 'DEMO_Gamma.pdf',
@@ -120,7 +120,7 @@ const DEMO_QUOTES: StructuredQuote[] = [
     ],
     evidence: [],
     extractionConfidence: 1,
-    warnings: ['Fixture pédagogique : aucune donnée ne provient de votre fichier.'],
+    warnings: ['Demo data: no information was read from your file.'],
   },
 ];
 
@@ -138,15 +138,14 @@ export function createDemoQuoteAnalysis(): QuoteAnalysisResponse {
     comparison: {
       ...comparison,
       summary:
-        'Exemple pédagogique sur trois fixtures SourcingLab. Vos fichiers n’ont pas été lus car Mistral OCR n’est pas configuré.',
+        'Demo using three SourcingLab sample quotes. Your files were not read because Mistral OCR is not configured.',
       recommendedQuoteFileName: null,
       recommendations: [
-        'Configurer MISTRAL_API_KEY pour analyser le contenu réel des documents.',
-        'Configurer OPENAI_API_KEY pour enrichir l’analyse qualitative côté serveur.',
+        'Configure MISTRAL_API_KEY to analyze actual document content.',
+        'Configure OPENAI_API_KEY to add server-side qualitative analysis.',
       ],
     },
     warning:
-      'MODE DÉMONSTRATION — résultat pédagogique généré à partir de fixtures. Aucun contenu de vos fichiers n’a été analysé.',
+      'DEMO MODE — Educational result generated from sample data. None of your file content was analyzed.',
   };
 }
-

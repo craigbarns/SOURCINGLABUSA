@@ -3,15 +3,22 @@
 import React, { useState } from 'react';
 import { Sparkles, Copy, Check, FileText, ShieldCheck, DollarSign, Package, AlertCircle } from 'lucide-react';
 import { ClientApiError, generateProductSpecs } from '@/lib/ai-service';
-import { ProductSpecResult } from '@/lib/types';
+import type { ProductSpecResult } from '@/lib/types';
 
 interface ProductSpecGeneratorProps {
   userApiKey?: string;
 }
 
+const PRODUCT_SPEC_ERROR_TRANSLATIONS: Record<string, string> = {
+  "Le cahier des charges n'a pas pu être généré.":
+    'The product specification could not be generated.',
+  'La réponse du serveur est invalide.':
+    'The server returned an invalid response.',
+};
+
 export const ProductSpecGenerator: React.FC<ProductSpecGeneratorProps> = () => {
   const [promptInput, setPromptInput] = useState(
-    'Je cherche un fabricant de gourdes en inox pour les États-Unis.'
+    'I need a manufacturer for stainless steel water bottles for the US market.'
   );
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ProductSpecResult | null>(null);
@@ -19,10 +26,10 @@ export const ProductSpecGenerator: React.FC<ProductSpecGeneratorProps> = () => {
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const presets = [
-    'Je cherche un fabricant de gourdes en inox 18/8 isothermes pour le marché US.',
-    'Sourcing de t-shirts 100% coton bio GOTS 240 GSM personnalisés.',
-    'Recherche usine écouteurs Bluetooth TWS avec réduction de bruit ANC & FCC certifié.',
-    'Fabricant de sacs à dos de voyage 35 L résistants à la pluie.'
+    '18/8 stainless steel insulated water bottles for the US market.',
+    'Custom 240 GSM GOTS organic cotton T-shirts.',
+    'TWS Bluetooth earbuds with ANC for the US market.',
+    'Water-resistant 35 L travel backpacks.',
   ];
 
   const handleGenerate = async (queryText?: string) => {
@@ -37,8 +44,8 @@ export const ProductSpecGenerator: React.FC<ProductSpecGeneratorProps> = () => {
     } catch (e) {
       setErrorMessage(
         e instanceof ClientApiError
-          ? e.message
-          : "Le cahier des charges n'a pas pu être généré.",
+          ? PRODUCT_SPEC_ERROR_TRANSLATIONS[e.message] ?? e.message
+          : 'The product specification could not be generated.',
       );
     } finally {
       setLoading(false);
@@ -48,26 +55,26 @@ export const ProductSpecGenerator: React.FC<ProductSpecGeneratorProps> = () => {
   const handleCopy = () => {
     if (!result) return;
     const text = `
-=== CAHIER DES CHARGES SOURCINGLAB USA ===
-Produit: ${result.productTitle}
-Marché Cible: ${result.targetMarket}
+=== SOURCINGLAB USA PRODUCT SPECIFICATION ===
+Product: ${result.productTitle}
+Target Market: ${result.targetMarket}
 
---- MATÉRIAUX & SPÉCIFICATIONS ---
-- Matériaux: ${result.technicalSpecs.materials.join(', ')}
+--- MATERIALS & SPECIFICATIONS ---
+- Materials: ${result.technicalSpecs.materials.join(', ')}
 - Dimensions: ${result.technicalSpecs.dimensions}
-- Poids: ${result.technicalSpecs.weight}
-- Tolérances: ${result.technicalSpecs.tolerances}
+- Weight: ${result.technicalSpecs.weight}
+- Tolerances: ${result.technicalSpecs.tolerances}
 
-	--- EXIGENCES POTENTIELLES À VÉRIFIER ---
+	--- POTENTIAL REQUIREMENTS TO VERIFY ---
 	${result.certifications.toVerify.map((c) => `- ${c}`).join('\n')}
 
-	AVERTISSEMENT: ${result.certifications.verificationNotice}
+	NOTICE: ${result.certifications.verificationNotice}
 
 --- TARGET PRICING & MOQ ---
-- MOQ Conseillé: ${result.moq.recommended} ${result.moq.unit}
-- Prix Cible FOB: ${result.pricingTarget.estimatedFob}
-- Coût Rendu estimé US: ${result.pricingTarget.targetLandCost}
-- MSRP Suggéré: ${result.pricingTarget.recommendedMSRP}
+- Recommended MOQ: ${result.moq.recommended} ${result.moq.unit}
+- Target FOB Price: ${result.pricingTarget.estimatedFob}
+- Estimated Landed Cost: ${result.pricingTarget.targetLandCost}
+- Suggested MSRP: ${result.pricingTarget.recommendedMSRP}
 `;
     void navigator.clipboard
       .writeText(text)
@@ -77,7 +84,7 @@ Marché Cible: ${result.targetMarket}
       })
       .catch(() => {
         setErrorMessage(
-          'La copie automatique a échoué. Sélectionnez le contenu du cahier.',
+          'Automatic copy failed. Select and copy the specification manually.',
         );
       });
   };
@@ -90,9 +97,10 @@ Marché Cible: ${result.targetMarket}
           <Sparkles className="w-5 h-5" />
         </div>
         <div>
-          <h3 className="text-base font-bold text-white">Fonction 1 : Décris ton produit</h3>
+          <h3 className="text-base font-bold text-white">Product specification generator</h3>
           <p className="text-xs text-gray-400">
-            L&apos;IA traduit votre idée en un cahier des charges technique rigoureux ready-to-send aux usines.
+            Turn a product idea into a structured factory-ready specification.
+            Verify all commercial and regulatory details before use.
           </p>
         </div>
       </div>
@@ -103,20 +111,20 @@ Marché Cible: ${result.targetMarket}
           htmlFor="product-spec-prompt"
           className="block text-xs font-semibold text-gray-300 uppercase tracking-wider"
         >
-          Description de votre besoin produit :
+          Describe your product requirements
         </label>
         <textarea
           id="product-spec-prompt"
           rows={3}
           value={promptInput}
           onChange={(e) => setPromptInput(e.target.value)}
-          placeholder="Ex: Je cherche un fabricant de gourdes en inox pour les États-Unis..."
+          placeholder="Example: I need a manufacturer for insulated stainless steel water bottles for the US market..."
           className="w-full p-4 rounded-xl bg-slate-950 border border-gray-800 text-white placeholder-gray-500 text-sm focus:outline-none focus:border-blue-500 transition-colors"
         />
 
         {/* Quick Presets */}
         <div className="flex flex-wrap items-center gap-2 pt-1">
-          <span className="text-xs text-gray-500 font-medium">Exemples :</span>
+          <span className="text-xs text-gray-500 font-medium">Examples:</span>
           {presets.map((preset, idx) => (
             <button
               key={idx}
@@ -142,12 +150,12 @@ Marché Cible: ${result.targetMarket}
                 className="w-4 h-4 border-2 border-white border-t-transparent rounded-full animate-spin"
                 aria-hidden="true"
               />
-              <span>Génération du cahier des charges...</span>
+              <span>Generating specification...</span>
             </>
           ) : (
             <>
               <Sparkles className="w-4 h-4" />
-              <span>Générer le Cahier des Charges IA</span>
+              <span>Generate Product Specification</span>
             </>
           )}
         </button>
@@ -175,7 +183,7 @@ Marché Cible: ${result.targetMarket}
           >
             <strong>{result.sourceLabel}</strong>
             {result.mode === 'demo' &&
-              ' — aucune analyse IA n’a été exécutée. Les valeurs inconnues restent à confirmer.'}
+              ' — no AI analysis was performed. Unknown values still need confirmation.'}
           </div>
 
           {/* Output Header */}
@@ -195,7 +203,7 @@ Marché Cible: ${result.targetMarket}
               className="self-start sm:self-center px-4 py-2 rounded-xl bg-slate-800 hover:bg-slate-700 text-xs font-semibold text-gray-200 flex items-center gap-2 border border-gray-700 transition-all"
             >
               {copied ? <Check className="w-4 h-4 text-emerald-400" /> : <Copy className="w-4 h-4" />}
-              <span>{copied ? 'Copié !' : 'Copier le Cahier'}</span>
+              <span>{copied ? 'Copied!' : 'Copy Specification'}</span>
             </button>
           </div>
 
@@ -205,11 +213,11 @@ Marché Cible: ${result.targetMarket}
             <div className="p-4 rounded-xl bg-slate-950 border border-gray-800/80 space-y-3">
               <div className="flex items-center gap-2 text-blue-400 font-bold text-sm">
                 <FileText className="w-4 h-4" />
-                <span>Matériaux & Dimensions</span>
+                <span>Materials & Dimensions</span>
               </div>
               <div className="space-y-2 text-xs text-gray-300">
                 <div>
-                  <span className="text-gray-500 block">Matériaux recommandés:</span>
+                  <span className="text-gray-500 block">Recommended materials:</span>
                   <ul className="list-disc list-inside text-white font-medium">
                     {result.technicalSpecs.materials.map((m, i) => (
                       <li key={i}>{m}</li>
@@ -222,7 +230,7 @@ Marché Cible: ${result.targetMarket}
                     <span className="text-gray-200">{result.technicalSpecs.dimensions}</span>
                   </div>
                   <div>
-                    <span className="text-gray-500 block">Poids unitaire:</span>
+                    <span className="text-gray-500 block">Unit weight:</span>
                     <span className="text-gray-200">{result.technicalSpecs.weight}</span>
                   </div>
                 </div>
@@ -233,12 +241,12 @@ Marché Cible: ${result.targetMarket}
             <div className="p-4 rounded-xl bg-slate-950 border border-gray-800/80 space-y-3">
               <div className="flex items-center gap-2 text-emerald-400 font-bold text-sm">
                 <ShieldCheck className="w-4 h-4" />
-                <span>Certifications & Conformité</span>
+                <span>Compliance & Documentation</span>
               </div>
               <div className="space-y-2 text-xs">
                 <div>
                   <span className="text-gray-500 block">
-                    Exigences potentielles à vérifier :
+                    Potential requirements to verify:
                   </span>
                   <div className="flex flex-wrap gap-1.5 mt-1">
                     {result.certifications.toVerify.map((c, i) => (
@@ -249,7 +257,7 @@ Marché Cible: ${result.targetMarket}
                   </div>
                 </div>
                 <div>
-                  <span className="text-gray-500 block">Laboratoires de test recommandés:</span>
+                  <span className="text-gray-500 block">Recommended testing labs:</span>
                   <span className="text-gray-300 font-medium">{result.certifications.testingLabs.join(' • ')}</span>
                 </div>
                 <p className="text-amber-300/90 leading-relaxed">
@@ -262,23 +270,23 @@ Marché Cible: ${result.targetMarket}
             <div className="p-4 rounded-xl bg-slate-950 border border-gray-800/80 space-y-3">
               <div className="flex items-center gap-2 text-purple-400 font-bold text-sm">
                 <DollarSign className="w-4 h-4" />
-                <span>Objectifs Prix & MOQ</span>
+                <span>Pricing & MOQ Targets</span>
               </div>
               <div className="grid grid-cols-2 gap-3 text-xs">
                 <div className="p-2.5 rounded-lg bg-slate-900 border border-gray-800">
-                  <span className="text-gray-400 block text-[11px]">Prix Cible FOB Usine</span>
+                  <span className="text-gray-400 block text-[11px]">Target Factory FOB Price</span>
                   <span className="text-base font-bold text-white">{result.pricingTarget.estimatedFob}</span>
                 </div>
                 <div className="p-2.5 rounded-lg bg-slate-900 border border-gray-800">
-                  <span className="text-gray-400 block text-[11px]">Coût Rendu Estimé</span>
+                  <span className="text-gray-400 block text-[11px]">Estimated Landed Cost</span>
                   <span className="text-base font-bold text-emerald-400">{result.pricingTarget.targetLandCost}</span>
                 </div>
                 <div className="p-2.5 rounded-lg bg-slate-900 border border-gray-800">
-                  <span className="text-gray-400 block text-[11px]">MOQ Recommandé</span>
+                  <span className="text-gray-400 block text-[11px]">Recommended MOQ</span>
                   <span className="text-sm font-bold text-blue-400">{result.moq.recommended} {result.moq.unit}</span>
                 </div>
                 <div className="p-2.5 rounded-lg bg-slate-900 border border-gray-800">
-                  <span className="text-gray-400 block text-[11px]">Prix de Vente MSRP</span>
+                  <span className="text-gray-400 block text-[11px]">Suggested MSRP</span>
                   <span className="text-sm font-bold text-purple-300">{result.pricingTarget.recommendedMSRP}</span>
                 </div>
               </div>
@@ -288,7 +296,7 @@ Marché Cible: ${result.targetMarket}
             <div className="p-4 rounded-xl bg-slate-950 border border-gray-800/80 space-y-3">
               <div className="flex items-center gap-2 text-amber-400 font-bold text-sm">
                 <Package className="w-4 h-4" />
-                <span>Points de Contrôle Qualité (QC)</span>
+                <span>Quality Control Checkpoints</span>
               </div>
               <ul className="space-y-1.5 text-xs text-gray-300">
                 {result.qualityControl.map((qc, i) => (

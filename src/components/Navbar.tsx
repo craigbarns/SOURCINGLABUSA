@@ -1,141 +1,116 @@
 'use client';
 
-import React from 'react';
 import Link from 'next/link';
+import { ArrowLeft, ArrowUpRight, Menu, X } from 'lucide-react';
+import { useState } from 'react';
+
 import { Logo } from './Logo';
-import { ShieldCheck, ArrowRight, Settings, Zap, Activity } from 'lucide-react';
 
 interface NavbarProps {
-  activeTab?: 'landing' | 'app';
-  setActiveTab?: (tab: 'landing' | 'app') => void;
-  onOpenSettings?: () => void;
-  hasApiKey?: boolean;
   area?: 'app' | 'marketing';
 }
 
-export const Navbar: React.FC<NavbarProps> = ({
-  activeTab = 'landing',
-  setActiveTab,
-  onOpenSettings,
-  hasApiKey = false,
-  area,
-}) => {
-  const isAppArea = area === 'app';
-  const currentTab = isAppArea ? 'app' : activeTab;
+const navigation = [
+  { label: 'Product', href: '#product' },
+  { label: 'How it works', href: '#workflow' },
+  { label: 'Security', href: '#security' },
+  { label: 'Pricing', href: '#pricing' },
+  { label: 'FAQ', href: '#faq' },
+];
 
+export const Navbar: React.FC<NavbarProps> = ({ area = 'marketing' }) => {
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const isAppArea = area === 'app';
   const marketingHref = isAppArea ? '/marketing' : '/';
-  const appHref = '/app';
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-gray-800/80 bg-slate-950/85 backdrop-blur-xl">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        {/* Brand Logo Link */}
+    <header className="sticky top-0 z-50 w-full border-b border-white/[0.07] bg-[#070a09]/86 backdrop-blur-xl">
+      <div className="mx-auto flex h-[70px] max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href={marketingHref}
-          aria-label="Back to SourcingLab USA homepage"
-          onClick={(e) => {
-            if (setActiveTab && !area) {
-              e.preventDefault();
-              setActiveTab('landing');
-            }
-          }}
-          className="cursor-pointer"
+          aria-label="SourcingLab USA home"
+          className="min-w-0 rounded-xl"
         >
-          <Logo size="md" />
+          <Logo compactOnMobile />
         </Link>
 
-        {/* Center Nav Items */}
-        <div className="hidden md:flex items-center gap-1 bg-slate-900/90 border border-gray-800/80 p-1.5 rounded-2xl text-xs font-semibold backdrop-blur-md">
-          <Link
-            href={marketingHref}
-            aria-current={currentTab === 'landing' ? 'page' : undefined}
-            onClick={(e) => {
-              if (setActiveTab && !area) {
-                e.preventDefault();
-                setActiveTab('landing');
-              }
-            }}
-            className={`px-4 py-2 rounded-xl transition-all duration-200 ${
-              currentTab === 'landing'
-                ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30 font-bold'
-                : 'text-gray-400 hover:text-white hover:bg-slate-800/60'
-            }`}
-          >
-            Landing Page
-          </Link>
-          <Link
-            href={appHref}
-            aria-current={currentTab === 'app' ? 'page' : undefined}
-            onClick={(e) => {
-              if (setActiveTab && !area) {
-                e.preventDefault();
-                setActiveTab('app');
-              }
-            }}
-            className={`px-4 py-2 rounded-xl transition-all duration-200 flex items-center gap-2 ${
-              currentTab === 'app'
-                ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30 font-bold'
-                : 'text-emerald-400 hover:bg-emerald-950/40 hover:text-emerald-300'
-            }`}
-          >
-            <Zap className="w-3.5 h-3.5 fill-emerald-400" />
-            <span>Launch AI Copilot</span>
-          </Link>
-        </div>
+        {!isAppArea && (
+          <nav aria-label="Primary navigation" className="hidden items-center gap-7 md:flex">
+            {navigation.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                className="text-[13px] font-medium text-[#96a29b] transition-colors hover:text-white"
+              >
+                {item.label}
+              </a>
+            ))}
+          </nav>
+        )}
 
-        {/* Right Actions */}
-        <div className="flex items-center gap-3">
-          {/* Status Badge */}
-          <div className="hidden lg:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-slate-900 border border-gray-800 text-[11px] text-gray-300 font-mono">
-            <Activity className="w-3.5 h-3.5 text-emerald-400" />
-            <span>AI Engine Active • 2026</span>
-          </div>
-
-          {onOpenSettings && (
-            <button
-              onClick={onOpenSettings}
-              title="OpenAI API Key Configuration (Optional)"
-              className={`p-2.5 rounded-xl border transition-all duration-200 ${
-                hasApiKey
-                  ? 'border-emerald-500/50 bg-emerald-500/10 text-emerald-400'
-                  : 'border-gray-800 bg-slate-900 text-gray-400 hover:text-white hover:border-gray-700'
-              }`}
-            >
-              <Settings className="w-4 h-4" />
-            </button>
-          )}
-
-          {currentTab === 'landing' ? (
+        <div className="flex items-center gap-2">
+          {isAppArea ? (
             <Link
-              href={appHref}
-              onClick={(e) => {
-                if (setActiveTab && !area) {
-                  e.preventDefault();
-                  setActiveTab('app');
-                }
-              }}
-              className="inline-flex items-center gap-2 px-4 py-2.5 text-xs sm:text-sm font-bold rounded-xl bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-500 text-white hover:opacity-95 transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 group"
+              href={marketingHref}
+              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-[#dce5df] transition-colors hover:bg-white/[0.08]"
             >
-              <span>Open AI App</span>
-              <ArrowRight className="w-4 h-4 group-hover:translate-x-0.5 transition-transform" />
+              <ArrowLeft className="h-4 w-4" aria-hidden="true" />
+              <span className="hidden sm:inline">Back to website</span>
+              <span className="sm:hidden">Website</span>
             </Link>
           ) : (
             <Link
-              href={marketingHref}
-              onClick={(e) => {
-                if (setActiveTab && !area) {
-                  e.preventDefault();
-                  setActiveTab('landing');
-                }
-              }}
-              className="inline-flex items-center gap-2 px-4 py-2.5 text-xs sm:text-sm font-semibold rounded-xl border border-gray-800 bg-slate-900 text-gray-300 hover:bg-slate-800 hover:text-white transition-all"
+              href="/app"
+              aria-label="Analyze a quote"
+              className="group inline-flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-xl bg-[#c7ff6b] text-sm font-extrabold text-[#0a0d0b] shadow-[0_8px_30px_rgba(199,255,107,0.13)] transition hover:bg-[#d6ff91] sm:h-auto sm:w-auto sm:px-4 sm:py-2.5"
             >
-              <ShieldCheck className="w-4 h-4 text-emerald-400" />
-              <span>View Pricing & Waitlist</span>
+              <span className="hidden sm:inline">Analyze a quote</span>
+              <ArrowUpRight
+                className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
+                aria-hidden="true"
+              />
             </Link>
+          )}
+
+          {!isAppArea && (
+            <button
+              type="button"
+              className="grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 text-[#dce5df] md:hidden"
+              aria-label={isMenuOpen ? 'Close navigation menu' : 'Open navigation menu'}
+              aria-expanded={isMenuOpen}
+              aria-controls="mobile-navigation"
+              onClick={() => setIsMenuOpen((current) => !current)}
+            >
+              {isMenuOpen ? (
+                <X className="h-5 w-5" aria-hidden="true" />
+              ) : (
+                <Menu className="h-5 w-5" aria-hidden="true" />
+              )}
+            </button>
           )}
         </div>
       </div>
+
+      {!isAppArea && isMenuOpen && (
+        <nav
+          id="mobile-navigation"
+          aria-label="Mobile navigation"
+          className="border-t border-white/[0.07] bg-[#0a0e0c] px-4 py-4 md:hidden"
+        >
+          <div className="mx-auto grid max-w-7xl gap-1">
+            {navigation.map((item) => (
+              <a
+                key={item.href}
+                href={item.href}
+                onClick={() => setIsMenuOpen(false)}
+                className="rounded-xl px-3 py-3 text-sm font-semibold text-[#c8d1cb] transition-colors hover:bg-white/[0.05] hover:text-white"
+              >
+                {item.label}
+              </a>
+            ))}
+          </div>
+        </nav>
+      )}
     </header>
   );
 };

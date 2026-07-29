@@ -1,8 +1,17 @@
 import { z } from 'zod';
 
 export const MAX_QUOTE_FILES = 3;
-export const MAX_QUOTE_FILE_BYTES = 12 * 1024 * 1024;
-export const MAX_QUOTE_UPLOAD_BYTES = 25 * 1024 * 1024;
+export const MAX_QUOTE_FILE_BYTES = 4 * 1024 * 1024;
+export const MAX_QUOTE_UPLOAD_BYTES = 4 * 1024 * 1024;
+
+// Vercel Functions reject payloads at 4.5 MB. This ceiling reserves roughly
+// 200 KB for multipart boundaries and headers while keeping the files at 4 MiB.
+export const MAX_QUOTE_REQUEST_BYTES = 4_400_000;
+
+export function formatQuoteUploadBytes(bytes: number): string {
+  const mebibytes = bytes / (1024 * 1024);
+  return `${Number.isInteger(mebibytes) ? mebibytes : mebibytes.toFixed(1)} MB`;
+}
 
 export const ACCEPTED_QUOTE_MIME_TYPES = [
   'application/pdf',

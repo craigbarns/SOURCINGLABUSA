@@ -54,13 +54,22 @@ function extractMatch(markdown: string, patterns: RegExp[]): string | null {
 }
 
 function extractAmount(markdown: string, labels: string[]): number | null {
-  const escapedLabels = labels.map((label) => label.replace(/\s+/g, '\\s*')).join('|');
-  const pattern = new RegExp(
-    `(?:${escapedLabels})\\s*[:|]?\\s*(?:USD|EUR|GBP|CNY|RMB|\\$|€|£)?\\s*([\\d][\\d\\s,.]*)`,
-    'i',
-  );
-  const match = markdown.match(pattern);
-  return match?.[1] ? parseLocalizedNumber(match[1]) : null;
+  for (const label of labels) {
+    const escapedLabel = label
+      .replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+      .replace(/\s+/g, '\\s*');
+    const pattern = new RegExp(
+      `(?<![A-Za-z0-9_])${escapedLabel}(?![A-Za-z0-9_])\\s*[:|]?\\s*(?:USD|EUR|GBP|CNY|RMB|\\$|€|£)?\\s*([\\d][\\d\\s,.]*)`,
+      'i',
+    );
+    const match = markdown.match(pattern);
+
+    if (match?.[1]) {
+      return parseLocalizedNumber(match[1]);
+    }
+  }
+
+  return null;
 }
 
 function findHeaderIndex(headers: string[], candidates: string[]): number {
@@ -213,18 +222,18 @@ export function extractQuoteDeterministically(document: OcrDocument): Structured
   const currency = detectCurrency(markdown);
   const warnings: string[] = [];
 
-  if (!supplierName) warnings.push("Nom du fournisseur non identifié dans le texte OCR.");
-  if (!currency) warnings.push('Devise non identifiée.');
-  if (total === null) warnings.push('Total du devis non identifié.');
-  if (lineItems.length === 0) warnings.push('Aucune ligne article structurée détectée.');
+  if (!supplierName) warnings.push('Supplier name not found in OCR text.');
+  if (!currency) warnings.push('Currency not identified.');
+  if (total === null) warnings.push('Quote total not identified.');
+  if (lineItems.length === 0) warnings.push('No structured line items detected.');
   if (document.averageConfidence !== null && document.averageConfidence < 0.75) {
-    warnings.push('Confiance OCR faible : vérifier le document source.');
+    warnings.push('Low OCR confidence: verify against the source document.');
   }
 
   const evidence = [
     supplierName ? { field: 'supplierName', excerpt: supplierName } : null,
     total !== null
-      ? { field: 'total', excerpt: `${currency ?? 'devise inconnue'} ${total}` }
+      ? { field: 'total', excerpt: `${currency ?? 'unknown currency'} ${total}` }
       : null,
   ].filter((entry): entry is { field: string; excerpt: string } => entry !== null);
 

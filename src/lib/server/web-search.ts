@@ -25,7 +25,6 @@ export async function searchLiveWeb(query: string): Promise<WebSearchResult[]> {
     
     // Extract title & snippets from HTML results
     const snippetRegex = /<a class="result__snippet[^">]*>(.*?)<\/a>/g;
-    const titleRegex = /<a class="result__url"[^>]*href="([^"]+)"[^>]*>(.*?)<\/a>/g;
     
     let match;
     let count = 0;
@@ -43,7 +42,7 @@ export async function searchLiveWeb(query: string): Promise<WebSearchResult[]> {
 
     return results;
   } catch (error) {
-    console.warn('Recherche web live temporairement indisponible:', error);
+    console.warn('Live web search is temporarily unavailable:', error);
     return [];
   }
 }

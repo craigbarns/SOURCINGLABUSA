@@ -1,74 +1,108 @@
 # SourcingLab USA
 
-MVP Next.js 16 centré sur un comparateur de devis fournisseurs :
+SourcingLab is a procurement workspace for importers, private-label brands, and
+lean sourcing teams. It turns supplier quotes into structured comparisons,
+deterministic math checks, landed-cost estimates, and supplier-response drafts.
+
+The quote-analysis pipeline is the core workflow:
 
 ```text
-PDF / image
-  → upload API Next.js
+PDF or image
+  → server-side validation
   → Mistral OCR
-  → JSON structuré et validé
-  → contrôles mathématiques déterministes
-  → analyse narrative optionnelle
-  → rapport comparatif
+  → schema-validated structured data
+  → deterministic math and comparability checks
+  → optional AI-assisted review
+  → decision-ready report
 ```
 
-Les clés Mistral, OpenAI et Supabase restent exclusivement dans les modules
-serveur. Le navigateur appelle uniquement les routes internes `/api/*`.
+The browser calls internal `/api/*` routes only. Mistral, OpenAI, and Supabase
+credentials remain on the server.
 
-Le même codebase sert deux espaces avec des bundles séparés :
+## What is included
 
-- `sourcinglabusa.com` : landing page, SEO, tarifs et waitlist ;
-- `app.sourcinglabusa.com` : espace applicatif et comparateur de devis.
+- Compare up to three supplier quotes in PDF, JPEG, PNG, or WebP format.
+- Extract line items, quantities, currencies, Incoterms, payment terms, and lead
+  times.
+- Recalculate totals in code and separate non-comparable offers.
+- Draft product specifications with explicit verification boundaries.
+- Model landed cost from user-controlled freight, duty, insurance, and local
+  charge inputs.
+- Generate HS-code research briefs that remain clearly labeled as estimates or
+  demo data.
+- Prepare RFQs, sample requests, quality-audit requests, and counteroffers in
+  English, French, or Simplified Chinese.
 
-## Prérequis
+SourcingLab does not contact suppliers automatically and does not present customs
+classification, regulatory guidance, or AI suggestions as professional advice.
 
-- Node.js 20.19+ ou une version LTS plus récente prise en charge
+## Local development
+
+Requirements:
+
+- Node.js 20.19 or newer
 - npm
-- un projet Supabase pour activer la liste d’attente
-- une clé Mistral pour analyser réellement les documents
-- une clé OpenAI pour la structuration et l’analyse IA complètes
-
-## Installation
 
 ```bash
-cd /Users/gregorybaranes/Documents/SOURCINGLABUSA
+git clone https://github.com/craigbarns/SOURCINGLABUSA.git
+cd SOURCINGLABUSA
 npm install
 cp .env.example .env.local
 npm run dev
 ```
 
-Ouvrir ensuite :
+Open:
 
-- [http://localhost:3000](http://localhost:3000) pour le marketing ;
-- [http://localhost:3000/app](http://localhost:3000/app) pour l’application ;
-- [http://app.localhost:3000](http://app.localhost:3000) pour simuler le
-  sous-domaine, si le navigateur résout `*.localhost`.
+- `http://localhost:3000` — marketing site
+- `http://localhost:3000/app` — sourcing workspace
+- `http://app.localhost:3000` — local app-subdomain simulation, when supported
 
-Les fichiers `.env*` sont ignorés, sauf `.env.example`. Ne jamais ajouter le
-préfixe `NEXT_PUBLIC_` à un secret.
+Without provider keys, the product remains usable in an explicitly labeled demo
+mode. No uploaded file is presented as analyzed when OCR is not configured.
 
-## Variables d’environnement
+## Environment variables
 
-| Variable | Requise | Usage |
+| Variable | Required | Purpose |
 | --- | --- | --- |
-| `MARKETING_ORIGIN` | Production | Origine canonique du site, `https://sourcinglabusa.com` par défaut |
-| `APP_ORIGIN` | Production | Origine canonique de l’application, `https://app.sourcinglabusa.com` par défaut |
-| `MISTRAL_API_KEY` | Pour l’OCR réel | Envoi serveur-à-serveur des PDF et images à Mistral OCR |
-| `MISTRAL_OCR_MODEL` | Non | Modèle OCR, `mistral-ocr-latest` par défaut |
-| `OPENAI_API_KEY` | Pour le pipeline IA complet | Structuration enrichie, analyse narrative et cahiers des charges |
-| `OPENAI_MODEL` | Non | Modèle OpenAI, `gpt-4o-mini` par défaut |
-| `SUPABASE_URL` | Pour la waitlist réelle | URL du projet Supabase |
-| `SUPABASE_SECRET_KEY` | Pour la waitlist réelle | Secret Supabase utilisé uniquement dans la route serveur |
+| `MARKETING_ORIGIN` | Production | Canonical marketing origin; defaults to `https://sourcinglabusa.com` |
+| `APP_ORIGIN` | Production | Canonical app origin; defaults to `https://app.sourcinglabusa.com` |
+| `MISTRAL_API_KEY` | Live quote OCR | Server-to-server document OCR |
+| `MISTRAL_OCR_MODEL` | No | Mistral OCR model; defaults to `mistral-ocr-latest` |
+| `OPENAI_API_KEY` | Live AI features | Structured extraction, review, specs, and HS research |
+| `OPENAI_MODEL` | No | OpenAI model; defaults to the server-configured model |
+| `SUPABASE_URL` | Product updates | Supabase project URL |
+| `SUPABASE_SECRET_KEY` | Product updates | Server-only insert credential |
 
-`MARKETING_ORIGIN` et `APP_ORIGIN` doivent être des origines HTTP(S) sans
-chemin. Ce ne sont pas des secrets, mais aucun préfixe `NEXT_PUBLIC_` n’est
-nécessaire : les liens utilisent les alias `/app` et `/marketing`, puis le
-serveur effectue les changements de domaine.
+Never expose a secret with the `NEXT_PUBLIC_` prefix.
 
-## Domaines et déploiement Vercel
+## Analysis modes
 
-Un seul projet Vercel doit être relié à ce dépôt. Dans **Project Settings →
-Domains**, ajouter :
+The quote analyzer exposes its data source instead of silently falling back:
+
+- `live` — Mistral OCR plus schema-validated OpenAI extraction and review.
+- `partial` — real Mistral OCR with deterministic extraction or review when
+  OpenAI is unavailable.
+- `demo` — labeled sample data when Mistral OCR is not configured.
+
+If a configured OCR provider fails, the route returns an error. It does not
+replace the uploaded document with demo results.
+
+Quote ranking is deterministic. AI-generated narrative cannot change extracted
+amounts, math-check status, ranks, or price spreads.
+
+## Upload limits
+
+The current direct-to-function upload flow is intentionally capped at 4 MB
+aggregate per request, including a maximum of three files. This stays below the
+Vercel Function request-body limit with multipart overhead.
+
+For larger production documents, the next architecture step is a direct upload
+to private object storage through a short-lived signed URL, followed by an
+asynchronous analysis job.
+
+## Domains and Vercel
+
+Connect one Vercel project to this repository, then add:
 
 ```text
 sourcinglabusa.com
@@ -76,156 +110,114 @@ www.sourcinglabusa.com
 app.sourcinglabusa.com
 ```
 
-Configurer ensuite chez le fournisseur DNS les enregistrements indiqués par
-Vercel pour chacun de ces domaines. Les cibles peuvent dépendre du compte et
-doivent être copiées depuis Vercel, pas codées en dur depuis un exemple.
-
-Définir également les deux origines dans les environnements Production et
-Preview :
+Set the two canonical origins in Production and Preview:
 
 ```dotenv
 MARKETING_ORIGIN=https://sourcinglabusa.com
 APP_ORIGIN=https://app.sourcinglabusa.com
 ```
 
-Le fichier `src/proxy.ts`, convention officielle de Next.js 16 qui remplace
-`middleware.ts`, applique alors les règles suivantes :
+`src/proxy.ts` keeps the marketing and application surfaces separate:
 
 ```text
-sourcinglabusa.com/        → landing
-sourcinglabusa.com/app     → redirection 308 vers app.sourcinglabusa.com
-app.sourcinglabusa.com/    → rewrite interne vers /app
-app.sourcinglabusa.com/marketing → redirection vers le site marketing
+sourcinglabusa.com/        → marketing
+sourcinglabusa.com/app     → app.sourcinglabusa.com
+app.sourcinglabusa.com/    → internal /app rewrite
+app.sourcinglabusa.com/marketing → marketing domain
 ```
 
-Les domaines Vercel Preview inconnus conservent volontairement `/` et `/app`
-sur le même hôte afin qu’une branche puisse être testée sans redirection vers
-la production. Les routes `/api/*` restent communes aux deux espaces.
+Unknown Vercel preview hosts keep `/` and `/app` on the same origin so preview
+deployments remain testable.
 
-## Modes du Quote Analyzer
+## Data handling
 
-- `live` : OCR Mistral réel, structuration et analyse OpenAI côté serveur.
-- `partial` : OCR Mistral réel, avec extraction ou analyse déterministe lorsque
-  OpenAI est absent ou indisponible.
-- `demo` : `MISTRAL_API_KEY` est absente. Le rapport est une fixture clairement
-  identifiée et aucun contenu du fichier utilisateur n’est présenté comme analysé.
+- Provider credentials stay in server-only modules.
+- Quote files and OCR text are not persisted in the application database.
+- Uploads are validated by count, size, declared type, and binary signature.
+- Expensive routes enforce same-origin checks, request-size checks, and rate
+  limits.
+- API responses containing quote analysis use `Cache-Control: no-store`.
+- The app surface is `noindex`; the marketing surface remains indexable.
+- Waitlist emails are normalized and stored in Supabase through a server-only
+  credential. Row-level security is enabled.
 
-Une panne de Mistral avec une clé configurée renvoie une erreur ; elle ne
-déclenche jamais silencieusement une fausse analyse de démonstration.
+Before a public paid launch, add authentication, per-account entitlements,
+distributed rate limiting, private object storage, a documented retention
+policy, and cost observability.
 
-Le comparateur ne classe les offres que lorsque la devise, l’Incoterm et une
-base unitaire extraite sont comparables. Les contrôles mathématiques sont
-déterministes et l’analyse narrative ne peut pas modifier les montants, rangs
-ou écarts calculés.
+## Accuracy boundaries
+
+- HS codes and duty rates are research starting points. Verify them against a
+  current official tariff source or with a customs professional.
+- Landed-cost calculations use the inputs supplied by the user. They do not
+  automatically include every tax, harbor fee, antidumping duty, or product-
+  specific surcharge.
+- Product specifications are drafts. Regulatory and certification applicability
+  depends on the exact product, use case, destination, and current law.
+- Supplier emails are drafts for human review and manual sending.
+
+## Architecture
+
+```text
+src/app/
+  page.tsx                       marketing entry and structured data
+  app/page.tsx                   noindex sourcing workspace
+  api/ai/product-specs/          product-specification route
+  api/ai/hscode/                 HS research route
+  api/ai/supplier-email/         supplier-email route
+  api/quotes/analyze/            quote upload and analysis route
+  api/waitlist/                  product-update registration
+
+src/components/
+  LandingPage.tsx                server-composed marketing page
+  HeroExperience.tsx             sample-report interaction island
+  MarketingSections.tsx          product, workflow, trust, and FAQ
+  AppDashboard.tsx               accessible five-tool workspace
+  tools/                         sourcing tools
+
+src/lib/server/
+  ai/provider.ts                 schema-validated AI provider interface
+  quotes/ocr.ts                  upload validation and Mistral OCR
+  quotes/extraction.ts           deterministic OCR extraction
+  quotes/comparison.ts           deterministic comparison and math checks
+  quotes/pipeline.ts             live, partial, and demo orchestration
+
+src/lib/validation/              shared Zod contracts
+src/lib/routing/                 testable domain-routing decisions
+src/proxy.ts                     marketing/app host separation
+supabase/migrations/             versioned database schema
+.github/workflows/ci.yml         required quality pipeline
+```
+
+## Quality checks
+
+```bash
+npm run lint -- --max-warnings=0
+npm run typecheck
+npm test
+npm run build
+npm audit --omit=dev
+```
+
+GitHub Actions runs lint, TypeScript, the full test suite, the production
+dependency audit, and a production build on every pull request and push to
+`main`.
 
 ## Supabase
 
-La seule donnée persistée par ce lot est l’inscription à la waitlist. Les devis
-et leur texte OCR ne sont pas enregistrés par l’application.
+The only persisted product data in this version is the product-update
+registration.
 
-Migration :
+Migration:
 
 ```text
 supabase/migrations/202607290001_create_waitlist_entries.sql
 ```
 
-Application avec la CLI Supabase :
+Apply it with the Supabase CLI:
 
 ```bash
 npx supabase login
 npx supabase link --project-ref <project-ref>
 npx supabase db push
 ```
-
-La table normalise les e-mails, impose l’unicité insensible à la casse, active
-RLS et retire tout accès à `anon` et `authenticated`. Seule la route serveur
-utilisant `SUPABASE_SECRET_KEY` peut insérer une entrée.
-
-## Architecture
-
-```text
-src/app/api/
-  ai/product-specs/       cahier des charges, IA ou trame démo
-  ai/supplier-email/      modèles d’e-mails déterministes
-  quotes/analyze/         upload, OCR et rapport
-  waitlist/               validation et insertion Supabase
-
-src/app/
-  page.tsx                entrée marketing, sans import du dashboard
-  app/page.tsx            entrée applicative non indexable
-  robots.ts               règles d’indexation marketing
-  sitemap.ts              sitemap du domaine marketing
-
-src/lib/server/
-  ai/provider.ts          interface fournisseur IA et implémentation OpenAI
-  quotes/ocr.ts           validation binaire et client Mistral OCR
-  quotes/extraction.ts    extraction déterministe depuis le Markdown OCR
-  quotes/comparison.ts    contrôles et classement mathématiques
-  quotes/pipeline.ts      orchestration live / partial / demo
-  product-specs.ts        profils cohérents par catégorie
-  supplier-email.ts       modèles RFQ, négociation, échantillon et audit qualité
-
-src/lib/validation/       contrats Zod partagés
-src/lib/routing/          décisions de routage par domaine, testables sans réseau
-src/lib/landed-cost.ts    calculateur pur et testable
-src/components/
-  LandingPage.tsx         bundle interactif réservé au marketing
-  AppDashboard.tsx        bundle de l’espace applicatif
-  AccessibleModal.tsx     modale accessible partagée
-src/proxy.ts              séparation des hôtes et garde-fous d’indexation
-supabase/migrations/      schéma versionné de la waitlist
-```
-
-L’interface `AiProvider` isole le reste du pipeline d’OpenAI et permet de
-changer de fournisseur ultérieurement sans déplacer de secret vers le client.
-
-## Commandes de qualité
-
-```bash
-npm run lint
-npm run typecheck
-npm test
-npm run test:watch
-npm run build
-npm audit
-npm audit --omit=dev
-```
-
-`npm run lint` utilise directement ESLint CLI avec la configuration plate
-Next.js, car `next lint` n’existe plus dans Next.js 16.
-
-Les tests Vitest couvrent :
-
-- calcul du coût rendu et validation des valeurs négatives, vides ou non finies ;
-- effet du mode de transport, du marché et du taux lié au code HS ;
-- extraction structurée OCR et contrôles mathématiques ;
-- catégorisation et profils produit ;
-- génération `quality_audit` ;
-- protections des routes serveur ;
-- routage apex, sous-domaine, localhost et Vercel Preview ;
-- liens clavier entre les espaces marketing et applicatif ;
-- succès, doublon et indisponibilité du parcours waitlist ;
-- fermeture par Échap, piège et restauration du focus des modales.
-
-## Sécurité et limites
-
-- uploads limités à 3 fichiers, 12 Mo chacun et 25 Mo au total ;
-- PDF, JPEG, PNG et WebP contrôlés par type déclaré et signature binaire ;
-- requêtes POST protégées contre les origines navigateur étrangères et les
-  tailles déclarées excessives ;
-- limitation de débit en mémoire sur les routes coûteuses et la waitlist ;
-- réponses d’upload avec `Cache-Control: no-store` ;
-- en-têtes anti-framing, `nosniff`, politique de référent et permissions
-  navigateur restrictives.
-
-Avant une ouverture publique, remplacer le rate limit en mémoire par un quota
-distribué, ajouter authentification et isolation utilisateur, définir une
-politique de rétention, puis brancher les limites d’usage.
-
-Le calculateur n’interroge pas encore de base tarifaire : le code HS et le taux
-de droits sont fournis par l’utilisateur et doivent être vérifiés. La TVA UE,
-les frais MPF/HMF américains et les droits additionnels éventuels sont signalés
-mais non calculés.
-
-Stripe, les abonnements, l’envoi automatique d’e-mails, l’authentification et la
-persistance des analyses ne sont pas branchés dans ce lot.

@@ -9,21 +9,20 @@ const nextConfig = {
   turbopack: {
     root: projectRoot,
   },
-  images: {
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'images.unsplash.com',
-      },
-    ],
-  },
   async headers() {
     return [
       {
         source: '/(.*)',
         headers: [
+          { key: 'X-DNS-Prefetch-Control', value: 'off' },
           { key: 'X-Content-Type-Options', value: 'nosniff' },
           { key: 'X-Frame-Options', value: 'DENY' },
+          { key: 'Cross-Origin-Opener-Policy', value: 'same-origin' },
+          { key: 'Cross-Origin-Resource-Policy', value: 'same-origin' },
+          {
+            key: 'Strict-Transport-Security',
+            value: 'max-age=63072000; includeSubDomains; preload',
+          },
           {
             key: 'Content-Security-Policy',
             value: "frame-ancestors 'none'",

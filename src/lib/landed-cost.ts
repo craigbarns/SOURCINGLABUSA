@@ -57,22 +57,22 @@ export function calculateLandedCost(input: LandedCostInput): LandedCostResult {
   const roiPercent =
     unitLandedCost > 0 ? (marginPerUnit / unitLandedCost) * 100 : 0;
   const warnings = [
-    `Le taux de ${validated.customsDutyRate}% est fourni par l’utilisateur pour le code HS ${validated.hsCode}; le calculateur ne consulte pas encore une base tarifaire officielle.`,
+    `The ${validated.customsDutyRate}% duty rate was supplied by the user for HS code ${validated.hsCode}; the calculator does not query a live tariff database.`,
   ];
 
   if (insuranceWasEstimated) {
     warnings.push(
-      `Assurance estimée selon le mode ${validated.shippingMode}; remplacez-la par le montant réel du transitaire dès qu’il est connu.`,
+      `Insurance was estimated for ${validated.shippingMode}; replace it with the freight forwarder's actual amount when available.`,
     );
   }
 
   if (validated.destinationMarket === 'EU') {
     warnings.push(
-      "La TVA à l’importation n’est pas incluse : son traitement dépend du pays, du régime fiscal et de la récupération éventuelle.",
+      'Import VAT is not included; treatment depends on the country, tax status, and potential recovery.',
     );
   } else {
     warnings.push(
-      'Les frais MPF/HMF et droits additionnels éventuels ne sont pas inclus.',
+      'MPF/HMF fees and any additional duties are not included.',
     );
   }
 
@@ -102,4 +102,3 @@ export function calculateLandedCost(input: LandedCostInput): LandedCostResult {
     warnings,
   };
 }
-

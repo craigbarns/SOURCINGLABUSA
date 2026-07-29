@@ -59,7 +59,7 @@ function extractOutputText(response: OpenAiResponse): string {
     }
   }
 
-  throw new AiProviderError("Le fournisseur IA n'a pas renvoyé de sortie exploitable.");
+  throw new AiProviderError('The AI provider returned no usable output.');
 }
 
 function toOpenAiJsonSchema(schema: z.ZodType): Record<string, unknown> {
@@ -111,7 +111,7 @@ class OpenAiProvider implements AiProvider {
 
       if (!response.ok) {
         throw new AiProviderError(
-          `Le fournisseur IA a refusé la requête (statut ${response.status}).`,
+          `The AI provider rejected the request (status ${response.status}).`,
         );
       }
 
@@ -121,7 +121,7 @@ class OpenAiProvider implements AiProvider {
 
       if (!validation.success) {
         throw new AiProviderError(
-          "La réponse du fournisseur IA ne respecte pas le schéma attendu.",
+          'The AI provider response did not match the expected schema.',
         );
       }
 
@@ -132,10 +132,10 @@ class OpenAiProvider implements AiProvider {
       }
 
       if (error instanceof Error && error.name === 'AbortError') {
-        throw new AiProviderError("Le fournisseur IA n'a pas répondu à temps.");
+        throw new AiProviderError('The AI provider timed out.');
       }
 
-      throw new AiProviderError("L'appel au fournisseur IA a échoué.");
+      throw new AiProviderError('The AI provider request failed.');
     } finally {
       clearTimeout(timeout);
     }
@@ -145,7 +145,7 @@ class OpenAiProvider implements AiProvider {
     const truncatedText = ocrMarkdown.slice(0, MAX_OCR_TEXT_CHARS);
     const truncationNotice =
       ocrMarkdown.length > MAX_OCR_TEXT_CHARS
-        ? '\n\n[Le texte OCR a été tronqué par le serveur.]'
+        ? '\n\n[The OCR text was truncated by the server.]'
         : '';
 
     const quote = await this.structuredResponse(
@@ -159,6 +159,7 @@ class OpenAiProvider implements AiProvider {
         'Amounts must be plain non-negative numbers without currency symbols.',
         'Evidence excerpts must be short verbatim fragments from the OCR text.',
         'Warnings must describe missing or ambiguous fields, not invented risks.',
+        'Write all warning text in U.S. English.',
       ].join(' '),
       `File name: ${fileName}\n\nOCR markdown:\n${truncatedText}${truncationNotice}`,
     );
@@ -168,7 +169,7 @@ class OpenAiProvider implements AiProvider {
       fileName,
       warnings:
         ocrMarkdown.length > MAX_OCR_TEXT_CHARS
-          ? [...quote.warnings, 'Texte OCR tronqué avant extraction structurée.']
+          ? [...quote.warnings, 'OCR text was truncated before structured extraction.']
           : quote.warnings,
     };
   }
@@ -186,6 +187,7 @@ class OpenAiProvider implements AiProvider {
         'calculated differences. Do not claim market benchmarks or mandatory legal',
         'certifications. When information is missing, say that it must be verified.',
         'Return only a narrative summary, vigilance points and next actions.',
+        'Write all narrative fields in U.S. English.',
       ].join(' '),
       JSON.stringify({ quotes, deterministicComparison }),
     );
@@ -206,7 +208,8 @@ class OpenAiProvider implements AiProvider {
         'age group, destination and current regulation. Put possible requirements in',
         'certifications.toVerify and include a prominent verificationNotice.',
         'Pricing values are preliminary ranges to validate with current supplier quotes.',
-        'Return mode live and sourceLabel "Analyse IA serveur".',
+        'Write every user-facing field in U.S. English.',
+        'Return mode live and sourceLabel "Server-side AI analysis".',
       ].join(' '),
       JSON.stringify({ prompt, category }),
     );
@@ -214,7 +217,7 @@ class OpenAiProvider implements AiProvider {
     return {
       ...result,
       mode: 'live',
-      sourceLabel: 'Analyse IA serveur',
+      sourceLabel: 'Server-side AI analysis',
       category,
     };
   }

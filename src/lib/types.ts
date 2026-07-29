@@ -185,10 +185,12 @@ export interface EmailGeneratorResult {
   tips: string[];
 }
 
+export type HsCodeOriginCountry = 'CN' | 'VN' | 'IN' | 'MX' | 'TR';
+
 export interface HsCodeAnalysisInput {
   query: string;
   destinationMarket?: 'US' | 'EU';
-  originCountry?: string;
+  originCountry?: HsCodeOriginCountry;
 }
 
 export interface HsCodeAnalysisResult {
@@ -214,4 +216,3 @@ export interface HsCodeAnalysisResult {
     dutyRate: string;
   }>;
 }
-

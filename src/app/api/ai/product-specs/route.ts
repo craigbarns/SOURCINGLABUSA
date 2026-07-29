@@ -20,14 +20,14 @@ export const runtime = 'nodejs';
 export async function POST(request: Request) {
   if (!isSameOriginRequest(request)) {
     return NextResponse.json(
-      { message: 'Origine de requête refusée.' },
+      { message: 'Request origin not allowed.' },
       { status: 403, headers: { 'Cache-Control': 'no-store' } },
     );
   }
 
   if (exceedsContentLength(request, 8 * 1024)) {
     return NextResponse.json(
-      { message: 'La requête est trop volumineuse.' },
+      { message: 'The request is too large.' },
       { status: 413, headers: { 'Cache-Control': 'no-store' } },
     );
   }
@@ -39,7 +39,7 @@ export async function POST(request: Request) {
 
   if (!rateLimit.allowed) {
     return NextResponse.json(
-      { message: 'Trop de demandes. Veuillez réessayer plus tard.' },
+      { message: 'Too many requests. Please try again later.' },
       {
         status: 429,
         headers: {
@@ -56,7 +56,7 @@ export async function POST(request: Request) {
     body = await request.json();
   } catch {
     return NextResponse.json(
-      { message: 'La requête JSON est invalide.' },
+      { message: 'Invalid JSON request.' },
       { status: 400 },
     );
   }
@@ -66,7 +66,7 @@ export async function POST(request: Request) {
   if (!validation.success) {
     return NextResponse.json(
       {
-        message: validation.error.issues[0]?.message ?? 'Description invalide.',
+        message: validation.error.issues[0]?.message ?? 'Invalid description.',
       },
       { status: 400 },
     );
@@ -90,7 +90,7 @@ export async function POST(request: Request) {
     const message =
       error instanceof AiProviderError
         ? error.message
-        : "L'analyse IA est temporairement indisponible.";
+        : 'AI analysis is temporarily unavailable.';
 
     return NextResponse.json({ message }, { status: 502 });
   }

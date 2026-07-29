@@ -14,22 +14,28 @@ import {
   UploadValidationError,
   validateQuoteUploads,
 } from '@/lib/server/quotes/ocr';
-import { MAX_QUOTE_UPLOAD_BYTES } from '@/lib/validation/quote';
+import {
+  formatQuoteUploadBytes,
+  MAX_QUOTE_REQUEST_BYTES,
+  MAX_QUOTE_UPLOAD_BYTES,
+} from '@/lib/validation/quote';
 
 export const runtime = 'nodejs';
-export const maxDuration = 120;
+export const maxDuration = 180;
 
 export async function POST(request: Request) {
   if (!isSameOriginRequest(request)) {
     return NextResponse.json(
-      { message: 'Origine de requête refusée.' },
+      { message: 'Request origin not allowed.' },
       { status: 403, headers: { 'Cache-Control': 'no-store' } },
     );
   }
 
-  if (exceedsContentLength(request, MAX_QUOTE_UPLOAD_BYTES + 1024 * 1024)) {
+  if (exceedsContentLength(request, MAX_QUOTE_REQUEST_BYTES)) {
     return NextResponse.json(
-      { message: "La taille totale de l'upload dépasse la limite autorisée." },
+      {
+        message: `The multipart upload is too large. Keep the combined files within the ${formatQuoteUploadBytes(MAX_QUOTE_UPLOAD_BYTES)} limit so form-data overhead remains under the server request limit.`,
+      },
       { status: 413, headers: { 'Cache-Control': 'no-store' } },
     );
   }
@@ -46,7 +52,7 @@ export async function POST(request: Request) {
     return NextResponse.json(
       {
         message:
-          "Trop de demandes d'analyse. Veuillez réessayer dans quelques minutes.",
+          'Too many analysis requests. Please try again in a few minutes.',
       },
       {
         status: 429,
@@ -94,7 +100,7 @@ export async function POST(request: Request) {
     });
 
     return NextResponse.json(
-      { message: "L'analyse du devis a échoué." },
+      { message: 'Quote analysis failed.' },
       {
         status: 500,
         headers: { 'Cache-Control': 'no-store' },

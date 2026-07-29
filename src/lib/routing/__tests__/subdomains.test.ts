@@ -204,3 +204,50 @@ describe('développement local et previews', () => {
     });
   });
 });
+
+describe('single-domain routing', () => {
+  const sharedHostConfig = getDomainRoutingConfig({
+    MARKETING_ORIGIN: 'https://preview.example.com',
+    APP_ORIGIN: 'https://preview.example.com',
+  });
+
+  it('keeps the homepage on the marketing surface', () => {
+    expect(
+      resolveDomainRoute(
+        new URL('https://preview.example.com/'),
+        'preview.example.com',
+        sharedHostConfig,
+      ),
+    ).toEqual({
+      kind: 'next',
+      area: 'marketing',
+    });
+  });
+
+  it('keeps /app on the application surface', () => {
+    expect(
+      resolveDomainRoute(
+        new URL('https://preview.example.com/app'),
+        'preview.example.com',
+        sharedHostConfig,
+      ),
+    ).toEqual({
+      kind: 'next',
+      area: 'app',
+    });
+  });
+
+  it('canonicalizes the marketing alias without rewriting the homepage', () => {
+    expect(
+      resolveDomainRoute(
+        new URL('https://preview.example.com/marketing?ref=app'),
+        'preview.example.com',
+        sharedHostConfig,
+      ),
+    ).toEqual({
+      kind: 'redirect',
+      destination: 'https://preview.example.com/?ref=app',
+      permanent: true,
+    });
+  });
+});

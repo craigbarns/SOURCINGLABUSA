@@ -23,13 +23,13 @@ describe('product specification profiles', () => {
 
     expect(backpack.category).toBe('backpack');
     expect(backpack.technicalSpecs.materials.join(' ')).toMatch(
-      /tissu|fermetures/i,
+      /fabric|zippers/i,
     );
     expect(backpack.technicalSpecs.keyFeatures.join(' ')).toMatch(
-      /charge|résistance à l’eau/i,
+      /payload|water resistance/i,
     );
     expect(backpack.certifications.verificationNotice).toMatch(
-      /applicabilité|dépend/i,
+      /applicability|depends/i,
     );
     expect(backpack.mode).toBe('demo');
   });
