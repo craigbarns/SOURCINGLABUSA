@@ -33,6 +33,7 @@ import {
   MAX_QUOTE_UPLOAD_BYTES,
   quoteAnalysisResponseSchema,
 } from '@/lib/validation/quote';
+import { SaveAnalysisButton } from '@/components/history/SaveAnalysisButton';
 
 type AnalyzerStatus = 'idle' | 'uploading' | 'success';
 
@@ -633,21 +634,34 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
                 <Sparkles className="h-5 w-5 text-[#c7ff6b]" aria-hidden="true" />
               </h3>
             </div>
-            <span
-              className={`self-start rounded-full border px-3 py-1 text-xs font-black uppercase tracking-[0.08em] ${
-                result.mode === 'demo'
-                  ? 'border-[#f1b47d]/40 bg-[#f1b47d]/15 text-[#f7cfa3]'
+            <div className="flex flex-col items-start gap-2 sm:items-end">
+              <span
+                className={`rounded-full border px-3 py-1 text-xs font-black uppercase tracking-[0.08em] ${
+                  result.mode === 'demo'
+                    ? 'border-[#f1b47d]/40 bg-[#f1b47d]/15 text-[#f7cfa3]'
+                    : result.mode === 'partial'
+                      ? 'border-[#7e9cff]/40 bg-[#7e9cff]/15 text-[#aebfff]'
+                      : 'border-[#c7ff6b]/40 bg-[#c7ff6b]/15 text-[#dfffab]'
+                }`}
+              >
+                {result.mode === 'demo'
+                  ? 'Demo mode'
                   : result.mode === 'partial'
-                    ? 'border-[#7e9cff]/40 bg-[#7e9cff]/15 text-[#aebfff]'
-                    : 'border-[#c7ff6b]/40 bg-[#c7ff6b]/15 text-[#dfffab]'
-              }`}
-            >
-              {result.mode === 'demo'
-                ? 'Demo mode'
-                : result.mode === 'partial'
-                  ? 'Partial live analysis'
-                  : 'Live analysis'}
-            </span>
+                    ? 'Partial live analysis'
+                    : 'Live analysis'}
+              </span>
+              {result.mode !== 'demo' && (
+                <SaveAnalysisButton
+                  tool="quote"
+                  title={
+                    bestRow?.supplierName
+                      ? `Quote comparison — ${bestRow.supplierName}`
+                      : `Quote comparison — ${result.quotes.length} quote${result.quotes.length === 1 ? '' : 's'}`
+                  }
+                  payload={result}
+                />
+              )}
+            </div>
           </div>
 
           {result.warning && (

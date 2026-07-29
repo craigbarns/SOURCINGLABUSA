@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 
 import { AppDashboard } from '@/components/AppDashboard';
 import { Navbar } from '@/components/Navbar';
+import { SupabaseAuthProvider } from '@/components/auth/SupabaseAuthProvider';
 import { getDomainRoutingConfig } from '@/lib/routing/subdomains';
 
 const { appOrigin } = getDomainRoutingConfig();
@@ -36,7 +37,9 @@ export default function CopilotPage() {
       </a>
       <Navbar area="app" />
       <div id="app-workspace">
-        <AppDashboard marketingHref="/marketing" />
+        <SupabaseAuthProvider>
+          <AppDashboard marketingHref="/marketing" />
+        </SupabaseAuthProvider>
       </div>
     </div>
   );

@@ -6,6 +6,7 @@ import {
   ArrowLeft,
   Calculator,
   FileText,
+  History,
   Mail,
   Search,
   ShieldAlert,
@@ -18,6 +19,9 @@ import { LandedCostCalculator } from './tools/LandedCostCalculator';
 import { ProductSpecGenerator } from './tools/ProductSpecGenerator';
 import { QuoteAnalyzer } from './tools/QuoteAnalyzer';
 import { SupplierEmailGenerator } from './tools/SupplierEmailGenerator';
+import { AuthControl } from './auth/AuthControl';
+import { useAuth } from './auth/SupabaseAuthProvider';
+import { HistoryPanel } from './history/HistoryPanel';
 
 type ToolId = 'quote' | 'specs' | 'cost' | 'hscode' | 'email';
 
@@ -88,7 +92,9 @@ export function AppDashboard({
   marketingHref = '/',
 }: AppDashboardProps) {
   const [activeTool, setActiveTool] = useState<ToolId>('quote');
+  const [isHistoryOpen, setIsHistoryOpen] = useState(false);
   const tabRefs = useRef<Array<HTMLButtonElement | null>>([]);
+  const { isConfigured, email } = useAuth();
 
   const handleTabKeyDown = (
     event: KeyboardEvent<HTMLButtonElement>,
@@ -123,13 +129,31 @@ export function AppDashboard({
         className="border-b border-white/[0.07] bg-[#0a0e0c]/90 py-7 backdrop-blur-xl"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <Link
-            href={marketingHref}
-            className="inline-flex items-center gap-1.5 rounded-md text-xs font-semibold text-[#7f8d85] transition-colors hover:text-white"
-          >
-            <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
-            Back to SourcingLab USA
-          </Link>
+          <div className="flex flex-wrap items-center justify-between gap-3">
+            <Link
+              href={marketingHref}
+              className="inline-flex items-center gap-1.5 rounded-md text-xs font-semibold text-[#7f8d85] transition-colors hover:text-white"
+            >
+              <ArrowLeft className="h-3.5 w-3.5" aria-hidden="true" />
+              Back to SourcingLab USA
+            </Link>
+
+            {isConfigured && (
+              <div className="flex items-center gap-2">
+                {email && (
+                  <button
+                    type="button"
+                    onClick={() => setIsHistoryOpen(true)}
+                    className="inline-flex items-center gap-1.5 rounded-lg border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs font-semibold text-[#849188] transition-colors hover:text-white"
+                  >
+                    <History className="h-3.5 w-3.5" aria-hidden="true" />
+                    History
+                  </button>
+                )}
+                <AuthControl />
+              </div>
+            )}
+          </div>
 
           <div className="mt-3">
             <div className="flex items-center gap-2">
@@ -249,6 +273,11 @@ export function AppDashboard({
           <SupplierEmailGenerator />
         </section>
       </main>
+
+      <HistoryPanel
+        isOpen={isHistoryOpen}
+        onClose={() => setIsHistoryOpen(false)}
+      />
     </div>
   );
 }

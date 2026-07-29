@@ -72,8 +72,25 @@ mode. No uploaded file is presented as analyzed when OCR is not configured.
 | `OPENAI_MODEL` | No | OpenAI model; defaults to the server-configured model |
 | `SUPABASE_URL` | Product updates | Supabase project URL |
 | `SUPABASE_SECRET_KEY` | Product updates | Server-only insert credential |
+| `NEXT_PUBLIC_SUPABASE_URL` | Accounts and history | Supabase project URL for browser auth |
+| `NEXT_PUBLIC_SUPABASE_ANON_KEY` | Accounts and history | Public anon key, protected by row-level security |
 
-Never expose a secret with the `NEXT_PUBLIC_` prefix.
+Never expose a secret with the `NEXT_PUBLIC_` prefix. The Supabase anon key
+is the one documented exception: it is public by design and every table it
+can reach is restricted by row-level security. The service-role secret
+(`SUPABASE_SECRET_KEY`) must never carry that prefix.
+
+## Accounts and saved history
+
+Accounts are optional. Without `NEXT_PUBLIC_SUPABASE_*`, the workspace stays
+fully usable and no sign-in UI is rendered. With them configured:
+
+- Visitors sign in with a one-click email link (Supabase magic link).
+- Signed-in users can save any live analysis and reopen it from **History**.
+- Every row in `saved_analyses` is owned by its user and enforced by
+  row-level security; the browser never holds a privileged credential.
+
+Set the Supabase Auth redirect URL to `<app origin>/app/auth/callback`.
 
 ## Analysis modes
 
@@ -208,10 +225,11 @@ dependency audit, and a production build on every pull request and push to
 The only persisted product data in this version is the product-update
 registration.
 
-Migration:
+Migrations:
 
 ```text
 supabase/migrations/202607290001_create_waitlist_entries.sql
+supabase/migrations/202607290002_create_saved_analyses.sql
 ```
 
 Apply it with the Supabase CLI:
