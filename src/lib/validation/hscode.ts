@@ -35,7 +35,7 @@ export const hsCodeAnalysisResultSchema: z.ZodType<HsCodeAnalysisResult> = z
     hsCode10Digit: z
       .string()
       .trim()
-      .regex(/^\d{4}(?:\.\d{2}){3}$/, 'Invalid 10-digit tariff code.'),
+      .regex(/^\d{4}(?:\.\d{2}){1,3}$/, 'Invalid 10-digit tariff code.'),
     productDescription: boundedText(500),
     categoryName: boundedText(200),
     destinationMarket: z.enum(['US', 'EU']),

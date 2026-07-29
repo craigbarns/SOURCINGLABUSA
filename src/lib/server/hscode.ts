@@ -188,41 +188,114 @@ function formatHsCodeDigits(value: unknown): unknown {
   return [head, ...rest].join('.');
 }
 
+const HS_ALT_CODE_PATTERN = /^\d{4}(?:\.\d{2}){0,3}$/;
+
+/** Coerce a percentage that a model may return as "7.5%" or "7,5" into a number. */
+function toRate(value: unknown): unknown {
+  if (typeof value === 'number') {
+    return value;
+  }
+
+  if (typeof value === 'string') {
+    const numeric = Number(value.replace(/[%\s,]/g, ''));
+    return Number.isFinite(numeric) ? numeric : value;
+  }
+
+  return value;
+}
+
+function boundedString(value: unknown, max: number): string | undefined {
+  if (typeof value !== 'string') {
+    return undefined;
+  }
+
+  const trimmed = value.trim();
+
+  if (trimmed.length === 0) {
+    return undefined;
+  }
+
+  return trimmed.length > max ? trimmed.slice(0, max) : trimmed;
+}
+
+function boundedStringArray(
+  value: unknown,
+  maxItems: number,
+  maxLength: number,
+): string[] {
+  if (!Array.isArray(value)) {
+    return [];
+  }
+
+  return value
+    .map((entry) => boundedString(entry, maxLength))
+    .filter((entry): entry is string => entry !== undefined)
+    .slice(0, maxItems);
+}
+
 /**
- * Reformat only the HS-code fields of the provider payload so benign
- * formatting differences do not fail strict validation. Unknown fields are
- * left in place so the strict schema still rejects unexpected output.
+ * Reduce raw provider output to exactly the known, well-formed fields the
+ * strict schema accepts: unknown keys are dropped, percentages coerced,
+ * strings bounded, arrays capped, HS codes reformatted, and malformed
+ * alternative codes discarded. Fields the caller overwrites afterward
+ * (mode, sourceLabel, market, origin) are filled with safe values so a
+ * model omission cannot fail validation. Anything still malformed in a core
+ * field falls through to strict validation and a clear "output" error.
  */
-function sanitizeProviderResult(raw: unknown): unknown {
-  if (typeof raw !== 'object' || raw === null) {
-    return raw;
-  }
+function sanitizeProviderResult(
+  raw: unknown,
+  input: ValidatedHsCodeInput,
+): unknown {
+  const source =
+    typeof raw === 'object' && raw !== null
+      ? (raw as Record<string, unknown>)
+      : {};
 
-  const source = raw as Record<string, unknown>;
-  const sanitized: Record<string, unknown> = { ...source };
+  const dutyRatesSource =
+    typeof source.dutyRates === 'object' && source.dutyRates !== null
+      ? (source.dutyRates as Record<string, unknown>)
+      : {};
 
-  if ('hsCode6Digit' in source) {
-    sanitized.hsCode6Digit = formatHsCodeDigits(source.hsCode6Digit);
-  }
+  const alternativeHsCodes = Array.isArray(source.alternativeHsCodes)
+    ? source.alternativeHsCodes
+        .filter(
+          (entry): entry is Record<string, unknown> =>
+            typeof entry === 'object' && entry !== null,
+        )
+        .map((alt) => ({
+          code: formatHsCodeDigits(alt.code),
+          description: boundedString(alt.description, 300),
+          dutyRate: boundedString(alt.dutyRate, 100),
+        }))
+        .filter(
+          (alt): alt is { code: string; description: string; dutyRate: string } =>
+            typeof alt.code === 'string' &&
+            HS_ALT_CODE_PATTERN.test(alt.code) &&
+            alt.description !== undefined &&
+            alt.dutyRate !== undefined,
+        )
+        .slice(0, 10)
+    : [];
 
-  if ('hsCode10Digit' in source) {
-    sanitized.hsCode10Digit = formatHsCodeDigits(source.hsCode10Digit);
-  }
-
-  if (Array.isArray(source.alternativeHsCodes)) {
-    sanitized.alternativeHsCodes = source.alternativeHsCodes.map((entry) => {
-      if (typeof entry !== 'object' || entry === null) {
-        return entry;
-      }
-
-      const alt = entry as Record<string, unknown>;
-      return 'code' in alt
-        ? { ...alt, code: formatHsCodeDigits(alt.code) }
-        : alt;
-    });
-  }
-
-  return sanitized;
+  return {
+    mode: 'live',
+    sourceLabel: 'AI-generated tariff estimate',
+    hsCode6Digit: formatHsCodeDigits(source.hsCode6Digit),
+    hsCode10Digit: formatHsCodeDigits(source.hsCode10Digit),
+    productDescription: boundedString(source.productDescription, 500),
+    categoryName: boundedString(source.categoryName, 200),
+    destinationMarket: input.destinationMarket,
+    originCountry: displayOriginCountry(input.originCountry),
+    dutyRates: {
+      baseDutyPercent: toRate(dutyRatesSource.baseDutyPercent),
+      section301Percent: toRate(dutyRatesSource.section301Percent),
+      additionalTaxesPercent: toRate(dutyRatesSource.additionalTaxesPercent),
+      effectiveDutyPercent: toRate(dutyRatesSource.effectiveDutyPercent),
+    },
+    dutyBreakdownNotes: boundedStringArray(source.dutyBreakdownNotes, 20, 500),
+    regulatoryWarnings: boundedStringArray(source.regulatoryWarnings, 20, 500),
+    alternativeHsCodes,
+  };
 }
 
 function recognizeDemoCategory(query: string): DemoCategory | null {
@@ -348,6 +421,7 @@ async function requestProviderAnalysis(
       const envelope = providerEnvelopeSchema.parse(await response.json());
       const providerResult = sanitizeProviderResult(
         JSON.parse(envelope.choices[0].message.content) as unknown,
+        input,
       );
       normalized = normalizeHsCodeAnalysisResult(providerResult);
     } catch (parseError) {

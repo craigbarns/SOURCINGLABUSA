@@ -200,7 +200,7 @@ describe('HS-code server analysis', () => {
     ).rejects.toMatchObject({ name: 'HsCodeProviderError', status: 429 });
   });
 
-  it('rejects provider output that does not match the strict schema', async () => {
+  it('drops unknown provider keys instead of failing validation', async () => {
     getConfigMock.mockReturnValue({
       apiKey: 'test-key',
       model: 'test-model',
@@ -214,6 +214,79 @@ describe('HS-code server analysis', () => {
                 content: JSON.stringify({
                   ...PROVIDER_RESULT,
                   unexpected: true,
+                  dutyRates: { ...PROVIDER_RESULT.dutyRates, madeUp: 1 },
+                }),
+              },
+            },
+          ],
+        }),
+        { status: 200, headers: { 'Content-Type': 'application/json' } },
+      ),
+    );
+
+    const result = await analyzeHsCodeServer({
+      query: 'stainless steel water bottle',
+      destinationMarket: 'US',
+      originCountry: 'CN',
+    });
+
+    expect(result.mode).toBe('live');
+    expect(result).not.toHaveProperty('unexpected');
+    expect(result.dutyRates).not.toHaveProperty('madeUp');
+  });
+
+  it('coerces string percentages from the provider into numbers', async () => {
+    getConfigMock.mockReturnValue({
+      apiKey: 'test-key',
+      model: 'test-model',
+    });
+    fetchMock.mockResolvedValue(
+      new Response(
+        JSON.stringify({
+          choices: [
+            {
+              message: {
+                content: JSON.stringify({
+                  ...PROVIDER_RESULT,
+                  dutyRates: {
+                    baseDutyPercent: '3.4%',
+                    section301Percent: '7.5',
+                    additionalTaxesPercent: '0.3464',
+                    effectiveDutyPercent: '999',
+                  },
+                }),
+              },
+            },
+          ],
+        }),
+        { status: 200, headers: { 'Content-Type': 'application/json' } },
+      ),
+    );
+
+    const result = await analyzeHsCodeServer({
+      query: 'stainless steel water bottle',
+      destinationMarket: 'US',
+      originCountry: 'CN',
+    });
+
+    expect(result.dutyRates.baseDutyPercent).toBe(3.4);
+    expect(result.dutyRates.effectiveDutyPercent).toBe(11.2464);
+  });
+
+  it('rejects unsalvageable core output with an output-reason error', async () => {
+    getConfigMock.mockReturnValue({
+      apiKey: 'test-key',
+      model: 'test-model',
+    });
+    fetchMock.mockResolvedValue(
+      new Response(
+        JSON.stringify({
+          choices: [
+            {
+              message: {
+                content: JSON.stringify({
+                  ...PROVIDER_RESULT,
+                  hsCode10Digit: 'not-a-code',
                 }),
               },
             },
@@ -229,6 +302,6 @@ describe('HS-code server analysis', () => {
         destinationMarket: 'US',
         originCountry: 'CN',
       }),
-    ).rejects.toBeInstanceOf(HsCodeProviderError);
+    ).rejects.toMatchObject({ name: 'HsCodeProviderError', reason: 'output' });
   });
 });
