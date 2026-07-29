@@ -32,7 +32,7 @@ describe('validation partagée', () => {
     expect(result.success).toBe(false);
   });
 
-  it.each(['7323.93.00.80', '7323930080'])(
+  it.each(['7323.93.0080', '7323.93.00.80', '7323930080'])(
     'accepts a valid 10-digit HTS code: %s',
     (hsCode) => {
       const result = landedCostInputSchema.safeParse({

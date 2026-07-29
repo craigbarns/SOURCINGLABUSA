@@ -10,8 +10,7 @@ import {
 } from '@/lib/validation/hscode';
 import type { HsCodeAnalysisResult } from '@/lib/types';
 
-const OPENAI_CHAT_COMPLETIONS_URL =
-  'https://api.openai.com/v1/chat/completions';
+const OPENAI_RESPONSES_URL = 'https://api.openai.com/v1/responses';
 const PROVIDER_TIMEOUT_MS = 25_000;
 
 type DemoCategory = 'drinkware' | 'textile' | 'backpack';
@@ -21,7 +20,7 @@ const DETERMINISTIC_TARIFFS: Record<DemoCategory, HsCodeAnalysisResult> = {
     mode: 'demo',
     sourceLabel: 'Limited U.S. tariff demo data',
     hsCode6Digit: '7323.93',
-    hsCode10Digit: '7323.93.00.80',
+    hsCode10Digit: '7323.93.0080',
     productDescription: 'Stainless steel household articles (water bottles and insulated mugs)',
     categoryName: 'Stainless Steel Household Articles & Drinkware',
     destinationMarket: 'US',
@@ -51,7 +50,7 @@ const DETERMINISTIC_TARIFFS: Record<DemoCategory, HsCodeAnalysisResult> = {
     mode: 'demo',
     sourceLabel: 'Limited U.S. tariff demo data',
     hsCode6Digit: '6109.10',
-    hsCode10Digit: '6109.10.00.12',
+    hsCode10Digit: '6109.10.0012',
     productDescription: 'Cotton T-shirts, undershirts, and knit tops',
     categoryName: 'Cotton Textiles & Apparel',
     destinationMarket: 'US',
@@ -81,7 +80,7 @@ const DETERMINISTIC_TARIFFS: Record<DemoCategory, HsCodeAnalysisResult> = {
     mode: 'demo',
     sourceLabel: 'Limited U.S. tariff demo data',
     hsCode6Digit: '4202.92',
-    hsCode10Digit: '4202.92.31.20',
+    hsCode10Digit: '4202.92.3120',
     productDescription: 'Backpacks, travel bags, and insulated bags with an outer surface of textile materials',
     categoryName: 'Luggage & Backpacks',
     destinationMarket: 'US',
@@ -109,33 +108,57 @@ const DETERMINISTIC_TARIFFS: Record<DemoCategory, HsCodeAnalysisResult> = {
   },
 };
 
-const providerEnvelopeSchema = z
+const providerDutyRate = z.number().finite().min(0).max(500);
+const providerText = (maximum: number) =>
+  z.string().trim().min(1).max(maximum);
+
+const providerResultSchema = z
   .object({
-    choices: z
+    hsCode6Digit: providerText(20),
+    hsCode10Digit: providerText(24),
+    productDescription: providerText(500),
+    categoryName: providerText(200),
+    dutyRates: z
+      .object({
+        baseDutyPercent: providerDutyRate,
+        section301Percent: providerDutyRate,
+        additionalTaxesPercent: providerDutyRate,
+      })
+      .strict(),
+    regulatoryWarnings: z.array(providerText(500)).max(20),
+    alternativeHsCodes: z
       .array(
         z
           .object({
-            message: z
-              .object({
-                content: z.string().min(1),
-              })
-              .passthrough(),
+            code: providerText(24),
+            description: providerText(300),
+            dutyRate: providerText(100),
           })
-          .passthrough(),
+          .strict(),
       )
-      .min(1),
+      .max(10),
   })
-  .passthrough();
+  .strict();
+
+type OpenAiResponse = {
+  output?: Array<{
+    content?: Array<{
+      type?: string;
+      text?: string;
+    }>;
+  }>;
+};
 
 const SYSTEM_PROMPT = `You produce cautious HS-code and tariff estimates for sourcing teams.
-Return one JSON object with these fields: mode, sourceLabel, hsCode6Digit, hsCode10Digit, productDescription, categoryName, destinationMarket, originCountry, dutyRates, dutyBreakdownNotes, regulatoryWarnings, and alternativeHsCodes.
-dutyRates must contain baseDutyPercent, section301Percent, additionalTaxesPercent, and effectiveDutyPercent as non-negative numbers.
+Return one structured result with these fields: hsCode6Digit, hsCode10Digit, productDescription, categoryName, dutyRates, regulatoryWarnings, and alternativeHsCodes.
+dutyRates must contain baseDutyPercent, section301Percent, and additionalTaxesPercent as non-negative numbers.
 Each alternativeHsCodes item must contain code, description, and dutyRate.
+Use a six-digit HS code and a ten-digit national tariff code. Digits or standard dotted notation are accepted.
 Use the destination market and country of origin supplied in the user message.
 Write all user-facing text in U.S. English.
 For requests outside the United States or products not originating in China, set section301Percent to 0.
 Use cautious language and clearly state that classifications, rates, trade remedies, fees, and requirements need independent verification.
-Return JSON only, with no markdown or surrounding commentary.`;
+Do not invent a binding ruling or claim that a classification is definitive.`;
 
 export class HsCodeDemoUnavailableError extends Error {
   constructor() {
@@ -147,10 +170,128 @@ export class HsCodeDemoUnavailableError extends Error {
 }
 
 export class HsCodeProviderError extends Error {
-  constructor(message = 'The tariff analysis provider could not complete the request.') {
+  constructor(
+    message = 'The tariff analysis provider could not complete the request.',
+    readonly kind:
+      | 'invalid_response'
+      | 'request_failed'
+      | 'timeout'
+      | 'upstream' = 'request_failed',
+    readonly upstreamStatus?: number,
+  ) {
     super(message);
     this.name = 'HsCodeProviderError';
   }
+}
+
+function toOpenAiJsonSchema(schema: z.ZodType): Record<string, unknown> {
+  const jsonSchema = z.toJSONSchema(schema, {
+    target: 'draft-7',
+    unrepresentable: 'any',
+  }) as Record<string, unknown>;
+
+  delete jsonSchema.$schema;
+  return jsonSchema;
+}
+
+function extractOutputText(response: OpenAiResponse): string {
+  for (const item of response.output ?? []) {
+    for (const content of item.content ?? []) {
+      if (content.type === 'output_text' && typeof content.text === 'string') {
+        return content.text;
+      }
+    }
+  }
+
+  throw new HsCodeProviderError(
+    'The tariff analysis provider returned no usable output.',
+    'invalid_response',
+  );
+}
+
+function tariffCodeDigits(value: string): string {
+  return value.replace(/\D/g, '');
+}
+
+function canonicalizeHsCode6(value: string): string {
+  const digits = tariffCodeDigits(value);
+
+  if (digits.length !== 6) {
+    throw new HsCodeProviderError(
+      'The tariff analysis provider returned an invalid six-digit HS code.',
+      'invalid_response',
+    );
+  }
+
+  return `${digits.slice(0, 4)}.${digits.slice(4)}`;
+}
+
+function canonicalizeTariffCode10(value: string): string {
+  const digits = tariffCodeDigits(value);
+
+  if (digits.length !== 10) {
+    throw new HsCodeProviderError(
+      'The tariff analysis provider returned an invalid ten-digit tariff code.',
+      'invalid_response',
+    );
+  }
+
+  return `${digits.slice(0, 4)}.${digits.slice(4, 6)}.${digits.slice(6)}`;
+}
+
+function canonicalizeAlternativeCode(value: string): string | null {
+  const digits = tariffCodeDigits(value);
+
+  if (digits.length === 4) {
+    return digits;
+  }
+
+  if (digits.length === 6) {
+    return `${digits.slice(0, 4)}.${digits.slice(4)}`;
+  }
+
+  if (digits.length === 8) {
+    return `${digits.slice(0, 4)}.${digits.slice(4, 6)}.${digits.slice(6)}`;
+  }
+
+  if (digits.length === 10) {
+    return `${digits.slice(0, 4)}.${digits.slice(4, 6)}.${digits.slice(6)}`;
+  }
+
+  return null;
+}
+
+function formatRate(value: number): string {
+  return String(value);
+}
+
+function buildDutyBreakdownNotes(
+  input: ValidatedHsCodeInput,
+  rates: {
+    baseDutyPercent: number;
+    section301Percent: number;
+    additionalTaxesPercent: number;
+  },
+): string[] {
+  const effectiveDutyPercent =
+    rates.baseDutyPercent +
+    rates.section301Percent +
+    rates.additionalTaxesPercent;
+  const section301Label =
+    input.destinationMarket === 'US' && isChinaOrigin(input.originCountry)
+      ? 'Estimated Section 301 component'
+      : 'Section 301 component for the selected market and origin';
+  const additionalLabel =
+    input.destinationMarket === 'US'
+      ? 'Estimated additional customs fees'
+      : 'Estimated additional fees and taxes';
+
+  return [
+    `Estimated base duty: ${formatRate(rates.baseDutyPercent)}%.`,
+    `${section301Label}: ${formatRate(rates.section301Percent)}%.`,
+    `${additionalLabel}: ${formatRate(rates.additionalTaxesPercent)}%.`,
+    `Calculated component total: ${formatRate(effectiveDutyPercent)}%.`,
+  ];
 }
 
 function recognizeDemoCategory(query: string): DemoCategory | null {
@@ -221,7 +362,7 @@ async function requestProviderAnalysis(
   const timeout = setTimeout(() => controller.abort(), PROVIDER_TIMEOUT_MS);
 
   try {
-    const response = await fetch(OPENAI_CHAT_COMPLETIONS_URL, {
+    const response = await fetch(OPENAI_RESPONSES_URL, {
       method: 'POST',
       headers: {
         Authorization: `Bearer ${config.apiKey}`,
@@ -230,47 +371,89 @@ async function requestProviderAnalysis(
       signal: controller.signal,
       body: JSON.stringify({
         model: config.model,
-        temperature: 0.1,
-        response_format: { type: 'json_object' },
-        messages: [
-          { role: 'system', content: SYSTEM_PROMPT },
-          {
-            role: 'user',
-            content: JSON.stringify({
-              task: 'Estimate a potential HS classification and tariff components for verification.',
-              query: input.query,
-              destinationMarket: input.destinationMarket,
-              originCountry: input.originCountry,
-            }),
+        instructions: SYSTEM_PROMPT,
+        input: JSON.stringify({
+          task: 'Estimate a potential HS classification and tariff components for verification.',
+          query: input.query,
+          destinationMarket: input.destinationMarket,
+          originCountry: input.originCountry,
+        }),
+        text: {
+          format: {
+            type: 'json_schema',
+            name: 'hs_code_tariff_estimate',
+            strict: true,
+            schema: toOpenAiJsonSchema(providerResultSchema),
           },
-        ],
+        },
       }),
     });
 
     if (!response.ok) {
       throw new HsCodeProviderError(
         `The tariff analysis provider rejected the request (status ${response.status}).`,
+        'upstream',
+        response.status,
       );
     }
 
-    const envelope = providerEnvelopeSchema.parse(await response.json());
-    const providerResult = JSON.parse(envelope.choices[0].message.content) as unknown;
-    const normalized = normalizeHsCodeAnalysisResult(providerResult);
+    const payload = (await response.json()) as OpenAiResponse;
+    const parsedJson = JSON.parse(extractOutputText(payload)) as unknown;
+    const providerValidation = providerResultSchema.safeParse(parsedJson);
+
+    if (!providerValidation.success) {
+      throw new HsCodeProviderError(
+        'The tariff analysis provider response did not match the expected schema.',
+        'invalid_response',
+      );
+    }
+
+    const providerResult = providerValidation.data;
+    const hsCode6Digit = canonicalizeHsCode6(providerResult.hsCode6Digit);
+    const hsCode10Digit = canonicalizeTariffCode10(
+      providerResult.hsCode10Digit,
+    );
+
+    if (!hsCode10Digit.startsWith(`${hsCode6Digit}.`)) {
+      throw new HsCodeProviderError(
+        'The tariff analysis provider returned inconsistent tariff codes.',
+        'invalid_response',
+      );
+    }
+
     const section301Percent =
       input.destinationMarket === 'US' && isChinaOrigin(input.originCountry)
-        ? normalized.dutyRates.section301Percent
+        ? providerResult.dutyRates.section301Percent
         : 0;
+    const dutyRates = {
+      baseDutyPercent: providerResult.dutyRates.baseDutyPercent,
+      section301Percent,
+      additionalTaxesPercent:
+        providerResult.dutyRates.additionalTaxesPercent,
+    };
+    const alternativeHsCodes = providerResult.alternativeHsCodes.flatMap(
+      (alternative) => {
+        const code = canonicalizeAlternativeCode(alternative.code);
+        return code ? [{ ...alternative, code }] : [];
+      },
+    );
 
     return normalizeHsCodeAnalysisResult({
-      ...normalized,
       mode: 'live',
       sourceLabel: 'AI-generated tariff estimate',
+      hsCode6Digit,
+      hsCode10Digit,
+      productDescription: providerResult.productDescription,
+      categoryName: providerResult.categoryName,
       destinationMarket: input.destinationMarket,
       originCountry: displayOriginCountry(input.originCountry),
       dutyRates: {
-        ...normalized.dutyRates,
-        section301Percent,
+        ...dutyRates,
+        effectiveDutyPercent: 0,
       },
+      dutyBreakdownNotes: buildDutyBreakdownNotes(input, dutyRates),
+      regulatoryWarnings: providerResult.regulatoryWarnings,
+      alternativeHsCodes,
     });
   } catch (error) {
     if (error instanceof HsCodeProviderError) {
@@ -278,13 +461,16 @@ async function requestProviderAnalysis(
     }
 
     if (error instanceof Error && error.name === 'AbortError') {
-      throw new HsCodeProviderError('The tariff analysis provider timed out.');
+      throw new HsCodeProviderError(
+        'The tariff analysis provider timed out.',
+        'timeout',
+      );
     }
 
-    console.error('HS code provider request failed', {
-      error: error instanceof Error ? error.message : 'Unknown error',
-    });
-    throw new HsCodeProviderError();
+    throw new HsCodeProviderError(
+      'The tariff analysis provider request failed.',
+      'request_failed',
+    );
   } finally {
     clearTimeout(timeout);
   }
