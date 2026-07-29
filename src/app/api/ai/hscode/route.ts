@@ -20,6 +20,26 @@ export const runtime = 'nodejs';
 const MAX_REQUEST_BYTES = 4 * 1024;
 const NO_STORE_HEADERS = { 'Cache-Control': 'no-store' };
 
+function providerErrorMessage(status?: number): string {
+  if (status === 401 || status === 403) {
+    return 'Live tariff analysis failed: the AI provider rejected the API key. Verify OPENAI_API_KEY in your deployment environment.';
+  }
+
+  if (status === 404) {
+    return 'Live tariff analysis failed: the configured AI model was not found. Check the OPENAI_MODEL value (the default is gpt-4o).';
+  }
+
+  if (status === 429) {
+    return 'Live tariff analysis is unavailable: the AI provider reported rate limits or no remaining quota. Check your OpenAI plan, billing, and usage limits.';
+  }
+
+  if (status === 400) {
+    return 'Live tariff analysis failed: the AI provider rejected the request parameters. The configured model may not support JSON responses.';
+  }
+
+  return 'Live tariff analysis is temporarily unavailable. Please try again later.';
+}
+
 function jsonResponse(
   body: unknown,
   status: number,
@@ -86,13 +106,7 @@ export async function POST(request: Request) {
     }
 
     if (error instanceof HsCodeProviderError) {
-      return jsonResponse(
-        {
-          message:
-            'Live tariff analysis is temporarily unavailable. Please try again later.',
-        },
-        502,
-      );
+      return jsonResponse({ message: providerErrorMessage(error.status) }, 502);
     }
 
     console.error('HS-code analysis failed unexpectedly', {

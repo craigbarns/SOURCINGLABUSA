@@ -145,6 +145,61 @@ describe('HS-code server analysis', () => {
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
+  it('tolerates benign HS-code formatting from the provider', async () => {
+    getConfigMock.mockReturnValue({
+      apiKey: 'test-key',
+      model: 'test-model',
+    });
+    fetchMock.mockResolvedValue(
+      new Response(
+        JSON.stringify({
+          choices: [
+            {
+              message: {
+                content: JSON.stringify({
+                  ...PROVIDER_RESULT,
+                  hsCode6Digit: '732393',
+                  hsCode10Digit: '7323930080',
+                }),
+              },
+            },
+          ],
+        }),
+        { status: 200, headers: { 'Content-Type': 'application/json' } },
+      ),
+    );
+
+    const result = await analyzeHsCodeServer({
+      query: 'stainless steel water bottle',
+      destinationMarket: 'US',
+      originCountry: 'CN',
+    });
+
+    expect(result.hsCode6Digit).toBe('7323.93');
+    expect(result.hsCode10Digit).toBe('7323.93.00.80');
+  });
+
+  it('exposes the provider status on the thrown error', async () => {
+    getConfigMock.mockReturnValue({
+      apiKey: 'test-key',
+      model: 'test-model',
+    });
+    fetchMock.mockResolvedValue(
+      new Response(
+        JSON.stringify({ error: { message: 'insufficient_quota' } }),
+        { status: 429 },
+      ),
+    );
+
+    await expect(
+      analyzeHsCodeServer({
+        query: 'stainless steel water bottle',
+        destinationMarket: 'US',
+        originCountry: 'CN',
+      }),
+    ).rejects.toMatchObject({ name: 'HsCodeProviderError', status: 429 });
+  });
+
   it('rejects provider output that does not match the strict schema', async () => {
     getConfigMock.mockReturnValue({
       apiKey: 'test-key',

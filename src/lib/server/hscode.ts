@@ -147,10 +147,74 @@ export class HsCodeDemoUnavailableError extends Error {
 }
 
 export class HsCodeProviderError extends Error {
-  constructor(message = 'The tariff analysis provider could not complete the request.') {
+  readonly status?: number;
+
+  constructor(
+    message = 'The tariff analysis provider could not complete the request.',
+    status?: number,
+  ) {
     super(message);
     this.name = 'HsCodeProviderError';
+    this.status = status;
   }
+}
+
+/**
+ * Regroup any HS-code-like string into the dotted form the schema expects
+ * (four digits, then two-digit segments), tolerating model output such as
+ * "7323930080" or "7323.93.0080". Non-code text is returned untouched.
+ */
+function formatHsCodeDigits(value: unknown): unknown {
+  if (typeof value !== 'string') {
+    return value;
+  }
+
+  const digits = value.replace(/\D/g, '');
+
+  if (digits.length < 4 || digits.length % 2 !== 0 || digits.length > 10) {
+    return value.trim();
+  }
+
+  const head = digits.slice(0, 4);
+  const rest = digits.slice(4).match(/.{2}/g) ?? [];
+  return [head, ...rest].join('.');
+}
+
+/**
+ * Reformat only the HS-code fields of the provider payload so benign
+ * formatting differences do not fail strict validation. Unknown fields are
+ * left in place so the strict schema still rejects unexpected output.
+ */
+function sanitizeProviderResult(raw: unknown): unknown {
+  if (typeof raw !== 'object' || raw === null) {
+    return raw;
+  }
+
+  const source = raw as Record<string, unknown>;
+  const sanitized: Record<string, unknown> = { ...source };
+
+  if ('hsCode6Digit' in source) {
+    sanitized.hsCode6Digit = formatHsCodeDigits(source.hsCode6Digit);
+  }
+
+  if ('hsCode10Digit' in source) {
+    sanitized.hsCode10Digit = formatHsCodeDigits(source.hsCode10Digit);
+  }
+
+  if (Array.isArray(source.alternativeHsCodes)) {
+    sanitized.alternativeHsCodes = source.alternativeHsCodes.map((entry) => {
+      if (typeof entry !== 'object' || entry === null) {
+        return entry;
+      }
+
+      const alt = entry as Record<string, unknown>;
+      return 'code' in alt
+        ? { ...alt, code: formatHsCodeDigits(alt.code) }
+        : alt;
+    });
+  }
+
+  return sanitized;
 }
 
 function recognizeDemoCategory(query: string): DemoCategory | null {
@@ -248,13 +312,32 @@ async function requestProviderAnalysis(
     });
 
     if (!response.ok) {
+      const detail = await response.text().catch(() => '');
+      let providerMessage = '';
+
+      try {
+        providerMessage =
+          (JSON.parse(detail) as { error?: { message?: string } })?.error
+            ?.message ?? '';
+      } catch {
+        providerMessage = '';
+      }
+
+      console.error('HS code provider returned an error status', {
+        status: response.status,
+        detail: (providerMessage || detail).slice(0, 500),
+      });
+
       throw new HsCodeProviderError(
         `The tariff analysis provider rejected the request (status ${response.status}).`,
+        response.status,
       );
     }
 
     const envelope = providerEnvelopeSchema.parse(await response.json());
-    const providerResult = JSON.parse(envelope.choices[0].message.content) as unknown;
+    const providerResult = sanitizeProviderResult(
+      JSON.parse(envelope.choices[0].message.content) as unknown,
+    );
     const normalized = normalizeHsCodeAnalysisResult(providerResult);
     const section301Percent =
       input.destinationMarket === 'US' && isChinaOrigin(input.originCountry)
