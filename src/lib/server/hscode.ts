@@ -146,16 +146,24 @@ export class HsCodeDemoUnavailableError extends Error {
   }
 }
 
+export type HsCodeProviderErrorReason =
+  | 'http'
+  | 'timeout'
+  | 'output'
+  | 'network';
+
 export class HsCodeProviderError extends Error {
   readonly status?: number;
+  readonly reason: HsCodeProviderErrorReason;
 
   constructor(
     message = 'The tariff analysis provider could not complete the request.',
-    status?: number,
+    options: { status?: number; reason?: HsCodeProviderErrorReason } = {},
   ) {
     super(message);
     this.name = 'HsCodeProviderError';
-    this.status = status;
+    this.status = options.status;
+    this.reason = options.reason ?? 'network';
   }
 }
 
@@ -330,15 +338,29 @@ async function requestProviderAnalysis(
 
       throw new HsCodeProviderError(
         `The tariff analysis provider rejected the request (status ${response.status}).`,
-        response.status,
+        { status: response.status, reason: 'http' },
       );
     }
 
-    const envelope = providerEnvelopeSchema.parse(await response.json());
-    const providerResult = sanitizeProviderResult(
-      JSON.parse(envelope.choices[0].message.content) as unknown,
-    );
-    const normalized = normalizeHsCodeAnalysisResult(providerResult);
+    let normalized: HsCodeAnalysisResult;
+
+    try {
+      const envelope = providerEnvelopeSchema.parse(await response.json());
+      const providerResult = sanitizeProviderResult(
+        JSON.parse(envelope.choices[0].message.content) as unknown,
+      );
+      normalized = normalizeHsCodeAnalysisResult(providerResult);
+    } catch (parseError) {
+      console.error('HS code provider output failed validation', {
+        error:
+          parseError instanceof Error ? parseError.message : 'Unknown error',
+      });
+      throw new HsCodeProviderError(
+        'The tariff analysis provider returned data that could not be validated.',
+        { reason: 'output' },
+      );
+    }
+
     const section301Percent =
       input.destinationMarket === 'US' && isChinaOrigin(input.originCountry)
         ? normalized.dutyRates.section301Percent
@@ -361,13 +383,18 @@ async function requestProviderAnalysis(
     }
 
     if (error instanceof Error && error.name === 'AbortError') {
-      throw new HsCodeProviderError('The tariff analysis provider timed out.');
+      throw new HsCodeProviderError('The tariff analysis provider timed out.', {
+        reason: 'timeout',
+      });
     }
 
     console.error('HS code provider request failed', {
       error: error instanceof Error ? error.message : 'Unknown error',
     });
-    throw new HsCodeProviderError();
+    throw new HsCodeProviderError(
+      'The tariff analysis provider could not be reached.',
+      { reason: 'network' },
+    );
   } finally {
     clearTimeout(timeout);
   }

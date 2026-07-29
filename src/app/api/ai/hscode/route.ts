@@ -20,24 +20,38 @@ export const runtime = 'nodejs';
 const MAX_REQUEST_BYTES = 4 * 1024;
 const NO_STORE_HEADERS = { 'Cache-Control': 'no-store' };
 
-function providerErrorMessage(status?: number): string {
-  if (status === 401 || status === 403) {
-    return 'Live tariff analysis failed: the AI provider rejected the API key. Verify OPENAI_API_KEY in your deployment environment.';
+function providerErrorMessage(error: HsCodeProviderError): string {
+  const { status, reason } = error;
+
+  if (reason === 'http') {
+    if (status === 401 || status === 403) {
+      return 'Live tariff analysis failed: the AI provider rejected the API key (401). Verify OPENAI_API_KEY in your deployment environment.';
+    }
+
+    if (status === 404) {
+      return 'Live tariff analysis failed: the configured AI model was not found (404). Check the OPENAI_MODEL value (the default is gpt-4o).';
+    }
+
+    if (status === 429) {
+      return 'Live tariff analysis is unavailable: the AI provider reported rate limits or no remaining quota (429). Check your OpenAI plan, billing, and usage limits.';
+    }
+
+    if (status === 400) {
+      return 'Live tariff analysis failed: the AI provider rejected the request parameters (400). The configured model may not support JSON responses.';
+    }
+
+    return `Live tariff analysis failed: the AI provider returned an error (status ${status ?? 'unknown'}).`;
   }
 
-  if (status === 404) {
-    return 'Live tariff analysis failed: the configured AI model was not found. Check the OPENAI_MODEL value (the default is gpt-4o).';
+  if (reason === 'timeout') {
+    return 'Live tariff analysis timed out while contacting the AI provider. Please try again in a moment.';
   }
 
-  if (status === 429) {
-    return 'Live tariff analysis is unavailable: the AI provider reported rate limits or no remaining quota. Check your OpenAI plan, billing, and usage limits.';
+  if (reason === 'output') {
+    return 'Live tariff analysis failed: the AI model returned data that could not be validated. Please try again or rephrase the product.';
   }
 
-  if (status === 400) {
-    return 'Live tariff analysis failed: the AI provider rejected the request parameters. The configured model may not support JSON responses.';
-  }
-
-  return 'Live tariff analysis is temporarily unavailable. Please try again later.';
+  return 'Live tariff analysis could not reach the AI provider (network error). Please try again shortly.';
 }
 
 function jsonResponse(
@@ -106,7 +120,7 @@ export async function POST(request: Request) {
     }
 
     if (error instanceof HsCodeProviderError) {
-      return jsonResponse({ message: providerErrorMessage(error.status) }, 502);
+      return jsonResponse({ message: providerErrorMessage(error) }, 502);
     }
 
     console.error('HS-code analysis failed unexpectedly', {
