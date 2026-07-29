@@ -165,7 +165,11 @@ const RankingRow: React.FC<{ item: QuoteRankingItem }> = ({ item }) => (
   </tr>
 );
 
-export const QuoteAnalyzer: React.FC = () => {
+interface QuoteAnalyzerProps {
+  userApiKey?: string;
+}
+
+export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
   const inputRef = useRef<HTMLInputElement>(null);
   const [files, setFiles] = useState<File[]>([]);
   const [dragActive, setDragActive] = useState(false);

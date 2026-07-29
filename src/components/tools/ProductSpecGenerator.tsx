@@ -5,7 +5,11 @@ import { Sparkles, Copy, Check, FileText, ShieldCheck, DollarSign, Package, Aler
 import { ClientApiError, generateProductSpecs } from '@/lib/ai-service';
 import { ProductSpecResult } from '@/lib/types';
 
-export const ProductSpecGenerator: React.FC = () => {
+interface ProductSpecGeneratorProps {
+  userApiKey?: string;
+}
+
+export const ProductSpecGenerator: React.FC<ProductSpecGeneratorProps> = () => {
   const [promptInput, setPromptInput] = useState(
     'Je cherche un fabricant de gourdes en inox pour les États-Unis.'
   );
