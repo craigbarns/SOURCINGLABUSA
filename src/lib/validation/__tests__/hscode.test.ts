@@ -10,7 +10,7 @@ const VALID_RESULT = {
   mode: 'live' as const,
   sourceLabel: 'AI-generated tariff estimate',
   hsCode6Digit: '7323.93',
-  hsCode10Digit: '7323.93.00.80',
+  hsCode10Digit: '7323.93.0080',
   productDescription: 'Stainless steel household article',
   categoryName: 'Household articles',
   destinationMarket: 'US' as const,
@@ -84,6 +84,12 @@ describe('HS-code validation', () => {
       hsCodeAnalysisResultSchema.safeParse({
         ...VALID_RESULT,
         hsCode10Digit: 'not-a-code',
+      }).success,
+    ).toBe(false);
+    expect(
+      hsCodeAnalysisResultSchema.safeParse({
+        ...VALID_RESULT,
+        hsCode10Digit: '6109.10.0012',
       }).success,
     ).toBe(false);
   });

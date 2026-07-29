@@ -35,7 +35,7 @@ export const hsCodeAnalysisResultSchema: z.ZodType<HsCodeAnalysisResult> = z
     hsCode10Digit: z
       .string()
       .trim()
-      .regex(/^\d{4}(?:\.\d{2}){3}$/, 'Invalid 10-digit tariff code.'),
+      .regex(/^\d{4}\.\d{2}\.\d{4}$/, 'Invalid 10-digit tariff code.'),
     productDescription: boundedText(500),
     categoryName: boundedText(200),
     destinationMarket: z.enum(['US', 'EU']),
@@ -58,7 +58,7 @@ export const hsCodeAnalysisResultSchema: z.ZodType<HsCodeAnalysisResult> = z
               .string()
               .trim()
               .regex(
-                /^\d{4}(?:\.\d{2}){0,3}$/,
+                /^\d{4}(?:\.\d{2})?(?:\.(?:\d{2}|\d{4}))?$/,
                 'Invalid alternative HS code.',
               ),
             description: boundedText(300),
@@ -68,7 +68,16 @@ export const hsCodeAnalysisResultSchema: z.ZodType<HsCodeAnalysisResult> = z
       )
       .max(10),
   })
-  .strict();
+  .strict()
+  .superRefine((result, context) => {
+    if (!result.hsCode10Digit.startsWith(`${result.hsCode6Digit}.`)) {
+      context.addIssue({
+        code: 'custom',
+        path: ['hsCode10Digit'],
+        message: 'The 10-digit tariff code must extend the 6-digit HS code.',
+      });
+    }
+  });
 
 function roundDutyRate(value: number): number {
   return Math.round((value + Number.EPSILON) * 10_000) / 10_000;

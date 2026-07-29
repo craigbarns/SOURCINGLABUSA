@@ -16,6 +16,7 @@ import {
 import { hsCodeInputSchema } from '@/lib/validation/hscode';
 
 export const runtime = 'nodejs';
+export const maxDuration = 30;
 
 const MAX_REQUEST_BYTES = 4 * 1024;
 const NO_STORE_HEADERS = { 'Cache-Control': 'no-store' };
@@ -86,6 +87,10 @@ export async function POST(request: Request) {
     }
 
     if (error instanceof HsCodeProviderError) {
+      console.error('HS-code live provider unavailable', {
+        kind: error.kind,
+        upstreamStatus: error.upstreamStatus,
+      });
       return jsonResponse(
         {
           message:

@@ -4,7 +4,6 @@ import { getOpenAiServerConfig } from '@/lib/server/env';
 import {
   analyzeHsCodeServer,
   HsCodeDemoUnavailableError,
-  HsCodeProviderError,
 } from '@/lib/server/hscode';
 
 vi.mock('server-only', () => ({}));
@@ -16,24 +15,43 @@ const getConfigMock = vi.mocked(getOpenAiServerConfig);
 const fetchMock = vi.fn();
 
 const PROVIDER_RESULT = {
-  mode: 'live',
-  sourceLabel: 'Model-provided label',
-  hsCode6Digit: '7323.93',
-  hsCode10Digit: '7323.93.00.80',
+  hsCode6Digit: '732393',
+  hsCode10Digit: '7323930080',
   productDescription: 'Stainless steel household article',
   categoryName: 'Household articles',
-  destinationMarket: 'US',
-  originCountry: 'China',
   dutyRates: {
     baseDutyPercent: 3.4,
     section301Percent: 7.5,
     additionalTaxesPercent: 0.3464,
-    effectiveDutyPercent: 999,
   },
-  dutyBreakdownNotes: ['Verify each tariff component.'],
   regulatoryWarnings: ['Requirements depend on the final product.'],
-  alternativeHsCodes: [],
+  alternativeHsCodes: [
+    {
+      code: '3924104000',
+      description: 'Plastic household article',
+      dutyRate: 'Rate to verify',
+    },
+  ],
 };
+
+function providerResponse(result: unknown = PROVIDER_RESULT) {
+  return new Response(
+    JSON.stringify({
+      output: [
+        {
+          type: 'message',
+          content: [
+            {
+              type: 'output_text',
+              text: JSON.stringify(result),
+            },
+          ],
+        },
+      ],
+    }),
+    { status: 200, headers: { 'Content-Type': 'application/json' } },
+  );
+}
 
 describe('HS-code server analysis', () => {
   beforeEach(() => {
@@ -83,25 +101,12 @@ describe('HS-code server analysis', () => {
     );
   });
 
-  it('keeps the query out of the system message and recomputes rates', async () => {
+  it('uses Structured Outputs, derives trusted fields, and recomputes rates', async () => {
     getConfigMock.mockReturnValue({
       apiKey: 'test-key',
       model: 'test-model',
     });
-    fetchMock.mockResolvedValue(
-      new Response(
-        JSON.stringify({
-          choices: [
-            {
-              message: {
-                content: JSON.stringify(PROVIDER_RESULT),
-              },
-            },
-          ],
-        }),
-        { status: 200, headers: { 'Content-Type': 'application/json' } },
-      ),
-    );
+    fetchMock.mockResolvedValue(providerResponse());
     const sentinel = 'sentinel-product-query';
 
     const result = await analyzeHsCodeServer({
@@ -112,21 +117,60 @@ describe('HS-code server analysis', () => {
 
     const request = fetchMock.mock.calls[0][1] as RequestInit;
     const requestBody = JSON.parse(String(request.body)) as {
-      messages: Array<{ role: string; content: string }>;
+      instructions: string;
+      input: string;
+      text: {
+        format: {
+          type: string;
+          strict: boolean;
+          schema: { additionalProperties?: boolean };
+        };
+      };
     };
-    const systemMessage = requestBody.messages.find(
-      (message) => message.role === 'system',
-    );
-    const userMessage = requestBody.messages.find(
-      (message) => message.role === 'user',
-    );
 
-    expect(systemMessage?.content).not.toContain(sentinel);
-    expect(userMessage?.content).toContain(sentinel);
+    expect(fetchMock.mock.calls[0][0]).toBe(
+      'https://api.openai.com/v1/responses',
+    );
+    expect(requestBody.instructions).not.toContain(sentinel);
+    expect(requestBody.input).toContain(sentinel);
+    expect(requestBody.text.format.type).toBe('json_schema');
+    expect(requestBody.text.format.strict).toBe(true);
+    expect(requestBody.text.format.schema.additionalProperties).toBe(false);
+    expect(requestBody).not.toHaveProperty('temperature');
+    expect(requestBody).not.toHaveProperty('response_format');
     expect(result.mode).toBe('live');
     expect(result.sourceLabel).toBe('AI-generated tariff estimate');
+    expect(result.destinationMarket).toBe('US');
+    expect(result.originCountry).toBe('China (CN)');
+    expect(result.hsCode6Digit).toBe('7323.93');
+    expect(result.hsCode10Digit).toBe('7323.93.0080');
     expect(result.dutyRates.effectiveDutyPercent).toBe(11.2464);
+    expect(result.alternativeHsCodes[0]?.code).toBe('3924.10.4000');
   });
+
+  it.each([
+    { destinationMarket: 'US' as const, originCountry: 'VN' as const },
+    { destinationMarket: 'EU' as const, originCountry: 'CN' as const },
+  ])(
+    'removes Section 301 outside US/China and derives a consistent total',
+    async ({ destinationMarket, originCountry }) => {
+      getConfigMock.mockReturnValue({
+        apiKey: 'test-key',
+        model: 'test-model',
+      });
+      fetchMock.mockResolvedValue(providerResponse());
+
+      const result = await analyzeHsCodeServer({
+        query: 'stainless steel water bottle',
+        destinationMarket,
+        originCountry,
+      });
+
+      expect(result.dutyRates.section301Percent).toBe(0);
+      expect(result.dutyRates.effectiveDutyPercent).toBe(3.7464);
+      expect(result.dutyBreakdownNotes.join(' ')).not.toContain('7.5');
+    },
+  );
 
   it('returns a provider error instead of demo data after provider failure', async () => {
     getConfigMock.mockReturnValue({
@@ -141,7 +185,11 @@ describe('HS-code server analysis', () => {
         destinationMarket: 'US',
         originCountry: 'CN',
       }),
-    ).rejects.toBeInstanceOf(HsCodeProviderError);
+    ).rejects.toMatchObject({
+      name: 'HsCodeProviderError',
+      kind: 'upstream',
+      upstreamStatus: 503,
+    });
     expect(fetchMock).toHaveBeenCalledTimes(1);
   });
 
@@ -151,21 +199,10 @@ describe('HS-code server analysis', () => {
       model: 'test-model',
     });
     fetchMock.mockResolvedValue(
-      new Response(
-        JSON.stringify({
-          choices: [
-            {
-              message: {
-                content: JSON.stringify({
-                  ...PROVIDER_RESULT,
-                  unexpected: true,
-                }),
-              },
-            },
-          ],
-        }),
-        { status: 200, headers: { 'Content-Type': 'application/json' } },
-      ),
+      providerResponse({
+        ...PROVIDER_RESULT,
+        unexpected: true,
+      }),
     );
 
     await expect(
@@ -174,6 +211,33 @@ describe('HS-code server analysis', () => {
         destinationMarket: 'US',
         originCountry: 'CN',
       }),
-    ).rejects.toBeInstanceOf(HsCodeProviderError);
+    ).rejects.toMatchObject({
+      name: 'HsCodeProviderError',
+      kind: 'invalid_response',
+    });
+  });
+
+  it('rejects inconsistent six- and ten-digit classifications', async () => {
+    getConfigMock.mockReturnValue({
+      apiKey: 'test-key',
+      model: 'test-model',
+    });
+    fetchMock.mockResolvedValue(
+      providerResponse({
+        ...PROVIDER_RESULT,
+        hsCode10Digit: '6109100012',
+      }),
+    );
+
+    await expect(
+      analyzeHsCodeServer({
+        query: 'stainless steel bottle',
+        destinationMarket: 'US',
+        originCountry: 'CN',
+      }),
+    ).rejects.toMatchObject({
+      name: 'HsCodeProviderError',
+      kind: 'invalid_response',
+    });
   });
 });

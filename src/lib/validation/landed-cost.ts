@@ -21,8 +21,8 @@ export const landedCostInputSchema = z
       .string()
       .trim()
       .regex(
-        /^(?:\d{4}(?:\.\d{2}){0,3}|\d{6}|\d{8}|\d{10})$/,
-        'The HS or HTS code must contain 4, 6, 8, or 10 digits, with optional dots between two-digit groups (e.g., 7323.93.00.80).',
+        /^(?:\d{4}(?:\.\d{2}){0,3}|\d{4}\.\d{2}\.\d{4}|\d{6}|\d{8}|\d{10})$/,
+        'The HS or HTS code must contain 4, 6, 8, or 10 digits, with optional dots (e.g., 7323.93.0080).',
       ),
     destinationMarket: z.enum(['US', 'EU']),
     customsDutyRate: z.number().finite().min(0).max(100),

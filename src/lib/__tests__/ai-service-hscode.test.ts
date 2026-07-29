@@ -7,7 +7,7 @@ const VALID_RESPONSE = {
   mode: 'live',
   sourceLabel: 'AI-generated tariff estimate',
   hsCode6Digit: '7323.93',
-  hsCode10Digit: '7323.93.00.80',
+  hsCode10Digit: '7323.93.0080',
   productDescription: 'Stainless steel household article',
   categoryName: 'Household articles',
   destinationMarket: 'US',
