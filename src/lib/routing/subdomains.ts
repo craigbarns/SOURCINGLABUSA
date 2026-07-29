@@ -72,10 +72,7 @@ export function getDomainRoutingConfig(
     'APP_ORIGIN',
   );
 
-  if (marketingUrl.hostname === appUrl.hostname) {
-    throw new Error('MARKETING_ORIGIN et APP_ORIGIN doivent utiliser deux hôtes distincts.');
-  }
-
+  // If marketing and app share the same hostname (e.g. single domain deployment or Vercel preview), handle gracefully without crashing
   return {
     marketingOrigin: marketingUrl.origin,
     appOrigin: appUrl.origin,

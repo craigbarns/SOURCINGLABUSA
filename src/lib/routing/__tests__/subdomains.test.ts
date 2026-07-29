@@ -38,19 +38,18 @@ describe('configuration des domaines', () => {
     });
   });
 
-  it('refuse une origine avec un chemin ou deux hôtes identiques', () => {
-    expect(() =>
-      getDomainRoutingConfig({
-        MARKETING_ORIGIN: 'https://sourcinglabusa.com/marketing',
-      }),
-    ).toThrow(/MARKETING_ORIGIN/);
-
-    expect(() =>
+  it('accepte une origine identique pour les déploiements monopasse ou Vercel', () => {
+    expect(
       getDomainRoutingConfig({
         MARKETING_ORIGIN: 'https://example.com',
         APP_ORIGIN: 'https://example.com',
       }),
-    ).toThrow(/deux hôtes distincts/);
+    ).toMatchObject({
+      marketingOrigin: 'https://example.com',
+      appOrigin: 'https://example.com',
+      marketingHostname: 'example.com',
+      appHostname: 'example.com',
+    });
   });
 });
 
