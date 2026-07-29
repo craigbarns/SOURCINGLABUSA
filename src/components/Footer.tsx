@@ -4,11 +4,11 @@ import React from 'react';
 import { Sparkles } from 'lucide-react';
 
 interface FooterProps {
-  onLaunchApp: () => void;
+  appHref: string;
   onScrollToWaitlist: () => void;
 }
 
-export const Footer: React.FC<FooterProps> = ({ onLaunchApp, onScrollToWaitlist }) => {
+export const Footer: React.FC<FooterProps> = ({ appHref, onScrollToWaitlist }) => {
   return (
     <footer className="bg-slate-950 border-t border-gray-800/80 pt-12 pb-12 text-gray-400 text-xs">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,8 +30,8 @@ export const Footer: React.FC<FooterProps> = ({ onLaunchApp, onScrollToWaitlist 
           <div className="md:col-span-3 space-y-2">
             <h4 className="text-xs font-bold text-white uppercase tracking-wider">Navigation MVP</h4>
             <ul className="space-y-1.5">
-              <li><button onClick={onLaunchApp} className="hover:text-blue-400">Copilote IA (Accès Direct)</button></li>
-              <li><button onClick={onScrollToWaitlist} className="hover:text-blue-400">Liste d&apos;Attente (Prioritaire)</button></li>
+              <li><a href={appHref} className="hover:text-blue-400">Copilote IA (Accès Direct)</a></li>
+              <li><button type="button" onClick={onScrollToWaitlist} className="hover:text-blue-400">Liste d&apos;Attente (Prioritaire)</button></li>
               <li><a href="#pricing" className="hover:text-blue-400">Tarifs & Abonnements</a></li>
             </ul>
           </div>

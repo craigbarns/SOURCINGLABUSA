@@ -7,13 +7,13 @@ import { AccessibleModal } from './AccessibleModal';
 interface DemoVideoProps {
   isOpen: boolean;
   onClose: () => void;
-  onLaunchApp: () => void;
+  appHref: string;
 }
 
 export const DemoVideo: React.FC<DemoVideoProps> = ({
   isOpen,
   onClose,
-  onLaunchApp,
+  appHref,
 }) => {
   const [isPlaying, setIsPlaying] = useState(true);
   const [currentStep, setCurrentStep] = useState(0);
@@ -192,16 +192,13 @@ export const DemoVideo: React.FC<DemoVideoProps> = ({
               </button>
             </div>
 
-            <button
-              type="button"
-              onClick={() => {
-                onClose();
-                onLaunchApp();
-              }}
+            <a
+              href={appHref}
+              onClick={onClose}
               className="px-6 py-2.5 rounded-xl bg-gradient-to-r from-blue-600 to-emerald-500 text-white font-bold text-sm hover:opacity-95 transition-all shadow-md shadow-blue-500/20 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
             >
               Tester l&apos;Application Directement →
-            </button>
+            </a>
           </div>
         </div>
     </AccessibleModal>

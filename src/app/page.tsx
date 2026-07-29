@@ -1,64 +1,18 @@
-'use client';
+import type { Metadata } from 'next';
 
-import React, { useState } from 'react';
-import { Navbar } from '@/components/Navbar';
-import { Hero } from '@/components/Hero';
-import { DemoVideo } from '@/components/DemoVideo';
-import { WaitlistSection } from '@/components/WaitlistSection';
-import { PricingSection } from '@/components/PricingSection';
-import { AppDashboard } from '@/components/AppDashboard';
-import { Footer } from '@/components/Footer';
+import { LandingPage } from '@/components/LandingPage';
 
-export default function Home() {
-  const [activeTab, setActiveTab] = useState<'landing' | 'app'>('landing');
-  const [isDemoOpen, setIsDemoOpen] = useState(false);
+export const metadata: Metadata = {
+  title: 'Comparateur de devis fournisseurs',
+  alternates: {
+    canonical: '/',
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
+};
 
-  const handleScrollToWaitlist = () => {
-    setActiveTab('landing');
-    setTimeout(() => {
-      const el = document.getElementById('waitlist');
-      if (el) el.scrollIntoView({ behavior: 'smooth' });
-    }, 100);
-  };
-
-  return (
-    <div className="min-h-screen flex flex-col bg-[#08090d]">
-      <Navbar
-        activeTab={activeTab}
-        setActiveTab={setActiveTab}
-      />
-
-      {activeTab === 'landing' ? (
-        <main className="flex-1">
-          <Hero
-            onLaunchApp={() => setActiveTab('app')}
-            onScrollToWaitlist={handleScrollToWaitlist}
-            onOpenDemo={() => setIsDemoOpen(true)}
-          />
-
-          <WaitlistSection />
-
-          <PricingSection
-            onSelectPlan={() => {
-              handleScrollToWaitlist();
-            }}
-          />
-
-          <Footer
-            onLaunchApp={() => setActiveTab('app')}
-            onScrollToWaitlist={handleScrollToWaitlist}
-          />
-        </main>
-      ) : (
-        <AppDashboard onBackToLanding={() => setActiveTab('landing')} />
-      )}
-
-      {/* Modals */}
-      <DemoVideo
-        isOpen={isDemoOpen}
-        onClose={() => setIsDemoOpen(false)}
-        onLaunchApp={() => setActiveTab('app')}
-      />
-    </div>
-  );
+export default function HomePage() {
+  return <LandingPage />;
 }

@@ -4,13 +4,13 @@ import React from 'react';
 import { ArrowRight, Sparkles, ShieldAlert, FileText, Calculator, Mail, Play, CheckCircle2 } from 'lucide-react';
 
 interface HeroProps {
-  onLaunchApp: () => void;
+  appHref: string;
   onScrollToWaitlist: () => void;
   onOpenDemo: () => void;
 }
 
 export const Hero: React.FC<HeroProps> = ({
-  onLaunchApp,
+  appHref,
   onScrollToWaitlist,
   onOpenDemo,
 }) => {
@@ -46,15 +46,16 @@ export const Hero: React.FC<HeroProps> = ({
 
           {/* Primary CTA Buttons */}
           <div className="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
-            <button
-              onClick={onLaunchApp}
+            <a
+              href={appHref}
               className="w-full sm:w-auto px-8 py-4 rounded-2xl bg-gradient-to-r from-blue-600 via-indigo-600 to-emerald-500 text-white font-bold text-base hover:opacity-95 transition-all shadow-xl shadow-blue-500/25 flex items-center justify-center gap-3 group"
             >
               <span>Ouvrir le comparateur de devis</span>
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
-            </button>
+            </a>
 
             <button
+              type="button"
               onClick={onOpenDemo}
               className="w-full sm:w-auto px-7 py-4 rounded-2xl bg-slate-900/90 border border-gray-700 text-gray-200 font-semibold text-base hover:bg-slate-800 hover:text-white transition-all flex items-center justify-center gap-3 group"
             >
@@ -126,7 +127,7 @@ export const Hero: React.FC<HeroProps> = ({
                 <div className="w-3 h-3 rounded-full bg-red-500/80" />
                 <div className="w-3 h-3 rounded-full bg-amber-500/80" />
                 <div className="w-3 h-3 rounded-full bg-emerald-500/80" />
-                <span className="ml-2 text-xs font-mono text-gray-400">sourcinglab.com/copilot-ai</span>
+                <span className="ml-2 text-xs font-mono text-gray-400">app.sourcinglabusa.com</span>
               </div>
               <div className="flex items-center gap-2 text-xs text-emerald-400 font-mono bg-emerald-500/10 px-2.5 py-1 rounded-full border border-emerald-500/20">
                 <CheckCircle2 className="w-3.5 h-3.5" />
@@ -188,12 +189,12 @@ export const Hero: React.FC<HeroProps> = ({
                       OCR
                     </div>
                   </div>
-                  <button 
-                    onClick={onLaunchApp}
-                    className="w-full py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all"
+                  <a
+                    href={appHref}
+                    className="block w-full py-2 rounded-lg bg-blue-600 hover:bg-blue-500 text-white text-xs font-bold transition-all"
                   >
                     Ouvrir ce projet dans le Copilote →
-                  </button>
+                  </a>
                 </div>
               </div>
             </div>

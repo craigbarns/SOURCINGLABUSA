@@ -1,21 +1,19 @@
-'use client';
-
 import React from 'react';
 import { Sparkles, ShieldCheck, ArrowRight, Zap } from 'lucide-react';
 
 interface NavbarProps {
-  activeTab: 'landing' | 'app';
-  setActiveTab: (tab: 'landing' | 'app') => void;
+  area: 'marketing' | 'app';
 }
 
-export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
+export const Navbar: React.FC<NavbarProps> = ({ area }) => {
+  const marketingHref = area === 'app' ? '/marketing' : '/';
+
   return (
     <header className="sticky top-0 z-50 w-full border-b border-gray-800/80 bg-slate-950/80 backdrop-blur-md">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         {/* Brand Logo */}
-        <button
-          type="button"
-          onClick={() => setActiveTab('landing')}
+        <a
+          href={marketingHref}
           aria-label="Retour à l’accueil SourcingLab"
           className="flex items-center gap-3 cursor-pointer group text-left rounded-xl focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
         >
@@ -37,38 +35,36 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
               AI Sourcing Copilot
             </p>
           </div>
-        </button>
+        </a>
 
         {/* Center Nav Items */}
         <nav
           aria-label="Navigation principale"
           className="hidden md:flex items-center gap-1 bg-slate-900/90 border border-gray-800 p-1 rounded-full text-sm font-medium"
         >
-          <button
-            type="button"
-            onClick={() => setActiveTab('landing')}
-            aria-current={activeTab === 'landing' ? 'page' : undefined}
+          <a
+            href={marketingHref}
+            aria-current={area === 'marketing' ? 'page' : undefined}
             className={`px-4 py-1.5 rounded-full transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400 ${
-              activeTab === 'landing'
+              area === 'marketing'
                 ? 'bg-blue-600 text-white shadow-md shadow-blue-600/30'
                 : 'text-gray-400 hover:text-white hover:bg-slate-800/50'
             }`}
           >
             Landing Page
-          </button>
-          <button
-            type="button"
-            onClick={() => setActiveTab('app')}
-            aria-current={activeTab === 'app' ? 'page' : undefined}
+          </a>
+          <a
+            href="/app"
+            aria-current={area === 'app' ? 'page' : undefined}
             className={`px-4 py-1.5 rounded-full transition-all flex items-center gap-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400 ${
-              activeTab === 'app'
+              area === 'app'
                 ? 'bg-emerald-600 text-white shadow-md shadow-emerald-600/30'
                 : 'text-emerald-400 hover:bg-emerald-950/40 hover:text-emerald-300'
             }`}
           >
             <Zap className="w-3.5 h-3.5" aria-hidden="true" />
             Lancer l&apos;App Copilote
-          </button>
+          </a>
         </nav>
 
         {/* Right Actions */}
@@ -81,24 +77,22 @@ export const Navbar: React.FC<NavbarProps> = ({ activeTab, setActiveTab }) => {
             Secrets côté serveur
           </span>
 
-          {activeTab === 'landing' ? (
-            <button
-              type="button"
-              onClick={() => setActiveTab('app')}
+          {area === 'marketing' ? (
+            <a
+              href="/app"
               className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 text-white hover:from-blue-500 hover:to-indigo-500 transition-all shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-300"
             >
               <span>Accéder au Copilote</span>
               <ArrowRight className="w-4 h-4" aria-hidden="true" />
-            </button>
+            </a>
           ) : (
-            <button
-              type="button"
-              onClick={() => setActiveTab('landing')}
+            <a
+              href="/marketing"
               className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold rounded-xl border border-gray-700 bg-slate-900 text-gray-300 hover:bg-slate-800 hover:text-white transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-400"
             >
               <ShieldCheck className="w-4 h-4 text-emerald-400" aria-hidden="true" />
               <span>Voir Offres & Liste d&apos;attente</span>
-            </button>
+            </a>
           )}
         </div>
       </div>

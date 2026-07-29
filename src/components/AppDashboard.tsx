@@ -8,14 +8,14 @@ import { LandedCostCalculator } from './tools/LandedCostCalculator';
 import { SupplierEmailGenerator } from './tools/SupplierEmailGenerator';
 
 interface AppDashboardProps {
-  onBackToLanding: () => void;
+  marketingHref: string;
 }
 
 type ToolId = 'specs' | 'quote' | 'cost' | 'email';
 
 const TOOL_ORDER: ToolId[] = ['specs', 'quote', 'cost', 'email'];
 
-export const AppDashboard: React.FC<AppDashboardProps> = ({ onBackToLanding }) => {
+export const AppDashboard: React.FC<AppDashboardProps> = ({ marketingHref }) => {
   const [activeTool, setActiveTool] = useState<ToolId>('specs');
   const tabRefs = useRef<Record<ToolId, HTMLButtonElement | null>>({
     specs: null,
@@ -67,14 +67,13 @@ export const AppDashboard: React.FC<AppDashboardProps> = ({ onBackToLanding }) =
           <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
             <div>
               <div className="flex items-center gap-2">
-                <button
-                  type="button"
-                  onClick={onBackToLanding}
+                <a
+                  href={marketingHref}
                   className="text-xs text-gray-400 hover:text-white flex items-center gap-1 font-mono rounded focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-blue-400"
                 >
                   <ArrowLeft className="w-3.5 h-3.5" aria-hidden="true" />
                   <span>Retour Landing Page</span>
-                </button>
+                </a>
                 <span className="text-gray-700">•</span>
                 <span className="text-xs px-2 py-0.5 rounded bg-blue-500/20 text-blue-400 font-semibold border border-blue-500/30">
                   MVP Live Phase 1
