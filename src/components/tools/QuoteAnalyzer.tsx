@@ -34,6 +34,7 @@ import {
   quoteAnalysisResponseSchema,
 } from '@/lib/validation/quote';
 import { SaveAnalysisButton } from '@/components/history/SaveAnalysisButton';
+import { LandedCostComparison } from '@/components/tools/LandedCostComparison';
 
 type AnalyzerStatus = 'idle' | 'uploading' | 'success';
 
@@ -809,6 +810,15 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
               </table>
             </div>
           )}
+
+          {/* True landed cost — origin-aware re-ranking */}
+          <LandedCostComparison
+            ranking={result.comparison.ranking}
+            defaultQuantity={
+              result.quotes.find((quote) => quote.totalQuantity !== null)
+                ?.totalQuantity ?? null
+            }
+          />
 
           {/* Quote cards */}
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">

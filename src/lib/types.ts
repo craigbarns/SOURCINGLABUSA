@@ -168,6 +168,59 @@ export interface LandedCostResult {
   warnings: string[];
 }
 
+export interface LandedComparisonSupplierInput {
+  fileName: string;
+  supplierName: string | null;
+  /** Factory (FOB) price per unit, in the shared currency. */
+  unitPriceFob: number;
+  currency: string | null;
+  /** ISO-2 country of origin, e.g. "CN". Drives the applicable duty rate. */
+  originCountry: string;
+  /** Total effective duty percent for this origin, including trade remedies. */
+  dutyRatePercent: number;
+}
+
+export interface LandedComparisonSharedInput {
+  quantity: number;
+  destinationMarket: 'US' | 'EU';
+  shippingMode: 'sea_fcl' | 'sea_lcl' | 'air_express' | 'air_freight';
+  freightCostTotal: number;
+  /** Null estimates insurance from the shipping mode. */
+  insuranceCost: number | null;
+  localPortCharges: number;
+  lastMileDelivery: number;
+}
+
+export interface LandedComparisonRow {
+  fileName: string;
+  supplierName: string | null;
+  currency: string | null;
+  originCountry: string;
+  dutyRatePercent: number;
+  unitPriceFob: number;
+  dutyPerUnit: number;
+  landedUnitCost: number;
+  landedTotalCost: number;
+  fobRank: number;
+  landedRank: number;
+  /** Positive when the supplier ranks better on landed cost than on FOB. */
+  rankDelta: number;
+}
+
+export interface LandedComparisonResult {
+  /** Rows ordered by landed rank, best first. */
+  rows: LandedComparisonRow[];
+  comparable: boolean;
+  /** True when the FOB winner is not the landed-cost winner. */
+  inverted: boolean;
+  fobWinnerFileName: string | null;
+  landedWinnerFileName: string | null;
+  savingsPerUnit: number | null;
+  savingsTotal: number | null;
+  savingsPercent: number | null;
+  warnings: string[];
+}
+
 export interface EmailGeneratorInput {
   supplierName: string;
   contactPerson?: string;
