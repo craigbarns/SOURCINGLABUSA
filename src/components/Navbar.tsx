@@ -2,6 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { Logo } from './Logo';
 import { Sparkles, ShieldCheck, ArrowRight, Settings, Zap, Activity } from 'lucide-react';
 
 interface NavbarProps {
@@ -39,27 +40,9 @@ export const Navbar: React.FC<NavbarProps> = ({
               setActiveTab('landing');
             }
           }}
-          className="flex items-center gap-3 group select-none cursor-pointer"
+          className="cursor-pointer"
         >
-          <div className="relative w-10 h-10 rounded-xl bg-gradient-to-tr from-blue-600 via-indigo-500 to-emerald-400 p-[1px] shadow-lg shadow-blue-500/25 group-hover:scale-105 transition-transform duration-300">
-            <div className="w-full h-full bg-slate-950 rounded-[11px] flex items-center justify-center">
-              <Sparkles className="w-5 h-5 text-blue-400 group-hover:rotate-12 transition-transform duration-300" />
-            </div>
-          </div>
-          <div>
-            <div className="flex items-center gap-1.5">
-              <span className="text-xl font-black tracking-tight text-white font-mono">
-                SOURCING<span className="text-blue-500">LAB</span>
-              </span>
-              <span className="text-[10px] px-1.5 py-0.5 rounded bg-emerald-500/20 text-emerald-400 font-bold border border-emerald-500/30 uppercase tracking-widest">
-                USA
-              </span>
-            </div>
-            <p className="text-[10px] text-gray-400 -mt-1 tracking-wider uppercase font-semibold flex items-center gap-1">
-              <span>AI Sourcing Copilot</span>
-              <span className="inline-block w-1 h-1 rounded-full bg-emerald-400 animate-ping" />
-            </p>
-          </div>
+          <Logo size="md" />
         </Link>
 
         {/* Center Nav Items */}

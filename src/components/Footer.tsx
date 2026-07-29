@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Sparkles } from 'lucide-react';
+import { Logo } from './Logo';
 
 interface FooterProps {
   appHref: string;
@@ -14,10 +14,7 @@ export const Footer: React.FC<FooterProps> = ({ appHref, onScrollToWaitlist }) =
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid md:grid-cols-12 gap-8 pb-8 border-b border-gray-800/80">
           <div className="md:col-span-6 space-y-3">
-            <div className="flex items-center gap-2">
-              <Sparkles className="w-5 h-5 text-blue-400" />
-              <span className="text-lg font-bold text-white font-mono">SOURCINGLAB <span className="text-blue-500">USA</span></span>
-            </div>
+            <Logo size="md" />
             <p className="text-xs text-gray-400 max-w-md leading-relaxed">
               Un copilote de sourcing qui structure les devis, contrôle les calculs et
               prépare les informations à vérifier avec les fournisseurs.
