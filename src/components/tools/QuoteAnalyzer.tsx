@@ -33,6 +33,7 @@ import {
   MAX_QUOTE_UPLOAD_BYTES,
   quoteAnalysisResponseSchema,
 } from '@/lib/validation/quote';
+import { QuoteReportActions } from './QuoteReportActions';
 
 type AnalyzerStatus = 'idle' | 'uploading' | 'success';
 
@@ -169,7 +170,7 @@ const ComparisonChart: React.FC<{
   const minAmount = Math.min(...amounts);
 
   return (
-    <div className="space-y-3.5" aria-hidden="true">
+    <div className="print:hidden space-y-3.5" aria-hidden="true">
       {rows.map((row, index) => {
         const amount = row.amount as number;
         const width = maxAmount > 0 ? Math.max((amount / maxAmount) * 100, 6) : 6;
@@ -483,7 +484,7 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
 
   return (
     <div className="space-y-6">
-      <div className="surface-panel flex items-start gap-3 rounded-2xl p-5">
+      <div className="print-hidden surface-panel flex items-start gap-3 rounded-2xl p-5">
         <div className="shrink-0 rounded-xl bg-[#f1b47d]/12 p-2.5 text-[#f1b47d]">
           <ShieldAlert className="h-5 w-5" aria-hidden="true" />
         </div>
@@ -510,7 +511,7 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
           setDragActive(false);
           addFiles(Array.from(event.dataTransfer.files));
         }}
-        className={`rounded-2xl border-2 border-dashed p-8 text-center transition-all ${
+        className={`print-hidden rounded-2xl border-2 border-dashed p-8 text-center transition-all ${
           dragActive
             ? 'border-[#c7ff6b]/60 bg-[#c7ff6b]/[0.06]'
             : 'border-white/[0.1] bg-white/[0.015] hover:border-[#f1b47d]/40'
@@ -545,7 +546,7 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
       </div>
 
       {files.length > 0 && (
-        <div className="soft-panel space-y-3 rounded-2xl p-4">
+        <div className="print-hidden soft-panel space-y-3 rounded-2xl p-4">
           <div className="flex items-center justify-between gap-3">
             <h4 className="text-sm font-bold text-white">
               {files.length} document{files.length === 1 ? '' : 's'} selected
@@ -617,7 +618,8 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
 
       {result && status === 'success' && (
         <section
-          className="animate-rise surface-panel space-y-6 rounded-2xl p-6"
+          data-quote-report
+          className="quote-report-print animate-rise surface-panel space-y-6 rounded-2xl p-6"
           aria-labelledby="quote-report-title"
         >
           <div className="flex flex-col justify-between gap-3 border-b border-white/[0.07] pb-4 sm:flex-row sm:items-start">
@@ -633,21 +635,24 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
                 <Sparkles className="h-5 w-5 text-[#c7ff6b]" aria-hidden="true" />
               </h3>
             </div>
-            <span
-              className={`self-start rounded-full border px-3 py-1 text-xs font-black uppercase tracking-[0.08em] ${
-                result.mode === 'demo'
-                  ? 'border-[#f1b47d]/40 bg-[#f1b47d]/15 text-[#f7cfa3]'
+            <div className="flex flex-col gap-3 sm:items-end">
+              <span
+                className={`self-start rounded-full border px-3 py-1 text-xs font-black uppercase tracking-[0.08em] sm:self-end ${
+                  result.mode === 'demo'
+                    ? 'border-[#f1b47d]/40 bg-[#f1b47d]/15 text-[#f7cfa3]'
+                    : result.mode === 'partial'
+                      ? 'border-[#7e9cff]/40 bg-[#7e9cff]/15 text-[#aebfff]'
+                      : 'border-[#c7ff6b]/40 bg-[#c7ff6b]/15 text-[#dfffab]'
+                }`}
+              >
+                {result.mode === 'demo'
+                  ? 'Demo mode'
                   : result.mode === 'partial'
-                    ? 'border-[#7e9cff]/40 bg-[#7e9cff]/15 text-[#aebfff]'
-                    : 'border-[#c7ff6b]/40 bg-[#c7ff6b]/15 text-[#dfffab]'
-              }`}
-            >
-              {result.mode === 'demo'
-                ? 'Demo mode'
-                : result.mode === 'partial'
-                  ? 'Partial live analysis'
-                  : 'Live analysis'}
-            </span>
+                    ? 'Partial live analysis'
+                    : 'Live analysis'}
+              </span>
+              <QuoteReportActions result={result} />
+            </div>
           </div>
 
           {result.warning && (
@@ -772,7 +777,7 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
                 Comparable price ranking
               </h4>
               <ComparisonChart rows={rows} winnerFileName={winnerFileName} />
-              <table className="sr-only">
+              <table className="sr-only" data-print-table>
                 <caption>Deterministic quote ranking</caption>
                 <thead>
                   <tr>

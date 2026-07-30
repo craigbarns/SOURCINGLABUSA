@@ -120,7 +120,7 @@ export function AppDashboard({
     <div className="min-h-screen bg-[#070a09] pb-20 text-gray-100">
       <section
         aria-labelledby="sourcing-workspace-title"
-        className="border-b border-white/[0.07] bg-[#0a0e0c]/90 py-7 backdrop-blur-xl"
+        className="print-hidden border-b border-white/[0.07] bg-[#0a0e0c]/90 py-7 backdrop-blur-xl"
       >
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <Link

@@ -256,6 +256,83 @@
   background: #3a4941;
 }
 
+@media print {
+  @page {
+    margin: 16mm;
+  }
+
+  body {
+    background: #ffffff !important;
+    color: #14201a !important;
+    overflow: visible !important;
+  }
+
+  .print-hidden {
+    display: none !important;
+  }
+
+  /* The comparison report prints as a clean, light document. */
+  [data-quote-report].quote-report-print {
+    background: #ffffff !important;
+    border: none !important;
+    box-shadow: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+    padding: 0 !important;
+    color: #14201a !important;
+  }
+
+  [data-quote-report] * {
+    color: #1b2a22 !important;
+    box-shadow: none !important;
+    text-shadow: none !important;
+    background-image: none !important;
+    backdrop-filter: none !important;
+    -webkit-backdrop-filter: none !important;
+  }
+
+  [data-quote-report] section,
+  [data-quote-report] article,
+  [data-quote-report] [class*="rounded-2xl"],
+  [data-quote-report] [class*="rounded-xl"] {
+    background: #ffffff !important;
+    border: 1px solid #d5ddd7 !important;
+    break-inside: avoid;
+  }
+
+  [data-quote-report] h3,
+  [data-quote-report] h4 {
+    color: #0b1310 !important;
+  }
+
+  /* Reveal the accessible ranking table in place of the decorative chart. */
+  [data-quote-report] [data-print-table] {
+    position: static !important;
+    width: 100% !important;
+    height: auto !important;
+    margin-top: 0.75rem !important;
+    clip: auto !important;
+    clip-path: none !important;
+    overflow: visible !important;
+    white-space: normal !important;
+    border-collapse: collapse !important;
+  }
+
+  [data-quote-report] [data-print-table] caption {
+    padding-bottom: 0.35rem;
+    text-align: left;
+    font-weight: 700;
+  }
+
+  [data-quote-report] [data-print-table] th,
+  [data-quote-report] [data-print-table] td {
+    border: 1px solid #d5ddd7 !important;
+    padding: 0.3rem 0.5rem !important;
+    font-size: 11px !important;
+    text-align: left !important;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   html {
     scroll-behavior: auto;
