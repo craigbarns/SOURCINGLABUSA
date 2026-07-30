@@ -58,7 +58,7 @@ describe('QuoteReportActions', () => {
     );
     expect(writeText.mock.calls[0][0]).toContain('Shenzhen Alpha');
     expect(
-      await screen.findByRole('button', { name: /Summary copied/i }),
+      await screen.findByRole('button', { name: /^Copied$/i }),
     ).toBeInTheDocument();
   });
 

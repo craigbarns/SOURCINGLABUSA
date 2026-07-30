@@ -13,11 +13,13 @@ import {
 } from 'lucide-react';
 
 import { analyzeHsCode } from '@/lib/ai-service';
+import { buildHsCodeSummaryText } from '@/lib/report-summaries';
 import type {
   HsCodeAnalysisResult,
   HsCodeOriginCountry,
 } from '@/lib/types';
 import { hsCodeInputSchema } from '@/lib/validation/hscode';
+import { ReportActions } from './ReportActions';
 
 const SAMPLE_QUERIES = [
   '18/8 stainless steel insulated water bottles',
@@ -90,7 +92,7 @@ export const HsCodeAnalyzer: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header Banner */}
-      <div className="surface-panel rounded-2xl p-6">
+      <div className="print-hidden surface-panel rounded-2xl p-6">
         <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-center">
           <div className="space-y-1.5">
             <div className="inline-flex items-center gap-2 rounded-full border border-[#70e1b2]/25 bg-[#70e1b2]/10 px-3 py-1 text-xs font-mono font-bold uppercase tracking-[0.08em] text-[#9ff0cf]">
@@ -147,7 +149,7 @@ export const HsCodeAnalyzer: React.FC = () => {
       </div>
 
       {/* Input Search Form */}
-      <div className="soft-panel space-y-4 rounded-2xl p-6">
+      <div className="print-hidden soft-panel space-y-4 rounded-2xl p-6">
         <form
           className="space-y-4"
           onSubmit={(event) => {
@@ -269,7 +271,7 @@ export const HsCodeAnalyzer: React.FC = () => {
 
       {/* Analysis Results Display */}
       {result && (
-        <div className="animate-rise space-y-6">
+        <div data-report className="report-print animate-rise space-y-6">
           <div className="soft-panel space-y-3 rounded-2xl p-5">
             <div className="flex flex-wrap items-center gap-3">
               <span
@@ -286,6 +288,13 @@ export const HsCodeAnalyzer: React.FC = () => {
               <strong className="text-sm text-white">
                 {result.sourceLabel}
               </strong>
+              <div className="ml-auto">
+                <ReportActions
+                  getSummary={() => buildHsCodeSummaryText(result)}
+                  copyLabel="Copy research"
+                  focusRingClass="focus-visible:ring-[#70e1b2]"
+                />
+              </div>
             </div>
             <div className="rounded-xl border border-[#f1b47d]/30 bg-[#f1b47d]/[0.08] p-3 text-xs text-[#f7cfa3]">
               <strong className="text-[#f1b47d]">Verification required.</strong>{' '}

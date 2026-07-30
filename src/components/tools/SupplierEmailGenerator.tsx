@@ -1,18 +1,12 @@
 'use client';
 
 import React, { useState } from 'react';
-import {
-  AlertCircle,
-  Check,
-  Copy,
-  Globe,
-  Mail,
-  Send,
-  Sparkles,
-} from 'lucide-react';
+import { AlertCircle, Globe, Mail, Send, Sparkles } from 'lucide-react';
 
 import { ClientApiError, generateSupplierEmail } from '@/lib/ai-service';
+import { buildSupplierEmailSummaryText } from '@/lib/report-summaries';
 import type { EmailGeneratorInput, EmailGeneratorResult } from '@/lib/types';
+import { ReportActions } from './ReportActions';
 
 const EMAIL_TYPE_LABELS: Record<EmailGeneratorInput['emailType'], string> = {
   rfq: 'Initial request for quotation (RFQ)',
@@ -51,7 +45,6 @@ export const SupplierEmailGenerator: React.FC = () => {
   });
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<EmailGeneratorResult | null>(null);
-  const [copied, setCopied] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const formIsValid =
@@ -83,25 +76,9 @@ export const SupplierEmailGenerator: React.FC = () => {
     }
   };
 
-  const handleCopy = async () => {
-    if (!result) return;
-
-    try {
-      await navigator.clipboard.writeText(
-        `Subject: ${result.subject}\n\n${result.body}`,
-      );
-      setCopied(true);
-      window.setTimeout(() => setCopied(false), 2000);
-    } catch {
-      setErrorMessage(
-        'Automatic copy failed. Select and copy the email text manually.',
-      );
-    }
-  };
-
   return (
     <div className="space-y-6">
-      <div className="surface-panel flex items-start gap-3 rounded-2xl p-5">
+      <div className="print-hidden surface-panel flex items-start gap-3 rounded-2xl p-5">
         <div className="shrink-0 rounded-xl bg-[#b99cff]/12 p-2.5 text-[#b99cff]">
           <Mail className="h-5 w-5" aria-hidden="true" />
         </div>
@@ -126,7 +103,7 @@ export const SupplierEmailGenerator: React.FC = () => {
       )}
 
       <div className="grid gap-8 lg:grid-cols-12">
-        <div className="soft-panel space-y-4 rounded-2xl p-6 lg:col-span-5">
+        <div className="print-hidden soft-panel space-y-4 rounded-2xl p-6 lg:col-span-5">
           <h4 className="flex items-center gap-2 border-b border-white/[0.07] pb-3 text-sm font-bold text-white">
             <Send className="h-4 w-4 text-[#b99cff]" aria-hidden="true" />
             Email Details
@@ -324,7 +301,10 @@ export const SupplierEmailGenerator: React.FC = () => {
           </button>
         </div>
 
-        <div className="space-y-4 lg:col-span-7">
+        <div
+          data-report={result ? '' : undefined}
+          className="report-print space-y-4 lg:col-span-7 print:col-span-12"
+        >
           {!result && !loading && (
             <div className="space-y-3 rounded-2xl border border-dashed border-white/[0.1] bg-white/[0.015] p-12 text-center">
               <Mail className="mx-auto h-10 w-10 text-[#3a4941]" aria-hidden="true" />
@@ -340,21 +320,11 @@ export const SupplierEmailGenerator: React.FC = () => {
                 <span className="rounded border border-[#b99cff]/30 bg-[#b99cff]/15 px-2.5 py-1 text-xs font-bold uppercase text-[#cebaff]">
                   Review before sending
                 </span>
-                <button
-                  type="button"
-                  onClick={handleCopy}
-                  className="flex items-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold text-white transition-all hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b99cff]"
-                >
-                  {copied ? (
-                    <Check
-                      className="h-3.5 w-3.5 text-[#70e1b2]"
-                      aria-hidden="true"
-                    />
-                  ) : (
-                    <Copy className="h-3.5 w-3.5" aria-hidden="true" />
-                  )}
-                  <span>{copied ? 'Copied!' : 'Copy All'}</span>
-                </button>
+                <ReportActions
+                  getSummary={() => buildSupplierEmailSummaryText(result)}
+                  copyLabel="Copy email"
+                  focusRingClass="focus-visible:ring-[#b99cff]"
+                />
               </div>
 
               <div className="rounded-lg border border-white/[0.07] bg-[#0d1210] p-3">

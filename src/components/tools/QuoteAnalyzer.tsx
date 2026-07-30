@@ -618,8 +618,8 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
 
       {result && status === 'success' && (
         <section
-          data-quote-report
-          className="quote-report-print animate-rise surface-panel space-y-6 rounded-2xl p-6"
+          data-report
+          className="report-print animate-rise surface-panel space-y-6 rounded-2xl p-6"
           aria-labelledby="quote-report-title"
         >
           <div className="flex flex-col justify-between gap-3 border-b border-white/[0.07] pb-4 sm:flex-row sm:items-start">

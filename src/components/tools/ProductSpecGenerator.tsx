@@ -1,9 +1,11 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Sparkles, Copy, Check, FileText, ShieldCheck, DollarSign, Package, AlertCircle } from 'lucide-react';
+import { Sparkles, FileText, ShieldCheck, DollarSign, Package, AlertCircle } from 'lucide-react';
 import { ClientApiError, generateProductSpecs } from '@/lib/ai-service';
+import { buildProductSpecSummaryText } from '@/lib/report-summaries';
 import type { ProductSpecResult } from '@/lib/types';
+import { ReportActions } from './ReportActions';
 
 interface ProductSpecGeneratorProps {
   userApiKey?: string;
@@ -25,7 +27,6 @@ export const ProductSpecGenerator: React.FC<ProductSpecGeneratorProps> = () => {
   );
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ProductSpecResult | null>(null);
-  const [copied, setCopied] = useState(false);
   const [errorMessage, setErrorMessage] = useState<string | null>(null);
 
   const presets = [
@@ -55,47 +56,10 @@ export const ProductSpecGenerator: React.FC<ProductSpecGeneratorProps> = () => {
     }
   };
 
-  const handleCopy = () => {
-    if (!result) return;
-    const text = `
-=== SOURCINGLAB USA PRODUCT SPECIFICATION ===
-Product: ${result.productTitle}
-Target Market: ${result.targetMarket}
-
---- MATERIALS & SPECIFICATIONS ---
-- Materials: ${result.technicalSpecs.materials.join(', ')}
-- Dimensions: ${result.technicalSpecs.dimensions}
-- Weight: ${result.technicalSpecs.weight}
-- Tolerances: ${result.technicalSpecs.tolerances}
-
-	--- POTENTIAL REQUIREMENTS TO VERIFY ---
-	${result.certifications.toVerify.map((c) => `- ${c}`).join('\n')}
-
-	NOTICE: ${result.certifications.verificationNotice}
-
---- TARGET PRICING & MOQ ---
-- Recommended MOQ: ${result.moq.recommended} ${result.moq.unit}
-- Target FOB Price: ${result.pricingTarget.estimatedFob}
-- Estimated Landed Cost: ${result.pricingTarget.targetLandCost}
-- Suggested MSRP: ${result.pricingTarget.recommendedMSRP}
-`;
-    void navigator.clipboard
-      .writeText(text)
-      .then(() => {
-        setCopied(true);
-        window.setTimeout(() => setCopied(false), 2000);
-      })
-      .catch(() => {
-        setErrorMessage(
-          'Automatic copy failed. Select and copy the specification manually.',
-        );
-      });
-  };
-
   return (
     <div className="space-y-6">
       {/* Header Info */}
-      <div className="surface-panel flex items-start gap-3 rounded-2xl p-5">
+      <div className="print-hidden surface-panel flex items-start gap-3 rounded-2xl p-5">
         <div className="shrink-0 rounded-xl bg-[#7e9cff]/12 p-2.5 text-[#7e9cff]">
           <Sparkles className="h-5 w-5" aria-hidden="true" />
         </div>
@@ -109,7 +73,7 @@ Target Market: ${result.targetMarket}
       </div>
 
       {/* Input Section */}
-      <div className="space-y-3">
+      <div className="print-hidden space-y-3">
         <label
           htmlFor="product-spec-prompt"
           className="block text-xs font-semibold uppercase tracking-[0.08em] text-[#849188]"
@@ -175,7 +139,10 @@ Target Market: ${result.targetMarket}
 
       {/* Output Results */}
       {result && (
-        <div className="animate-rise surface-panel mt-8 space-y-6 rounded-2xl p-6">
+        <div
+          data-report
+          className="report-print animate-rise surface-panel mt-8 space-y-6 rounded-2xl p-6"
+        >
           <div
             className={`rounded-xl border p-3 text-xs ${
               result.mode === 'demo'
@@ -201,13 +168,13 @@ Target Market: ${result.targetMarket}
               <p className="mt-0.5 text-xs text-[#849188]">{result.specsSummary}</p>
             </div>
 
-            <button
-              onClick={handleCopy}
-              className="flex items-center gap-2 self-start rounded-xl border border-white/[0.08] bg-white/[0.04] px-4 py-2 text-xs font-semibold text-gray-200 transition-all hover:bg-white/[0.08] sm:self-center"
-            >
-              {copied ? <Check className="h-4 w-4 text-[#70e1b2]" /> : <Copy className="h-4 w-4" />}
-              <span>{copied ? 'Copied!' : 'Copy Specification'}</span>
-            </button>
+            <div className="self-start sm:self-center">
+              <ReportActions
+                getSummary={() => buildProductSpecSummaryText(result)}
+                copyLabel="Copy specification"
+                focusRingClass="focus-visible:ring-[#7e9cff]"
+              />
+            </div>
           </div>
 
           {/* Grid Cards */}

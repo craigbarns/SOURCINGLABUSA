@@ -9,7 +9,9 @@ import {
 } from 'lucide-react';
 
 import { calculateLandedCost } from '@/lib/landed-cost';
+import { buildLandedCostSummaryText } from '@/lib/report-summaries';
 import type { LandedCostInput } from '@/lib/types';
+import { ReportActions } from './ReportActions';
 import {
   DESTINATION_MARKET_LABELS,
   landedCostInputSchema,
@@ -176,7 +178,7 @@ export const LandedCostCalculator: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="surface-panel flex items-start gap-3 rounded-2xl p-5">
+      <div className="print-hidden surface-panel flex items-start gap-3 rounded-2xl p-5">
         <div className="shrink-0 rounded-xl bg-[#c7ff6b]/12 p-2.5 text-[#c7ff6b]">
           <Calculator className="h-5 w-5" aria-hidden="true" />
         </div>
@@ -201,7 +203,7 @@ export const LandedCostCalculator: React.FC = () => {
       )}
 
       <div className="grid gap-8 lg:grid-cols-12">
-        <div className="soft-panel space-y-4 rounded-2xl p-6 lg:col-span-6">
+        <div className="print-hidden soft-panel space-y-4 rounded-2xl p-6 lg:col-span-6">
           <h4 className="flex items-center gap-2 border-b border-white/[0.07] pb-3 text-sm font-bold text-white">
             <DollarSign className="h-4 w-4 text-[#c7ff6b]" aria-hidden="true" />
             Order & Logistics Inputs
@@ -368,7 +370,10 @@ export const LandedCostCalculator: React.FC = () => {
           </div>
         </div>
 
-        <div className="space-y-6 lg:col-span-6">
+        <div
+          data-report={result ? '' : undefined}
+          className="report-print space-y-6 lg:col-span-6 print:col-span-12"
+        >
           {result ? (
             <>
               <div className="space-y-6 rounded-2xl border border-[#c7ff6b]/25 bg-gradient-to-br from-[#c7ff6b]/[0.08] via-[#70e1b2]/[0.03] to-transparent p-6">
@@ -376,9 +381,14 @@ export const LandedCostCalculator: React.FC = () => {
                   <span className="text-xs font-black uppercase tracking-[0.08em] text-[#dfffab]">
                     Landed Cost Estimate
                   </span>
-                  <span className="rounded-full border border-[#70e1b2]/30 bg-[#70e1b2]/15 px-2.5 py-1 text-xs font-semibold text-[#9ff0cf]">
-                    Valid inputs
-                  </span>
+                  <div className="flex flex-wrap items-center gap-2">
+                    <span className="rounded-full border border-[#70e1b2]/30 bg-[#70e1b2]/15 px-2.5 py-1 text-xs font-semibold text-[#9ff0cf]">
+                      Valid inputs
+                    </span>
+                    <ReportActions
+                      getSummary={() => buildLandedCostSummaryText(result)}
+                    />
+                  </div>
                 </div>
 
                 <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
