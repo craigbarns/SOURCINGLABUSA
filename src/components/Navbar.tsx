@@ -50,6 +50,12 @@ export const Navbar: React.FC<NavbarProps> = ({ area = 'marketing' }) => {
         )}
 
         <div className="flex items-center gap-2">
+          {/* Language Switcher */}
+          <div className="hidden sm:flex items-center gap-1 bg-white/[0.04] rounded-lg p-1 border border-white/10 mr-2">
+            <Link href="/" className="px-2 py-1 text-xs font-bold rounded-md hover:bg-white/[0.08] text-white">EN</Link>
+            <Link href="/es" className="px-2 py-1 text-xs font-bold rounded-md hover:bg-white/[0.08] text-[#96a29b]">ES</Link>
+          </div>
+
           {isAppArea ? (
             <Link
               href={marketingHref}
