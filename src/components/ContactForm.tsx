@@ -17,11 +17,11 @@ export function ContactForm() {
       await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        // @ts-ignore
-        body: new URLSearchParams(formData).toString(),
+        // @ts-expect-error FormData to URLSearchParams requires an any cast in this context
+        body: new URLSearchParams(formData as any).toString(),
       });
       setStatus('success');
-    } catch (error) {
+    } catch {
       setStatus('error');
     }
   };
@@ -50,7 +50,7 @@ export function ContactForm() {
       <input type="hidden" name="form-name" value="contact" />
       <p className="hidden">
         <label>
-          Don’t fill this out if you're human: <input name="bot-field" />
+          Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
         </label>
       </p>
 
