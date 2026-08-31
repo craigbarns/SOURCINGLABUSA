@@ -4,18 +4,18 @@ import { describe, expect, it } from 'vitest';
 import { Navbar } from '@/components/Navbar';
 
 describe('Navbar', () => {
-  it('exposes product navigation and a real app link from marketing', () => {
+  it('exposes service navigation and a real project contact link from marketing', () => {
     render(<Navbar area="marketing" />);
 
     expect(
       screen.getByRole('link', { name: /SourcingLab/i }),
     ).toHaveAttribute('href', '/');
     expect(
-      screen.getByRole('link', { name: /Analyze a quote/i }),
-    ).toHaveAttribute('href', '/app');
+      screen.getByRole('link', { name: /Start a project/i }),
+    ).toHaveAttribute('href', expect.stringContaining('mailto:contact@sourcinglabusa.com'));
     expect(
-      screen.getByRole('link', { name: 'Product' }),
-    ).toHaveAttribute('href', '#product');
+      screen.getByRole('link', { name: 'Offerings' }),
+    ).toHaveAttribute('href', '#offerings');
   });
 
   it('uses inter-domain alias to return to marketing', () => {

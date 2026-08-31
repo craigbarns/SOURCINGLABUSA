@@ -1,149 +1,154 @@
 import {
   ArrowRight,
-  Binary,
-  Calculator,
+  Box,
   CheckCircle2,
-  FileCheck2,
-  FileSearch,
-  GitCompareArrows,
+  ClipboardCheck,
   Globe2,
-  LockKeyhole,
-  Mail,
-  ScanSearch,
-  Server,
-  ShieldCheck,
+  PackageCheck,
+  ShieldAlert,
+  Shirt,
   Sparkles,
-  UploadCloud,
 } from 'lucide-react';
 
-const workflow = [
-  {
-    number: '01',
-    icon: UploadCloud,
-    title: 'Upload supplier quotes',
-    body: 'Add up to three PDF or image quotes. Each file is validated before the analysis starts.',
-  },
-  {
-    number: '02',
-    icon: ScanSearch,
-    title: 'Normalize the details',
-    body: 'Extract prices, quantities, terms, lead times, and line items into one reviewable structure.',
-  },
-  {
-    number: '03',
-    icon: GitCompareArrows,
-    title: 'Decide what happens next',
-    body: 'Compare compatible offers, inspect risk flags, model landed cost, and draft your supplier response.',
-  },
-];
+const contactHref =
+  'mailto:contact@sourcinglabusa.com?subject=Custom%20packaging%20or%20textile%20project';
 
-const supportingTools = [
+const offers = [
   {
-    icon: FileCheck2,
-    eyebrow: 'Product brief',
-    title: 'Turn a product idea into a factory-ready starting point.',
-    body: 'Draft materials, dimensions, quality checkpoints, and requirements that still need expert verification.',
-    accent: 'text-[#7e9cff]',
-    iconSurface: 'bg-[#7e9cff]/10',
-  },
-  {
-    icon: Calculator,
-    eyebrow: 'Landed cost',
-    title: 'Model the cost that actually reaches your warehouse.',
-    body: 'Combine unit price, freight, duty rate, insurance, and local charges using inputs you control.',
+    icon: Box,
+    eyebrow: 'Custom packaging',
+    title: 'Packaging that carries your brand properly.',
+    body: 'Custom boxes, paper bags, labels, tissue paper, inserts, and retail packaging developed to your brief.',
+    details: ['Materials and finishes', 'Samples before production', 'Branding and print specifications'],
     accent: 'text-[#c7ff6b]',
     iconSurface: 'bg-[#c7ff6b]/10',
   },
   {
-    icon: Globe2,
-    eyebrow: 'Customs research',
-    title: 'Build a better HS-code verification brief.',
-    body: 'Generate a classification starting point and surface the rates and regulatory assumptions to confirm.',
+    icon: Shirt,
+    eyebrow: 'Custom textile',
+    title: 'Textile products made to specification.',
+    body: 'Apparel, towels, tote bags, uniforms, and branded accessories sourced for the quantity and finish your project needs.',
+    details: ['Fabric and construction options', 'Branding and labels', 'Sampling and production follow-up'],
     accent: 'text-[#70e1b2]',
     iconSurface: 'bg-[#70e1b2]/10',
   },
+];
+
+const workflow = [
   {
-    icon: Mail,
-    eyebrow: 'Supplier response',
-    title: 'Move the conversation forward without starting from zero.',
-    body: 'Draft RFQs, sample requests, quality questions, and counteroffers in three languages for your review.',
-    accent: 'text-[#f1b47d]',
-    iconSurface: 'bg-[#f1b47d]/10',
+    number: '01',
+    icon: ClipboardCheck,
+    title: 'Share your brief',
+    body: 'Tell us the product, quantity, design requirements, target price, and destination.',
+  },
+  {
+    number: '02',
+    icon: Sparkles,
+    title: 'Review the proposal',
+    body: 'We coordinate supplier options, pricing, sample requirements, and production timing for your review.',
+  },
+  {
+    number: '03',
+    icon: PackageCheck,
+    title: 'Approve production',
+    body: 'After the specification and sample are approved, production is followed through agreed quality checkpoints.',
+  },
+  {
+    number: '04',
+    icon: Globe2,
+    title: 'Deliver to your destination',
+    body: 'Orders are prepared for direct delivery from China to the agreed U.S. destination under the agreed shipping terms.',
   },
 ];
 
 const faqs = [
   {
-    question: 'What file formats can I analyze?',
+    question: 'Do you only source packaging?',
     answer:
-      'The quote analyzer accepts PDF, JPEG, PNG, and WebP files. You can compare up to three supplier documents in one run.',
+      'No. Our initial focus is custom packaging and textile products for brands, e-commerce businesses, and companies.',
   },
   {
-    question: 'Are my supplier quotes stored?',
+    question: 'Where are you based?',
     answer:
-      'SourcingLab processes quote files through the analysis request and does not persist the uploaded documents or their OCR text in the application database.',
+      'Sourcing Lab USA is preparing its U.S. market launch from Miami for 2027, supported by an established China sourcing partnership.',
   },
   {
-    question: 'Can I rely on a suggested HS code or duty rate?',
+    question: 'Can you work from an existing design or sample?',
     answer:
-      'Treat classifications and rates as a research starting point, not customs or legal advice. Verify them with an official tariff source or a qualified customs professional before importing.',
+      'Yes. Send your brief, reference images, dimensions, quantity, and target timing. We will confirm what can be quoted and sampled.',
   },
   {
-    question: 'What happens when AI services are not configured?',
+    question: 'Who handles compliance and import requirements?',
     answer:
-      'The product switches to an explicit demo mode. It returns a labeled sample report and never presents the contents of your uploaded file as if they were analyzed.',
-  },
-  {
-    question: 'Does SourcingLab contact suppliers for me?',
-    answer:
-      'No. It prepares RFQs, sample requests, and counteroffers for you to review, copy, and send through your own communication channel.',
-  },
-  {
-    question: 'How are quote totals checked?',
-    answer:
-      'Arithmetic checks and comparable-price ranking are calculated deterministically in code. Narrative AI suggestions cannot overwrite those numbers or ranks.',
+      'Requirements depend on the exact product and destination. Product specifications, certificates, shipping terms, and importer responsibilities are confirmed for each order before production and shipment.',
   },
 ];
 
 export function MarketingSections() {
   return (
     <>
-      <section id="workflow" className="scroll-mt-20 border-t border-white/[0.07] py-24 sm:py-28">
+      <section id="offerings" className="scroll-mt-20 border-t border-white/[0.07] py-24 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <span className="eyebrow">A clearer path from quote to PO</span>
-            <h2 className="text-balance mt-6 text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
-              Three steps. One decision-ready workspace.
-            </h2>
-            <p className="mt-5 max-w-xl text-base leading-7 text-[#94a198]">
-              Keep the original documents, the extracted facts, and the assumptions
-              that need verification in one visible workflow.
+          <div className="grid items-end gap-6 lg:grid-cols-[1fr_0.7fr]">
+            <div>
+              <span className="eyebrow">Made to your brief</span>
+              <h2 className="text-balance mt-6 max-w-3xl text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
+                Two focused offers. One controlled supply chain.
+              </h2>
+            </div>
+            <p className="max-w-xl text-base leading-7 text-[#94a198] lg:pb-1">
+              We focus on the products where design, material choice, finish, quantity,
+              and production follow-up make the biggest difference to your brand.
             </p>
           </div>
 
-          <ol className="mt-14 grid gap-4 lg:grid-cols-3">
-            {workflow.map(({ number, icon: Icon, title, body }, index) => (
-              <li
-                key={number}
-                className="bento-card group relative overflow-hidden rounded-[22px] p-6 sm:p-7"
-              >
-                <div className="absolute right-5 top-3 font-mono text-5xl font-black tracking-[-0.08em] text-white/[0.035]">
-                  {number}
+          <div className="mt-14 grid gap-4 lg:grid-cols-2">
+            {offers.map(({ icon: Icon, eyebrow, title, body, details, accent, iconSurface }) => (
+              <article key={eyebrow} className="surface-panel rounded-[26px] p-7 sm:p-10">
+                <div className={`grid h-12 w-12 place-items-center rounded-[15px] ${iconSurface} ${accent}`}>
+                  <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>
-                <div className="flex items-center justify-between">
-                  <div className="grid h-11 w-11 place-items-center rounded-[14px] border border-[#70e1b2]/15 bg-[#70e1b2]/8 text-[#70e1b2]">
-                    <Icon className="h-5 w-5" aria-hidden="true" />
-                  </div>
-                  {index < workflow.length - 1 && (
-                    <ArrowRight
-                      className="hidden h-4 w-4 text-white/15 lg:block"
-                      aria-hidden="true"
-                    />
-                  )}
-                </div>
-                <h3 className="mt-8 text-lg font-bold tracking-[-0.02em] text-white">
+                <p className={`mt-8 text-xs font-bold uppercase tracking-[0.16em] ${accent}`}>{eyebrow}</p>
+                <h3 className="mt-3 max-w-xl text-2xl font-black tracking-[-0.035em] text-white sm:text-3xl">
                   {title}
                 </h3>
+                <p className="mt-5 max-w-xl text-sm leading-7 text-[#97a39b] sm:text-base">{body}</p>
+                <ul className="mt-8 grid gap-3 sm:grid-cols-3">
+                  {details.map((detail) => (
+                    <li key={detail} className="flex items-start gap-2 text-sm font-semibold text-[#d7dfda]">
+                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#70e1b2]" aria-hidden="true" />
+                      {detail}
+                    </li>
+                  ))}
+                </ul>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works" className="scroll-mt-20 border-y border-white/[0.07] bg-[#0a0e0c] py-24 sm:py-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="max-w-2xl">
+            <span className="eyebrow">A practical process</span>
+            <h2 className="text-balance mt-6 text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
+              From a product idea to a shipment you can track.
+            </h2>
+            <p className="mt-5 max-w-xl text-base leading-7 text-[#94a198]">
+              Every custom order starts with a clear brief and stays documented through quotation, sampling, production, and delivery.
+            </p>
+          </div>
+
+          <ol className="mt-14 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
+            {workflow.map(({ number, icon: Icon, title, body }) => (
+              <li key={number} className="bento-card relative overflow-hidden rounded-[22px] p-6 sm:p-7">
+                <span className="absolute right-5 top-3 font-mono text-5xl font-black tracking-[-0.08em] text-white/[0.035]">
+                  {number}
+                </span>
+                <div className="grid h-11 w-11 place-items-center rounded-[14px] border border-[#70e1b2]/15 bg-[#70e1b2]/8 text-[#70e1b2]">
+                  <Icon className="h-5 w-5" aria-hidden="true" />
+                </div>
+                <h3 className="mt-8 text-lg font-bold tracking-[-0.02em] text-white">{title}</h3>
                 <p className="mt-3 text-sm leading-6 text-[#89968e]">{body}</p>
               </li>
             ))}
@@ -151,199 +156,66 @@ export function MarketingSections() {
         </div>
       </section>
 
-      <section id="product" className="scroll-mt-20 py-24 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-end gap-6 lg:grid-cols-[1fr_0.7fr]">
-            <div>
-              <span className="eyebrow">The sourcing decision layer</span>
-              <h2 className="text-balance mt-6 max-w-3xl text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
-                Start with the quote. Keep every supporting tool close.
-              </h2>
-            </div>
-            <p className="max-w-xl text-base leading-7 text-[#94a198] lg:pb-1">
-              SourcingLab brings the repetitive analysis around a supplier decision
-              into one focused workspace—without hiding the assumptions.
+      <section id="experience" className="scroll-mt-20 py-24 sm:py-28">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
+          <div>
+            <span className="eyebrow">Built on field experience</span>
+            <h2 className="text-balance mt-6 text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
+              Sourcing is more than a supplier list.
+            </h2>
+            <p className="mt-5 max-w-xl text-base leading-7 text-[#94a198]">
+              It is the ability to turn a brief into a manufacturable product, make decisions early, and keep the production process visible.
             </p>
           </div>
 
-          <div className="mt-14 grid gap-4 lg:grid-cols-12">
-            <div className="surface-panel relative overflow-hidden rounded-[26px] p-6 sm:p-8 lg:col-span-7 lg:p-10">
-              <div className="dot-grid pointer-events-none absolute -right-16 -top-20 h-72 w-72 opacity-25 [mask-image:radial-gradient(circle,black,transparent_70%)]" />
-              <div className="relative">
-                <div className="grid h-12 w-12 place-items-center rounded-[15px] bg-[#c7ff6b] text-[#0a0d0b]">
-                  <FileSearch className="h-5 w-5" aria-hidden="true" />
-                </div>
-                <p className="mt-8 text-xs font-bold uppercase tracking-[0.16em] text-[#c7ff6b]">
-                  Core workflow
-                </p>
-                <h3 className="mt-3 max-w-xl text-2xl font-black tracking-[-0.035em] text-white sm:text-4xl">
-                  Compare what suppliers actually quoted—not what you hoped they meant.
-                </h3>
-                <p className="mt-5 max-w-xl text-sm leading-7 text-[#97a39b] sm:text-base">
-                  Normalize currencies, Incoterms, quantities, payment terms, and
-                  lead times. Flag missing information and arithmetic mismatches
-                  before choosing an offer.
-                </p>
-
-                <ul className="mt-8 grid gap-3 sm:grid-cols-2">
-                  {[
-                    'Structured line-item extraction',
-                    'Comparable-offer ranking',
-                    'Missing-term review',
-                    'Deterministic total checks',
-                  ].map((item) => (
-                    <li
-                      key={item}
-                      className="flex items-center gap-2.5 text-sm font-semibold text-[#d7dfda]"
-                    >
-                      <CheckCircle2
-                        className="h-4 w-4 shrink-0 text-[#70e1b2]"
-                        aria-hidden="true"
-                      />
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-
-                <a
-                  href="/app"
-                  className="group mt-9 inline-flex items-center gap-2 text-sm font-extrabold text-[#dfffab]"
-                >
-                  Open the quote analyzer
-                  <ArrowRight
-                    className="h-4 w-4 transition-transform group-hover:translate-x-1"
-                    aria-hidden="true"
-                  />
-                </a>
-              </div>
-            </div>
-
-            <div className="grid gap-4 sm:grid-cols-2 lg:col-span-5 lg:grid-cols-1">
-              {supportingTools.slice(0, 2).map((tool) => (
-                <article key={tool.title} className="bento-card rounded-[22px] p-6 sm:p-7">
-                  <div className={`grid h-10 w-10 place-items-center rounded-xl ${tool.iconSurface} ${tool.accent}`}>
-                    <tool.icon className="h-[18px] w-[18px]" aria-hidden="true" />
-                  </div>
-                  <p className={`mt-6 text-[10px] font-bold uppercase tracking-[0.16em] ${tool.accent}`}>
-                    {tool.eyebrow}
-                  </p>
-                  <h3 className="mt-2 text-lg font-bold leading-6 tracking-[-0.02em] text-white">
-                    {tool.title}
-                  </h3>
-                  <p className="mt-3 text-sm leading-6 text-[#849188]">{tool.body}</p>
-                </article>
-              ))}
-            </div>
-
-            {supportingTools.slice(2).map((tool) => (
-              <article
-                key={tool.title}
-                className="bento-card rounded-[22px] p-6 sm:p-7 lg:col-span-6"
-              >
-                <div className="flex items-start gap-4">
-                  <div className={`grid h-10 w-10 shrink-0 place-items-center rounded-xl ${tool.iconSurface} ${tool.accent}`}>
-                    <tool.icon className="h-[18px] w-[18px]" aria-hidden="true" />
+          <div className="surface-panel rounded-[26px] p-6 sm:p-9">
+            {[
+              ['20 years of product and sourcing experience', 'Built through apparel retail, product development, custom textile, packaging, and China sourcing.'],
+              ['10-year China sourcing partnership', 'An established operational relationship for supplier selection, follow-up, and quality-control coordination.'],
+              ['A U.S. operating base planned for Miami in 2027', 'A focused launch for U.S. brands, e-commerce businesses, and companies.'],
+            ].map(([title, body], index) => (
+              <div key={title} className={index > 0 ? 'border-t border-white/[0.08] pt-6' : ''}>
+                <div className="flex items-start gap-4 py-1">
+                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#c7ff6b]/10 text-[#c7ff6b]">
+                    <CheckCircle2 className="h-5 w-5" aria-hidden="true" />
                   </div>
                   <div>
-                    <p className={`text-[10px] font-bold uppercase tracking-[0.16em] ${tool.accent}`}>
-                      {tool.eyebrow}
-                    </p>
-                    <h3 className="mt-2 text-lg font-bold leading-6 tracking-[-0.02em] text-white">
-                      {tool.title}
-                    </h3>
-                    <p className="mt-3 text-sm leading-6 text-[#849188]">{tool.body}</p>
+                    <h3 className="text-base font-bold text-white">{title}</h3>
+                    <p className="mt-2 text-sm leading-6 text-[#849188]">{body}</p>
                   </div>
                 </div>
-              </article>
+              </div>
             ))}
           </div>
         </div>
       </section>
 
-      <section id="security" className="scroll-mt-20 border-y border-white/[0.07] bg-[#0a0e0c] py-24 sm:py-28">
-        <div className="mx-auto grid max-w-7xl items-center gap-14 px-4 sm:px-6 lg:grid-cols-[0.85fr_1.15fr] lg:px-8">
+      <section id="compliance" className="scroll-mt-20 border-y border-white/[0.07] bg-[#0a0e0c] py-24 sm:py-28">
+        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8">
           <div>
-            <span className="eyebrow">Trust is a product feature</span>
+            <span className="eyebrow">No hidden assumptions</span>
             <h2 className="text-balance mt-6 text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
-              Clear boundaries between your files, the math, and the AI.
+              Product requirements are confirmed order by order.
             </h2>
             <p className="mt-5 max-w-xl text-base leading-7 text-[#94a198]">
-              The architecture keeps secrets on the server, does not persist quote
-              files in the application database, and labels the source of every
-              analysis mode.
+              Materials, certificates, labeling, shipping terms, and import responsibilities vary by product and destination. We identify the requirements that need confirmation before production begins.
             </p>
-
-            <div className="mt-8 grid gap-3 sm:grid-cols-2">
-              {[
-                {
-                  icon: Server,
-                  title: 'Server-side processing',
-                  body: 'Provider keys never ship to the client.',
-                },
-                {
-                  icon: LockKeyhole,
-                  title: 'No quote persistence',
-                  body: 'Files and OCR text are not saved by SourcingLab.',
-                },
-                {
-                  icon: Binary,
-                  title: 'Code-controlled math',
-                  body: 'AI cannot rewrite totals, ranks, or price gaps.',
-                },
-                {
-                  icon: Sparkles,
-                  title: 'Explicit AI modes',
-                  body: 'Live, partial, and demo results stay labeled.',
-                },
-              ].map(({ icon: Icon, title, body }) => (
-                <div key={title} className="soft-panel rounded-2xl p-4">
-                  <Icon className="h-4 w-4 text-[#70e1b2]" aria-hidden="true" />
-                  <p className="mt-4 text-sm font-bold text-white">{title}</p>
-                  <p className="mt-1.5 text-xs leading-5 text-[#78867d]">{body}</p>
-                </div>
-              ))}
-            </div>
           </div>
-
-          <div className="surface-panel relative overflow-hidden rounded-[26px] p-6 sm:p-9">
-            <div className="pointer-events-none absolute inset-0 bg-[radial-gradient(circle_at_85%_10%,rgba(112,225,178,0.11),transparent_42%)]" />
-            <div className="relative">
-              <div className="flex items-center justify-between border-b border-white/[0.08] pb-5">
-                <div className="flex items-center gap-3">
-                  <div className="grid h-11 w-11 place-items-center rounded-[14px] bg-[#70e1b2]/10 text-[#70e1b2]">
-                    <ShieldCheck className="h-5 w-5" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <p className="text-sm font-bold text-white">Analysis pipeline</p>
-                    <p className="mt-0.5 text-[11px] text-[#75827a]">Visible by design</p>
-                  </div>
-                </div>
-                <span className="rounded-full border border-[#70e1b2]/20 bg-[#70e1b2]/8 px-2.5 py-1 text-[9px] font-black uppercase tracking-[0.14em] text-[#a1f1d1]">
-                  No store
-                </span>
-              </div>
-
-              <div className="mt-7 space-y-3">
-                {[
-                  ['01', 'File validation', 'Type, signature, count, and size checks'],
-                  ['02', 'OCR extraction', 'Supplier document converted into structured text'],
-                  ['03', 'Schema validation', 'Output checked before it reaches the interface'],
-                  ['04', 'Deterministic controls', 'Totals and comparable prices calculated in code'],
-                  ['05', 'Narrative review', 'AI suggestions added without changing the math'],
-                ].map(([number, title, body]) => (
-                  <div
-                    key={number}
-                    className="grid grid-cols-[2rem_1fr] gap-3 rounded-2xl border border-white/[0.07] bg-black/10 p-3.5 sm:grid-cols-[2rem_0.75fr_1.25fr] sm:items-center"
-                  >
-                    <span className="font-mono text-[10px] font-bold text-[#c7ff6b]">{number}</span>
-                    <span className="text-xs font-bold text-[#e5ece7]">{title}</span>
-                    <span className="col-start-2 text-[11px] leading-5 text-[#738078] sm:col-start-auto">
-                      {body}
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
+          <div className="soft-panel rounded-[26px] p-7 sm:p-9">
+            <ShieldAlert className="h-7 w-7 text-[#f1b47d]" aria-hidden="true" />
+            <h3 className="mt-6 text-xl font-black tracking-[-0.03em] text-white">Clear before you commit.</h3>
+            <ul className="mt-6 space-y-4">
+              {[
+                'Specifications, quantities, and samples are agreed before production.',
+                'Quality-control checkpoints are set for the specific order.',
+                'Import and delivery responsibilities are confirmed in the commercial terms.',
+              ].map((item) => (
+                <li key={item} className="flex items-start gap-3 text-sm leading-6 text-[#c9d3cd]">
+                  <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#70e1b2]" aria-hidden="true" />
+                  {item}
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
       </section>
@@ -351,30 +223,45 @@ export function MarketingSections() {
       <section id="faq" className="scroll-mt-20 py-24 sm:py-28">
         <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.65fr_1fr] lg:px-8">
           <div>
-            <span className="eyebrow">Before you upload</span>
+            <span className="eyebrow">Questions, answered</span>
             <h2 className="text-balance mt-6 text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
-              Practical answers, no fine-print fog.
+              A straightforward sourcing partner.
             </h2>
             <p className="mt-5 max-w-md text-base leading-7 text-[#94a198]">
-              Sourcing decisions carry real risk. The product should be clear about
-              what it does—and what still needs human verification.
+              The first conversation is about your product, not a generic catalog.
             </p>
           </div>
-
           <div className="divide-y divide-white/[0.08] border-y border-white/[0.08]">
             {faqs.map(({ question, answer }) => (
-              <details key={question} className="group py-1">
-                <summary className="flex cursor-pointer list-none items-center justify-between gap-5 rounded-xl py-5 text-left text-sm font-bold text-[#e8eee9] marker:hidden sm:text-base">
-                  {question}
-                  <span className="grid h-7 w-7 shrink-0 place-items-center rounded-lg border border-white/10 text-lg font-light text-[#8d9a92] transition group-open:rotate-45 group-open:text-[#c7ff6b]">
-                    +
-                  </span>
-                </summary>
-                <p className="max-w-2xl pb-6 pr-10 text-sm leading-7 text-[#87948b]">
-                  {answer}
-                </p>
-              </details>
+              <article key={question} className="py-6 sm:py-7">
+                <h3 className="text-base font-bold text-white">{question}</h3>
+                <p className="mt-3 text-sm leading-7 text-[#89968e]">{answer}</p>
+              </article>
             ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" className="scroll-mt-20 border-t border-white/[0.07] pb-24 pt-4 sm:pb-28">
+        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+          <div className="surface-panel relative overflow-hidden rounded-[26px] px-7 py-12 sm:px-12 sm:py-16">
+            <div className="pointer-events-none absolute right-0 top-0 h-80 w-80 bg-[radial-gradient(circle,rgba(199,255,107,0.12),transparent_65%)]" />
+            <div className="relative max-w-3xl">
+              <span className="eyebrow">Start with your brief</span>
+              <h2 className="text-balance mt-6 text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
+                Ready to develop your next product?
+              </h2>
+              <p className="mt-5 max-w-2xl text-base leading-7 text-[#94a198]">
+                Send us the product, quantity, design references, destination, and timing. We will review the project and come back with the right next step.
+              </p>
+              <a
+                href={contactHref}
+                className="group mt-8 inline-flex min-h-12 items-center gap-2.5 rounded-[14px] bg-[#c7ff6b] px-6 py-3.5 text-sm font-extrabold text-[#0a0d0b] transition hover:bg-[#d7ff94]"
+              >
+                Request a project review
+                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
+              </a>
+            </div>
           </div>
         </div>
       </section>

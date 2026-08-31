@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const alt = 'SourcingLab USA — Compare factory quotes and buy with clarity';
+export const alt = 'Sourcing Lab USA — Custom packaging and textile';
 export const size = {
   width: 1200,
   height: 630,
@@ -103,7 +103,7 @@ export default function OpenGraphImage() {
                 textTransform: 'uppercase',
               }}
             >
-              Procurement intelligence for lean teams
+              Custom packaging and textile
             </div>
             <div
               style={{
@@ -116,8 +116,8 @@ export default function OpenGraphImage() {
                 fontWeight: 900,
               }}
             >
-              <div>Compare factory quotes.</div>
-              <div style={{ color: '#c7ff6b' }}>Buy with clarity.</div>
+              <div>Built around</div>
+              <div style={{ color: '#c7ff6b' }}>your product brief.</div>
             </div>
             <div
               style={{
@@ -127,13 +127,13 @@ export default function OpenGraphImage() {
                 lineHeight: 1.4,
               }}
             >
-              Comparable costs, risk flags, landed-cost estimates, and a clear
-              next move.
+              From product brief to direct delivery, through an established
+              China sourcing partnership.
             </div>
           </div>
 
           <div style={{ display: 'flex', alignItems: 'center', gap: 22, color: '#8d9a92' }}>
-            {['Quote analysis', 'Math checks', 'Landed cost', 'Supplier drafts'].map(
+            {['Custom packaging', 'Custom textile', 'China sourcing', 'Miami · 2027'].map(
               (item) => (
                 <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <div

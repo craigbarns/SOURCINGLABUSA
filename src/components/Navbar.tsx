@@ -11,12 +11,15 @@ interface NavbarProps {
 }
 
 const navigation = [
-  { label: 'Product', href: '#product' },
-  { label: 'How it works', href: '#workflow' },
-  { label: 'Security', href: '#security' },
-  { label: 'Pricing', href: '#pricing' },
+  { label: 'Offerings', href: '#offerings' },
+  { label: 'How it works', href: '#how-it-works' },
+  { label: 'Experience', href: '#experience' },
+  { label: 'Compliance', href: '#compliance' },
   { label: 'FAQ', href: '#faq' },
 ];
+
+const contactHref =
+  'mailto:contact@sourcinglabusa.com?subject=Custom%20packaging%20or%20textile%20project';
 
 export const Navbar: React.FC<NavbarProps> = ({ area = 'marketing' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -59,17 +62,17 @@ export const Navbar: React.FC<NavbarProps> = ({ area = 'marketing' }) => {
               <span className="sm:hidden">Website</span>
             </Link>
           ) : (
-            <Link
-              href="/app"
-              aria-label="Analyze a quote"
+            <a
+              href={contactHref}
+              aria-label="Start a project"
               className="group inline-flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-xl bg-[#c7ff6b] text-sm font-extrabold text-[#0a0d0b] shadow-[0_8px_30px_rgba(199,255,107,0.13)] transition hover:bg-[#d6ff91] sm:h-auto sm:w-auto sm:px-4 sm:py-2.5"
             >
-              <span className="hidden sm:inline">Analyze a quote</span>
+              <span className="hidden sm:inline">Start a project</span>
               <ArrowUpRight
                 className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 aria-hidden="true"
               />
-            </Link>
+            </a>
           )}
 
           {!isAppArea && (

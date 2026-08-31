@@ -11,34 +11,34 @@ export const metadata: Metadata = {
   applicationName: 'SourcingLab USA',
   manifest: '/manifest.webmanifest',
   title: {
-    default: 'AI Factory Quote Analyzer | SourcingLab USA',
+    default: 'Custom Packaging & Textile | Sourcing Lab USA',
     template: '%s | SourcingLab USA',
   },
   description:
-    'Turn supplier quotes into comparable costs, risk flags, landed-cost estimates, and ready-to-review RFQs. Try SourcingLab USA in minutes.',
+    'Custom packaging and textile products for brands, e-commerce businesses, and companies. U.S. market launch planned for Miami in 2027.',
   keywords: [
-    'factory quote analyzer',
-    'supplier quote comparison',
-    'landed cost calculator',
+    'custom packaging',
+    'custom textile',
     'product sourcing',
-    'supplier negotiation',
-    'HS code research',
-    'procurement software',
+    'China sourcing',
+    'B2B packaging',
+    'textile sourcing',
+    'direct delivery',
   ],
   openGraph: {
     type: 'website',
     locale: 'en_US',
     siteName: 'SourcingLab USA',
     url: marketingOrigin,
-    title: 'AI Factory Quote Analyzer | SourcingLab USA',
+    title: 'Custom Packaging & Textile | Sourcing Lab USA',
     description:
-      'Compare factory quotes, surface costly gaps, and prepare your next supplier move.',
+      'Custom packaging and textile products sourced through an established China partnership. Miami launch planned for 2027.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Factory Quote Analyzer | SourcingLab USA',
+    title: 'Custom Packaging & Textile | Sourcing Lab USA',
     description:
-      'Compare factory quotes, surface costly gaps, and prepare your next supplier move.',
+      'Custom packaging and textile products sourced through an established China partnership. Miami launch planned for 2027.',
   },
 };
 

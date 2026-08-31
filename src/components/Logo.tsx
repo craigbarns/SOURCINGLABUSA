@@ -74,7 +74,7 @@ export const Logo: React.FC<LogoProps> = ({
             compactOnMobile ? 'hidden min-[480px]:block' : ''
           }`}
         >
-          Procurement intelligence
+          Custom supply
         </p>
       </div>
     </div>

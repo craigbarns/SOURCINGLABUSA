@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: 'SourcingLab USA',
     short_name: 'SourcingLab',
     description:
-      'Compare supplier quotes, model landed cost, and prepare your next sourcing move.',
+      'Custom packaging and textile products. U.S. market launch planned for Miami in 2027.',
     start_url: '/',
     display: 'standalone',
     background_color: '#070a09',

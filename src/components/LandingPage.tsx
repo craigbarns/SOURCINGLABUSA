@@ -2,10 +2,6 @@ import { Footer } from '@/components/Footer';
 import { HeroExperience } from '@/components/HeroExperience';
 import { MarketingSections } from '@/components/MarketingSections';
 import { Navbar } from '@/components/Navbar';
-import { PricingSection } from '@/components/PricingSection';
-import { WaitlistSection } from '@/components/WaitlistSection';
-
-const APP_ENTRY_PATH = '/app';
 
 export function LandingPage() {
   return (
@@ -19,16 +15,12 @@ export function LandingPage() {
       <Navbar area="marketing" />
 
       <main id="main-content" className="flex-1">
-        <HeroExperience appHref={APP_ENTRY_PATH} />
+        <HeroExperience />
 
         <MarketingSections />
-
-        <PricingSection appHref={APP_ENTRY_PATH} />
-
-        <WaitlistSection />
       </main>
 
-      <Footer appHref={APP_ENTRY_PATH} />
+      <Footer />
     </div>
   );
 }
