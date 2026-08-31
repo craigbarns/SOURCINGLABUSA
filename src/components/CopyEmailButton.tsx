@@ -1,6 +1,5 @@
 'use client';
 
-import confetti from 'canvas-confetti';
 import { Check, Copy } from 'lucide-react';
 import { useState } from 'react';
 
@@ -12,12 +11,6 @@ export function CopyEmailButton() {
     try {
       await navigator.clipboard.writeText(emailAddress);
       setIsCopied(true);
-      confetti({
-        particleCount: 100,
-        spread: 70,
-        origin: { y: 0.6 },
-        colors: ['#c7ff6b', '#70e1b2', '#7e9cff']
-      });
       window.setTimeout(() => setIsCopied(false), 2_500);
     } catch {
       setIsCopied(false);

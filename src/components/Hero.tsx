@@ -41,10 +41,11 @@ export function Hero() {
         <div className="animate-rise min-w-0">
           <div className="eyebrow max-w-full text-[0.64rem] min-[430px]:text-[0.72rem]">
             <span className="status-dot" aria-hidden="true" />
-            U.S. market launch planned for Miami · 2027
+            <span className="sm:hidden">Miami launch · 2027</span>
+            <span className="hidden sm:inline">U.S. market launch planned for Miami · 2027</span>
           </div>
 
-          <h1 className="text-balance mt-7 text-[2.8rem] font-black leading-[0.98] tracking-[-0.055em] text-white sm:text-6xl lg:text-[4.65rem]">
+          <h1 className="text-balance mt-7 max-w-[11ch] text-[2.45rem] font-black leading-[0.98] tracking-[-0.055em] text-white sm:max-w-none sm:text-6xl lg:text-[4.65rem]">
             Custom packaging and textile.{' '}
             <span className="brand-gradient">Sourced with clarity.</span>
           </h1>
