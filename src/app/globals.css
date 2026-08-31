@@ -12,6 +12,7 @@
     --lime: #c7ff6b;
     --mint: #70e1b2;
     --blue: #7e9cff;
+    --font-sans: var(--font-inter), system-ui, sans-serif;
   }
 
   * {

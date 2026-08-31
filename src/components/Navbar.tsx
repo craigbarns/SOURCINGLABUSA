@@ -18,9 +18,6 @@ const navigation = [
   { label: 'FAQ', href: '#faq' },
 ];
 
-const contactHref =
-  'mailto:contact@sourcinglabusa.com?subject=Custom%20packaging%20or%20textile%20project';
-
 export const Navbar: React.FC<NavbarProps> = ({ area = 'marketing' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const isAppArea = area === 'app';
@@ -63,7 +60,7 @@ export const Navbar: React.FC<NavbarProps> = ({ area = 'marketing' }) => {
             </Link>
           ) : (
             <a
-              href={contactHref}
+              href="#contact"
               aria-label="Start a project"
               className="group inline-flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-xl bg-[#c7ff6b] text-sm font-extrabold text-[#0a0d0b] shadow-[0_8px_30px_rgba(199,255,107,0.13)] transition hover:bg-[#d6ff91] sm:h-auto sm:w-auto sm:px-4 sm:py-2.5"
             >

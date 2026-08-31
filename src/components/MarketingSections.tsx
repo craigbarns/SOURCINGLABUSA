@@ -1,5 +1,4 @@
 import {
-  ArrowRight,
   Box,
   CheckCircle2,
   ClipboardCheck,
@@ -10,8 +9,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 
-const contactHref =
-  'mailto:contact@sourcinglabusa.com?subject=Custom%20packaging%20or%20textile%20project';
+import { CopyEmailButton } from './CopyEmailButton';
 
 const offers = [
   {
@@ -254,13 +252,7 @@ export function MarketingSections() {
               <p className="mt-5 max-w-2xl text-base leading-7 text-[#94a198]">
                 Send us the product, quantity, design references, destination, and timing. We will review the project and come back with the right next step.
               </p>
-              <a
-                href={contactHref}
-                className="group mt-8 inline-flex min-h-12 items-center gap-2.5 rounded-[14px] bg-[#c7ff6b] px-6 py-3.5 text-sm font-extrabold text-[#0a0d0b] transition hover:bg-[#d7ff94]"
-              >
-                Request a project review
-                <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" aria-hidden="true" />
-              </a>
+              <CopyEmailButton />
             </div>
           </div>
         </div>

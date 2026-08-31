@@ -1,8 +1,16 @@
+import { Inter } from 'next/font/google';
+
 import type { Metadata } from 'next';
 
 import { getDomainRoutingConfig } from '@/lib/routing/subdomains';
 
 import './globals.css';
+
+const inter = Inter({
+  subsets: ['latin'],
+  display: 'swap',
+  variable: '--font-inter',
+});
 
 const { marketingOrigin } = getDomainRoutingConfig();
 
@@ -10,6 +18,14 @@ export const metadata: Metadata = {
   metadataBase: new URL(marketingOrigin),
   applicationName: 'SourcingLab USA',
   manifest: '/manifest.webmanifest',
+  authors: [{ name: 'SourcingLab USA' }],
+  creator: 'SourcingLab USA',
+  publisher: 'SourcingLab USA',
+  formatDetection: {
+    email: false,
+    address: false,
+    telephone: false,
+  },
   title: {
     default: 'Custom Packaging & Textile | Sourcing Lab USA',
     template: '%s | SourcingLab USA',
@@ -24,6 +40,8 @@ export const metadata: Metadata = {
     'B2B packaging',
     'textile sourcing',
     'direct delivery',
+    'Miami custom packaging',
+    'USA textile sourcing',
   ],
   openGraph: {
     type: 'website',
@@ -48,8 +66,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-US" className="dark">
-      <body className="min-h-screen bg-[#070a09] text-gray-100 antialiased">{children}</body>
+    <html lang="en-US" className={`dark ${inter.variable}`}>
+      <body className="min-h-screen bg-[#070a09] text-gray-100 antialiased font-sans">{children}</body>
     </html>
   );
 }

@@ -4,7 +4,7 @@ import { describe, expect, it } from 'vitest';
 import { Navbar } from '@/components/Navbar';
 
 describe('Navbar', () => {
-  it('exposes service navigation and a real project contact link from marketing', () => {
+  it('exposes service navigation and scrolls to project contact from marketing', () => {
     render(<Navbar area="marketing" />);
 
     expect(
@@ -12,7 +12,7 @@ describe('Navbar', () => {
     ).toHaveAttribute('href', '/');
     expect(
       screen.getByRole('link', { name: /Start a project/i }),
-    ).toHaveAttribute('href', expect.stringContaining('mailto:contact@sourcinglabusa.com'));
+    ).toHaveAttribute('href', '#contact');
     expect(
       screen.getByRole('link', { name: 'Offerings' }),
     ).toHaveAttribute('href', '#offerings');

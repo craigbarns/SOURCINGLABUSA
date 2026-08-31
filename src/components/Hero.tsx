@@ -7,9 +7,6 @@ import {
   Shirt,
 } from 'lucide-react';
 
-const contactHref =
-  'mailto:contact@sourcinglabusa.com?subject=Custom%20packaging%20or%20textile%20project';
-
 const orderSteps = [
   {
     icon: ClipboardCheck,
@@ -60,7 +57,7 @@ export function Hero() {
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a
-              href={contactHref}
+              href="#contact"
               className="group inline-flex min-h-12 items-center justify-center gap-2.5 rounded-[14px] bg-[#c7ff6b] px-6 py-3.5 text-sm font-extrabold text-[#0a0d0b] shadow-[0_12px_40px_rgba(199,255,107,0.14)] transition hover:bg-[#d7ff94]"
             >
               Start a project
