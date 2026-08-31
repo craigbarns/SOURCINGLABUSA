@@ -17,6 +17,7 @@ const navigation = [
   { label: 'Compliance', href: '/#compliance' },
   { label: 'FAQ', href: '/#faq' },
   { label: 'Blog', href: '/blog' },
+  { label: 'Free AI Tools', href: '/tools/hs-code-finder' },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({ area = 'marketing' }) => {
