@@ -17,7 +17,6 @@ export function ContactForm() {
       await fetch('/', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        // @ts-expect-error FormData to URLSearchParams requires an any cast in this context
         body: new URLSearchParams(formData as any).toString(),
       });
       setStatus('success');
