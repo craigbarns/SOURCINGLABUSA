@@ -11,11 +11,12 @@ interface NavbarProps {
 }
 
 const navigation = [
-  { label: 'Offerings', href: '#offerings' },
-  { label: 'How it works', href: '#how-it-works' },
-  { label: 'Experience', href: '#experience' },
-  { label: 'Compliance', href: '#compliance' },
-  { label: 'FAQ', href: '#faq' },
+  { label: 'Offerings', href: '/#offerings' },
+  { label: 'How it works', href: '/#how-it-works' },
+  { label: 'Experience', href: '/#experience' },
+  { label: 'Compliance', href: '/#compliance' },
+  { label: 'FAQ', href: '/#faq' },
+  { label: 'Blog', href: '/blog' },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({ area = 'marketing' }) => {
