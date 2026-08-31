@@ -1,13 +1,10 @@
 'use client';
 
 import confetti from 'canvas-confetti';
-import { Check, Copy, Mail } from 'lucide-react';
+import { Check, Copy } from 'lucide-react';
 import { useState } from 'react';
 
 const emailAddress = 'contact@sourcinglabusa.com';
-const emailHref =
-  'mailto:contact@sourcinglabusa.com?subject=Custom%20packaging%20or%20textile%20project';
-
 export function CopyEmailButton() {
   const [isCopied, setIsCopied] = useState(false);
 

@@ -1,37 +1,35 @@
 ---
-title: "How to Calculate True Landed Costs for Custom Merchandise"
-excerpt: "The factory price is only half the story. Learn how to accurately calculate the 'Landed Cost' of your imported custom packaging and textiles to protect your margins."
+title: "How to Plan Landed Costs for Custom Packaging and Textile Orders"
+excerpt: "A practical checklist of the cost items to confirm before ordering custom packaging or textiles from China to the United States."
 date: "2026-08-20"
 author: "SourcingLab USA"
 ---
 
-A common pitfall for brands sourcing custom packaging and merchandise directly from overseas is misunderstanding the true cost of their products. You might receive a quote from a factory for $1.50 per custom box, build your financial models around that number, and then find your profit margins destroyed by surprise fees.
+A factory quote is only one part of the purchase decision. For a custom packaging or textile order, the useful number is the **landed cost**: the total cost allocated to each unit once it reaches the agreed destination.
 
-To build a sustainable business, you must calculate the **Landed Cost**.
+The exact items, rates, and party responsible depend on the product, origin, Incoterm, shipment method, importer of record, and destination. Treat this as a planning checklist, not a customs or tax determination.
 
 ## What is Landed Cost?
-The landed cost is the total price of a product once it has arrived at your warehouse or fulfillment center. It encompasses everything from the raw materials to the final mile of delivery.
+The landed cost is the combined cost of the goods and the services required to bring them to the delivery point agreed in the order. It should be calculated against the same quantity and delivery terms as the supplier quote.
 
 ### The Landed Cost Formula
-**Landed Cost = Factory Unit Price + Freight + Customs & Duties + Insurance + Overhead**
+**Landed Cost = Product cost + International transport + Insurance (if applicable) + Import charges + U.S. handling/delivery + Order-specific costs**
 
-Let's break down the hidden elements that catch brands off guard:
+Before approving a production run, ask for each item to be shown separately whenever possible.
 
-## 1. Freight (Shipping Costs)
-Whether by air or by sea, moving goods across the world is expensive. 
-- **Air Freight**: Fast (5-10 days) but incredibly expensive. Usually calculated by volumetric weight.
-- **Sea Freight**: Slow (30-45 days) but cost-effective for large volumes. 
+## 1. Product and production costs
+Confirm the unit price, quantity, tooling or setup, sample charges, artwork changes, packaging of the finished goods, payment terms, and the Incoterm. A lower unit price can be less useful if it excludes an essential cost or only applies to a different specification.
 
-*Tip*: Packaging ships "flat," which is highly efficient. Textiles, however, can be bulky. Discuss vacuum-sealing garments with your factory to reduce the volumetric weight of your shipment.
+## 2. Transport and insurance
+Request a transport quote that matches the final carton count, dimensions, weight, pickup point, delivery point, and preferred shipping method. For both packaging and textiles, the way goods are packed can materially affect the chargeable volume. Insurance and delivery services should be stated separately if they are not included.
 
-## 2. Customs, Duties, and Tariffs
-When goods enter the United States, Customs and Border Protection (CBP) will assess duties based on the product's **HS Code** (Harmonized System). 
-Textiles and apparel often face high duty rates (sometimes over 15%), while certain packaging materials might be lower. Additionally, specific tariffs (like Section 301 tariffs on Chinese goods) can add an extra 25% to your tax bill.
+## 3. Classification and import charges
+Product classification, duty treatment, tariffs, and import responsibilities must be checked against the exact product and current rules. The [U.S. International Trade Commission's HTS](https://hts.usitc.gov/) is the official tariff schedule; when binding guidance is required, U.S. Customs and Border Protection explains how to request a classification ruling through its [eRulings process](https://www.help.cbp.gov/s/article/Article-1106?language=en_US).
 
-## 3. Port Fees and Drayage
-Once the container arrives in a U.S. port (like Miami or Long Beach), you must pay port handling fees, customs broker fees, and "drayage" (the truck transport from the port to your warehouse). These domestic fees can easily add hundreds of dollars to a shipment.
+Do not rely on a generic rate or an AI estimate for an import decision. Confirm the classification, applicable charges, and importer obligations for the specific order. A customs broker may be used, but CBP notes that the importer remains responsible for the entry information and duties even when a broker is involved.
 
-## Avoid the Surprises
-Calculating landed costs requires a deep understanding of international logistics and trade compliance. This is where a dedicated sourcing partner becomes invaluable.
+## 4. U.S. handling and order-specific costs
+Depending on the agreed route and terms, the budget may also include port or terminal handling, domestic delivery, storage, inspections arranged by the buyer, or other order-specific services. These should be confirmed in the commercial terms rather than assumed.
 
-At **Sourcing Lab USA**, we provide transparent, fully-landed quotes (often referred to as DDP - Delivered Duty Paid). The price we quote is the price you pay for the goods delivered directly to your door in Miami, or anywhere in the U.S. No surprises, just reliable margins.
+## A practical review before you order
+For each project, build one written cost sheet showing what is included, excluded, estimated, and still to be verified. Sourcing Lab USA can review the product brief, specifications, sample needs, and supplier proposal for packaging and textile projects. Import, delivery, and compliance responsibilities are confirmed in the order-specific commercial terms.

@@ -5,8 +5,11 @@ import { Footer } from '@/components/Footer';
 import { getAllPosts } from '@/lib/blog';
 
 export const metadata: Metadata = {
-  title: 'Blog | Sourcing Lab USA',
+  title: 'Packaging & Textile Procurement Resources',
   description: 'Insights, guides, and trends on custom packaging and textile sourcing for U.S. brands.',
+  alternates: {
+    canonical: '/blog',
+  },
 };
 
 export default function BlogIndex() {

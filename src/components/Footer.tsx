@@ -1,3 +1,5 @@
+import Link from 'next/link';
+
 import { Logo } from './Logo';
 
 export const Footer: React.FC = () => (
@@ -23,10 +25,10 @@ export const Footer: React.FC = () => (
             Services
           </p>
           <ul className="mt-4 space-y-3 text-sm">
-            <li><a href="#offerings" className="hover:text-white">Custom packaging</a></li>
-            <li><a href="#offerings" className="hover:text-white">Custom textile</a></li>
-            <li><a href="#how-it-works" className="hover:text-white">How it works</a></li>
-            <li><a href="#contact" className="hover:text-white">Start a project</a></li>
+            <li><Link href="/#offerings" className="hover:text-white">Custom packaging</Link></li>
+            <li><Link href="/#offerings" className="hover:text-white">Custom textile</Link></li>
+            <li><Link href="/#how-it-works" className="hover:text-white">How it works</Link></li>
+            <li><Link href="/#contact" className="hover:text-white">Send your brief</Link></li>
           </ul>
         </nav>
 
@@ -35,9 +37,9 @@ export const Footer: React.FC = () => (
             Company
           </p>
           <ul className="mt-4 space-y-3 text-sm">
-            <li><a href="#experience" className="hover:text-white">Experience</a></li>
-            <li><a href="#compliance" className="hover:text-white">Quality & compliance</a></li>
-            <li><a href="#faq" className="hover:text-white">FAQ</a></li>
+            <li><Link href="/#experience" className="hover:text-white">Experience</Link></li>
+            <li><Link href="/#compliance" className="hover:text-white">Quality & compliance</Link></li>
+            <li><Link href="/#faq" className="hover:text-white">FAQ</Link></li>
           </ul>
         </nav>
 

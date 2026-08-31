@@ -25,11 +25,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
-    {
-      url: `${marketingOrigin}/tools/hs-code-finder`,
-      changeFrequency: 'monthly',
-      priority: 0.9,
-    },
     ...blogUrls,
   ];
 }

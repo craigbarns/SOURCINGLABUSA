@@ -15,13 +15,13 @@ const orderSteps = [
   },
   {
     icon: PackageCheck,
-    label: '02 · Sourcing en China',
-    detail: 'Selección de fábrica, presupuesto y muestras',
+    label: '02 · Coordinación de proveedores',
+    detail: 'Opciones de proveedores, presupuesto y muestras',
   },
   {
     icon: ShieldCheck,
-    label: '03 · Control de calidad',
-    detail: 'Seguimiento de producción antes del envío',
+    label: '03 · Seguimiento de calidad',
+    detail: 'Puntos de control acordados antes del envío',
   },
   {
     icon: Shirt,
@@ -75,8 +75,8 @@ export function HeroES() {
           <p className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium text-[#7f8d85]">
             {[
               'Especialistas en packaging y textiles',
-              'Entrega directa China - EE.UU.',
-              'Control de calidad en cada proyecto',
+              'Entrega China-EE.UU. según los términos acordados',
+              'Seguimiento de calidad por proyecto',
             ].map((item) => (
               <span key={item} className="inline-flex items-center gap-1.5">
                 <Check className="h-3.5 w-3.5 text-[#70e1b2]" aria-hidden="true" />
@@ -131,8 +131,8 @@ export function HeroES() {
               <ShieldCheck className="h-4 w-4" aria-hidden="true" />
             </div>
             <div>
-              <p className="text-xs font-bold text-white">Calidad siempre visible</p>
-              <p className="text-[10px] text-[#7c8981]">Inspecciones antes del envío</p>
+              <p className="text-xs font-bold text-white">Seguimiento de calidad visible</p>
+              <p className="text-[10px] text-[#7c8981]">Puntos de control acordados antes del envío</p>
             </div>
           </div>
         </div>

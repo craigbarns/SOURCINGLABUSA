@@ -17,7 +17,6 @@ const navigation = [
   { label: 'Compliance', href: '/#compliance' },
   { label: 'FAQ', href: '/#faq' },
   { label: 'Blog', href: '/blog' },
-  { label: 'Free AI Tools', href: '/tools/hs-code-finder' },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({ area = 'marketing' }) => {
@@ -69,10 +68,10 @@ export const Navbar: React.FC<NavbarProps> = ({ area = 'marketing' }) => {
           ) : (
             <a
               href="#contact"
-              aria-label="Start a project"
+              aria-label="Send a project brief"
               className="group inline-flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-xl bg-[#c7ff6b] text-sm font-extrabold text-[#0a0d0b] shadow-[0_8px_30px_rgba(199,255,107,0.13)] transition hover:bg-[#d6ff91] sm:h-auto sm:w-auto sm:px-4 sm:py-2.5"
             >
-              <span className="hidden sm:inline">Start a project</span>
+              <span className="hidden sm:inline">Send a project brief</span>
               <ArrowUpRight
                 className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
                 aria-hidden="true"

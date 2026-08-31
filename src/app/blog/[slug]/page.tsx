@@ -17,10 +17,19 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   try {
     const post = getPostBySlug(slug);
     return {
-      title: `${post.title} | Sourcing Lab USA`,
+      title: post.title,
       description: post.excerpt,
+      alternates: {
+        canonical: `/blog/${slug}`,
+      },
+      openGraph: {
+        type: 'article',
+        url: `/blog/${slug}`,
+        title: post.title,
+        description: post.excerpt,
+      },
     };
-  } catch (e) {
+  } catch {
     return { title: 'Post Not Found' };
   }
 }
@@ -31,7 +40,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
   
   try {
     post = getPostBySlug(slug);
-  } catch (e) {
+  } catch {
     notFound();
   }
 
@@ -40,6 +49,11 @@ export default async function BlogPost({ params }: { params: { slug: string } })
     '@type': 'BlogPosting',
     headline: post.title,
     description: post.excerpt,
+    mainEntityOfPage: {
+      '@type': 'WebPage',
+      '@id': `https://sourcinglabusa.com/blog/${slug}`,
+    },
+    url: `https://sourcinglabusa.com/blog/${slug}`,
     author: {
       '@type': 'Organization',
       name: post.author,

@@ -13,5 +13,6 @@ export default defineConfig([
     'dist/**',
     'coverage/**',
     'next-env.d.ts',
+    'translate.js',
   ]),
 ]);

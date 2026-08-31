@@ -17,7 +17,9 @@ export function ContactForm() {
       const res = await fetch('/contact.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-        body: new URLSearchParams(formData as any).toString(),
+        body: new URLSearchParams(
+          Array.from(formData.entries()).map(([key, value]) => [key, String(value)]),
+        ).toString(),
       });
       if (!res.ok) throw new Error('Form submission failed');
       setStatus('success');
@@ -119,7 +121,7 @@ export function ContactForm() {
 
       {status === 'error' && (
         <p className="text-sm font-medium text-red-400">
-          Something went wrong. Please try again or use the email link.
+          Something went wrong. Please try again or copy the email address above.
         </p>
       )}
     </form>

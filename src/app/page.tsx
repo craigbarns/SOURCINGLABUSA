@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { LandingPage } from '@/components/LandingPage';
 
 export const metadata: Metadata = {
-  title: 'Sourcing Lab USA | Custom Packaging & Textile',
+  title: 'Custom Packaging & Textile Procurement',
   description:
     'Custom packaging and textile products for U.S. brands, e-commerce businesses, and companies. U.S. market launch planned for Miami in 2027.',
   alternates: {
@@ -52,11 +52,6 @@ export default function HomePage() {
               }
             }
           ]
-        },
-        foundingDate: '2027',
-        location: {
-          '@type': 'Place',
-          name: 'Miami, Florida',
         },
         contactPoint: {
           '@type': 'ContactPoint',

@@ -92,7 +92,7 @@ export function MarketingSections() {
             <div>
               <span className="eyebrow">Made to your brief</span>
               <h2 className="text-balance mt-6 max-w-3xl text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
-                Two focused offers. One controlled supply chain.
+                Two focused offers. One practical procurement process.
               </h2>
             </div>
             <p className="max-w-xl text-base leading-7 text-[#94a198] lg:pb-1">

@@ -2,14 +2,16 @@ import type { Metadata } from 'next';
 import { LandingPageES } from '@/components/es/LandingPageES';
 
 export const metadata: Metadata = {
-  title: 'Sourcing Lab USA | Empaques y Textiles Personalizados',
+  title: 'Empaques y Textiles Personalizados',
   description:
     'Sourcing de empaques y productos textiles para marcas de EE.UU. Lanzamiento previsto en Miami para 2027.',
   alternates: {
     canonical: '/es',
   },
   robots: {
-    index: true,
+    // Keep this version available to visitors while the Spanish editorial review is completed.
+    // The English site is the current primary U.S. search experience.
+    index: false,
     follow: true,
   },
 };
@@ -50,11 +52,6 @@ export default function HomePageES() {
               }
             }
           ]
-        },
-        foundingDate: '2027',
-        location: {
-          '@type': 'Place',
-          name: 'Miami, Florida',
         },
         contactPoint: {
           '@type': 'ContactPoint',

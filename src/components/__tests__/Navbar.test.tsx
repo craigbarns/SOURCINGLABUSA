@@ -11,11 +11,11 @@ describe('Navbar', () => {
       screen.getByRole('link', { name: /SourcingLab/i }),
     ).toHaveAttribute('href', '/');
     expect(
-      screen.getByRole('link', { name: /Start a project/i }),
+      screen.getByRole('link', { name: /Send a project brief/i }),
     ).toHaveAttribute('href', '#contact');
     expect(
       screen.getByRole('link', { name: 'Offerings' }),
-    ).toHaveAttribute('href', '#offerings');
+    ).toHaveAttribute('href', '/#offerings');
   });
 
   it('uses inter-domain alias to return to marketing', () => {

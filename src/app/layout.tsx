@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   },
   title: {
     default: 'Custom Packaging & Textile | Sourcing Lab USA',
-    template: '%s | SourcingLab USA',
+    template: '%s | Sourcing Lab USA',
   },
   description:
     'Custom packaging and textile products for brands, e-commerce businesses, and companies. U.S. market launch planned for Miami in 2027.',

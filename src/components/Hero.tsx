@@ -15,13 +15,13 @@ const orderSteps = [
   },
   {
     icon: PackageCheck,
-    label: '02 · China sourcing',
-    detail: 'Factory selection, quote and sample',
+    label: '02 · Supplier coordination',
+    detail: 'Supplier options, quote and sample',
   },
   {
     icon: ShieldCheck,
-    label: '03 · Quality control',
-    detail: 'Production follow-up before shipment',
+    label: '03 · Quality follow-up',
+    detail: 'Agreed checkpoints before shipment',
   },
   {
     icon: Shirt,
@@ -46,13 +46,14 @@ export function Hero() {
 
           <h1 className="text-balance mt-7 text-[2.8rem] font-black leading-[0.98] tracking-[-0.055em] text-white sm:text-6xl lg:text-[4.65rem]">
             Custom packaging and textile.{' '}
-            <span className="brand-gradient">Sourced with control.</span>
+            <span className="brand-gradient">Sourced with clarity.</span>
           </h1>
 
           <p className="mt-7 max-w-xl text-balance text-base leading-7 text-[#aeb9b2] sm:text-lg sm:leading-8">
             Launching for the U.S. market in 2027, Sourcing Lab USA will support
             brands, e-commerce businesses, and companies developing custom
-            packaging and textile products through an established China supply network.
+            packaging and textile products through an established independent China
+            sourcing partnership.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
@@ -60,7 +61,7 @@ export function Hero() {
               href="#contact"
               className="group inline-flex min-h-12 items-center justify-center gap-2.5 rounded-[14px] bg-[#c7ff6b] px-6 py-3.5 text-sm font-extrabold text-[#0a0d0b] shadow-[0_12px_40px_rgba(199,255,107,0.14)] transition hover:bg-[#d7ff94]"
             >
-              Start a project
+              Send your project brief
               <ArrowRight
                 className="h-4 w-4 transition-transform group-hover:translate-x-1"
                 aria-hidden="true"
@@ -77,8 +78,8 @@ export function Hero() {
           <p className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium text-[#7f8d85]">
             {[
               'Packaging and textile specialists',
-              'Direct China-to-U.S. delivery',
-              'Project-specific quality control',
+              'China-to-U.S. delivery under agreed terms',
+              'Project-specific quality follow-up',
             ].map((item) => (
               <span key={item} className="inline-flex items-center gap-1.5">
                 <Check className="h-3.5 w-3.5 text-[#70e1b2]" aria-hidden="true" />
@@ -133,8 +134,8 @@ export function Hero() {
               <ShieldCheck className="h-4 w-4" aria-hidden="true" />
             </div>
             <div>
-              <p className="text-xs font-bold text-white">Quality stays visible</p>
-              <p className="text-[10px] text-[#7c8981]">Checks before production ships</p>
+              <p className="text-xs font-bold text-white">Quality follow-up stays visible</p>
+              <p className="text-[10px] text-[#7c8981]">Agreed checkpoints before shipment</p>
             </div>
           </div>
         </div>
