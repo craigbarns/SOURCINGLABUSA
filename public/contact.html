@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
   <body>
-    <form name="contact" data-netlify="true" netlify-honeypot="bot-field">
+    <form name="contact" method="POST" action="/contact.html" data-netlify="true" netlify-honeypot="bot-field">
+      <input type="hidden" name="form-name" value="contact" />
       <input type="text" name="name" />
       <input type="email" name="email" />
       <select name="projectType"></select>

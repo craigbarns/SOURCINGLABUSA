@@ -41,13 +41,6 @@ export function CopyEmailButton() {
         )}
         {isCopied ? 'Email copied' : 'Copy email address'}
       </button>
-      <a
-        href={emailHref}
-        className="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-[14px] border border-white/10 bg-white/[0.04] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-white/[0.08]"
-      >
-        <Mail className="h-4 w-4 text-[#70e1b2]" aria-hidden="true" />
-        Open email app
-      </a>
       <p className="text-sm font-semibold text-[#dfffab]">{emailAddress}</p>
     </div>
   );
