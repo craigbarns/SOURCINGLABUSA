@@ -2,6 +2,7 @@
 title: "How to Plan Landed Costs for Custom Packaging and Textile Orders"
 excerpt: "A practical checklist of the cost items to confirm before ordering custom packaging or textiles from China to the United States."
 date: "2026-08-20"
+updated: "2026-08-31"
 author: "SourcingLab USA"
 ---
 

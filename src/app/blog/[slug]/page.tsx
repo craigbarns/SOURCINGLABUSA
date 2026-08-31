@@ -59,6 +59,7 @@ export default async function BlogPost({ params }: { params: { slug: string } })
       name: post.author,
     },
     datePublished: post.date,
+    dateModified: post.updated ?? post.date,
   };
 
   return (

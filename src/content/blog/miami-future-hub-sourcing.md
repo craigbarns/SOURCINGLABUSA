@@ -2,6 +2,7 @@
 title: "Why Sourcing Lab USA Is Planning a Miami Launch for 2027"
 excerpt: "Sourcing Lab USA's planned Miami launch is part of a focused U.S. procurement model for custom packaging and textile projects."
 date: "2026-08-31"
+updated: "2026-08-31"
 author: "SourcingLab USA"
 ---
 
