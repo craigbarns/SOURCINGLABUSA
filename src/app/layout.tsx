@@ -1,4 +1,5 @@
 import { Inter } from 'next/font/google';
+import Script from 'next/script';
 
 import type { Metadata } from 'next';
 
@@ -67,6 +68,18 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en-US" className={`dark ${inter.variable}`}>
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-ZJ0M56QGGM"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-ZJ0M56QGGM');`}
+        </Script>
+      </head>
       <body className="min-h-screen bg-[#070a09] text-gray-100 antialiased font-sans">{children}</body>
     </html>
   );
