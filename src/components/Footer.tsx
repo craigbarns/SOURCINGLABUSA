@@ -25,8 +25,10 @@ export const Footer: React.FC = () => (
             Services
           </p>
           <ul className="mt-4 space-y-3 text-sm">
-            <li><Link href="/#offerings" className="hover:text-white">Custom packaging</Link></li>
-            <li><Link href="/#offerings" className="hover:text-white">Custom textile</Link></li>
+            <li><Link href="/custom-packaging" className="hover:text-white">Custom packaging</Link></li>
+            <li><Link href="/custom-textile" className="hover:text-white">Custom textile</Link></li>
+            <li><Link href="/private-label-packaging" className="hover:text-white">Private label packaging</Link></li>
+            <li><Link href="/china-to-us-procurement" className="hover:text-white">China-to-U.S. procurement</Link></li>
             <li><Link href="/#how-it-works" className="hover:text-white">How it works</Link></li>
             <li><Link href="/#contact" className="hover:text-white">Send your brief</Link></li>
           </ul>

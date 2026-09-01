@@ -11,11 +11,10 @@ interface NavbarProps {
 }
 
 const navigation = [
-  { label: 'Offerings', href: '/#offerings' },
+  { label: 'Packaging', href: '/custom-packaging' },
+  { label: 'Textile', href: '/custom-textile' },
+  { label: 'Private label', href: '/private-label-packaging' },
   { label: 'How it works', href: '/#how-it-works' },
-  { label: 'Experience', href: '/#experience' },
-  { label: 'Compliance', href: '/#compliance' },
-  { label: 'FAQ', href: '/#faq' },
   { label: 'Blog', href: '/blog' },
 ];
 

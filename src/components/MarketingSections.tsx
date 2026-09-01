@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import {
   Box,
   CheckCircle2,
@@ -19,6 +20,8 @@ const offers = [
     title: 'Packaging that carries your brand properly.',
     body: 'Custom boxes, paper bags, labels, tissue paper, inserts, and retail packaging developed to your brief.',
     details: ['Materials and finishes', 'Samples before production', 'Branding and print specifications'],
+    href: '/custom-packaging',
+    linkLabel: 'Explore custom packaging',
     accent: 'text-[#c7ff6b]',
     iconSurface: 'bg-[#c7ff6b]/10',
   },
@@ -28,6 +31,8 @@ const offers = [
     title: 'Textile products made to specification.',
     body: 'Apparel, towels, tote bags, uniforms, and branded accessories sourced for the quantity and finish your project needs.',
     details: ['Fabric and construction options', 'Branding and labels', 'Sampling and production follow-up'],
+    href: '/custom-textile',
+    linkLabel: 'Explore custom textile',
     accent: 'text-[#70e1b2]',
     iconSurface: 'bg-[#70e1b2]/10',
   },
@@ -102,7 +107,7 @@ export function MarketingSections() {
           </div>
 
           <div className="mt-14 grid gap-4 lg:grid-cols-2">
-            {offers.map(({ icon: Icon, eyebrow, title, body, details, accent, iconSurface }) => (
+            {offers.map(({ icon: Icon, eyebrow, title, body, details, href, linkLabel, accent, iconSurface }) => (
               <article key={eyebrow} className="surface-panel rounded-[26px] p-7 sm:p-10">
                 <div className={`grid h-12 w-12 place-items-center rounded-[15px] ${iconSurface} ${accent}`}>
                   <Icon className="h-5 w-5" aria-hidden="true" />
@@ -112,6 +117,12 @@ export function MarketingSections() {
                   {title}
                 </h3>
                 <p className="mt-5 max-w-xl text-sm leading-7 text-[#97a39b] sm:text-base">{body}</p>
+                <Link
+                  href={href}
+                  className="mt-5 inline-flex text-sm font-bold text-[#dfffab] transition-colors hover:text-white"
+                >
+                  {linkLabel} <span aria-hidden="true" className="ml-1">→</span>
+                </Link>
                 <ul className="mt-8 grid gap-3 sm:grid-cols-3">
                   {details.map((detail) => (
                     <li key={detail} className="flex items-start gap-2 text-sm font-semibold text-[#d7dfda]">

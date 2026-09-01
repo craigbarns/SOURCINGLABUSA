@@ -14,8 +14,11 @@ describe('Navbar', () => {
       screen.getByRole('link', { name: /Send a project brief/i }),
     ).toHaveAttribute('href', '#contact');
     expect(
-      screen.getByRole('link', { name: 'Offerings' }),
-    ).toHaveAttribute('href', '/#offerings');
+      screen.getByRole('link', { name: 'Packaging' }),
+    ).toHaveAttribute('href', '/custom-packaging');
+    expect(
+      screen.getByRole('link', { name: 'Private label' }),
+    ).toHaveAttribute('href', '/private-label-packaging');
   });
 
   it('uses inter-domain alias to return to marketing', () => {

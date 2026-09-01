@@ -7,6 +7,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const { marketingOrigin } = getDomainRoutingConfig();
   const posts = getAllPosts();
 
+  const serviceUrls = [
+    '/custom-packaging',
+    '/custom-textile',
+    '/private-label-packaging',
+    '/china-to-us-procurement',
+  ].map((path) => ({
+    url: `${marketingOrigin}${path}`,
+    changeFrequency: 'monthly' as const,
+    priority: 0.9,
+  }));
+
   const blogUrls = posts.map((post) => ({
     url: `${marketingOrigin}/blog/${post.slug}`,
     lastModified: new Date(post.updated ?? post.date).toISOString().split('T')[0],
@@ -25,6 +36,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
+    ...serviceUrls,
     ...blogUrls,
   ];
 }

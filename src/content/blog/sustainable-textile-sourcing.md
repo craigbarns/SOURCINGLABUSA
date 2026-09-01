@@ -31,3 +31,5 @@ Do not assume that a document applies to every component of a finished product. 
 Sampling is where the material hand feel, color, construction, print, trims, labeling, and packaging can be reviewed against the agreed brief. Record approved changes before production so that the final specification and commercial terms stay aligned.
 
 Sourcing Lab USA coordinates custom textile procurement around the specific brief, supplier proposal, samples, and agreed production follow-up. Documentation, quality checkpoints, shipping terms, and importer responsibilities are agreed case by case; the company does not represent itself as a certification body, testing laboratory, or customs adviser.
+
+Learn how to prepare a [custom textile product brief](/custom-textile) before requesting a proposal.

@@ -23,3 +23,5 @@ The business is being built on nearly two decades of product and international s
 Brands evaluating a future packaging or textile project can start by documenting the product, drawings or references, materials, quantity, desired finish, target timing, and destination. Availability, pricing, sampling, delivery, and responsibilities are confirmed case by case.
 
 For now, Miami remains a planned 2027 launch. The website will be updated as the U.S. business becomes operational.
+
+Explore the current scope for [custom packaging](/custom-packaging), [custom textile](/custom-textile), and [private label packaging](/private-label-packaging).

@@ -34,3 +34,5 @@ Depending on the agreed route and terms, the budget may also include port or ter
 
 ## A practical review before you order
 For each project, build one written cost sheet showing what is included, excluded, estimated, and still to be verified. Sourcing Lab USA can review the product brief, specifications, sample needs, and supplier proposal for packaging and textile projects. Import, delivery, and compliance responsibilities are confirmed in the order-specific commercial terms.
+
+For project scope and order terms, see [China-to-U.S. packaging and textile procurement](/china-to-us-procurement).
