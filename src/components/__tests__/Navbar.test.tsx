@@ -1,4 +1,5 @@
-import { render, screen } from '@testing-library/react';
+import { render, screen, within } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { describe, expect, it } from 'vitest';
 
 import { Navbar } from '@/components/Navbar';
@@ -33,5 +34,20 @@ describe('Navbar', () => {
     expect(
       screen.queryByRole('navigation', { name: /Primary navigation/i }),
     ).not.toBeInTheDocument();
+  });
+
+  it('offers Spanish switching in the mobile navigation', async () => {
+    const user = userEvent.setup();
+    render(<Navbar area="marketing" />);
+
+    await user.click(screen.getByRole('button', { name: 'Open navigation menu' }));
+
+    const mobileNavigation = screen.getByRole('navigation', { name: 'Mobile navigation' });
+    expect(
+      within(mobileNavigation).getByRole('link', { name: 'Español' }),
+    ).toHaveAttribute('href', '/es');
+    expect(
+      within(mobileNavigation).getByRole('link', { name: 'English' }),
+    ).toHaveAttribute('href', '/');
   });
 });

@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { ArrowLeft, ArrowUpRight, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
@@ -20,7 +21,9 @@ const navigation = [
 
 export const Navbar: React.FC<NavbarProps> = ({ area = 'marketing' }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const pathname = usePathname();
   const isAppArea = area === 'app';
+  const isSpanish = pathname?.startsWith('/es') ?? false;
   const marketingHref = isAppArea ? '/marketing' : '/';
 
   return (
@@ -51,8 +54,20 @@ export const Navbar: React.FC<NavbarProps> = ({ area = 'marketing' }) => {
         <div className="flex items-center gap-2">
           {/* Language Switcher */}
           <div className="hidden sm:flex items-center gap-1 bg-white/[0.04] rounded-lg p-1 border border-white/10 mr-2">
-            <Link href="/" className="px-2 py-1 text-xs font-bold rounded-md hover:bg-white/[0.08] text-white">EN</Link>
-            <Link href="/es" className="px-2 py-1 text-xs font-bold rounded-md hover:bg-white/[0.08] text-[#96a29b]">ES</Link>
+            <Link
+              href="/"
+              aria-current={isSpanish ? undefined : 'page'}
+              className={`rounded-md px-2 py-1 text-xs font-bold hover:bg-white/[0.08] ${isSpanish ? 'text-[#96a29b]' : 'text-white'}`}
+            >
+              EN
+            </Link>
+            <Link
+              href="/es"
+              aria-current={isSpanish ? 'page' : undefined}
+              className={`rounded-md px-2 py-1 text-xs font-bold hover:bg-white/[0.08] ${isSpanish ? 'text-white' : 'text-[#96a29b]'}`}
+            >
+              ES
+            </Link>
           </div>
 
           {isAppArea ? (
@@ -114,6 +129,38 @@ export const Navbar: React.FC<NavbarProps> = ({ area = 'marketing' }) => {
                 {item.label}
               </a>
             ))}
+
+            <div className="mt-3 border-t border-white/[0.08] pt-4">
+              <p className="px-3 text-[10px] font-black uppercase tracking-[0.16em] text-[#7d8b83]">
+                Language
+              </p>
+              <div className="mt-2 grid grid-cols-2 gap-2">
+                <Link
+                  href="/"
+                  aria-current={isSpanish ? undefined : 'page'}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`rounded-xl border px-3 py-3 text-center text-sm font-bold transition-colors ${
+                    isSpanish
+                      ? 'border-white/[0.08] text-[#96a29b] hover:bg-white/[0.05] hover:text-white'
+                      : 'border-[#c7ff6b]/30 bg-[#c7ff6b]/10 text-[#dfffab]'
+                  }`}
+                >
+                  English
+                </Link>
+                <Link
+                  href="/es"
+                  aria-current={isSpanish ? 'page' : undefined}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`rounded-xl border px-3 py-3 text-center text-sm font-bold transition-colors ${
+                    isSpanish
+                      ? 'border-[#c7ff6b]/30 bg-[#c7ff6b]/10 text-[#dfffab]'
+                      : 'border-white/[0.08] text-[#96a29b] hover:bg-white/[0.05] hover:text-white'
+                  }`}
+                >
+                  Español
+                </Link>
+              </div>
+            </div>
           </div>
         </nav>
       )}
