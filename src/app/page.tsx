@@ -40,44 +40,6 @@ export default function HomePage() {
           'Private label packaging development',
           'China-to-U.S. packaging and textile procurement',
         ],
-        hasOfferCatalog: {
-          '@type': 'OfferCatalog',
-          name: 'Sourcing Services',
-          itemListElement: [
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: 'Custom Packaging Sourcing',
-                description: 'Custom boxes, paper bags, labels, tissue paper, inserts, and retail packaging developed to your brief.',
-              },
-            },
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: 'Custom Textile Sourcing',
-                description: 'Apparel, towels, tote bags, uniforms, and branded accessories sourced for the quantity and finish your project needs.',
-              },
-            },
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: 'Private Label Packaging Development',
-                description: 'Branded boxes, bags, labels, inserts, and presentation details developed around your product brief.',
-              },
-            },
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: 'China-to-U.S. Packaging and Textile Procurement',
-                description: 'Custom packaging and textile procurement for U.S. destinations with order responsibilities confirmed case by case.',
-              },
-            },
-          ]
-        },
         contactPoint: {
           '@type': 'ContactPoint',
           email: 'contact@sourcinglabusa.com',

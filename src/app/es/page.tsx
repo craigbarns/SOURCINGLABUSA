@@ -33,28 +33,6 @@ export default function HomePageES() {
           name: 'United States',
         },
         serviceType: ['Sourcing de Empaques', 'Sourcing de Textiles'],
-        hasOfferCatalog: {
-          '@type': 'OfferCatalog',
-          name: 'Servicios de Sourcing',
-          itemListElement: [
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: 'Sourcing de Empaques Personalizados',
-                description: 'Cajas personalizadas, bolsas de papel, etiquetas, papel de seda e insertos desarrollados según su diseño.'
-              }
-            },
-            {
-              '@type': 'Offer',
-              itemOffered: {
-                '@type': 'Service',
-                name: 'Sourcing de Textiles',
-                description: 'Indumentaria, toallas, bolsas de tela, uniformes y accesorios corporativos.'
-              }
-            }
-          ]
-        },
         contactPoint: {
           '@type': 'ContactPoint',
           email: 'contact@sourcinglabusa.com',
