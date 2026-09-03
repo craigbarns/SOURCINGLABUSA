@@ -8,6 +8,10 @@ export const metadata: Metadata = {
     'Custom packaging and textile products for U.S. brands, e-commerce businesses, and companies. U.S. market launch planned for Miami in 2027.',
   alternates: {
     canonical: '/',
+    languages: {
+      'en-US': '/',
+      'es-US': '/es',
+    },
   },
   robots: {
     index: true,

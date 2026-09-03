@@ -32,6 +32,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
+      url: `${marketingOrigin}/es`,
+      changeFrequency: 'weekly',
+      priority: 0.9,
+    },
+    {
       url: `${marketingOrigin}/blog`,
       changeFrequency: 'weekly',
       priority: 0.9,

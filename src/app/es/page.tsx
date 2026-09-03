@@ -7,11 +7,13 @@ export const metadata: Metadata = {
     'Sourcing de empaques y productos textiles para marcas de EE.UU. Lanzamiento previsto en Miami para 2027.',
   alternates: {
     canonical: '/es',
+    languages: {
+      'en-US': '/',
+      'es-US': '/es',
+    },
   },
   robots: {
-    // Keep this version available to visitors while the Spanish editorial review is completed.
-    // The English site is the current primary U.S. search experience.
-    index: false,
+    index: true,
     follow: true,
   },
 };
