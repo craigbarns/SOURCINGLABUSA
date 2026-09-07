@@ -87,6 +87,7 @@ export function EditorialFooter({ locale = 'en' }: { locale?: 'en' | 'es' }) {
           <a href="mailto:contact@sourcinglabusa.com">
             contact@sourcinglabusa.com ↗
           </a>
+          <Link href="/privacy">{es ? 'Privacidad' : 'Privacy notice'}</Link>
         </div>
       </div>
     </footer>

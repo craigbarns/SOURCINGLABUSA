@@ -127,7 +127,7 @@ Target Market: ${result.targetMarket}
 
         {/* Quick Presets */}
         <div className="flex flex-wrap items-center gap-2 pt-1">
-          <span className="text-xs font-medium text-[#6f7c74]">Examples:</span>
+          <span className="text-xs font-medium text-[#8c988f]">Examples:</span>
           {presets.map((preset, idx) => (
             <button
               key={idx}
@@ -220,7 +220,7 @@ Target Market: ${result.targetMarket}
               </div>
               <div className="space-y-2 text-xs text-gray-300">
                 <div>
-                  <span className="block text-[#6f7c74]">Recommended materials:</span>
+                  <span className="block text-[#8c988f]">Recommended materials:</span>
                   <ul className="list-inside list-disc font-medium text-white">
                     {result.technicalSpecs.materials.map((m, i) => (
                       <li key={i}>{m}</li>
@@ -229,11 +229,11 @@ Target Market: ${result.targetMarket}
                 </div>
                 <div className="grid grid-cols-2 gap-2 pt-1">
                   <div>
-                    <span className="block text-[#6f7c74]">Dimensions:</span>
+                    <span className="block text-[#8c988f]">Dimensions:</span>
                     <span className="text-gray-200">{result.technicalSpecs.dimensions}</span>
                   </div>
                   <div>
-                    <span className="block text-[#6f7c74]">Unit weight:</span>
+                    <span className="block text-[#8c988f]">Unit weight:</span>
                     <span className="text-gray-200">{result.technicalSpecs.weight}</span>
                   </div>
                 </div>
@@ -248,7 +248,7 @@ Target Market: ${result.targetMarket}
               </div>
               <div className="space-y-2 text-xs">
                 <div>
-                  <span className="block text-[#6f7c74]">
+                  <span className="block text-[#8c988f]">
                     Potential requirements to verify:
                   </span>
                   <div className="mt-1 flex flex-wrap gap-1.5">
@@ -260,7 +260,7 @@ Target Market: ${result.targetMarket}
                   </div>
                 </div>
                 <div>
-                  <span className="block text-[#6f7c74]">Recommended testing labs:</span>
+                  <span className="block text-[#8c988f]">Recommended testing labs:</span>
                   <span className="font-medium text-gray-300">{result.certifications.testingLabs.join(' • ')}</span>
                 </div>
                 <p className="leading-relaxed text-[#f7cfa3]">

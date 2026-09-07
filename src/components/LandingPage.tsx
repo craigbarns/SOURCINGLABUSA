@@ -2,6 +2,7 @@ import { EditorialFooter } from '@/components/EditorialFooter';
 import { Hero } from '@/components/Hero';
 import { MarketingSections } from '@/components/MarketingSections';
 import { Navbar } from '@/components/Navbar';
+import { StickyMobileCta } from '@/components/StickyMobileCta';
 
 export function LandingPage({ locale = 'en' }: { locale?: 'en' | 'es' }) {
   return (
@@ -21,6 +22,7 @@ export function LandingPage({ locale = 'en' }: { locale?: 'en' | 'es' }) {
         <MarketingSections locale={locale} />
       </main>
       <EditorialFooter locale={locale} />
+      <StickyMobileCta locale={locale} />
     </div>
   );
 }

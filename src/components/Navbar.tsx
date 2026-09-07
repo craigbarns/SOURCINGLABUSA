@@ -6,10 +6,12 @@ import { ArrowLeft, ArrowUpRight, Menu, X } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
 
 import { Logo } from './Logo';
+import { trackCtaClick } from '@/lib/analytics';
 
 interface NavbarProps {
   area?: 'app' | 'marketing';
   appearance?: 'dark' | 'light';
+  contactHref?: string;
 }
 
 const navigation = [
@@ -23,6 +25,7 @@ const navigation = [
 export const Navbar: React.FC<NavbarProps> = ({
   area = 'marketing',
   appearance = 'dark',
+  contactHref = '#contact',
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -58,12 +61,6 @@ export const Navbar: React.FC<NavbarProps> = ({
         ? '/es#how-it-works'
         : item.href,
   }));
-  const contactHref =
-    pathname === '/' || !pathname
-      ? '#contact'
-      : isSpanish
-        ? '/es#contact'
-        : '/#contact';
 
   return (
     <header
@@ -128,7 +125,10 @@ export const Navbar: React.FC<NavbarProps> = ({
           ) : (
             <a
               href={contactHref}
-              onClick={() => setIsMenuOpen(false)}
+              onClick={() => {
+                setIsMenuOpen(false);
+                trackCtaClick('navbar', 'Send a project brief');
+              }}
               aria-label={
                 isSpanish ? 'Enviar un proyecto' : 'Send a project brief'
               }

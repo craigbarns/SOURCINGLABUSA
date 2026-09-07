@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import { CtaLink } from './CtaLink';
 import { ArrowDown, ArrowUpRight, MoveUpRight } from 'lucide-react';
 
 export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' }) {
@@ -29,14 +30,24 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' }) {
               : 'Custom packaging & textiles, from the first idea to the final detail. Thoughtfully sourced. Unmistakably yours.'}
           </p>
           <div className="hero-actions">
-            <a href="#contact" className="editorial-button">
+            <CtaLink
+              href="#contact"
+              location="hero"
+              label="Start a project"
+              className="editorial-button"
+            >
               {es ? 'Cuéntanos tu proyecto' : 'Let’s build your next product'}
               <ArrowUpRight size={18} aria-hidden="true" />
-            </a>
-            <a href="#offerings" className="editorial-text-link">
+            </CtaLink>
+            <CtaLink
+              href="#offerings"
+              location="hero"
+              label="Explore the possibilities"
+              className="editorial-text-link"
+            >
               {es ? 'Explora las posibilidades' : 'Explore the possibilities'}
               <ArrowDown size={16} aria-hidden="true" />
-            </a>
+            </CtaLink>
           </div>
           <div className="hero-footnote">
             <span aria-hidden="true">01 / 03</span>
@@ -56,7 +67,7 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                 : 'Concept arrangement of forest green boxes, kraft bags and natural cotton on warm stone'
             }
             fill
-            sizes="(max-width: 767px) 100vw, (max-width: 1200px) 55vw, 720px"
+            sizes="(max-width: 767px) 150vw, (max-width: 1200px) 85vw, 1100px"
             priority
             className="hero-photo"
           />

@@ -2,8 +2,13 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { ArrowRight, CheckCircle2, ClipboardList, FileText, PackageCheck } from 'lucide-react';
 
+import { BriefSection } from '@/components/BriefSection';
+import { ProductShowcase } from '@/components/ProductShowcase';
+import { CtaLink } from '@/components/CtaLink';
 import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar';
+import { StickyMobileCta } from '@/components/StickyMobileCta';
+import type { ProductCategory } from '@/lib/product-media';
 
 type ContentBlock = {
   title: string;
@@ -27,6 +32,12 @@ export type ServicePageContent = {
   briefItems: string[];
   workflow: ContentBlock[];
   faqs: Question[];
+  /** Limits the product grid to one category; omit to show every product. */
+  showcaseCategory?: ProductCategory;
+  /** Headline of the brief form on this page. */
+  briefTitle: string;
+  /** Supporting line of the brief form on this page. */
+  briefIntro: string;
   relatedPages: Array<{
     href: string;
     title: string;
@@ -131,13 +142,15 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
                 <p className="mt-7 max-w-3xl text-lg leading-8 text-[#a0aca5] sm:text-xl">
                   {page.intro}
                 </p>
-                <Link
-                  href="/#contact"
-                  className="mt-9 inline-flex items-center gap-2 rounded-xl bg-[#c7ff6b] px-5 py-3 text-sm font-extrabold text-[#0a0d0b] transition hover:bg-[#d6ff91]"
+                <CtaLink
+                  href="#contact"
+                  location="service_hero"
+                  label="Share your project brief"
+                  className="mt-9 inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#c7ff6b] px-6 py-3.5 text-sm font-extrabold text-[#0a0d0b] shadow-[0_12px_40px_rgba(199,255,107,0.14)] transition hover:bg-[#d6ff91]"
                 >
                   Share your project brief
                   <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                </Link>
+                </CtaLink>
               </div>
 
               <aside className="surface-panel rounded-[26px] p-7 sm:p-8">
@@ -181,6 +194,8 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
           </div>
         </section>
 
+        <ProductShowcase category={page.showcaseCategory} />
+
         <section className="border-y border-white/[0.07] bg-[#0a0e0c] py-20 sm:py-28">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="max-w-2xl">
@@ -192,10 +207,11 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
 
             <ol className="mt-14 grid gap-4 md:grid-cols-3">
               {page.workflow.map((step, index) => (
-                <li key={step.title} className="relative overflow-hidden rounded-[22px] border border-white/[0.07] bg-white/[0.025] p-7">
-                  <span className="absolute right-5 top-2 font-mono text-5xl font-black tracking-[-0.08em] text-white/[0.045]">
-                    0{index + 1}
-                  </span>
+                <li
+                  key={step.title}
+                  data-step={`0${index + 1}`}
+                  className="step-watermark relative overflow-hidden rounded-[22px] border border-white/[0.07] bg-white/[0.025] p-7"
+                >
                   <FileText className="h-5 w-5 text-[#c7ff6b]" aria-hidden="true" />
                   <h3 className="mt-8 text-lg font-bold text-white">{step.title}</h3>
                   <p className="mt-3 text-sm leading-6 text-[#94a198]">{step.body}</p>
@@ -254,29 +270,15 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
           </div>
         </section>
 
-        <section className="border-t border-white/[0.07] pb-24 pt-4 sm:pb-28">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-            <div className="surface-panel rounded-[26px] px-7 py-12 sm:px-12 sm:py-16">
-              <span className="eyebrow">Ready when your brief is</span>
-              <h2 className="mt-6 max-w-3xl text-balance text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
-                Tell us what you need to develop, brand, and deliver.
-              </h2>
-              <p className="mt-5 max-w-2xl text-base leading-7 text-[#98a69e]">
-                Share the product, quantity, references, destination, and target timing. We will confirm the appropriate next step for your project.
-              </p>
-              <Link
-                href="/#contact"
-                className="mt-8 inline-flex items-center gap-2 rounded-xl bg-[#c7ff6b] px-5 py-3 text-sm font-extrabold text-[#0a0d0b] transition hover:bg-[#d6ff91]"
-              >
-                Send your project brief
-                <ArrowRight className="h-4 w-4" aria-hidden="true" />
-              </Link>
-            </div>
-          </div>
-        </section>
+        <BriefSection
+          formLocation="service_page"
+          title={page.briefTitle}
+          intro={page.briefIntro}
+        />
       </main>
 
       <Footer />
+      <StickyMobileCta />
     </div>
   );
 }

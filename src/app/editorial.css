@@ -444,7 +444,7 @@
   border-bottom: 1px solid var(--editorial-line);
 }
 .approach-points li > span {
-  color: #7b8a67;
+  color: #596755;
   font-size: 10px;
   padding-top: 4px;
 }
@@ -539,7 +539,7 @@
   margin-top: 18px;
   font-size: 10px;
   line-height: 1.8;
-  color: #62705d;
+  color: #596755;
 }
 .contact-form label:not(.honeypot-label) {
   display: block;
@@ -651,7 +651,7 @@
   line-height: 1;
   font-weight: 500;
   margin: 63px 0 23px;
-  color: #d9dfcf;
+  color: #819075;
   user-select: none;
   white-space: nowrap;
 }
@@ -747,7 +747,7 @@
   margin-top: 1px;
   font-size: 6px;
   letter-spacing: 0.18em;
-  color: #697663;
+  color: #596755;
 }
 .service-photo {
   position: relative;
@@ -1033,4 +1033,68 @@
   .contact-panel {
     padding-inline: 19px;
   }
+}
+
+/* Shared conversion components keep their server behavior in the light theme. */
+.contact-form select {
+  appearance: none;
+  padding-right: 44px;
+}
+.contact-form label span,
+.contact-form > p,
+.contact-form p[id] {
+  color: #596755;
+}
+.contact-form > p a {
+  color: #344f37;
+}
+.contact-form > p svg {
+  color: #476d3f;
+}
+.contact-form [role='alert'],
+.contact-form [role='alert'] p {
+  color: #8c3024;
+}
+.contact-form div[role='alert'] {
+  background: #faf1e4;
+  border-color: #b9a087;
+}
+.contact-form [role='alert'] a {
+  color: #243a2f;
+  border-color: #b9a087;
+  background: #f7f5ef;
+}
+.contact-success h3,
+.contact-success p,
+.contact-success button,
+.contact-success li span {
+  color: #243a2f;
+}
+.contact-success ol {
+  border-color: #cdd3c0;
+  text-align: left;
+}
+.contact-success > div {
+  margin-inline: auto;
+}
+.contact-success li p {
+  margin-top: 0;
+}
+.contact-success button {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.editorial-shell .sticky-mobile-bar {
+  background: #f7f5eff5;
+  border-color: #d9ddd2;
+}
+.editorial-shell .sticky-mobile-bar a {
+  background: #2a4435;
+  color: #fff;
+  border-radius: 4px;
+  box-shadow: none;
+}
+
+.contact-panel .editorial-body {
+  color: #596755;
 }

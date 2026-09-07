@@ -74,20 +74,6 @@ export const WaitlistSection: React.FC = () => {
 
       setEmail(validation.data.email);
       setStatus('success');
-
-      try {
-        if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-          const { default: confetti } = await import('canvas-confetti');
-          confetti({
-            particleCount: 60,
-            spread: 64,
-            colors: ['#c7ff6b', '#70e1b2', '#7e9cff'],
-            origin: { y: 0.68 },
-          });
-        }
-      } catch {
-        // Confetti is decorative and must never affect submission.
-      }
     } catch {
       setStatus('idle');
       setErrorMessage(

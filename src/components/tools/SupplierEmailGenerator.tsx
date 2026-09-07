@@ -358,7 +358,7 @@ export const SupplierEmailGenerator: React.FC = () => {
               </div>
 
               <div className="rounded-lg border border-white/[0.07] bg-[#0d1210] p-3">
-                <span className="mb-0.5 block text-[11px] font-semibold uppercase text-[#6f7c74]">
+                <span className="mb-0.5 block text-[11px] font-semibold uppercase text-[#8c988f]">
                   Subject
                 </span>
                 <span className="text-sm font-bold text-white">

@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import ReactMarkdown from 'react-markdown';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { BriefSection } from '@/components/BriefSection';
+import { StickyMobileCta } from '@/components/StickyMobileCta';
 import { getPostBySlug, getPostSlugs } from '@/lib/blog';
 
 export async function generateStaticParams() {
@@ -89,9 +91,15 @@ export default async function BlogPost({ params }: { params: { slug: string } })
             <ReactMarkdown>{post.content}</ReactMarkdown>
           </div>
         </article>
+        <BriefSection
+          formLocation="blog_post"
+          title="Turn this into a real quotation."
+          intro="Send the product, quantity, references, destination, and timing. We review the project and come back with the right next step."
+        />
       </main>
 
       <Footer />
+      <StickyMobileCta />
     </div>
   );
 }

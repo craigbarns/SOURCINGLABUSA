@@ -25,6 +25,14 @@ describe('Navbar', () => {
     );
   });
 
+  it('sends the header CTA to the homepage form on pages without one', () => {
+    render(<Navbar area="marketing" contactHref="/#contact" />);
+
+    expect(
+      screen.getByRole('link', { name: /Send a project brief/i }),
+    ).toHaveAttribute('href', '/#contact');
+  });
+
   it('uses inter-domain alias to return to marketing', () => {
     render(<Navbar area="app" />);
 

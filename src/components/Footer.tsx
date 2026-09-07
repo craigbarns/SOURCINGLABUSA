@@ -42,6 +42,7 @@ export const Footer: React.FC = () => (
             <li><Link href="/#experience" className="hover:text-white">Experience</Link></li>
             <li><Link href="/#compliance" className="hover:text-white">Quality & compliance</Link></li>
             <li><Link href="/#faq" className="hover:text-white">FAQ</Link></li>
+            <li><Link href="/privacy" className="hover:text-white">Privacy notice</Link></li>
           </ul>
         </nav>
 
@@ -58,7 +59,7 @@ export const Footer: React.FC = () => (
 
       <div className="flex flex-col gap-3 border-t border-white/[0.07] pt-7 text-xs sm:flex-row sm:items-center sm:justify-between">
         <p>© 2026 Sourcing Lab USA. All rights reserved.</p>
-        <p className="font-medium text-[#657169]">
+        <p className="font-medium text-[#7e8a83]">
           U.S. market launch planned for Miami in 2027.
         </p>
       </div>

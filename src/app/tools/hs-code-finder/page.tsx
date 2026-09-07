@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { BriefSection } from '@/components/BriefSection';
+import { StickyMobileCta } from '@/components/StickyMobileCta';
 import { HsCodeAnalyzer } from '@/components/tools/HsCodeAnalyzer';
 
 export const metadata: Metadata = {
@@ -47,9 +49,15 @@ export default function HsCodeFinderPage() {
             </p>
           </div>
         </div>
+        <BriefSection
+          formLocation="hs_code_tool"
+          title="Need the product itself sourced?"
+          intro="Classification research is only one step. Send the product, quantity, finish, and destination, and we will confirm what can be quoted and sampled."
+        />
       </main>
 
       <Footer />
+      <StickyMobileCta />
     </div>
   );
 }
