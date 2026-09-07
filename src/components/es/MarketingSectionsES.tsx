@@ -143,10 +143,11 @@ export function MarketingSectionsES() {
 
           <ol className="mt-14 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
             {workflow.map(({ number, icon: Icon, title, body }) => (
-              <li key={number} className="bento-card relative overflow-hidden rounded-[22px] p-6 sm:p-7">
-                <span className="absolute right-5 top-3 font-mono text-5xl font-black tracking-[-0.08em] text-white/[0.035]">
-                  {number}
-                </span>
+              <li
+                key={number}
+                data-step={number}
+                className="step-watermark bento-card relative overflow-hidden rounded-[22px] p-6 sm:p-7"
+              >
                 <div className="grid h-11 w-11 place-items-center rounded-[14px] border border-[#70e1b2]/15 bg-[#70e1b2]/8 text-[#70e1b2]">
                   <Icon className="h-5 w-5" aria-hidden="true" />
                 </div>

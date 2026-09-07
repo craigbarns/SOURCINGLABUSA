@@ -6,10 +6,6 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { WaitlistSection } from '@/components/WaitlistSection';
 
-vi.mock('canvas-confetti', () => ({
-  default: vi.fn(),
-}));
-
 const fetchMock = vi.fn();
 
 describe('WaitlistSection', () => {

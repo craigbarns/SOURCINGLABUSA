@@ -9,6 +9,7 @@ import {
   Send,
   ShieldCheck,
 } from 'lucide-react';
+import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { useId, useMemo, useRef, useState } from 'react';
 
@@ -437,9 +438,17 @@ export function ContactForm({
         )}
       </button>
 
-      <p className="flex items-start gap-2 text-[11px] leading-5 text-[#65726a]">
+      <p className="flex items-start gap-2 text-[11px] leading-5 text-[#7e8a83]">
         <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#70e1b2]" aria-hidden="true" />
-        {copy.privacy}
+        <span>
+          {copy.privacy}{' '}
+          <Link
+            href="/privacy"
+            className="font-semibold text-[#a9b5ae] underline underline-offset-2 transition-colors hover:text-white"
+          >
+            {copy.privacyLink}
+          </Link>
+        </span>
       </p>
 
       {generalError && (

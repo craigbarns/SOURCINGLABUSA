@@ -43,5 +43,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     ...serviceUrls,
     ...blogUrls,
+    {
+      url: `${marketingOrigin}/privacy`,
+      changeFrequency: 'yearly' as const,
+      priority: 0.3,
+    },
   ];
 }

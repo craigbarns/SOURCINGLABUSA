@@ -27,6 +27,7 @@ export interface BriefFormCopy {
   submit: string;
   submitting: string;
   privacy: string;
+  privacyLink: string;
   successTitle: string;
   successBody: string;
   successSteps: string[];
@@ -74,6 +75,7 @@ const englishForm: BriefFormCopy = {
   submitting: 'Sending…',
   privacy:
     'Your brief is used only to answer your request. No newsletter, no sales sequence.',
+  privacyLink: 'How we handle your details',
   successTitle: 'Brief received.',
   successBody: 'We have your request and will reply by email.',
   successSteps: [
@@ -119,6 +121,7 @@ const spanishForm: BriefFormCopy = {
   submitting: 'Enviando…',
   privacy:
     'Su información se utiliza únicamente para responder a su solicitud. Sin newsletter ni secuencia comercial.',
+  privacyLink: 'Cómo tratamos sus datos',
   successTitle: 'Proyecto recibido.',
   successBody: 'Hemos recibido su solicitud y le responderemos por email.',
   successSteps: [

@@ -11,6 +11,12 @@ import { Logo } from './Logo';
 
 interface NavbarProps {
   area?: 'app' | 'marketing';
+  /**
+   * Where the header call to action points. Defaults to the in-page brief
+   * form; pages that do not render one must send the visitor to the homepage
+   * form instead, or the button does nothing.
+   */
+  contactHref?: string;
 }
 
 const navigation = [
@@ -21,7 +27,10 @@ const navigation = [
   { label: 'Blog', href: '/blog' },
 ];
 
-export const Navbar: React.FC<NavbarProps> = ({ area = 'marketing' }) => {
+export const Navbar: React.FC<NavbarProps> = ({
+  area = 'marketing',
+  contactHref = '#contact',
+}) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const isAppArea = area === 'app';
@@ -83,7 +92,7 @@ export const Navbar: React.FC<NavbarProps> = ({ area = 'marketing' }) => {
             </Link>
           ) : (
             <a
-              href="#contact"
+              href={contactHref}
               onClick={() => trackCtaClick('navbar', 'Send a project brief')}
               className="group inline-flex min-h-10 shrink-0 items-center justify-center gap-1.5 rounded-xl bg-[#c7ff6b] px-3 py-2 text-[13px] font-extrabold text-[#0a0d0b] shadow-[0_8px_30px_rgba(199,255,107,0.13)] transition hover:bg-[#d6ff91] sm:gap-2 sm:px-4 sm:py-2.5 sm:text-sm"
             >

@@ -201,10 +201,11 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
 
             <ol className="mt-14 grid gap-4 md:grid-cols-3">
               {page.workflow.map((step, index) => (
-                <li key={step.title} className="relative overflow-hidden rounded-[22px] border border-white/[0.07] bg-white/[0.025] p-7">
-                  <span className="absolute right-5 top-2 font-mono text-5xl font-black tracking-[-0.08em] text-white/[0.045]">
-                    0{index + 1}
-                  </span>
+                <li
+                  key={step.title}
+                  data-step={`0${index + 1}`}
+                  className="step-watermark relative overflow-hidden rounded-[22px] border border-white/[0.07] bg-white/[0.025] p-7"
+                >
                   <FileText className="h-5 w-5 text-[#c7ff6b]" aria-hidden="true" />
                   <h3 className="mt-8 text-lg font-bold text-white">{step.title}</h3>
                   <p className="mt-3 text-sm leading-6 text-[#94a198]">{step.body}</p>

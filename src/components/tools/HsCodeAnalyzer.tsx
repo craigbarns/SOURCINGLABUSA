@@ -234,7 +234,7 @@ export const HsCodeAnalyzer: React.FC = () => {
 
           {/* Preset Prompt Chips */}
           <div className="flex flex-wrap items-center gap-2 pt-2">
-            <span className="font-mono text-[11px] uppercase text-[#6f7c74]">
+            <span className="font-mono text-[11px] uppercase text-[#8c988f]">
               Quick examples:
             </span>
             {SAMPLE_QUERIES.map((sample) => (

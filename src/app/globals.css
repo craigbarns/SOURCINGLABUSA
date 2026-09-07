@@ -122,6 +122,22 @@
   background-size: 18px 18px;
 }
 
+/* Decorative step numeral. Generated content so it stays out of the text
+   layer: the real order lives in the surrounding <ol>. */
+.step-watermark::before {
+  content: attr(data-step);
+  position: absolute;
+  right: 1.25rem;
+  top: 0.6rem;
+  color: rgba(255, 255, 255, 0.045);
+  font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+  font-size: 3rem;
+  font-weight: 900;
+  letter-spacing: -0.08em;
+  line-height: 1;
+  pointer-events: none;
+}
+
 .eyebrow {
   display: inline-flex;
   align-items: center;
