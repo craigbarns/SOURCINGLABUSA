@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 
 import {
   exceedsContentLength,
+  getPublicOrigin,
   isSameOriginRequest,
 } from '@/lib/server/http';
 
@@ -56,5 +57,26 @@ describe('server request guards', () => {
         2048,
       ),
     ).toBe(true);
+  });
+
+  it('rebuilds the public origin behind the platform proxy', () => {
+    const request = new Request('http://internal:3000/api/contact', {
+      method: 'POST',
+      headers: {
+        host: 'internal:3000',
+        'x-forwarded-host': 'sourcinglabusa.com, edge.internal',
+        'x-forwarded-proto': 'https',
+      },
+    });
+
+    expect(getPublicOrigin(request)).toBe('https://sourcinglabusa.com');
+  });
+
+  it('returns no public origin when the host header is missing', () => {
+    const request = new Request('https://sourcinglabusa.com/api/contact');
+    const headerless = new Request(request, { headers: {} });
+    Object.defineProperty(headerless.headers, 'get', { value: () => null });
+
+    expect(getPublicOrigin(headerless)).toBeNull();
   });
 });

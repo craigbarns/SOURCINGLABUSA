@@ -2,6 +2,7 @@ import { Footer } from '@/components/Footer';
 import { HeroExperience } from '@/components/HeroExperience';
 import { MarketingSections } from '@/components/MarketingSections';
 import { Navbar } from '@/components/Navbar';
+import { StickyMobileCta } from '@/components/StickyMobileCta';
 
 export function LandingPage() {
   return (
@@ -21,6 +22,7 @@ export function LandingPage() {
       </main>
 
       <Footer />
+      <StickyMobileCta />
     </div>
   );
 }

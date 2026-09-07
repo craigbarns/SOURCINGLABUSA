@@ -1,15 +1,28 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
+    <meta charset="utf-8" />
     <meta name="robots" content="noindex,nofollow" />
+    <title>Project brief form</title>
   </head>
   <body>
+    <!--
+      Netlify detects forms by scanning deployed HTML. A Next.js page is
+      rendered by React, so this static file is what makes the "contact" form
+      exist for Netlify Forms. The server route /api/contact replays each
+      submission here to trigger the Netlify notifications, and also stores the
+      brief in Supabase so a lead is never lost if this channel is unavailable.
+      The field names below must stay in sync with src/app/api/contact/route.ts.
+    -->
     <form name="contact" method="POST" action="/contact.html" data-netlify="true" netlify-honeypot="bot-field">
       <input type="hidden" name="form-name" value="contact" />
       <input type="text" name="name" />
       <input type="email" name="email" />
-      <select name="projectType"></select>
+      <input type="text" name="company" />
+      <input type="text" name="projectType" />
+      <input type="text" name="quantityRange" />
       <textarea name="message"></textarea>
+      <input type="text" name="sourcePath" />
       <input type="text" name="bot-field" />
     </form>
   </body>

@@ -2,32 +2,43 @@ import {
   ArrowRight,
   Check,
   ClipboardCheck,
+  FileCheck2,
   PackageCheck,
   ShieldCheck,
-  Shirt,
+  Truck,
 } from 'lucide-react';
 
+import { CtaLink } from '@/components/CtaLink';
+
+// Each step is described by what the client actually receives, not by an
+// internal process name: a buyer converts on deliverables, not on a workflow.
 const orderSteps = [
   {
     icon: ClipboardCheck,
-    label: '01 · Your brief',
-    detail: 'Product, quantity, finish, target price',
+    label: '01 · You send a brief',
+    detail: 'Product, quantity, finish, target price, destination',
+  },
+  {
+    icon: FileCheck2,
+    label: '02 · You receive options',
+    detail: 'Supplier options, pricing, and sampling requirements',
   },
   {
     icon: PackageCheck,
-    label: '02 · Supplier coordination',
-    detail: 'Supplier options, quote and sample',
+    label: '03 · You approve a sample',
+    detail: 'Specification and sample agreed before production',
   },
   {
-    icon: ShieldCheck,
-    label: '03 · Quality follow-up',
-    detail: 'Agreed checkpoints before shipment',
+    icon: Truck,
+    label: '04 · You get the delivery',
+    detail: 'From China to your U.S. destination under agreed terms',
   },
-  {
-    icon: Shirt,
-    label: '04 · Direct delivery',
-    detail: 'From China to your U.S. destination',
-  },
+];
+
+const reassurances = [
+  'Packaging and textile specialists',
+  'No obligation, no sales sequence',
+  'China-to-U.S. delivery under agreed terms',
 ];
 
 export function Hero() {
@@ -45,21 +56,23 @@ export function Hero() {
             <span className="hidden sm:inline">U.S. market launch planned for Miami · 2027</span>
           </div>
 
-          <h1 className="text-balance mt-7 max-w-[11ch] text-[2.45rem] font-black leading-[0.98] tracking-[-0.055em] text-white sm:max-w-none sm:text-6xl lg:text-[4.65rem]">
-            Custom packaging and textile.{' '}
-            <span className="brand-gradient">Sourced with clarity.</span>
+          <h1 className="text-balance mt-7 max-w-[12ch] text-[2.45rem] font-black leading-[0.98] tracking-[-0.055em] text-white sm:max-w-none sm:text-6xl lg:text-[4.4rem]">
+            Custom packaging and textile,{' '}
+            <span className="brand-gradient">sourced for U.S. brands.</span>
           </h1>
 
           <p className="mt-7 max-w-xl text-balance text-base leading-7 text-[#aeb9b2] sm:text-lg sm:leading-8">
-            Launching for the U.S. market in 2027, Sourcing Lab USA will support
-            brands, e-commerce businesses, and companies developing custom
-            packaging and textile products through an established independent China
-            sourcing partnership.
+            Tell us the product, quantity, and finish you need. We coordinate
+            supplier options, samples, and production follow-up through an
+            established independent China sourcing partnership, with a U.S.
+            market launch planned for Miami in 2027.
           </p>
 
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
-            <a
+            <CtaLink
               href="#contact"
+              location="hero"
+              label="Send your project brief"
               className="group inline-flex min-h-12 items-center justify-center gap-2.5 rounded-[14px] bg-[#c7ff6b] px-6 py-3.5 text-sm font-extrabold text-[#0a0d0b] shadow-[0_12px_40px_rgba(199,255,107,0.14)] transition hover:bg-[#d7ff94]"
             >
               Send your project brief
@@ -67,21 +80,19 @@ export function Hero() {
                 className="h-4 w-4 transition-transform group-hover:translate-x-1"
                 aria-hidden="true"
               />
-            </a>
-            <a
+            </CtaLink>
+            <CtaLink
               href="#how-it-works"
+              location="hero"
+              label="See how it works"
               className="inline-flex min-h-12 items-center justify-center gap-2.5 rounded-[14px] border border-white/10 bg-white/[0.04] px-6 py-3.5 text-sm font-bold text-white transition hover:bg-white/[0.08]"
             >
               See how it works
-            </a>
+            </CtaLink>
           </div>
 
           <p className="mt-4 flex flex-wrap items-center gap-x-4 gap-y-2 text-xs font-medium text-[#7f8d85]">
-            {[
-              'Packaging and textile specialists',
-              'China-to-U.S. delivery under agreed terms',
-              'Project-specific quality follow-up',
-            ].map((item) => (
+            {reassurances.map((item) => (
               <span key={item} className="inline-flex items-center gap-1.5">
                 <Check className="h-3.5 w-3.5 text-[#70e1b2]" aria-hidden="true" />
                 {item}
@@ -100,8 +111,8 @@ export function Hero() {
                   <PackageCheck className="h-[18px] w-[18px]" aria-hidden="true" />
                 </div>
                 <div>
-                  <p className="text-sm font-bold text-white">Your project, end to end</p>
-                  <p className="text-[11px] text-[#718078]">From specification to delivery</p>
+                  <p className="text-sm font-bold text-white">What you get back</p>
+                  <p className="text-[11px] text-[#718078]">From your brief to delivery</p>
                 </div>
               </div>
               <span className="hidden rounded-full border border-[#70e1b2]/20 bg-[#70e1b2]/8 px-2.5 py-1 text-[10px] font-bold uppercase tracking-[0.12em] text-[#9ff0cf] sm:inline-flex">

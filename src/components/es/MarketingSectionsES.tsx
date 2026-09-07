@@ -9,8 +9,7 @@ import {
   Sparkles,
 } from 'lucide-react';
 
-import { ContactForm } from '../ContactForm';
-import { CopyEmailButton } from '../CopyEmailButton';
+import { BriefSection } from '../BriefSection';
 
 const offers = [
   {
@@ -241,31 +240,7 @@ export function MarketingSectionsES() {
         </div>
       </section>
 
-      <section id="contact" className="scroll-mt-20 border-t border-white/[0.07] pb-24 pt-4 sm:pb-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="surface-panel relative overflow-hidden rounded-[26px] px-7 py-12 sm:px-12 sm:py-16">
-            <div className="pointer-events-none absolute right-0 top-0 h-80 w-80 bg-[radial-gradient(circle,rgba(199,255,107,0.12),transparent_65%)]" />
-            <div className="relative grid gap-12 lg:grid-cols-2 lg:gap-16 items-start">
-              <div className="max-w-2xl">
-                <span className="eyebrow">Comience con su briefing</span>
-                <h2 className="text-balance mt-6 text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
-                  ¿Listo para desarrollar su próximo producto?
-                </h2>
-                <p className="mt-5 text-base leading-7 text-[#94a198]">
-                  Envíenos el producto, cantidad, referencias de diseño, destino y cronograma. Revisaremos el proyecto y le daremos el siguiente paso adecuado.
-                </p>
-                <div className="mt-8 border-t border-white/5 pt-8">
-                  <p className="text-xs font-semibold uppercase tracking-wider text-[#70e1b2]">O contáctenos directamente</p>
-                  <CopyEmailButton />
-                </div>
-              </div>
-              <div className="relative w-full rounded-2xl bg-white/[0.02] p-6 shadow-[inset_0_1px_0_rgba(255,255,255,0.05)] sm:p-8">
-                <ContactForm />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
+      <BriefSection locale="es" formLocation="contact_section_es" />
     </>
   );
 }

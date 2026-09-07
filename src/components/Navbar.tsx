@@ -5,6 +5,8 @@ import { usePathname } from 'next/navigation';
 import { ArrowLeft, ArrowUpRight, Menu, X } from 'lucide-react';
 import { useState } from 'react';
 
+import { trackCtaClick } from '@/lib/analytics';
+
 import { Logo } from './Logo';
 
 interface NavbarProps {
@@ -82,9 +84,10 @@ export const Navbar: React.FC<NavbarProps> = ({ area = 'marketing' }) => {
           ) : (
             <a
               href="#contact"
-              aria-label="Send a project brief"
-              className="group inline-flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-xl bg-[#c7ff6b] text-sm font-extrabold text-[#0a0d0b] shadow-[0_8px_30px_rgba(199,255,107,0.13)] transition hover:bg-[#d6ff91] sm:h-auto sm:w-auto sm:px-4 sm:py-2.5"
+              onClick={() => trackCtaClick('navbar', 'Send a project brief')}
+              className="group inline-flex min-h-10 shrink-0 items-center justify-center gap-1.5 rounded-xl bg-[#c7ff6b] px-3 py-2 text-[13px] font-extrabold text-[#0a0d0b] shadow-[0_8px_30px_rgba(199,255,107,0.13)] transition hover:bg-[#d6ff91] sm:gap-2 sm:px-4 sm:py-2.5 sm:text-sm"
             >
+              <span className="sm:hidden">Send a brief</span>
               <span className="hidden sm:inline">Send a project brief</span>
               <ArrowUpRight
                 className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"

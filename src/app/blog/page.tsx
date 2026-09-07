@@ -2,6 +2,8 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
+import { BriefSection } from '@/components/BriefSection';
+import { StickyMobileCta } from '@/components/StickyMobileCta';
 import { getAllPosts } from '@/lib/blog';
 
 export const metadata: Metadata = {
@@ -62,9 +64,15 @@ export default function BlogIndex() {
             ))}
           </div>
         </div>
+        <BriefSection
+          formLocation="blog_index"
+          title="Have a packaging or textile project?"
+          intro="Guides only take you so far. Send the product, quantity, references, destination, and timing, and we will confirm what can be quoted and sampled."
+        />
       </main>
 
       <Footer />
+      <StickyMobileCta />
     </div>
   );
 }

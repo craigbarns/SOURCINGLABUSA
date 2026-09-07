@@ -66,6 +66,9 @@ export const customPackagingPage: ServicePageContent = {
         'Products may be delivered directly from China to the agreed U.S. destination. Shipping terms and import responsibilities are confirmed for each order.',
     },
   ],
+  briefTitle: 'Send your packaging brief.',
+  briefIntro:
+    'Product, dimensions, material, print finish, quantity, and destination. We confirm what can be quoted and sampled, and reply by email.',
   relatedPages: [
     {
       href: '/private-label-packaging',
@@ -151,6 +154,9 @@ export const customTextilePage: ServicePageContent = {
         'Quality expectations and checkpoints are agreed for the specific order. They are part of production coordination, not an independent certified inspection service.',
     },
   ],
+  briefTitle: 'Send your textile brief.',
+  briefIntro:
+    'Product, fabric or construction, branding, sizes, quantity, and destination. We confirm what can be quoted and sampled, and reply by email.',
   relatedPages: [
     {
       href: '/custom-packaging',
@@ -236,6 +242,9 @@ export const privateLabelPackagingPage: ServicePageContent = {
         'Sample requirements are agreed for each project. The product specification and sample basis are confirmed before production approval.',
     },
   ],
+  briefTitle: 'Send your private label brief.',
+  briefIntro:
+    'Product, artwork or references, material, finish, quantity, and destination. We confirm what can be quoted and sampled, and reply by email.',
   relatedPages: [
     {
       href: '/custom-packaging',
@@ -321,6 +330,9 @@ export const chinaToUsProcurementPage: ServicePageContent = {
         'No. Sourcing Lab USA is preparing its U.S. market launch from Miami for 2027 and works through an established China sourcing partnership.',
     },
   ],
+  briefTitle: 'Send your procurement brief.',
+  briefIntro:
+    'Product, quantity, destination, target timing, and any specification you already have. We confirm the scope and reply by email.',
   relatedPages: [
     {
       href: '/custom-packaging',

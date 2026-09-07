@@ -49,3 +49,35 @@ export function exceedsContentLength(
     contentLength > maximumBytes
   );
 }
+
+/**
+ * Public origin the visitor actually reached, reconstructed from the proxy
+ * headers Netlify sets. Used to call back into the deployed site.
+ */
+export function getPublicOrigin(request: Request): string | null {
+  const forwardedHost = firstForwardedValue(
+    request.headers.get('x-forwarded-host'),
+  );
+  const host = forwardedHost || request.headers.get('host')?.trim();
+
+  if (!host) {
+    return null;
+  }
+
+  const forwardedProto = firstForwardedValue(
+    request.headers.get('x-forwarded-proto'),
+  );
+
+  try {
+    const requestProtocol = new URL(request.url).protocol.replace(':', '');
+    const protocol = forwardedProto || requestProtocol;
+
+    if (protocol !== 'http' && protocol !== 'https') {
+      return null;
+    }
+
+    return new URL(`${protocol}://${host}`).origin;
+  } catch {
+    return null;
+  }
+}
