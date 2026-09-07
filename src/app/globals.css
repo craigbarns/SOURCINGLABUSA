@@ -1,5 +1,6 @@
 @plugin "@tailwindcss/typography";
 @import "tailwindcss";
+@import "./editorial.css";
 
 @layer base {
   :root {

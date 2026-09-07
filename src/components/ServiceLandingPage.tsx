@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, CheckCircle2, ClipboardList, FileText, PackageCheck } from 'lucide-react';
 
 import { Footer } from '@/components/Footer';
@@ -97,6 +98,7 @@ function buildStructuredData(page: ServicePageContent) {
 
 export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
   const structuredData = buildStructuredData(page);
+  const photo = page.path === '/custom-textile' ? 'textile-collection' : page.path === '/china-to-us-procurement' ? 'brand-still-life' : 'packaging-collection';
 
   return (
     <div className="flex min-h-screen flex-col bg-[#070a09] text-gray-100">
@@ -116,6 +118,10 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
               <span>{page.offerName}</span>
             </nav>
 
+            <figure className="service-photo">
+              <Image src={`/images/${photo}.webp`} alt={`Concept product imagery for ${page.offerName.toLowerCase()}`} fill sizes="(max-width: 1280px) 100vw, 1280px" priority />
+              <figcaption>Product possibilities · AI-created concept imagery</figcaption>
+            </figure>
             <div className="mt-12 grid items-end gap-10 lg:grid-cols-[1.15fr_0.75fr]">
               <div>
                 <span className="eyebrow">{page.eyebrow}</span>

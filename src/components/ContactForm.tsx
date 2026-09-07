@@ -1,44 +1,71 @@
 'use client';
 
-import { CheckCircle2, Send } from 'lucide-react';
-import { useState } from 'react';
+import { ArrowUpRight, CheckCircle2 } from 'lucide-react';
+import { useEffect, useRef, useState } from 'react';
 
-export function ContactForm() {
-  const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle');
+export function ContactForm({
+  locale = 'en',
+  appearance = 'dark',
+}: {
+  locale?: 'en' | 'es';
+  appearance?: 'dark' | 'editorial';
+}) {
+  const es = locale === 'es';
+  const editorial = appearance === 'editorial';
+  const [status, setStatus] = useState<
+    'idle' | 'submitting' | 'success' | 'error'
+  >('idle');
+  const successRef = useRef<HTMLDivElement>(null);
+  useEffect(() => {
+    if (status === 'success') successRef.current?.focus();
+  }, [status]);
+  const fieldClass =
+    'w-full rounded-xl border border-white/10 bg-[#0a0e0c] px-4 py-3.5 text-sm text-white placeholder-[#87948b] focus:outline-2 focus:outline-[#c7ff6b]';
+  const labelClass = editorial ? '' : 'mb-2 block text-xs text-[#a0aca5]';
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  async function handleSubmit(event: React.FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const data = new FormData(event.currentTarget);
     setStatus('submitting');
-    
-    const form = e.currentTarget;
-    const formData = new FormData(form);
-
     try {
-      const res = await fetch('/contact.html', {
+      const response = await fetch('/contact.html', {
         method: 'POST',
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         body: new URLSearchParams(
-          Array.from(formData.entries()).map(([key, value]) => [key, String(value)]),
+          Array.from(data.entries()).map(([key, value]) => [
+            key,
+            String(value),
+          ]),
         ).toString(),
       });
-      if (!res.ok) throw new Error('Form submission failed');
+      if (!response.ok) throw new Error('Form submission failed');
       setStatus('success');
     } catch {
       setStatus('error');
     }
-  };
+  }
 
-  if (status === 'success') {
+  if (status === 'success')
     return (
-      <div className="flex flex-col items-center justify-center rounded-2xl border border-[#70e1b2]/20 bg-[#70e1b2]/10 p-8 text-center sm:p-12">
-        <CheckCircle2 className="h-12 w-12 text-[#70e1b2]" />
-        <h3 className="mt-4 text-xl font-bold text-white">Brief received.</h3>
-        <p className="mt-2 text-sm leading-6 text-[#94a198]">
-          Thank you for reaching out. We will review your project requirements and get back to you shortly.
+      <div
+        ref={successRef}
+        tabIndex={-1}
+        role="status"
+        className={
+          editorial
+            ? 'contact-success'
+            : 'rounded-2xl border border-[#70e1b2]/20 bg-[#70e1b2]/10 p-8 text-center'
+        }
+      >
+        <CheckCircle2 className="h-10 w-10" aria-hidden="true" />
+        <h3>{es ? 'Proyecto recibido.' : 'Brief received.'}</h3>
+        <p>
+          {es
+            ? 'Gracias por compartir tu proyecto. Revisaremos los detalles y te responderemos.'
+            : 'Thank you for sharing your project. We’ll review the details and get back to you.'}
         </p>
       </div>
     );
-  }
 
   return (
     <form
@@ -47,81 +74,127 @@ export function ContactForm() {
       data-netlify="true"
       netlify-honeypot="bot-field"
       onSubmit={handleSubmit}
-      className="grid gap-4"
+      className={editorial ? 'contact-form' : ''}
+      aria-busy={status === 'submitting'}
     >
       <input type="hidden" name="form-name" value="contact" />
       <p className="hidden">
-        <label>
-          Don&apos;t fill this out if you&apos;re human: <input name="bot-field" />
+        <label className="honeypot-label">
+          Don&apos;t fill this out if you&apos;re human:{' '}
+          <input name="bot-field" tabIndex={-1} autoComplete="off" />
         </label>
       </p>
-
-      <div className="grid gap-4 sm:grid-cols-2">
-        <div>
-          <label htmlFor="name" className="sr-only">Name</label>
-          <input
-            required
-            type="text"
-            id="name"
-            name="name"
-            placeholder="Your name"
-            className="w-full rounded-xl border border-white/10 bg-[#0a0e0c] px-4 py-3.5 text-sm text-white placeholder-[#5d6962] transition focus:border-[#c7ff6b] focus:outline-none focus:ring-1 focus:ring-[#c7ff6b]"
-          />
-        </div>
-        <div>
-          <label htmlFor="email" className="sr-only">Email address</label>
-          <input
-            required
-            type="email"
-            id="email"
-            name="email"
-            placeholder="Email address"
-            className="w-full rounded-xl border border-white/10 bg-[#0a0e0c] px-4 py-3.5 text-sm text-white placeholder-[#5d6962] transition focus:border-[#c7ff6b] focus:outline-none focus:ring-1 focus:ring-[#c7ff6b]"
-          />
-        </div>
-      </div>
-
-      <div>
-        <label htmlFor="projectType" className="sr-only">Project Type</label>
-        <select
-          id="projectType"
-          name="projectType"
-          required
-          defaultValue=""
-          className="w-full appearance-none rounded-xl border border-white/10 bg-[#0a0e0c] px-4 py-3.5 text-sm text-white transition focus:border-[#c7ff6b] focus:outline-none focus:ring-1 focus:ring-[#c7ff6b]"
-        >
-          <option value="" disabled>Select project type...</option>
-          <option value="Packaging">Custom Packaging</option>
-          <option value="Textile">Custom Textile</option>
-          <option value="Both">Both Packaging & Textile</option>
-          <option value="Other">Other / Not sure</option>
-        </select>
-      </div>
-
-      <div>
-        <label htmlFor="message" className="sr-only">Project brief</label>
-        <textarea
-          required
-          id="message"
-          name="message"
-          rows={4}
-          placeholder="Tell us about your product, quantity, target timing..."
-          className="w-full resize-none rounded-xl border border-white/10 bg-[#0a0e0c] px-4 py-3.5 text-sm text-white placeholder-[#5d6962] transition focus:border-[#c7ff6b] focus:outline-none focus:ring-1 focus:ring-[#c7ff6b]"
-        />
-      </div>
-
-      <button
-        type="submit"
+      <fieldset
         disabled={status === 'submitting'}
-        className="group inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-[#c7ff6b] px-6 py-3.5 text-sm font-extrabold text-[#0a0d0b] transition hover:bg-[#d7ff94] disabled:cursor-not-allowed disabled:opacity-70 sm:w-auto sm:justify-self-start"
+        className="grid min-w-0 gap-4"
       >
-        {status === 'submitting' ? 'Sending...' : 'Send project brief'}
-        <Send className="h-4 w-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-      </button>
-
+        <legend className="sr-only">
+          {es ? 'Comparte tu proyecto' : 'Share your project brief'}
+        </legend>
+        <div className="grid gap-4 sm:grid-cols-2">
+          <div>
+            <label htmlFor="name" className={labelClass}>
+              {es ? 'Tu nombre' : 'Your name'}
+            </label>
+            <input
+              required
+              type="text"
+              id="name"
+              name="name"
+              autoComplete="name"
+              placeholder={es ? 'Nombre y apellido' : 'First & last name'}
+              className={fieldClass}
+            />
+          </div>
+          <div>
+            <label htmlFor="email" className={labelClass}>
+              {es ? 'Correo electrónico' : 'Email address'}
+            </label>
+            <input
+              required
+              type="email"
+              id="email"
+              name="email"
+              autoComplete="email"
+              placeholder="you@brand.com"
+              className={fieldClass}
+            />
+          </div>
+        </div>
+        <div>
+          <label htmlFor="projectType" className={labelClass}>
+            {es ? '¿Qué quieres desarrollar?' : 'What are you creating?'}
+          </label>
+          <select
+            id="projectType"
+            name="projectType"
+            required
+            defaultValue=""
+            className={fieldClass}
+          >
+            <option value="" disabled>
+              {es
+                ? 'Selecciona el tipo de proyecto'
+                : 'Select your project type'}
+            </option>
+            <option value="Packaging">
+              {es ? 'Empaques personalizados' : 'Custom packaging'}
+            </option>
+            <option value="Textile">
+              {es ? 'Textiles personalizados' : 'Custom textiles'}
+            </option>
+            <option value="Both">
+              {es ? 'Empaques y textiles' : 'Packaging & textiles'}
+            </option>
+            <option value="Other">
+              {es ? 'Aún explorando' : 'Still exploring'}
+            </option>
+          </select>
+        </div>
+        <div>
+          <label htmlFor="message" className={labelClass}>
+            {es ? 'Cuéntanos tu idea' : 'A little about your idea'}
+          </label>
+          <textarea
+            required
+            id="message"
+            name="message"
+            rows={4}
+            placeholder={
+              es
+                ? 'Producto, cantidades, materiales, destino y fechas previstas…'
+                : 'Product, quantities, materials, destination and target timing…'
+            }
+            className={fieldClass}
+          />
+        </div>
+        <button
+          type="submit"
+          disabled={status === 'submitting'}
+          className="contact-submit inline-flex min-h-12 items-center justify-between gap-3 rounded-xl bg-[#c7ff6b] px-5 py-3 text-sm font-bold text-[#0a0d0b] disabled:cursor-not-allowed disabled:opacity-60"
+        >
+          {status === 'submitting'
+            ? es
+              ? 'Enviando…'
+              : 'Sending…'
+            : es
+              ? 'Envíanos tu proyecto'
+              : 'Send your project brief'}
+          <ArrowUpRight size={17} aria-hidden="true" />
+        </button>
+      </fieldset>
       {status === 'error' && (
-        <p className="text-sm font-medium text-red-400">
-          Something went wrong. Please try again or copy the email address above.
+        <p
+          role="alert"
+          className="contact-error mt-3 text-sm leading-6 text-red-400"
+        >
+          {es
+            ? 'No se pudo enviar. Inténtalo de nuevo o escríbenos a '
+            : 'Your brief could not be sent. Please try again or email '}
+          <a className="underline" href="mailto:contact@sourcinglabusa.com">
+            contact@sourcinglabusa.com
+          </a>
+          .
         </p>
       )}
     </form>

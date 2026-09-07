@@ -8,26 +8,30 @@ describe('Navbar', () => {
   it('exposes service navigation and scrolls to project contact from marketing', () => {
     render(<Navbar area="marketing" />);
 
-    expect(
-      screen.getByRole('link', { name: /SourcingLab/i }),
-    ).toHaveAttribute('href', '/');
+    expect(screen.getByRole('link', { name: /SourcingLab/i })).toHaveAttribute(
+      'href',
+      '/',
+    );
     expect(
       screen.getByRole('link', { name: /Send a project brief/i }),
     ).toHaveAttribute('href', '#contact');
-    expect(
-      screen.getByRole('link', { name: 'Packaging' }),
-    ).toHaveAttribute('href', '/custom-packaging');
-    expect(
-      screen.getByRole('link', { name: 'Private label' }),
-    ).toHaveAttribute('href', '/private-label-packaging');
+    expect(screen.getByRole('link', { name: 'Packaging' })).toHaveAttribute(
+      'href',
+      '/custom-packaging',
+    );
+    expect(screen.getByRole('link', { name: 'Private label' })).toHaveAttribute(
+      'href',
+      '/private-label-packaging',
+    );
   });
 
   it('uses inter-domain alias to return to marketing', () => {
     render(<Navbar area="app" />);
 
-    expect(
-      screen.getByRole('link', { name: /SourcingLab/i }),
-    ).toHaveAttribute('href', '/marketing');
+    expect(screen.getByRole('link', { name: /SourcingLab/i })).toHaveAttribute(
+      'href',
+      '/marketing',
+    );
     expect(
       screen.getByRole('link', { name: /Back to website/i }),
     ).toHaveAttribute('href', '/marketing');
@@ -40,14 +44,33 @@ describe('Navbar', () => {
     const user = userEvent.setup();
     render(<Navbar area="marketing" />);
 
-    await user.click(screen.getByRole('button', { name: 'Open navigation menu' }));
+    await user.click(
+      screen.getByRole('button', { name: 'Open navigation menu' }),
+    );
 
-    const mobileNavigation = screen.getByRole('navigation', { name: 'Mobile navigation' });
+    const mobileNavigation = screen.getByRole('navigation', {
+      name: 'Mobile navigation',
+    });
     expect(
       within(mobileNavigation).getByRole('link', { name: 'Español' }),
     ).toHaveAttribute('href', '/es');
     expect(
       within(mobileNavigation).getByRole('link', { name: 'English' }),
     ).toHaveAttribute('href', '/');
+  });
+
+  it('closes the mobile menu with Escape and returns focus to its button', async () => {
+    const user = userEvent.setup();
+    render(<Navbar area="marketing" appearance="light" />);
+    const trigger = screen.getByRole('button', {
+      name: 'Open navigation menu',
+    });
+    await user.click(trigger);
+    await user.keyboard('{Escape}');
+    expect(
+      screen.queryByRole('navigation', { name: 'Mobile navigation' }),
+    ).not.toBeInTheDocument();
+    expect(trigger).toHaveFocus();
+    expect(trigger).toHaveAttribute('aria-expanded', 'false');
   });
 });
