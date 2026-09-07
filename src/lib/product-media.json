@@ -1,0 +1,66 @@
+{
+  "$comment": "Product visuals. `file` is null until an image exists in public/products/. Set it (or run `npm run generate:images`) and the site renders the photograph instead of the drawn figure. Keep `alt` factual: it describes the product category, never a specific client project.",
+  "imageBasePath": "/products",
+  "products": [
+    {
+      "id": "rigid-box",
+      "category": "packaging",
+      "name": "Rigid gift box",
+      "illustration": "rigidBox",
+      "file": null,
+      "alt": "Custom rigid gift box with a lift-off lid and a matte laminated finish.",
+      "specs": ["Greyboard and art paper", "Matte or soft-touch lamination", "Foil, screen or offset print"],
+      "prompt": "Editorial studio product photograph of an unbranded premium rigid gift box with a lift-off lid resting slightly ajar beside the base, warm off-white textured art paper with a matte soft-touch laminate, subtle deboss detail, photographed on a dark charcoal seamless background with soft directional key light from the upper left and a gentle falloff, shallow depth of field, crisp material and edge detail, no text, no logo, no brand name, no people"
+    },
+    {
+      "id": "mailer-carton",
+      "category": "packaging",
+      "name": "Printed mailer carton",
+      "illustration": "mailerCarton",
+      "file": null,
+      "alt": "Custom printed corrugated mailer carton for e-commerce shipments.",
+      "specs": ["E-flute and B-flute corrugated", "Inside and outside print", "Tear strip and insert options"],
+      "prompt": "Editorial studio product photograph of an unbranded corrugated e-commerce mailer carton, closed, natural kraft outer with a clean printed interior visible along one edge, honest corrugated flute texture, photographed on a dark charcoal seamless background with soft directional key light from the upper left, shallow depth of field, crisp material and edge detail, no text, no logo, no brand name, no people"
+    },
+    {
+      "id": "paper-bag",
+      "category": "packaging",
+      "name": "Retail paper bag",
+      "illustration": "paperBag",
+      "file": null,
+      "alt": "Custom retail paper bag with rope handles and a reinforced folded top.",
+      "specs": ["Kraft or coated paper", "Rope, ribbon or die-cut handles", "Reinforced top and base"],
+      "prompt": "Editorial studio product photograph of an unbranded premium retail paper shopping bag standing upright, thick uncoated paper with a reinforced folded top edge and twisted rope handles, clean side gusset, photographed on a dark charcoal seamless background with soft directional key light from the upper left, shallow depth of field, crisp paper grain and fold detail, no text, no logo, no brand name, no people"
+    },
+    {
+      "id": "printed-label",
+      "category": "packaging",
+      "name": "Labels and printed inserts",
+      "illustration": "printedLabel",
+      "file": null,
+      "alt": "Custom printed labels and folded inserts on a neutral studio surface.",
+      "specs": ["Paper, film and textured stocks", "Die-cut shapes", "Spot varnish and foil"],
+      "prompt": "Editorial studio product photograph of a small arrangement of unbranded blank printed labels and folded paper inserts, textured uncoated stock with a die-cut rounded label lifted slightly at one corner to show the adhesive backing, photographed on a dark charcoal seamless background with soft directional key light from the upper left, shallow depth of field, crisp paper texture, no text, no logo, no brand name, no people"
+    },
+    {
+      "id": "tote-bag",
+      "category": "textile",
+      "name": "Cotton tote bag",
+      "illustration": "toteBag",
+      "file": null,
+      "alt": "Custom heavyweight cotton tote bag with reinforced webbing handles.",
+      "specs": ["Heavyweight cotton canvas", "Webbing or self-fabric handles", "Screen or embroidery branding"],
+      "prompt": "Editorial studio product photograph of an unbranded heavyweight natural cotton canvas tote bag standing upright with structured sides and reinforced stitched handles, visible weave and seam detail, photographed on a dark charcoal seamless background with soft directional key light from the upper left, shallow depth of field, crisp fabric texture, no text, no logo, no brand name, no people"
+    },
+    {
+      "id": "apparel-stack",
+      "category": "textile",
+      "name": "Folded apparel and fabric",
+      "illustration": "fabricStack",
+      "file": null,
+      "alt": "Neatly folded custom apparel and fabric swatches in several weights.",
+      "specs": ["Knit and woven constructions", "Woven labels and hangtags", "Colour and weight matching"],
+      "prompt": "Editorial studio product photograph of a neat stack of four folded unbranded garments and fabric swatches in muted natural tones, different weights and weaves clearly readable, clean crisp folds, photographed on a dark charcoal seamless background with soft directional key light from the upper left, shallow depth of field, crisp textile fibre detail, no text, no logo, no brand name, no people"
+    }
+  ]
+}

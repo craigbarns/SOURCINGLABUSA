@@ -2,10 +2,12 @@ import Link from 'next/link';
 import { ArrowRight, CheckCircle2, ClipboardList, FileText, PackageCheck } from 'lucide-react';
 
 import { BriefSection } from '@/components/BriefSection';
+import { ProductShowcase } from '@/components/ProductShowcase';
 import { CtaLink } from '@/components/CtaLink';
 import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar';
 import { StickyMobileCta } from '@/components/StickyMobileCta';
+import type { ProductCategory } from '@/lib/product-media';
 
 type ContentBlock = {
   title: string;
@@ -29,6 +31,8 @@ export type ServicePageContent = {
   briefItems: string[];
   workflow: ContentBlock[];
   faqs: Question[];
+  /** Limits the product grid to one category; omit to show every product. */
+  showcaseCategory?: ProductCategory;
   /** Headline of the brief form on this page. */
   briefTitle: string;
   /** Supporting line of the brief form on this page. */
@@ -183,6 +187,8 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
             </div>
           </div>
         </section>
+
+        <ProductShowcase category={page.showcaseCategory} />
 
         <section className="border-y border-white/[0.07] bg-[#0a0e0c] py-20 sm:py-28">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

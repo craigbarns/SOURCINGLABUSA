@@ -9,6 +9,8 @@ import {
   Sparkles,
 } from 'lucide-react';
 
+import { ProductShowcase } from '@/components/ProductShowcase';
+
 import { BriefSection } from '../BriefSection';
 
 const offers = [
@@ -124,6 +126,8 @@ export function MarketingSectionsES() {
           </div>
         </div>
       </section>
+
+      <ProductShowcase locale="es" />
 
       <section id="how-it-works" className="scroll-mt-20 border-y border-white/[0.07] bg-[#0a0e0c] py-24 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
