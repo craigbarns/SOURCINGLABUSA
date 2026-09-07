@@ -1,27 +1,35 @@
 ---
-title: "Why Sourcing Lab USA Is Planning a Miami Launch for 2027"
-excerpt: "Sourcing Lab USA's planned Miami launch is part of a focused U.S. procurement model for custom packaging and textile projects."
+title: "Sourcing Lab USA: Planned Miami Launch in 2027"
+excerpt: "The planned U.S. business will purchase and supply clothing, packaging and other products on request through an independent China sourcing partnership."
 date: "2026-08-31"
-updated: "2026-08-31"
+updated: "2026-09-07"
 author: "SourcingLab USA"
 ---
 
-Sourcing Lab USA is preparing a Miami, Florida launch for 2027. The planned U.S. business will focus on custom packaging and textile procurement for brands, e-commerce businesses, and companies.
+Sourcing Lab USA is preparing a Miami launch for 2027 as a China sourcing and product supply business for U.S. business customers. Clothing, textiles and packaging are the core specialties. Other products can be reviewed on request, after the product scope and sourcing feasibility are assessed.
 
-This is a future operating plan, not a claim that the company already has a Miami office, warehouse, U.S. employees, or local logistics operation.
+## What will the U.S. business do?
 
-## A focused product scope
-The planned offer is deliberately narrow: custom packaging, branded textile products, private-label packaging, sampling, supplier coordination, production follow-up, and direct China-to-U.S. delivery where the commercial terms support it. It is not presented as a general sourcing agency, customs broker, freight forwarder, certification body, or inspection company.
+The planned commercial model is the purchase, supply and resale of goods. Sourcing Lab USA will purchase from selected suppliers in China and supply and invoice the products to customers. Product development, sampling, supplier coordination and production follow-up support those product orders.
 
-## What stays order-specific
-Each order can differ by product construction, materials, quantities, product claims, destination, shipping terms, and importer responsibilities. Those factors must be confirmed in the relevant commercial documents before production and shipment. No generic web page can replace that project-level review.
+Delivery may be direct from China to the customer under the agreed commercial terms. Product specifications, documents, quality checkpoints, delivery terms and importer responsibilities must be confirmed for each order.
 
-## The experience behind the plan
-The business is being built on nearly two decades of product and international sourcing experience, including packaging and textiles, together with an established independent China sourcing partnership. That experience informs the procurement process; it does not mean Sourcing Lab USA has already operated in the U.S. for that period.
+## Which products are in scope?
 
-## Preparing a brief for the future launch
-Brands evaluating a future packaging or textile project can start by documenting the product, drawings or references, materials, quantity, desired finish, target timing, and destination. Availability, pricing, sampling, delivery, and responsibilities are confirmed case by case.
+The core offer includes [custom packaging](/custom-packaging), [clothing and textiles](/custom-textile), and [private label packaging](/private-label-packaging). Customers with another product in mind can submit a brief for review. A broader scope does not mean every product or specification can be supplied.
 
-For now, Miami remains a planned 2027 launch. The website will be updated as the U.S. business becomes operational.
+## How does the China relationship work?
 
-Explore the current scope for [custom packaging](/custom-packaging), [custom textile](/custom-textile), and [private label packaging](/private-label-packaging).
+The planned business is supported by an established independent China sourcing partnership. That relationship supports supplier coordination and production follow-up. It is distinct from owning factories or employing a U.S. manufacturing team.
+
+## What does planned launch mean?
+
+Miami remains the intended U.S. launch location for 2027. The website describes a future commercial model and invites project discussions. It does not establish that a Miami office, warehouse, local inventory or U.S. employee team is already operational.
+
+The site will be updated as the U.S. business becomes operational. Availability and order terms remain subject to confirmation.
+
+## How can a business prepare a project?
+
+Record the product, use, specifications, quantity, references, target timing and destination. If the project includes apparel, add a size breakdown and tech pack where available. If it includes packaging, add product dimensions, the intended structure and artwork references.
+
+Use our [China sourcing RFQ checklist and downloadable brief](/blog/china-sourcing-rfq-checklist), read [about the business](/about), or explore the planned [China-to-U.S. product supply process](/china-to-us-procurement).

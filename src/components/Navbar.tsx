@@ -16,7 +16,7 @@ interface NavbarProps {
 
 const navigation = [
   { label: 'Packaging', href: '/custom-packaging' },
-  { label: 'Textile', href: '/custom-textile' },
+  { label: 'Clothing', href: '/custom-textile' },
   { label: 'Private label', href: '/private-label-packaging' },
   { label: 'How it works', href: '/#how-it-works' },
   { label: 'Blog', href: '/blog' },
@@ -50,7 +50,7 @@ export const Navbar: React.FC<NavbarProps> = ({
     label: isSpanish
       ? ({
           Packaging: 'Empaques',
-          Textile: 'Textiles',
+          Clothing: 'Prendas',
           'Private label': 'Marca privada',
           'How it works': 'Cómo funciona',
           Blog: 'Blog',

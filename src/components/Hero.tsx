@@ -15,19 +15,19 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' }) {
               : 'MIAMI, 2027 · PLANNED U.S. LAUNCH'}
           </p>
           <h1 id="hero-heading">
-            {es ? 'Tu marca.' : 'Your brand.'}
+            {es ? 'Productos.' : 'Products.'}
             <br />
-            {es ? 'Hecha' : 'Made'}
+            {es ? 'Desde' : 'Sourced'}
             <br />
-            <em>tangible.</em>
+            <em>{es ? 'China.' : 'in China.'}</em>
             <span className="hero-asterisk" aria-hidden="true">
               ✳
             </span>
           </h1>
           <p className="hero-description">
             {es
-              ? 'Empaques y textiles personalizados, del primer concepto al último detalle. Pensados para tu marca. Desarrollados con claridad.'
-              : 'Custom packaging & textiles, from the first idea to the final detail. Thoughtfully sourced. Unmistakably yours.'}
+              ? 'Prendas y empaques como especialidades, con otros productos bajo pedido. Preparando nuestro lanzamiento en EE. UU. con una colaboración de sourcing establecida en China.'
+              : 'Clothing and packaging are our specialties. Other products are sourced to your brief. Preparing our U.S. launch with an established China sourcing partnership.'}
           </p>
           <div className="hero-actions">
             <CtaLink
@@ -108,11 +108,13 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' }) {
           <span className="strip-star" aria-hidden="true">
             ✳
           </span>
-          <span>{es ? 'Textiles con tu marca' : 'Branded textiles'}</span>
+          <span>{es ? 'Prendas y textiles' : 'Clothing & textiles'}</span>
           <span className="strip-star" aria-hidden="true">
             ✳
           </span>
-          <span>{es ? 'Desarrollo de producto' : 'Product development'}</span>
+          <span>
+            {es ? 'Otros productos bajo pedido' : 'Other products on request'}
+          </span>
         </div>
       </div>
     </section>

@@ -14,8 +14,8 @@ export function EditorialFooter({ locale = 'en' }: { locale?: 'en' | 'es' }) {
             </Link>
             <p>
               {es
-                ? 'Empaques y textiles personalizados para marcas con una visión. Lanzamiento previsto en Miami para 2027.'
-                : 'Custom packaging and textiles for brands with a point of view. Preparing our U.S. market launch in Miami for 2027.'}
+                ? 'Sourcing y suministro de productos desde China. Prendas y empaques como especialidades; otros productos bajo pedido. Lanzamiento previsto en Miami para 2027.'
+                : 'China sourcing and product supply. Clothing and packaging as core specialties, with other products on request. U.S. launch planned for Miami in 2027.'}
             </p>
           </div>
           <nav aria-label={es ? 'Servicios' : 'Service links'}>
@@ -28,7 +28,7 @@ export function EditorialFooter({ locale = 'en' }: { locale?: 'en' | 'es' }) {
               </li>
               <li>
                 <Link href="/custom-textile">
-                  {es ? 'Textiles personalizados' : 'Custom textiles'}
+                  {es ? 'Prendas y textiles' : 'Clothing & textiles'}
                 </Link>
               </li>
               <li>
@@ -54,9 +54,9 @@ export function EditorialFooter({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                 </a>
               </li>
               <li>
-                <a href={`${home}#experience`}>
-                  {es ? 'Nuestra visión' : 'Our approach'}
-                </a>
+                <Link href="/about">
+                  {es ? 'Sobre Sourcing Lab USA' : 'About Sourcing Lab USA'}
+                </Link>
               </li>
               <li>
                 <Link href="/blog">

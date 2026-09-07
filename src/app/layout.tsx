@@ -5,6 +5,9 @@ import type { Metadata } from 'next';
 
 import { getDomainRoutingConfig } from '@/lib/routing/subdomains';
 
+import { StructuredData } from '@/components/StructuredData';
+import { organizationGraph } from '@/lib/seo';
+
 import './globals.css';
 
 const inter = Inter({
@@ -28,36 +31,42 @@ export const metadata: Metadata = {
     telephone: false,
   },
   title: {
-    default: 'Custom Packaging & Textile | Sourcing Lab USA',
+    default: 'China Sourcing & Product Supply | Sourcing Lab USA',
     template: '%s | Sourcing Lab USA',
   },
   description:
-    'Custom packaging and textile products for brands, e-commerce businesses, and companies. U.S. market launch planned for Miami in 2027.',
-  keywords: [
-    'custom packaging',
-    'custom textile',
-    'product sourcing',
-    'China sourcing',
-    'B2B packaging',
-    'textile sourcing',
-    'direct delivery',
-    'Miami custom packaging',
-    'USA textile sourcing',
-  ],
+    'China sourcing and product supply for U.S. business customers. Clothing, packaging and other products on request. Miami launch planned for 2027.',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.BING_SITE_VERIFICATION
+      ? { 'msvalidate.01': process.env.BING_SITE_VERIFICATION }
+      : undefined,
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     siteName: 'SourcingLab USA',
     url: marketingOrigin,
-    title: 'Custom Packaging & Textile | Sourcing Lab USA',
+    title: 'China Sourcing & Product Supply | Sourcing Lab USA',
     description:
-      'Custom packaging and textile products sourced through an established China partnership. Miami launch planned for 2027.',
+      'Clothing, packaging and other products sourced from China. Product purchase and supply for U.S. businesses, with a Miami launch planned for 2027.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Custom Packaging & Textile | Sourcing Lab USA',
+    title: 'China Sourcing & Product Supply | Sourcing Lab USA',
     description:
-      'Custom packaging and textile products sourced through an established China partnership. Miami launch planned for 2027.',
+      'Clothing, packaging and other products sourced from China. Product purchase and supply for U.S. businesses, with a Miami launch planned for 2027.',
   },
 };
 
@@ -80,7 +89,10 @@ gtag('js', new Date());
 gtag('config', 'G-ZJ0M56QGGM');`}
         </Script>
       </head>
-      <body className="min-h-screen bg-[#070a09] text-gray-100 antialiased font-sans">{children}</body>
+      <body className="min-h-screen bg-[#070a09] text-gray-100 antialiased font-sans">
+        <StructuredData data={organizationGraph()} />
+        {children}
+      </body>
     </html>
   );
 }

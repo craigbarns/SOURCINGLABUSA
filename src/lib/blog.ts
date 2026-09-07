@@ -16,7 +16,7 @@ export type BlogPost = {
 
 export function getPostSlugs() {
   if (!fs.existsSync(postsDirectory)) return [];
-  return fs.readdirSync(postsDirectory);
+  return fs.readdirSync(postsDirectory).filter((file) => file.endsWith('.md'));
 }
 
 export function getPostBySlug(slug: string): BlogPost {
@@ -43,4 +43,20 @@ export function getAllPosts(): BlogPost[] {
     // sort posts by date in descending order
     .sort((post1, post2) => (post1.date > post2.date ? -1 : 1));
   return posts;
+}
+
+/** Split editorial H2 sections once so the navigation and section anchors stay aligned. */
+export function getPostSections(content: string) {
+  const headings = [...content.matchAll(/^## (.+)$/gm)];
+  return {
+    intro: content.slice(0, headings[0]?.index ?? content.length),
+    sections: headings.map((heading, index) => ({
+      id: `section-${index + 1}`,
+      title: heading[1].trim(),
+      content: content.slice(
+        heading.index! + heading[0].length,
+        headings[index + 1]?.index ?? content.length,
+      ),
+    })),
+  };
 }

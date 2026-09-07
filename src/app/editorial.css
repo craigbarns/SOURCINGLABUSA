@@ -1098,3 +1098,113 @@
 .contact-panel .editorial-body {
   color: #596755;
 }
+
+.other-products-panel {
+  display: grid;
+  grid-template-columns: 1fr 1fr auto;
+  gap: 30px;
+  align-items: center;
+  margin-top: 38px;
+  padding: 30px;
+  border: 1px solid var(--editorial-line);
+  border-radius: 4px;
+  background: #edf0e4;
+  scroll-margin-top: 105px;
+}
+
+.sourcing-guide-section {
+  border-top: 1px solid var(--editorial-line);
+  background: #edf0e4;
+}
+.sourcing-guide-section .editorial-body {
+  max-width: 650px;
+  color: #596755;
+}
+.sourcing-guide-section .editorial-text-link,
+.about-intro .editorial-button,
+.about-details .editorial-text-link {
+  margin-top: 26px;
+}
+.about-breadcrumb {
+  margin-bottom: 40px;
+  font-size: 12px;
+}
+.about-breadcrumb a,
+.about-details .editorial-body a {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.about-intro,
+.about-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: center;
+}
+.about-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 4px;
+}
+.about-photo figcaption {
+  margin-top: 10px;
+  font-size: 11px;
+  color: #596755;
+}
+.company-facts {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 60px;
+  margin-top: 40px;
+}
+.company-facts > div {
+  padding: 24px 0;
+  border-top: 1px solid var(--editorial-line);
+}
+.company-facts dt {
+  font-weight: 700;
+  font-size: 15px;
+}
+.company-facts dd {
+  margin-top: 10px;
+  font-size: 14px;
+  line-height: 1.8;
+  color: #d4dfd1;
+}
+.about-details {
+  align-items: start;
+}
+@media (max-width: 767px) {
+  .about-intro,
+  .about-details,
+  .company-facts {
+    grid-template-columns: 1fr;
+    gap: 28px;
+  }
+  .company-facts {
+    gap: 0;
+  }
+}
+.other-products-panel .collection-title {
+  margin-top: 12px;
+  font-size: 23px;
+}
+.other-products-panel .editorial-body {
+  color: #596755;
+  font-size: 13px;
+}
+@media (max-width: 1100px) {
+  .other-products-panel {
+    grid-template-columns: 1fr 1fr;
+  }
+  .other-products-panel .editorial-text-link {
+    grid-column: 1 / -1;
+  }
+}
+@media (max-width: 767px) {
+  .other-products-panel {
+    grid-template-columns: 1fr;
+    gap: 18px;
+    padding: 23px;
+  }
+}

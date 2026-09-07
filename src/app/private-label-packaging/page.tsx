@@ -1,23 +1,13 @@
-import type { Metadata } from 'next';
-
 import { ServiceLandingPage } from '@/components/ServiceLandingPage';
 import { privateLabelPackagingPage } from '@/lib/service-pages';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Private Label Packaging Development',
+export const metadata = pageMetadata({
+  title: 'Private Label Packaging from China',
   description:
-    'Develop private label packaging with branded boxes, bags, labels, inserts, and presentation details documented in one product brief.',
-  alternates: {
-    canonical: '/private-label-packaging',
-  },
-  openGraph: {
-    type: 'website',
-    url: '/private-label-packaging',
-    title: 'Private Label Packaging Development',
-    description:
-      'Custom packaging development for private label products, from branded structure to labels and presentation details.',
-  },
-};
+    'Branded boxes, bags, labels and inserts for private label products. China sourcing and product supply; Miami launch planned for 2027.',
+  path: '/private-label-packaging',
+});
 
 export default function PrivateLabelPackagingPage() {
   return <ServiceLandingPage page={privateLabelPackagingPage} />;

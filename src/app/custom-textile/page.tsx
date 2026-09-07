@@ -1,23 +1,13 @@
-import type { Metadata } from 'next';
-
 import { ServiceLandingPage } from '@/components/ServiceLandingPage';
 import { customTextilePage } from '@/lib/service-pages';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Custom Textile Products for U.S. Brands',
+export const metadata = pageMetadata({
+  title: 'Clothing & Textile Sourcing from China',
   description:
-    'Develop custom apparel, towels, tote bags, uniforms, and branded textile accessories from a usable product specification.',
-  alternates: {
-    canonical: '/custom-textile',
-  },
-  openGraph: {
-    type: 'website',
-    url: '/custom-textile',
-    title: 'Custom Textile Products for U.S. Brands',
-    description:
-      'Custom apparel, towels, tote bags, uniforms, and branded textile accessories developed to your project brief.',
-  },
-};
+    'Custom clothing, uniforms, tote bags and textiles sourced from China to your specifications. U.S. product supply launch planned for Miami in 2027.',
+  path: '/custom-textile',
+});
 
 export default function CustomTextilePage() {
   return <ServiceLandingPage page={customTextilePage} />;

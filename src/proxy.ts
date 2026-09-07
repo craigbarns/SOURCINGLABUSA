@@ -62,7 +62,7 @@ export function proxy(request: NextRequest) {
     case 'next':
       return addRoutingHeaders(
         NextResponse.next(),
-        decision.area === 'app',
+        decision.area === 'app' || decision.area === 'preview',
       );
   }
 }

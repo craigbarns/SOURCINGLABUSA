@@ -1,5 +1,7 @@
 # SEO + GEO audit — Sourcing Lab USA
 
+> Historical audit. For the current business scope, implemented SEO and remaining measurement setup, use [the September 2026 implementation record](SEO_GEO_2026-09.md).
+
 **Audit date:** 31 August 2026
 
 **Primary market/language:** United States / American English

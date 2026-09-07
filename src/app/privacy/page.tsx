@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 
 import { Footer } from '@/components/Footer';
@@ -17,12 +17,12 @@ import { BRIEF_CONTACT_EMAIL } from '@/lib/brief-copy';
 
 const LAST_UPDATED = '7 September 2026';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Privacy notice',
   description:
     'What Sourcing Lab USA collects when you send a project brief, where it is stored, and how to have it removed.',
-  alternates: { canonical: '/privacy' },
-};
+  path: '/privacy',
+});
 
 function Section({
   title,
@@ -33,8 +33,12 @@ function Section({
 }) {
   return (
     <section className="border-t border-white/[0.08] py-8">
-      <h2 className="text-xl font-black tracking-[-0.03em] text-white">{title}</h2>
-      <div className="mt-4 space-y-4 text-sm leading-7 text-[#a0aca5]">{children}</div>
+      <h2 className="text-xl font-black tracking-[-0.03em] text-white">
+        {title}
+      </h2>
+      <div className="mt-4 space-y-4 text-sm leading-7 text-[#a0aca5]">
+        {children}
+      </div>
     </section>
   );
 }
@@ -99,10 +103,10 @@ export default function PrivacyPage() {
 
             <Section title="Where it is stored">
               <p>
-                Briefs and product update registrations are stored in a
-                Supabase database that only our servers can reach. Brief
-                submissions are also delivered to us as a notification through
-                Netlify Forms, the service that hosts this website.
+                Briefs and product update registrations are stored in a Supabase
+                database that only our servers can reach. Brief submissions are
+                also delivered to us as a notification through Netlify Forms,
+                the service that hosts this website.
               </p>
               <p>
                 We use Google Analytics to understand how the site is used —

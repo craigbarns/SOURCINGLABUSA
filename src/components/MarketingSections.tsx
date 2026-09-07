@@ -2,43 +2,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight, Layers3, Plus } from 'lucide-react';
 import { ContactForm } from './ContactForm';
-
-const faqs = [
-  [
-    'Do you only source packaging?',
-    'No. Our initial focus is custom packaging and textile products for brands, e-commerce businesses, and companies.',
-  ],
-  [
-    'Where are you based?',
-    'Sourcing Lab USA is preparing its U.S. market launch from Miami for 2027, supported by an established China sourcing partnership.',
-  ],
-  [
-    'Can you work from an existing design or sample?',
-    'Yes. Send your brief, reference images, dimensions, quantity, and target timing. We will confirm what can be quoted and sampled.',
-  ],
-  [
-    'Who handles compliance and import requirements?',
-    'Requirements depend on the exact product and destination. Product specifications, certificates, shipping terms, and importer responsibilities are confirmed for each order before production and shipment.',
-  ],
-];
-const faqsES = [
-  [
-    '¿Solo trabajan con empaques?',
-    'No. Nuestro enfoque inicial son los empaques y productos textiles personalizados para marcas, empresas de comercio electrónico y otros negocios.',
-  ],
-  [
-    '¿Dónde están ubicados?',
-    'Sourcing Lab USA prepara su lanzamiento al mercado estadounidense desde Miami para 2027, con el apoyo de una colaboración de sourcing establecida en China.',
-  ],
-  [
-    '¿Pueden trabajar con un diseño o una muestra existente?',
-    'Sí. Comparte tu brief, imágenes de referencia, dimensiones, cantidad y fechas previstas. Confirmaremos qué se puede cotizar y producir como muestra.',
-  ],
-  [
-    '¿Quién se encarga de los requisitos de importación?',
-    'Los requisitos dependen del producto y el destino. Las especificaciones, los certificados, las condiciones de envío y las responsabilidades del importador se confirman para cada pedido antes de producir y enviar.',
-  ],
-];
+import { CtaLink } from './CtaLink';
+import { homeFaqs, homeFaqsES } from '@/lib/home-faqs';
 
 export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
   const es = locale === 'es';
@@ -66,7 +31,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
       image: 'textile-collection',
       href: '/custom-textile',
       title: es ? 'Tu marca, en cada hilo.' : 'Your brand, in every thread.',
-      name: es ? 'TEXTILES PERSONALIZADOS' : 'CUSTOM TEXTILES',
+      name: es ? 'PRENDAS Y TEXTILES' : 'CLOTHING & TEXTILES',
       alt: es
         ? 'Concepto de tote bag de lona, prendas de algodón y muestras textiles'
         : 'Concept canvas tote bag, folded cotton apparel and textured fabric swatches',
@@ -85,16 +50,16 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
           'Producto, cantidad, referencias y destino. Un brief claro es el punto de partida.',
         ],
         [
-          'Define los detalles',
-          'Revisa opciones, precios, materiales y requisitos de muestra antes de decidir.',
+          'Revisa nuestra propuesta',
+          'Revisa nuestra propuesta de producto: especificaciones, cantidades, muestras, precios y condiciones comerciales.',
         ],
         [
-          'Aprueba la producción',
-          'Especificaciones y muestras aprobadas, con seguimiento en los puntos acordados.',
+          'Confirma el pedido',
+          'Tras aprobar el pedido y las muestras acordadas, compraremos al proveedor seleccionado y coordinaremos el seguimiento de producción.',
         ],
         [
-          'Prepara la entrega',
-          'Entrega de China a tu destino en EE. UU., según las condiciones acordadas para tu pedido.',
+          'Recibe tus productos',
+          'Sourcing Lab USA suministrará y facturará los productos. La entrega podrá ser directa de China a tu destino, según las condiciones del pedido.',
         ],
       ]
     : [
@@ -103,16 +68,16 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
           'Your product, quantity, references and destination. A clear brief is where everything begins.',
         ],
         [
-          'Make it your own',
-          'Review supplier options, pricing, materials and sample requirements before you decide.',
+          'Review our proposal',
+          'Review our product proposal: specifications, quantities, sample requirements, product pricing and commercial terms.',
         ],
         [
-          'Approve every detail',
-          'Agreed specifications and samples, with production follow-up at the checkpoints set for your order.',
+          'Confirm your order',
+          'After the order and agreed samples are approved, we will purchase from the selected supplier and coordinate production follow-up.',
         ],
         [
-          'Plan the handover',
-          'Direct delivery from China to your U.S. destination, under the shipping terms agreed for your order.',
+          'Receive your products',
+          'Sourcing Lab USA will supply and invoice the products. Delivery may be direct from China to your destination, under the terms agreed for the order.',
         ],
       ];
   const points = es
@@ -163,8 +128,8 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
             </div>
             <p className="editorial-body">
               {es
-                ? 'Dos especialidades, una visión compartida: productos que transmiten la identidad de tu marca en cada punto de contacto.'
-                : 'Two specialties. One shared belief: the things people hold, open and wear should feel like your brand.'}
+                ? 'Prendas y empaques son nuestras especialidades. También estudiamos otros productos bajo pedido, con un alcance y unas condiciones definidos para cada proyecto.'
+                : 'Clothing and packaging are where our product experience starts. Our sourcing and supply offer also extends to other products, assessed against your brief.'}
             </p>
           </div>
           <div className="collection-grid">
@@ -206,6 +171,32 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
               </article>
             ))}
           </div>
+          <div id="other-products" className="other-products-panel">
+            <div>
+              <p className="editorial-kicker">
+                {es ? '03 / OTROS PRODUCTOS' : '03 / OTHER PRODUCTS'}
+              </p>
+              <h3 className="collection-title">
+                {es
+                  ? '¿Otro producto en mente?'
+                  : 'Have another product in mind?'}
+              </h3>
+            </div>
+            <p className="editorial-body">
+              {es
+                ? 'Comparte el producto, su uso, las cantidades y tus referencias. Confirmaremos las posibilidades de suministro y los requisitos antes de proponerte una solución.'
+                : 'Tell us the product, its intended use, quantities and references. We will review sourcing feasibility and requirements before proposing a supply solution.'}
+            </p>
+            <CtaLink
+              href="#contact"
+              location="other_products"
+              label="Discuss another product"
+              className="editorial-text-link"
+            >
+              {es ? 'Cuéntanos tu proyecto' : 'Discuss your product'}
+              <ArrowUpRight size={17} aria-hidden="true" />
+            </CtaLink>
+          </div>
           <p className="concept-caption">
             {es
               ? 'Imágenes conceptuales creadas con IA para ilustrar las categorías. Los materiales y acabados se confirman para cada proyecto.'
@@ -230,8 +221,8 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
             </div>
             <p className="editorial-body">
               {es
-                ? 'Un proceso de compra y suministro documentado, desde la primera conversación hasta los términos de entrega.'
-                : 'A considered purchase-and-supply process, with the important decisions documented from the first conversation to delivery terms.'}
+                ? 'Nuestro modelo previsto en EE. UU. es la compra y reventa de productos: compraremos a proveedores en China y suministraremos los productos a nuestros clientes empresariales, con precios y condiciones acordados por pedido.'
+                : 'Our planned U.S. business will purchase products from suppliers in China and resell them to business customers. You will buy your products from Sourcing Lab USA, with product pricing and responsibilities agreed for each order.'}
             </p>
           </div>
           <ol className="process-steps">
@@ -294,8 +285,8 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
             </h2>
             <p className="editorial-body">
               {es
-                ? 'El sourcing empieza al entender el producto. Preparamos nuestro lanzamiento en Miami para 2027 con un enfoque en empaques y textiles, apoyados por una colaboración independiente establecida en China.'
-                : 'Good sourcing starts with understanding the product. We’re preparing our Miami launch for 2027 with a focused packaging and textile offer, supported by an established independent partnership in China.'}
+                ? 'Preparamos nuestro lanzamiento en Miami para 2027 como empresa de sourcing y suministro de productos. Prendas y empaques son nuestras especialidades; otros productos se estudian bajo pedido a través de una colaboración independiente establecida en China.'
+                : 'We’re preparing our Miami launch for 2027 as a product sourcing and supply business. Clothing and packaging are our core specialties, with other products assessed on request through an established independent China sourcing partnership.'}
             </p>
             <ul className="approach-points">
               {points.map(([title, body], i) => (
@@ -308,6 +299,10 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                 </li>
               ))}
             </ul>
+            <Link href="/about" className="editorial-text-link">
+              {es ? 'Conoce Sourcing Lab USA' : 'About Sourcing Lab USA'}
+              <ArrowUpRight size={17} aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>
@@ -329,7 +324,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
             </p>
           </div>
           <div className="faq-list">
-            {(es ? faqsES : faqs).map(([question, answer]) => (
+            {(es ? homeFaqsES : homeFaqs).map(([question, answer]) => (
               <details className="faq-item" key={question}>
                 <summary>
                   {question}
@@ -339,6 +334,32 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
               </details>
             ))}
           </div>
+        </div>
+      </section>
+      <section className="editorial-section sourcing-guide-section">
+        <div className="editorial-container">
+          <p className="editorial-kicker">
+            {es ? 'PREPARA TU PROYECTO' : 'A BETTER STARTING POINT'}
+          </p>
+          <h2 className="editorial-title">
+            {es
+              ? 'Una idea clara. Un brief mejor.'
+              : 'Clearer brief. Better decisions.'}
+          </h2>
+          <p className="editorial-body">
+            {es
+              ? 'Qué incluir para solicitar una cotización de prendas, empaques u otros productos. Con una plantilla descargable en inglés.'
+              : 'What to include when requesting a quotation for clothing, packaging or another product. Includes a downloadable sourcing brief template.'}
+          </p>
+          <Link
+            href="/blog/china-sourcing-rfq-checklist"
+            className="editorial-text-link"
+          >
+            {es
+              ? 'Lee la guía de cotización (inglés)'
+              : 'Read the China sourcing RFQ checklist'}
+            <ArrowUpRight size={17} aria-hidden="true" />
+          </Link>
         </div>
       </section>
       <section id="contact" className="editorial-section contact-section">

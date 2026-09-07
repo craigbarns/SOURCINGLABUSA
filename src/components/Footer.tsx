@@ -9,28 +9,62 @@ export const Footer: React.FC = () => (
         <div className="md:col-span-5">
           <Logo size="md" />
           <p className="mt-5 max-w-sm text-sm leading-6">
-            Custom packaging and textile products developed through an established
-            China sourcing partnership for the planned U.S. market launch.
+            China sourcing and product supply, specializing in clothing and
+            packaging, with other products on request. U.S. launch planned for
+            Miami in 2027.
           </p>
           <a
-            href="mailto:contact@sourcinglabusa.com?subject=Custom%20packaging%20or%20textile%20project"
+            href="mailto:contact@sourcinglabusa.com?subject=Product%20sourcing%20project"
             className="group mt-6 inline-flex items-center gap-2 text-sm font-bold text-[#dfffab]"
           >
             contact@sourcinglabusa.com
           </a>
         </div>
 
-        <nav aria-label="Service links" className="md:col-span-2 md:col-start-7">
+        <nav
+          aria-label="Service links"
+          className="md:col-span-2 md:col-start-7"
+        >
           <p className="text-[10px] font-black uppercase tracking-[0.16em] text-[#a7b2ab]">
             Services
           </p>
           <ul className="mt-4 space-y-3 text-sm">
-            <li><Link href="/custom-packaging" className="hover:text-white">Custom packaging</Link></li>
-            <li><Link href="/custom-textile" className="hover:text-white">Custom textile</Link></li>
-            <li><Link href="/private-label-packaging" className="hover:text-white">Private label packaging</Link></li>
-            <li><Link href="/china-to-us-procurement" className="hover:text-white">China-to-U.S. procurement</Link></li>
-            <li><Link href="/#how-it-works" className="hover:text-white">How it works</Link></li>
-            <li><Link href="/#contact" className="hover:text-white">Send your brief</Link></li>
+            <li>
+              <Link href="/custom-packaging" className="hover:text-white">
+                Custom packaging
+              </Link>
+            </li>
+            <li>
+              <Link href="/custom-textile" className="hover:text-white">
+                Clothing & textiles
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/private-label-packaging"
+                className="hover:text-white"
+              >
+                Private label packaging
+              </Link>
+            </li>
+            <li>
+              <Link
+                href="/china-to-us-procurement"
+                className="hover:text-white"
+              >
+                China-to-U.S. procurement
+              </Link>
+            </li>
+            <li>
+              <Link href="/#how-it-works" className="hover:text-white">
+                How it works
+              </Link>
+            </li>
+            <li>
+              <Link href="/#contact" className="hover:text-white">
+                Send your brief
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -39,10 +73,31 @@ export const Footer: React.FC = () => (
             Company
           </p>
           <ul className="mt-4 space-y-3 text-sm">
-            <li><Link href="/#experience" className="hover:text-white">Experience</Link></li>
-            <li><Link href="/#compliance" className="hover:text-white">Quality & compliance</Link></li>
-            <li><Link href="/#faq" className="hover:text-white">FAQ</Link></li>
-            <li><Link href="/privacy" className="hover:text-white">Privacy notice</Link></li>
+            <li>
+              <Link href="/blog" className="hover:text-white">
+                Sourcing guides
+              </Link>
+            </li>
+            <li>
+              <Link href="/about" className="hover:text-white">
+                About Sourcing Lab USA
+              </Link>
+            </li>
+            <li>
+              <Link href="/#compliance" className="hover:text-white">
+                Quality & compliance
+              </Link>
+            </li>
+            <li>
+              <Link href="/#faq" className="hover:text-white">
+                FAQ
+              </Link>
+            </li>
+            <li>
+              <Link href="/privacy" className="hover:text-white">
+                Privacy notice
+              </Link>
+            </li>
           </ul>
         </nav>
 
@@ -51,8 +106,8 @@ export const Footer: React.FC = () => (
             Built for
           </p>
           <p className="mt-4 text-sm leading-6">
-            Brands, e-commerce businesses, and companies needing custom packaging
-            or textile products.
+            Brands, e-commerce businesses, and companies buying clothing,
+            packaging, or other products developed to a project brief.
           </p>
         </div>
       </div>

@@ -11,9 +11,9 @@ export type ProjectType = (typeof PROJECT_TYPE_VALUES)[number];
 
 export const PROJECT_TYPE_LABELS: Record<ProjectType, string> = {
   packaging: 'Custom packaging',
-  textile: 'Custom textile',
+  textile: 'Clothing and textile',
   both: 'Packaging and textile',
-  other: 'Other / not sure yet',
+  other: 'Other products / discuss a project',
 };
 
 export const QUANTITY_RANGE_VALUES = [

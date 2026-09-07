@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const alt = 'Sourcing Lab USA — Custom packaging and textile';
+export const alt = 'Sourcing Lab USA — China sourcing and product supply';
 export const size = {
   width: 1200,
   height: 630,
@@ -74,7 +74,9 @@ export default function OpenGraphImage() {
               S
             </div>
             <div style={{ display: 'flex', alignItems: 'center', gap: 10 }}>
-              <span style={{ fontSize: 27, fontWeight: 800, letterSpacing: -1 }}>
+              <span
+                style={{ fontSize: 27, fontWeight: 800, letterSpacing: -1 }}
+              >
                 SourcingLab
               </span>
               <span
@@ -93,7 +95,9 @@ export default function OpenGraphImage() {
             </div>
           </div>
 
-          <div style={{ display: 'flex', flexDirection: 'column', maxWidth: 920 }}>
+          <div
+            style={{ display: 'flex', flexDirection: 'column', maxWidth: 920 }}
+          >
             <div
               style={{
                 color: '#a9eecf',
@@ -103,7 +107,7 @@ export default function OpenGraphImage() {
                 textTransform: 'uppercase',
               }}
             >
-              Custom packaging and textile
+              China sourcing and product supply
             </div>
             <div
               style={{
@@ -127,27 +131,40 @@ export default function OpenGraphImage() {
                 lineHeight: 1.4,
               }}
             >
-              From product brief to direct delivery, through an established
-              China sourcing partnership.
+              Clothing and packaging specialists. Other products on request.
+              U.S. launch planned for Miami in 2027.
             </div>
           </div>
 
-          <div style={{ display: 'flex', alignItems: 'center', gap: 22, color: '#8d9a92' }}>
-            {['Custom packaging', 'Custom textile', 'China sourcing', 'Miami · 2027'].map(
-              (item) => (
-                <div key={item} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <div
-                    style={{
-                      width: 7,
-                      height: 7,
-                      borderRadius: 99,
-                      background: '#70e1b2',
-                    }}
-                  />
-                  <span style={{ fontSize: 15, fontWeight: 700 }}>{item}</span>
-                </div>
-              ),
-            )}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 22,
+              color: '#8d9a92',
+            }}
+          >
+            {[
+              'Clothing',
+              'Packaging',
+              'Other products on request',
+              'Planned launch · 2027',
+            ].map((item) => (
+              <div
+                key={item}
+                style={{ display: 'flex', alignItems: 'center', gap: 8 }}
+              >
+                <div
+                  style={{
+                    width: 7,
+                    height: 7,
+                    borderRadius: 99,
+                    background: '#70e1b2',
+                  }}
+                />
+                <span style={{ fontSize: 15, fontWeight: 700 }}>{item}</span>
+              </div>
+            ))}
           </div>
         </div>
       </div>

@@ -31,7 +31,7 @@ export const Logo: React.FC<LogoProps> = ({
             SourcingLab<span>USA</span>
           </div>
           <p className="light-logo-caption">
-            PACKAGING &amp; TEXTILE PROCUREMENT
+            CHINA SOURCING &amp; PRODUCT SUPPLY
           </p>
         </div>
       </div>

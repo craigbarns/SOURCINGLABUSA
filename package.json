@@ -10,7 +10,8 @@
     "typecheck": "tsc --noEmit --pretty false",
     "test": "vitest run",
     "test:watch": "vitest",
-    "generate:images": "node scripts/generate-product-images.mjs"
+    "generate:images": "node scripts/generate-product-images.mjs",
+    "seo:audit": "node scripts/audit-seo.mjs"
   },
   "dependencies": {
     "@supabase/supabase-js": "^2.111.0",

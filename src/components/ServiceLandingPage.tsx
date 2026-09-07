@@ -1,6 +1,12 @@
 import Link from 'next/link';
 import Image from 'next/image';
-import { ArrowRight, CheckCircle2, ClipboardList, FileText, PackageCheck } from 'lucide-react';
+import {
+  ArrowRight,
+  CheckCircle2,
+  ClipboardList,
+  FileText,
+  PackageCheck,
+} from 'lucide-react';
 
 import { BriefSection } from '@/components/BriefSection';
 import { ProductShowcase } from '@/components/ProductShowcase';
@@ -8,6 +14,8 @@ import { CtaLink } from '@/components/CtaLink';
 import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar';
 import { StickyMobileCta } from '@/components/StickyMobileCta';
+import { StructuredData } from '@/components/StructuredData';
+import { breadcrumbSchema, faqSchema, webpageSchema } from '@/lib/seo';
 import type { ProductCategory } from '@/lib/product-media';
 
 type ContentBlock = {
@@ -45,93 +53,58 @@ export type ServicePageContent = {
   }>;
 };
 
-function buildStructuredData(page: ServicePageContent) {
-  const url = `https://sourcinglabusa.com${page.path}`;
-
-  return {
+export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
+  const structuredData = {
     '@context': 'https://schema.org',
     '@graph': [
-      {
-        '@type': 'BreadcrumbList',
-        itemListElement: [
-          {
-            '@type': 'ListItem',
-            position: 1,
-            name: 'Home',
-            item: 'https://sourcinglabusa.com',
-          },
-          {
-            '@type': 'ListItem',
-            position: 2,
-            name: page.offerName,
-            item: url,
-          },
-        ],
-      },
-      {
-        '@type': 'WebPage',
-        '@id': `${url}#webpage`,
-        url,
-        name: page.title,
-        description: page.intro,
-        isPartOf: {
-          '@id': 'https://sourcinglabusa.com/#website',
-        },
-        about: {
-          '@type': 'Service',
-          name: page.offerName,
-          description: page.offerDescription,
-          provider: {
-            '@id': 'https://sourcinglabusa.com/#organization',
-          },
-          areaServed: {
-            '@type': 'Country',
-            name: 'United States',
-          },
-        },
-        inLanguage: 'en-US',
-      },
-      {
-        '@type': 'FAQPage',
-        '@id': `${url}#faq`,
-        mainEntity: page.faqs.map((faq) => ({
-          '@type': 'Question',
-          name: faq.question,
-          acceptedAnswer: {
-            '@type': 'Answer',
-            text: faq.answer,
-          },
-        })),
-      },
+      webpageSchema(page.path, page.title, page.intro),
+      breadcrumbSchema([
+        { name: 'Home', path: '/' },
+        { name: page.offerName, path: page.path },
+      ]),
+      faqSchema(
+        page.path,
+        page.faqs.map(({ question, answer }) => [question, answer] as const),
+      ),
     ],
   };
-}
-
-export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
-  const structuredData = buildStructuredData(page);
-  const photo = page.path === '/custom-textile' ? 'textile-collection' : page.path === '/china-to-us-procurement' ? 'brand-still-life' : 'packaging-collection';
+  const photo =
+    page.path === '/custom-textile'
+      ? 'textile-collection'
+      : page.path === '/china-to-us-procurement'
+        ? 'brand-still-life'
+        : 'packaging-collection';
 
   return (
     <div className="flex min-h-screen flex-col bg-[#070a09] text-gray-100">
       <Navbar area="marketing" />
 
       <main className="flex-1">
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
-        />
+        <StructuredData data={structuredData} />
 
         <section className="border-b border-white/[0.07] py-20 sm:py-28">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <nav aria-label="Breadcrumb" className="text-sm text-[#98a69e]">
-              <Link href="/" className="transition-colors hover:text-white">Home</Link>
-              <span aria-hidden="true" className="mx-2 text-[#5c6861]">/</span>
+              <Link href="/" className="transition-colors hover:text-white">
+                Home
+              </Link>
+              <span aria-hidden="true" className="mx-2 text-[#5c6861]">
+                /
+              </span>
               <span>{page.offerName}</span>
             </nav>
 
             <figure className="service-photo">
-              <Image src={`/images/${photo}.webp`} alt={`Concept product imagery for ${page.offerName.toLowerCase()}`} fill sizes="(max-width: 1280px) 100vw, 1280px" priority />
-              <figcaption>Product possibilities · AI-created concept imagery</figcaption>
+              <Image
+                src={`/images/${photo}.webp`}
+                alt={`Concept product imagery for ${page.offerName.toLowerCase()}`}
+                fill
+                sizes="(max-width: 1280px) 100vw, 1280px"
+                priority
+              />
+              <figcaption>
+                Product possibilities · AI-created concept imagery
+              </figcaption>
             </figure>
             <div className="mt-12 grid items-end gap-10 lg:grid-cols-[1.15fr_0.75fr]">
               <div>
@@ -154,15 +127,27 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
               </div>
 
               <aside className="surface-panel rounded-[26px] p-7 sm:p-8">
-                <ClipboardList className="h-6 w-6 text-[#c7ff6b]" aria-hidden="true" />
-                <h2 className="mt-6 text-xl font-black tracking-[-0.03em] text-white">Start with a clear brief</h2>
+                <ClipboardList
+                  className="h-6 w-6 text-[#c7ff6b]"
+                  aria-hidden="true"
+                />
+                <h2 className="mt-6 text-xl font-black tracking-[-0.03em] text-white">
+                  Start with a clear brief
+                </h2>
                 <p className="mt-3 text-sm leading-7 text-[#98a69e]">
-                  A practical brief lets us confirm the product scope before discussing options, sampling, and order terms.
+                  A practical brief lets us confirm the product scope before
+                  discussing options, sampling, and order terms.
                 </p>
                 <ul className="mt-6 space-y-3">
                   {page.briefItems.map((item) => (
-                    <li key={item} className="flex items-start gap-3 text-sm leading-6 text-[#d4ddd7]">
-                      <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#70e1b2]" aria-hidden="true" />
+                    <li
+                      key={item}
+                      className="flex items-start gap-3 text-sm leading-6 text-[#d4ddd7]"
+                    >
+                      <CheckCircle2
+                        className="mt-1 h-4 w-4 shrink-0 text-[#70e1b2]"
+                        aria-hidden="true"
+                      />
                       {item}
                     </li>
                   ))}
@@ -179,15 +164,27 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
               <h2 className="mt-6 text-balance text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
                 The details that make a custom product usable and on-brand.
               </h2>
-              <p className="mt-5 max-w-xl text-base leading-7 text-[#98a69e]">{page.overview}</p>
+              <p className="mt-5 max-w-xl text-base leading-7 text-[#98a69e]">
+                {page.overview}
+              </p>
             </div>
 
             <div className="grid gap-4 sm:grid-cols-2">
               {page.focusAreas.map((area) => (
-                <article key={area.title} className="bento-card rounded-[22px] p-6 sm:p-7">
-                  <PackageCheck className="h-5 w-5 text-[#70e1b2]" aria-hidden="true" />
-                  <h3 className="mt-6 text-lg font-bold text-white">{area.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-[#95a199]">{area.body}</p>
+                <article
+                  key={area.title}
+                  className="bento-card rounded-[22px] p-6 sm:p-7"
+                >
+                  <PackageCheck
+                    className="h-5 w-5 text-[#70e1b2]"
+                    aria-hidden="true"
+                  />
+                  <h3 className="mt-6 text-lg font-bold text-white">
+                    {area.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-[#95a199]">
+                    {area.body}
+                  </p>
                 </article>
               ))}
             </div>
@@ -201,7 +198,8 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
             <div className="max-w-2xl">
               <span className="eyebrow">A documented process</span>
               <h2 className="mt-6 text-balance text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
-                Move from a product brief to an approved order with fewer assumptions.
+                Move from a product brief to an approved order with fewer
+                assumptions.
               </h2>
             </div>
 
@@ -212,9 +210,16 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
                   data-step={`0${index + 1}`}
                   className="step-watermark relative overflow-hidden rounded-[22px] border border-white/[0.07] bg-white/[0.025] p-7"
                 >
-                  <FileText className="h-5 w-5 text-[#c7ff6b]" aria-hidden="true" />
-                  <h3 className="mt-8 text-lg font-bold text-white">{step.title}</h3>
-                  <p className="mt-3 text-sm leading-6 text-[#94a198]">{step.body}</p>
+                  <FileText
+                    className="h-5 w-5 text-[#c7ff6b]"
+                    aria-hidden="true"
+                  />
+                  <h3 className="mt-8 text-lg font-bold text-white">
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 text-sm leading-6 text-[#94a198]">
+                    {step.body}
+                  </p>
                 </li>
               ))}
             </ol>
@@ -239,10 +244,17 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
                   >
                     <div className="flex items-start justify-between gap-4">
                       <div>
-                        <h3 className="text-base font-bold text-white group-hover:text-[#dfffab]">{related.title}</h3>
-                        <p className="mt-2 text-sm leading-6 text-[#94a198]">{related.description}</p>
+                        <h3 className="text-base font-bold text-white group-hover:text-[#dfffab]">
+                          {related.title}
+                        </h3>
+                        <p className="mt-2 text-sm leading-6 text-[#94a198]">
+                          {related.description}
+                        </p>
                       </div>
-                      <ArrowRight className="mt-1 h-4 w-4 shrink-0 text-[#c7ff6b]" aria-hidden="true" />
+                      <ArrowRight
+                        className="mt-1 h-4 w-4 shrink-0 text-[#c7ff6b]"
+                        aria-hidden="true"
+                      />
                     </div>
                   </Link>
                 ))}
@@ -262,8 +274,12 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
             <div className="divide-y divide-white/[0.08] border-y border-white/[0.08]">
               {page.faqs.map((faq) => (
                 <article key={faq.question} className="py-6 sm:py-7">
-                  <h3 className="text-base font-bold text-white">{faq.question}</h3>
-                  <p className="mt-3 text-sm leading-7 text-[#94a198]">{faq.answer}</p>
+                  <h3 className="text-base font-bold text-white">
+                    {faq.question}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-[#94a198]">
+                    {faq.answer}
+                  </p>
                 </article>
               ))}
             </div>
