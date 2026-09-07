@@ -24,5 +24,12 @@ fal.ai media hosts.
     npm run generate:images -- --only rigid-box --force
     npm run generate:images -- --dry-run
 
+`FAL_IMAGE_MODEL` overrides the model, and `FAL_QUEUE_BASE` points the script
+at a fal.ai proxy instead of `queue.fal.run`.
+
+The full path — submit, poll, download, save, update the manifest — has been
+exercised end to end against a stub, so a failure here is a network or key
+problem, not a bug in the script. The error message reports which.
+
 Real photographs of your own work are always stronger than generated ones:
 a buyer assessing material, print finish, and build quality can tell.

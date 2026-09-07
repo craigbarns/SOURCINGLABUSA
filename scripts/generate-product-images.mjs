@@ -26,6 +26,8 @@ const manifestPath = path.join(projectRoot, 'src/lib/product-media.json');
 const outputDir = path.join(projectRoot, 'public/products');
 
 const DEFAULT_MODEL = 'fal-ai/flux/dev';
+// Override to point at a fal.ai proxy, or at a stub when testing the pipeline.
+const QUEUE_BASE = (process.env.FAL_QUEUE_BASE || 'https://queue.fal.run').replace(/\/$/, '');
 const POLL_INTERVAL_MS = 3_000;
 const POLL_TIMEOUT_MS = 5 * 60 * 1_000;
 
@@ -96,7 +98,7 @@ async function falRequest(url, key, init = {}) {
 const sleep = (ms) => new Promise((resolve) => setTimeout(resolve, ms));
 
 async function generateImage({ key, model, prompt }) {
-  const submission = await falRequest(`https://queue.fal.run/${model}`, key, {
+  const submission = await falRequest(`${QUEUE_BASE}/${model}`, key, {
     method: 'POST',
     body: JSON.stringify({
       prompt,
