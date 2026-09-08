@@ -6,13 +6,12 @@ import {
   breadcrumbSchema,
 } from '@/lib/seo';
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowUpRight } from 'lucide-react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { BriefSection } from '@/components/BriefSection';
 import { StickyMobileCta } from '@/components/StickyMobileCta';
-import { getAllPosts, getPostVisual } from '@/lib/blog';
+import { getAllPosts } from '@/lib/blog';
 
 const title = 'China Sourcing Guides: Clothing, Packaging & Product Briefs';
 const description =
@@ -82,20 +81,7 @@ export default function BlogIndex() {
                     Read the guide <ArrowUpRight size={17} aria-hidden="true" />
                   </Link>
                 </div>
-                <Link
-                  href={`/blog/${featured.slug}`}
-                  className="journal-image"
-                  aria-label={`Read ${featured.title}`}
-                >
-                  <Image
-                    src={getPostVisual(featured.slug).src}
-                    alt={getPostVisual(featured.slug).alt}
-                    fill
-                    sizes="(max-width: 767px) 100vw, 50vw"
-                    priority
-                  />
-                  <span>AI-created product concept</span>
-                </Link>
+
               </article>
             )}
           </div>
@@ -109,19 +95,7 @@ export default function BlogIndex() {
             <div className="journal-grid">
               {remaining.map((post) => (
                 <article key={post.slug} className="journal-card">
-                  <Link
-                    href={`/blog/${post.slug}`}
-                    className="journal-image"
-                    aria-label={`Read ${post.title}`}
-                  >
-                    <Image
-                      src={getPostVisual(post.slug).src}
-                      alt={getPostVisual(post.slug).alt}
-                      fill
-                      sizes="(max-width: 767px) 100vw, (max-width: 1100px) 50vw, 33vw"
-                    />
-                    <span>Concept imagery</span>
-                  </Link>
+
                   <time dateTime={post.date} className="journal-date">
                     {new Date(`${post.date}T12:00:00Z`).toLocaleDateString(
                       'en-US',

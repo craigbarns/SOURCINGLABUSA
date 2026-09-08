@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { ArrowRight, CheckCircle2, ClipboardList, Plus } from 'lucide-react';
 
 import { BriefSection } from '@/components/BriefSection';
@@ -11,6 +10,7 @@ import { StickyMobileCta } from '@/components/StickyMobileCta';
 import { StructuredData } from '@/components/StructuredData';
 import { breadcrumbSchema, faqSchema, webpageSchema } from '@/lib/seo';
 import type { ProductCategory } from '@/lib/product-media';
+import { SourcingOverview } from '@/components/SourcingOverview';
 
 type ContentBlock = {
   title: string;
@@ -62,12 +62,6 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
       ),
     ],
   };
-  const photo =
-    page.path === '/custom-textile'
-      ? 'textile-collection'
-      : page.path === '/china-to-us-procurement'
-        ? 'brand-still-life'
-        : 'packaging-collection';
 
   return (
     <div className="editorial-shell flex min-h-screen flex-col">
@@ -96,16 +90,7 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
                   <ArrowRight size={17} aria-hidden="true" />
                 </CtaLink>
               </div>
-              <figure className="service-intro-photo">
-                <Image
-                  src={`/images/${photo}.webp`}
-                  alt={`Concept product imagery for ${page.offerName.toLowerCase()}`}
-                  fill
-                  sizes="(max-width: 767px) 100vw, 50vw"
-                  priority
-                />
-                <figcaption>AI-created product concept</figcaption>
-              </figure>
+              <SourcingOverview />
             </div>
           </div>
         </section>
@@ -220,6 +205,7 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
           formLocation="service_page"
           title={page.briefTitle}
           intro={page.briefIntro}
+          initialProjectType={page.showcaseCategory}
         />
       </main>
       <Footer />

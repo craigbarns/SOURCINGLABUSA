@@ -7,7 +7,7 @@ export const { marketingOrigin: SITE_ORIGIN } = getDomainRoutingConfig();
 export const ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
 export const WEBSITE_ID = `${SITE_ORIGIN}/#website`;
 export const SITE_DESCRIPTION =
-  'China sourcing and product supply for U.S. business customers. Clothing, packaging and other products on request. Miami launch planned for 2027.';
+  'China sourcing and product supply for business customers. Clothing, sportswear, packaging and labels. Projects open now; invoicing from France or China.';
 
 export const homeLanguages = {
   'en-US': `${SITE_ORIGIN}/`,
@@ -40,7 +40,7 @@ export function pageMetadata({
       url: absoluteUrl('/opengraph-image'),
       width: 1200,
       height: 630,
-      alt: 'Sourcing Lab USA — China sourcing and product supply. Miami launch planned for 2027.',
+      alt: 'Sourcing Lab USA — China sourcing for clothing, sportswear, packaging and labels. Projects open now.',
     },
   ];
 

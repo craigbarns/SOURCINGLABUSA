@@ -1,9 +1,4 @@
-import { ProductMedia } from '@/components/ProductMedia';
-import {
-  PRODUCT_MEDIA,
-  productsByCategory,
-  type ProductCategory,
-} from '@/lib/product-media';
+import type { ProductCategory } from '@/lib/product-media';
 
 type ShowcaseLocale = 'en' | 'es';
 
@@ -12,14 +7,14 @@ const COPY: Record<
   { eyebrow: string; title: string; intro: string }
 > = {
   en: {
-    eyebrow: 'What we develop',
-    title: 'Packaging and textile, specified down to the finish.',
+    eyebrow: 'Product briefs we review',
+    title: 'Clothing, sportswear, packaging and labels.',
     intro:
       'Material, construction, print method, and branding are confirmed against your brief before anything goes into production.',
   },
   es: {
-    eyebrow: 'Lo que desarrollamos',
-    title: 'Packaging y textil, especificados hasta el acabado.',
+    eyebrow: 'Proyectos que estudiamos',
+    title: 'Prendas, ropa deportiva, empaques y etiquetas.',
     intro:
       'El material, la construcción, el método de impresión y la marca se confirman con su brief antes de iniciar la producción.',
   },
@@ -36,7 +31,16 @@ export function ProductShowcase({
   category,
 }: ProductShowcaseProps) {
   const copy = COPY[locale];
-  const products = category ? productsByCategory(category) : PRODUCT_MEDIA;
+  const es = locale === 'es';
+  const briefs = [
+    { id: 'boxes', category: 'packaging', name: es ? 'Cajas de producto' : 'Product boxes', specs: es ? ['Dimensiones y estructura', 'Material y acabado', 'Diseños y cantidades'] : ['Dimensions & structure', 'Material & finish', 'Artwork & quantities'] },
+    { id: 'labels', category: 'packaging', name: es ? 'Etiquetas e insertos' : 'Labels & inserts', specs: es ? ['Formato y uso', 'Texto y diseño', 'Requisitos del producto'] : ['Format & intended use', 'Copy & artwork', 'Product requirements'] },
+    { id: 'packaging', category: 'packaging', name: es ? 'Bolsas y conjuntos de packaging' : 'Bags & packaging sets', specs: es ? ['Componentes necesarios', 'Materiales y colores', 'Cantidades por componente'] : ['Required components', 'Materials & colors', 'Quantities by component'] },
+    { id: 'clothing', category: 'textile', name: es ? 'Prendas y uniformes' : 'Clothing & uniforms', specs: es ? ['Tejido y construcción', 'Medidas y tallas', 'Marca y etiquetas'] : ['Fabric & construction', 'Measurements & sizes', 'Branding & labels'] },
+    { id: 'sportswear', category: 'textile', name: es ? 'Ropa deportiva' : 'Sportswear', specs: es ? ['Actividad y ajuste', 'Tejido y elasticidad', 'Muestras por talla'] : ['Activity & fit', 'Fabric & stretch', 'Size-set samples'] },
+    { id: 'technical', category: 'textile', name: es ? 'Prendas técnicas' : 'Technical apparel', specs: es ? ['Uso previsto', 'Propiedades necesarias', 'Evidencias por confirmar'] : ['Intended use', 'Required properties', 'Evidence to confirm'] },
+  ];
+  const products = category ? briefs.filter((brief) => brief.category === category) : briefs;
 
   return (
     <section
@@ -62,11 +66,6 @@ export function ProductShowcase({
               key={product.id}
               className="bento-card overflow-hidden rounded-[4px]"
             >
-              <ProductMedia
-                product={product}
-                priority={false}
-                className="aspect-[4/3] w-full border-b border-brand-line"
-              />
               <div className="p-6">
                 <p className="text-[10px] font-black uppercase tracking-[0.16em] text-brand-green">
                   {product.category === 'packaging' ? 'Packaging' : 'Textile'}

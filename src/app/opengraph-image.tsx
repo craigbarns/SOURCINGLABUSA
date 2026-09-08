@@ -55,7 +55,7 @@ export default function OpenGraphImage() {
             </span>
           </div>
           <span style={{ color: '#596755', fontSize: 14 }}>
-            MIAMI, 2027 · PLANNED U.S. LAUNCH
+            CHINA SOURCING · PROJECTS OPEN NOW
           </span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column' }}>

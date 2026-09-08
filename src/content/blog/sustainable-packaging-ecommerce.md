@@ -2,7 +2,7 @@
 title: "Sustainable Packaging Sourcing: Materials, Claims and a Better Brief"
 excerpt: "Turn packaging sustainability goals into specific material and documentation requirements. Compare options for protection, structure and supported claims."
 date: "2026-09-03"
-updated: "2026-09-07"
+updated: "2026-09-08"
 author: "SourcingLab USA"
 ---
 
@@ -34,7 +34,7 @@ Keep the final material specification, supporting documents and artwork approval
 
 ## Prepare a packaging sourcing request
 
-Sourcing Lab USA is preparing its U.S. product supply launch for Miami in 2027. A clear brief helps assess custom packaging options through its independent China sourcing partnership. Material choices, samples, documentation and commercial terms are confirmed per project.
+Sourcing Lab USA welcomes product sourcing projects now, with invoicing from France or China as confirmed in the quotation. A clear brief helps assess custom packaging options through its independent China sourcing partnership. Material choices, samples, documentation and commercial terms are confirmed per project.
 
 Explore [custom packaging sourcing](/custom-packaging), [private label packaging](/private-label-packaging), or use the [downloadable sourcing brief](/blog/china-sourcing-rfq-checklist).
 

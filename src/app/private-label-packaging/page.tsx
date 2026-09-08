@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata({
   title: 'Private Label Packaging from China',
   description:
-    'Branded boxes, bags, labels and inserts for private label products. China sourcing and product supply; Miami launch planned for 2027.',
+    'Branded boxes, bags, labels and inserts for private label products. China sourcing and product supply. Request a quote for your packaging project.',
   path: '/private-label-packaging',
 });
 

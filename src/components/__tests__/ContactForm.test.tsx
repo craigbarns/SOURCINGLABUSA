@@ -5,6 +5,12 @@ import userEvent from '@testing-library/user-event';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { ContactForm } from '@/components/ContactForm';
+import { trackEvent } from '@/lib/analytics';
+
+vi.mock('@/lib/analytics', async (importOriginal) => {
+  const original = await importOriginal<typeof import('@/lib/analytics')>();
+  return { ...original, trackEvent: vi.fn() };
+});
 
 vi.mock('next/navigation', () => ({
   usePathname: () => '/custom-packaging',
@@ -24,6 +30,7 @@ async function fillRequiredFields(user: ReturnType<typeof userEvent.setup>) {
 describe('ContactForm', () => {
   beforeEach(() => {
     fetchMock.mockReset();
+    vi.mocked(trackEvent).mockClear();
     vi.stubGlobal('fetch', fetchMock);
   });
 
@@ -74,6 +81,7 @@ describe('ContactForm', () => {
     });
 
     expect(await screen.findByText('Brief received.')).toBeInTheDocument();
+    expect(trackEvent).toHaveBeenCalledWith('generate_lead', expect.objectContaining({ project_type: 'packaging', source_path: '/custom-packaging' }));
   });
 
   it('offers an email fallback carrying the brief when delivery fails', async () => {
@@ -104,5 +112,15 @@ describe('ContactForm', () => {
     expect(fallback.getAttribute('href')).toContain(
       encodeURIComponent('5000 rigid boxes'),
     );
+    expect(vi.mocked(trackEvent).mock.calls.some(([name]) => name === 'generate_lead')).toBe(false);
+  });
+
+  it('starts a category inquiry with the relevant product selected but allows changing it', async () => {
+    const user = userEvent.setup();
+    render(<ContactForm initialProjectType="textile" />);
+    const select = screen.getByLabelText(/What do you need/i);
+    expect(select).toHaveValue('textile');
+    await user.selectOptions(select, 'both');
+    expect(select).toHaveValue('both');
   });
 });

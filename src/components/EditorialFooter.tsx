@@ -20,8 +20,8 @@ export function EditorialFooter({
             </Link>
             <p>
               {es
-                ? 'Sourcing y suministro de productos desde China. Prendas y empaques como especialidades; otros productos bajo pedido. Lanzamiento previsto en Miami para 2027.'
-                : 'China sourcing and product supply. Clothing and packaging as core specialties, with other products on request. U.S. launch planned for Miami in 2027.'}
+                ? 'Sourcing en China de prendas, ropa deportiva, empaques y etiquetas. Proyectos disponibles ahora; facturación desde Francia o China. Expansión a Miami prevista para 2027.'
+                : 'China sourcing for clothing, sportswear, packaging and labels. Projects open now; invoicing from France or China. Miami expansion planned for 2027.'}
             </p>
           </div>
           <nav aria-label={es ? 'Servicios' : 'Service links'}>
@@ -40,6 +40,11 @@ export function EditorialFooter({
               <li>
                 <Link href={`${linkPrefix}/private-label-packaging`}>
                   {es ? 'Empaques de marca privada' : 'Private label packaging'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`${linkPrefix}/sportswear-sourcing`}>
+                  {es ? 'Ropa deportiva y técnica' : 'Sportswear & technical apparel'}
                 </Link>
               </li>
               <li>

@@ -1,6 +1,6 @@
-import Image from 'next/image';
+import { SourcingOverview } from './SourcingOverview';
 import Link from 'next/link';
-import { ArrowRight, ArrowUpRight, Layers3, Plus } from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Plus } from 'lucide-react';
 import { ContactForm } from './ContactForm';
 import { CtaLink } from './CtaLink';
 import { homeFaqs, homeFaqsES } from '@/lib/home-faqs';
@@ -10,37 +10,29 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
   const collections = [
     {
       number: '01',
-      image: 'packaging-collection',
       href: '/custom-packaging',
       title: es
-        ? 'Una primera impresión inolvidable.'
-        : 'A first impression that stays.',
+        ? 'Cajas, empaques y etiquetas.'
+        : 'Boxes, packaging & labels.',
       name: es ? 'EMPAQUES PERSONALIZADOS' : 'CUSTOM PACKAGING',
-      alt: es
-        ? 'Concepto de bolsas kraft, cajas verdes y empaques de papel crema'
-        : 'Concept kraft shopping bag, forest green gift box and cream paper packaging',
       body: es
-        ? 'Cajas, bolsas, papel de seda y detalles de marca. Cada material y acabado, pensado alrededor de tu producto.'
-        : 'Boxes, bags, tissue and the finishing touches. Every material and finish considered around the product inside.',
+        ? 'Cajas de producto, bolsas, empaques, etiquetas e insertos. Comparte dimensiones, cantidades, diseños y acabados.'
+        : 'Product boxes, bags, packaging, labels and inserts. Share dimensions, quantities, artwork and finishes for your next project.',
       tags: es
         ? ['Cajas y bolsas', 'Acabados personalizados', 'Marca privada']
         : ['Boxes & bags', 'Custom finishes', 'Private label'],
     },
     {
       number: '02',
-      image: 'textile-collection',
       href: '/custom-textile',
-      title: es ? 'Tu marca, en cada hilo.' : 'Your brand, in every thread.',
+      title: es ? 'Prendas para tu marca.' : 'Clothing made to your brief.',
       name: es ? 'PRENDAS Y TEXTILES' : 'CLOTHING & TEXTILES',
-      alt: es
-        ? 'Concepto de tote bag de lona, prendas de algodón y muestras textiles'
-        : 'Concept canvas tote bag, folded cotton apparel and textured fabric swatches',
       body: es
-        ? 'Prendas, tote bags, uniformes y accesorios. Desarrollados según tus especificaciones, del tejido a la etiqueta.'
-        : 'Apparel, tote bags, uniforms and accessories. Developed to your specifications, from fabric weight to the final label.',
+        ? 'Prendas, ropa deportiva y técnica, uniformes y textiles. Tejidos, tallas, construcción y etiquetas definidos según tu proyecto.'
+        : 'Clothing, sportswear, technical apparel, uniforms and textiles. Fabrics, sizing, construction and labels specified for your project.',
       tags: es
-        ? ['Prendas y tote bags', 'Tejidos y colores', 'Etiquetas y bordado']
-        : ['Apparel & totes', 'Fabrics & colors', 'Labels & embroidery'],
+        ? ['Prendas y uniformes', 'Deporte y técnica', 'Etiquetas y bordado']
+        : ['Clothing & uniforms', 'Sportswear & technical', 'Labels & embroidery'],
     },
   ];
   const steps = es
@@ -55,11 +47,11 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
         ],
         [
           'Confirma el pedido',
-          'Tras aprobar el pedido y las muestras acordadas, compraremos al proveedor seleccionado y coordinaremos el seguimiento de producción.',
+          'Tras aprobar el pedido y las muestras acordadas, coordinamos la compra y el seguimiento de producción con el proveedor seleccionado.',
         ],
         [
           'Recibe tus productos',
-          'Sourcing Lab USA suministrará y facturará los productos. La entrega podrá ser directa de China a tu destino, según las condiciones del pedido.',
+          'La empresa de Francia o China identificada en tu presupuesto suministra y factura los productos. La entrega puede ser directa desde China, según las condiciones acordadas.',
         ],
       ]
     : [
@@ -73,11 +65,11 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
         ],
         [
           'Confirm your order',
-          'After the order and agreed samples are approved, we will purchase from the selected supplier and coordinate production follow-up.',
+          'After the order and agreed samples are approved, we coordinate purchasing and production follow-up with the selected supplier.',
         ],
         [
           'Receive your products',
-          'Sourcing Lab USA will supply and invoice the products. Delivery may be direct from China to your destination, under the terms agreed for the order.',
+          'The company in France or China identified in your quote supplies and invoices your products. Delivery may be direct from China under the agreed order terms.',
         ],
       ];
   const points = es
@@ -118,12 +110,12 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
               <p className="editorial-kicker">
                 {es
                   ? '01 — LO QUE DESARROLLAMOS'
-                  : '01 — WHAT WE BRING TO LIFE'}
+                  : '01 — SOURCING SPECIALTIES'}
               </p>
               <h2 className="editorial-title">
-                {es ? 'Pequeños detalles.' : 'Thoughtful details.'}
+                {es ? 'Tu producto.' : 'Your product.'}
                 <br />
-                <em>{es ? 'Una gran diferencia.' : 'A lasting difference.'}</em>
+                <em>{es ? 'Nuestro punto de partida.' : 'Our starting point.'}</em>
               </h2>
             </div>
             <p className="editorial-body">
@@ -135,28 +127,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
           <div className="collection-grid">
             {collections.map((item) => (
               <article className="collection-card" key={item.number}>
-                <Link
-                  href={item.href}
-                  className="collection-image"
-                  aria-label={
-                    es
-                      ? `Explorar ${item.name.toLowerCase()}`
-                      : `Explore ${item.name.toLowerCase()}`
-                  }
-                >
-                  <Image
-                    src={`/images/${item.image}.webp`}
-                    alt={item.alt}
-                    fill
-                    sizes="(max-width: 767px) 100vw, 50vw"
-                  />
-                  <span className="collection-index">
-                    {item.number} / {item.name}
-                  </span>
-                  <span className="collection-arrow">
-                    <ArrowUpRight size={19} aria-hidden="true" />
-                  </span>
-                </Link>
+                <p className="editorial-kicker collection-heading">{item.number} / {item.name}</p>
                 <div className="collection-copy">
                   <h3 className="collection-title">
                     <Link href={item.href}>{item.title}</Link>
@@ -167,9 +138,14 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                       <li key={tag}>{tag}</li>
                     ))}
                   </ul>
+                  <CtaLink href={`${item.href}#contact`} location="offering" label={`Discuss ${item.name.toLowerCase()}`} className="editorial-text-link mt-5">{es ? 'Consultar este proyecto' : 'Discuss this project'}<ArrowUpRight size={17} aria-hidden="true" /></CtaLink>
                 </div>
               </article>
             ))}
+          </div>
+          <div className="sourcing-specialist-link">
+            <p>{es ? '¿Una colección deportiva o técnica?' : 'Planning a sportswear or technical collection?'}</p>
+            <Link href="/sportswear-sourcing" className="editorial-text-link">{es ? 'Ver requisitos de tejidos, tallas y muestras (inglés)' : 'Explore fabrics, fit and sampling requirements'}<ArrowUpRight size={17} aria-hidden="true" /></Link>
           </div>
           <div id="other-products" className="other-products-panel">
             <div>
@@ -197,11 +173,6 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
               <ArrowUpRight size={17} aria-hidden="true" />
             </CtaLink>
           </div>
-          <p className="concept-caption">
-            {es
-              ? 'Imágenes conceptuales creadas con IA para ilustrar las categorías. Los materiales y acabados se confirman para cada proyecto.'
-              : 'AI-created concept imagery to illustrate product categories. Materials and finishes are confirmed for each project.'}
-          </p>
         </div>
       </section>
       <section id="how-it-works" className="editorial-section process-section">
@@ -221,8 +192,8 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
             </div>
             <p className="editorial-body">
               {es
-                ? 'Nuestro modelo previsto en EE. UU. es la compra y reventa de productos: compraremos a proveedores en China y suministraremos los productos a nuestros clientes empresariales, con precios y condiciones acordados por pedido.'
-                : 'Our planned U.S. business will purchase products from suppliers in China and resell them to business customers. You will buy your products from Sourcing Lab USA, with product pricing and responsibilities agreed for each order.'}
+                ? 'Puedes iniciar tu proyecto ahora. El presupuesto identifica la empresa de Francia o China que suministra y factura los productos, con las especificaciones, precios y responsabilidades acordados para el pedido.'
+                : 'You can start your project now. Your quotation identifies the company in France or China supplying and invoicing the products, with specifications, product pricing and responsibilities agreed for your order.'}
             </p>
           </div>
           <ol className="process-steps">
@@ -246,32 +217,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
       </section>
       <section id="experience" className="editorial-section">
         <div className="editorial-container approach-layout">
-          <figure className="material-photo">
-            <Image
-              src="/images/textile-collection.webp"
-              alt={
-                es
-                  ? 'Detalle conceptual de la trama del algodón y acabados textiles'
-                  : 'Concept study of natural cotton texture, fabric weight and finishing details'
-              }
-              fill
-              sizes="(max-width: 767px) 100vw, 45vw"
-            />
-            <figcaption className="material-label">
-              <Layers3 aria-hidden="true" />
-              <span>
-                {es
-                  ? 'La diferencia está en lo que se siente.'
-                  : 'The difference is in how it feels.'}
-                <br />
-                <small>
-                  {es
-                    ? 'Estudio conceptual de materiales'
-                    : 'Concept material study'}
-                </small>
-              </span>
-            </figcaption>
-          </figure>
+<SourcingOverview locale={locale} />
           <div className="approach-copy">
             <p className="editorial-kicker">
               {es
@@ -285,8 +231,8 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
             </h2>
             <p className="editorial-body">
               {es
-                ? 'Preparamos nuestro lanzamiento en Miami para 2027 como empresa de sourcing y suministro de productos. Prendas y empaques son nuestras especialidades; otros productos se estudian bajo pedido a través de una colaboración independiente establecida en China.'
-                : 'We’re preparing our Miami launch for 2027 as a product sourcing and supply business. Clothing and packaging are our core specialties, with other products assessed on request through an established independent China sourcing partnership.'}
+                ? 'Gestionamos proyectos de sourcing y suministro desde ahora, con facturación desde Francia o China. Prendas, ropa deportiva y técnica y empaques son nuestras especialidades, con una colaboración independiente establecida en China.'
+                : 'We handle sourcing and product supply projects now, with invoicing from France or China. Clothing, sportswear, technical apparel and packaging are our specialties, supported by an established independent China sourcing partnership.'}
             </p>
             <ul className="approach-points">
               {points.map(([title, body], i) => (
@@ -372,9 +318,9 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                   : 'IT ALL STARTS WITH AN IDEA'}
               </p>
               <h2 className="editorial-title">
-                {es ? 'Hagamos algo' : 'Let’s make something'}
+                {es ? 'Cuéntanos' : 'Tell us about'}
                 <br />
-                <em>{es ? 'que sea tuyo.' : 'worth holding.'}</em>
+                <em>{es ? 'tu próximo proyecto.' : 'your next project.'}</em>
               </h2>
               <p className="editorial-body">
                 {es
@@ -390,8 +336,8 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
               </a>
               <p className="contact-note">
                 {es
-                  ? 'Lanzamiento previsto en Miami · 2027'
-                  : 'Planned U.S. market launch · Miami, 2027'}
+                  ? 'Proyectos disponibles ahora · Facturación desde Francia o China'
+                  : 'Projects open now · Invoicing from France or China'}
               </p>
             </div>
             <ContactForm locale={locale} appearance="editorial" />

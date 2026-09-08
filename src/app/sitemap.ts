@@ -11,6 +11,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const serviceUrls = [
     '/custom-packaging',
     '/custom-textile',
+    '/sportswear-sourcing',
     '/private-label-packaging',
     '/china-to-us-procurement',
   ].map((path) => ({

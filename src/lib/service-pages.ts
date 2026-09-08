@@ -104,12 +104,12 @@ export const customTextilePage: ServicePageContent = {
   title:
     'Custom clothing and textiles, sourced from China to your specification.',
   intro:
-    'Develop apparel, towels, tote bags, uniforms, and branded textile accessories from a brief that defines fabric, construction, branding, quantity, and intended destination.',
+    'Source clothing, sportswear, technical garments, uniforms and branded textiles from a brief that defines fabric, construction, branding, quantity, and intended destination.',
   overview:
     'A useful textile brief makes the product decisions visible before production: the intended use, fabric and construction, measurements, labeling, decoration, quantity, and sample requirements.',
   offerName: 'Custom Textile Sourcing',
   offerDescription:
-    'Custom textile products for brands and companies, including apparel, towels, tote bags, uniforms, and branded accessories.',
+    'Clothing, sportswear, technical apparel and uniforms sourced in China to the product specification.',
   focusAreas: [
     {
       title: 'Product and use case',
@@ -300,12 +300,12 @@ export const chinaToUsProcurementPage: ServicePageContent = {
   eyebrow: 'China-to-U.S. product procurement',
   title: 'China sourcing and product supply for U.S. businesses.',
   intro:
-    'Our planned U.S. business will purchase products from suppliers in China and resell them to business customers. Clothing and packaging are our core specialties, with other products assessed on request. Miami launch planned for 2027.',
+    'Start your China sourcing and product supply project now. Clothing, sportswear, technical apparel and packaging are our core specialties; other products are assessed on request. Your quote identifies the contracting and invoicing company in France or China.',
   overview:
     'China-to-U.S. procurement begins with a product brief and finishes with commercial terms that make the responsibilities clear. Product specifications, samples, production coordination, shipping terms, and importer responsibilities are confirmed order by order.',
   offerName: 'China-to-U.S. Product Procurement',
   offerDescription:
-    'Product sourcing, purchase and supply for U.S. business customers, with clothing and packaging as core specialties and other products on request. U.S. launch planned for 2027.',
+    'Product sourcing, purchase and supply for U.S. business customers. Projects are available now with invoicing from France or China, as agreed in the quotation.',
   focusAreas: [
     {
       title: 'A specific product scope',
@@ -358,7 +358,7 @@ export const chinaToUsProcurementPage: ServicePageContent = {
     {
       question: 'Is there already a U.S. office or warehouse?',
       answer:
-        'No. Sourcing Lab USA is preparing its U.S. market launch from Miami for 2027 and works through an established China sourcing partnership.',
+        'No. The Miami expansion is planned for 2027. You can already work with us through France or China; the company handling your contract and invoice is identified in your quotation.',
     },
   ],
   briefTitle: 'Send your procurement brief.',

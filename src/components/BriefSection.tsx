@@ -1,12 +1,14 @@
 import { ContactForm } from '@/components/ContactForm';
 import { CopyEmailButton } from '@/components/CopyEmailButton';
 import { BRIEF_SECTION_COPY, type BriefLocale } from '@/lib/brief-copy';
+import type { ProjectType } from '@/lib/validation/contact';
 
 interface BriefSectionProps {
   locale?: BriefLocale;
   formLocation?: string;
   title?: string;
   intro?: string;
+  initialProjectType?: ProjectType;
 }
 
 export function BriefSection({
@@ -14,6 +16,7 @@ export function BriefSection({
   formLocation = 'contact_section',
   title,
   intro,
+  initialProjectType,
 }: BriefSectionProps) {
   const copy = BRIEF_SECTION_COPY[locale];
   return (
@@ -42,6 +45,7 @@ export function BriefSection({
             locale={locale}
             formLocation={formLocation}
             appearance="editorial"
+            initialProjectType={initialProjectType}
           />
         </div>
       </div>

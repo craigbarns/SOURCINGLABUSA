@@ -144,8 +144,8 @@ const spanishForm: BriefFormCopy = {
     message: 'El brief no debe superar los 4.000 caracteres.',
   },
   projectTypeOptions: {
-    packaging: 'Packaging personalizado',
-    textile: 'Prendas y textiles',
+    packaging: 'Packaging, cajas y etiquetas',
+    textile: 'Prendas, ropa deportiva y técnica',
     both: 'Packaging y textil',
     other: 'Otros productos / consultar un proyecto',
   },

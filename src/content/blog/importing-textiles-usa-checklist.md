@@ -2,7 +2,7 @@
 title: "U.S. Textile Import Planning: Labels, Documents and Product Review"
 excerpt: "Prepare a textile import review with product details, label artwork and documentation. Includes official FTC and CPSC resources for the U.S. market."
 date: "2026-09-03"
-updated: "2026-09-07"
+updated: "2026-09-08"
 author: "SourcingLab USA"
 ---
 
@@ -32,7 +32,7 @@ Keep sample approval and document approval distinct. A sample can confirm appear
 
 ## Agree commercial responsibilities
 
-The product proposal should identify what is included in the price, the delivery basis, the relevant parties and any items still awaiting confirmation. Sourcing Lab USA is preparing a product sourcing and supply launch for Miami in 2027. Import review and delivery responsibilities will be agreed per order.
+The product proposal should identify what is included in the price, the delivery basis, the relevant parties and any items still awaiting confirmation. Sourcing projects can start now, with the contracting and invoicing company in France or China identified in the quotation. Import review and delivery responsibilities will be agreed per order.
 
 For the product brief, see [clothing and textile sourcing](/custom-textile) and the [China sourcing RFQ checklist](/blog/china-sourcing-rfq-checklist).
 

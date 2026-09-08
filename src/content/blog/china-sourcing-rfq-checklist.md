@@ -56,6 +56,6 @@ A quotation request is the start of a conversation. It is not an order confirmat
 
 ## How will Sourcing Lab USA use your brief?
 
-Sourcing Lab USA is preparing its U.S. launch in Miami for 2027. Clothing, textiles and packaging are the core specialties; other products are assessed on request through an established independent China sourcing partnership.
+Sourcing Lab USA accepts China sourcing projects now, with invoicing from France or China as identified in the quotation. Clothing, textiles and packaging are the core specialties; other products are assessed on request through an established independent China sourcing partnership.
 
-Under the planned model, Sourcing Lab USA will purchase goods from selected suppliers and supply and invoice the products to business customers. The brief helps define what can be proposed, sampled and agreed before an order. Read about [China-to-U.S. product sourcing and supply](/china-to-us-procurement), or [send your project brief](/#contact).
+The quotation identifies the company in France or China purchasing, supplying and invoicing the products, along with the commercial terms. The brief helps define what can be proposed, sampled and agreed before an order. Read about [China-to-U.S. product sourcing and supply](/china-to-us-procurement), or [send your project brief](/#contact).

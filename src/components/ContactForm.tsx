@@ -39,6 +39,7 @@ interface ContactFormProps {
   appearance?: 'dark' | 'editorial';
   /** Where the form is rendered, reported with the conversion event. */
   formLocation?: string;
+  initialProjectType?: ProjectType;
 }
 
 const inputClassName =
@@ -59,11 +60,12 @@ export function ContactForm({
   locale = 'en',
   appearance = 'editorial',
   formLocation = 'contact_section',
+  initialProjectType,
 }: ContactFormProps) {
   const copy = BRIEF_FORM_COPY[locale];
   const pathname = usePathname();
   const fieldId = useId();
-  const [values, setValues] = useState(emptyValues);
+  const [values, setValues] = useState({ ...emptyValues, projectType: initialProjectType ?? emptyValues.projectType });
   const [status, setStatus] = useState<Status>('idle');
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [generalError, setGeneralError] = useState<string | null>(null);
@@ -249,7 +251,7 @@ export function ContactForm({
         <button
           type="button"
           onClick={() => {
-            setValues(emptyValues);
+            setValues({ ...emptyValues, projectType: initialProjectType ?? emptyValues.projectType });
             hasStarted.current = false;
             setStatus('idle');
           }}

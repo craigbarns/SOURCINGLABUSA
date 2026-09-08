@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata({
   title: 'Custom Packaging Sourcing from China',
   description:
-    'Custom boxes, bags, tissue and branded packaging sourced to your brief for U.S. businesses. Miami launch planned for 2027.',
+    'Custom boxes, bags, labels and branded packaging sourced in China to your brief. Share dimensions, quantity and artwork to request a sourcing quote.',
   path: '/custom-packaging',
 });
 

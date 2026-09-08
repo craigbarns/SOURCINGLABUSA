@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata({
   title: 'China-to-U.S. Product Sourcing & Supply',
   description:
-    'China sourcing, purchase and supply for U.S. businesses. Clothing, packaging and other products on request. Miami launch planned for 2027.',
+    'China sourcing and product supply for U.S. businesses. Clothing, packaging and other products on request. Projects and invoicing available from France or China.',
   path: '/china-to-us-procurement',
 });
 

@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { SourcingOverview } from '@/components/SourcingOverview';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
@@ -15,18 +15,19 @@ import {
 
 const title = 'About Our China Sourcing & Product Supply Business';
 const description =
-  'Meet Sourcing Lab USA: clothing, packaging and other products on request through an independent China sourcing partnership. Miami launch planned for 2027.';
+  'China sourcing projects available now, with invoicing from France or China. Clothing, sportswear, technical apparel and packaging. Miami expansion planned for 2027.';
 export const metadata = pageMetadata({ title, description, path: '/about' });
 
 const facts = [
-  ['U.S. launch', 'Planned for Miami in 2027.'],
+  ['Current availability', 'Projects can start now. Contracting and invoicing from France or China, with the company identified in your quotation.'],
+  ['U.S. expansion', 'Planned for Miami in 2027.'],
   [
     'Who the offer is for',
     'U.S. brands, e-commerce businesses and other business customers.',
   ],
   [
     'Core specialties',
-    'Clothing, textiles, custom packaging and private label packaging.',
+    'Clothing, sportswear, technical apparel, packaging, boxes and labels.',
   ],
   [
     'Other products',
@@ -38,7 +39,7 @@ const facts = [
   ],
   [
     'Commercial model',
-    'The planned U.S. business will purchase products from suppliers and supply and invoice those products to customers.',
+    'Product sourcing, purchase and supply. Current contracts and invoices are issued through France or China; the U.S. expansion is a separate planned step.',
   ],
 ];
 
@@ -72,42 +73,30 @@ export default function AboutPage() {
             </nav>
             <div className="about-intro">
               <div>
-                <p className="editorial-kicker">PLANNED MIAMI LAUNCH · 2027</p>
+                <p className="editorial-kicker">CHINA SOURCING · PROJECTS OPEN NOW</p>
                 <h1 className="editorial-title">
                   Products with purpose.
                   <br />
                   <em>A clearer way to source.</em>
                 </h1>
                 <p className="editorial-body">
-                  Sourcing Lab USA is preparing a China sourcing and product
-                  supply business for U.S. customers. Clothing and packaging are
-                  our specialties. Other products can be assessed on request,
-                  starting with a clear brief.
+                  Start your China sourcing project now. We work on clothing,
+                  sportswear, technical apparel and packaging, with other
+                  products assessed on request. Current projects are contracted
+                  and invoiced from France or China, through the company
+                  identified in your quotation.
                 </p>
                 <CtaLink
                   href="/#contact"
                   location="about_hero"
-                  label="Discuss a future project"
+                  label="Request a sourcing quote"
                   className="editorial-button"
                 >
-                  Discuss a future project{' '}
+                  Request a sourcing quote{' '}
                   <ArrowUpRight size={18} aria-hidden="true" />
                 </CtaLink>
               </div>
-              <figure className="about-photo">
-                <Image
-                  src="/images/brand-still-life.webp"
-                  alt="Concept arrangement of clothing, textile swatches and custom packaging"
-                  width={1536}
-                  height={1024}
-                  sizes="(max-width: 767px) 100vw, 50vw"
-                  priority
-                />
-                <figcaption>
-                  AI-created product concept · illustrative, not a client
-                  project
-                </figcaption>
-              </figure>
+              <SourcingOverview />
             </div>
           </div>
         </section>
@@ -139,22 +128,22 @@ export default function AboutPage() {
             </div>
             <div>
               <p className="editorial-body">
-                The planned model starts with the product, quantity, references,
-                destination and timing. We will review sourcing feasibility
+                Each project starts with the product, quantity, references,
+                destination and timing. We review sourcing feasibility
                 through our China partnership, then present a product proposal
                 with specifications, samples, pricing and commercial terms.
               </p>
               <p className="editorial-body">
-                After order approval, Sourcing Lab USA will purchase from the
-                selected supplier, coordinate production follow-up, and supply
-                the products to the customer. Delivery may be direct from China
-                under the agreed order terms. Import responsibilities and
-                quality checkpoints will be documented for each order.
+                Before order approval, your quotation identifies the company
+                in France or China that contracts with you and invoices the
+                products. Product specifications, samples, payment terms and
+                production checkpoints are agreed for the order. Delivery may
+                be direct from China under the agreed terms and import responsibilities.
               </p>
               <p className="editorial-body">
-                The China relationship is an independent partnership. The U.S.
-                launch remains planned for 2027; the site will be updated as the
-                business becomes operational.
+                The China relationship is an independent partnership. Our Miami
+                expansion is planned for 2027. That future U.S. step is separate
+                from the projects we can already handle through France or China.
               </p>
               <Link
                 href="/china-to-us-procurement"

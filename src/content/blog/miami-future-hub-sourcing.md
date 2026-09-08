@@ -1,35 +1,35 @@
 ---
-title: "Sourcing Lab USA: Planned Miami Launch in 2027"
-excerpt: "The planned U.S. business will purchase and supply clothing, packaging and other products on request through an independent China sourcing partnership."
+title: "China Sourcing Now, with a Miami Expansion Planned for 2027"
+excerpt: "Start sourcing clothing, sportswear, packaging and labels now, with invoicing from France or China. The planned Miami expansion is a separate next step."
 date: "2026-08-31"
-updated: "2026-09-07"
+updated: "2026-09-08"
 author: "SourcingLab USA"
 ---
 
-Sourcing Lab USA is preparing a Miami launch for 2027 as a China sourcing and product supply business for U.S. business customers. Clothing, textiles and packaging are the core specialties. Other products can be reviewed on request, after the product scope and sourcing feasibility are assessed.
+You can start a China sourcing project with us now. Current projects can be executed and invoiced through France or China, with the contracting company identified in your quotation. You do not need to wait for the planned Miami expansion in 2027.
 
-## What will the U.S. business do?
+## What can customers do today?
 
-The planned commercial model is the purchase, supply and resale of goods. Sourcing Lab USA will purchase from selected suppliers in China and supply and invoice the products to customers. Product development, sampling, supplier coordination and production follow-up support those product orders.
+Send a product brief, discuss sourcing feasibility, review a quotation and agree an order when the specifications and commercial terms fit. The quotation identifies the company supplying and invoicing the products, the product scope, pricing, sample requirements and timing.
 
-Delivery may be direct from China to the customer under the agreed commercial terms. Product specifications, documents, quality checkpoints, delivery terms and importer responsibilities must be confirmed for each order.
+Delivery may be direct from China to the customer under the agreed commercial terms. Product specifications, documents, quality checkpoints, delivery terms and importer responsibilities are confirmed for each order.
 
 ## Which products are in scope?
 
-The core offer includes [custom packaging](/custom-packaging), [clothing and textiles](/custom-textile), and [private label packaging](/private-label-packaging). Customers with another product in mind can submit a brief for review. A broader scope does not mean every product or specification can be supplied.
+Our specialties are [clothing and textiles](/custom-textile), [sportswear and technical apparel](/sportswear-sourcing), [packaging, boxes and labels](/custom-packaging), and [private label packaging](/private-label-packaging). Other products can be assessed from a customer brief; availability and feasibility are confirmed for the particular project.
 
 ## How does the China relationship work?
 
-The planned business is supported by an established independent China sourcing partnership. That relationship supports supplier coordination and production follow-up. It is distinct from owning factories or employing a U.S. manufacturing team.
+Our sourcing work is supported by an established independent partnership in China. That relationship supports supplier coordination and production follow-up. It does not mean that we own the factories or operate an American manufacturing team.
 
-## What does planned launch mean?
+## What is planned for Miami in 2027?
 
-Miami remains the intended U.S. launch location for 2027. The website describes a future commercial model and invites project discussions. It does not establish that a Miami office, warehouse, local inventory or U.S. employee team is already operational.
+Miami is the intended location for a future U.S. expansion. That plan is separate from the projects we already handle through France or China. We do not present a Miami office, warehouse, local inventory or U.S. employee team as operational today.
 
-The site will be updated as the U.S. business becomes operational. Availability and order terms remain subject to confirmation.
+Current quotations and contracts identify the actual contracting company. Future American operations will be described as they become operational.
 
-## How can a business prepare a project?
+## How can a business start a project?
 
-Record the product, use, specifications, quantity, references, target timing and destination. If the project includes apparel, add a size breakdown and tech pack where available. If it includes packaging, add product dimensions, the intended structure and artwork references.
+Share the product, use, specifications, quantities, references, target timing and destination. For apparel, include a size breakdown and tech pack if available. For packaging, include dimensions, structure and artwork references.
 
-Use our [China sourcing RFQ checklist and downloadable brief](/blog/china-sourcing-rfq-checklist), read [about the business](/about), or explore the planned [China-to-U.S. product supply process](/china-to-us-procurement).
+Use the [China sourcing RFQ checklist and downloadable brief](/blog/china-sourcing-rfq-checklist), read [about the business](/about), or [send your sourcing request](/#contact).

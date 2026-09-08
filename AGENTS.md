@@ -5,9 +5,16 @@
 SEO must follow the business model. SEO must never redefine the business model.
 
 Sourcing Lab USA is a China sourcing and product supply business for U.S.
-business customers, with a Miami launch planned for 2027. Clothing, textiles,
+business customers, with a Miami expansion planned for 2027. Clothing, textiles,
 and packaging are its core specialties. Other products may be sourced and
 supplied on request after the product scope and feasibility are confirmed.
+
+On September 8, 2026, the owner confirmed that projects can be executed and
+invoiced now through France or China. Lead marketing with current project
+availability. Describe 2027 only as the planned U.S./Miami expansion, not the
+start of all commercial activity. The quotation must identify the contracting
+and invoicing company. Exact legal entity names have not yet been provided;
+do not invent them or imply that an American entity invoices current orders.
 
 The U.S. commercial model is the purchase, supply, and resale of products.
 Products may be delivered directly from China to the customer; import and

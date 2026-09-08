@@ -4,8 +4,8 @@ export const homeFaqs = [
     'Clothing, textiles and packaging are our core specialties. We also source other products on request, after reviewing the product, quantity, specifications and production requirements.',
   ],
   [
-    'Where are you based?',
-    'Sourcing Lab USA is preparing its U.S. market launch from Miami for 2027, supported by an established China sourcing partnership.',
+    'Can I start a sourcing project now?',
+    'Yes. We can work on projects and invoice from France or China now, supported by an established independent China sourcing partnership. The contracting company is identified in your quotation. The planned Miami expansion in 2027 does not prevent you from starting a project today.',
   ],
   [
     'Can you work from an existing design or sample?',
@@ -16,8 +16,8 @@ export const homeFaqs = [
     'Requirements depend on the exact product and destination. Product specifications, certificates, shipping terms, and importer responsibilities are confirmed for each order before production and shipment.',
   ],
   [
-    'Will I buy the products from Sourcing Lab USA?',
-    'Under our planned U.S. model, Sourcing Lab USA will purchase products from selected suppliers and supply and invoice those products to business customers. Product specifications, pricing, samples and delivery responsibilities will be agreed for each order.',
+    'Which company will invoice my order?',
+    'Current projects are contracted and invoiced through a company in France or China, identified in your quotation before you commit. Product specifications, pricing, samples, payment terms and delivery responsibilities are agreed for each order. The U.S. expansion remains planned.',
   ],
   [
     'What is the minimum order quantity?',
@@ -30,8 +30,8 @@ export const homeFaqsES = [
     'Prendas, textiles y empaques son nuestras especialidades. También gestionamos otros productos bajo pedido, tras revisar el producto, las cantidades, las especificaciones y los requisitos de producción.',
   ],
   [
-    '¿Dónde están ubicados?',
-    'Sourcing Lab USA prepara su lanzamiento al mercado estadounidense desde Miami para 2027, con el apoyo de una colaboración de sourcing establecida en China.',
+    '¿Puedo iniciar un proyecto de sourcing ahora?',
+    'Sí. Podemos trabajar en proyectos y facturar desde Francia o China desde ahora, con el apoyo de una colaboración independiente establecida en China. El presupuesto identifica la empresa contratante. La expansión prevista a Miami para 2027 no impide iniciar un proyecto hoy.',
   ],
   [
     '¿Pueden trabajar con un diseño o una muestra existente?',
@@ -42,8 +42,8 @@ export const homeFaqsES = [
     'Los requisitos dependen del producto y el destino. Las especificaciones, los certificados, las condiciones de envío y las responsabilidades del importador se confirman para cada pedido antes de producir y enviar.',
   ],
   [
-    '¿Compraré los productos a Sourcing Lab USA?',
-    'Según el modelo previsto para EE. UU., Sourcing Lab USA comprará a proveedores seleccionados y suministrará y facturará los productos a sus clientes empresariales. Las especificaciones, precios, muestras y responsabilidades de entrega se acordarán para cada pedido.',
+    '¿Qué empresa facturará mi pedido?',
+    'Los proyectos actuales se contratan y facturan a través de una empresa de Francia o China, identificada en el presupuesto antes de comprometerse. Las especificaciones, precios, muestras, condiciones de pago y responsabilidades de entrega se acuerdan para cada pedido. La expansión estadounidense sigue siendo un proyecto previsto.',
   ],
   [
     '¿Cuál es la cantidad mínima de pedido?',

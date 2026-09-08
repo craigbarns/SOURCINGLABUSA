@@ -5,7 +5,7 @@ export default function manifest(): MetadataRoute.Manifest {
     name: 'SourcingLab USA',
     short_name: 'SourcingLab',
     description:
-      'China sourcing and product supply. Clothing, packaging and other products on request. U.S. launch planned for Miami in 2027.',
+      'China sourcing and product supply. Clothing, sportswear, packaging and labels. Projects open now, with invoicing from France or China.',
     start_url: '/',
     display: 'standalone',
     background_color: '#f7f5ef',

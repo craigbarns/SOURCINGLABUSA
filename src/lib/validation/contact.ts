@@ -10,8 +10,8 @@ export const PROJECT_TYPE_VALUES = [
 export type ProjectType = (typeof PROJECT_TYPE_VALUES)[number];
 
 export const PROJECT_TYPE_LABELS: Record<ProjectType, string> = {
-  packaging: 'Custom packaging',
-  textile: 'Clothing and textile',
+  packaging: 'Packaging, boxes and labels',
+  textile: 'Clothing, sportswear and technical apparel',
   both: 'Packaging and textile',
   other: 'Other products / discuss a project',
 };

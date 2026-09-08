@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata({
   title: 'Clothing & Textile Sourcing from China',
   description:
-    'Custom clothing, uniforms, tote bags and textiles sourced from China to your specifications. U.S. product supply launch planned for Miami in 2027.',
+    'Clothing, sportswear, technical garments and uniforms sourced from China to your specifications. Send your brief and request a project-specific quotation.',
   path: '/custom-textile',
 });
 

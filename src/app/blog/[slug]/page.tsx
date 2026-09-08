@@ -1,5 +1,4 @@
 import Link from 'next/link';
-import Image from 'next/image';
 import { StructuredData } from '@/components/StructuredData';
 import {
   absoluteUrl,
@@ -19,7 +18,6 @@ import {
   getPostBySlug,
   getPostSlugs,
   getPostSections,
-  getPostVisual,
 } from '@/lib/blog';
 
 export async function generateStaticParams() {
@@ -153,18 +151,7 @@ export default async function BlogPost({
               {post.excerpt}
             </p>
           </header>
-          <figure className="journal-image mb-12">
-            <Image
-              src={getPostVisual(slug).src}
-              alt={getPostVisual(slug).alt}
-              fill
-              sizes="(max-width: 860px) 100vw, 800px"
-              priority
-            />
-            <figcaption>
-              <span>AI-created product concept</span>
-            </figcaption>
-          </figure>
+
           {sections.length > 0 && (
             <nav aria-label="On this page" className="article-toc mb-12">
               <h2 className="text-sm font-bold text-brand-ink">

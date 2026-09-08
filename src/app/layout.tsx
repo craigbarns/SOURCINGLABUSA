@@ -1,3 +1,4 @@
+import { analyticsBootstrap } from '@/lib/analytics-bootstrap';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
 
@@ -16,7 +17,7 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const { marketingOrigin } = getDomainRoutingConfig();
+const { marketingOrigin, appOrigin } = getDomainRoutingConfig();
 
 export const metadata: Metadata = {
   metadataBase: new URL(marketingOrigin),
@@ -35,7 +36,7 @@ export const metadata: Metadata = {
     template: '%s | Sourcing Lab USA',
   },
   description:
-    'China sourcing and product supply for U.S. business customers. Clothing, packaging and other products on request. Miami launch planned for 2027.',
+    'China sourcing and product supply for business customers. Clothing, sportswear, packaging and labels. Projects open now; invoicing from France or China.',
   robots: {
     index: true,
     follow: true,
@@ -60,13 +61,13 @@ export const metadata: Metadata = {
     url: marketingOrigin,
     title: 'China Sourcing & Product Supply | Sourcing Lab USA',
     description:
-      'Clothing, packaging and other products sourced from China. Product purchase and supply for U.S. businesses, with a Miami launch planned for 2027.',
+      'Source clothing, sportswear, packaging and labels from China. Start your project now, with the invoicing company in France or China identified in your quote.',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'China Sourcing & Product Supply | Sourcing Lab USA',
     description:
-      'Clothing, packaging and other products sourced from China. Product purchase and supply for U.S. businesses, with a Miami launch planned for 2027.',
+      'Source clothing, sportswear, packaging and labels from China. Start your project now, with the invoicing company in France or China identified in your quote.',
   },
 };
 
@@ -78,15 +79,8 @@ export default function RootLayout({
   return (
     <html lang="en-US" className={inter.variable}>
       <head>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-ZJ0M56QGGM"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-ZJ0M56QGGM');`}
+        <Script id="google-analytics" strategy="beforeInteractive">
+          {analyticsBootstrap([marketingOrigin, appOrigin])}
         </Script>
       </head>
       <body className="min-h-screen bg-brand-paper text-brand-ink antialiased font-sans">

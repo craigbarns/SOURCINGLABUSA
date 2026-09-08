@@ -5,7 +5,7 @@ import { pageMetadata, webpageSchema, faqSchema } from '@/lib/seo';
 
 const title = 'Sourcing en China y Suministro de Productos';
 const description =
-  'Prendas, empaques y otros productos desde China para empresas de EE. UU. Compra y suministro. Lanzamiento previsto en Miami para 2027.';
+  'Sourcing en China de prendas, ropa deportiva y técnica, empaques y etiquetas. Proyectos disponibles ahora, con facturación desde Francia o China.';
 export const metadata = pageMetadata({
   title,
   description,
