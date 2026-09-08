@@ -57,7 +57,7 @@ const emptyValues = {
 
 export function ContactForm({
   locale = 'en',
-  appearance = 'dark',
+  appearance = 'editorial',
   formLocation = 'contact_section',
 }: ContactFormProps) {
   const copy = BRIEF_FORM_COPY[locale];

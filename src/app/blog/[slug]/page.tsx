@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { StructuredData } from '@/components/StructuredData';
 import {
   absoluteUrl,
@@ -14,7 +15,12 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { BriefSection } from '@/components/BriefSection';
 import { StickyMobileCta } from '@/components/StickyMobileCta';
-import { getPostBySlug, getPostSlugs, getPostSections } from '@/lib/blog';
+import {
+  getPostBySlug,
+  getPostSlugs,
+  getPostSections,
+  getPostVisual,
+} from '@/lib/blog';
 
 export async function generateStaticParams() {
   const slugs = getPostSlugs();
@@ -89,21 +95,18 @@ export default async function BlogPost({
   };
 
   return (
-    <div className="flex min-h-screen flex-col bg-[#070a09]">
+    <div className="editorial-shell flex min-h-screen flex-col">
       <StructuredData data={jsonLd} />
       <Navbar area="marketing" />
 
       <main className="flex-1">
-        <article className="mx-auto max-w-3xl px-4 py-24 sm:px-6 lg:px-8 sm:py-32">
-          <nav
-            aria-label="Breadcrumb"
-            className="mb-10 flex flex-wrap gap-2 text-sm text-[#a0aca5]"
-          >
-            <Link href="/" className="hover:text-white">
+        <article className="article-layout">
+          <nav aria-label="Breadcrumb" className="page-breadcrumb">
+            <Link href="/" className="hover:text-brand-ink">
               Home
             </Link>
             <span aria-hidden="true">/</span>
-            <Link href="/blog" className="hover:text-white">
+            <Link href="/blog" className="hover:text-brand-ink">
               Sourcing guides
             </Link>
             <span aria-hidden="true">/</span>
@@ -112,7 +115,7 @@ export default async function BlogPost({
           <header className="mb-12">
             <time
               dateTime={post.date}
-              className="text-sm text-[#70e1b2] font-semibold tracking-wider uppercase"
+              className="text-sm text-brand-green font-semibold tracking-wider uppercase"
             >
               {new Date(post.date).toLocaleDateString('en-US', {
                 year: 'numeric',
@@ -120,20 +123,18 @@ export default async function BlogPost({
                 day: 'numeric',
               })}
             </time>
-            <h1 className="mt-6 text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
-              {post.title}
-            </h1>
-            <p className="mt-6 text-lg text-[#94a198]">
+            <h1 className="mt-6">{post.title}</h1>
+            <p className="mt-6 text-lg text-brand-muted">
               By{' '}
               <Link
                 href="/about"
-                className="underline underline-offset-4 hover:text-white"
+                className="underline underline-offset-4 hover:text-brand-ink"
               >
                 {post.author}
               </Link>
             </p>
             {post.updated && (
-              <p className="mt-3 text-sm text-[#a0aca5]">
+              <p className="mt-3 text-sm text-brand-muted">
                 Updated{' '}
                 <time dateTime={post.updated}>
                   {new Date(`${post.updated}T12:00:00Z`).toLocaleDateString(
@@ -148,17 +149,28 @@ export default async function BlogPost({
                 </time>
               </p>
             )}
-            <p className="mt-6 text-lg leading-8 text-[#cbd5ce]">
+            <p className="mt-6 text-lg leading-8 text-brand-muted">
               {post.excerpt}
             </p>
           </header>
+          <figure className="journal-image mb-12">
+            <Image
+              src={getPostVisual(slug).src}
+              alt={getPostVisual(slug).alt}
+              fill
+              sizes="(max-width: 860px) 100vw, 800px"
+              priority
+            />
+            <figcaption>
+              <span>AI-created product concept</span>
+            </figcaption>
+          </figure>
           {sections.length > 0 && (
-            <nav
-              aria-label="On this page"
-              className="mb-12 rounded-2xl border border-white/10 bg-[#101710] p-6"
-            >
-              <h2 className="text-sm font-bold text-white">In this guide</h2>
-              <ol className="mt-4 space-y-3 text-sm text-[#c7ff6b]">
+            <nav aria-label="On this page" className="article-toc mb-12">
+              <h2 className="text-sm font-bold text-brand-ink">
+                In this guide
+              </h2>
+              <ol className="mt-4 space-y-3 text-sm text-brand-green">
                 {sections.map((section) => (
                   <li key={section.id}>
                     <a
@@ -173,7 +185,7 @@ export default async function BlogPost({
             </nav>
           )}
 
-          <div className="prose prose-invert prose-lg mx-auto max-w-none prose-h2:text-white prose-a:text-[#c7ff6b] hover:prose-a:text-[#d6ff91] prose-p:text-[#94a198] prose-li:text-[#94a198]">
+          <div className="prose editorial-prose mx-auto max-w-none">
             <ReactMarkdown>{intro}</ReactMarkdown>
             {sections.map((section) => (
               <section

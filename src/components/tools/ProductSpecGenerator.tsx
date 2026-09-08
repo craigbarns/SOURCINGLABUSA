@@ -1,7 +1,16 @@
 'use client';
 
 import React, { useState } from 'react';
-import { Sparkles, Copy, Check, FileText, ShieldCheck, DollarSign, Package, AlertCircle } from 'lucide-react';
+import {
+  Sparkles,
+  Copy,
+  Check,
+  FileText,
+  ShieldCheck,
+  DollarSign,
+  Package,
+  AlertCircle,
+} from 'lucide-react';
 import { ClientApiError, generateProductSpecs } from '@/lib/ai-service';
 import type { ProductSpecResult } from '@/lib/types';
 
@@ -17,11 +26,11 @@ const PRODUCT_SPEC_ERROR_TRANSLATIONS: Record<string, string> = {
 };
 
 const INPUT_CLASS =
-  'w-full rounded-xl bg-[#0d1210] border border-white/[0.08] text-white placeholder-[#6f7c74] text-sm focus:outline-none focus:border-[#7e9cff]/60 transition-colors';
+  'w-full rounded-[4px] bg-brand-surface border border-brand-line text-brand-ink placeholder-brand-muted text-sm focus:outline-none focus:border-brand-info/60 transition-colors';
 
 export const ProductSpecGenerator: React.FC<ProductSpecGeneratorProps> = () => {
   const [promptInput, setPromptInput] = useState(
-    'I need a manufacturer for stainless steel water bottles for the US market.'
+    'I need a manufacturer for stainless steel water bottles for the US market.',
   );
   const [loading, setLoading] = useState(false);
   const [result, setResult] = useState<ProductSpecResult | null>(null);
@@ -47,7 +56,7 @@ export const ProductSpecGenerator: React.FC<ProductSpecGeneratorProps> = () => {
     } catch (e) {
       setErrorMessage(
         e instanceof ClientApiError
-          ? PRODUCT_SPEC_ERROR_TRANSLATIONS[e.message] ?? e.message
+          ? (PRODUCT_SPEC_ERROR_TRANSLATIONS[e.message] ?? e.message)
           : 'The product specification could not be generated.',
       );
     } finally {
@@ -95,13 +104,15 @@ Target Market: ${result.targetMarket}
   return (
     <div className="space-y-6">
       {/* Header Info */}
-      <div className="surface-panel flex items-start gap-3 rounded-2xl p-5">
-        <div className="shrink-0 rounded-xl bg-[#7e9cff]/12 p-2.5 text-[#7e9cff]">
+      <div className="surface-panel flex items-start gap-3 rounded-[4px] p-5">
+        <div className="shrink-0 rounded-[4px] bg-brand-info/12 p-2.5 text-brand-info">
           <Sparkles className="h-5 w-5" aria-hidden="true" />
         </div>
         <div>
-          <h3 className="text-base font-bold text-white">Product specification generator</h3>
-          <p className="mt-0.5 text-xs leading-relaxed text-[#849188]">
+          <h3 className="text-base font-bold text-brand-ink">
+            Product specification generator
+          </h3>
+          <p className="mt-0.5 text-xs leading-relaxed text-brand-muted">
             Turn a product idea into a structured factory-ready specification.
             Verify all commercial and regulatory details before use.
           </p>
@@ -112,7 +123,7 @@ Target Market: ${result.targetMarket}
       <div className="space-y-3">
         <label
           htmlFor="product-spec-prompt"
-          className="block text-xs font-semibold uppercase tracking-[0.08em] text-[#849188]"
+          className="block text-xs font-semibold uppercase tracking-[0.08em] text-brand-muted"
         >
           Describe your product requirements
         </label>
@@ -127,7 +138,9 @@ Target Market: ${result.targetMarket}
 
         {/* Quick Presets */}
         <div className="flex flex-wrap items-center gap-2 pt-1">
-          <span className="text-xs font-medium text-[#8c988f]">Examples:</span>
+          <span className="text-xs font-medium text-brand-muted">
+            Examples:
+          </span>
           {presets.map((preset, idx) => (
             <button
               key={idx}
@@ -135,7 +148,7 @@ Target Market: ${result.targetMarket}
                 setPromptInput(preset);
                 handleGenerate(preset);
               }}
-              className="max-w-[280px] truncate rounded-lg border border-white/[0.08] bg-white/[0.02] px-2.5 py-1 text-xs text-[#849188] transition-all hover:border-[#7e9cff]/40 hover:text-white"
+              className="max-w-[280px] truncate rounded-lg border border-brand-line bg-brand-surface px-2.5 py-1 text-xs text-brand-muted transition-all hover:border-brand-info/40 hover:text-brand-ink"
             >
               {preset}
             </button>
@@ -145,12 +158,12 @@ Target Market: ${result.targetMarket}
         <button
           onClick={() => handleGenerate()}
           disabled={loading || !promptInput.trim()}
-          className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#c7ff6b] to-[#70e1b2] px-8 py-3.5 text-sm font-black text-[#07130c] transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-60 sm:w-auto"
+          className="flex w-full items-center justify-center gap-2 rounded-[4px] bg-brand-green px-8 py-3.5 text-sm font-black text-white transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:opacity-60 sm:w-auto"
         >
           {loading ? (
             <>
               <div
-                className="h-4 w-4 animate-spin rounded-full border-2 border-[#07130c]/40 border-t-[#07130c]"
+                className="h-4 w-4 animate-spin rounded-full border-2 border-brand-line/40 border-t-[#07130c]"
                 aria-hidden="true"
               />
               <span>Generating specification...</span>
@@ -166,7 +179,7 @@ Target Market: ${result.targetMarket}
 
       {errorMessage && (
         <p
-          className="rounded-xl border border-[#ff9e9e]/30 bg-[#ff9e9e]/[0.08] p-4 text-sm text-[#ffb4b4]"
+          className="rounded-[4px] border border-brand-error/30 bg-brand-error/[0.08] p-4 text-sm text-brand-error"
           role="alert"
         >
           {errorMessage}
@@ -175,12 +188,12 @@ Target Market: ${result.targetMarket}
 
       {/* Output Results */}
       {result && (
-        <div className="animate-rise surface-panel mt-8 space-y-6 rounded-2xl p-6">
+        <div className="animate-rise surface-panel mt-8 space-y-6 rounded-[4px] p-6">
           <div
-            className={`rounded-xl border p-3 text-xs ${
+            className={`rounded-[4px] border p-3 text-xs ${
               result.mode === 'demo'
-                ? 'border-[#f1b47d]/30 bg-[#f1b47d]/[0.08] text-[#f7cfa3]'
-                : 'border-[#70e1b2]/30 bg-[#70e1b2]/[0.08] text-[#9ff0cf]'
+                ? 'border-brand-warning/30 bg-brand-warning/[0.08] text-brand-warning'
+                : 'border-brand-green/30 bg-brand-green/[0.08] text-brand-green'
             }`}
             role="status"
           >
@@ -190,22 +203,30 @@ Target Market: ${result.targetMarket}
           </div>
 
           {/* Output Header */}
-          <div className="flex flex-col justify-between gap-3 border-b border-white/[0.07] pb-4 sm:flex-row sm:items-center">
+          <div className="flex flex-col justify-between gap-3 border-b border-brand-line pb-4 sm:flex-row sm:items-center">
             <div>
               <div className="flex items-center gap-2">
-                <span className="rounded border border-[#7e9cff]/30 bg-[#7e9cff]/15 px-2 py-0.5 text-xs font-semibold text-[#aebfff]">
+                <span className="rounded border border-brand-info/30 bg-brand-info/15 px-2 py-0.5 text-xs font-semibold text-brand-info">
                   {result.targetMarket}
                 </span>
               </div>
-              <h3 className="mt-1 text-xl font-bold text-white">{result.productTitle}</h3>
-              <p className="mt-0.5 text-xs text-[#849188]">{result.specsSummary}</p>
+              <h3 className="mt-1 text-xl font-bold text-brand-ink">
+                {result.productTitle}
+              </h3>
+              <p className="mt-0.5 text-xs text-brand-muted">
+                {result.specsSummary}
+              </p>
             </div>
 
             <button
               onClick={handleCopy}
-              className="flex items-center gap-2 self-start rounded-xl border border-white/[0.08] bg-white/[0.04] px-4 py-2 text-xs font-semibold text-gray-200 transition-all hover:bg-white/[0.08] sm:self-center"
+              className="flex items-center gap-2 self-start rounded-[4px] border border-brand-line bg-brand-surface px-4 py-2 text-xs font-semibold text-brand-ink transition-all hover:bg-brand-surface sm:self-center"
             >
-              {copied ? <Check className="h-4 w-4 text-[#70e1b2]" /> : <Copy className="h-4 w-4" />}
+              {copied ? (
+                <Check className="h-4 w-4 text-brand-green" />
+              ) : (
+                <Copy className="h-4 w-4" />
+              )}
               <span>{copied ? 'Copied!' : 'Copy Specification'}</span>
             </button>
           </div>
@@ -213,15 +234,17 @@ Target Market: ${result.targetMarket}
           {/* Grid Cards */}
           <div className="grid gap-4 md:grid-cols-2">
             {/* Technical Specs */}
-            <div className="space-y-3 rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4">
-              <div className="flex items-center gap-2 text-sm font-bold text-[#aebfff]">
+            <div className="space-y-3 rounded-[4px] border border-brand-line bg-brand-surface p-4">
+              <div className="flex items-center gap-2 text-sm font-bold text-brand-info">
                 <FileText className="h-4 w-4" />
                 <span>Materials & Dimensions</span>
               </div>
-              <div className="space-y-2 text-xs text-gray-300">
+              <div className="space-y-2 text-xs text-brand-ink">
                 <div>
-                  <span className="block text-[#8c988f]">Recommended materials:</span>
-                  <ul className="list-inside list-disc font-medium text-white">
+                  <span className="block text-brand-muted">
+                    Recommended materials:
+                  </span>
+                  <ul className="list-inside list-disc font-medium text-brand-ink">
                     {result.technicalSpecs.materials.map((m, i) => (
                       <li key={i}>{m}</li>
                     ))}
@@ -229,82 +252,109 @@ Target Market: ${result.targetMarket}
                 </div>
                 <div className="grid grid-cols-2 gap-2 pt-1">
                   <div>
-                    <span className="block text-[#8c988f]">Dimensions:</span>
-                    <span className="text-gray-200">{result.technicalSpecs.dimensions}</span>
+                    <span className="block text-brand-muted">Dimensions:</span>
+                    <span className="text-brand-ink">
+                      {result.technicalSpecs.dimensions}
+                    </span>
                   </div>
                   <div>
-                    <span className="block text-[#8c988f]">Unit weight:</span>
-                    <span className="text-gray-200">{result.technicalSpecs.weight}</span>
+                    <span className="block text-brand-muted">Unit weight:</span>
+                    <span className="text-brand-ink">
+                      {result.technicalSpecs.weight}
+                    </span>
                   </div>
                 </div>
               </div>
             </div>
 
             {/* Certifications */}
-            <div className="space-y-3 rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4">
-              <div className="flex items-center gap-2 text-sm font-bold text-[#9ff0cf]">
+            <div className="space-y-3 rounded-[4px] border border-brand-line bg-brand-surface p-4">
+              <div className="flex items-center gap-2 text-sm font-bold text-brand-green">
                 <ShieldCheck className="h-4 w-4" />
                 <span>Compliance & Documentation</span>
               </div>
               <div className="space-y-2 text-xs">
                 <div>
-                  <span className="block text-[#8c988f]">
+                  <span className="block text-brand-muted">
                     Potential requirements to verify:
                   </span>
                   <div className="mt-1 flex flex-wrap gap-1.5">
                     {result.certifications.toVerify.map((c, i) => (
-                      <span key={i} className="rounded border border-[#70e1b2]/20 bg-[#70e1b2]/10 px-2 py-0.5 font-mono text-[#9ff0cf]">
+                      <span
+                        key={i}
+                        className="rounded border border-brand-green/20 bg-brand-green/10 px-2 py-0.5 font-mono text-brand-green"
+                      >
                         {c}
                       </span>
                     ))}
                   </div>
                 </div>
                 <div>
-                  <span className="block text-[#8c988f]">Recommended testing labs:</span>
-                  <span className="font-medium text-gray-300">{result.certifications.testingLabs.join(' • ')}</span>
+                  <span className="block text-brand-muted">
+                    Recommended testing labs:
+                  </span>
+                  <span className="font-medium text-brand-ink">
+                    {result.certifications.testingLabs.join(' • ')}
+                  </span>
                 </div>
-                <p className="leading-relaxed text-[#f7cfa3]">
+                <p className="leading-relaxed text-brand-warning">
                   {result.certifications.verificationNotice}
                 </p>
               </div>
             </div>
 
             {/* Pricing & MOQ Target */}
-            <div className="space-y-3 rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4">
-              <div className="flex items-center gap-2 text-sm font-bold text-[#dfffab]">
+            <div className="space-y-3 rounded-[4px] border border-brand-line bg-brand-surface p-4">
+              <div className="flex items-center gap-2 text-sm font-bold text-brand-green">
                 <DollarSign className="h-4 w-4" />
                 <span>Pricing & MOQ Targets</span>
               </div>
               <div className="grid grid-cols-2 gap-3 text-xs">
-                <div className="rounded-lg border border-white/[0.06] bg-[#0d1210] p-2.5">
-                  <span className="block text-[11px] text-[#849188]">Target Factory FOB Price</span>
-                  <span className="text-base font-bold text-white">{result.pricingTarget.estimatedFob}</span>
+                <div className="rounded-lg border border-brand-line bg-brand-surface p-2.5">
+                  <span className="block text-[11px] text-brand-muted">
+                    Target Factory FOB Price
+                  </span>
+                  <span className="text-base font-bold text-brand-ink">
+                    {result.pricingTarget.estimatedFob}
+                  </span>
                 </div>
-                <div className="rounded-lg border border-white/[0.06] bg-[#0d1210] p-2.5">
-                  <span className="block text-[11px] text-[#849188]">Estimated Landed Cost</span>
-                  <span className="text-base font-bold text-[#9ff0cf]">{result.pricingTarget.targetLandCost}</span>
+                <div className="rounded-lg border border-brand-line bg-brand-surface p-2.5">
+                  <span className="block text-[11px] text-brand-muted">
+                    Estimated Landed Cost
+                  </span>
+                  <span className="text-base font-bold text-brand-green">
+                    {result.pricingTarget.targetLandCost}
+                  </span>
                 </div>
-                <div className="rounded-lg border border-white/[0.06] bg-[#0d1210] p-2.5">
-                  <span className="block text-[11px] text-[#849188]">Recommended MOQ</span>
-                  <span className="text-sm font-bold text-[#aebfff]">{result.moq.recommended} {result.moq.unit}</span>
+                <div className="rounded-lg border border-brand-line bg-brand-surface p-2.5">
+                  <span className="block text-[11px] text-brand-muted">
+                    Recommended MOQ
+                  </span>
+                  <span className="text-sm font-bold text-brand-info">
+                    {result.moq.recommended} {result.moq.unit}
+                  </span>
                 </div>
-                <div className="rounded-lg border border-white/[0.06] bg-[#0d1210] p-2.5">
-                  <span className="block text-[11px] text-[#849188]">Suggested MSRP</span>
-                  <span className="text-sm font-bold text-[#c7ff6b]">{result.pricingTarget.recommendedMSRP}</span>
+                <div className="rounded-lg border border-brand-line bg-brand-surface p-2.5">
+                  <span className="block text-[11px] text-brand-muted">
+                    Suggested MSRP
+                  </span>
+                  <span className="text-sm font-bold text-brand-green">
+                    {result.pricingTarget.recommendedMSRP}
+                  </span>
                 </div>
               </div>
             </div>
 
             {/* Quality Control */}
-            <div className="space-y-3 rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4">
-              <div className="flex items-center gap-2 text-sm font-bold text-[#f1b47d]">
+            <div className="space-y-3 rounded-[4px] border border-brand-line bg-brand-surface p-4">
+              <div className="flex items-center gap-2 text-sm font-bold text-brand-warning">
                 <Package className="h-4 w-4" />
                 <span>Quality Control Checkpoints</span>
               </div>
-              <ul className="space-y-1.5 text-xs text-gray-300">
+              <ul className="space-y-1.5 text-xs text-brand-ink">
                 {result.qualityControl.map((qc, i) => (
                   <li key={i} className="flex items-start gap-2">
-                    <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#f1b47d]" />
+                    <AlertCircle className="mt-0.5 h-3.5 w-3.5 shrink-0 text-brand-warning" />
                     <span>{qc}</span>
                   </li>
                 ))}

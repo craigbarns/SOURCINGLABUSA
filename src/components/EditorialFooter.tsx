@@ -1,9 +1,15 @@
 import Link from 'next/link';
 import { Logo } from './Logo';
 
-export function EditorialFooter({ locale = 'en' }: { locale?: 'en' | 'es' }) {
+export function EditorialFooter({
+  locale = 'en',
+  linkPrefix = '',
+}: {
+  locale?: 'en' | 'es';
+  linkPrefix?: string;
+}) {
   const es = locale === 'es';
-  const home = es ? '/es' : '/';
+  const home = `${linkPrefix}${es ? '/es' : '/'}`;
   return (
     <footer className="editorial-footer">
       <div className="editorial-container">
@@ -22,22 +28,22 @@ export function EditorialFooter({ locale = 'en' }: { locale?: 'en' | 'es' }) {
             <span>{es ? 'LAS POSIBILIDADES' : 'THE POSSIBILITIES'}</span>
             <ul>
               <li>
-                <Link href="/custom-packaging">
+                <Link href={`${linkPrefix}/custom-packaging`}>
                   {es ? 'Empaques personalizados' : 'Custom packaging'}
                 </Link>
               </li>
               <li>
-                <Link href="/custom-textile">
+                <Link href={`${linkPrefix}/custom-textile`}>
                   {es ? 'Prendas y textiles' : 'Clothing & textiles'}
                 </Link>
               </li>
               <li>
-                <Link href="/private-label-packaging">
+                <Link href={`${linkPrefix}/private-label-packaging`}>
                   {es ? 'Empaques de marca privada' : 'Private label packaging'}
                 </Link>
               </li>
               <li>
-                <Link href="/china-to-us-procurement">
+                <Link href={`${linkPrefix}/china-to-us-procurement`}>
                   {es
                     ? 'Compras de China a EE. UU.'
                     : 'China-to-U.S. procurement'}
@@ -54,12 +60,12 @@ export function EditorialFooter({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                 </a>
               </li>
               <li>
-                <Link href="/about">
+                <Link href={`${linkPrefix}/about`}>
                   {es ? 'Sobre Sourcing Lab USA' : 'About Sourcing Lab USA'}
                 </Link>
               </li>
               <li>
-                <Link href="/blog">
+                <Link href={`${linkPrefix}/blog`}>
                   {es ? 'Recursos y guías' : 'Insights & guides'}
                 </Link>
               </li>
@@ -87,7 +93,9 @@ export function EditorialFooter({ locale = 'en' }: { locale?: 'en' | 'es' }) {
           <a href="mailto:contact@sourcinglabusa.com">
             contact@sourcinglabusa.com ↗
           </a>
-          <Link href="/privacy">{es ? 'Privacidad' : 'Privacy notice'}</Link>
+          <Link href={`${linkPrefix}/privacy`}>
+            {es ? 'Privacidad' : 'Privacy notice'}
+          </Link>
         </div>
       </div>
     </footer>

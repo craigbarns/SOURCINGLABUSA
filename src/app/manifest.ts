@@ -8,8 +8,8 @@ export default function manifest(): MetadataRoute.Manifest {
       'China sourcing and product supply. Clothing, packaging and other products on request. U.S. launch planned for Miami in 2027.',
     start_url: '/',
     display: 'standalone',
-    background_color: '#070a09',
-    theme_color: '#070a09',
+    background_color: '#f7f5ef',
+    theme_color: '#f7f5ef',
     icons: [
       {
         src: '/icon.svg',

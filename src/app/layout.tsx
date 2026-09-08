@@ -76,7 +76,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-US" className={`dark ${inter.variable}`}>
+    <html lang="en-US" className={inter.variable}>
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-ZJ0M56QGGM"
@@ -89,7 +89,7 @@ gtag('js', new Date());
 gtag('config', 'G-ZJ0M56QGGM');`}
         </Script>
       </head>
-      <body className="min-h-screen bg-[#070a09] text-gray-100 antialiased font-sans">
+      <body className="min-h-screen bg-brand-paper text-brand-ink antialiased font-sans">
         <StructuredData data={organizationGraph()} />
         {children}
       </body>

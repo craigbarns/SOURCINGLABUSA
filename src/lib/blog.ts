@@ -60,3 +60,20 @@ export function getPostSections(content: string) {
     })),
   };
 }
+
+export function getPostVisual(slug: string) {
+  if (/textile|apparel/.test(slug))
+    return {
+      src: '/images/textile-collection.webp',
+      alt: 'Concept arrangement of cotton clothing, a canvas tote and textile swatches',
+    };
+  if (/packaging/.test(slug))
+    return {
+      src: '/images/packaging-collection.webp',
+      alt: 'Concept collection of paper bags, custom boxes and branded packaging',
+    };
+  return {
+    src: '/images/brand-still-life.webp',
+    alt: 'Concept still life of custom packaging and textile materials',
+  };
+}

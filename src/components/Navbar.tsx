@@ -24,7 +24,7 @@ const navigation = [
 
 export const Navbar: React.FC<NavbarProps> = ({
   area = 'marketing',
-  appearance = 'dark',
+  appearance = 'light',
   contactHref = '#contact',
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -98,14 +98,14 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Language Switcher */}
           <div className="nav-language hidden sm:flex items-center gap-1 bg-white/[0.04] rounded-lg p-1 border border-white/10 mr-2">
             <Link
-              href="/"
+              href={isAppArea ? '/marketing' : '/'}
               aria-current={isSpanish ? undefined : 'page'}
               className={`rounded-md px-2 py-1 text-xs font-bold hover:bg-white/[0.08] ${isSpanish ? 'text-[#96a29b]' : 'text-white'}`}
             >
               EN
             </Link>
             <Link
-              href="/es"
+              href={isAppArea ? '/marketing/es' : '/es'}
               aria-current={isSpanish ? 'page' : undefined}
               className={`rounded-md px-2 py-1 text-xs font-bold hover:bg-white/[0.08] ${isSpanish ? 'text-white' : 'text-[#96a29b]'}`}
             >
@@ -116,7 +116,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           {isAppArea ? (
             <Link
               href={marketingHref}
-              className="inline-flex items-center gap-2 rounded-xl border border-white/10 bg-white/[0.04] px-4 py-2.5 text-sm font-semibold text-[#dce5df] transition-colors hover:bg-white/[0.08]"
+              className="editorial-text-link rounded border border-brand-line px-4 py-2.5"
             >
               <ArrowLeft className="h-4 w-4" aria-hidden="true" />
               <span className="hidden sm:inline">Back to website</span>

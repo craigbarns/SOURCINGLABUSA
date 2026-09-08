@@ -13,7 +13,7 @@ export const Logo: React.FC<LogoProps> = ({
   size = 'md',
   showBadge = true,
   compactOnMobile = false,
-  appearance = 'dark',
+  appearance = 'light',
 }) => {
   if (appearance === 'light') {
     return (
