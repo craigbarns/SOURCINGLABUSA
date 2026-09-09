@@ -11,7 +11,7 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useId, useMemo, useRef, useState } from 'react';
+import { useId, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 
 import { ANALYTICS_EVENTS, trackEvent } from '@/lib/analytics';
 import {
@@ -56,12 +56,22 @@ const emptyValues = {
   message: '',
 };
 
+// Keep the server-rendered fields inactive until their submit handler is ready.
+const subscribeToHydration = () => () => {};
+const clientIsReady = () => true;
+const serverIsReady = () => false;
+
 export function ContactForm({
   locale = 'en',
   appearance = 'editorial',
   formLocation = 'contact_section',
   initialProjectType,
 }: ContactFormProps) {
+  const isReady = useSyncExternalStore(
+    subscribeToHydration,
+    clientIsReady,
+    serverIsReady,
+  );
   const copy = BRIEF_FORM_COPY[locale];
   const pathname = usePathname();
   const fieldId = useId();
@@ -265,6 +275,7 @@ export function ContactForm({
 
   return (
     <form
+      method="post"
       onSubmit={handleSubmit}
       noValidate
       aria-busy={status === 'submitting'}
@@ -282,7 +293,7 @@ export function ContactForm({
             autoComplete="name"
             placeholder={copy.namePlaceholder}
             value={values.name}
-            disabled={status === 'submitting'}
+            disabled={!isReady || status === 'submitting'}
             onChange={(event) => updateValue('name', event.target.value)}
             aria-invalid={fieldErrors.name ? 'true' : undefined}
             aria-describedby={
@@ -313,7 +324,7 @@ export function ContactForm({
             inputMode="email"
             placeholder={copy.emailPlaceholder}
             value={values.email}
-            disabled={status === 'submitting'}
+            disabled={!isReady || status === 'submitting'}
             onChange={(event) => updateValue('email', event.target.value)}
             aria-invalid={fieldErrors.email ? 'true' : undefined}
             aria-describedby={
@@ -348,7 +359,7 @@ export function ContactForm({
             autoComplete="organization"
             placeholder={copy.companyPlaceholder}
             value={values.company}
-            disabled={status === 'submitting'}
+            disabled={!isReady || status === 'submitting'}
             onChange={(event) => updateValue('company', event.target.value)}
             className={inputClassName}
           />
@@ -363,7 +374,7 @@ export function ContactForm({
               id={`${fieldId}-quantity`}
               name="quantityRange"
               value={values.quantityRange}
-              disabled={status === 'submitting'}
+              disabled={!isReady || status === 'submitting'}
               onChange={(event) =>
                 updateValue(
                   'quantityRange',
@@ -395,7 +406,7 @@ export function ContactForm({
             id={`${fieldId}-project-type`}
             name="projectType"
             value={values.projectType}
-            disabled={status === 'submitting'}
+            disabled={!isReady || status === 'submitting'}
             onChange={(event) =>
               updateValue('projectType', event.target.value as ProjectType)
             }
@@ -445,7 +456,7 @@ export function ContactForm({
           rows={4}
           placeholder={copy.messagePlaceholder}
           value={values.message}
-          disabled={status === 'submitting'}
+          disabled={!isReady || status === 'submitting'}
           onChange={(event) => updateValue('message', event.target.value)}
           aria-describedby={`${fieldId}-message-hint`}
           className={`${inputClassName} resize-none py-3.5`}
@@ -460,7 +471,7 @@ export function ContactForm({
 
       <button
         type="submit"
-        disabled={status === 'submitting'}
+        disabled={!isReady || status === 'submitting'}
         className="contact-submit group inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-[#c7ff6b] px-6 py-3.5 text-sm font-extrabold text-[#0a0d0b] shadow-[0_12px_40px_rgba(199,255,107,0.14)] transition hover:bg-[#d7ff94] disabled:cursor-not-allowed disabled:opacity-70"
       >
         {status === 'submitting' ? copy.submitting : copy.submit}

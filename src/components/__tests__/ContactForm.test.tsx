@@ -2,6 +2,7 @@ import '@testing-library/jest-dom/vitest';
 
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { renderToString } from 'react-dom/server';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { ContactForm } from '@/components/ContactForm';
@@ -36,6 +37,22 @@ describe('ContactForm', () => {
 
   afterEach(() => {
     vi.unstubAllGlobals();
+  });
+
+  it('prevents native submission and entering details before hydration', () => {
+    const container = document.createElement('div');
+    container.innerHTML = renderToString(<ContactForm />);
+    const form = container.querySelector('form')!;
+    expect(form.method).toBe('post');
+    for (const control of form.querySelectorAll('input, select, textarea, button')) {
+      expect(control).toBeDisabled();
+    }
+
+    render(<ContactForm />, { container, hydrate: true });
+
+    expect(container.querySelector('input[name="name"]')).toBeEnabled();
+    expect(container.querySelector('button[type="submit"]')).toBeEnabled();
+    expect(fetchMock).not.toHaveBeenCalled();
   });
 
   it('blocks submission and shows field errors when required details are missing', async () => {
