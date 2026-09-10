@@ -1,280 +1,349 @@
+import { SourcingOverview } from './SourcingOverview';
 import Link from 'next/link';
-import {
-  Box,
-  CheckCircle2,
-  ClipboardCheck,
-  Globe2,
-  PackageCheck,
-  ShieldAlert,
-  Shirt,
-  Sparkles,
-} from 'lucide-react';
+import { ArrowRight, ArrowUpRight, Plus } from 'lucide-react';
+import { ContactForm } from './ContactForm';
+import { CtaLink } from './CtaLink';
+import { homeFaqs, homeFaqsES } from '@/lib/home-faqs';
 
-import { ProductMedia } from '@/components/ProductMedia';
-import { ProductShowcase } from '@/components/ProductShowcase';
-import { getProduct } from '@/lib/product-media';
-
-import { BriefSection } from './BriefSection';
-
-const offers = [
-  {
-    icon: Box,
-    eyebrow: 'Custom packaging',
-    title: 'Packaging that carries your brand properly.',
-    body: 'Custom boxes, paper bags, labels, tissue paper, inserts, and retail packaging developed to your brief.',
-    details: ['Materials and finishes', 'Samples before production', 'Branding and print specifications'],
-    href: '/custom-packaging',
-    productId: 'rigid-box',
-    linkLabel: 'Explore custom packaging',
-    accent: 'text-[#c7ff6b]',
-    iconSurface: 'bg-[#c7ff6b]/10',
-  },
-  {
-    icon: Shirt,
-    eyebrow: 'Custom textile',
-    title: 'Textile products made to specification.',
-    body: 'Apparel, towels, tote bags, uniforms, and branded accessories sourced for the quantity and finish your project needs.',
-    details: ['Fabric and construction options', 'Branding and labels', 'Sampling and production follow-up'],
-    href: '/custom-textile',
-    productId: 'tote-bag',
-    linkLabel: 'Explore custom textile',
-    accent: 'text-[#70e1b2]',
-    iconSurface: 'bg-[#70e1b2]/10',
-  },
-];
-
-const workflow = [
-  {
-    number: '01',
-    icon: ClipboardCheck,
-    title: 'Share your brief',
-    body: 'Tell us the product, quantity, design requirements, target price, and destination.',
-  },
-  {
-    number: '02',
-    icon: Sparkles,
-    title: 'Review the proposal',
-    body: 'We coordinate supplier options, pricing, sample requirements, and production timing for your review.',
-  },
-  {
-    number: '03',
-    icon: PackageCheck,
-    title: 'Approve production',
-    body: 'After the specification and sample are approved, production is followed through agreed quality checkpoints.',
-  },
-  {
-    number: '04',
-    icon: Globe2,
-    title: 'Deliver to your destination',
-    body: 'Orders are prepared for direct delivery from China to the agreed U.S. destination under the agreed shipping terms.',
-  },
-];
-
-const faqs = [
-  {
-    question: 'Do you only source packaging?',
-    answer:
-      'No. Our initial focus is custom packaging and textile products for brands, e-commerce businesses, and companies.',
-  },
-  {
-    question: 'Where are you based?',
-    answer:
-      'Sourcing Lab USA is preparing its U.S. market launch from Miami for 2027, supported by an established China sourcing partnership.',
-  },
-  {
-    question: 'Can you work from an existing design or sample?',
-    answer:
-      'Yes. Send your brief, reference images, dimensions, quantity, and target timing. We will confirm what can be quoted and sampled.',
-  },
-  {
-    question: 'Who handles compliance and import requirements?',
-    answer:
-      'Requirements depend on the exact product and destination. Product specifications, certificates, shipping terms, and importer responsibilities are confirmed for each order before production and shipment.',
-  },
-];
-
-export function MarketingSections() {
+export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
+  const es = locale === 'es';
+  const collections = [
+    {
+      number: '01',
+      href: '/custom-packaging',
+      title: es
+        ? 'Cajas, empaques y etiquetas.'
+        : 'Boxes, packaging & labels.',
+      name: es ? 'EMPAQUES PERSONALIZADOS' : 'CUSTOM PACKAGING',
+      body: es
+        ? 'Cajas de producto, bolsas, empaques, etiquetas e insertos. Comparte dimensiones, cantidades, diseños y acabados.'
+        : 'Product boxes, bags, packaging, labels and inserts. Share dimensions, quantities, artwork and finishes for your next project.',
+      tags: es
+        ? ['Cajas y bolsas', 'Acabados personalizados', 'Marca privada']
+        : ['Boxes & bags', 'Custom finishes', 'Private label'],
+    },
+    {
+      number: '02',
+      href: '/custom-textile',
+      title: es ? 'Prendas para tu marca.' : 'Clothing made to your brief.',
+      name: es ? 'PRENDAS Y TEXTILES' : 'CLOTHING & TEXTILES',
+      body: es
+        ? 'Prendas, ropa deportiva y técnica, uniformes y textiles. Tejidos, tallas, construcción y etiquetas definidos según tu proyecto.'
+        : 'Clothing, sportswear, technical apparel, uniforms and textiles. Fabrics, sizing, construction and labels specified for your project.',
+      tags: es
+        ? ['Prendas y uniformes', 'Deporte y técnica', 'Etiquetas y bordado']
+        : ['Clothing & uniforms', 'Sportswear & technical', 'Labels & embroidery'],
+    },
+  ];
+  const steps = es
+    ? [
+        [
+          'Comparte tu idea',
+          'Producto, cantidad, referencias y destino. Un brief claro es el punto de partida.',
+        ],
+        [
+          'Revisa nuestra propuesta',
+          'Revisa nuestra propuesta de producto: especificaciones, cantidades, muestras, precios y condiciones comerciales.',
+        ],
+        [
+          'Confirma el pedido',
+          'Tras aprobar el pedido y las muestras acordadas, coordinamos la compra y el seguimiento de producción con el proveedor seleccionado.',
+        ],
+        [
+          'Recibe tus productos',
+          'La empresa de Francia o China identificada en tu presupuesto suministra y factura los productos. La entrega puede ser directa desde China, según las condiciones acordadas.',
+        ],
+      ]
+    : [
+        [
+          'Start with your idea',
+          'Your product, quantity, references and destination. A clear brief is where everything begins.',
+        ],
+        [
+          'Review our proposal',
+          'Review our product proposal: specifications, quantities, sample requirements, product pricing and commercial terms.',
+        ],
+        [
+          'Confirm your order',
+          'After the order and agreed samples are approved, we coordinate purchasing and production follow-up with the selected supplier.',
+        ],
+        [
+          'Receive your products',
+          'The company in France or China identified in your quote supplies and invoices your products. Delivery may be direct from China under the agreed order terms.',
+        ],
+      ];
+  const points = es
+    ? [
+        [
+          'El producto primero',
+          'Materiales, dimensiones, acabados y cantidades definidos en un brief práctico.',
+        ],
+        [
+          'Una colaboración independiente en China',
+          'Coordinación de proveedores y seguimiento de producción a través de una relación establecida.',
+        ],
+        [
+          'Expectativas claras desde el principio',
+          'Muestras, puntos de control y responsabilidades de entrega acordados por pedido.',
+        ],
+      ]
+    : [
+        [
+          'Product thinking, from the start',
+          'Materials, dimensions, finishes and quantities brought together in a practical brief.',
+        ],
+        [
+          'An established China partnership',
+          'Supplier coordination and production follow-up through an independent sourcing relationship.',
+        ],
+        [
+          'Clear expectations, at every stage',
+          'Samples, quality checkpoints and delivery responsibilities agreed for each order.',
+        ],
+      ];
   return (
     <>
-      <section id="offerings" className="scroll-mt-20 border-t border-white/[0.07] py-24 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid items-end gap-6 lg:grid-cols-[1fr_0.7fr]">
+      <section id="offerings" className="editorial-section">
+        <div className="editorial-container">
+          <div className="section-heading-row">
             <div>
-              <span className="eyebrow">Made to your brief</span>
-              <h2 className="text-balance mt-6 max-w-3xl text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
-                Two focused offers. One practical procurement process.
+              <p className="editorial-kicker">
+                {es
+                  ? '01 — LO QUE DESARROLLAMOS'
+                  : '01 — SOURCING SPECIALTIES'}
+              </p>
+              <h2 className="editorial-title">
+                {es ? 'Tu producto.' : 'Your product.'}
+                <br />
+                <em>{es ? 'Nuestro punto de partida.' : 'Our starting point.'}</em>
               </h2>
             </div>
-            <p className="max-w-xl text-base leading-7 text-[#94a198] lg:pb-1">
-              We focus on the products where design, material choice, finish, quantity,
-              and production follow-up make the biggest difference to your brand.
+            <p className="editorial-body">
+              {es
+                ? 'Prendas y empaques son nuestras especialidades. También estudiamos otros productos bajo pedido, con un alcance y unas condiciones definidos para cada proyecto.'
+                : 'Clothing and packaging are where our product experience starts. Our sourcing and supply offer also extends to other products, assessed against your brief.'}
             </p>
           </div>
-
-          <div className="mt-14 grid gap-4 lg:grid-cols-2">
-            {offers.map(({ icon: Icon, eyebrow, title, body, details, href, productId, linkLabel, accent, iconSurface }) => {
-              const product = getProduct(productId);
-
-              return (
-              <article key={eyebrow} className="surface-panel overflow-hidden rounded-[26px]">
-                {product && (
-                  <ProductMedia
-                    product={product}
-                    priority
-                    sizes="(min-width: 1024px) 50vw, 100vw"
-                    className="aspect-[16/9] w-full border-b border-white/[0.07]"
-                  />
-                )}
-                <div className="p-7 sm:p-10">
-                <div className={`grid h-12 w-12 place-items-center rounded-[15px] ${iconSurface} ${accent}`}>
-                  <Icon className="h-5 w-5" aria-hidden="true" />
-                </div>
-                <p className={`mt-8 text-xs font-bold uppercase tracking-[0.16em] ${accent}`}>{eyebrow}</p>
-                <h3 className="mt-3 max-w-xl text-2xl font-black tracking-[-0.035em] text-white sm:text-3xl">
-                  {title}
-                </h3>
-                <p className="mt-5 max-w-xl text-sm leading-7 text-[#97a39b] sm:text-base">{body}</p>
-                <Link
-                  href={href}
-                  className="mt-5 inline-flex text-sm font-bold text-[#dfffab] transition-colors hover:text-white"
-                >
-                  {linkLabel} <span aria-hidden="true" className="ml-1">→</span>
-                </Link>
-                <ul className="mt-8 grid gap-3 sm:grid-cols-3">
-                  {details.map((detail) => (
-                    <li key={detail} className="flex items-start gap-2 text-sm font-semibold text-[#d7dfda]">
-                      <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-[#70e1b2]" aria-hidden="true" />
-                      {detail}
-                    </li>
-                  ))}
-                </ul>
+          <div className="collection-grid">
+            {collections.map((item) => (
+              <article className="collection-card" key={item.number}>
+                <p className="editorial-kicker collection-heading">{item.number} / {item.name}</p>
+                <div className="collection-copy">
+                  <h3 className="collection-title">
+                    <Link href={item.href}>{item.title}</Link>
+                  </h3>
+                  <p className="editorial-body">{item.body}</p>
+                  <ul className="collection-tags">
+                    {item.tags.map((tag) => (
+                      <li key={tag}>{tag}</li>
+                    ))}
+                  </ul>
+                  <CtaLink href={`${item.href}#contact`} location="offering" label={`Discuss ${item.name.toLowerCase()}`} className="editorial-text-link mt-5">{es ? 'Consultar este proyecto' : 'Discuss this project'}<ArrowUpRight size={17} aria-hidden="true" /></CtaLink>
                 </div>
               </article>
-              );
-            })}
+            ))}
+          </div>
+          <div className="sourcing-specialist-link">
+            <p>{es ? '¿Una colección deportiva o técnica?' : 'Planning a sportswear or technical collection?'}</p>
+            <Link href="/sportswear-sourcing" className="editorial-text-link">{es ? 'Ver requisitos de tejidos, tallas y muestras (inglés)' : 'Explore fabrics, fit and sampling requirements'}<ArrowUpRight size={17} aria-hidden="true" /></Link>
+          </div>
+          <div id="other-products" className="other-products-panel">
+            <div>
+              <p className="editorial-kicker">
+                {es ? '03 / OTROS PRODUCTOS' : '03 / OTHER PRODUCTS'}
+              </p>
+              <h3 className="collection-title">
+                {es
+                  ? '¿Otro producto en mente?'
+                  : 'Have another product in mind?'}
+              </h3>
+            </div>
+            <p className="editorial-body">
+              {es
+                ? 'Comparte el producto, su uso, las cantidades y tus referencias. Confirmaremos las posibilidades de suministro y los requisitos antes de proponerte una solución.'
+                : 'Tell us the product, its intended use, quantities and references. We will review sourcing feasibility and requirements before proposing a supply solution.'}
+            </p>
+            <CtaLink
+              href="#contact"
+              location="other_products"
+              label="Discuss another product"
+              className="editorial-text-link"
+            >
+              {es ? 'Cuéntanos tu proyecto' : 'Discuss your product'}
+              <ArrowUpRight size={17} aria-hidden="true" />
+            </CtaLink>
           </div>
         </div>
       </section>
-
-      <ProductShowcase />
-
-      <section id="how-it-works" className="scroll-mt-20 border-y border-white/[0.07] bg-[#0a0e0c] py-24 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="max-w-2xl">
-            <span className="eyebrow">A practical process</span>
-            <h2 className="text-balance mt-6 text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
-              From a product idea to a shipment you can track.
-            </h2>
-            <p className="mt-5 max-w-xl text-base leading-7 text-[#94a198]">
-              Every custom order starts with a clear brief and stays documented through quotation, sampling, production, and delivery.
+      <section id="how-it-works" className="editorial-section process-section">
+        <div className="editorial-container">
+          <div className="section-heading-row">
+            <div>
+              <p className="editorial-kicker">
+                {es
+                  ? '02 — DE LA IDEA AL PRODUCTO'
+                  : '02 — FROM THE FIRST SKETCH'}
+              </p>
+              <h2 className="editorial-title">
+                {es ? 'Una visión clara.' : 'Big on possibility.'}
+                <br />
+                <em>{es ? 'Un proceso sencillo.' : 'Clear on the process.'}</em>
+              </h2>
+            </div>
+            <p className="editorial-body">
+              {es
+                ? 'Puedes iniciar tu proyecto ahora. El presupuesto identifica la empresa de Francia o China que suministra y factura los productos, con las especificaciones, precios y responsabilidades acordados para el pedido.'
+                : 'You can start your project now. Your quotation identifies the company in France or China supplying and invoicing the products, with specifications, product pricing and responsibilities agreed for your order.'}
             </p>
           </div>
-
-          <ol className="mt-14 grid gap-4 md:grid-cols-2 xl:grid-cols-4">
-            {workflow.map(({ number, icon: Icon, title, body }) => (
-              <li
-                key={number}
-                data-step={number}
-                className="step-watermark bento-card relative overflow-hidden rounded-[22px] p-6 sm:p-7"
-              >
-                <div className="grid h-11 w-11 place-items-center rounded-[14px] border border-[#70e1b2]/15 bg-[#70e1b2]/8 text-[#70e1b2]">
-                  <Icon className="h-5 w-5" aria-hidden="true" />
+          <ol className="process-steps">
+            {steps.map(([title, body], i) => (
+              <li className="process-step" key={title}>
+                <div className="process-number">
+                  <span>0{i + 1}</span>
+                  <ArrowRight size={18} aria-hidden="true" />
                 </div>
-                <h3 className="mt-8 text-lg font-bold tracking-[-0.02em] text-white">{title}</h3>
-                <p className="mt-3 text-sm leading-6 text-[#89968e]">{body}</p>
+                <h3>{title}</h3>
+                <p>{body}</p>
               </li>
             ))}
           </ol>
+          <p id="compliance" className="process-note">
+            {es
+              ? 'Los puntos de control de calidad y las responsabilidades de importación y entrega se acuerdan para cada pedido. El seguimiento de producción no es una inspección certificada independiente.'
+              : 'Quality checkpoints, import responsibilities and delivery terms are agreed order by order. Production follow-up is not an independent certified inspection service.'}
+          </p>
         </div>
       </section>
-
-      <section id="experience" className="scroll-mt-20 py-24 sm:py-28">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[0.82fr_1.18fr] lg:px-8">
-          <div>
-            <span className="eyebrow">Built on field experience</span>
-            <h2 className="text-balance mt-6 text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
-              Sourcing is more than a supplier list.
-            </h2>
-            <p className="mt-5 max-w-xl text-base leading-7 text-[#94a198]">
-              It is the ability to turn a brief into a manufacturable product, make decisions early, and keep the production process visible.
+      <section id="experience" className="editorial-section">
+        <div className="editorial-container approach-layout">
+<SourcingOverview locale={locale} />
+          <div className="approach-copy">
+            <p className="editorial-kicker">
+              {es
+                ? '03 — NUESTRA FORMA DE TRABAJAR'
+                : '03 — THE SOURCING LAB APPROACH'}
             </p>
-          </div>
-
-          <div className="surface-panel rounded-[26px] p-6 sm:p-9">
-            {[
-              ['20 years of product and sourcing experience', 'Built through apparel retail, product development, custom textile, packaging, and China sourcing.'],
-              ['10-year China sourcing partnership', 'An established operational relationship for supplier selection, follow-up, and quality-control coordination.'],
-              ['A U.S. operating base planned for Miami in 2027', 'A focused launch for U.S. brands, e-commerce businesses, and companies.'],
-            ].map(([title, body], index) => (
-              <div key={title} className={index > 0 ? 'border-t border-white/[0.08] pt-6' : ''}>
-                <div className="flex items-start gap-4 py-1">
-                  <div className="grid h-10 w-10 shrink-0 place-items-center rounded-xl bg-[#c7ff6b]/10 text-[#c7ff6b]">
-                    <CheckCircle2 className="h-5 w-5" aria-hidden="true" />
-                  </div>
+            <h2 className="editorial-title">
+              {es ? 'Más intención.' : 'A little more intention.'}
+              <br />
+              <em>{es ? 'En cada decisión.' : 'In every decision.'}</em>
+            </h2>
+            <p className="editorial-body">
+              {es
+                ? 'Gestionamos proyectos de sourcing y suministro desde ahora, con facturación desde Francia o China. Prendas, ropa deportiva y técnica y empaques son nuestras especialidades, con una colaboración independiente establecida en China.'
+                : 'We handle sourcing and product supply projects now, with invoicing from France or China. Clothing, sportswear, technical apparel and packaging are our specialties, supported by an established independent China sourcing partnership.'}
+            </p>
+            <ul className="approach-points">
+              {points.map(([title, body], i) => (
+                <li key={title}>
+                  <span>0{i + 1}</span>
                   <div>
-                    <h3 className="text-base font-bold text-white">{title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-[#849188]">{body}</p>
+                    <h3>{title}</h3>
+                    <p>{body}</p>
                   </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      <section id="compliance" className="scroll-mt-20 border-y border-white/[0.07] bg-[#0a0e0c] py-24 sm:py-28">
-        <div className="mx-auto grid max-w-7xl items-center gap-12 px-4 sm:px-6 lg:grid-cols-[1fr_0.9fr] lg:px-8">
-          <div>
-            <span className="eyebrow">No hidden assumptions</span>
-            <h2 className="text-balance mt-6 text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
-              Product requirements are confirmed order by order.
-            </h2>
-            <p className="mt-5 max-w-xl text-base leading-7 text-[#94a198]">
-              Materials, certificates, labeling, shipping terms, and import responsibilities vary by product and destination. We identify the requirements that need confirmation before production begins.
-            </p>
-          </div>
-          <div className="soft-panel rounded-[26px] p-7 sm:p-9">
-            <ShieldAlert className="h-7 w-7 text-[#f1b47d]" aria-hidden="true" />
-            <h3 className="mt-6 text-xl font-black tracking-[-0.03em] text-white">Clear before you commit.</h3>
-            <ul className="mt-6 space-y-4">
-              {[
-                'Specifications, quantities, and samples are agreed before production.',
-                'Quality-control checkpoints are set for the specific order.',
-                'Import and delivery responsibilities are confirmed in the commercial terms.',
-              ].map((item) => (
-                <li key={item} className="flex items-start gap-3 text-sm leading-6 text-[#c9d3cd]">
-                  <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#70e1b2]" aria-hidden="true" />
-                  {item}
                 </li>
               ))}
             </ul>
+            <Link href="/about" className="editorial-text-link">
+              {es ? 'Conoce Sourcing Lab USA' : 'About Sourcing Lab USA'}
+              <ArrowUpRight size={17} aria-hidden="true" />
+            </Link>
           </div>
         </div>
       </section>
-
-      <section id="faq" className="scroll-mt-20 py-24 sm:py-28">
-        <div className="mx-auto grid max-w-7xl gap-12 px-4 sm:px-6 lg:grid-cols-[0.65fr_1fr] lg:px-8">
+      <section id="faq" className="editorial-section faq-section">
+        <div className="editorial-container faq-layout">
           <div>
-            <span className="eyebrow">Questions, answered</span>
-            <h2 className="text-balance mt-6 text-3xl font-black tracking-[-0.045em] text-white sm:text-5xl">
-              A straightforward sourcing partner.
+            <p className="editorial-kicker">
+              {es ? 'SIN COMPLICACIONES' : 'A FEW THINGS, MADE CLEAR'}
+            </p>
+            <h2 className="editorial-title">
+              {es ? 'Buenas preguntas.' : 'Good questions.'}
+              <br />
+              <em>{es ? 'Respuestas claras.' : 'Straight answers.'}</em>
             </h2>
-            <p className="mt-5 max-w-md text-base leading-7 text-[#94a198]">
-              The first conversation is about your product, not a generic catalog.
+            <p className="editorial-body">
+              {es
+                ? 'La primera conversación trata de tu producto y de lo que necesitas para hacerlo realidad.'
+                : 'The first conversation is about your product and what it needs to come to life.'}
             </p>
           </div>
-          <div className="divide-y divide-white/[0.08] border-y border-white/[0.08]">
-            {faqs.map(({ question, answer }) => (
-              <article key={question} className="py-6 sm:py-7">
-                <h3 className="text-base font-bold text-white">{question}</h3>
-                <p className="mt-3 text-sm leading-7 text-[#89968e]">{answer}</p>
-              </article>
+          <div className="faq-list">
+            {(es ? homeFaqsES : homeFaqs).map(([question, answer]) => (
+              <details className="faq-item" key={question}>
+                <summary>
+                  {question}
+                  <Plus aria-hidden="true" />
+                </summary>
+                <p>{answer}</p>
+              </details>
             ))}
           </div>
         </div>
       </section>
-
-      <BriefSection />
+      <section className="editorial-section sourcing-guide-section">
+        <div className="editorial-container">
+          <p className="editorial-kicker">
+            {es ? 'PREPARA TU PROYECTO' : 'A BETTER STARTING POINT'}
+          </p>
+          <h2 className="editorial-title">
+            {es
+              ? 'Una idea clara. Un brief mejor.'
+              : 'Clearer brief. Better decisions.'}
+          </h2>
+          <p className="editorial-body">
+            {es
+              ? 'Qué incluir para solicitar una cotización de prendas, empaques u otros productos. Con una plantilla descargable en inglés.'
+              : 'What to include when requesting a quotation for clothing, packaging or another product. Includes a downloadable sourcing brief template.'}
+          </p>
+          <Link
+            href="/blog/china-sourcing-rfq-checklist"
+            className="editorial-text-link"
+          >
+            {es
+              ? 'Lee la guía de cotización (inglés)'
+              : 'Read the China sourcing RFQ checklist'}
+            <ArrowUpRight size={17} aria-hidden="true" />
+          </Link>
+        </div>
+      </section>
+      <section id="contact" className="editorial-section contact-section">
+        <div className="editorial-container">
+          <div className="contact-panel">
+            <div>
+              <p className="editorial-kicker">
+                {es
+                  ? 'TODO EMPIEZA CON UNA IDEA'
+                  : 'IT ALL STARTS WITH AN IDEA'}
+              </p>
+              <h2 className="editorial-title">
+                {es ? 'Cuéntanos' : 'Tell us about'}
+                <br />
+                <em>{es ? 'tu próximo proyecto.' : 'your next project.'}</em>
+              </h2>
+              <p className="editorial-body">
+                {es
+                  ? 'Cuéntanos qué estás imaginando. Comparte el producto, las cantidades y las referencias: definiremos juntos el siguiente paso.'
+                  : 'Tell us what you have in mind. Share the product, quantities and references, and we’ll work out the right next step.'}
+              </p>
+              <a
+                href="mailto:contact@sourcinglabusa.com"
+                className="contact-email"
+              >
+                contact@sourcinglabusa.com
+                <ArrowUpRight size={16} aria-hidden="true" />
+              </a>
+              <p className="contact-note">
+                {es
+                  ? 'Proyectos disponibles ahora · Facturación desde Francia o China'
+                  : 'Projects open now · Invoicing from France or China'}
+              </p>
+            </div>
+            <ContactForm locale={locale} appearance="editorial" />
+          </div>
+        </div>
+      </section>
     </>
   );
 }

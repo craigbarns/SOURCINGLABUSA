@@ -87,7 +87,7 @@ const englishForm: BriefFormCopy = {
   genericError: 'Something went wrong while sending your brief.',
   fallbackIntro: 'Nothing is lost — you can send the same brief by email:',
   fallbackCta: 'Send it by email instead',
-  fallbackSubject: 'Custom packaging or textile project',
+  fallbackSubject: 'Product sourcing and supply project',
   fieldErrors: {
     name: 'Please enter your name.',
     email: 'Please enter a valid work email address.',
@@ -131,9 +131,10 @@ const spanishForm: BriefFormCopy = {
   ],
   successReset: 'Enviar otro proyecto',
   genericError: 'Ocurrió un problema al enviar su proyecto.',
-  fallbackIntro: 'No se ha perdido nada: puede enviarnos el mismo brief por email:',
+  fallbackIntro:
+    'No se ha perdido nada: puede enviarnos el mismo brief por email:',
   fallbackCta: 'Enviarlo por email',
-  fallbackSubject: 'Proyecto de packaging o textil personalizado',
+  fallbackSubject: 'Proyecto de sourcing y suministro de productos',
   fieldErrors: {
     name: 'Indique su nombre.',
     email: 'Indique un email profesional válido.',
@@ -143,10 +144,10 @@ const spanishForm: BriefFormCopy = {
     message: 'El brief no debe superar los 4.000 caracteres.',
   },
   projectTypeOptions: {
-    packaging: 'Packaging personalizado',
-    textile: 'Textil personalizado',
+    packaging: 'Packaging, cajas y etiquetas',
+    textile: 'Prendas, ropa deportiva y técnica',
     both: 'Packaging y textil',
-    other: 'Otro / aún no lo sé',
+    other: 'Otros productos / consultar un proyecto',
   },
   quantityOptions: {
     under_500: 'Menos de 500 unidades',

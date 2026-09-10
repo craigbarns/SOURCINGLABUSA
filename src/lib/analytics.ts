@@ -13,6 +13,7 @@ declare global {
   interface Window {
     dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
+    sourcingAnalyticsEnabled?: boolean;
   }
 }
 
@@ -26,7 +27,7 @@ export const ANALYTICS_EVENTS = {
 } as const;
 
 export function trackEvent(name: string, params: AnalyticsParams = {}): void {
-  if (typeof window === 'undefined') {
+  if (typeof window === 'undefined' || !window.sourcingAnalyticsEnabled) {
     return;
   }
 
@@ -40,9 +41,8 @@ export function trackEvent(name: string, params: AnalyticsParams = {}): void {
       return;
     }
 
-    // The tag loads after hydration, so queue early events on the data layer.
-    window.dataLayer = window.dataLayer ?? [];
-    window.dataLayer.push({ event: name, ...payload });
+    // The bootstrap creates the gtag command queue before React hydration.
+    // If it was blocked, do not create a second, incompatible queue format.
   } catch {
     // Measurement is never worth a broken page.
   }

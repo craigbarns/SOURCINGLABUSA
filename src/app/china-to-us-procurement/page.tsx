@@ -1,23 +1,13 @@
-import type { Metadata } from 'next';
-
 import { ServiceLandingPage } from '@/components/ServiceLandingPage';
 import { chinaToUsProcurementPage } from '@/lib/service-pages';
+import { pageMetadata } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'China-to-U.S. Packaging & Textile Procurement',
+export const metadata = pageMetadata({
+  title: 'China-to-U.S. Product Sourcing & Supply',
   description:
-    'Custom packaging and textile procurement for U.S. destinations, with product scope and commercial responsibilities confirmed order by order.',
-  alternates: {
-    canonical: '/china-to-us-procurement',
-  },
-  openGraph: {
-    type: 'website',
-    url: '/china-to-us-procurement',
-    title: 'China-to-U.S. Packaging & Textile Procurement',
-    description:
-      'Custom packaging and textile procurement for a U.S. destination through an established China sourcing partnership.',
-  },
-};
+    'China sourcing and product supply for U.S. businesses. Clothing, packaging and other products on request. Projects and invoicing available from France or China.',
+  path: '/china-to-us-procurement',
+});
 
 export default function ChinaToUsProcurementPage() {
   return <ServiceLandingPage page={chinaToUsProcurementPage} />;

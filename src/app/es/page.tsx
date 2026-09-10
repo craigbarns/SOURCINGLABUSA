@@ -1,53 +1,30 @@
-import type { Metadata } from 'next';
 import { LandingPageES } from '@/components/es/LandingPageES';
+import { StructuredData } from '@/components/StructuredData';
+import { homeFaqsES } from '@/lib/home-faqs';
+import { pageMetadata, webpageSchema, faqSchema } from '@/lib/seo';
 
-export const metadata: Metadata = {
-  title: 'Empaques y Textiles Personalizados',
-  description:
-    'Sourcing de empaques y productos textiles para marcas de EE.UU. Lanzamiento previsto en Miami para 2027.',
-  alternates: {
-    canonical: '/es',
-    languages: {
-      'en-US': '/',
-      'es-US': '/es',
-    },
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
-};
+const title = 'Sourcing en China y Suministro de Productos';
+const description =
+  'Sourcing en China de prendas, ropa deportiva y técnica, empaques y etiquetas. Proyectos disponibles ahora, con facturación desde Francia o China.';
+export const metadata = pageMetadata({
+  title,
+  description,
+  path: '/es',
+  locale: 'es-US',
+  translatedHome: true,
+});
 
-export default function HomePageES() {
-  const structuredData = {
-    '@context': 'https://schema.org',
-    '@graph': [
-      {
-        '@type': 'ProfessionalService',
-        '@id': 'https://sourcinglabusa.com/es#organization',
-        name: 'SourcingLab USA',
-        description: 'Sourcing de empaques y textiles personalizados para marcas y empresas de comercio electrónico en Estados Unidos. Lanzamiento en Miami para 2027.',
-        url: 'https://sourcinglabusa.com/es',
-        areaServed: {
-          '@type': 'Country',
-          name: 'United States',
-        },
-        serviceType: ['Sourcing de Empaques', 'Sourcing de Textiles'],
-        contactPoint: {
-          '@type': 'ContactPoint',
-          email: 'contact@sourcinglabusa.com',
-          contactType: 'customer support',
-          availableLanguage: ['English', 'Spanish'],
-        },
-      }
-    ]
-  };
-
+export default function HomePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      <StructuredData
+        data={{
+          '@context': 'https://schema.org',
+          '@graph': [
+            webpageSchema('/es', title, description, 'es-US'),
+            faqSchema('/es', homeFaqsES, 'es-US'),
+          ],
+        }}
       />
       <LandingPageES />
     </>

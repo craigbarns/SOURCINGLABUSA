@@ -72,19 +72,28 @@ export const customPackagingPage: ServicePageContent = {
     'Product, dimensions, material, print finish, quantity, and destination. We confirm what can be quoted and sampled, and reply by email.',
   relatedPages: [
     {
+      href: '/blog/china-sourcing-rfq-checklist',
+      title: 'China sourcing RFQ checklist',
+      description:
+        'Prepare a practical product brief and download the quotation request template.',
+    },
+    {
       href: '/private-label-packaging',
       title: 'Private label packaging',
-      description: 'Align packaging structure, branded details, and the information your product needs to carry.',
+      description:
+        'Align packaging structure, branded details, and the information your product needs to carry.',
     },
     {
       href: '/china-to-us-procurement',
       title: 'China-to-U.S. procurement',
-      description: 'Understand the project information and order terms to confirm for a U.S. destination.',
+      description:
+        'Understand the project information and order terms to confirm for a U.S. destination.',
     },
     {
       href: '/blog/custom-packaging-moq-guide',
       title: 'Custom packaging MOQ guide',
-      description: 'Read a practical guide to preparing a packaging brief and discussing quantity requirements.',
+      description:
+        'Read a practical guide to preparing a packaging brief and discussing quantity requirements.',
     },
   ],
 };
@@ -92,14 +101,15 @@ export const customPackagingPage: ServicePageContent = {
 export const customTextilePage: ServicePageContent = {
   path: '/custom-textile',
   eyebrow: 'Custom textile for U.S. brands',
-  title: 'Custom textile products made to a usable specification.',
+  title:
+    'Custom clothing and textiles, sourced from China to your specification.',
   intro:
-    'Develop apparel, towels, tote bags, uniforms, and branded textile accessories from a brief that defines fabric, construction, branding, quantity, and intended destination.',
+    'Source clothing, sportswear, technical garments, uniforms and branded textiles from a brief that defines fabric, construction, branding, quantity, and intended destination.',
   overview:
     'A useful textile brief makes the product decisions visible before production: the intended use, fabric and construction, measurements, labeling, decoration, quantity, and sample requirements.',
   offerName: 'Custom Textile Sourcing',
   offerDescription:
-    'Custom textile products for brands and companies, including apparel, towels, tote bags, uniforms, and branded accessories.',
+    'Clothing, sportswear, technical apparel and uniforms sourced in China to the product specification.',
   focusAreas: [
     {
       title: 'Product and use case',
@@ -161,19 +171,28 @@ export const customTextilePage: ServicePageContent = {
     'Product, fabric or construction, branding, sizes, quantity, and destination. We confirm what can be quoted and sampled, and reply by email.',
   relatedPages: [
     {
+      href: '/blog/china-sourcing-rfq-checklist',
+      title: 'China sourcing RFQ checklist',
+      description:
+        'Prepare a practical product brief and download the quotation request template.',
+    },
+    {
       href: '/custom-packaging',
       title: 'Custom packaging',
-      description: 'Develop boxes, bags, labels, tissue paper, and retail packaging alongside a product brief.',
+      description:
+        'Develop boxes, bags, labels, tissue paper, and retail packaging alongside a product brief.',
     },
     {
       href: '/china-to-us-procurement',
       title: 'China-to-U.S. procurement',
-      description: 'Confirm destination, commercial terms, and order responsibilities for a U.S.-bound project.',
+      description:
+        'Confirm destination, commercial terms, and order responsibilities for a U.S.-bound project.',
     },
     {
       href: '/blog/sustainable-textile-sourcing',
       title: 'Textile sourcing guide',
-      description: 'Use a clear specification to make textile sourcing conversations more practical.',
+      description:
+        'Use a clear specification to make textile sourcing conversations more practical.',
     },
   ],
 };
@@ -231,7 +250,7 @@ export const privateLabelPackagingPage: ServicePageContent = {
     {
       question: 'Do you provide private label packaging only?',
       answer:
-        'Our commercial focus is custom packaging and textile products. Private label packaging is developed around those product categories and your specific brief.',
+        'Clothing, textiles and packaging are our core specialties, with other products sourced on request. This page focuses on private label packaging developed around your product and brief.',
     },
     {
       question: 'What should we send with our artwork?',
@@ -250,19 +269,28 @@ export const privateLabelPackagingPage: ServicePageContent = {
     'Product, artwork or references, material, finish, quantity, and destination. We confirm what can be quoted and sampled, and reply by email.',
   relatedPages: [
     {
+      href: '/blog/china-sourcing-rfq-checklist',
+      title: 'China sourcing RFQ checklist',
+      description:
+        'Prepare a practical product brief and download the quotation request template.',
+    },
+    {
       href: '/custom-packaging',
       title: 'Custom packaging',
-      description: 'Explore the product, material, print, and format decisions that shape a custom packaging brief.',
+      description:
+        'Explore the product, material, print, and format decisions that shape a custom packaging brief.',
     },
     {
       href: '/custom-textile',
       title: 'Custom textile',
-      description: 'Develop branded apparel, bags, uniforms, and textile accessories to a clear specification.',
+      description:
+        'Develop branded apparel, bags, uniforms, and textile accessories to a clear specification.',
     },
     {
       href: '/blog/custom-packaging-moq-guide',
       title: 'Custom packaging MOQ guide',
-      description: 'Prepare quantity and specification questions before requesting a packaging proposal.',
+      description:
+        'Prepare quantity and specification questions before requesting a packaging proposal.',
     },
   ],
 };
@@ -270,18 +298,18 @@ export const privateLabelPackagingPage: ServicePageContent = {
 export const chinaToUsProcurementPage: ServicePageContent = {
   path: '/china-to-us-procurement',
   eyebrow: 'China-to-U.S. product procurement',
-  title: 'Custom packaging and textile procurement for a U.S. destination.',
+  title: 'China sourcing and product supply for U.S. businesses.',
   intro:
-    'Coordinate a custom packaging or textile project through an established China sourcing partnership, with product specifications, production steps, and delivery responsibilities confirmed for the exact order.',
+    'Start your China sourcing and product supply project now. Clothing, sportswear, technical apparel and packaging are our core specialties; other products are assessed on request. Your quote identifies the contracting and invoicing company in France or China.',
   overview:
     'China-to-U.S. procurement begins with a product brief and finishes with commercial terms that make the responsibilities clear. Product specifications, samples, production coordination, shipping terms, and importer responsibilities are confirmed order by order.',
-  offerName: 'China-to-U.S. Packaging and Textile Procurement',
+  offerName: 'China-to-U.S. Product Procurement',
   offerDescription:
-    'Custom packaging and textile procurement for U.S. brands and companies, coordinated through an established China sourcing partnership.',
+    'Product sourcing, purchase and supply for U.S. business customers. Projects are available now with invoicing from France or China, as agreed in the quotation.',
   focusAreas: [
     {
       title: 'A specific product scope',
-      body: 'Keep the conversation focused on custom packaging or textile products, with a brief that describes the product and intended use.',
+      body: 'Define the product, quantity and intended use. Clothing and packaging are core specialties; other product categories are reviewed for feasibility before a proposal is made.',
     },
     {
       title: 'Production coordination',
@@ -297,7 +325,7 @@ export const chinaToUsProcurementPage: ServicePageContent = {
     },
   ],
   briefItems: [
-    'Custom packaging or textile product description',
+    'Product category and description: clothing, packaging, or another product',
     'Specification, references, quantity, and sample needs',
     'U.S. destination and intended product timing',
     'Any known product, labeling, or documentation requirements',
@@ -318,9 +346,9 @@ export const chinaToUsProcurementPage: ServicePageContent = {
   ],
   faqs: [
     {
-      question: 'Do you offer general sourcing or freight forwarding?',
+      question: 'Can you source products beyond clothing and packaging?',
       answer:
-        'No. Our commercial focus is custom packaging and textile products. We do not present customs brokerage or freight forwarding as standalone services.',
+        'Yes. Other products can be assessed on request, based on their specifications, quantity and production requirements. Our offer is product sourcing and supply; customs brokerage and freight forwarding are not standalone services.',
     },
     {
       question: 'Who is responsible for import requirements?',
@@ -330,7 +358,7 @@ export const chinaToUsProcurementPage: ServicePageContent = {
     {
       question: 'Is there already a U.S. office or warehouse?',
       answer:
-        'No. Sourcing Lab USA is preparing its U.S. market launch from Miami for 2027 and works through an established China sourcing partnership.',
+        'No. The Miami expansion is planned for 2027. You can already work with us through France or China; the company handling your contract and invoice is identified in your quotation.',
     },
   ],
   briefTitle: 'Send your procurement brief.',
@@ -338,19 +366,28 @@ export const chinaToUsProcurementPage: ServicePageContent = {
     'Product, quantity, destination, target timing, and any specification you already have. We confirm the scope and reply by email.',
   relatedPages: [
     {
+      href: '/blog/china-sourcing-rfq-checklist',
+      title: 'China sourcing RFQ checklist',
+      description:
+        'Prepare a practical product brief and download the quotation request template.',
+    },
+    {
       href: '/custom-packaging',
       title: 'Custom packaging',
-      description: 'Develop a packaging brief covering format, material, print, quantity, and destination.',
+      description:
+        'Develop a packaging brief covering format, material, print, quantity, and destination.',
     },
     {
       href: '/custom-textile',
       title: 'Custom textile',
-      description: 'Develop a textile product specification for apparel, bags, uniforms, and branded accessories.',
+      description:
+        'Develop a textile product specification for apparel, bags, uniforms, and branded accessories.',
     },
     {
       href: '/blog/calculating-landed-costs-merchandise',
       title: 'Landed-cost planning guide',
-      description: 'Use a planning framework to identify cost inputs that should be confirmed for a product order.',
+      description:
+        'Use a planning framework to identify cost inputs that should be confirmed for a product order.',
     },
   ],
 };

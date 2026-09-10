@@ -95,8 +95,9 @@ function basisLabel(basis: QuoteRankingItem['basis']): string | null {
 /** Comparable ranking rows (numeric amount), best value first. */
 function comparableRows(ranking: QuoteRankingItem[]): QuoteRankingItem[] {
   return ranking
-    .filter((row): row is QuoteRankingItem & { amount: number } =>
-      typeof row.amount === 'number',
+    .filter(
+      (row): row is QuoteRankingItem & { amount: number } =>
+        typeof row.amount === 'number',
     )
     .slice()
     .sort((a, b) => a.amount - b.amount);
@@ -104,30 +105,33 @@ function comparableRows(ranking: QuoteRankingItem[]): QuoteRankingItem[] {
 
 const PipelineStepper: React.FC = () => (
   <div
-    className="rounded-2xl border border-[#f1b47d]/25 bg-[#f1b47d]/[0.04] p-5"
+    className="rounded-[4px] border border-brand-warning/25 bg-brand-warning/[0.04] p-5"
     role="status"
     aria-live="polite"
   >
-    <div className="flex items-center gap-2 text-sm font-bold text-white">
-      <LoaderCircle className="h-4 w-4 animate-spin text-[#f1b47d]" aria-hidden="true" />
+    <div className="flex items-center gap-2 text-sm font-bold text-brand-ink">
+      <LoaderCircle
+        className="h-4 w-4 animate-spin text-brand-warning"
+        aria-hidden="true"
+      />
       Analyzing your quotes…
     </div>
     <div className="mt-4 grid grid-cols-2 gap-2 sm:grid-cols-4">
       {PIPELINE_STEPS.map((step, index) => (
         <div key={step} className="space-y-2">
-          <div className="h-1 w-full overflow-hidden rounded-full bg-white/[0.06]">
+          <div className="h-1 w-full overflow-hidden rounded-full bg-brand-surface">
             <span
               className="shimmer-line block h-full w-full rounded-full"
               style={{ animationDelay: `${index * 160}ms` }}
             />
           </div>
-          <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-[#849188]">
+          <p className="text-[10px] font-semibold uppercase tracking-[0.08em] text-brand-muted">
             {step}
           </p>
         </div>
       ))}
     </div>
-    <p className="mt-4 text-xs text-[#849188]">
+    <p className="mt-4 text-xs text-brand-muted">
       Server upload → Mistral OCR → structured JSON → deterministic math checks.
       Processing may take several seconds.
     </p>
@@ -142,20 +146,24 @@ const StatTile: React.FC<{
   tone: 'lime' | 'mint' | 'blue' | 'amber';
 }> = ({ icon, label, value, sub, tone }) => {
   const toneMap = {
-    lime: 'text-[#dfffab]',
-    mint: 'text-[#9ff0cf]',
-    blue: 'text-[#aebfff]',
-    amber: 'text-[#f7cfa3]',
+    lime: 'text-brand-green',
+    mint: 'text-brand-green',
+    blue: 'text-brand-info',
+    amber: 'text-brand-warning',
   } as const;
 
   return (
-    <div className="bento-card count-pop rounded-2xl p-4">
-      <div className={`flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.08em] ${toneMap[tone]}`}>
+    <div className="bento-card count-pop rounded-[4px] p-4">
+      <div
+        className={`flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-[0.08em] ${toneMap[tone]}`}
+      >
         {icon}
         {label}
       </div>
-      <p className="mt-2 text-2xl font-black tracking-[-0.02em] text-white">{value}</p>
-      {sub && <p className="mt-0.5 text-[11px] text-[#849188]">{sub}</p>}
+      <p className="mt-2 text-2xl font-black tracking-[-0.02em] text-brand-ink">
+        {value}
+      </p>
+      {sub && <p className="mt-0.5 text-[11px] text-brand-muted">{sub}</p>}
     </div>
   );
 };
@@ -172,44 +180,55 @@ const ComparisonChart: React.FC<{
     <div className="space-y-3.5" aria-hidden="true">
       {rows.map((row, index) => {
         const amount = row.amount as number;
-        const width = maxAmount > 0 ? Math.max((amount / maxAmount) * 100, 6) : 6;
+        const width =
+          maxAmount > 0 ? Math.max((amount / maxAmount) * 100, 6) : 6;
         const isWinner =
           winnerFileName !== null
             ? row.fileName === winnerFileName
             : amount === minAmount;
         const deltaPercent =
-          minAmount > 0 ? Math.round(((amount - minAmount) / minAmount) * 100) : 0;
+          minAmount > 0
+            ? Math.round(((amount - minAmount) / minAmount) * 100)
+            : 0;
 
         return (
           <div key={`${index}-${row.fileName}`}>
             <div className="mb-1 flex items-baseline justify-between gap-3">
-              <span className="flex min-w-0 items-center gap-1.5 text-xs font-semibold text-white">
+              <span className="flex min-w-0 items-center gap-1.5 text-xs font-semibold text-brand-ink">
                 {isWinner && (
-                  <Crown className="h-3.5 w-3.5 shrink-0 text-[#c7ff6b]" aria-hidden="true" />
+                  <Crown
+                    className="h-3.5 w-3.5 shrink-0 text-brand-green"
+                    aria-hidden="true"
+                  />
                 )}
                 <span className="truncate">
                   {row.supplierName ?? 'Unidentified supplier'}
                 </span>
               </span>
-              <span className="shrink-0 font-mono text-xs text-gray-200">
+              <span className="shrink-0 font-mono text-xs text-brand-ink">
                 {formatMoney(amount, row.currency)}
               </span>
             </div>
-            <div className="h-2.5 w-full overflow-hidden rounded-full bg-white/[0.05]">
+            <div className="h-2.5 w-full overflow-hidden rounded-full bg-brand-surface">
               <div
                 className={`bar-grow h-full rounded-full ${
                   isWinner
-                    ? 'bg-gradient-to-r from-[#c7ff6b] to-[#70e1b2]'
-                    : 'bg-gradient-to-r from-[#5a6b62] to-[#7f8d85]'
+                    ? 'bg-brand-green'
+                    : 'bg-gradient-to-r from-brand-muted to-brand-muted'
                 }`}
-                style={{ width: `${width}%`, animationDelay: `${index * 90}ms` }}
+                style={{
+                  width: `${width}%`,
+                  animationDelay: `${index * 90}ms`,
+                }}
               />
             </div>
             <div className="mt-1 flex items-center justify-between gap-3 text-[10px]">
-              <span className="text-[#6f7c74]">{basisLabel(row.basis) ?? ''}</span>
+              <span className="text-brand-muted">
+                {basisLabel(row.basis) ?? ''}
+              </span>
               <span
                 className={
-                  isWinner ? 'font-bold text-[#c7ff6b]' : 'text-[#849188]'
+                  isWinner ? 'font-bold text-brand-green' : 'text-brand-muted'
                 }
               >
                 {isWinner
@@ -230,20 +249,20 @@ const ConfidenceMeter: React.FC<{ value: number }> = ({ value }) => {
   const pct = Math.round(value * 100);
   const tone =
     pct >= 80
-      ? 'from-[#c7ff6b] to-[#70e1b2]'
+      ? 'from-brand-green to-brand-green'
       : pct >= 55
-        ? 'from-[#f1b47d] to-[#f7cfa3]'
-        : 'from-[#ff9e9e] to-[#f1b47d]';
+        ? 'from-brand-warning to-brand-warning'
+        : 'from-brand-error to-brand-warning';
 
   return (
     <div className="mt-1 flex items-center gap-2">
-      <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-white/[0.06]">
+      <div className="h-1.5 flex-1 overflow-hidden rounded-full bg-brand-surface">
         <div
           className={`h-full rounded-full bg-gradient-to-r ${tone}`}
           style={{ width: `${Math.max(pct, 4)}%` }}
         />
       </div>
-      <span className="w-9 shrink-0 text-right font-mono text-[10px] text-[#849188]">
+      <span className="w-9 shrink-0 text-right font-mono text-[10px] text-brand-muted">
         {pct}%
       </span>
     </div>
@@ -256,34 +275,34 @@ const QuoteCard: React.FC<{
   isWinner: boolean;
 }> = ({ quote, mathCheck, isWinner }) => (
   <article
-    className={`relative space-y-3 rounded-2xl p-4 transition-colors ${
+    className={`relative space-y-3 rounded-[4px] p-4 transition-colors ${
       isWinner
-        ? 'border border-[#c7ff6b]/35 bg-[#c7ff6b]/[0.05]'
-        : 'border border-white/[0.07] bg-white/[0.02]'
+        ? 'border border-brand-green/35 bg-brand-green/[0.05]'
+        : 'border border-brand-line bg-brand-surface'
     }`}
   >
     {isWinner && (
-      <span className="absolute -top-2.5 left-4 inline-flex items-center gap-1 rounded-full border border-[#c7ff6b]/40 bg-[#0a0e0c] px-2 py-0.5 text-[10px] font-black uppercase tracking-[0.1em] text-[#c7ff6b]">
+      <span className="absolute -top-2.5 left-4 inline-flex items-center gap-1 rounded-full border border-brand-green/40 bg-brand-surface px-2 py-0.5 text-[10px] font-black uppercase tracking-[0.1em] text-brand-green">
         <Crown className="h-3 w-3" aria-hidden="true" />
         Best value
       </span>
     )}
     <div className="flex flex-wrap items-start justify-between gap-3">
       <div className="min-w-0">
-        <p className="break-all font-mono text-[11px] text-[#7f8d85]">
+        <p className="break-all font-mono text-[11px] text-brand-muted">
           {quote.fileName}
         </p>
-        <h4 className="text-base font-bold text-white">
+        <h4 className="text-base font-bold text-brand-ink">
           {quote.supplierName ?? 'Unidentified supplier'}
         </h4>
       </div>
       <span
         className={`rounded-full border px-2 py-1 text-[11px] font-semibold ${
           mathCheck?.status === 'matched'
-            ? 'border-[#70e1b2]/30 bg-[#70e1b2]/10 text-[#9ff0cf]'
+            ? 'border-brand-green/30 bg-brand-green/10 text-brand-green'
             : mathCheck?.status === 'mismatch'
-              ? 'border-[#ff9e9e]/30 bg-[#ff9e9e]/10 text-[#ffb4b4]'
-              : 'border-[#f1b47d]/30 bg-[#f1b47d]/10 text-[#f7cfa3]'
+              ? 'border-brand-error/30 bg-brand-error/10 text-brand-error'
+              : 'border-brand-warning/30 bg-brand-warning/10 text-brand-warning'
         }`}
       >
         {mathCheck ? mathCheckLabel(mathCheck) : 'Check unavailable'}
@@ -292,41 +311,43 @@ const QuoteCard: React.FC<{
 
     <dl className="grid grid-cols-2 gap-x-4 gap-y-2 text-xs">
       <div>
-        <dt className="text-[#6f7c74]">Reported total</dt>
-        <dd className="font-bold text-white">
+        <dt className="text-brand-muted">Reported total</dt>
+        <dd className="font-bold text-brand-ink">
           {formatMoney(quote.totals.total, quote.currency)}
         </dd>
       </div>
       <div>
-        <dt className="text-[#6f7c74]">Total quantity</dt>
-        <dd className="text-gray-200">
+        <dt className="text-brand-muted">Total quantity</dt>
+        <dd className="text-brand-ink">
           {quote.totalQuantity?.toLocaleString('en-US') ?? 'Not extracted'}
         </dd>
       </div>
       <div>
-        <dt className="text-[#6f7c74]">Incoterm</dt>
-        <dd className="text-gray-200">{quote.incoterm ?? 'Not extracted'}</dd>
+        <dt className="text-brand-muted">Incoterm</dt>
+        <dd className="text-brand-ink">{quote.incoterm ?? 'Not extracted'}</dd>
       </div>
       <div>
-        <dt className="text-[#6f7c74]">Lead time</dt>
-        <dd className="text-gray-200">{quote.leadTime ?? 'Not extracted'}</dd>
+        <dt className="text-brand-muted">Lead time</dt>
+        <dd className="text-brand-ink">{quote.leadTime ?? 'Not extracted'}</dd>
       </div>
       <div className="col-span-2">
-        <dt className="text-[#6f7c74]">Payment terms</dt>
-        <dd className="text-gray-200">{quote.paymentTerms ?? 'Not extracted'}</dd>
+        <dt className="text-brand-muted">Payment terms</dt>
+        <dd className="text-brand-ink">
+          {quote.paymentTerms ?? 'Not extracted'}
+        </dd>
       </div>
     </dl>
 
     <div>
-      <p className="text-[11px] text-[#6f7c74]">
-        Extraction confidence •{' '}
-        {quote.lineItems.length} line item{quote.lineItems.length === 1 ? '' : 's'}
+      <p className="text-[11px] text-brand-muted">
+        Extraction confidence • {quote.lineItems.length} line item
+        {quote.lineItems.length === 1 ? '' : 's'}
       </p>
       <ConfidenceMeter value={quote.extractionConfidence} />
     </div>
 
     {quote.warnings.length > 0 && (
-      <ul className="space-y-1 border-t border-white/[0.06] pt-2 text-[11px] text-[#f7cfa3]">
+      <ul className="space-y-1 border-t border-brand-line pt-2 text-[11px] text-brand-warning">
         {quote.warnings.map((warning) => (
           <li key={warning}>• {warning}</li>
         ))}
@@ -483,15 +504,15 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
 
   return (
     <div className="space-y-6">
-      <div className="surface-panel flex items-start gap-3 rounded-2xl p-5">
-        <div className="shrink-0 rounded-xl bg-[#f1b47d]/12 p-2.5 text-[#f1b47d]">
+      <div className="surface-panel flex items-start gap-3 rounded-[4px] p-5">
+        <div className="shrink-0 rounded-[4px] bg-brand-warning/12 p-2.5 text-brand-warning">
           <ShieldAlert className="h-5 w-5" aria-hidden="true" />
         </div>
         <div>
-          <h3 className="text-base font-bold text-white">
+          <h3 className="text-base font-bold text-brand-ink">
             Supplier Quote Comparison
           </h3>
-          <p className="mt-0.5 text-xs leading-relaxed text-[#849188]">
+          <p className="mt-0.5 text-xs leading-relaxed text-brand-muted">
             Upload up to three PDFs or images. The server extracts tables,
             structures each quote, recalculates totals, and compares only the
             data it can verify — narrative never overrides the numbers.
@@ -510,23 +531,24 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
           setDragActive(false);
           addFiles(Array.from(event.dataTransfer.files));
         }}
-        className={`rounded-2xl border-2 border-dashed p-8 text-center transition-all ${
+        className={`rounded-[4px] border-2 border-dashed p-8 text-center transition-all ${
           dragActive
-            ? 'border-[#c7ff6b]/60 bg-[#c7ff6b]/[0.06]'
-            : 'border-white/[0.1] bg-white/[0.015] hover:border-[#f1b47d]/40'
+            ? 'border-brand-green/60 bg-brand-green/[0.06]'
+            : 'border-brand-line bg-brand-surface hover:border-brand-warning/40'
         }`}
       >
-        <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-2xl bg-[#f1b47d]/12 text-[#f1b47d]">
+        <div className="mx-auto mb-3 flex h-12 w-12 items-center justify-center rounded-[4px] bg-brand-warning/12 text-brand-warning">
           <Upload className="h-6 w-6" aria-hidden="true" />
         </div>
-        <p className="text-sm font-semibold text-white">
+        <p className="text-sm font-semibold text-brand-ink">
           Drag your quotes here or select files
         </p>
-        <p id="quote-upload-help" className="mt-1 text-xs text-[#6f7c74]">
-          PDF, JPEG, PNG, or WebP • {formatQuoteUploadBytes(MAX_QUOTE_FILE_BYTES)}{' '}
-          per file • {formatQuoteUploadBytes(MAX_QUOTE_UPLOAD_BYTES)} combined
+        <p id="quote-upload-help" className="mt-1 text-xs text-brand-muted">
+          PDF, JPEG, PNG, or WebP •{' '}
+          {formatQuoteUploadBytes(MAX_QUOTE_FILE_BYTES)} per file •{' '}
+          {formatQuoteUploadBytes(MAX_QUOTE_UPLOAD_BYTES)} combined
         </p>
-        <label className="mt-4 inline-flex cursor-pointer items-center gap-2 rounded-xl bg-white/[0.06] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-white/[0.1] focus-within:ring-2 focus-within:ring-[#c7ff6b]">
+        <label className="mt-4 inline-flex cursor-pointer items-center gap-2 rounded-[4px] bg-brand-surface px-4 py-2 text-sm font-semibold text-brand-ink transition-colors hover:bg-brand-surface focus-within:ring-2 focus-within:ring-brand-green">
           <FileText className="h-4 w-4" aria-hidden="true" />
           Choose Files
           <input
@@ -545,12 +567,12 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
       </div>
 
       {files.length > 0 && (
-        <div className="soft-panel space-y-3 rounded-2xl p-4">
+        <div className="soft-panel space-y-3 rounded-[4px] p-4">
           <div className="flex items-center justify-between gap-3">
-            <h4 className="text-sm font-bold text-white">
+            <h4 className="text-sm font-bold text-brand-ink">
               {files.length} document{files.length === 1 ? '' : 's'} selected
             </h4>
-            <span className="font-mono text-xs text-[#849188]">
+            <span className="font-mono text-xs text-brand-muted">
               {formatQuoteUploadBytes(totalBytes)} • {files.length}/
               {MAX_QUOTE_FILES}
             </span>
@@ -559,15 +581,15 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
             {files.map((file, index) => (
               <li
                 key={`${file.name}-${file.size}-${file.lastModified}`}
-                className="flex items-center justify-between gap-3 rounded-xl border border-white/[0.05] bg-white/[0.02] px-3 py-2"
+                className="flex items-center justify-between gap-3 rounded-[4px] border border-brand-line bg-brand-surface px-3 py-2"
               >
-                <span className="flex min-w-0 items-center gap-2 text-xs text-gray-200">
+                <span className="flex min-w-0 items-center gap-2 text-xs text-brand-ink">
                   <FileText
-                    className="h-3.5 w-3.5 shrink-0 text-[#7f8d85]"
+                    className="h-3.5 w-3.5 shrink-0 text-brand-muted"
                     aria-hidden="true"
                   />
                   <span className="truncate">{file.name}</span>
-                  <span className="shrink-0 text-[#6f7c74]">
+                  <span className="shrink-0 text-brand-muted">
                     ({(file.size / 1024 / 1024).toFixed(1)} MB)
                   </span>
                 </span>
@@ -576,7 +598,7 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
                   onClick={() => removeFile(index)}
                   disabled={status === 'uploading'}
                   aria-label={`Remove ${file.name}`}
-                  className="rounded-lg p-1.5 text-[#7f8d85] transition-colors hover:bg-[#ff9e9e]/10 hover:text-[#ffb4b4] disabled:opacity-50"
+                  className="rounded-lg p-1.5 text-brand-muted transition-colors hover:bg-brand-error/10 hover:text-brand-error disabled:opacity-50"
                 >
                   <Trash2 className="h-4 w-4" aria-hidden="true" />
                 </button>
@@ -587,11 +609,14 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
             type="button"
             onClick={handleAnalyze}
             disabled={status === 'uploading'}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#c7ff6b] to-[#70e1b2] py-3 text-sm font-black text-[#07130c] transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:cursor-wait disabled:opacity-70"
+            className="flex w-full items-center justify-center gap-2 rounded-[4px] bg-brand-green py-3 text-sm font-black text-white transition-transform hover:-translate-y-0.5 disabled:translate-y-0 disabled:cursor-wait disabled:opacity-70"
           >
             {status === 'uploading' ? (
               <>
-                <LoaderCircle className="h-4 w-4 animate-spin" aria-hidden="true" />
+                <LoaderCircle
+                  className="h-4 w-4 animate-spin"
+                  aria-hidden="true"
+                />
                 Running OCR and checks…
               </>
             ) : (
@@ -608,7 +633,7 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
 
       {errorMessage && (
         <p
-          className="rounded-xl border border-[#ff9e9e]/30 bg-[#ff9e9e]/[0.08] p-4 text-sm text-[#ffb4b4]"
+          className="rounded-[4px] border border-brand-error/30 bg-brand-error/[0.08] p-4 text-sm text-brand-error"
           role="alert"
         >
           {errorMessage}
@@ -617,29 +642,32 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
 
       {result && status === 'success' && (
         <section
-          className="animate-rise surface-panel space-y-6 rounded-2xl p-6"
+          className="animate-rise surface-panel space-y-6 rounded-[4px] p-6"
           aria-labelledby="quote-report-title"
         >
-          <div className="flex flex-col justify-between gap-3 border-b border-white/[0.07] pb-4 sm:flex-row sm:items-start">
+          <div className="flex flex-col justify-between gap-3 border-b border-brand-line pb-4 sm:flex-row sm:items-start">
             <div>
-              <p className="font-mono text-xs text-[#f1b47d]">
+              <p className="font-mono text-xs text-brand-warning">
                 {providerLabel(result)}
               </p>
               <h3
                 id="quote-report-title"
-                className="mt-0.5 flex items-center gap-2 text-2xl font-black tracking-[-0.03em] text-white"
+                className="mt-0.5 flex items-center gap-2 text-2xl font-black tracking-[-0.03em] text-brand-ink"
               >
                 Comparison Report
-                <Sparkles className="h-5 w-5 text-[#c7ff6b]" aria-hidden="true" />
+                <Sparkles
+                  className="h-5 w-5 text-brand-green"
+                  aria-hidden="true"
+                />
               </h3>
             </div>
             <span
               className={`self-start rounded-full border px-3 py-1 text-xs font-black uppercase tracking-[0.08em] ${
                 result.mode === 'demo'
-                  ? 'border-[#f1b47d]/40 bg-[#f1b47d]/15 text-[#f7cfa3]'
+                  ? 'border-brand-warning/40 bg-brand-warning/15 text-brand-warning'
                   : result.mode === 'partial'
-                    ? 'border-[#7e9cff]/40 bg-[#7e9cff]/15 text-[#aebfff]'
-                    : 'border-[#c7ff6b]/40 bg-[#c7ff6b]/15 text-[#dfffab]'
+                    ? 'border-brand-info/40 bg-brand-info/15 text-brand-info'
+                    : 'border-brand-green/40 bg-brand-green/15 text-brand-green'
               }`}
             >
               {result.mode === 'demo'
@@ -652,10 +680,10 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
 
           {result.warning && (
             <div
-              className="rounded-xl border border-[#f1b47d]/30 bg-[#f1b47d]/[0.08] p-4 text-sm text-[#f7cfa3]"
+              className="rounded-[4px] border border-brand-warning/30 bg-brand-warning/[0.08] p-4 text-sm text-brand-warning"
               role={result.mode === 'demo' ? 'alert' : 'status'}
             >
-              <strong className="mb-1 block text-[#f1b47d]">
+              <strong className="mb-1 block text-brand-warning">
                 {result.mode === 'demo'
                   ? 'No user files analyzed'
                   : 'Pipeline transparency'}
@@ -666,33 +694,38 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
 
           {/* Winner spotlight */}
           {bestRow && (
-            <div className="relative overflow-hidden rounded-2xl border border-[#c7ff6b]/30 bg-gradient-to-br from-[#c7ff6b]/[0.1] via-[#70e1b2]/[0.04] to-transparent p-5">
+            <div className="relative overflow-hidden rounded-[4px] border border-brand-green/30 bg-gradient-to-br from-brand-green/[0.1] via-brand-green/[0.04] to-transparent p-5">
               <div className="dot-grid pointer-events-none absolute inset-0 opacity-[0.15]" />
               <div className="relative flex flex-wrap items-end justify-between gap-4">
                 <div>
-                  <span className="inline-flex items-center gap-1.5 text-[11px] font-black uppercase tracking-[0.12em] text-[#c7ff6b]">
+                  <span className="inline-flex items-center gap-1.5 text-[11px] font-black uppercase tracking-[0.12em] text-brand-green">
                     <Crown className="h-3.5 w-3.5" aria-hidden="true" />
                     Best comparable value
                   </span>
-                  <p className="mt-1.5 text-xl font-black text-white">
+                  <p className="mt-1.5 text-xl font-black text-brand-ink">
                     {bestRow.supplierName ?? 'Unidentified supplier'}
                   </p>
-                  <p className="text-xs text-[#849188]">
+                  <p className="text-xs text-brand-muted">
                     {formatMoney(bestRow.amount, bestRow.currency)}
-                    {basisLabel(bestRow.basis) ? ` • ${basisLabel(bestRow.basis)}` : ''}
+                    {basisLabel(bestRow.basis)
+                      ? ` • ${basisLabel(bestRow.basis)}`
+                      : ''}
                   </p>
                 </div>
                 {savingsAbsolute !== null && savingsAbsolute > 0 && (
                   <div className="text-right">
-                    <span className="flex items-center justify-end gap-1 text-[11px] font-bold uppercase tracking-[0.08em] text-[#9ff0cf]">
-                      <TrendingDown className="h-3.5 w-3.5" aria-hidden="true" />
+                    <span className="flex items-center justify-end gap-1 text-[11px] font-bold uppercase tracking-[0.08em] text-brand-green">
+                      <TrendingDown
+                        className="h-3.5 w-3.5"
+                        aria-hidden="true"
+                      />
                       Potential savings
                     </span>
-                    <p className="text-2xl font-black text-[#c7ff6b]">
+                    <p className="text-2xl font-black text-brand-green">
                       {formatMoney(savingsAbsolute, bestRow.currency)}
                     </p>
                     {savingsPercent !== null && (
-                      <p className="text-[11px] text-[#849188]">
+                      <p className="text-[11px] text-brand-muted">
                         {savingsPercent}% vs the highest quote
                       </p>
                     )}
@@ -738,27 +771,30 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
             <StatTile
               icon={<Crown className="h-3.5 w-3.5" aria-hidden="true" />}
               label="Best value"
-              value={formatMoney(bestRow?.amount ?? null, bestRow?.currency ?? null)}
+              value={formatMoney(
+                bestRow?.amount ?? null,
+                bestRow?.currency ?? null,
+              )}
               sub={bestRow?.supplierName ?? 'Not ranked'}
               tone="lime"
             />
           </div>
 
           {/* Comparability summary */}
-          <div className="rounded-2xl border border-white/[0.07] bg-white/[0.02] p-4">
+          <div className="rounded-[4px] border border-brand-line bg-brand-surface p-4">
             <div className="flex items-start gap-3">
               {result.comparison.comparability === 'high' ? (
                 <CheckCircle2
-                  className="h-5 w-5 shrink-0 text-[#70e1b2]"
+                  className="h-5 w-5 shrink-0 text-brand-green"
                   aria-hidden="true"
                 />
               ) : (
                 <AlertTriangle
-                  className="h-5 w-5 shrink-0 text-[#f1b47d]"
+                  className="h-5 w-5 shrink-0 text-brand-warning"
                   aria-hidden="true"
                 />
               )}
-              <p className="text-xs leading-relaxed text-gray-300">
+              <p className="text-xs leading-relaxed text-brand-ink">
                 {result.comparison.summary}
               </p>
             </div>
@@ -766,9 +802,12 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
 
           {/* Price comparison chart + accessible ranking table */}
           {rows.length > 0 && (
-            <div className="rounded-2xl border border-white/[0.07] bg-white/[0.02] p-5">
-              <h4 className="mb-4 flex items-center gap-2 text-sm font-bold text-white">
-                <BarChart3 className="h-4 w-4 text-[#c7ff6b]" aria-hidden="true" />
+            <div className="rounded-[4px] border border-brand-line bg-brand-surface p-5">
+              <h4 className="mb-4 flex items-center gap-2 text-sm font-bold text-brand-ink">
+                <BarChart3
+                  className="h-4 w-4 text-brand-green"
+                  aria-hidden="true"
+                />
                 Comparable price ranking
               </h4>
               <ComparisonChart rows={rows} winnerFileName={winnerFileName} />
@@ -785,7 +824,9 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
                 <tbody>
                   {result.comparison.ranking.map((item, index) => (
                     <tr key={`${index}-${item.fileName}`}>
-                      <td>{item.rank === null ? 'Not ranked' : `#${item.rank}`}</td>
+                      <td>
+                        {item.rank === null ? 'Not ranked' : `#${item.rank}`}
+                      </td>
                       <td>{item.supplierName ?? 'Unidentified supplier'}</td>
                       <td>{formatMoney(item.amount, item.currency)}</td>
                       <td>{basisLabel(item.basis) ?? 'insufficient data'}</td>
@@ -812,32 +853,37 @@ export const QuoteAnalyzer: React.FC<QuoteAnalyzerProps> = () => {
 
           {/* Vigilance + next actions */}
           <div className="grid gap-4 md:grid-cols-2">
-            <div className="rounded-2xl border border-[#ff9e9e]/25 bg-[#ff9e9e]/[0.05] p-4">
-              <h4 className="mb-2 flex items-center gap-2 text-sm font-bold text-[#ffb4b4]">
+            <div className="rounded-[4px] border border-brand-error/25 bg-brand-error/[0.05] p-4">
+              <h4 className="mb-2 flex items-center gap-2 text-sm font-bold text-brand-error">
                 <AlertTriangle className="h-4 w-4" aria-hidden="true" />
                 Items to Verify
               </h4>
-              <ul className="space-y-1.5 text-xs text-gray-300">
+              <ul className="space-y-1.5 text-xs text-brand-ink">
                 {result.comparison.vigilancePoints.map((point, index) => (
                   <li key={`${index}-${point}`} className="flex gap-2">
-                    <span className="text-[#ff9e9e]">•</span>
+                    <span className="text-brand-error">•</span>
                     <span>{point}</span>
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="rounded-2xl border border-[#70e1b2]/25 bg-[#70e1b2]/[0.05] p-4">
-              <h4 className="mb-2 flex items-center gap-2 text-sm font-bold text-[#9ff0cf]">
+            <div className="rounded-[4px] border border-brand-green/25 bg-brand-green/[0.05] p-4">
+              <h4 className="mb-2 flex items-center gap-2 text-sm font-bold text-brand-green">
                 <ClipboardList className="h-4 w-4" aria-hidden="true" />
                 Next Actions
               </h4>
-              <ul className="space-y-1.5 text-xs text-gray-300">
-                {result.comparison.recommendations.map((recommendation, index) => (
-                  <li key={`${index}-${recommendation}`} className="flex gap-2">
-                    <span className="text-[#70e1b2]">•</span>
-                    <span>{recommendation}</span>
-                  </li>
-                ))}
+              <ul className="space-y-1.5 text-xs text-brand-ink">
+                {result.comparison.recommendations.map(
+                  (recommendation, index) => (
+                    <li
+                      key={`${index}-${recommendation}`}
+                      className="flex gap-2"
+                    >
+                      <span className="text-brand-green">•</span>
+                      <span>{recommendation}</span>
+                    </li>
+                  ),
+                )}
               </ul>
             </div>
           </div>

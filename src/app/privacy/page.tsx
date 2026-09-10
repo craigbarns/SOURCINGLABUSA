@@ -1,4 +1,4 @@
-import type { Metadata } from 'next';
+import { pageMetadata } from '@/lib/seo';
 import Link from 'next/link';
 
 import { Footer } from '@/components/Footer';
@@ -17,12 +17,12 @@ import { BRIEF_CONTACT_EMAIL } from '@/lib/brief-copy';
 
 const LAST_UPDATED = '7 September 2026';
 
-export const metadata: Metadata = {
+export const metadata = pageMetadata({
   title: 'Privacy notice',
   description:
     'What Sourcing Lab USA collects when you send a project brief, where it is stored, and how to have it removed.',
-  alternates: { canonical: '/privacy' },
-};
+  path: '/privacy',
+});
 
 function Section({
   title,
@@ -32,34 +32,38 @@ function Section({
   children: React.ReactNode;
 }) {
   return (
-    <section className="border-t border-white/[0.08] py-8">
-      <h2 className="text-xl font-black tracking-[-0.03em] text-white">{title}</h2>
-      <div className="mt-4 space-y-4 text-sm leading-7 text-[#a0aca5]">{children}</div>
+    <section className="border-t border-brand-line py-8">
+      <h2 className="text-xl font-medium tracking-[-0.03em] text-brand-ink">
+        {title}
+      </h2>
+      <div className="mt-4 space-y-4 text-sm leading-7 text-brand-muted">
+        {children}
+      </div>
     </section>
   );
 }
 
 export default function PrivacyPage() {
   return (
-    <div className="marketing-shell flex min-h-screen flex-col">
+    <div className="editorial-shell flex min-h-screen flex-col">
       <Navbar area="marketing" contactHref="/#contact" />
 
       <main className="flex-1">
         <div className="mx-auto max-w-3xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-          <nav aria-label="Breadcrumb" className="text-sm text-[#98a69e]">
-            <Link href="/" className="transition-colors hover:text-white">
+          <nav aria-label="Breadcrumb" className="page-breadcrumb">
+            <Link href="/" className="transition-colors hover:text-brand-ink">
               Home
             </Link>
-            <span aria-hidden="true" className="mx-2 text-[#5c6861]">
+            <span aria-hidden="true" className="mx-2 text-brand-muted">
               /
             </span>
             <span>Privacy notice</span>
           </nav>
 
-          <h1 className="mt-10 text-balance text-4xl font-black tracking-[-0.05em] text-white sm:text-5xl">
+          <h1 className="mt-10 text-balance text-4xl font-medium tracking-[-0.05em] text-brand-ink sm:text-5xl">
             Privacy notice
           </h1>
-          <p className="mt-6 text-base leading-7 text-[#a0aca5]">
+          <p className="mt-6 text-base leading-7 text-brand-muted">
             This page explains what we collect when you use this website, why we
             collect it, where it is stored, and how to have it removed. Last
             updated {LAST_UPDATED}.
@@ -99,10 +103,10 @@ export default function PrivacyPage() {
 
             <Section title="Where it is stored">
               <p>
-                Briefs and product update registrations are stored in a
-                Supabase database that only our servers can reach. Brief
-                submissions are also delivered to us as a notification through
-                Netlify Forms, the service that hosts this website.
+                Briefs and product update registrations are stored in a Supabase
+                database that only our servers can reach. Brief submissions are
+                also delivered to us as a notification through Netlify Forms,
+                the service that hosts this website.
               </p>
               <p>
                 We use Google Analytics to understand how the site is used —
@@ -131,7 +135,7 @@ export default function PrivacyPage() {
                 You can ask for a copy of what we hold about you, ask us to
                 correct it, or ask us to delete it. Write to{' '}
                 <a
-                  className="font-bold text-[#dfffab] transition-colors hover:text-white"
+                  className="font-bold text-brand-green transition-colors hover:text-brand-ink"
                   href={`mailto:${BRIEF_CONTACT_EMAIL}?subject=${encodeURIComponent(
                     'Privacy request',
                   )}`}
@@ -150,7 +154,7 @@ export default function PrivacyPage() {
               <p>
                 Questions about this notice go to{' '}
                 <a
-                  className="font-bold text-[#dfffab] transition-colors hover:text-white"
+                  className="font-bold text-brand-green transition-colors hover:text-brand-ink"
                   href={`mailto:${BRIEF_CONTACT_EMAIL}`}
                 >
                   {BRIEF_CONTACT_EMAIL}
@@ -160,11 +164,8 @@ export default function PrivacyPage() {
             </Section>
           </div>
 
-          <div className="mt-12 border-t border-white/[0.08] pt-8">
-            <Link
-              href="/#contact"
-              className="inline-flex min-h-12 items-center gap-2 rounded-xl bg-[#c7ff6b] px-6 py-3.5 text-sm font-extrabold text-[#0a0d0b] transition hover:bg-[#d6ff91]"
-            >
+          <div className="mt-12 border-t border-brand-line pt-8">
+            <Link href="/#contact" className="editorial-button">
               Back to the brief form
             </Link>
           </div>

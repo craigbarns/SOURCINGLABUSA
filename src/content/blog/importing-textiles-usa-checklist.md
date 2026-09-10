@@ -1,45 +1,39 @@
 ---
-title: "Importing Textiles to the USA: A Beginner's Checklist"
-excerpt: "Key compliance, labeling, and logistical requirements you must know before importing custom apparel and textiles from China to the United States."
+title: "U.S. Textile Import Planning: Labels, Documents and Product Review"
+excerpt: "Prepare a textile import review with product details, label artwork and documentation. Includes official FTC and CPSC resources for the U.S. market."
 date: "2026-09-03"
+updated: "2026-09-08"
 author: "SourcingLab USA"
 ---
 
-Importing custom apparel and textile products into the United States involves strict compliance and labeling requirements. A minor oversight on a care label or missing documentation can result in your shipment being delayed, fined, or rejected at U.S. Customs.
+For a U.S.-bound textile project, start by identifying the exact product, fiber composition, intended user, labeling artwork and party responsible for import review. Confirm requirements before approving production. This checklist helps organize that review; it does not determine whether a particular product complies with U.S. rules.
 
-If you are preparing for a China-to-U.S. procurement project, use this beginner's checklist to ensure your textile imports comply with U.S. regulations.
+## Define the product before reviewing requirements
 
-## 1. Mandatory Textile Labeling Requirements
+Document the intended use and age group, materials, construction, trims, decoration and packaging. Share the same specification with the parties reviewing labeling, product safety and import arrangements. A description such as “cotton clothing” leaves important details unresolved.
 
-The Federal Trade Commission (FTC) strictly enforces how textiles and apparel must be labeled when sold in the United States. Before production begins, ensure your tech pack specifies that every garment must have a permanently affixed label stating:
+## Review textile labels and care instructions separately
 
-- **Country of Origin:** It must clearly state where the product was manufactured (e.g., "Made in China"). This must be on the front of the label, placed in the center of the neck (for garments with a neck).
-- **Fiber Content:** You must list the generic names of the fibers present in amounts of 5% or more, by percentage of total weight (e.g., "100% Cotton" or "80% Polyester, 20% Spandex").
-- **Manufacturer or Dealer Identity:** You must include your company name or your Registered Identification Number (RN) issued by the FTC.
-- **Care Instructions:** Clear instructions for washing, drying, and ironing the garment. Symbols alone are not sufficient in the U.S.; you must include written English instructions (though symbols can accompany them).
+The FTC explains that most covered textile and wool products need labels identifying fiber content, country of origin and the responsible business. Scope and exceptions matter. Use the [FTC textile and wool labeling guide](https://www.ftc.gov/business-guidance/resources/threading-your-way-through-labeling-requirements-under-textile-wool-acts) when reviewing your product.
 
-## 2. Flammability Standards
+Care instructions have their own rules. The [FTC care labeling guidance](https://www.ftc.gov/business-guidance/resources/clothes-captioning-complying-care-labeling-rule) explains coverage and permits specified ASTM care symbols in place of words when the rule's conditions are met. Do not assume that every international symbol set is acceptable.
 
-The Consumer Product Safety Commission (CPSC) regulates the flammability of clothing textiles. Most standard apparel fabrics (like plain-surface cotton or polyester weighing over 2.6 oz per square yard) are generally exempt from flammability testing. However, if you are importing children's sleepwear or certain sheer/lightweight fabrics, strict flammability testing and certification are mandatory.
+Keep a dated approval of the final label artwork, its placement and the supporting product information. Confirm the requirements for the specific item before labels are printed.
 
-## 3. Children's Product Certification (CPC)
+## Identify the product safety review needed
 
-If your textiles are designed or intended primarily for children 12 years of age or younger, they are subject to strict CPSC rules. You will need a Children's Product Certificate (CPC) supported by test results from a CPSC-accepted third-party laboratory, confirming compliance with lead and phthalate limits.
+Use the [CPSC clothing business guidance](https://www.cpsc.gov/Business--Manufacturing/Business-Education/Business-Guidance/Clothing-OLD) as a starting point for the applicable clothing rules. Intended use, age group and construction can affect the review. Ask the appropriate specialist which testing, certificates or other documentation applies; a broad material description does not establish an exemption.
 
-## 4. Prepare for U.S. Customs (CBP)
+## Assemble the order information
 
-When your shipment arrives at a U.S. port, U.S. Customs and Border Protection (CBP) will clear the goods. Ensure you have the correct documentation:
-- **Commercial Invoice:** Clearly stating the value, quantity, and description of the goods.
-- **Packing List:** Detailing how the goods are packed (carton weights and dimensions).
-- **Bill of Lading (B/L) or Air Waybill:** Issued by the carrier.
-- **Harmonized Tariff Schedule (HTS) Code:** Textiles have complex HTS codes based on fiber content, knit vs. woven, and gender. The exact HTS code determines the import duty rate you will pay. Work with a licensed customs broker to classify your products correctly.
+Prepare the approved specification, product description, quantity, value, carton details, proposed route and destination. Confirm with the responsible import professional which documents and classification review are required for the shipment. Record who will prepare and approve each document.
 
-## 5. Commercial Terms (Incoterms)
+Keep sample approval and document approval distinct. A sample can confirm appearance and construction without resolving all requirements for selling or importing that product.
 
-Before placing the order with your sourcing partner, confirm the Incoterms (e.g., FOB, DDP, EXW). These terms define who is responsible for the freight costs, insurance, and the import duties when the goods cross the U.S. border.
+## Agree commercial responsibilities
 
-## Conclusion
+The product proposal should identify what is included in the price, the delivery basis, the relevant parties and any items still awaiting confirmation. Sourcing projects can start now, with the contracting and invoicing company in France or China identified in the quotation. Import review and delivery responsibilities will be agreed per order.
 
-Importing textiles requires careful planning before manufacturing starts. Confirming your labeling and compliance requirements during the sampling phase will save you significant headaches at the border.
+For the product brief, see [clothing and textile sourcing](/custom-textile) and the [China sourcing RFQ checklist](/blog/china-sourcing-rfq-checklist).
 
-*SourcingLab USA coordinates custom textile procurement, ensuring product specifications and commercial responsibilities are clearly confirmed order by order. Contact us to plan your U.S.-bound textile project.*
+Official guidance checked on September 7, 2026. Recheck the linked authorities for the product and shipment date.

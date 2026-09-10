@@ -2,9 +2,16 @@ import '@testing-library/jest-dom/vitest';
 
 import { render, screen, waitFor } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
+import { renderToString } from 'react-dom/server';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 import { ContactForm } from '@/components/ContactForm';
+import { trackEvent } from '@/lib/analytics';
+
+vi.mock('@/lib/analytics', async (importOriginal) => {
+  const original = await importOriginal<typeof import('@/lib/analytics')>();
+  return { ...original, trackEvent: vi.fn() };
+});
 
 vi.mock('next/navigation', () => ({
   usePathname: () => '/custom-packaging',
@@ -24,6 +31,7 @@ async function fillRequiredFields(user: ReturnType<typeof userEvent.setup>) {
 describe('ContactForm', () => {
   beforeEach(() => {
     fetchMock.mockReset();
+    vi.mocked(trackEvent).mockClear();
     vi.stubGlobal('fetch', fetchMock);
   });
 
@@ -31,13 +39,33 @@ describe('ContactForm', () => {
     vi.unstubAllGlobals();
   });
 
+  it('prevents native submission and entering details before hydration', () => {
+    const container = document.createElement('div');
+    container.innerHTML = renderToString(<ContactForm />);
+    const form = container.querySelector('form')!;
+    expect(form.method).toBe('post');
+    for (const control of form.querySelectorAll('input, select, textarea, button')) {
+      expect(control).toBeDisabled();
+    }
+
+    render(<ContactForm />, { container, hydrate: true });
+
+    expect(container.querySelector('input[name="name"]')).toBeEnabled();
+    expect(container.querySelector('button[type="submit"]')).toBeEnabled();
+    expect(fetchMock).not.toHaveBeenCalled();
+  });
+
   it('blocks submission and shows field errors when required details are missing', async () => {
     const user = userEvent.setup();
-    render(<ContactForm />);
+    render(<ContactForm appearance="editorial" />);
 
-    await user.click(screen.getByRole('button', { name: /Send my project brief/i }));
+    await user.click(
+      screen.getByRole('button', { name: /Send my project brief/i }),
+    );
 
-    expect(await screen.findByText('Please enter your name.')).toBeInTheDocument();
+    expect(
+      await screen.findByText('Please enter your name.'),
+    ).toBeInTheDocument();
     expect(fetchMock).not.toHaveBeenCalled();
   });
 
@@ -49,9 +77,11 @@ describe('ContactForm', () => {
       json: vi.fn().mockResolvedValue({ message: 'Brief received.' }),
     } as unknown as Response);
 
-    render(<ContactForm />);
+    render(<ContactForm appearance="editorial" />);
     await fillRequiredFields(user);
-    await user.click(screen.getByRole('button', { name: /Send my project brief/i }));
+    await user.click(
+      screen.getByRole('button', { name: /Send my project brief/i }),
+    );
 
     await waitFor(() => {
       expect(fetchMock).toHaveBeenCalledTimes(1);
@@ -68,6 +98,7 @@ describe('ContactForm', () => {
     });
 
     expect(await screen.findByText('Brief received.')).toBeInTheDocument();
+    expect(trackEvent).toHaveBeenCalledWith('generate_lead', expect.objectContaining({ project_type: 'packaging', source_path: '/custom-packaging' }));
   });
 
   it('offers an email fallback carrying the brief when delivery fails', async () => {
@@ -78,15 +109,35 @@ describe('ContactForm', () => {
       json: vi.fn().mockResolvedValue({ message: 'Delivery unavailable.' }),
     } as unknown as Response);
 
-    render(<ContactForm />);
+    render(<ContactForm appearance="editorial" />);
     await fillRequiredFields(user);
     await user.type(screen.getByLabelText(/Your brief/i), '5000 rigid boxes');
-    await user.click(screen.getByRole('button', { name: /Send my project brief/i }));
+    await user.click(
+      screen.getByRole('button', { name: /Send my project brief/i }),
+    );
 
-    expect(await screen.findByText('Delivery unavailable.')).toBeInTheDocument();
+    expect(
+      await screen.findByText('Delivery unavailable.'),
+    ).toBeInTheDocument();
 
-    const fallback = screen.getByRole('link', { name: /Send it by email instead/i });
-    expect(fallback.getAttribute('href')).toContain('mailto:contact@sourcinglabusa.com');
-    expect(fallback.getAttribute('href')).toContain(encodeURIComponent('5000 rigid boxes'));
+    const fallback = screen.getByRole('link', {
+      name: /Send it by email instead/i,
+    });
+    expect(fallback.getAttribute('href')).toContain(
+      'mailto:contact@sourcinglabusa.com',
+    );
+    expect(fallback.getAttribute('href')).toContain(
+      encodeURIComponent('5000 rigid boxes'),
+    );
+    expect(vi.mocked(trackEvent).mock.calls.some(([name]) => name === 'generate_lead')).toBe(false);
+  });
+
+  it('starts a category inquiry with the relevant product selected but allows changing it', async () => {
+    const user = userEvent.setup();
+    render(<ContactForm initialProjectType="textile" />);
+    const select = screen.getByLabelText(/What do you need/i);
+    expect(select).toHaveValue('textile');
+    await user.selectOptions(select, 'both');
+    expect(select).toHaveValue('both');
   });
 });

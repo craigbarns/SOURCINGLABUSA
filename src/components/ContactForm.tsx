@@ -11,12 +11,9 @@ import {
 } from 'lucide-react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { useId, useMemo, useRef, useState } from 'react';
+import { useId, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 
-import {
-  ANALYTICS_EVENTS,
-  trackEvent,
-} from '@/lib/analytics';
+import { ANALYTICS_EVENTS, trackEvent } from '@/lib/analytics';
 import {
   BRIEF_CONTACT_EMAIL,
   BRIEF_FORM_COPY,
@@ -39,8 +36,10 @@ type FieldErrors = Partial<Record<FieldName, string>>;
 
 interface ContactFormProps {
   locale?: BriefLocale;
+  appearance?: 'dark' | 'editorial';
   /** Where the form is rendered, reported with the conversion event. */
   formLocation?: string;
+  initialProjectType?: ProjectType;
 }
 
 const inputClassName =
@@ -57,14 +56,26 @@ const emptyValues = {
   message: '',
 };
 
+// Keep the server-rendered fields inactive until their submit handler is ready.
+const subscribeToHydration = () => () => {};
+const clientIsReady = () => true;
+const serverIsReady = () => false;
+
 export function ContactForm({
   locale = 'en',
+  appearance = 'editorial',
   formLocation = 'contact_section',
+  initialProjectType,
 }: ContactFormProps) {
+  const isReady = useSyncExternalStore(
+    subscribeToHydration,
+    clientIsReady,
+    serverIsReady,
+  );
   const copy = BRIEF_FORM_COPY[locale];
   const pathname = usePathname();
   const fieldId = useId();
-  const [values, setValues] = useState(emptyValues);
+  const [values, setValues] = useState({ ...emptyValues, projectType: initialProjectType ?? emptyValues.projectType });
   const [status, setStatus] = useState<Status>('idle');
   const [fieldErrors, setFieldErrors] = useState<FieldErrors>({});
   const [generalError, setGeneralError] = useState<string | null>(null);
@@ -113,7 +124,11 @@ export function ContactForm({
     });
   };
 
-  const failWith = (errors: FieldErrors, message: string | null, reason: string) => {
+  const failWith = (
+    errors: FieldErrors,
+    message: string | null,
+    reason: string,
+  ) => {
     setFieldErrors(errors);
     setGeneralError(message);
     setStatus(message ? 'error' : 'idle');
@@ -216,7 +231,11 @@ export function ContactForm({
         role="status"
         aria-live="polite"
         tabIndex={-1}
-        className="rounded-2xl border border-[#70e1b2]/20 bg-[#70e1b2]/[0.07] p-7 outline-none sm:p-9"
+        className={
+          appearance === 'editorial'
+            ? 'contact-success'
+            : 'rounded-2xl border border-[#70e1b2]/20 bg-[#70e1b2]/[0.07] p-7 outline-none sm:p-9'
+        }
       >
         <div className="grid h-12 w-12 place-items-center rounded-2xl bg-[#70e1b2]/12 text-[#70e1b2]">
           <CheckCircle2 className="h-6 w-6" aria-hidden="true" />
@@ -224,7 +243,9 @@ export function ContactForm({
         <h3 className="mt-5 text-xl font-black tracking-[-0.03em] text-white">
           {copy.successTitle}
         </h3>
-        <p className="mt-2 text-sm leading-6 text-[#94a198]">{copy.successBody}</p>
+        <p className="mt-2 text-sm leading-6 text-[#94a198]">
+          {copy.successBody}
+        </p>
 
         <ol className="mt-7 space-y-4 border-t border-white/[0.08] pt-6">
           {copy.successSteps.map((step, index) => (
@@ -240,7 +261,7 @@ export function ContactForm({
         <button
           type="button"
           onClick={() => {
-            setValues(emptyValues);
+            setValues({ ...emptyValues, projectType: initialProjectType ?? emptyValues.projectType });
             hasStarted.current = false;
             setStatus('idle');
           }}
@@ -253,7 +274,13 @@ export function ContactForm({
   }
 
   return (
-    <form onSubmit={handleSubmit} noValidate className="grid gap-5">
+    <form
+      method="post"
+      onSubmit={handleSubmit}
+      noValidate
+      aria-busy={status === 'submitting'}
+      className={`grid gap-5 ${appearance === 'editorial' ? 'contact-form' : ''}`}
+    >
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor={`${fieldId}-name`} className={labelClassName}>
@@ -266,14 +293,20 @@ export function ContactForm({
             autoComplete="name"
             placeholder={copy.namePlaceholder}
             value={values.name}
-            disabled={status === 'submitting'}
+            disabled={!isReady || status === 'submitting'}
             onChange={(event) => updateValue('name', event.target.value)}
             aria-invalid={fieldErrors.name ? 'true' : undefined}
-            aria-describedby={fieldErrors.name ? `${fieldId}-name-error` : undefined}
+            aria-describedby={
+              fieldErrors.name ? `${fieldId}-name-error` : undefined
+            }
             className={inputClassName}
           />
           {fieldErrors.name && (
-            <p id={`${fieldId}-name-error`} role="alert" className="mt-2 text-xs text-[#ff9d96]">
+            <p
+              id={`${fieldId}-name-error`}
+              role="alert"
+              className="mt-2 text-xs text-[#ff9d96]"
+            >
               {fieldErrors.name}
             </p>
           )}
@@ -291,14 +324,20 @@ export function ContactForm({
             inputMode="email"
             placeholder={copy.emailPlaceholder}
             value={values.email}
-            disabled={status === 'submitting'}
+            disabled={!isReady || status === 'submitting'}
             onChange={(event) => updateValue('email', event.target.value)}
             aria-invalid={fieldErrors.email ? 'true' : undefined}
-            aria-describedby={fieldErrors.email ? `${fieldId}-email-error` : undefined}
+            aria-describedby={
+              fieldErrors.email ? `${fieldId}-email-error` : undefined
+            }
             className={inputClassName}
           />
           {fieldErrors.email && (
-            <p id={`${fieldId}-email-error`} role="alert" className="mt-2 text-xs text-[#ff9d96]">
+            <p
+              id={`${fieldId}-email-error`}
+              role="alert"
+              className="mt-2 text-xs text-[#ff9d96]"
+            >
               {fieldErrors.email}
             </p>
           )}
@@ -320,7 +359,7 @@ export function ContactForm({
             autoComplete="organization"
             placeholder={copy.companyPlaceholder}
             value={values.company}
-            disabled={status === 'submitting'}
+            disabled={!isReady || status === 'submitting'}
             onChange={(event) => updateValue('company', event.target.value)}
             className={inputClassName}
           />
@@ -335,9 +374,12 @@ export function ContactForm({
               id={`${fieldId}-quantity`}
               name="quantityRange"
               value={values.quantityRange}
-              disabled={status === 'submitting'}
+              disabled={!isReady || status === 'submitting'}
               onChange={(event) =>
-                updateValue('quantityRange', event.target.value as QuantityRange)
+                updateValue(
+                  'quantityRange',
+                  event.target.value as QuantityRange,
+                )
               }
               className={`${inputClassName} appearance-none pr-11`}
             >
@@ -364,13 +406,15 @@ export function ContactForm({
             id={`${fieldId}-project-type`}
             name="projectType"
             value={values.projectType}
-            disabled={status === 'submitting'}
+            disabled={!isReady || status === 'submitting'}
             onChange={(event) =>
               updateValue('projectType', event.target.value as ProjectType)
             }
             aria-invalid={fieldErrors.projectType ? 'true' : undefined}
             aria-describedby={
-              fieldErrors.projectType ? `${fieldId}-project-type-error` : undefined
+              fieldErrors.projectType
+                ? `${fieldId}-project-type-error`
+                : undefined
             }
             className={`${inputClassName} appearance-none pr-11`}
           >
@@ -412,20 +456,23 @@ export function ContactForm({
           rows={4}
           placeholder={copy.messagePlaceholder}
           value={values.message}
-          disabled={status === 'submitting'}
+          disabled={!isReady || status === 'submitting'}
           onChange={(event) => updateValue('message', event.target.value)}
           aria-describedby={`${fieldId}-message-hint`}
           className={`${inputClassName} resize-none py-3.5`}
         />
-        <p id={`${fieldId}-message-hint`} className="mt-2 text-[11px] leading-5 text-[#65726a]">
+        <p
+          id={`${fieldId}-message-hint`}
+          className="mt-2 text-[11px] leading-5 text-[#65726a]"
+        >
           {copy.messageHint}
         </p>
       </div>
 
       <button
         type="submit"
-        disabled={status === 'submitting'}
-        className="group inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-[#c7ff6b] px-6 py-3.5 text-sm font-extrabold text-[#0a0d0b] shadow-[0_12px_40px_rgba(199,255,107,0.14)] transition hover:bg-[#d7ff94] disabled:cursor-not-allowed disabled:opacity-70"
+        disabled={!isReady || status === 'submitting'}
+        className="contact-submit group inline-flex min-h-12 w-full items-center justify-center gap-2.5 rounded-xl bg-[#c7ff6b] px-6 py-3.5 text-sm font-extrabold text-[#0a0d0b] shadow-[0_12px_40px_rgba(199,255,107,0.14)] transition hover:bg-[#d7ff94] disabled:cursor-not-allowed disabled:opacity-70"
       >
         {status === 'submitting' ? copy.submitting : copy.submit}
         {status === 'submitting' ? (
@@ -439,7 +486,10 @@ export function ContactForm({
       </button>
 
       <p className="flex items-start gap-2 text-[11px] leading-5 text-[#7e8a83]">
-        <ShieldCheck className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#70e1b2]" aria-hidden="true" />
+        <ShieldCheck
+          className="mt-0.5 h-3.5 w-3.5 shrink-0 text-[#70e1b2]"
+          aria-hidden="true"
+        />
         <span>
           {copy.privacy}{' '}
           <Link
@@ -457,10 +507,15 @@ export function ContactForm({
           className="rounded-xl border border-[#f1b47d]/25 bg-[#f1b47d]/[0.07] p-4"
         >
           <p className="flex items-start gap-2 text-sm font-semibold text-[#f4c79c]">
-            <AlertTriangle className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+            <AlertTriangle
+              className="mt-0.5 h-4 w-4 shrink-0"
+              aria-hidden="true"
+            />
             {generalError}
           </p>
-          <p className="mt-2 text-xs leading-5 text-[#c9d3cd]">{copy.fallbackIntro}</p>
+          <p className="mt-2 text-xs leading-5 text-[#c9d3cd]">
+            {copy.fallbackIntro}
+          </p>
           <a
             href={mailtoHref}
             onClick={() =>

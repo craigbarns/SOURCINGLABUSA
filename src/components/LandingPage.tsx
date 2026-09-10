@@ -1,28 +1,28 @@
-import { Footer } from '@/components/Footer';
-import { HeroExperience } from '@/components/HeroExperience';
+import { EditorialFooter } from '@/components/EditorialFooter';
+import { Hero } from '@/components/Hero';
 import { MarketingSections } from '@/components/MarketingSections';
 import { Navbar } from '@/components/Navbar';
 import { StickyMobileCta } from '@/components/StickyMobileCta';
 
-export function LandingPage() {
+export function LandingPage({ locale = 'en' }: { locale?: 'en' | 'es' }) {
   return (
-    <div className="marketing-shell flex min-h-screen flex-col">
+    <div
+      className="editorial-shell flex min-h-screen flex-col"
+      lang={locale === 'es' ? 'es-US' : 'en-US'}
+    >
       <a
         href="#main-content"
-        className="sr-only z-[100] rounded-lg bg-[#c7ff6b] px-4 py-2 font-bold text-[#0a0d0b] focus:fixed focus:left-4 focus:top-4 focus:not-sr-only"
+        className="sr-only z-[100] rounded-lg bg-[#dce7bd] px-4 py-2 font-bold text-[#243a2f] focus:fixed focus:left-4 focus:top-4 focus:not-sr-only"
       >
-        Skip to content
+        {locale === 'es' ? 'Saltar al contenido' : 'Skip to content'}
       </a>
-      <Navbar area="marketing" />
-
+      <Navbar area="marketing" appearance="light" />
       <main id="main-content" className="flex-1">
-        <HeroExperience />
-
-        <MarketingSections />
+        <Hero locale={locale} />
+        <MarketingSections locale={locale} />
       </main>
-
-      <Footer />
-      <StickyMobileCta />
+      <EditorialFooter locale={locale} />
+      <StickyMobileCta locale={locale} />
     </div>
   );
 }

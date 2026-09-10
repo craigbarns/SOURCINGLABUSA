@@ -25,9 +25,7 @@ export function ProductMedia({
   const src = productImageSrc(product);
 
   return (
-    <div
-      className={`relative overflow-hidden bg-[#0c110e] ${className}`}
-    >
+    <div className={`relative overflow-hidden bg-brand-surface ${className}`}>
       {src ? (
         <Image
           src={src}

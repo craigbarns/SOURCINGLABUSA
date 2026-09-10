@@ -20,8 +20,8 @@ function Ground({ id }: { id: string }) {
     <>
       <defs>
         <radialGradient id={`${id}-glow`} cx="50%" cy="42%" r="58%">
-          <stop offset="0%" stopColor="#70e1b2" stopOpacity="0.16" />
-          <stop offset="100%" stopColor="#70e1b2" stopOpacity="0" />
+          <stop offset="0%" stopColor="#8b9c76" stopOpacity="0.16" />
+          <stop offset="100%" stopColor="#8b9c76" stopOpacity="0" />
         </radialGradient>
         <radialGradient id={`${id}-shadow`} cx="50%" cy="50%" r="50%">
           <stop offset="0%" stopColor="#000" stopOpacity="0.45" />
@@ -49,7 +49,7 @@ function RigidBox({ id }: { id: string }) {
       <path d="M287.1 160L214.3 202L214.3 189L287.1 147Z" fill={PAPER_MID} />
       <path d="M124.3 150L214.3 202L214.3 189L124.3 137Z" fill={PAPER_DARK} />
       {/* Foil-stamped brand mark on the lid */}
-      <path d="M181 136L215 156L197 166L163 146Z" fill="#c7ff6b" opacity="0.85" />
+      <path d="M181 136L215 156L197 166L163 146Z" fill="#8b9c76" opacity="0.85" />
       <g stroke={EDGE} strokeWidth="1.2" fill="none">
         <path d="M197 95L287.1 147L214.3 189L124.3 137Z" />
         <path d="M200 150L283.1 198L217.3 236L134.2 188Z" />
@@ -81,7 +81,7 @@ function MailerCarton({ id }: { id: string }) {
         <path d="M161.9 110L257.2 165" />
       </g>
       {/* Printed side panel */}
-      <path d="M239 205L281 181L281 197L239 221Z" fill="#c7ff6b" opacity="0.6" />
+      <path d="M239 205L281 181L281 197L239 221Z" fill="#8b9c76" opacity="0.6" />
       <path d="M143 176L191 204L191 216L143 188Z" fill="#0a0e0c" opacity="0.3" />
       <g stroke={EDGE} strokeWidth="1.2" fill="none">
         <path d="M200 88L295.3 143L219.1 187L123.8 132Z" />
@@ -109,7 +109,7 @@ function PaperBag({ id }: { id: string }) {
         <path d="M270 112C276 88 292 84 296 96" />
       </g>
       {/* Print area */}
-      <rect x="172" y="168" width="62" height="34" rx="4" fill="#c7ff6b" opacity="0.72" />
+      <rect x="172" y="168" width="62" height="34" rx="4" fill="#8b9c76" opacity="0.72" />
       <rect x="172" y="212" width="40" height="7" rx="3.5" fill="#0a0e0c" opacity="0.22" />
       <g stroke={EDGE} strokeWidth="1.2" fill="none">
         <path d="M148 116L258 116L262 264L152 264Z" />
@@ -127,8 +127,8 @@ function PrintedLabel({ id }: { id: string }) {
       <rect x="112" y="92" width="176" height="132" rx="10" fill={PAPER_DARK} opacity="0.5" />
       {/* Label face */}
       <rect x="124" y="82" width="176" height="132" rx="12" fill={PAPER_LIGHT} />
-      <rect x="124" y="82" width="176" height="30" rx="12" fill="#c7ff6b" opacity="0.82" />
-      <rect x="124" y="100" width="176" height="12" fill="#c7ff6b" opacity="0.82" />
+      <rect x="124" y="82" width="176" height="30" rx="12" fill="#8b9c76" opacity="0.82" />
+      <rect x="124" y="100" width="176" height="12" fill="#8b9c76" opacity="0.82" />
       {/* Copy lines */}
       <g fill="#0a0e0c" opacity="0.24">
         <rect x="144" y="130" width="104" height="9" rx="4.5" />
@@ -196,7 +196,7 @@ function ToteBag({ id }: { id: string }) {
         opacity="0.6"
       />
       {/* Screen-printed brand block */}
-      <rect x="170" y="176" width="66" height="40" rx="5" fill="#c7ff6b" opacity="0.78" />
+      <rect x="170" y="176" width="66" height="40" rx="5" fill="#8b9c76" opacity="0.78" />
       <rect x="170" y="224" width="44" height="7" rx="3.5" fill="#0a0e0c" opacity="0.2" />
       <path
         d="M146 132L264 132L274 258Q274 268 264 268L146 268Q136 268 136 258Z"

@@ -35,7 +35,7 @@ const SUPPLIER_EMAIL_ERROR_TRANSLATIONS: Record<string, string> = {
 };
 
 const FIELD_CLASS =
-  'w-full rounded-lg bg-[#0d1210] border border-white/[0.08] text-white text-sm px-3 py-2 focus:outline-none focus:border-[#b99cff]/60 transition-colors';
+  'w-full rounded-lg bg-brand-surface border border-brand-line text-brand-ink text-sm px-3 py-2 focus:outline-none focus:border-brand-plum/60 transition-colors';
 
 export const SupplierEmailGenerator: React.FC = () => {
   const [input, setInput] = useState<EmailGeneratorInput>({
@@ -75,7 +75,7 @@ export const SupplierEmailGenerator: React.FC = () => {
     } catch (error) {
       setErrorMessage(
         error instanceof ClientApiError
-          ? SUPPLIER_EMAIL_ERROR_TRANSLATIONS[error.message] ?? error.message
+          ? (SUPPLIER_EMAIL_ERROR_TRANSLATIONS[error.message] ?? error.message)
           : 'The supplier email could not be generated.',
       );
     } finally {
@@ -101,15 +101,15 @@ export const SupplierEmailGenerator: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div className="surface-panel flex items-start gap-3 rounded-2xl p-5">
-        <div className="shrink-0 rounded-xl bg-[#b99cff]/12 p-2.5 text-[#b99cff]">
+      <div className="surface-panel flex items-start gap-3 rounded-[4px] p-5">
+        <div className="shrink-0 rounded-[4px] bg-brand-plum/12 p-2.5 text-brand-plum">
           <Mail className="h-5 w-5" aria-hidden="true" />
         </div>
         <div>
-          <h3 className="text-base font-bold text-white">
+          <h3 className="text-base font-bold text-brand-ink">
             Supplier Email Generator
           </h3>
-          <p className="mt-0.5 text-xs leading-relaxed text-[#849188]">
+          <p className="mt-0.5 text-xs leading-relaxed text-brand-muted">
             Create structured supplier email templates on the server. Always
             verify commercial and regulatory details before sending.
           </p>
@@ -118,7 +118,7 @@ export const SupplierEmailGenerator: React.FC = () => {
 
       {errorMessage && (
         <p
-          className="rounded-xl border border-[#ff9e9e]/30 bg-[#ff9e9e]/[0.08] p-3 text-sm text-[#ffb4b4]"
+          className="rounded-[4px] border border-brand-error/30 bg-brand-error/[0.08] p-3 text-sm text-brand-error"
           role="alert"
         >
           {errorMessage}
@@ -126,16 +126,16 @@ export const SupplierEmailGenerator: React.FC = () => {
       )}
 
       <div className="grid gap-8 lg:grid-cols-12">
-        <div className="soft-panel space-y-4 rounded-2xl p-6 lg:col-span-5">
-          <h4 className="flex items-center gap-2 border-b border-white/[0.07] pb-3 text-sm font-bold text-white">
-            <Send className="h-4 w-4 text-[#b99cff]" aria-hidden="true" />
+        <div className="soft-panel space-y-4 rounded-[4px] p-6 lg:col-span-5">
+          <h4 className="flex items-center gap-2 border-b border-brand-line pb-3 text-sm font-bold text-brand-ink">
+            <Send className="h-4 w-4 text-brand-plum" aria-hidden="true" />
             Email Details
           </h4>
 
           <div>
             <label
               htmlFor="supplier-email-type"
-              className="mb-1 block text-xs text-[#849188]"
+              className="mb-1 block text-xs text-brand-muted"
             >
               Email purpose
             </label>
@@ -162,7 +162,7 @@ export const SupplierEmailGenerator: React.FC = () => {
           <div>
             <label
               htmlFor="supplier-email-language"
-              className="mb-1 flex items-center gap-1.5 text-xs text-[#849188]"
+              className="mb-1 flex items-center gap-1.5 text-xs text-brand-muted"
             >
               <Globe className="h-3.5 w-3.5" aria-hidden="true" />
               Message language
@@ -191,7 +191,7 @@ export const SupplierEmailGenerator: React.FC = () => {
             <div>
               <label
                 htmlFor="supplier-name"
-                className="mb-1 block text-xs text-[#849188]"
+                className="mb-1 block text-xs text-brand-muted"
               >
                 Supplier name
               </label>
@@ -212,7 +212,7 @@ export const SupplierEmailGenerator: React.FC = () => {
             <div>
               <label
                 htmlFor="supplier-quantity"
-                className="mb-1 block text-xs text-[#849188]"
+                className="mb-1 block text-xs text-brand-muted"
               >
                 Quantity (units)
               </label>
@@ -242,7 +242,7 @@ export const SupplierEmailGenerator: React.FC = () => {
           <div>
             <label
               htmlFor="supplier-product"
-              className="mb-1 block text-xs text-[#849188]"
+              className="mb-1 block text-xs text-brand-muted"
             >
               Product name
             </label>
@@ -265,7 +265,7 @@ export const SupplierEmailGenerator: React.FC = () => {
             <div>
               <label
                 htmlFor="supplier-target-price"
-                className="mb-1 block text-xs text-[#849188]"
+                className="mb-1 block text-xs text-brand-muted"
               >
                 Target price
               </label>
@@ -288,7 +288,7 @@ export const SupplierEmailGenerator: React.FC = () => {
           <div>
             <label
               htmlFor="supplier-requirements"
-              className="mb-1 block text-xs text-[#849188]"
+              className="mb-1 block text-xs text-brand-muted"
             >
               Requirements to request or verify
             </label>
@@ -311,7 +311,7 @@ export const SupplierEmailGenerator: React.FC = () => {
             type="button"
             onClick={handleGenerate}
             disabled={loading || !formIsValid}
-            className="flex w-full items-center justify-center gap-2 rounded-xl bg-gradient-to-r from-[#c7ff6b] to-[#70e1b2] py-3 text-sm font-black text-[#07130c] transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#c7ff6b] disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
+            className="flex w-full items-center justify-center gap-2 rounded-[4px] bg-brand-green py-3 text-sm font-black text-white transition-transform hover:-translate-y-0.5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-green disabled:translate-y-0 disabled:cursor-not-allowed disabled:opacity-60"
           >
             {loading ? (
               <span>Generating email…</span>
@@ -326,28 +326,31 @@ export const SupplierEmailGenerator: React.FC = () => {
 
         <div className="space-y-4 lg:col-span-7">
           {!result && !loading && (
-            <div className="space-y-3 rounded-2xl border border-dashed border-white/[0.1] bg-white/[0.015] p-12 text-center">
-              <Mail className="mx-auto h-10 w-10 text-[#3a4941]" aria-hidden="true" />
-              <p className="text-sm font-semibold text-gray-300">
+            <div className="space-y-3 rounded-[4px] border border-dashed border-brand-line bg-brand-surface p-12 text-center">
+              <Mail
+                className="mx-auto h-10 w-10 text-brand-muted"
+                aria-hidden="true"
+              />
+              <p className="text-sm font-semibold text-brand-ink">
                 Enter the request details to prepare a message for review.
               </p>
             </div>
           )}
 
           {result && (
-            <div className="animate-rise surface-panel space-y-4 rounded-2xl p-6">
-              <div className="flex items-center justify-between gap-3 border-b border-white/[0.07] pb-3">
-                <span className="rounded border border-[#b99cff]/30 bg-[#b99cff]/15 px-2.5 py-1 text-xs font-bold uppercase text-[#cebaff]">
+            <div className="animate-rise surface-panel space-y-4 rounded-[4px] p-6">
+              <div className="flex items-center justify-between gap-3 border-b border-brand-line pb-3">
+                <span className="rounded border border-brand-plum/30 bg-brand-plum/15 px-2.5 py-1 text-xs font-bold uppercase text-brand-plum">
                   Review before sending
                 </span>
                 <button
                   type="button"
                   onClick={handleCopy}
-                  className="flex items-center gap-2 rounded-lg border border-white/[0.08] bg-white/[0.04] px-3.5 py-1.5 text-xs font-semibold text-white transition-all hover:bg-white/[0.08] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[#b99cff]"
+                  className="flex items-center gap-2 rounded-lg border border-brand-line bg-brand-surface px-3.5 py-1.5 text-xs font-semibold text-brand-ink transition-all hover:bg-brand-surface focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-plum"
                 >
                   {copied ? (
                     <Check
-                      className="h-3.5 w-3.5 text-[#70e1b2]"
+                      className="h-3.5 w-3.5 text-brand-green"
                       aria-hidden="true"
                     />
                   ) : (
@@ -357,27 +360,27 @@ export const SupplierEmailGenerator: React.FC = () => {
                 </button>
               </div>
 
-              <div className="rounded-lg border border-white/[0.07] bg-[#0d1210] p-3">
-                <span className="mb-0.5 block text-[11px] font-semibold uppercase text-[#8c988f]">
+              <div className="rounded-lg border border-brand-line bg-brand-surface p-3">
+                <span className="mb-0.5 block text-[11px] font-semibold uppercase text-brand-muted">
                   Subject
                 </span>
-                <span className="text-sm font-bold text-white">
+                <span className="text-sm font-bold text-brand-ink">
                   {result.subject}
                 </span>
               </div>
 
-              <div className="rounded-xl border border-white/[0.07] bg-[#0d1210] p-4">
-                <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed text-gray-200">
+              <div className="rounded-[4px] border border-brand-line bg-brand-surface p-4">
+                <pre className="whitespace-pre-wrap font-mono text-xs leading-relaxed text-brand-ink">
                   {result.body}
                 </pre>
               </div>
 
-              <div className="space-y-2 rounded-xl border border-[#7e9cff]/25 bg-[#7e9cff]/[0.06] p-4">
-                <span className="flex items-center gap-1.5 text-xs font-bold text-[#aebfff]">
+              <div className="space-y-2 rounded-[4px] border border-brand-info/25 bg-brand-info/[0.06] p-4">
+                <span className="flex items-center gap-1.5 text-xs font-bold text-brand-info">
                   <AlertCircle className="h-3.5 w-3.5" aria-hidden="true" />
                   Review Notes
                 </span>
-                <ul className="space-y-1 text-xs text-gray-300">
+                <ul className="space-y-1 text-xs text-brand-ink">
                   {result.tips.map((tip) => (
                     <li key={tip}>• {tip}</li>
                   ))}

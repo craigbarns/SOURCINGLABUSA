@@ -1,9 +1,13 @@
+import { analyticsBootstrap } from '@/lib/analytics-bootstrap';
 import { Inter } from 'next/font/google';
 import Script from 'next/script';
 
 import type { Metadata } from 'next';
 
 import { getDomainRoutingConfig } from '@/lib/routing/subdomains';
+
+import { StructuredData } from '@/components/StructuredData';
+import { organizationGraph } from '@/lib/seo';
 
 import './globals.css';
 
@@ -13,7 +17,7 @@ const inter = Inter({
   variable: '--font-inter',
 });
 
-const { marketingOrigin } = getDomainRoutingConfig();
+const { marketingOrigin, appOrigin } = getDomainRoutingConfig();
 
 export const metadata: Metadata = {
   metadataBase: new URL(marketingOrigin),
@@ -28,36 +32,42 @@ export const metadata: Metadata = {
     telephone: false,
   },
   title: {
-    default: 'Custom Packaging & Textile | Sourcing Lab USA',
+    default: 'China Sourcing & Product Supply | Sourcing Lab USA',
     template: '%s | Sourcing Lab USA',
   },
   description:
-    'Custom packaging and textile products for brands, e-commerce businesses, and companies. U.S. market launch planned for Miami in 2027.',
-  keywords: [
-    'custom packaging',
-    'custom textile',
-    'product sourcing',
-    'China sourcing',
-    'B2B packaging',
-    'textile sourcing',
-    'direct delivery',
-    'Miami custom packaging',
-    'USA textile sourcing',
-  ],
+    'China sourcing and product supply for business customers. Clothing, sportswear, packaging and labels. Projects open now; invoicing from France or China.',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+      'max-video-preview': -1,
+    },
+  },
+  verification: {
+    google: process.env.GOOGLE_SITE_VERIFICATION || undefined,
+    other: process.env.BING_SITE_VERIFICATION
+      ? { 'msvalidate.01': process.env.BING_SITE_VERIFICATION }
+      : undefined,
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
     siteName: 'SourcingLab USA',
     url: marketingOrigin,
-    title: 'Custom Packaging & Textile | Sourcing Lab USA',
+    title: 'China Sourcing & Product Supply | Sourcing Lab USA',
     description:
-      'Custom packaging and textile products sourced through an established China partnership. Miami launch planned for 2027.',
+      'Source clothing, sportswear, packaging and labels from China. Start your project now, with the invoicing company in France or China identified in your quote.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Custom Packaging & Textile | Sourcing Lab USA',
+    title: 'China Sourcing & Product Supply | Sourcing Lab USA',
     description:
-      'Custom packaging and textile products sourced through an established China partnership. Miami launch planned for 2027.',
+      'Source clothing, sportswear, packaging and labels from China. Start your project now, with the invoicing company in France or China identified in your quote.',
   },
 };
 
@@ -67,20 +77,16 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-US" className={`dark ${inter.variable}`}>
+    <html lang="en-US" className={inter.variable}>
       <head>
-        <Script
-          src="https://www.googletagmanager.com/gtag/js?id=G-ZJ0M56QGGM"
-          strategy="afterInteractive"
-        />
-        <Script id="google-analytics" strategy="afterInteractive">
-          {`window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-ZJ0M56QGGM');`}
+        <Script id="google-analytics" strategy="beforeInteractive">
+          {analyticsBootstrap([marketingOrigin, appOrigin])}
         </Script>
       </head>
-      <body className="min-h-screen bg-[#070a09] text-gray-100 antialiased font-sans">{children}</body>
+      <body className="min-h-screen bg-brand-paper text-brand-ink antialiased font-sans">
+        <StructuredData data={organizationGraph()} />
+        {children}
+      </body>
     </html>
   );
 }

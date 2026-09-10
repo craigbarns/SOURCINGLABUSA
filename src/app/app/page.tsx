@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 
 import { AppDashboard } from '@/components/AppDashboard';
+import { EditorialFooter } from '@/components/EditorialFooter';
 import { Navbar } from '@/components/Navbar';
 import { getDomainRoutingConfig } from '@/lib/routing/subdomains';
 
@@ -27,10 +28,10 @@ export const metadata: Metadata = {
 
 export default function CopilotPage() {
   return (
-    <div className="min-h-screen bg-[#070a09]">
+    <div className="editorial-shell min-h-screen">
       <a
         href="#app-workspace"
-        className="sr-only z-[100] rounded-lg bg-[#c7ff6b] px-4 py-2 font-bold text-[#0a0d0b] focus:fixed focus:left-4 focus:top-4 focus:not-sr-only"
+        className="sr-only z-[100] rounded-lg bg-brand-sage px-4 py-2 font-bold text-brand-ink focus:fixed focus:left-4 focus:top-4 focus:not-sr-only"
       >
         Skip to workspace
       </a>
@@ -38,6 +39,7 @@ export default function CopilotPage() {
       <div id="app-workspace">
         <AppDashboard marketingHref="/marketing" />
       </div>
+      <EditorialFooter linkPrefix="/marketing" />
     </div>
   );
 }

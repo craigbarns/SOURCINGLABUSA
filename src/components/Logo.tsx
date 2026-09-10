@@ -6,13 +6,37 @@ interface LogoProps {
   size?: 'sm' | 'md' | 'lg';
   showBadge?: boolean;
   compactOnMobile?: boolean;
+  appearance?: 'dark' | 'light';
 }
 
 export const Logo: React.FC<LogoProps> = ({
   size = 'md',
   showBadge = true,
   compactOnMobile = false,
+  appearance = 'light',
 }) => {
+  if (appearance === 'light') {
+    return (
+      <div className="light-logo">
+        <svg viewBox="0 0 40 44" fill="none" aria-hidden="true">
+          <path
+            d="m5 12 15-9 15 9v19l-15 9-15-9V12Zm0 0 15 9 15-9M20 21v19M12 8l15 9v9"
+            stroke="currentColor"
+            strokeWidth="1.6"
+            strokeLinejoin="round"
+          />
+        </svg>
+        <div>
+          <div className="light-logo-name">
+            SourcingLab<span>USA</span>
+          </div>
+          <p className="light-logo-caption">
+            CHINA SOURCING &amp; PRODUCT SUPPLY
+          </p>
+        </div>
+      </div>
+    );
+  }
   const iconSizeClass = {
     sm: 'h-8 w-8 rounded-[10px]',
     md: 'h-9 w-9 rounded-xl',
@@ -56,7 +80,9 @@ export const Logo: React.FC<LogoProps> = ({
 
       <div className="leading-none">
         <div className="flex items-center gap-1.5">
-          <span className={`${textSizeClass} font-extrabold tracking-[-0.035em] text-[#F4F8F5]`}>
+          <span
+            className={`${textSizeClass} font-extrabold tracking-[-0.035em] text-[#F4F8F5]`}
+          >
             SourcingLab
           </span>
           {showBadge && (

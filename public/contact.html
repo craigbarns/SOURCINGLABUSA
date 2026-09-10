@@ -1,11 +1,89 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="utf-8" />
     <meta name="robots" content="noindex,nofollow" />
-    <title>Project brief form</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Start your project | Sourcing Lab USA</title>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      body {
+        margin: 0;
+        background: #f7f5ef;
+        color: #243a2f;
+        font-family: Arial, sans-serif;
+        line-height: 1.7;
+      }
+      header,
+      main,
+      footer {
+        max-width: 1000px;
+        margin: auto;
+        padding: 30px 24px;
+      }
+      header {
+        border-bottom: 1px solid #d9ddd2;
+      }
+      a {
+        color: inherit;
+      }
+      header a {
+        font-weight: 700;
+        text-decoration: none;
+      }
+      main {
+        padding-top: 90px;
+        padding-bottom: 90px;
+      }
+      small {
+        letter-spacing: 0.12em;
+      }
+      h1 {
+        font-size: clamp(38px, 6vw, 64px);
+        line-height: 1.08;
+        letter-spacing: -0.05em;
+        font-weight: 500;
+      }
+      h1 em {
+        font-family: Georgia, serif;
+      }
+      p {
+        max-width: 530px;
+        color: #596755;
+      }
+      .button {
+        display: inline-block;
+        margin-top: 20px;
+        background: #2a4435;
+        color: white;
+        padding: 14px 22px;
+        text-decoration: none;
+        border-radius: 4px;
+      }
+      footer {
+        border-top: 1px solid #d9ddd2;
+        font-size: 12px;
+      }
+    </style>
   </head>
   <body>
+    <header><a href="/">SourcingLab USA</a></header>
+    <main>
+      <small>CHINA SOURCING &amp; PRODUCT SUPPLY</small>
+      <h1>Every product starts<br /><em>with a conversation.</em></h1>
+      <p>
+        Share your product, quantities and references through our project brief
+        form. Clothing and packaging are our specialties; other products are
+        reviewed on request.
+      </p>
+      <a class="button" href="/#contact">Start your project ↗</a>
+    </main>
+    <footer>
+      Projects open now — invoicing from France or China ·
+      <a href="mailto:contact@sourcinglabusa.com">contact@sourcinglabusa.com</a>
+    </footer>
     <!--
       Netlify detects forms by scanning deployed HTML. A Next.js page is
       rendered by React, so this static file is what makes the "contact" form
@@ -14,7 +92,14 @@
       brief in Supabase so a lead is never lost if this channel is unavailable.
       The field names below must stay in sync with src/app/api/contact/route.ts.
     -->
-    <form name="contact" method="POST" action="/contact.html" data-netlify="true" netlify-honeypot="bot-field">
+    <form
+      hidden
+      name="contact"
+      method="POST"
+      action="/contact.html"
+      data-netlify="true"
+      netlify-honeypot="bot-field"
+    >
       <input type="hidden" name="form-name" value="contact" />
       <input type="text" name="name" />
       <input type="email" name="email" />
