@@ -14,6 +14,7 @@ import { usePathname } from 'next/navigation';
 import { useId, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 
 import { ANALYTICS_EVENTS, trackEvent } from '@/lib/analytics';
+import { submitToNetlifyForms } from '@/lib/netlify-forms';
 import {
   BRIEF_CONTACT_EMAIL,
   BRIEF_FORM_COPY,
@@ -60,6 +61,61 @@ const emptyValues = {
 const subscribeToHydration = () => () => {};
 const clientIsReady = () => true;
 const serverIsReady = () => false;
+
+interface ServerRouteOutcome {
+  /** True once the brief is in the database. */
+  stored: boolean;
+  message?: string;
+  reason?: string;
+  /** Present only when the server rejected specific fields. */
+  fieldErrors?: FieldErrors;
+}
+
+async function postBrief(
+  payload: unknown,
+  knownFields: BriefFormCopy['fieldErrors'],
+): Promise<ServerRouteOutcome> {
+  try {
+    const response = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload),
+    });
+
+    let body: {
+      message?: string;
+      delivery?: string[];
+      fieldErrors?: Record<string, string | undefined>;
+    } = {};
+
+    try {
+      body = await response.json();
+    } catch {
+      // A non-JSON response falls back to the generic message.
+    }
+
+    if (response.ok) {
+      return { stored: body.delivery?.includes('database') ?? false };
+    }
+
+    const fieldErrors = Object.fromEntries(
+      Object.entries(body.fieldErrors ?? {}).filter(
+        (entry): entry is [FieldName, string] =>
+          typeof entry[1] === 'string' && entry[0] in knownFields,
+      ),
+    );
+
+    return {
+      stored: false,
+      message: body.message,
+      reason: `http_${response.status}`,
+      // Only a 400 carries per-field problems the visitor can act on.
+      fieldErrors: Object.keys(fieldErrors).length > 0 ? fieldErrors : undefined,
+    };
+  } catch {
+    return { stored: false, reason: 'network' };
+  }
+}
 
 export function ContactForm({
   locale = 'en',
@@ -175,53 +231,43 @@ export function ContactForm({
     setStatus('submitting');
     setFieldErrors({});
 
-    try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload),
-      });
+    // Two independent sinks: the server route keeps the durable record, and
+    // Netlify Forms sends the notification email. The brief is delivered as
+    // long as one of them accepts it, so neither can silently lose a lead.
+    const [apiOutcome, notified] = await Promise.all([
+      postBrief(payload, copy.fieldErrors),
+      submitToNetlifyForms(validation.data),
+    ]);
 
-      if (!response.ok) {
-        let serverMessage: string | undefined;
-        let serverFieldErrors: FieldErrors = {};
-
-        try {
-          const body = (await response.json()) as {
-            message?: string;
-            fieldErrors?: Record<string, string | undefined>;
-          };
-          serverMessage = body.message;
-          serverFieldErrors = Object.fromEntries(
-            Object.entries(body.fieldErrors ?? {}).filter(
-              (entry): entry is [FieldName, string] =>
-                typeof entry[1] === 'string' && entry[0] in copy.fieldErrors,
-            ),
-          );
-        } catch {
-          // A non-JSON error response falls back to the generic message.
-        }
-
-        failWith(
-          serverFieldErrors,
-          serverMessage ?? copy.genericError,
-          `http_${response.status}`,
-        );
-        return;
-      }
-
-      setStatus('success');
-      trackEvent(ANALYTICS_EVENTS.lead, {
-        form_location: formLocation,
-        source_path: sourcePath,
-        project_type: validation.data.projectType,
-        quantity_range: validation.data.quantityRange,
-        has_brief: validation.data.message.length > 0,
-      });
-      window.requestAnimationFrame(() => successRef.current?.focus());
-    } catch {
-      failWith({}, copy.genericError, 'network');
+    if (apiOutcome.fieldErrors) {
+      failWith(
+        apiOutcome.fieldErrors,
+        apiOutcome.message ?? copy.genericError,
+        apiOutcome.reason ?? 'validation',
+      );
+      return;
     }
+
+    if (!apiOutcome.stored && !notified) {
+      failWith(
+        {},
+        apiOutcome.message ?? copy.genericError,
+        apiOutcome.reason ?? 'no_channel',
+      );
+      return;
+    }
+
+    setStatus('success');
+    trackEvent(ANALYTICS_EVENTS.lead, {
+      stored: apiOutcome.stored,
+      notified,
+      form_location: formLocation,
+      source_path: sourcePath,
+      project_type: validation.data.projectType,
+      quantity_range: validation.data.quantityRange,
+      has_brief: validation.data.message.length > 0,
+    });
+    window.requestAnimationFrame(() => successRef.current?.focus());
   };
 
   if (status === 'success') {
