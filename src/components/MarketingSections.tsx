@@ -1,4 +1,3 @@
-import { SourcingOverview } from './SourcingOverview';
 import Link from 'next/link';
 import { ArrowRight, ArrowUpRight, Plus } from 'lucide-react';
 import { ContactForm } from './ContactForm';
@@ -113,9 +112,9 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                   : '01 — SOURCING SPECIALTIES'}
               </p>
               <h2 className="editorial-title">
-                {es ? 'Tu producto.' : 'Your product.'}
+                {es ? 'Prendas y textiles.' : 'Clothing and textiles.'}
                 <br />
-                <em>{es ? 'Nuestro punto de partida.' : 'Our starting point.'}</em>
+                <em>{es ? 'Packaging para tu marca.' : 'Packaging for your brand.'}</em>
               </h2>
             </div>
             <p className="editorial-body">
@@ -185,9 +184,9 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                   : '02 — FROM THE FIRST SKETCH'}
               </p>
               <h2 className="editorial-title">
-                {es ? 'Una visión clara.' : 'Big on possibility.'}
+                {es ? 'De tu brief' : 'From your product brief'}
                 <br />
-                <em>{es ? 'Un proceso sencillo.' : 'Clear on the process.'}</em>
+                <em>{es ? 'al pedido acordado.' : 'to an agreed supply order.'}</em>
               </h2>
             </div>
             <p className="editorial-body">
@@ -217,7 +216,17 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
       </section>
       <section id="experience" className="editorial-section">
         <div className="editorial-container approach-layout">
-<SourcingOverview locale={locale} />
+          <aside className="sourcing-overview">
+            <p className="editorial-kicker">{es ? 'ANTES DE CONFIRMAR' : 'BEFORE YOU COMMIT'}</p>
+            <h2>{es ? 'Tu presupuesto. Tus condiciones.' : 'Your quotation. Your order terms.'}</h2>
+            <p className="editorial-body">{es
+              ? 'El presupuesto identifica la empresa que suministra y factura los productos. Las especificaciones, muestras, precios, condiciones de pago y responsabilidades de entrega se acuerdan para cada pedido.'
+              : 'Your quotation identifies the company supplying and invoicing the products. Specifications, samples, product pricing, payment terms and delivery responsibilities are agreed for each order.'}</p>
+            <Link href="/china-to-us-procurement#order-terms" className="editorial-text-link mt-5">
+              {es ? 'Revisar las etapas del pedido (inglés)' : 'Review the supply process'}
+              <ArrowUpRight size={17} aria-hidden="true" />
+            </Link>
+          </aside>
           <div className="approach-copy">
             <p className="editorial-kicker">
               {es
@@ -225,9 +234,9 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                 : '03 — THE SOURCING LAB APPROACH'}
             </p>
             <h2 className="editorial-title">
-              {es ? 'Más intención.' : 'A little more intention.'}
+              {es ? 'Quién suministra' : 'Who supplies'}
               <br />
-              <em>{es ? 'En cada decisión.' : 'In every decision.'}</em>
+              <em>{es ? 'tus productos.' : 'your products.'}</em>
             </h2>
             <p className="editorial-body">
               {es
@@ -259,9 +268,9 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
               {es ? 'SIN COMPLICACIONES' : 'A FEW THINGS, MADE CLEAR'}
             </p>
             <h2 className="editorial-title">
-              {es ? 'Buenas preguntas.' : 'Good questions.'}
+              {es ? 'Preguntas sobre' : 'Questions before'}
               <br />
-              <em>{es ? 'Respuestas claras.' : 'Straight answers.'}</em>
+              <em>{es ? 'tu proyecto de sourcing.' : 'your sourcing project.'}</em>
             </h2>
             <p className="editorial-body">
               {es
@@ -290,7 +299,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
           <h2 className="editorial-title">
             {es
               ? 'Una idea clara. Un brief mejor.'
-              : 'Clearer brief. Better decisions.'}
+              : 'What to include in your sourcing quote request.'}
           </h2>
           <p className="editorial-body">
             {es

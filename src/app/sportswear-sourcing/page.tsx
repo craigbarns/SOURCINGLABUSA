@@ -10,6 +10,8 @@ export const metadata = pageMetadata({
 const page: ServicePageContent = {
   path: '/sportswear-sourcing',
   eyebrow: 'China sourcing · sportswear & technical apparel',
+  overviewTitle: 'Specify fabric, fit and performance requirements.',
+  processTitle: 'From sportswear brief to sampling and supply.',
   title: 'Sportswear and technical clothing, specified for the way it is used.',
   intro: 'Planning a sportswear collection or a technical garment? Share the intended use, fabric, fit, size range and quantities. We review the sourcing brief through our independent China partnership. Projects can start now, with invoicing from France or China as confirmed in your quotation.',
   overview: 'A technical garment starts with a precise specification. Stretch, fabric weight, seam construction, fit, decoration and care requirements need to work together. Performance requirements belong in the brief so feasibility and any evidence needed can be discussed before an order is agreed.',

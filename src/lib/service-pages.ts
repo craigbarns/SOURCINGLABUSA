@@ -2,8 +2,10 @@ import type { ServicePageContent } from '@/components/ServiceLandingPage';
 
 export const customPackagingPage: ServicePageContent = {
   path: '/custom-packaging',
+  overviewTitle: 'Specify your custom packaging.',
+  processTitle: 'From packaging brief to approved order.',
   eyebrow: 'Custom packaging for U.S. brands',
-  title: 'Custom packaging developed around your product and brand.',
+  title: 'Custom packaging sourcing from China for U.S. brands.',
   intro:
     'Develop custom boxes, paper bags, labels, tissue paper, inserts, and retail packaging from a clear product brief. The focus is a packaging specification that works for your brand, quantity, and destination.',
   overview:
@@ -51,6 +53,10 @@ export const customPackagingPage: ServicePageContent = {
   ],
   faqs: [
     {
+      question: 'How is the packaging price established?',
+      answer: 'The quotation is based on the packaging specification, materials, print and finish, quantities and agreed sample requirements. Product pricing and any separately quoted costs are reviewed with the payment, delivery and import terms before you approve an order.',
+    },
+    {
       question: 'Can you work from packaging we already use?',
       answer:
         'Yes. Send photos, dimensions, artwork, material references, and quantity. We will confirm the information needed to review the project.',
@@ -71,6 +77,11 @@ export const customPackagingPage: ServicePageContent = {
   briefIntro:
     'Product, dimensions, material, print finish, quantity, and destination. We confirm what can be quoted and sampled, and reply by email.',
   relatedPages: [
+    {
+      href: '/blog/sustainable-packaging-ecommerce',
+      title: 'Packaging materials and environmental claims',
+      description: 'Identify the material information and evidence to request before approving packaging claims.',
+    },
     {
       href: '/blog/china-sourcing-rfq-checklist',
       title: 'China sourcing RFQ checklist',
@@ -100,6 +111,8 @@ export const customPackagingPage: ServicePageContent = {
 
 export const customTextilePage: ServicePageContent = {
   path: '/custom-textile',
+  overviewTitle: 'Define the clothing and textile specification.',
+  processTitle: 'From garment references to production approval.',
   eyebrow: 'Custom textile for U.S. brands',
   title:
     'Custom clothing and textiles, sourced from China to your specification.',
@@ -150,6 +163,10 @@ export const customTextilePage: ServicePageContent = {
   ],
   faqs: [
     {
+      question: 'How should I break down clothing quantities?',
+      answer: 'Include the garment style, sizes, colors and estimated quantity for each variant. Fabric, construction, decoration and this breakdown influence the sourcing options and minimum quantities reviewed for the project.',
+    },
+    {
       question: 'Can you help when we only have a reference product or image?',
       answer:
         'Yes. Reference images are a useful starting point. Measurements, material preferences, intended use, branding details, and quantity help make the brief more specific.',
@@ -170,6 +187,16 @@ export const customTextilePage: ServicePageContent = {
   briefIntro:
     'Product, fabric or construction, branding, sizes, quantity, and destination. We confirm what can be quoted and sampled, and reply by email.',
   relatedPages: [
+    {
+      href: '/sportswear-sourcing',
+      title: 'Sportswear and technical apparel sourcing',
+      description: 'Review intended use, stretch, fit, size runs and the evidence needed for performance requirements.',
+    },
+    {
+      href: '/blog/apparel-sourcing-tech-packs-moq',
+      title: 'Tech packs and clothing MOQ',
+      description: 'Prepare measurements, materials and quantities for a useful garment sourcing brief.',
+    },
     {
       href: '/blog/china-sourcing-rfq-checklist',
       title: 'China sourcing RFQ checklist',
@@ -199,6 +226,8 @@ export const customTextilePage: ServicePageContent = {
 
 export const privateLabelPackagingPage: ServicePageContent = {
   path: '/private-label-packaging',
+  overviewTitle: 'Bring your branded packaging components together.',
+  processTitle: 'Approve the packaging, artwork and order terms.',
   eyebrow: 'Private label packaging',
   title: 'Private label packaging that makes your product recognizably yours.',
   intro:
@@ -248,6 +277,10 @@ export const privateLabelPackagingPage: ServicePageContent = {
   ],
   faqs: [
     {
+      question: 'How does private label packaging differ from general packaging sourcing?',
+      answer: 'General packaging sourcing starts with the format, structure and materials. A private label packaging brief also coordinates the branded components: artwork, colors, copy, labels, inserts and product presentation. Both require agreed specifications and sample requirements before production approval.',
+    },
+    {
       question: 'Do you provide private label packaging only?',
       answer:
         'Clothing, textiles and packaging are our core specialties, with other products sourced on request. This page focuses on private label packaging developed around your product and brief.',
@@ -268,6 +301,11 @@ export const privateLabelPackagingPage: ServicePageContent = {
   briefIntro:
     'Product, artwork or references, material, finish, quantity, and destination. We confirm what can be quoted and sampled, and reply by email.',
   relatedPages: [
+    {
+      href: '/china-to-us-procurement',
+      title: 'China-to-U.S. product supply and order terms',
+      description: 'Understand the contracting company, product quotation and responsibilities agreed before your order.',
+    },
     {
       href: '/blog/china-sourcing-rfq-checklist',
       title: 'China sourcing RFQ checklist',
@@ -297,6 +335,8 @@ export const privateLabelPackagingPage: ServicePageContent = {
 
 export const chinaToUsProcurementPage: ServicePageContent = {
   path: '/china-to-us-procurement',
+  overviewTitle: 'What your China-to-U.S. product order includes.',
+  processTitle: 'Agree the supply terms before your order.',
   eyebrow: 'China-to-U.S. product procurement',
   title: 'China sourcing and product supply for U.S. businesses.',
   intro:
@@ -345,6 +385,10 @@ export const chinaToUsProcurementPage: ServicePageContent = {
     },
   ],
   faqs: [
+    {
+      question: 'Does the quotation cover products or a sourcing-agent commission?',
+      answer: 'Our commercial offer is the purchase and supply of products. The quotation identifies the company supplying and invoicing your order, the product specification and pricing, and the costs and responsibilities agreed for that project. No universal sourcing-agent fee or all-inclusive delivered price is assumed.',
+    },
     {
       question: 'Can you source products beyond clothing and packaging?',
       answer:

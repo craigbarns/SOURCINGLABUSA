@@ -32,6 +32,11 @@ export function ProductShowcase({
 }: ProductShowcaseProps) {
   const copy = COPY[locale];
   const es = locale === 'es';
+  const title = category === 'packaging'
+    ? (es ? 'Cajas, bolsas, etiquetas e insertos.' : 'Boxes, bags, labels and inserts.')
+    : category === 'textile'
+      ? (es ? 'Prendas, uniformes y ropa deportiva.' : 'Clothing, uniforms and sportswear.')
+      : copy.title;
   const briefs = [
     { id: 'boxes', category: 'packaging', name: es ? 'Cajas de producto' : 'Product boxes', specs: es ? ['Dimensiones y estructura', 'Material y acabado', 'Diseños y cantidades'] : ['Dimensions & structure', 'Material & finish', 'Artwork & quantities'] },
     { id: 'labels', category: 'packaging', name: es ? 'Etiquetas e insertos' : 'Labels & inserts', specs: es ? ['Formato y uso', 'Texto y diseño', 'Requisitos del producto'] : ['Format & intended use', 'Copy & artwork', 'Product requirements'] },
@@ -52,7 +57,7 @@ export function ProductShowcase({
           <div>
             <span className="eyebrow">{copy.eyebrow}</span>
             <h2 className="text-balance mt-6 max-w-3xl text-3xl font-medium tracking-[-0.045em] text-brand-ink sm:text-5xl">
-              {copy.title}
+              {title}
             </h2>
           </div>
           <p className="max-w-xl text-base leading-7 text-brand-muted lg:pb-1">

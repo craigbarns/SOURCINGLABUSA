@@ -19,7 +19,7 @@ const navigation = [
   { label: 'Clothing', href: '/custom-textile' },
   { label: 'Private label', href: '/private-label-packaging' },
   { label: 'How it works', href: '/#how-it-works' },
-  { label: 'Blog', href: '/blog' },
+  { label: 'Resources', href: '/blog' },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -53,7 +53,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           Clothing: 'Prendas',
           'Private label': 'Marca privada',
           'How it works': 'Cómo funciona',
-          Blog: 'Blog',
+          Resources: 'Recursos',
         }[item.label] ?? item.label)
       : item.label,
     href:
