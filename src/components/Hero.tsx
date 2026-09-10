@@ -9,10 +9,10 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' }) {
       <div className="editorial-container hero-layout sourcing-hero">
         <div className="hero-copy animate-rise">
           <p className="editorial-kicker">{es ? 'SOURCING EN CHINA · PROYECTOS DESDE AHORA' : 'CHINA SOURCING · ACCEPTING PROJECTS NOW'}</p>
-          <h1 id="hero-heading">{es ? 'Tu producto.' : 'Your product.'}<br /><em>{es ? 'Desde China.' : 'Sourced in China.'}</em></h1>
+          <h1 id="hero-heading">{es ? 'Sourcing en China.' : 'China sourcing.'}<br /><em>{es ? 'Para marcas de EE. UU.' : 'For U.S. brands.'}</em></h1>
           <p className="hero-description">{es
-            ? 'Prendas, ropa deportiva y técnica. Cajas, empaques y etiquetas. Comparte lo que necesitas fabricar: revisamos las especificaciones, cantidades y posibilidades de suministro.'
-            : 'Clothing, sportswear and technical apparel. Boxes, packaging and labels. Tell us what you need made: we review your specifications, quantities and sourcing options.'}</p>
+            ? 'Sourcing Lab USA busca, compra y suministra prendas, textiles, ropa deportiva, empaques y etiquetas desde China. Cada proyecto parte de tus especificaciones, cantidades y destino.'
+            : 'Sourcing Lab USA sources, purchases and supplies clothing, textiles, sportswear, custom packaging and labels from China. Each project starts with your specifications, quantities and destination.'}</p>
           <div className="hero-actions">
             <CtaLink href="#contact" location="hero" label="Request a sourcing quote" className="editorial-button">
               {es ? 'Solicitar un presupuesto' : 'Request a sourcing quote'}<ArrowUpRight size={18} aria-hidden="true" />

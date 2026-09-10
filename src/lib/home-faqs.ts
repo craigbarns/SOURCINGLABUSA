@@ -1,5 +1,9 @@
 export const homeFaqs = [
   [
+    'Do you supply products or only introduce factories?',
+    'Our offer is product sourcing, purchase and supply. The company identified in your quotation contracts with you and invoices the products. Specifications, samples, product pricing and order responsibilities are agreed before you commit.',
+  ],
+  [
     'Do you only source clothing and packaging?',
     'Clothing, textiles and packaging are our core specialties. We also source other products on request, after reviewing the product, quantity, specifications and production requirements.',
   ],
@@ -25,6 +29,10 @@ export const homeFaqs = [
   ],
 ] as const;
 export const homeFaqsES = [
+  [
+    '¿Suministran productos o solo presentan fábricas?',
+    'Nuestra oferta incluye sourcing, compra y suministro de productos. La empresa identificada en el presupuesto contrata contigo y factura los productos. Las especificaciones, muestras, precios y responsabilidades se acuerdan antes de comprometerse.',
+  ],
   [
     '¿Solo trabajan con prendas y empaques?',
     'Prendas, textiles y empaques son nuestras especialidades. También gestionamos otros productos bajo pedido, tras revisar el producto, las cantidades, las especificaciones y los requisitos de producción.',

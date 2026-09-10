@@ -5,7 +5,7 @@ import { pageMetadata, webpageSchema, faqSchema } from '@/lib/seo';
 
 const title = 'China Sourcing & Product Supply';
 const description =
-  'China sourcing for clothing, sportswear, technical apparel, packaging and labels. Projects open now, with invoicing from France or China.';
+  'China sourcing and product supply for U.S. brands: clothing, sportswear, packaging and labels. Share your specifications and quantities to request a quote.';
 export const metadata = pageMetadata({
   title,
   description,

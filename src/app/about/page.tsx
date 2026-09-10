@@ -75,9 +75,9 @@ export default function AboutPage() {
               <div>
                 <p className="editorial-kicker">CHINA SOURCING · PROJECTS OPEN NOW</p>
                 <h1 className="editorial-title">
-                  Products with purpose.
+                  About Sourcing Lab USA.
                   <br />
-                  <em>A clearer way to source.</em>
+                  <em>From brief to product supply.</em>
                 </h1>
                 <p className="editorial-body">
                   Start your China sourcing project now. We work on clothing,

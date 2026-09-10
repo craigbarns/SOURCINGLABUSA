@@ -113,6 +113,20 @@ export function breadcrumbSchema(items: Array<{ name: string; path: string }>) {
   };
 }
 
+export function serviceSchema(path: string, name: string, description: string) {
+  return {
+    '@type': 'Service',
+    '@id': `${absoluteUrl(path)}#service`,
+    url: absoluteUrl(path),
+    name,
+    serviceType: name,
+    description,
+    provider: { '@id': ORGANIZATION_ID },
+    areaServed: { '@type': 'Country', name: 'United States' },
+    mainEntityOfPage: { '@id': `${absoluteUrl(path)}#webpage` },
+  };
+}
+
 export function faqSchema(
   path: string,
   faqs: ReadonlyArray<readonly [string, string]>,

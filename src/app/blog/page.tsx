@@ -53,11 +53,11 @@ export default function BlogIndex() {
       <main className="flex-1">
         <section className="editorial-section">
           <div className="editorial-container">
-            <p className="editorial-kicker">THE SOURCING JOURNAL</p>
+            <p className="editorial-kicker">SOURCING RESOURCES</p>
             <h1 className="editorial-title page-title">
-              Good products start
+              China sourcing guides
               <br />
-              <em>with better questions.</em>
+              <em>for your product brief.</em>
             </h1>
             <p className="editorial-body page-intro">
               Practical planning guides for China sourcing, clothing, packaging
@@ -88,9 +88,9 @@ export default function BlogIndex() {
         </section>
         <section className="editorial-section section-ruled">
           <div className="editorial-container">
-            <p className="editorial-kicker">EXPLORE THE JOURNAL</p>
+            <p className="editorial-kicker">EXPLORE THE RESOURCES</p>
             <h2 className="editorial-title">
-              Notes for <em>your next project.</em>
+              Packaging, textiles and <em>order planning.</em>
             </h2>
             <div className="journal-grid">
               {remaining.map((post) => (

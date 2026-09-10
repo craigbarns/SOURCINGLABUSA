@@ -8,9 +8,8 @@ import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar';
 import { StickyMobileCta } from '@/components/StickyMobileCta';
 import { StructuredData } from '@/components/StructuredData';
-import { breadcrumbSchema, faqSchema, webpageSchema } from '@/lib/seo';
+import { breadcrumbSchema, faqSchema, serviceSchema, webpageSchema } from '@/lib/seo';
 import type { ProductCategory } from '@/lib/product-media';
-import { SourcingOverview } from '@/components/SourcingOverview';
 
 type ContentBlock = {
   title: string;
@@ -28,6 +27,8 @@ export type ServicePageContent = {
   title: string;
   intro: string;
   overview: string;
+  overviewTitle: string;
+  processTitle: string;
   offerName: string;
   offerDescription: string;
   focusAreas: ContentBlock[];
@@ -52,6 +53,7 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
     '@context': 'https://schema.org',
     '@graph': [
       webpageSchema(page.path, page.title, page.intro),
+      serviceSchema(page.path, page.offerName, page.offerDescription),
       breadcrumbSchema([
         { name: 'Home', path: '/' },
         { name: page.offerName, path: page.path },
@@ -90,7 +92,22 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
                   <ArrowRight size={17} aria-hidden="true" />
                 </CtaLink>
               </div>
-              <SourcingOverview />
+              <aside className="sourcing-overview" aria-label="Project and supply information">
+                <p className="editorial-kicker">SOURCING LAB USA / YOUR PROJECT</p>
+                <h2>{page.offerName}</h2>
+                <p className="editorial-body">{page.offerDescription}</p>
+                <p className="editorial-body mt-5">
+                  For U.S. business customers. Projects can start now through our
+                  independent China sourcing partnership.
+                </p>
+                <p className="sourcing-overview-note">
+                  Your quotation identifies the company in France or China that
+                  contracts with you and invoices the products.
+                </p>
+                <Link href="/about" className="editorial-text-link mt-5">
+                  About Sourcing Lab USA <ArrowRight size={16} aria-hidden="true" />
+                </Link>
+              </aside>
             </div>
           </div>
         </section>
@@ -100,9 +117,7 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
             <div>
               <p className="editorial-kicker">DESIGNED AROUND THE PRODUCT</p>
               <h2 className="editorial-title">
-                Every detail.
-                <br />
-                <em>Considered together.</em>
+                {page.overviewTitle}
               </h2>
               <p className="editorial-body page-intro">{page.overview}</p>
               <aside className="brief-checklist">
@@ -134,13 +149,11 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
 
         <ProductShowcase category={page.showcaseCategory} />
 
-        <section className="editorial-section process-section">
+        <section id="order-terms" className="editorial-section process-section scroll-mt-24">
           <div className="editorial-container">
             <p className="editorial-kicker">A DOCUMENTED PROCESS</p>
             <h2 className="editorial-title">
-              A clear brief.
-              <br />
-              <em>A considered order.</em>
+              {page.processTitle}
             </h2>
             <ol className="service-process-grid">
               {page.workflow.map((step, index) => (
@@ -151,6 +164,14 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
                 </li>
               ))}
             </ol>
+            <p className="editorial-body mt-8">
+              Review the product specifications, sample requirements, quantities,
+              product pricing and payment terms before approving your order.
+              Delivery and import responsibilities are agreed for each project.{' '}
+              <Link href="/china-to-us-procurement#order-terms" className="editorial-text-link">
+                See how product supply and order terms work
+              </Link>.
+            </p>
           </div>
         </section>
 
@@ -159,9 +180,7 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
             <div>
               <p className="editorial-kicker">RELATED RESOURCES</p>
               <h2 className="editorial-title">
-                Your next step.
-                <br />
-                <em>A little clearer.</em>
+                Resources for your sourcing brief.
               </h2>
             </div>
             <div className="resource-links">
@@ -183,9 +202,7 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
             <div>
               <p className="editorial-kicker">QUESTIONS, ANSWERED</p>
               <h2 className="editorial-title">
-                Good questions.
-                <br />
-                <em>Straight answers.</em>
+                Questions about {page.offerName.toLowerCase()}.
               </h2>
             </div>
             <div className="faq-list">
