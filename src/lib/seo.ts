@@ -45,7 +45,7 @@ export function pageMetadata({
   ];
 
   return {
-    title,
+    title: { absolute: socialTitle },
     description,
     alternates: {
       canonical: absoluteUrl(path),
@@ -86,7 +86,7 @@ export function organizationGraph() {
         alternateName: 'SourcingLab USA',
         url: absoluteUrl('/'),
         description: SITE_DESCRIPTION,
-        logo: absoluteUrl('/sourcinglab_logo.png'),
+        logo: absoluteUrl('/sourcinglab-icon-512.png'),
         email: 'contact@sourcinglabusa.com',
       },
       {
