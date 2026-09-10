@@ -75,6 +75,35 @@ export function pageMetadata({
   };
 }
 
+export const CONTACT_EMAIL = 'contact@sourcinglabusa.com';
+
+/**
+ * Topics the business is genuinely positioned on, each backed by a page on
+ * this site. Search and answer engines use these to decide which questions
+ * this organization is a credible source for, so every entry must correspond
+ * to real published content rather than an ambition.
+ */
+export const ORGANIZATION_TOPICS = [
+  'China sourcing',
+  'Product sourcing',
+  'China-to-United States procurement',
+  'Custom packaging',
+  'Private label packaging',
+  'Custom clothing manufacturing',
+  'Textile sourcing',
+  'Sportswear and technical apparel sourcing',
+  'Supplier coordination',
+  'Product specification and sampling',
+];
+
+/**
+ * Verified profiles for this organization elsewhere on the web (LinkedIn,
+ * company registers, industry directories). REQUIRES CONFIRMATION: add only
+ * URLs the owner controls or has verified. Leaving this empty omits sameAs
+ * entirely, which is correct — a wrong profile is worse than none.
+ */
+export const ORGANIZATION_PROFILES: string[] = [];
+
 export function organizationGraph() {
   return {
     '@context': 'https://schema.org',
@@ -86,8 +115,27 @@ export function organizationGraph() {
         alternateName: 'SourcingLab USA',
         url: absoluteUrl('/'),
         description: SITE_DESCRIPTION,
-        logo: absoluteUrl('/sourcinglab-icon-512.png'),
-        email: 'contact@sourcinglabusa.com',
+        logo: {
+          '@type': 'ImageObject',
+          url: absoluteUrl('/sourcinglab-icon-512.png'),
+          width: 512,
+          height: 512,
+        },
+        email: CONTACT_EMAIL,
+        contactPoint: {
+          '@type': 'ContactPoint',
+          email: CONTACT_EMAIL,
+          contactType: 'sales',
+          availableLanguage: ['English', 'Spanish'],
+          areaServed: 'US',
+        },
+        areaServed: { '@type': 'Country', name: 'United States' },
+        knowsAbout: ORGANIZATION_TOPICS,
+        // Only profiles the owner has confirmed belong here. An unverified or
+        // unclaimed profile weakens entity resolution instead of helping it.
+        ...(ORGANIZATION_PROFILES.length > 0
+          ? { sameAs: ORGANIZATION_PROFILES }
+          : {}),
       },
       {
         '@type': 'WebSite',
