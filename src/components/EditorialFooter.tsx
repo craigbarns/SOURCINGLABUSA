@@ -15,7 +15,7 @@ export function EditorialFooter({
       <div className="editorial-container">
         <div className="editorial-footer-top">
           <div>
-            <Link href={home} aria-label="SourcingLab USA home">
+            <Link href={home}>
               <Logo appearance="light" />
             </Link>
             <p>

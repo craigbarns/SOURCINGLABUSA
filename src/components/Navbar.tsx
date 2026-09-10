@@ -69,7 +69,6 @@ export const Navbar: React.FC<NavbarProps> = ({
       <div className="mx-auto flex h-[80px] max-w-[1440px] items-center justify-between px-4 sm:px-6 lg:px-8">
         <Link
           href={marketingHref}
-          aria-label="SourcingLab USA home"
           className="min-w-0 rounded-xl"
         >
           <Logo compactOnMobile appearance={appearance} />
