@@ -52,6 +52,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
     ...serviceUrls,
     ...blogUrls,
     {
+      url: `${marketingOrigin}/resources`,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    },
+    {
+      url: `${marketingOrigin}/resources/product-sourcing-brief`,
+      changeFrequency: 'yearly' as const,
+      priority: 0.7,
+    },
+    {
       url: `${marketingOrigin}/privacy`,
       changeFrequency: 'yearly' as const,
       priority: 0.3,

@@ -256,6 +256,122 @@
 }
 /* The self-contained answer under a page heading. Set apart from the marketing
    intro so both a reader and an answer engine can take it on its own. */
+/* Resource hub. Rows rather than cards: the list is scanned for one title,
+   so a shared baseline beats twelve separate boxes. */
+.resource-feature {
+  border: 1px solid var(--editorial-line);
+  padding: 32px 30px;
+  max-width: 760px;
+}
+.resource-list {
+  margin-top: 30px;
+  border-top: 1px solid var(--editorial-line);
+}
+.resource-row {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: start;
+  column-gap: 24px;
+  padding: 22px 0;
+  border-bottom: 1px solid var(--editorial-line);
+  text-decoration: none;
+  color: inherit;
+}
+.resource-row h3 {
+  grid-column: 1;
+  margin: 0;
+  font-size: 17px;
+  font-weight: 500;
+  color: var(--editorial-ink);
+  max-width: 60ch;
+}
+.resource-row p {
+  grid-column: 1;
+  margin: 8px 0 0;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: var(--editorial-muted);
+  max-width: 68ch;
+}
+.resource-row span {
+  grid-column: 2;
+  grid-row: 1 / span 2;
+  color: var(--editorial-muted);
+  transition: transform 160ms ease, color 160ms ease;
+}
+.resource-row:hover h3 {
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+.resource-row:hover span {
+  transform: translate(2px, -2px);
+  color: var(--editorial-ink);
+}
+@media (prefers-reduced-motion: reduce) {
+  .resource-row span {
+    transition: none;
+  }
+}
+
+/* Template sections and pitfalls: equal blocks that read as a reference sheet. */
+.brief-template-grid {
+  display: grid;
+  gap: 1px;
+  margin-top: 44px;
+  background: var(--editorial-line);
+  border: 1px solid var(--editorial-line);
+}
+.brief-template-block {
+  background: var(--editorial-paper);
+  padding: 24px 26px;
+}
+.brief-template-block h3 {
+  font-size: 15px;
+  font-weight: 500;
+  color: var(--editorial-ink);
+  margin: 0;
+}
+.brief-template-block ul {
+  margin: 14px 0 0;
+  padding: 0;
+  list-style: none;
+  display: grid;
+  gap: 7px;
+}
+.brief-template-block li,
+.brief-template-block p {
+  font-size: 13.5px;
+  line-height: 1.65;
+  color: var(--editorial-muted);
+  margin: 0;
+}
+.brief-template-block li {
+  padding-left: 14px;
+  position: relative;
+}
+.brief-template-block li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 9px;
+  width: 5px;
+  height: 1px;
+  background: var(--editorial-muted);
+}
+.brief-template-block p {
+  margin-top: 12px;
+}
+@media (min-width: 700px) {
+  .brief-template-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+@media (min-width: 1040px) {
+  .brief-template-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
 /* Indicative planning figures. They sit inside the dark process section, so
    the palette follows that section rather than the paper surfaces, and the
    qualifier sits with its number instead of in a footnote. */
@@ -288,6 +404,15 @@
   line-height: 1.7;
   color: #bac5b9;
   max-width: 46ch;
+}
+/* Small print on a light surface. Separate from .benchmarks-note, which is
+   coloured for the dark process section and unreadable on paper. */
+.page-note {
+  margin-top: 22px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: var(--editorial-muted);
+  max-width: 620px;
 }
 .benchmarks-note {
   margin-top: 18px;

@@ -19,7 +19,7 @@ const navigation = [
   { label: 'Clothing', href: '/custom-textile' },
   { label: 'Private label', href: '/private-label-packaging' },
   { label: 'How it works', href: '/#how-it-works' },
-  { label: 'Resources', href: '/blog' },
+  { label: 'Resources', href: '/resources' },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({
