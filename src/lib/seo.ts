@@ -5,6 +5,7 @@ import { getDomainRoutingConfig } from '@/lib/routing/subdomains';
 export const SITE_NAME = 'Sourcing Lab USA';
 export const { marketingOrigin: SITE_ORIGIN } = getDomainRoutingConfig();
 export const ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
+export const FOUNDER_ID = `${SITE_ORIGIN}/about#founder`;
 export const WEBSITE_ID = `${SITE_ORIGIN}/#website`;
 export const SITE_DESCRIPTION =
   'China sourcing and product supply for business customers. Clothing, sportswear, packaging and labels. Projects open now; invoicing from France or China.';
@@ -131,11 +132,23 @@ export function organizationGraph() {
         },
         areaServed: { '@type': 'Country', name: 'United States' },
         knowsAbout: ORGANIZATION_TOPICS,
+        founder: { '@id': FOUNDER_ID },
         // Only profiles the owner has confirmed belong here. An unverified or
         // unclaimed profile weakens entity resolution instead of helping it.
         ...(ORGANIZATION_PROFILES.length > 0
           ? { sameAs: ORGANIZATION_PROFILES }
           : {}),
+      },
+      {
+        // Named on the About page. Nothing is asserted here that the page does
+        // not show: a role or biography needs the founder's confirmation
+        // before it can be added.
+        '@type': 'Person',
+        '@id': FOUNDER_ID,
+        name: 'Gregory Baranes',
+        jobTitle: 'Founder',
+        worksFor: { '@id': ORGANIZATION_ID },
+        mainEntityOfPage: absoluteUrl('/about'),
       },
       {
         '@type': 'WebSite',
