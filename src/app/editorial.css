@@ -256,6 +256,52 @@
 }
 /* The self-contained answer under a page heading. Set apart from the marketing
    intro so both a reader and an answer engine can take it on its own. */
+/* Indicative planning figures. They sit inside the dark process section, so
+   the palette follows that section rather than the paper surfaces, and the
+   qualifier sits with its number instead of in a footnote. */
+.sourcing-benchmarks {
+  display: grid;
+  gap: 0;
+  margin: 48px 0 0;
+  border-top: 1px solid #ffffff36;
+}
+.sourcing-benchmarks > div {
+  padding: 24px 0;
+  border-bottom: 1px solid #ffffff36;
+}
+.sourcing-benchmarks dt {
+  font-size: 11px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: #c1d0aa;
+}
+.sourcing-benchmarks .benchmark-value {
+  margin: 8px 0 0;
+  font-size: 24px;
+  font-weight: 500;
+  color: #f7f5ef;
+  font-variant-numeric: tabular-nums;
+}
+.sourcing-benchmarks .benchmark-qualifier {
+  margin: 10px 0 0;
+  font-size: 13.5px;
+  line-height: 1.7;
+  color: #bac5b9;
+  max-width: 46ch;
+}
+.benchmarks-note {
+  margin-top: 18px;
+  font-size: 12.5px;
+  line-height: 1.7;
+  color: #bac5b9;
+  max-width: 620px;
+}
+@media (min-width: 860px) {
+  .sourcing-benchmarks {
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 40px;
+  }
+}
 .direct-answer {
   margin-top: 22px;
   padding-left: 18px;
@@ -707,7 +753,7 @@
   border-radius: 3px;
 }
 .site-header-light .nav-language a {
-  color: #657067;
+  color: var(--editorial-muted);
   border-radius: 2px;
 }
 .site-header-light .nav-language a[aria-current] {
@@ -1229,7 +1275,7 @@
 .sourcing-hero { align-items: center; padding-bottom: 32px; }
 .sourcing-hero .hero-copy h1 { font-size: clamp(48px, 5.7vw, 84px); line-height: 1.04; }
 .sourcing-hero .hero-description { max-width: 470px; }
-.sourcing-launch-note { max-width: 420px; margin-top: 26px; font-size: 12px; line-height: 1.8; color: #657067; }
+.sourcing-launch-note { max-width: 420px; margin-top: 26px; font-size: 12px; line-height: 1.8; color: var(--editorial-muted); }
 .sourcing-overview { padding: clamp(24px, 3vw, 42px); border: 1px solid #d9ddd2; background: #eeeee5; border-radius: 5px; min-width: 0; }
 .sourcing-overview > h2 { margin: 22px 0 24px; font-family: Georgia, serif; font-weight: 400; font-size: clamp(28px, 2.8vw, 39px); line-height: 1.2; letter-spacing: -.03em; }
 .sourcing-category { display: flex; gap: 16px; align-items: flex-start; padding: 20px 0; border-top: 1px solid #cdd3c5; }

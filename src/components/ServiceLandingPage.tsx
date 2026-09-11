@@ -9,6 +9,10 @@ import { Navbar } from '@/components/Navbar';
 import { StickyMobileCta } from '@/components/StickyMobileCta';
 import { StructuredData } from '@/components/StructuredData';
 import { breadcrumbSchema, faqSchema, serviceSchema, webpageSchema } from '@/lib/seo';
+import {
+  SOURCING_BENCHMARKS,
+  BENCHMARKS_NOTE,
+} from '@/lib/sourcing-benchmarks';
 import type { ProductCategory } from '@/lib/product-media';
 
 type ContentBlock = {
@@ -174,6 +178,16 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
                 </li>
               ))}
             </ol>
+            <dl className="sourcing-benchmarks">
+              {SOURCING_BENCHMARKS.map((benchmark) => (
+                <div key={benchmark.label}>
+                  <dt>{benchmark.label}</dt>
+                  <dd className="benchmark-value">{benchmark.value}</dd>
+                  <dd className="benchmark-qualifier">{benchmark.qualifier}</dd>
+                </div>
+              ))}
+            </dl>
+            <p className="benchmarks-note">{BENCHMARKS_NOTE}</p>
             <p className="editorial-body mt-8">
               Review the product specifications, sample requirements, quantities,
               product pricing and payment terms before approving your order.

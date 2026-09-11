@@ -84,6 +84,16 @@ const page: ServicePageContent = {
         'Where goods are bought and supplied, you are quoted a product price for the specification and quantity agreed, rather than a separate commission. What drives that price is the product itself: material, construction, finish, decoration, quantity, packaging and shipping terms. Ask for the basis of any quotation before comparing two of them.',
     },
     {
+      question: 'How long does it take to source a product from China?',
+      answer:
+        'As an indication, samples take one to two weeks once the specification is agreed, and production runs about 45 to 60 days after sample approval, before shipping. A new mould or tooling, a custom material, a revised sample or factory loading at the time of order all extend it. The timing for your project is confirmed in your quotation.',
+    },
+    {
+      question: 'What is the minimum order quantity?',
+      answer:
+        'Minimum order quantities commonly start around 500 units. The real minimum follows the product, material, construction, decoration and the split across sizes or colours, so send the quantity you are considering and it can be reviewed against what the product actually requires.',
+    },
+    {
       question: 'Do you handle customs clearance and freight forwarding?',
       answer:
         'No. Shipping terms and import responsibilities are confirmed in the commercial terms for each order, and we identify which requirements need to be settled before production. Customs brokerage and freight forwarding are handled by the specialists appointed for that purpose.',
