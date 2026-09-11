@@ -198,6 +198,11 @@ export function webpageSchema(
   title: string,
   description: string,
   language = 'en-US',
+  /**
+   * `abstract` carries the page's self-contained answer, so an engine reading
+   * only the markup gets the same sentence a reader sees under the heading.
+   */
+  extra?: { abstract?: string },
 ) {
   return {
     '@type': 'WebPage',
@@ -205,6 +210,7 @@ export function webpageSchema(
     url: absoluteUrl(path),
     name: title,
     description,
+    ...(extra?.abstract ? { abstract: extra.abstract } : {}),
     inLanguage: language,
     isPartOf: { '@id': WEBSITE_ID },
     about: { '@id': ORGANIZATION_ID },

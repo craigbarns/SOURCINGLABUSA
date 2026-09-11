@@ -1,7 +1,7 @@
 .editorial-shell {
   --editorial-paper: #f7f5ef;
   --editorial-ink: #243a2f;
-  --editorial-muted: #657067;
+  --editorial-muted: #5f6a61;
   --editorial-line: #d9ddd2;
   background: var(--editorial-paper);
   color: var(--editorial-ink);
@@ -253,6 +253,22 @@
 .editorial-title em {
   font-family: Georgia, 'Times New Roman', serif;
   font-weight: 400;
+}
+/* The self-contained answer under a page heading. Set apart from the marketing
+   intro so both a reader and an answer engine can take it on its own. */
+.direct-answer {
+  margin-top: 22px;
+  padding-left: 18px;
+  border-left: 2px solid var(--editorial-ink);
+  color: var(--editorial-ink);
+  font-size: 15.5px;
+  line-height: 1.75;
+  max-width: 620px;
+}
+@media (min-width: 768px) {
+  .direct-answer {
+    font-size: 16.5px;
+  }
 }
 .editorial-body {
   font-size: 14px;

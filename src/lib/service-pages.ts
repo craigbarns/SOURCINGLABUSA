@@ -8,6 +8,8 @@ export const customPackagingPage: ServicePageContent = {
   title: 'Custom packaging sourcing from China for U.S. brands.',
   intro:
     'Develop custom boxes, paper bags, labels, tissue paper, inserts, and retail packaging from a clear product brief. The focus is a packaging specification that works for your brand, quantity, and destination.',
+  directAnswer:
+    'Custom packaging sourcing means developing boxes, bags, labels, inserts and retail packaging to your own specification rather than buying a stock item. Sourcing Lab USA works from a written brief covering product, dimensions, material, print finish, quantity and destination, coordinates supplier options and samples through an independent China partnership, and supplies the approved packaging to U.S. business customers.',
   overview:
     'Custom packaging works best when format, material, print, finish, and packing method are considered together. We help turn those choices into a documented brief that can be reviewed before production begins.',
   offerName: 'Custom Packaging Sourcing',
@@ -118,6 +120,8 @@ export const customTextilePage: ServicePageContent = {
     'Custom clothing and textiles, sourced from China to your specification.',
   intro:
     'Source clothing, sportswear, technical garments, uniforms and branded textiles from a brief that defines fabric, construction, branding, quantity, and intended destination.',
+  directAnswer:
+    'Clothing and textile sourcing from China means having garments and textile products made to your own specification instead of buying from a catalog. Sourcing Lab USA works from a brief defining fabric, construction, sizing, branding and quantity, coordinates supplier options and samples through an independent China partnership, and supplies the approved production to U.S. business customers.',
   overview:
     'A useful textile brief makes the product decisions visible before production: the intended use, fabric and construction, measurements, labeling, decoration, quantity, and sample requirements.',
   offerName: 'Custom Textile Sourcing',
@@ -232,6 +236,8 @@ export const privateLabelPackagingPage: ServicePageContent = {
   title: 'Private label packaging that makes your product recognizably yours.',
   intro:
     'Build packaging around your product and brand identity with the information, materials, print details, and presentation requirements documented in one project brief.',
+  directAnswer:
+    'Private label packaging is packaging that carries your brand rather than the supplier brand. Sourcing Lab USA develops it from your artwork or references, confirming material, structure, print method, finish and quantity before production, then coordinates sampling and supply through an independent China partnership. Import and delivery responsibilities are confirmed per order in the quotation.',
   overview:
     'Private label packaging is more than a logo on a box. The format, product fit, visual hierarchy, labels, inserts, and unboxing details all need to work together for the product you are placing on the market.',
   offerName: 'Private Label Packaging Development',
@@ -341,6 +347,8 @@ export const chinaToUsProcurementPage: ServicePageContent = {
   title: 'China sourcing and product supply for U.S. businesses.',
   intro:
     'Start your China sourcing and product supply project now. Clothing, sportswear, technical apparel and packaging are our core specialties; other products are assessed on request. Your quote identifies the contracting and invoicing company in France or China.',
+  directAnswer:
+    'China-to-U.S. procurement covers finding a supplier, agreeing a specification, approving a sample and having the goods produced and delivered. Sourcing Lab USA buys and supplies the products rather than acting only as an introducer: clothing, textiles and packaging are the core specialties, other products are reviewed for feasibility, and the quotation names the company in France or China that contracts and invoices.',
   overview:
     'China-to-U.S. procurement begins with a product brief and finishes with commercial terms that make the responsibilities clear. Product specifications, samples, production coordination, shipping terms, and importer responsibilities are confirmed order by order.',
   offerName: 'China-to-U.S. Product Procurement',

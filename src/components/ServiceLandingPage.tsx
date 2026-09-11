@@ -26,6 +26,13 @@ export type ServicePageContent = {
   eyebrow: string;
   title: string;
   intro: string;
+  /**
+   * A self-contained factual answer to the question this page exists for,
+   * 40-80 words, placed directly under the H1 and mirrored into the page
+   * schema. Written to stay true if an answer engine quotes it alone, with no
+   * preceding sentence for context.
+   */
+  directAnswer: string;
   overview: string;
   overviewTitle: string;
   processTitle: string;
@@ -52,7 +59,9 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
   const structuredData = {
     '@context': 'https://schema.org',
     '@graph': [
-      webpageSchema(page.path, page.title, page.intro),
+      webpageSchema(page.path, page.title, page.intro, 'en-US', {
+        abstract: page.directAnswer,
+      }),
       serviceSchema(page.path, page.offerName, page.offerDescription),
       breadcrumbSchema([
         { name: 'Home', path: '/' },
@@ -81,6 +90,7 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
               <div>
                 <p className="editorial-kicker">{page.eyebrow}</p>
                 <h1 className="editorial-title page-title">{page.title}</h1>
+                <p className="direct-answer">{page.directAnswer}</p>
                 <p className="editorial-body page-intro">{page.intro}</p>
                 <CtaLink
                   href="#contact"
