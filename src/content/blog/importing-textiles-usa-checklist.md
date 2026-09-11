@@ -37,3 +37,5 @@ The product proposal should identify what is included in the price, the delivery
 For the product brief, see [clothing and textile sourcing](/custom-textile) and the [China sourcing RFQ checklist](/blog/china-sourcing-rfq-checklist).
 
 Official guidance checked on September 7, 2026. Recheck the linked authorities for the product and shipment date.
+
+Once the compliance questions are mapped, [clothing and textile sourcing](/custom-textile) explains how the specification and sampling are agreed before production.

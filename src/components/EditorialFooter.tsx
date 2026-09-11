@@ -28,6 +28,11 @@ export function EditorialFooter({
             <span>{es ? 'LAS POSIBILIDADES' : 'THE POSSIBILITIES'}</span>
             <ul>
               <li>
+                <Link href={`${linkPrefix}/china-sourcing-agent`}>
+                  {es ? 'Cómo trabajamos' : 'How the arrangement works'}
+                </Link>
+              </li>
+              <li>
                 <Link href={`${linkPrefix}/custom-packaging`}>
                   {es ? 'Empaques personalizados' : 'Custom packaging'}
                 </Link>

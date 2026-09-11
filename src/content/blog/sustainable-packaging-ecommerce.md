@@ -39,3 +39,5 @@ Sourcing Lab USA welcomes product sourcing projects now, with invoicing from Fra
 Explore [custom packaging sourcing](/custom-packaging), [private label packaging](/private-label-packaging), or use the [downloadable sourcing brief](/blog/china-sourcing-rfq-checklist).
 
 FTC guidance checked on September 7, 2026. Confirm current requirements before using environmental claims.
+
+To take a material decision into a real specification, see [custom packaging sourcing from China](/custom-packaging).

@@ -9,6 +9,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const posts = getAllPosts();
 
   const serviceUrls = [
+    '/china-sourcing-agent',
     '/custom-packaging',
     '/custom-textile',
     '/sportswear-sourcing',

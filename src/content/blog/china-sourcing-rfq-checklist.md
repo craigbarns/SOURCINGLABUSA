@@ -59,3 +59,5 @@ A quotation request is the start of a conversation. It is not an order confirmat
 Sourcing Lab USA accepts China sourcing projects now, with invoicing from France or China as identified in the quotation. Clothing, textiles and packaging are the core specialties; other products are assessed on request through an established independent China sourcing partnership.
 
 The quotation identifies the company in France or China purchasing, supplying and invoicing the products, along with the commercial terms. The brief helps define what can be proposed, sampled and agreed before an order. Read about [China-to-U.S. product sourcing and supply](/china-to-us-procurement), or [send your project brief](/#contact).
+
+If you are still deciding who to work with, [what a sourcing agent does and how buying and supplying differs](/china-sourcing-agent) covers the arrangements on offer before you send a brief.

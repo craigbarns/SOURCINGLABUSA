@@ -42,3 +42,5 @@ If you are a startup or testing a new product line, you likely want to keep your
 A detailed tech pack helps identify assumptions before an order is approved. When a factory has to guess your requirements, they price in risk, which often results in higher costs and stricter MOQs. By presenting a professional, complete specification, you demonstrate that you are a serious buyer, which can give you more leverage during negotiations.
 
 Sourcing projects are available now, with contracting and invoicing from France or China as identified in your quotation. Explore [clothing and textile sourcing](/custom-textile), or use the [China sourcing RFQ checklist and free brief template](/blog/china-sourcing-rfq-checklist) to prepare a project discussion.
+
+For the specification side of a garment project, [clothing and textile sourcing](/custom-textile) covers fabric, construction, sizing and branding in detail.

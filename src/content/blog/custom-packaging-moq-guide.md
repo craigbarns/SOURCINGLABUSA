@@ -36,3 +36,5 @@ If the first MOQ is too high for the project, consider options that preserve the
 Sourcing Lab USA can review a custom packaging brief, including the specification, estimated quantity, sample needs, and delivery destination, before coordinating supplier proposals. The final MOQ and commercial terms are confirmed for each order.
 
 For a complete packaging brief, see [custom packaging for U.S. brands](/custom-packaging).
+
+When your quantities are settled, [custom packaging sourcing from China](/custom-packaging) sets out the materials, print finishes and specification a quotation needs.
