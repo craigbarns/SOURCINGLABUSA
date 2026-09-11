@@ -3,7 +3,7 @@ title: "Sustainable Packaging Sourcing: Materials, Claims and a Better Brief"
 excerpt: "Turn packaging sustainability goals into specific material and documentation requirements. Compare options for protection, structure and supported claims."
 date: "2026-09-03"
 updated: "2026-09-08"
-author: "SourcingLab USA"
+author: "Gregory Baranes"
 ---
 
 A useful sustainable packaging brief specifies a measurable goal: less material, a documented recycled-content requirement, or a design intended for a particular disposal route. Describe the complete package and request evidence for any claim you plan to make. A material name or natural-looking finish is not enough to substantiate an environmental benefit.

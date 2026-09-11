@@ -3,7 +3,7 @@ title: "How to Plan Landed Costs for Custom Packaging and Textile Orders"
 excerpt: "A practical checklist of the cost items to confirm before ordering custom packaging or textiles from China to the United States."
 date: "2026-08-20"
 updated: "2026-08-31"
-author: "SourcingLab USA"
+author: "Gregory Baranes"
 ---
 
 A factory quote is only one part of the purchase decision. For a custom packaging or textile order, the useful number is the **landed cost**: the total cost allocated to each unit once it reaches the agreed destination.

@@ -2,7 +2,7 @@
 title: "China Sourcing RFQ Checklist: How to Prepare a Product Brief"
 excerpt: "Prepare a China sourcing quotation request with product specs, quantities, samples and delivery requirements. Includes a free brief template."
 date: "2026-09-07"
-author: "SourcingLab USA"
+author: "Gregory Baranes"
 ---
 
 A useful China sourcing request for quotation (RFQ) identifies the product, intended use, specifications, quantity by variant, sample requirements, destination and target date. Separate requirements you must keep from details you can change. This gives the supplier or product supply partner a clear basis for assessing feasibility and preparing a proposal.

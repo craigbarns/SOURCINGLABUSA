@@ -3,7 +3,7 @@ title: "U.S. Textile Import Planning: Labels, Documents and Product Review"
 excerpt: "Prepare a textile import review with product details, label artwork and documentation. Includes official FTC and CPSC resources for the U.S. market."
 date: "2026-09-03"
 updated: "2026-09-08"
-author: "SourcingLab USA"
+author: "Gregory Baranes"
 ---
 
 For a U.S.-bound textile project, start by identifying the exact product, fiber composition, intended user, labeling artwork and party responsible for import review. Confirm requirements before approving production. This checklist helps organize that review; it does not determine whether a particular product complies with U.S. rules.

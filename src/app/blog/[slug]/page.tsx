@@ -3,6 +3,7 @@ import { StructuredData } from '@/components/StructuredData';
 import {
   absoluteUrl,
   breadcrumbSchema,
+  FOUNDER_ID,
   pageMetadata,
   ORGANIZATION_ID,
   webpageSchema,
@@ -80,8 +81,7 @@ export default async function BlogPost({
         url: absoluteUrl(path),
         inLanguage: 'en-US',
         author: {
-          '@type': 'Organization',
-          '@id': ORGANIZATION_ID,
+          '@id': FOUNDER_ID,
           name: post.author,
           url: absoluteUrl('/about'),
         },

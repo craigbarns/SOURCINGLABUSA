@@ -140,13 +140,16 @@ export function organizationGraph() {
           : {}),
       },
       {
-        // Named on the About page. Nothing is asserted here that the page does
-        // not show: a role or biography needs the founder's confirmation
-        // before it can be added.
+        // Named on the About page, which also states the twenty years of
+        // sourcing experience. Nothing is asserted here that the page does not
+        // show.
         '@type': 'Person',
         '@id': FOUNDER_ID,
         name: 'Gregory Baranes',
         jobTitle: 'Founder',
+        description:
+          'Founder of Sourcing Lab USA, with twenty years of experience in product sourcing.',
+        knowsAbout: ORGANIZATION_TOPICS,
         worksFor: { '@id': ORGANIZATION_ID },
         mainEntityOfPage: absoluteUrl('/about'),
       },

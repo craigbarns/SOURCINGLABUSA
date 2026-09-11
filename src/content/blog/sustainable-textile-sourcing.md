@@ -3,7 +3,7 @@ title: "How to Discuss Material Claims When Sourcing Custom Textiles"
 excerpt: "A practical way to define textile material requirements, request supporting documents, and avoid making claims that the order cannot substantiate."
 date: "2026-08-25"
 updated: "2026-08-31"
-author: "SourcingLab USA"
+author: "Gregory Baranes"
 ---
 
 When a custom textile project includes organic, recycled, or other material claims, the specification has to be more precise than a marketing phrase. The fiber blend, construction, color, trims, labels, intended use, and documentation requirements can all affect the supplier options, sampling process, price, and lead time.

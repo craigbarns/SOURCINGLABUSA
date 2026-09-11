@@ -3,7 +3,7 @@ title: "China Sourcing Now, with a Miami Expansion Planned for 2027"
 excerpt: "Start sourcing clothing, sportswear, packaging and labels now, with invoicing from France or China. The planned Miami expansion is a separate next step."
 date: "2026-08-31"
 updated: "2026-09-08"
-author: "SourcingLab USA"
+author: "Gregory Baranes"
 ---
 
 You can start a China sourcing project with us now. Current projects can be executed and invoiced through France or China, with the contracting company identified in your quotation. You do not need to wait for the planned Miami expansion in 2027.

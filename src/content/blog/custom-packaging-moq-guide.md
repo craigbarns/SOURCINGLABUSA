@@ -3,7 +3,7 @@ title: "Custom Packaging MOQ: How to Plan a First Production Run"
 excerpt: "Understand the factors that shape a custom packaging minimum order quantity and the information to confirm before you request a quote."
 date: "2026-08-28"
 updated: "2026-08-31"
-author: "SourcingLab USA"
+author: "Gregory Baranes"
 ---
 
 Moving from stock packaging to a fully customized product creates a new question: what is the minimum order quantity, or MOQ? There is no universal answer. The workable MOQ depends on the item, material, printing method, finish, tooling, dimensions, and supplier's production setup.
