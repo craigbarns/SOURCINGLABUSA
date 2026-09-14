@@ -9,7 +9,7 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' }) {
       <div className="editorial-container hero-layout sourcing-hero">
         <div className="hero-copy animate-rise">
           <p className="editorial-kicker">{es ? 'SOURCING EN CHINA · PROYECTOS DESDE AHORA' : 'CHINA SOURCING · ACCEPTING PROJECTS NOW'}</p>
-          <h1 id="hero-heading">{es ? 'Sourcing en China.' : 'China sourcing.'}<br /><em>{es ? 'Para marcas de EE. UU.' : 'For U.S. brands.'}</em></h1>
+          <h1 id="hero-heading">{es ? 'Sourcing en China.' : 'China sourcing.'}<br /><em>{es ? 'Para marcas de EE.\u00a0UU.' : 'For U.S. brands.'}</em></h1>
           <p className="hero-description">{es
             ? 'Sourcing Lab USA busca, compra y suministra prendas, textiles, ropa deportiva, empaques y etiquetas desde China. Cada proyecto parte de tus especificaciones, cantidades y destino.'
             : 'Sourcing Lab USA is a custom packaging and textile procurement partner for U.S. brands. We source, purchase and supply products from China, starting with your specifications, quantities and destination.'}</p>

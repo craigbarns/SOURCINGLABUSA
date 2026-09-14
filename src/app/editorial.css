@@ -1406,6 +1406,9 @@
 .contact-qualification summary { cursor: pointer; color: #243a2f; font-size: 14px; font-weight: 600; }
 .sourcing-hero { align-items: center; padding-bottom: 32px; }
 .sourcing-hero .hero-copy h1 { font-size: clamp(48px, 5.7vw, 84px); line-height: 1.04; }
+/* The longer Spanish headline scales with its column, including tablet layouts. */
+.sourcing-hero:lang(es) .hero-copy { container-type: inline-size; }
+.sourcing-hero:lang(es) .hero-copy h1 { font-size: clamp(34px, 9.8cqw, 62px); }
 .sourcing-hero .hero-description { max-width: 470px; }
 .sourcing-launch-note { max-width: 420px; margin-top: 26px; font-size: 12px; line-height: 1.8; color: var(--editorial-muted); }
 .sourcing-overview { padding: clamp(24px, 3vw, 42px); border: 1px solid #d9ddd2; background: #eeeee5; border-radius: 5px; min-width: 0; }
