@@ -1,0 +1,138 @@
+{
+  "date": "2026-09-14",
+  "target": "local production build",
+  "browser": "isolated headless installed Google Chrome through Playwright",
+  "viewports": [
+    390,
+    1440
+  ],
+  "formSubmitted": false,
+  "records": [
+    {
+      "path": "/",
+      "width": 390,
+      "viewport": 390,
+      "document": 390,
+      "tables": [],
+      "errors": []
+    },
+    {
+      "path": "/resources",
+      "width": 390,
+      "viewport": 390,
+      "document": 390,
+      "tables": [],
+      "errors": []
+    },
+    {
+      "path": "/contact-us",
+      "width": 390,
+      "viewport": 390,
+      "document": 390,
+      "tables": [],
+      "errors": []
+    },
+    {
+      "path": "/how-we-work",
+      "width": 390,
+      "viewport": 390,
+      "document": 390,
+      "tables": [
+        {
+          "width": 350,
+          "content": 560
+        }
+      ],
+      "errors": []
+    },
+    {
+      "path": "/blog/verify-chinese-supplier",
+      "width": 390,
+      "viewport": 390,
+      "document": 390,
+      "tables": [
+        {
+          "width": 350,
+          "content": 560
+        }
+      ],
+      "errors": []
+    },
+    {
+      "path": "/blog/calculating-landed-costs-merchandise",
+      "width": 390,
+      "viewport": 390,
+      "document": 390,
+      "tables": [
+        {
+          "width": 350,
+          "content": 560
+        }
+      ],
+      "errors": []
+    },
+    {
+      "path": "/",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "tables": [],
+      "errors": []
+    },
+    {
+      "path": "/resources",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "tables": [],
+      "errors": []
+    },
+    {
+      "path": "/contact-us",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "tables": [],
+      "errors": []
+    },
+    {
+      "path": "/how-we-work",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "tables": [
+        {
+          "width": 796,
+          "content": 796
+        }
+      ],
+      "errors": []
+    },
+    {
+      "path": "/blog/verify-chinese-supplier",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "tables": [
+        {
+          "width": 796,
+          "content": 796
+        }
+      ],
+      "errors": []
+    },
+    {
+      "path": "/blog/calculating-landed-costs-merchandise",
+      "width": 1440,
+      "viewport": 1440,
+      "document": 1440,
+      "tables": [
+        {
+          "width": 796,
+          "content": 796
+        }
+      ],
+      "errors": []
+    }
+  ]
+}

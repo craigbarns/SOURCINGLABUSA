@@ -1397,6 +1397,13 @@
 }
 
 /* Product scope and commercial content, without illustrative photography. */
+.guide-table-scroll { max-width: 100%; overflow-x: auto; margin-block: 24px; }
+.guide-table-scroll:focus-visible { outline: 2px solid #2a4435; outline-offset: 4px; }
+.guide-table-scroll table { min-width: 560px; width: 100%; border-collapse: collapse; font-size: 14px; }
+.guide-table-scroll th, .guide-table-scroll td { padding: 12px 14px; border-bottom: 1px solid #d9ddd2; text-align: left; vertical-align: top; }
+.guide-table-scroll th { color: #243a2f; background: #eeeee5; }
+.contact-qualification { border-top: 1px solid #d9ddd2; padding-top: 16px; }
+.contact-qualification summary { cursor: pointer; color: #243a2f; font-size: 14px; font-weight: 600; }
 .sourcing-hero { align-items: center; padding-bottom: 32px; }
 .sourcing-hero .hero-copy h1 { font-size: clamp(48px, 5.7vw, 84px); line-height: 1.04; }
 .sourcing-hero .hero-description { max-width: 470px; }

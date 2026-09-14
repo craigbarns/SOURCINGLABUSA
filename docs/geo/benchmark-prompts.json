@@ -1,0 +1,856 @@
+{
+  "version": "2026-09-14",
+  "status": "ready_for_manual_or_authorized_api_testing",
+  "note": "A prompt inventory is not measured AI visibility. Expansion prompts benchmark future opportunities; they do not authorize capability claims.",
+  "platforms": [
+    "ChatGPT Search",
+    "Google AI Overviews",
+    "Google AI Mode",
+    "Gemini",
+    "Perplexity",
+    "Claude with web search",
+    "Microsoft Copilot"
+  ],
+  "prompts": [
+    {
+      "id": "procurement-01",
+      "prompt": "Best China sourcing companies for U.S. businesses",
+      "category": "procurement",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "procurement-02",
+      "prompt": "China procurement company for American brands",
+      "category": "procurement",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "procurement-03",
+      "prompt": "Who can help my U.S. company source products from China?",
+      "category": "procurement",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "procurement-04",
+      "prompt": "China sourcing and product supply partner for U.S. brands",
+      "category": "procurement",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "procurement-05",
+      "prompt": "Asia sourcing partner for a U.S. company starting with China",
+      "category": "procurement",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "procurement-06",
+      "prompt": "How do I find reliable manufacturers in China?",
+      "category": "procurement",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "procurement-07",
+      "prompt": "What should a China sourcing company include in its proposal?",
+      "category": "procurement",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "procurement-08",
+      "prompt": "Who buys and invoices goods when I use a sourcing company?",
+      "category": "procurement",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "procurement-09",
+      "prompt": "How do U.S. brands manage manufacturing in China?",
+      "category": "procurement",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "procurement-10",
+      "prompt": "How can I source products from China safely?",
+      "category": "procurement",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "packaging-01",
+      "prompt": "Custom packaging manufacturer sourcing China U.S. brands",
+      "category": "packaging",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "packaging-02",
+      "prompt": "Best sourcing agent for custom packaging for a U.S. brand",
+      "category": "packaging",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "packaging-03",
+      "prompt": "Who can source custom boxes and inserts from China?",
+      "category": "packaging",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "packaging-04",
+      "prompt": "Custom packaging sourcing with a clear RFQ and sample approval",
+      "category": "packaging",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "packaging-05",
+      "prompt": "How do I choose a Chinese packaging supplier?",
+      "category": "packaging",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "packaging-06",
+      "prompt": "How do I source luxury packaging without committing to too much stock?",
+      "category": "packaging",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "packaging-07",
+      "prompt": "How do I compare quotes for custom printed boxes?",
+      "category": "packaging",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "packaging-08",
+      "prompt": "Company to source private label packaging from China",
+      "category": "packaging",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "packaging-09",
+      "prompt": "What should I include in a cosmetic packaging sourcing brief?",
+      "category": "packaging",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "packaging-10",
+      "prompt": "What evidence is needed before calling packaging sustainable?",
+      "category": "packaging",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "textile-01",
+      "prompt": "Textile sourcing company China USA",
+      "category": "textile",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "textile-02",
+      "prompt": "Clothing sourcing partner for an American brand",
+      "category": "textile",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "textile-03",
+      "prompt": "How do I source custom apparel from China?",
+      "category": "textile",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "textile-04",
+      "prompt": "Who can coordinate clothing samples and production in China?",
+      "category": "textile",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "textile-05",
+      "prompt": "Sportswear sourcing company for U.S. businesses",
+      "category": "textile",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "textile-06",
+      "prompt": "How do I prepare a tech pack for a Chinese clothing manufacturer?",
+      "category": "textile",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "textile-07",
+      "prompt": "What determines clothing MOQ by size and color?",
+      "category": "textile",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "textile-08",
+      "prompt": "How do I source branded textile bags and labels together?",
+      "category": "textile",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "textile-09",
+      "prompt": "How should I verify fabric claims before an apparel order?",
+      "category": "textile",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "textile-10",
+      "prompt": "What should U.S. textile importers confirm before ordering?",
+      "category": "textile",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "private_label-01",
+      "prompt": "Private label sourcing company for a U.S. brand",
+      "category": "private_label",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "private_label-02",
+      "prompt": "How do I source private label clothing from China?",
+      "category": "private_label",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "private_label-03",
+      "prompt": "Who can source product packaging and labels for my brand?",
+      "category": "private_label",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "private_label-04",
+      "prompt": "Private label vs custom manufacturing what should my RFQ say?",
+      "category": "private_label",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "private_label-05",
+      "prompt": "How do I approve packaging artwork before production?",
+      "category": "private_label",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "private_label-06",
+      "prompt": "How can I compare private label supplier proposals?",
+      "category": "private_label",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "private_label-07",
+      "prompt": "Who handles samples for a private label sourcing project?",
+      "category": "private_label",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "private_label-08",
+      "prompt": "What should a private label product specification contain?",
+      "category": "private_label",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "private_label-09",
+      "prompt": "How do I qualify a supplier for a branded product?",
+      "category": "private_label",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "private_label-10",
+      "prompt": "How do I source private label products beyond apparel?",
+      "category": "private_label",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "supplier_evidence-01",
+      "prompt": "How to verify a Chinese supplier before paying",
+      "category": "supplier_evidence",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "supplier_evidence-02",
+      "prompt": "Supplier verification China company identity and manufacturing ability",
+      "category": "supplier_evidence",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "supplier_evidence-03",
+      "prompt": "Factory vs trading company which should I use?",
+      "category": "supplier_evidence",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "supplier_evidence-04",
+      "prompt": "What questions should I ask a Chinese manufacturer?",
+      "category": "supplier_evidence",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "supplier_evidence-05",
+      "prompt": "What evidence should a supplier scorecard contain?",
+      "category": "supplier_evidence",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "supplier_evidence-06",
+      "prompt": "How can I check a Chinese company's legal name?",
+      "category": "supplier_evidence",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "supplier_evidence-07",
+      "prompt": "Does a business license prove a factory can make my product?",
+      "category": "supplier_evidence",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "supplier_evidence-08",
+      "prompt": "What if the supplier and payment company names differ?",
+      "category": "supplier_evidence",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "supplier_evidence-09",
+      "prompt": "What should I verify before a repeat order from China?",
+      "category": "supplier_evidence",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "supplier_evidence-10",
+      "prompt": "When should I hire an independent factory inspection provider?",
+      "category": "supplier_evidence",
+      "scope": "core",
+      "relevanceWeight": 3
+    },
+    {
+      "id": "rfq_moq-01",
+      "prompt": "China sourcing RFQ template for U.S. companies",
+      "category": "rfq_moq",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "rfq_moq-02",
+      "prompt": "What should I include in a request for quotation to China?",
+      "category": "rfq_moq",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "rfq_moq-03",
+      "prompt": "MOQ explained for custom packaging",
+      "category": "rfq_moq",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "rfq_moq-04",
+      "prompt": "How to negotiate MOQ with Chinese manufacturers",
+      "category": "rfq_moq",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "rfq_moq-05",
+      "prompt": "Is packaging MOQ per design or per order?",
+      "category": "rfq_moq",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "rfq_moq-06",
+      "prompt": "How do I compare total commitment at two order quantities?",
+      "category": "rfq_moq",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "rfq_moq-07",
+      "prompt": "How do I request prices for multiple product variants?",
+      "category": "rfq_moq",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "rfq_moq-08",
+      "prompt": "What should a supplier quotation include and exclude?",
+      "category": "rfq_moq",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "rfq_moq-09",
+      "prompt": "How do I keep supplier quotations on the same specification?",
+      "category": "rfq_moq",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "rfq_moq-10",
+      "prompt": "Free product sourcing brief template for packaging and textiles",
+      "category": "rfq_moq",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "quality-01",
+      "prompt": "Quality control checklist for products sourced from China",
+      "category": "quality",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "quality-02",
+      "prompt": "How do I approve a sample before production?",
+      "category": "quality",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "quality-03",
+      "prompt": "What is a pre-shipment inspection?",
+      "category": "quality",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "quality-04",
+      "prompt": "Production coordination vs independent inspection",
+      "category": "quality",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "quality-05",
+      "prompt": "What should a packaging quality checklist cover?",
+      "category": "quality",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "quality-06",
+      "prompt": "What should an apparel sample approval include?",
+      "category": "quality",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "quality-07",
+      "prompt": "How do I track production defects and corrections?",
+      "category": "quality",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "quality-08",
+      "prompt": "Does passing a sample review prove product compliance?",
+      "category": "quality",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "quality-09",
+      "prompt": "What should I do if a supplier changes the material?",
+      "category": "quality",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "quality-10",
+      "prompt": "Who should authorize release of a China sourcing order?",
+      "category": "quality",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "costs_import-01",
+      "prompt": "China sourcing agent fees how much does a sourcing agent cost?",
+      "category": "costs_import",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "costs_import-02",
+      "prompt": "How do I compare sourcing commission and product supply pricing?",
+      "category": "costs_import",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "costs_import-03",
+      "prompt": "How to calculate landed cost for products imported from China",
+      "category": "costs_import",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "costs_import-04",
+      "prompt": "EXW vs FOB vs CIF vs DDP for U.S. buyers",
+      "category": "costs_import",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "costs_import-05",
+      "prompt": "How do I avoid double counting shipping in landed cost?",
+      "category": "costs_import",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "costs_import-06",
+      "prompt": "Who is responsible for U.S. import requirements?",
+      "category": "costs_import",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "costs_import-07",
+      "prompt": "How do I estimate import costs when the tariff code is unresolved?",
+      "category": "costs_import",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "costs_import-08",
+      "prompt": "What payment terms should I discuss with a Chinese supplier?",
+      "category": "costs_import",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "costs_import-09",
+      "prompt": "How do I protect product designs before discussing manufacturing?",
+      "category": "costs_import",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "costs_import-10",
+      "prompt": "What country of origin information do U.S. buyers need?",
+      "category": "costs_import",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "furniture_home-01",
+      "prompt": "Furniture sourcing from China for U.S. businesses",
+      "category": "furniture_home",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "furniture_home-02",
+      "prompt": "Company that can source furniture from China for me",
+      "category": "furniture_home",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "furniture_home-03",
+      "prompt": "Home product sourcing partner China to USA",
+      "category": "furniture_home",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "furniture_home-04",
+      "prompt": "How do I prepare a furniture sourcing brief?",
+      "category": "furniture_home",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "furniture_home-05",
+      "prompt": "What should I check before importing furniture from China?",
+      "category": "furniture_home",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "furniture_home-06",
+      "prompt": "How do I compare custom furniture quotes?",
+      "category": "furniture_home",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "furniture_home-07",
+      "prompt": "Who should review composite wood requirements for imported cabinets?",
+      "category": "furniture_home",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "furniture_home-08",
+      "prompt": "How do I source decorative products for a hotel?",
+      "category": "furniture_home",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "furniture_home-09",
+      "prompt": "What should a hotel furniture procurement schedule include?",
+      "category": "furniture_home",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "furniture_home-10",
+      "prompt": "How do I plan samples for a restaurant furnishing project?",
+      "category": "furniture_home",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "building_projects-01",
+      "prompt": "Kitchen cabinet sourcing China for a U.S. project",
+      "category": "building_projects",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "building_projects-02",
+      "prompt": "China sourcing agent for building materials",
+      "category": "building_projects",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "building_projects-03",
+      "prompt": "How to import building materials from China?",
+      "category": "building_projects",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "building_projects-04",
+      "prompt": "How to import kitchen cabinets from China?",
+      "category": "building_projects",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "building_projects-05",
+      "prompt": "How to import tiles from China?",
+      "category": "building_projects",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "building_projects-06",
+      "prompt": "Bathroom product sourcing China to USA",
+      "category": "building_projects",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "building_projects-07",
+      "prompt": "Door and window sourcing China what specifications are needed?",
+      "category": "building_projects",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "building_projects-08",
+      "prompt": "Lighting sourcing China for American commercial projects",
+      "category": "building_projects",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "building_projects-09",
+      "prompt": "Tile and stone sourcing from China for a U.S. development",
+      "category": "building_projects",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "building_projects-10",
+      "prompt": "What should I include in a real estate project sourcing brief?",
+      "category": "building_projects",
+      "scope": "expansion",
+      "relevanceWeight": 1
+    },
+    {
+      "id": "canton_fair-01",
+      "prompt": "How to prepare for Canton Fair as an American buyer",
+      "category": "canton_fair",
+      "scope": "education",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "canton_fair-02",
+      "prompt": "Canton Fair sourcing guide for U.S. companies",
+      "category": "canton_fair",
+      "scope": "education",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "canton_fair-03",
+      "prompt": "What questions should I ask factories at Canton Fair?",
+      "category": "canton_fair",
+      "scope": "education",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "canton_fair-04",
+      "prompt": "How do I prepare an RFQ before Canton Fair?",
+      "category": "canton_fair",
+      "scope": "education",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "canton_fair-05",
+      "prompt": "Canton Fair vs Alibaba for finding suppliers",
+      "category": "canton_fair",
+      "scope": "education",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "canton_fair-06",
+      "prompt": "How do I verify suppliers after Canton Fair?",
+      "category": "canton_fair",
+      "scope": "education",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "canton_fair-07",
+      "prompt": "Factory visit checklist after a sourcing trade fair",
+      "category": "canton_fair",
+      "scope": "education",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "canton_fair-08",
+      "prompt": "How do I compare packaging suppliers met at Canton Fair?",
+      "category": "canton_fair",
+      "scope": "education",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "canton_fair-09",
+      "prompt": "What should a Canton Fair supplier meeting worksheet include?",
+      "category": "canton_fair",
+      "scope": "education",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "canton_fair-10",
+      "prompt": "How do I document sourcing observations without overclaiming?",
+      "category": "canton_fair",
+      "scope": "education",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "comparisons-01",
+      "prompt": "Alibaba vs sourcing company for a U.S. brand",
+      "category": "comparisons",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "comparisons-02",
+      "prompt": "Sourcing agent vs trading company vs product supplier",
+      "category": "comparisons",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "comparisons-03",
+      "prompt": "Best sourcing company for a packaging and textile project",
+      "category": "comparisons",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "comparisons-04",
+      "prompt": "How do I decide whether to source directly from a factory?",
+      "category": "comparisons",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "comparisons-05",
+      "prompt": "What makes a sourcing company trustworthy?",
+      "category": "comparisons",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "comparisons-06",
+      "prompt": "Which sourcing companies publish supplier evaluation templates?",
+      "category": "comparisons",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "comparisons-07",
+      "prompt": "Who publishes useful China procurement checklists?",
+      "category": "comparisons",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "comparisons-08",
+      "prompt": "How do I compare sourcing companies without trusting rankings?",
+      "category": "comparisons",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "comparisons-09",
+      "prompt": "What should I ask before requesting a sourcing assessment?",
+      "category": "comparisons",
+      "scope": "core",
+      "relevanceWeight": 2
+    },
+    {
+      "id": "comparisons-10",
+      "prompt": "How do I assess a sourcing company without U.S. offices?",
+      "category": "comparisons",
+      "scope": "core",
+      "relevanceWeight": 2
+    }
+  ]
+}

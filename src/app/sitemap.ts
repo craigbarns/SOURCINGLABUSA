@@ -48,7 +48,11 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
-    { url: `${marketingOrigin}/about`, lastModified: '2026-09-07' },
+    { url: `${marketingOrigin}/about`, lastModified: '2026-09-14' },
+    ...['/how-we-work', '/editorial-policy', '/contact-us'].map((path) => ({
+      url: `${marketingOrigin}${path}`,
+      lastModified: '2026-09-14',
+    })),
     ...serviceUrls,
     ...blogUrls,
     {

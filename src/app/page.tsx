@@ -8,14 +8,14 @@ import {
   serviceSchema,
 } from '@/lib/seo';
 
-const title = 'China Sourcing & Product Supply';
+const title = 'China Sourcing for U.S. Brands';
 const description =
-  'China sourcing and product supply for U.S. brands: clothing, sportswear, packaging and labels. Share your specifications and quantities to request a quote.';
+  'Custom packaging and textile procurement for U.S. brands. Source products from China with a clear brief, sample approvals and agreed supply terms.';
 // Answer-first summary for the page schema. It restates what the hero already
 // shows a reader — the description and the availability note — so the markup
 // never carries a claim that is not visible on the page.
 const homeAnswer =
-  'Sourcing Lab USA sources, purchases and supplies clothing, textiles, sportswear, custom packaging and labels from China. Each project starts with your specifications, quantities and destination. Projects are open now, with invoicing from France or China and the contracting company identified in your quotation.';
+  'Sourcing Lab USA is a custom packaging and textile procurement partner for U.S. brands. We source, purchase and supply products from China, starting with your specifications, quantities and destination. Projects open now. Invoicing from France or China, with the company identified in your quotation.';
 
 export const metadata = pageMetadata({
   title,

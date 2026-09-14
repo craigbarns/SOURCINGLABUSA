@@ -15,6 +15,7 @@ import { useId, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 
 import { ANALYTICS_EVENTS, trackEvent } from '@/lib/analytics';
 import { submitToNetlifyForms } from '@/lib/netlify-forms';
+import { BRIEF_DETAIL_FIELDS, EMPTY_BRIEF_DETAILS, formatBriefMessage } from '@/lib/brief-details';
 import {
   BRIEF_CONTACT_EMAIL,
   BRIEF_FORM_COPY,
@@ -49,6 +50,7 @@ const labelClassName =
   'mb-2 block text-[11px] font-bold uppercase tracking-[0.13em] text-[#8f9c94]';
 
 const emptyValues = {
+  ...EMPTY_BRIEF_DETAILS,
   name: '',
   email: '',
   company: '',
@@ -148,7 +150,7 @@ export function ContactForm({
       }`,
       `${copy.quantityLabel}: ${copy.quantityOptions[values.quantityRange]}`,
       '',
-      values.message,
+      formatBriefMessage(values.message, values),
     ];
 
     return `mailto:${BRIEF_CONTACT_EMAIL}?subject=${encodeURIComponent(
@@ -204,7 +206,7 @@ export function ContactForm({
       company: values.company,
       projectType: values.projectType,
       quantityRange: values.quantityRange,
-      message: values.message,
+      message: formatBriefMessage(values.message, values),
       sourcePath,
       botField: '',
     };
@@ -405,6 +407,7 @@ export function ContactForm({
             autoComplete="organization"
             placeholder={copy.companyPlaceholder}
             value={values.company}
+            maxLength={160}
             disabled={!isReady || status === 'submitting'}
             onChange={(event) => updateValue('company', event.target.value)}
             className={inputClassName}
@@ -504,7 +507,8 @@ export function ContactForm({
           value={values.message}
           disabled={!isReady || status === 'submitting'}
           onChange={(event) => updateValue('message', event.target.value)}
-          aria-describedby={`${fieldId}-message-hint`}
+          aria-invalid={fieldErrors.message ? 'true' : undefined}
+          aria-describedby={`${fieldId}-message-hint${fieldErrors.message ? ` ${fieldId}-message-error` : ''}`}
           className={`${inputClassName} resize-none py-3.5`}
         />
         <p
@@ -513,7 +517,30 @@ export function ContactForm({
         >
           {copy.messageHint}
         </p>
+        {fieldErrors.message && <p id={`${fieldId}-message-error`} role="alert" className="mt-2 text-xs text-[#b42318]">{locale === 'es' ? 'El brief y los detalles adicionales no deben superar 4.000 caracteres.' : 'Your brief and additional details must total no more than 4,000 characters.'}</p>}
       </div>
+
+      <details className="contact-qualification">
+        <summary>{locale === 'es' ? 'Añadir detalles del proyecto (opcional)' : 'Add project details (optional)'}</summary>
+        <div className="mt-5 grid gap-5">
+          {BRIEF_DETAIL_FIELDS.map((field) => (
+            <div key={field.key}>
+              <label htmlFor={`${fieldId}-${field.key}`} className={labelClassName}>{locale === 'es' ? field.es : field.en}</label>
+              <input
+                id={`${fieldId}-${field.key}`}
+                name={field.key}
+                type="text"
+                maxLength={160}
+                value={values[field.key]}
+                disabled={!isReady || status === 'submitting'}
+                onChange={(event) => updateValue(field.key, event.target.value)}
+                placeholder={locale === 'es' ? 'Si lo sabe; puede completarlo más tarde' : field.placeholder}
+                className={inputClassName}
+              />
+            </div>
+          ))}
+        </div>
+      </details>
 
       <button
         type="submit"

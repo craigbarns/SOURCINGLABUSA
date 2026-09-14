@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { existsSync } from 'node:fs';
 import { JSDOM } from 'jsdom';
 
 // Run against a local production build. Nothing is submitted to a search engine.
@@ -30,6 +31,10 @@ assert.equal(
 );
 
 for (const url of urls) {
+  assert.ok(
+    !existsSync(new URL(`../public${url.pathname}.html`, import.meta.url)),
+    `${url.pathname}: static HTML would shadow this route on Netlify`,
+  );
   assert.equal(
     url.origin,
     canonicalOrigin,
@@ -125,6 +130,10 @@ for (const url of urls) {
   main.querySelectorAll('script').forEach((node) => node.remove());
   const normalize = (value) => value.replace(/\s+/g, ' ').trim();
   const visibleText = normalize(main.textContent);
+  const visibleLinks = new Set([...document.querySelectorAll('a[href]')].map((a) =>
+    new URL(a.getAttribute('href'), `${canonicalOrigin}${url.pathname}`).href,
+  ));
+  assert.ok(visibleLinks.has(organizations[0].publishingPrinciples), `${url.pathname}: editorial policy must be linked visibly`);
   for (const faq of graph.filter((node) => node['@type'] === 'FAQPage')) {
     for (const question of faq.mainEntity) {
       assert.ok(
@@ -150,6 +159,11 @@ for (const url of urls) {
       document.querySelector(`time[datetime="${article.dateModified}"]`),
       `${url.pathname}: modified date absent from visible content`,
     );
+    const isFounder = article.author.name === 'Gregory Baranes';
+    assert.equal(article.author['@type'], isFounder ? 'Person' : 'Organization', `${url.pathname}: author type must match attribution`);
+    assert.equal(article.author['@id'], isFounder ? `${canonicalOrigin}/about#founder` : `${canonicalOrigin}/#organization`, `${url.pathname}: author identity mismatch`);
+    for (const citation of article.citation || []) assert.ok(visibleLinks.has(citation), `${url.pathname}: schema citation absent from visible links`);
+    for (const table of document.querySelectorAll('main table')) assert.ok(table.querySelector('th'), `${url.pathname}: table requires headings`);
   }
   pages.set(url.pathname, { document, title, description });
 }
@@ -196,6 +210,9 @@ for (const [path, { document }] of pages) {
   }
 }
 for (const path of internalAssets) await get(path);
+
+assert.ok(pages.get('/about').document.getElementById('founder'), 'Founder entity must resolve to a visible anchor');
+assert.ok(pages.get('/contact-us').document.querySelector('form'), 'Contact page must contain the qualification form');
 
 for (const path of ['/', '/es']) {
   const document = pages.get(path).document;

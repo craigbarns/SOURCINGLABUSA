@@ -196,4 +196,39 @@ describe('ContactForm', () => {
     await user.selectOptions(select, 'both');
     expect(select).toHaveValue('both');
   });
+
+  it('keeps optional qualification in both delivery channels and out of analytics', async () => {
+    const user = userEvent.setup();
+    fetchMock.mockResolvedValue({ ok: true, status: 201, json: vi.fn().mockResolvedValue({ delivery: ['database'] }) });
+    render(<ContactForm />);
+    await fillRequiredFields(user);
+    await user.click(screen.getByText('Add project details (optional)'));
+    await user.type(screen.getByLabelText('Purchasing budget and currency'), 'USD 12500');
+    await user.type(screen.getByLabelText('Target market / delivery destination'), 'Miami');
+    await user.type(screen.getByLabelText('Current supplier or sample status'), 'Sample under review');
+    await user.click(screen.getByRole('button', { name: /Send my project brief/i }));
+    expect(await screen.findByText('Brief received.')).toBeInTheDocument();
+    const api = fetchMock.mock.calls.find(([url]) => url === '/api/contact');
+    const netlify = fetchMock.mock.calls.find(([url]) => url === '/contact.html');
+    const message = JSON.parse(api![1].body).message;
+    expect(message).toContain('Purchasing budget and currency: USD 12500');
+    expect(message).toContain('Target market / delivery destination: Miami');
+    expect(new URLSearchParams(netlify![1].body).get('message')).toBe(message);
+    expect(JSON.stringify(vi.mocked(trackEvent).mock.calls)).not.toContain('12500');
+    expect(JSON.stringify(vi.mocked(trackEvent).mock.calls)).not.toContain('Miami');
+  });
+
+  it('rejects a combined brief longer than storage allows without losing optional details', async () => {
+    const user = userEvent.setup();
+    render(<ContactForm />);
+    await fillRequiredFields(user);
+    const { fireEvent } = await import('@testing-library/react');
+    fireEvent.change(screen.getByLabelText(/Your brief/i), { target: { value: 'x'.repeat(3990) } });
+    await user.click(screen.getByText('Add project details (optional)'));
+    await user.type(screen.getByLabelText('Purchasing budget and currency'), 'USD 12500');
+    await user.click(screen.getByRole('button', { name: /Send my project brief/i }));
+    expect(await screen.findByText(/Your brief and additional details must total/)).toBeInTheDocument();
+    expect(fetchMock).not.toHaveBeenCalled();
+    expect(screen.getByLabelText('Purchasing budget and currency')).toHaveValue('USD 12500');
+  });
 });

@@ -10,6 +10,7 @@ export type BlogPost = {
   excerpt: string;
   date: string;
   updated?: string;
+  updatedBy?: string;
   author: string;
   content: string;
 };
@@ -31,6 +32,7 @@ export function getPostBySlug(slug: string): BlogPost {
     excerpt: data.excerpt,
     date: data.date,
     updated: data.updated,
+    updatedBy: data.updatedBy,
     author: data.author || 'SourcingLab USA',
     content,
   };

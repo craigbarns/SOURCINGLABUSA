@@ -195,6 +195,8 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
               <Link href="/china-to-us-procurement#order-terms" className="editorial-text-link">
                 See how product supply and order terms work
               </Link>.
+              {' '}Use the <Link href="/blog/verify-chinese-supplier">supplier evidence matrix</Link> and{' '}
+              <Link href="/blog/quality-control-checklist">quality checkpoint worksheet</Link> to prepare the questions for your order.
             </p>
           </div>
         </section>
