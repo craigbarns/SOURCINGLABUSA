@@ -50,7 +50,7 @@ Use the [official U.S. tariff schedule](https://hts.usitc.gov/) as a reference f
 
 A partner can be useful when your team needs help turning specifications, supplier discussions, samples and production decisions into an agreed order. Direct sourcing may fit a team with the time and expertise to perform those tasks itself. Compare the actual work, contracting parties and costs in both routes. See [Alibaba versus a sourcing company](/blog/alibaba-vs-sourcing-company).
 
-Sourcing Lab USA is a custom packaging and textile procurement partner for U.S. brands. Its commercial offer is sourcing, purchasing and supplying products through an established independent China partnership. Current quotations identify the contracting and invoicing company in France or China. The Miami expansion is planned for 2027. Read [how product supply works](/china-to-us-procurement) or [submit your requirements](/contact#contact).
+Sourcing Lab USA is a custom packaging and textile procurement partner for U.S. brands. Its commercial offer is sourcing, purchasing and supplying products through an established independent China partnership. Current quotations identify the contracting and invoicing company in France or China. The Miami expansion is planned for 2027. Read [how product supply works](/china-to-us-procurement) or [submit your requirements](/contact-us#contact).
 
 ## What should you do when information is missing?
 

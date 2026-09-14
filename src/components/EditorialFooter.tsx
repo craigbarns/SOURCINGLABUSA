@@ -85,7 +85,7 @@ export function EditorialFooter({
                 </Link>
               </li>
               <li>
-                <Link href={`${linkPrefix}/contact`}>
+                <Link href={`${linkPrefix}/contact-us`}>
                   {es ? 'Cuéntanos tu proyecto' : 'Start a conversation'}
                 </Link>
               </li>

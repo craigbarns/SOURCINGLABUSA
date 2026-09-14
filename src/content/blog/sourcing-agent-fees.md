@@ -52,4 +52,4 @@ For a component-heavy packaging project, the more useful negotiation may be a cl
 
 ## Does Sourcing Lab USA charge a sourcing-agent fee?
 
-The current commercial offer is a quotation for product sourcing, purchase and supply. Pricing follows the product specification, quantity, sampling and order terms; no separate standard sourcing-agent commission is assumed. Read the [supply arrangement](/china-sourcing-agent), or [send your product requirements](/contact#contact) for a project-specific discussion.
+The current commercial offer is a quotation for product sourcing, purchase and supply. Pricing follows the product specification, quantity, sampling and order terms; no separate standard sourcing-agent commission is assumed. Read the [supply arrangement](/china-sourcing-agent), or [send your product requirements](/contact-us#contact) for a project-specific discussion.

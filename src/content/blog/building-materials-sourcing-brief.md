@@ -52,6 +52,6 @@ Create a receiving sequence based on the actual project plan. Do not use a produ
 
 ## What can you send for a feasibility discussion?
 
-Send the item schedule, intended U.S. location and use, drawings or references, quantities, budget basis and target dates. Identify the professionals already responsible for technical and import review. Sourcing Lab USA will assess the proposed scope before making a supply proposal; category feasibility is not assumed. [Discuss the product requirements](/contact#contact).
+Send the item schedule, intended U.S. location and use, drawings or references, quantities, budget basis and target dates. Identify the professionals already responsible for technical and import review. Sourcing Lab USA will assess the proposed scope before making a supply proposal; category feasibility is not assumed. [Discuss the product requirements](/contact-us#contact).
 
 Official references checked September 14, 2026. This guide is procurement preparation, not legal, customs, engineering or product-certification advice.

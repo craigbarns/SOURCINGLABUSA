@@ -2,7 +2,9 @@ import { InformationPage } from '@/components/InformationPage';
 import { GuideMarkdown } from '@/components/GuideMarkdown';
 import { pageMetadata } from '@/lib/seo';
 
-const path = '/contact';
+// Netlify serves public/contact.html at /contact through Pretty URLs.
+// Preserve that existing form endpoint and keep this page on a distinct URL.
+const path = '/contact-us';
 const title = 'Discuss Your China Sourcing Project';
 const description = 'Send Sourcing Lab USA your product, quantity and requirements for a China sourcing and supply discussion. Packaging and textiles are core specialties; other products are assessed for feasibility.';
 export const metadata = pageMetadata({ path, title, description });

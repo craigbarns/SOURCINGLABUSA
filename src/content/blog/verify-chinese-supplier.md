@@ -53,4 +53,4 @@ Sourcing Lab USA provides sourcing and product supply with order-specific produc
 
 Reconfirm the contracting and payment parties, specification revision, production site or process changes, materials, sample basis and delivery terms. Keep changes in a revision log. A previous order or an old test report does not resolve every question about a new product or changed material.
 
-Official registry interfaces checked September 14, 2026; no supplier was investigated or certified for this article. For a product proposal, start with [China-to-U.S. procurement](/china-to-us-procurement) or [send a project brief](/contact#contact).
+Official registry interfaces checked September 14, 2026; no supplier was investigated or certified for this article. For a product proposal, start with [China-to-U.S. procurement](/china-to-us-procurement) or [send a project brief](/contact-us#contact).

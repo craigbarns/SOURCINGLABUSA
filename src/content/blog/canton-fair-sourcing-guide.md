@@ -53,4 +53,4 @@ Where a formal audit is required, appoint an appropriate provider and agree its 
 
 Keep original photographs with dates, permissions and captions explaining what they show. Distinguish observations from supplier claims, and state the limits of a small set of conversations. Avoid presenting a few display products as an industry-wide trend. Obtain permission before publishing identifiable people, supplier details or confidential specifications.
 
-Sourcing Lab USA can publish field reports when there is actual activity and supporting evidence. Until then, use this preparation workflow and [submit a product brief](/contact#contact) for a project-specific sourcing discussion. Official event resources checked September 14, 2026; verify current event arrangements with the organizer.
+Sourcing Lab USA can publish field reports when there is actual activity and supporting evidence. Until then, use this preparation workflow and [submit a product brief](/contact-us#contact) for a project-specific sourcing discussion. Official event resources checked September 14, 2026; verify current event arrangements with the organizer.

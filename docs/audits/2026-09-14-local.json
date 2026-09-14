@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-14T08:47:20.812Z",
+  "generatedAt": "2026-09-14T15:56:10.395Z",
   "base": "http://127.0.0.1:3013/",
   "scope": "All sitemap URLs and reachable internal marketing pages; one sequential request per page. No authenticated search-console/CDN access. HTTP elapsed time is not a Core Web Vital.",
   "robots": {
@@ -12,7 +12,7 @@
       "content-type": "text/plain",
       "cross-origin-opener-policy": "same-origin",
       "cross-origin-resource-policy": "same-origin",
-      "date": "Mon, 14 Sep 2026 08:47:19 GMT",
+      "date": "Mon, 14 Sep 2026 15:56:09 GMT",
       "keep-alive": "timeout=5",
       "permissions-policy": "camera=(), microphone=(), geolocation=()",
       "referrer-policy": "strict-origin-when-cross-origin",
@@ -24,13 +24,13 @@
       "x-frame-options": "DENY",
       "x-nextjs-cache": "HIT"
     },
-    "elapsedMs": 22,
+    "elapsedMs": 20,
     "bytes": 136,
     "body": "User-Agent: *\nAllow: /\nDisallow: /app\nDisallow: /api/\n\nHost: https://sourcinglabusa.com\nSitemap: https://sourcinglabusa.com/sitemap.xml\n"
   },
   "sitemap": {
     "status": 200,
-    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\">\n<url>\n<loc>https://sourcinglabusa.com/</loc>\n<xhtml:link rel=\"alternate\" hreflang=\"en-US\" href=\"https://sourcinglabusa.com/\" />\n<xhtml:link rel=\"alternate\" hreflang=\"es-US\" href=\"https://sourcinglabusa.com/es\" />\n<xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"https://sourcinglabusa.com/\" />\n<changefreq>weekly</changefreq>\n<priority>1</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/es</loc>\n<xhtml:link rel=\"alternate\" hreflang=\"en-US\" href=\"https://sourcinglabusa.com/\" />\n<xhtml:link rel=\"alternate\" hreflang=\"es-US\" href=\"https://sourcinglabusa.com/es\" />\n<xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"https://sourcinglabusa.com/\" />\n<changefreq>weekly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog</loc>\n<changefreq>weekly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/about</loc>\n<lastmod>2026-09-14</lastmod>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/how-we-work</loc>\n<lastmod>2026-09-14</lastmod>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/editorial-policy</loc>\n<lastmod>2026-09-14</lastmod>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/contact</loc>\n<lastmod>2026-09-14</lastmod>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/china-sourcing-agent</loc>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/custom-packaging</loc>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/custom-textile</loc>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/sportswear-sourcing</loc>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/private-label-packaging</loc>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/china-to-us-procurement</loc>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/alibaba-vs-sourcing-company</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/building-materials-sourcing-brief</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/canton-fair-sourcing-guide</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/china-sourcing-guide-us-businesses</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/quality-control-checklist</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/sourcing-agent-fees</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/verify-chinese-supplier</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/china-sourcing-rfq-checklist</loc>\n<lastmod>2026-09-07</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/apparel-sourcing-tech-packs-moq</loc>\n<lastmod>2026-09-08</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/importing-textiles-usa-checklist</loc>\n<lastmod>2026-09-08</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/sustainable-packaging-ecommerce</loc>\n<lastmod>2026-09-08</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/miami-future-hub-sourcing</loc>\n<lastmod>2026-09-08</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/custom-packaging-moq-guide</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/sustainable-textile-sourcing</loc>\n<lastmod>2026-08-31</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/calculating-landed-costs-merchandise</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/resources</loc>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/resources/product-sourcing-brief</loc>\n<changefreq>yearly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/privacy</loc>\n<changefreq>yearly</changefreq>\n<priority>0.3</priority>\n</url>\n</urlset>\n"
+    "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<urlset xmlns=\"http://www.sitemaps.org/schemas/sitemap/0.9\" xmlns:xhtml=\"http://www.w3.org/1999/xhtml\">\n<url>\n<loc>https://sourcinglabusa.com/</loc>\n<xhtml:link rel=\"alternate\" hreflang=\"en-US\" href=\"https://sourcinglabusa.com/\" />\n<xhtml:link rel=\"alternate\" hreflang=\"es-US\" href=\"https://sourcinglabusa.com/es\" />\n<xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"https://sourcinglabusa.com/\" />\n<changefreq>weekly</changefreq>\n<priority>1</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/es</loc>\n<xhtml:link rel=\"alternate\" hreflang=\"en-US\" href=\"https://sourcinglabusa.com/\" />\n<xhtml:link rel=\"alternate\" hreflang=\"es-US\" href=\"https://sourcinglabusa.com/es\" />\n<xhtml:link rel=\"alternate\" hreflang=\"x-default\" href=\"https://sourcinglabusa.com/\" />\n<changefreq>weekly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog</loc>\n<changefreq>weekly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/about</loc>\n<lastmod>2026-09-14</lastmod>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/how-we-work</loc>\n<lastmod>2026-09-14</lastmod>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/editorial-policy</loc>\n<lastmod>2026-09-14</lastmod>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/contact-us</loc>\n<lastmod>2026-09-14</lastmod>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/china-sourcing-agent</loc>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/custom-packaging</loc>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/custom-textile</loc>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/sportswear-sourcing</loc>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/private-label-packaging</loc>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/china-to-us-procurement</loc>\n<changefreq>monthly</changefreq>\n<priority>0.9</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/alibaba-vs-sourcing-company</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/building-materials-sourcing-brief</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/canton-fair-sourcing-guide</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/china-sourcing-guide-us-businesses</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/quality-control-checklist</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/sourcing-agent-fees</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/verify-chinese-supplier</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/china-sourcing-rfq-checklist</loc>\n<lastmod>2026-09-07</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/apparel-sourcing-tech-packs-moq</loc>\n<lastmod>2026-09-08</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/importing-textiles-usa-checklist</loc>\n<lastmod>2026-09-08</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/sustainable-packaging-ecommerce</loc>\n<lastmod>2026-09-08</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/miami-future-hub-sourcing</loc>\n<lastmod>2026-09-08</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/custom-packaging-moq-guide</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/sustainable-textile-sourcing</loc>\n<lastmod>2026-08-31</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/blog/calculating-landed-costs-merchandise</loc>\n<lastmod>2026-09-14</lastmod>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/resources</loc>\n<changefreq>monthly</changefreq>\n<priority>0.8</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/resources/product-sourcing-brief</loc>\n<changefreq>yearly</changefreq>\n<priority>0.7</priority>\n</url>\n<url>\n<loc>https://sourcinglabusa.com/privacy</loc>\n<changefreq>yearly</changefreq>\n<priority>0.3</priority>\n</url>\n</urlset>\n"
   },
   "summary": {
     "pages": 31,
@@ -57,8 +57,8 @@
       "inSitemap": true,
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/",
-      "elapsedMs": 7,
-      "htmlBytes": 98859,
+      "elapsedMs": 8,
+      "htmlBytes": 98868,
       "title": "China Sourcing for U.S. Brands | Sourcing Lab USA",
       "description": "Custom packaging and textile procurement for U.S. brands. Source products from China with a clear brief, sample approvals and agreed supply terms.",
       "canonical": "https://sourcinglabusa.com",
@@ -434,8 +434,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -655,9 +655,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/page-71b8176f2dcb9116.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -676,7 +676,7 @@
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/es",
       "elapsedMs": 6,
-      "htmlBytes": 98782,
+      "htmlBytes": 98791,
       "title": "Sourcing en China y Suministro de Productos | Sourcing Lab USA",
       "description": "Sourcing en China de prendas, ropa deportiva y técnica, empaques y etiquetas. Proyectos disponibles ahora, con facturación desde Francia o China.",
       "canonical": "https://sourcinglabusa.com/es",
@@ -1052,8 +1052,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Cuéntanos tu proyecto",
           "internal": true,
@@ -1254,9 +1254,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/es/page-71b8176f2dcb9116.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -1269,8 +1269,8 @@
       "inSitemap": true,
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/blog",
-      "elapsedMs": 7,
-      "htmlBytes": 85432,
+      "elapsedMs": 6,
+      "htmlBytes": 85441,
       "title": "China Sourcing Guides: Clothing, Packaging & Product Briefs | Sourcing Lab USA",
       "description": "Practical guides to China product sourcing, clothing specifications, custom packaging and quotation requests. Prepare your next product brief.",
       "canonical": "https://sourcinglabusa.com/blog",
@@ -1713,8 +1713,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -1961,9 +1961,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/blog/page-d54fdb36c1764f27.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -1977,7 +1977,7 @@
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/about",
       "elapsedMs": 5,
-      "htmlBytes": 49614,
+      "htmlBytes": 49623,
       "title": "About Our China Sourcing & Product Supply Business | Sourcing Lab USA",
       "description": "China sourcing projects available now, with invoicing from France or China. Clothing, sportswear, technical apparel and packaging. Miami expansion planned for 2027.",
       "canonical": "https://sourcinglabusa.com/about",
@@ -2264,8 +2264,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -2412,8 +2412,8 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
-        "/_next/static/chunks/app/about/page-a023617efe8fa917.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
+        "/_next/static/chunks/app/about/page-920c6c1a40df2f2d.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
       ],
@@ -2423,7 +2423,7 @@
         "/es",
         "/how-we-work",
         "/editorial-policy",
-        "/contact",
+        "/contact-us",
         "/china-sourcing-agent",
         "/custom-packaging",
         "/custom-textile",
@@ -2452,8 +2452,8 @@
       "inSitemap": true,
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/how-we-work",
-      "elapsedMs": 7,
-      "htmlBytes": 46742,
+      "elapsedMs": 6,
+      "htmlBytes": 46769,
       "title": "How Our China Sourcing and Product Supply Process Works | Sourcing Lab USA",
       "description": "Sourcing Lab USA starts with your brief, reviews supplier options and samples, and agrees product pricing, production checkpoints and order responsibilities before purchasing and supplying the goods.",
       "canonical": "https://sourcinglabusa.com/how-we-work",
@@ -2542,8 +2542,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact#contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us#contact",
+          "path": "/contact-us",
           "hash": "#contact",
           "text": "Start a project",
           "internal": true,
@@ -2582,8 +2582,8 @@
           "contextual": true
         },
         {
-          "href": "https://sourcinglabusa.com/contact#contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us#contact",
+          "path": "/contact-us",
           "hash": "#contact",
           "text": "send the details you have",
           "internal": true,
@@ -2622,8 +2622,8 @@
           "contextual": true
         },
         {
-          "href": "https://sourcinglabusa.com/contact#contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us#contact",
+          "path": "/contact-us",
           "hash": "#contact",
           "text": "Discuss your sourcing project",
           "internal": true,
@@ -2718,8 +2718,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -2863,10 +2863,10 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
-        "/_next/static/chunks/app/how-we-work/page-242e3b71f1cb6738.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
+        "/_next/static/chunks/app/how-we-work/page-cdcdf41879aa25c6.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
       ],
@@ -2876,7 +2876,7 @@
         "/es",
         "/about",
         "/editorial-policy",
-        "/contact",
+        "/contact-us",
         "/blog/quality-control-checklist",
         "/blog/verify-chinese-supplier",
         "/resources"
@@ -2887,8 +2887,8 @@
       "inSitemap": true,
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/editorial-policy",
-      "elapsedMs": 5,
-      "htmlBytes": 42982,
+      "elapsedMs": 3,
+      "htmlBytes": 42997,
       "title": "Editorial Policy: Sources, Examples and Corrections | Sourcing Lab USA",
       "description": "Our sourcing resources distinguish business information, original planning tools, hypothetical examples and external rules. They help readers prepare decisions; they do not certify suppliers, products or import arrangements.",
       "canonical": "https://sourcinglabusa.com/editorial-policy",
@@ -2976,8 +2976,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact#contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us#contact",
+          "path": "/contact-us",
           "hash": "#contact",
           "text": "Start a project",
           "internal": true,
@@ -3104,8 +3104,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -3249,10 +3249,10 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
-        "/_next/static/chunks/app/editorial-policy/page-242e3b71f1cb6738.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
+        "/_next/static/chunks/app/editorial-policy/page-cdcdf41879aa25c6.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
       ],
@@ -3278,15 +3278,15 @@
       ]
     },
     {
-      "path": "/contact",
+      "path": "/contact-us",
       "inSitemap": true,
       "status": 200,
-      "finalUrl": "http://127.0.0.1:3013/contact",
+      "finalUrl": "http://127.0.0.1:3013/contact-us",
       "elapsedMs": 5,
-      "htmlBytes": 52562,
+      "htmlBytes": 52612,
       "title": "Discuss Your China Sourcing Project | Sourcing Lab USA",
       "description": "Send Sourcing Lab USA your product, quantity and requirements for a China sourcing and supply discussion. Packaging and textiles are core specialties; other products are assessed for feasibility.",
-      "canonical": "https://sourcinglabusa.com/contact",
+      "canonical": "https://sourcinglabusa.com/contact-us",
       "robots": "index, follow",
       "xRobots": null,
       "h1": [
@@ -3383,8 +3383,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact#contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us#contact",
+          "path": "/contact-us",
           "hash": "#contact",
           "text": "Start a project",
           "internal": true,
@@ -3527,8 +3527,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -3635,8 +3635,8 @@
         },
         {
           "@type": "ContactPage",
-          "@id": "https://sourcinglabusa.com/contact#webpage",
-          "url": "https://sourcinglabusa.com/contact",
+          "@id": "https://sourcinglabusa.com/contact-us#webpage",
+          "url": "https://sourcinglabusa.com/contact-us",
           "name": "Discuss Your China Sourcing Project",
           "description": "Send Sourcing Lab USA your product, quantity and requirements for a China sourcing and supply discussion. Packaging and textiles are core specialties; other products are assessed for feasibility.",
           "inLanguage": "en-US",
@@ -3660,7 +3660,7 @@
               "@type": "ListItem",
               "position": 2,
               "name": "Discuss Your China Sourcing Project",
-              "item": "https://sourcinglabusa.com/contact"
+              "item": "https://sourcinglabusa.com/contact-us"
             }
           ]
         }
@@ -3672,10 +3672,10 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
-        "/_next/static/chunks/app/contact/page-242e3b71f1cb6738.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
+        "/_next/static/chunks/app/contact-us/page-cdcdf41879aa25c6.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
       ],
@@ -3696,7 +3696,7 @@
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/china-sourcing-agent",
       "elapsedMs": 6,
-      "htmlBytes": 111995,
+      "htmlBytes": 112004,
       "title": "China Sourcing Agent vs Supplier for U.S. Companies | Sourcing Lab USA",
       "description": "Sourcing agent, trading company or supplier: what each one does, who carries the risk, and how Sourcing Lab USA works. Projects open now — request a quotation.",
       "canonical": "https://sourcinglabusa.com/china-sourcing-agent",
@@ -3985,8 +3985,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -4231,9 +4231,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/china-sourcing-agent/page-465c72a4de09aa40.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -4252,8 +4252,8 @@
       "inSitemap": true,
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/custom-packaging",
-      "elapsedMs": 7,
-      "htmlBytes": 93737,
+      "elapsedMs": 8,
+      "htmlBytes": 93746,
       "title": "Custom Packaging Sourcing from China | Sourcing Lab USA",
       "description": "Custom boxes, bags, labels and branded packaging sourced in China to your brief. Share dimensions, quantity and artwork to request a sourcing quote.",
       "canonical": "https://sourcinglabusa.com/custom-packaging",
@@ -4550,8 +4550,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -4764,9 +4764,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/custom-packaging/page-465c72a4de09aa40.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -4793,8 +4793,8 @@
       "inSitemap": true,
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/custom-textile",
-      "elapsedMs": 13,
-      "htmlBytes": 94264,
+      "elapsedMs": 9,
+      "htmlBytes": 94273,
       "title": "Clothing & Textile Sourcing from China | Sourcing Lab USA",
       "description": "Clothing, sportswear, technical garments and uniforms sourced from China to your specifications. Send your brief and request a project-specific quotation.",
       "canonical": "https://sourcinglabusa.com/custom-textile",
@@ -5099,8 +5099,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -5313,9 +5313,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/custom-textile/page-465c72a4de09aa40.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -5343,7 +5343,7 @@
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/sportswear-sourcing",
       "elapsedMs": 5,
-      "htmlBytes": 97604,
+      "htmlBytes": 97613,
       "title": "Sportswear & Technical Apparel Sourcing from China | Sourcing Lab USA",
       "description": "Custom sportswear and technical apparel sourcing from China. Fabrics, fit, size runs, labels and samples. Projects open now: request a sourcing quotation.",
       "canonical": "https://sourcinglabusa.com/sportswear-sourcing",
@@ -5632,8 +5632,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -5854,9 +5854,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/sportswear-sourcing/page-465c72a4de09aa40.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -5875,8 +5875,8 @@
       "inSitemap": true,
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/private-label-packaging",
-      "elapsedMs": 5,
-      "htmlBytes": 94240,
+      "elapsedMs": 4,
+      "htmlBytes": 94249,
       "title": "Private Label Packaging from China | Sourcing Lab USA",
       "description": "Branded boxes, bags, labels and inserts for private label products. China sourcing and product supply. Request a quote for your packaging project.",
       "canonical": "https://sourcinglabusa.com/private-label-packaging",
@@ -6173,8 +6173,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -6387,9 +6387,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/private-label-packaging/page-465c72a4de09aa40.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -6408,7 +6408,7 @@
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/china-to-us-procurement",
       "elapsedMs": 7,
-      "htmlBytes": 100458,
+      "htmlBytes": 100467,
       "title": "China-to-U.S. Product Sourcing & Supply | Sourcing Lab USA",
       "description": "China sourcing and product supply for U.S. businesses. Clothing, packaging and other products on request. Projects and invoicing available from France or China.",
       "canonical": "https://sourcinglabusa.com/china-to-us-procurement",
@@ -6697,8 +6697,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -6911,9 +6911,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/china-to-us-procurement/page-465c72a4de09aa40.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -6941,8 +6941,8 @@
       "inSitemap": true,
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/blog/alibaba-vs-sourcing-company",
-      "elapsedMs": 4,
-      "htmlBytes": 72654,
+      "elapsedMs": 5,
+      "htmlBytes": 72669,
       "title": "Alibaba vs a Sourcing Company: Compare the Work and Order Terms | Sourcing Lab USA",
       "description": "Decide between direct supplier sourcing and a product supply partner with a task-ownership matrix, quote comparison and a practical packaging example.",
       "canonical": "https://sourcinglabusa.com/blog/alibaba-vs-sourcing-company",
@@ -7178,8 +7178,8 @@
           "contextual": true
         },
         {
-          "href": "https://sourcinglabusa.com/contact#contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us#contact",
+          "path": "/contact-us",
           "hash": "#contact",
           "text": "discuss your sourcing project",
           "internal": true,
@@ -7298,8 +7298,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -7485,9 +7485,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/blog/%5Bslug%5D/page-896935d60dfe5166.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -7505,8 +7505,8 @@
       "inSitemap": true,
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/blog/building-materials-sourcing-brief",
-      "elapsedMs": 4,
-      "htmlBytes": 75024,
+      "elapsedMs": 5,
+      "htmlBytes": 75039,
       "title": "Sourcing Furniture and Building Products from China: The Brief | Sourcing Lab USA",
       "description": "Prepare a U.S. project sourcing brief for furniture, cabinets, tiles and fixtures, with a specification register and specialist review checkpoints.",
       "canonical": "https://sourcinglabusa.com/blog/building-materials-sourcing-brief",
@@ -7736,8 +7736,8 @@
           "contextual": true
         },
         {
-          "href": "https://sourcinglabusa.com/contact#contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us#contact",
+          "path": "/contact-us",
           "hash": "#contact",
           "text": "Discuss the product requirements",
           "internal": true,
@@ -7856,8 +7856,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -8045,9 +8045,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/blog/%5Bslug%5D/page-896935d60dfe5166.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -8064,7 +8064,7 @@
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/blog/canton-fair-sourcing-guide",
       "elapsedMs": 6,
-      "htmlBytes": 73911,
+      "htmlBytes": 73926,
       "title": "Canton Fair Sourcing Guide for U.S. Buyers: Brief to Follow-Up | Sourcing Lab USA",
       "description": "Prepare a comparable RFQ, record supplier conversations and qualify candidates after the Canton Fair. Includes a downloadable meeting worksheet.",
       "canonical": "https://sourcinglabusa.com/blog/canton-fair-sourcing-guide",
@@ -8310,8 +8310,8 @@
           "contextual": true
         },
         {
-          "href": "https://sourcinglabusa.com/contact#contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us#contact",
+          "path": "/contact-us",
           "hash": "#contact",
           "text": "submit a product brief",
           "internal": true,
@@ -8430,8 +8430,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -8618,9 +8618,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/blog/%5Bslug%5D/page-896935d60dfe5166.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -8637,7 +8637,7 @@
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/blog/china-sourcing-guide-us-businesses",
       "elapsedMs": 5,
-      "htmlBytes": 75948,
+      "htmlBytes": 75963,
       "title": "China Sourcing for U.S. Companies: A Decision-by-Decision Guide | Sourcing Lab USA",
       "description": "Find manufacturers, qualify suppliers and compare quotes using a documented approval workflow, with RFQ, quality and landed-cost resources.",
       "canonical": "https://sourcinglabusa.com/blog/china-sourcing-guide-us-businesses",
@@ -8891,8 +8891,8 @@
           "contextual": true
         },
         {
-          "href": "https://sourcinglabusa.com/contact#contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us#contact",
+          "path": "/contact-us",
           "hash": "#contact",
           "text": "submit your requirements",
           "internal": true,
@@ -9019,8 +9019,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -9207,9 +9207,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/blog/%5Bslug%5D/page-896935d60dfe5166.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -9225,8 +9225,8 @@
       "inSitemap": true,
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/blog/quality-control-checklist",
-      "elapsedMs": 6,
-      "htmlBytes": 73797,
+      "elapsedMs": 5,
+      "htmlBytes": 73806,
       "title": "China Sourcing Quality Checklist: Samples to Shipment Decisions | Sourcing Lab USA",
       "description": "Create order-specific quality checkpoints for packaging and textiles, with a defect log, approval record and downloadable worksheet.",
       "canonical": "https://sourcinglabusa.com/blog/quality-control-checklist",
@@ -9584,8 +9584,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -9771,9 +9771,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/blog/%5Bslug%5D/page-896935d60dfe5166.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -9803,8 +9803,8 @@
       "inSitemap": true,
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/blog/sourcing-agent-fees",
-      "elapsedMs": 4,
-      "htmlBytes": 72676,
+      "elapsedMs": 5,
+      "htmlBytes": 72691,
       "title": "China Sourcing Agent Fees: Compare Scope Before Percentages | Sourcing Lab USA",
       "description": "Understand fixed fees, commissions and product supply pricing. Use a quote-completeness worksheet instead of assuming a universal sourcing fee.",
       "canonical": "https://sourcinglabusa.com/blog/sourcing-agent-fees",
@@ -10008,8 +10008,8 @@
           "contextual": true
         },
         {
-          "href": "https://sourcinglabusa.com/contact#contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us#contact",
+          "path": "/contact-us",
           "hash": "#contact",
           "text": "send your product requirements",
           "internal": true,
@@ -10128,8 +10128,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -10313,9 +10313,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/blog/%5Bslug%5D/page-896935d60dfe5166.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -10334,7 +10334,7 @@
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/blog/verify-chinese-supplier",
       "elapsedMs": 5,
-      "htmlBytes": 75544,
+      "htmlBytes": 75559,
       "title": "How to Verify a Chinese Supplier: Evidence and Scorecard | Sourcing Lab USA",
       "description": "A supplier qualification matrix that separates identity, capability, samples and order terms. Download the evidence worksheet before approving an order.",
       "canonical": "https://sourcinglabusa.com/blog/verify-chinese-supplier",
@@ -10588,8 +10588,8 @@
           "contextual": true
         },
         {
-          "href": "https://sourcinglabusa.com/contact#contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us#contact",
+          "path": "/contact-us",
           "hash": "#contact",
           "text": "send a project brief",
           "internal": true,
@@ -10708,8 +10708,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -10896,9 +10896,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/blog/%5Bslug%5D/page-896935d60dfe5166.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -10927,8 +10927,8 @@
       "inSitemap": true,
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/blog/china-sourcing-rfq-checklist",
-      "elapsedMs": 4,
-      "htmlBytes": 72796,
+      "elapsedMs": 6,
+      "htmlBytes": 72805,
       "title": "China Sourcing RFQ Checklist: How to Prepare a Product Brief | Sourcing Lab USA",
       "description": "Prepare a China sourcing quotation request with product specs, quantities, samples and delivery requirements. Includes a free brief template.",
       "canonical": "https://sourcinglabusa.com/blog/china-sourcing-rfq-checklist",
@@ -11310,8 +11310,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -11495,9 +11495,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/blog/%5Bslug%5D/page-896935d60dfe5166.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -11532,7 +11532,7 @@
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/blog/apparel-sourcing-tech-packs-moq",
       "elapsedMs": 5,
-      "htmlBytes": 67511,
+      "htmlBytes": 67520,
       "title": "Apparel Sourcing: Understanding Tech Packs and MOQ | Sourcing Lab USA",
       "description": "Learn why a clear tech pack is essential for negotiating Minimum Order Quantities (MOQ) and defining product requirements when sourcing custom textiles.",
       "canonical": "https://sourcinglabusa.com/blog/apparel-sourcing-tech-packs-moq",
@@ -11838,8 +11838,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -12023,9 +12023,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/blog/%5Bslug%5D/page-896935d60dfe5166.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -12044,8 +12044,8 @@
       "inSitemap": true,
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/blog/importing-textiles-usa-checklist",
-      "elapsedMs": 4,
-      "htmlBytes": 67439,
+      "elapsedMs": 5,
+      "htmlBytes": 67448,
       "title": "U.S. Textile Import Planning: Labels, Documents and Product Review | Sourcing Lab USA",
       "description": "Prepare a textile import review with product details, label artwork and documentation. Includes official FTC and CPSC resources for the U.S. market.",
       "canonical": "https://sourcinglabusa.com/blog/importing-textiles-usa-checklist",
@@ -12385,8 +12385,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -12574,9 +12574,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/blog/%5Bslug%5D/page-896935d60dfe5166.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -12594,7 +12594,7 @@
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/blog/sustainable-packaging-ecommerce",
       "elapsedMs": 5,
-      "htmlBytes": 66819,
+      "htmlBytes": 66828,
       "title": "Sustainable Packaging Sourcing: Materials, Claims and a Better Brief | Sourcing Lab USA",
       "description": "Turn packaging sustainability goals into specific material and documentation requirements. Compare options for protection, structure and supported claims.",
       "canonical": "https://sourcinglabusa.com/blog/sustainable-packaging-ecommerce",
@@ -12926,8 +12926,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -13113,9 +13113,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/blog/%5Bslug%5D/page-896935d60dfe5166.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -13133,7 +13133,7 @@
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/blog/miami-future-hub-sourcing",
       "elapsedMs": 5,
-      "htmlBytes": 64231,
+      "htmlBytes": 64240,
       "title": "China Sourcing Now, with a Miami Expansion Planned for 2027 | Sourcing Lab USA",
       "description": "Start sourcing clothing, sportswear, packaging and labels now, with invoicing from France or China. The planned Miami expansion is a separate next step.",
       "canonical": "https://sourcinglabusa.com/blog/miami-future-hub-sourcing",
@@ -13481,8 +13481,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -13666,9 +13666,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/blog/%5Bslug%5D/page-896935d60dfe5166.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -13685,7 +13685,7 @@
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/blog/custom-packaging-moq-guide",
       "elapsedMs": 5,
-      "htmlBytes": 74067,
+      "htmlBytes": 74076,
       "title": "Custom Packaging MOQ: How to Plan a First Production Run | Sourcing Lab USA",
       "description": "Understand the factors that shape a custom packaging minimum order quantity and the information to confirm before you request a quote.",
       "canonical": "https://sourcinglabusa.com/blog/custom-packaging-moq-guide",
@@ -14037,8 +14037,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -14227,9 +14227,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/blog/%5Bslug%5D/page-896935d60dfe5166.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -14249,8 +14249,8 @@
       "inSitemap": true,
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/blog/sustainable-textile-sourcing",
-      "elapsedMs": 3,
-      "htmlBytes": 65345,
+      "elapsedMs": 4,
+      "htmlBytes": 65354,
       "title": "How to Discuss Material Claims When Sourcing Custom Textiles | Sourcing Lab USA",
       "description": "A practical way to define textile material requirements, request supporting documents, and avoid making claims that the order cannot substantiate.",
       "canonical": "https://sourcinglabusa.com/blog/sustainable-textile-sourcing",
@@ -14572,8 +14572,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -14761,9 +14761,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/blog/%5Bslug%5D/page-896935d60dfe5166.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -14780,8 +14780,8 @@
       "inSitemap": true,
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/blog/calculating-landed-costs-merchandise",
-      "elapsedMs": 6,
-      "htmlBytes": 79862,
+      "elapsedMs": 5,
+      "htmlBytes": 79871,
       "title": "How to Plan Landed Costs for Custom Packaging and Textile Orders | Sourcing Lab USA",
       "description": "A practical checklist of the cost items to confirm before ordering custom packaging or textiles from China to the United States.",
       "canonical": "https://sourcinglabusa.com/blog/calculating-landed-costs-merchandise",
@@ -15185,8 +15185,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -15380,9 +15380,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/blog/%5Bslug%5D/page-896935d60dfe5166.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -15407,7 +15407,7 @@
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/resources",
       "elapsedMs": 6,
-      "htmlBytes": 84926,
+      "htmlBytes": 84935,
       "title": "China Sourcing Resources: Templates, Checklists and Guides | Sourcing Lab USA",
       "description": "Free templates and practical guides for sourcing from China: the brief a supplier can quote, minimum quantities, landed cost, textile and packaging specifications.",
       "canonical": "https://sourcinglabusa.com/resources",
@@ -15775,8 +15775,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -16030,9 +16030,9 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/resources/page-d54fdb36c1764f27.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
@@ -16066,7 +16066,7 @@
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/resources/product-sourcing-brief",
       "elapsedMs": 5,
-      "htmlBytes": 85715,
+      "htmlBytes": 85724,
       "title": "Product Sourcing Brief Template (Free Download) | Sourcing Lab USA",
       "description": "A free RFQ template for sourcing from China: the fields a supplier needs to quote, what to mark as to confirm, and the quantities and timing to plan around.",
       "canonical": "https://sourcinglabusa.com/resources/product-sourcing-brief",
@@ -16304,8 +16304,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -16692,16 +16692,16 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
         "/_next/static/chunks/708-0b5af46e24b910db.js",
-        "/_next/static/chunks/427-8215de041f100fce.js",
+        "/_next/static/chunks/427-cae856a028c2f762.js",
         "/_next/static/chunks/app/resources/product-sourcing-brief/page-d54fdb36c1764f27.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
       ],
       "crawlDepth": 2,
       "contextualInbound": [
-        "/contact",
+        "/contact-us",
         "/blog/canton-fair-sourcing-guide",
         "/blog/china-sourcing-guide-us-businesses",
         "/resources"
@@ -16713,7 +16713,7 @@
       "status": 200,
       "finalUrl": "http://127.0.0.1:3013/privacy",
       "elapsedMs": 4,
-      "htmlBytes": 40745,
+      "htmlBytes": 40754,
       "title": "Privacy notice | Sourcing Lab USA",
       "description": "What Sourcing Lab USA collects when you send a project brief, where it is stored, and how to have it removed.",
       "canonical": "https://sourcinglabusa.com/privacy",
@@ -16914,8 +16914,8 @@
           "contextual": false
         },
         {
-          "href": "https://sourcinglabusa.com/contact",
-          "path": "/contact",
+          "href": "https://sourcinglabusa.com/contact-us",
+          "path": "/contact-us",
           "hash": "",
           "text": "Start a conversation",
           "internal": true,
@@ -17028,14 +17028,14 @@
         "/_next/static/chunks/794-d1a40dcf24d651d9.js",
         "/_next/static/chunks/main-app-43fc587fe8bdc537.js",
         "/_next/static/chunks/app/layout-5f51624794225efe.js",
-        "/_next/static/chunks/114-6259194d124975d1.js",
-        "/_next/static/chunks/app/privacy/page-76a5ed6b8a5175de.js",
+        "/_next/static/chunks/114-d594817f8350b703.js",
+        "/_next/static/chunks/app/privacy/page-dd31deca1d721640.js",
         "/_next/static/chunks/polyfills-42372ed130431b0a.js",
         "/_next/static/chunks/webpack-4c03e867886bf4cd.js"
       ],
       "crawlDepth": 1,
       "contextualInbound": [
-        "/contact"
+        "/contact-us"
       ]
     }
   ],

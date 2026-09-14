@@ -19,7 +19,7 @@ export function InformationPage({ path, title, description, children, contact = 
         { ...webpageSchema(path, title, description), '@type': contact ? 'ContactPage' : 'WebPage' },
         breadcrumbSchema([{ name: 'Home', path: '/' }, { name: title, path }]),
       ] }} />
-      <Navbar area="marketing" contactHref={contact ? '#contact' : '/contact#contact'} />
+      <Navbar area="marketing" contactHref={contact ? '#contact' : '/contact-us#contact'} />
       <main className="flex-1">
         <article className="article-layout">
           <nav aria-label="Breadcrumb" className="page-breadcrumb">

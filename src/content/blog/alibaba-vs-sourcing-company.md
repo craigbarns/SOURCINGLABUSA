@@ -50,4 +50,4 @@ Our [packaging MOQ guide](/blog/custom-packaging-moq-guide) and [landed-cost exa
 
 Ask who contracts, who invoices, how proposed substitutions are approved, what the sample proves, which quality checks are included, and who owns unresolved shipment or product requirements. Request the answer in writing. If a proposal cannot answer those questions, record them as open items before making a purchase decision.
 
-Compare [sourcing fee structures](/blog/sourcing-agent-fees) without treating an advertised percentage as a total project cost. For a supply proposal on your own brief, [discuss your sourcing project](/contact#contact).
+Compare [sourcing fee structures](/blog/sourcing-agent-fees) without treating an advertised percentage as a total project cost. For a supply proposal on your own brief, [discuss your sourcing project](/contact-us#contact).

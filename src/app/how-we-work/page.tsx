@@ -28,7 +28,7 @@ The process below explains the decisions described in our supply offer. Exact de
 | Production follow-up | Agreed checkpoints and changes affecting the order | Resolve issues and approve changes where required |
 | Delivery arrangements | Packing, shipping terms and import responsibilities | Confirm the agreed handoff and receiving arrangements |
 
-Submitting a brief requests a discussion; it does not place an order. [Prepare your RFQ](/blog/china-sourcing-rfq-checklist) or [send the details you have](/contact#contact).
+Submitting a brief requests a discussion; it does not place an order. [Prepare your RFQ](/blog/china-sourcing-rfq-checklist) or [send the details you have](/contact-us#contact).
 
 ## How should approvals be documented?
 
@@ -52,6 +52,6 @@ Compare the [landed-cost inputs](/blog/calculating-landed-costs-merchandise) and
 
 Send product references, estimated quantity, intended market, budget basis if available, and the date you are working toward. Tell us if you already have a supplier or sample and which decisions are still open. You can start with a short brief and provide more detail after the scope is discussed.
 
-[Discuss your sourcing project](/contact#contact). Method explained September 14, 2026; specific order terms control the work agreed for your project.
+[Discuss your sourcing project](/contact-us#contact). Method explained September 14, 2026; specific order terms control the work agreed for your project.
 `}</GuideMarkdown></InformationPage>;
 }

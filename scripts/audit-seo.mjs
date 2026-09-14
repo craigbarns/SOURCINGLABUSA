@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import { existsSync } from 'node:fs';
 import { JSDOM } from 'jsdom';
 
 // Run against a local production build. Nothing is submitted to a search engine.
@@ -30,6 +31,10 @@ assert.equal(
 );
 
 for (const url of urls) {
+  assert.ok(
+    !existsSync(new URL(`../public${url.pathname}.html`, import.meta.url)),
+    `${url.pathname}: static HTML would shadow this route on Netlify`,
+  );
   assert.equal(
     url.origin,
     canonicalOrigin,
@@ -207,7 +212,7 @@ for (const [path, { document }] of pages) {
 for (const path of internalAssets) await get(path);
 
 assert.ok(pages.get('/about').document.getElementById('founder'), 'Founder entity must resolve to a visible anchor');
-assert.ok(pages.get('/contact').document.querySelector('form'), 'Contact page must contain the qualification form');
+assert.ok(pages.get('/contact-us').document.querySelector('form'), 'Contact page must contain the qualification form');
 
 for (const path of ['/', '/es']) {
   const document = pages.get(path).document;

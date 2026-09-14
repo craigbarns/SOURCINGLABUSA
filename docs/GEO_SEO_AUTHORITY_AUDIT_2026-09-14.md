@@ -34,6 +34,7 @@ These are editorial judgments, **not measured platform scores, predicted ranking
 | HIGH IMPACT | Eight existing articles; MOQ and landed-cost articles lacked worked comparisons. | Limited reason to cite the site over generic guides. | Add original matrices, explicit assumptions, worksheets and two expanded examples. |
 | HIGH IMPACT | Supplier qualification, quality checkpoints, direct-vs-partner comparison, fees and Canton preparation were uncovered intents. | Gaps along the route from discovery to a qualified quotation. | Seven substantial guides, organized by decision in the existing hub. |
 | HIGH IMPACT | Forms asked for product type and quantity but lacked explicit budget/market/supplier/timing prompts. | Qualification requires extra clarification and raw leads obscure project fit. | Add five optional fields, collapsed by default, preserved in both existing delivery channels and email fallback. |
+| HIGH IMPACT | Netlify preview revealed that existing `public/contact.html` is served at `/contact` and masks a Next.js route of that name. Local Next.js alone does not reproduce this. | The proposed contact URL would show the old noindexed form-detection page instead of the new qualification page. | Publish the new page at `/contact-us`; preserve the existing form endpoint, update links/sitemap and add a static-HTML collision check. |
 | HIGH IMPACT | Only form-level analytics are implemented; a lead does not establish qualification or payment. | Optimizing Ads to leads alone can reward low-value inquiries. | Document an offline funnel and paid-order/deposit objective; CRM/Ads import remains unconnected. |
 | HIGH IMPACT | Search results sometimes show obsolete About wording mentioning sustainability and locations. Current page and metadata differ. | Stale entity associations may persist in retrieval. | Preserve current accurate page; inspect the URL and request recrawl in owner tools after release. Do not republish old claims to match snippets. |
 | MEDIUM IMPACT | Founder `@id` ends in `/about#founder`, but the page lacked that visible anchor. | Entity reference had no matching document anchor. | Add anchor to the existing founder fact. |
@@ -92,7 +93,7 @@ Google says that standard crawlability, useful text, internal links and consiste
 | `/blog/building-materials-sourcing-brief` | Line-item and interface questions for future home/building projects; explicit feasibility limits |
 | `/how-we-work` | Current supply method, buyer approvals and external-provider boundaries |
 | `/editorial-policy` | Authorship, AI assistance, source dates, original examples and corrections |
-| `/contact` | Dedicated contact intent with concise qualification and business-scope explanation |
+| `/contact-us` | Dedicated contact intent with concise qualification; avoids the existing Netlify form-detection URL |
 
 Downloads added: `supplier-evidence-worksheet.txt`, `quality-checkpoint-worksheet.txt`, `canton-fair-meeting-worksheet.txt`, `quote-comparison-worksheet.txt`. Existing `product-sourcing-brief.txt` is retained.
 
