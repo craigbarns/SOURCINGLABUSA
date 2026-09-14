@@ -65,13 +65,18 @@ export function EditorialFooter({
             <span>{es ? 'CONOCE SOURCING LAB' : 'GET TO KNOW US'}</span>
             <ul>
               <li>
-                <a href={`${home}#how-it-works`}>
+                <Link href={`${linkPrefix}/how-we-work`}>
                   {es ? 'Cómo funciona' : 'How it works'}
-                </a>
+                </Link>
               </li>
               <li>
                 <Link href={`${linkPrefix}/about`}>
                   {es ? 'Sobre Sourcing Lab USA' : 'About Sourcing Lab USA'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`${linkPrefix}/resources`}>
+                  {es ? 'Plantillas y guías' : 'Templates & guides'}
                 </Link>
               </li>
               <li>
@@ -80,9 +85,14 @@ export function EditorialFooter({
                 </Link>
               </li>
               <li>
-                <a href={`${home}#contact`}>
+                <Link href={`${linkPrefix}/contact`}>
                   {es ? 'Cuéntanos tu proyecto' : 'Start a conversation'}
-                </a>
+                </Link>
+              </li>
+              <li>
+                <Link href={`${linkPrefix}/editorial-policy`}>
+                  {es ? 'Política editorial' : 'Editorial policy'}
+                </Link>
               </li>
             </ul>
           </nav>

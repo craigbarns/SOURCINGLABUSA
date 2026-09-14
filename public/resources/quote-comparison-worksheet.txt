@@ -1,0 +1,32 @@
+SOURCING LAB USA — QUOTATION AND LANDED-COST WORKSHEET
+Version: 2026-09-14
+Guide: https://sourcinglabusa.com/blog/calculating-landed-costs-merchandise
+Planning tool only. Confirm rates, classification and obligations separately.
+
+Product / brief revision / quantity and variant breakdown:
+Destination / currency / exchange-rate source and date, if used:
+Provider / quotation entity / quote date / expiry:
+Delivery term, named place and edition:
+
+For EACH amount, record: value / currency / quoted-estimated-excluded-unknown /
+source / date / expiry / responsible party / already included elsewhere?
+
+1. Goods: quantity x unit price
+2. Samples, setup or tooling allocated to this order
+3. Origin transport and handling not included in goods price
+4. International transport
+5. Insurance, if applicable
+6. Import charges (confirmed for the actual goods and shipment)
+7. Destination handling and final delivery
+8. Product-specific testing/inspection or other agreed costs
+
+Total known amounts:
+Unresolved amounts (unknown is not zero):
+Planning total only after assumptions are stated:
+Units ordered / units used for allocation / reason if different:
+Planning cost per unit:
+Sensitivity scenario and assumptions:
+
+Before approval: remove double counting; align specification and quantities;
+name the importer and delivery parties; get required specialist reviews;
+check quote expiry; record any exclusions and open decisions.

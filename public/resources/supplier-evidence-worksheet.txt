@@ -1,0 +1,35 @@
+SOURCING LAB USA — SUPPLIER EVIDENCE WORKSHEET
+Version: 2026-09-14
+Guide: https://sourcinglabusa.com/blog/verify-chinese-supplier
+Original editorial planning tool. Not a supplier certificate or audit report.
+
+Project reference / specification revision:
+Reviewer / date:
+Candidate source / contact:
+Chinese legal name / Unified Social Credit Code:
+Quotation entity / proposed production site:
+Seller / exporter / payment party relationship (keep sensitive details private):
+
+Repeat this record for each question:
+- Requirement / question:
+- Critical to the order decision? Yes / no; why:
+- Evidence requested:
+- Evidence reference / issuer / date / product scope:
+- Status: missing / supplier-provided / cross-checked / contradictory
+- What was cross-checked, against which source and when:
+- What this evidence supports:
+- What it does NOT establish:
+- Open question / action / owner / due date:
+- Reviewer / next decision:
+
+Suggested areas: identity; production fit and subcontracting; specification;
+sample review; applicable test documents; price and order terms; issue handling.
+
+Evidence coverage = required questions with recorded answers and supporting
+evidence / all required questions. Record justified non-applicable items.
+This measures file completeness, not reliability or probability of success.
+Missing or contradictory critical evidence keeps the affected decision open.
+
+Decision: further information / sample review / specialist review / hold
+Reason and unresolved items:
+Approved next step / approver / date:

@@ -1,0 +1,59 @@
+{
+  "runId": "2026-09-14-baseline-pending",
+  "status": "unmeasured",
+  "formula": "30 points brand mentioned + 50 points own-domain URL cited + 20 points recommended in relevant context; average repetitions per prompt, then relevance-weight prompts; average available platforms equally.",
+  "visibilityScore": null,
+  "unavailableObservations": 0,
+  "note": "Unmeasured platforms and prompts are excluded, not scored as zero. Always report coverage. This empirical score is distinct from editorial readiness scores.",
+  "byPlatform": [
+    {
+      "platform": "ChatGPT Search",
+      "testedPrompts": 0,
+      "totalPrompts": 120,
+      "weightedCoveragePercent": 0,
+      "visibilityScore": null
+    },
+    {
+      "platform": "Google AI Overviews",
+      "testedPrompts": 0,
+      "totalPrompts": 120,
+      "weightedCoveragePercent": 0,
+      "visibilityScore": null
+    },
+    {
+      "platform": "Google AI Mode",
+      "testedPrompts": 0,
+      "totalPrompts": 120,
+      "weightedCoveragePercent": 0,
+      "visibilityScore": null
+    },
+    {
+      "platform": "Gemini",
+      "testedPrompts": 0,
+      "totalPrompts": 120,
+      "weightedCoveragePercent": 0,
+      "visibilityScore": null
+    },
+    {
+      "platform": "Perplexity",
+      "testedPrompts": 0,
+      "totalPrompts": 120,
+      "weightedCoveragePercent": 0,
+      "visibilityScore": null
+    },
+    {
+      "platform": "Claude with web search",
+      "testedPrompts": 0,
+      "totalPrompts": 120,
+      "weightedCoveragePercent": 0,
+      "visibilityScore": null
+    },
+    {
+      "platform": "Microsoft Copilot",
+      "testedPrompts": 0,
+      "totalPrompts": 120,
+      "weightedCoveragePercent": 0,
+      "visibilityScore": null
+    }
+  ]
+}

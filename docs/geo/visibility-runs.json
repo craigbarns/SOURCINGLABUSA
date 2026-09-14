@@ -1,0 +1,5 @@
+{
+  "runId": "2026-09-14-baseline-pending",
+  "note": "No supported direct AI-platform test interface was available. Empty records mean unmeasured, not zero visibility. See search-observations.json for separate web-search results.",
+  "records": []
+}

@@ -7,7 +7,7 @@ import type { Metadata } from 'next';
 import { getDomainRoutingConfig } from '@/lib/routing/subdomains';
 
 import { StructuredData } from '@/components/StructuredData';
-import { organizationGraph } from '@/lib/seo';
+import { organizationGraph, SITE_DESCRIPTION } from '@/lib/seo';
 
 import './globals.css';
 
@@ -35,8 +35,7 @@ export const metadata: Metadata = {
     default: 'China Sourcing & Product Supply | Sourcing Lab USA',
     template: '%s | Sourcing Lab USA',
   },
-  description:
-    'China sourcing and product supply for business customers. Clothing, sportswear, packaging and labels. Projects open now; invoicing from France or China.',
+  description: SITE_DESCRIPTION,
   robots: {
     index: true,
     follow: true,

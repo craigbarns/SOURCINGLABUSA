@@ -212,6 +212,10 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
               ? 'Los puntos de control de calidad y las responsabilidades de importación y entrega se acuerdan para cada pedido. El seguimiento de producción no es una inspección certificada independiente.'
               : 'Quality checkpoints, import responsibilities and delivery terms are agreed order by order. Production follow-up is not an independent certified inspection service.'}
           </p>
+          <Link href="/how-we-work" className="editorial-text-link mt-5">
+            {es ? 'Ver el proceso y las decisiones (inglés)' : 'See the sourcing process and approval decisions'}
+            <ArrowUpRight size={17} aria-hidden="true" />
+          </Link>
         </div>
       </section>
       <section id="experience" className="editorial-section">
@@ -315,6 +319,12 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
               : 'Read the China sourcing RFQ checklist'}
             <ArrowUpRight size={17} aria-hidden="true" />
           </Link>
+          <p className="editorial-body mt-6">
+            {es ? 'Más recursos para preparar tu pedido (en inglés): ' : 'Prepare the next decision: '}
+            <Link href="/blog/verify-chinese-supplier">{es ? 'evaluar proveedores' : 'evaluate supplier evidence'}</Link>,{' '}
+            <Link href="/blog/quality-control-checklist">{es ? 'definir controles de calidad' : 'define quality checkpoints'}</Link>,{' '}
+            <Link href="/resources">{es ? 'ver todas las guías y plantillas' : 'browse all guides and templates'}</Link>.
+          </p>
         </div>
       </section>
       <section id="contact" className="editorial-section contact-section">

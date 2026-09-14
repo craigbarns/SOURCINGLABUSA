@@ -10,7 +10,7 @@ import {
 } from '@/lib/seo';
 import { notFound } from 'next/navigation';
 import type { Metadata } from 'next';
-import ReactMarkdown from 'react-markdown';
+import { GuideMarkdown } from '@/components/GuideMarkdown';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { BriefSection } from '@/components/BriefSection';
@@ -81,11 +81,15 @@ export default async function BlogPost({
         url: absoluteUrl(path),
         inLanguage: 'en-US',
         author: {
-          '@id': FOUNDER_ID,
+          '@type': post.author === 'Gregory Baranes' ? 'Person' : 'Organization',
+          '@id': post.author === 'Gregory Baranes' ? FOUNDER_ID : ORGANIZATION_ID,
           name: post.author,
           url: absoluteUrl('/about'),
         },
         publisher: { '@id': ORGANIZATION_ID },
+        ...(post.updatedBy ? { contributor: { '@type': 'Organization', '@id': ORGANIZATION_ID, name: post.updatedBy } } : {}),
+        isPartOf: { '@id': `${absoluteUrl('/resources')}#webpage` },
+        citation: [...new Set([...post.content.matchAll(/\]\((https:\/\/[^\s)]+)\)/g)].map((match) => match[1]))],
         datePublished: post.date,
         dateModified: post.updated ?? post.date,
       },
@@ -115,10 +119,11 @@ export default async function BlogPost({
               dateTime={post.date}
               className="text-sm text-brand-green font-semibold tracking-wider uppercase"
             >
-              {new Date(post.date).toLocaleDateString('en-US', {
+              {new Date(`${post.date}T12:00:00Z`).toLocaleDateString('en-US', {
                 year: 'numeric',
                 month: 'long',
                 day: 'numeric',
+                timeZone: 'UTC',
               })}
             </time>
             <h1 className="mt-6">{post.title}</h1>
@@ -145,6 +150,7 @@ export default async function BlogPost({
                     },
                   )}
                 </time>
+                {post.updatedBy && <> by {post.updatedBy}</>}
               </p>
             )}
             <p className="mt-6 text-lg leading-8 text-brand-muted">
@@ -173,7 +179,7 @@ export default async function BlogPost({
           )}
 
           <div className="prose editorial-prose mx-auto max-w-none">
-            <ReactMarkdown>{intro}</ReactMarkdown>
+            <GuideMarkdown>{intro}</GuideMarkdown>
             {sections.map((section) => (
               <section
                 key={section.id}
@@ -181,10 +187,14 @@ export default async function BlogPost({
                 className="scroll-mt-28"
               >
                 <h2>{section.title}</h2>
-                <ReactMarkdown>{section.content}</ReactMarkdown>
+                <GuideMarkdown>{section.content}</GuideMarkdown>
               </section>
             ))}
           </div>
+          <p className="mt-10 text-sm text-brand-muted">
+            <Link href="/editorial-policy" className="underline underline-offset-4">Sources, examples and corrections</Link>
+            {' · '}<Link href="/resources" className="underline underline-offset-4">All sourcing resources</Link>
+          </p>
         </article>
         <BriefSection
           formLocation="blog_post"

@@ -1,0 +1,192 @@
+{
+  "method": "Editorial evidence-based readiness rubric, not a vendor score, ranking probability or measured platform visibility. Each dimension has five criteria out of 20. Missing evidence earns no implied credit; scores are judgment calls supported by the audit.",
+  "baseline": "Public site crawled on 2026-09-14; 21 pages.",
+  "implemented": "Local reviewed implementation based on origin/main eb2eb89; not a measured post-deployment effect.",
+  "dimensions": [
+    {
+      "name": "GEO readiness",
+      "criteria": [
+        [
+          "Retrievability",
+          17,
+          18,
+          "Server HTML, access, sitemap and source paths"
+        ],
+        [
+          "Entity and answer clarity",
+          16,
+          18,
+          "Core packaging/textile definition and order scope"
+        ],
+        [
+          "Buyer intent coverage",
+          7,
+          14,
+          "Seven new guides, existing hubs retained"
+        ],
+        [
+          "Original decision tools",
+          5,
+          14,
+          "Four new worksheets and original tables/examples"
+        ],
+        [
+          "Independent corroboration",
+          3,
+          3,
+          "No new external proof or mentions established"
+        ]
+      ],
+      "before": 48,
+      "after": 67
+    },
+    {
+      "name": "SEO readiness",
+      "criteria": [
+        [
+          "Crawl and canonical integrity",
+          20,
+          20,
+          "21 existing URLs preserved; 31-page build crawl"
+        ],
+        [
+          "Metadata and structured presentation",
+          18,
+          18,
+          "Unique metadata; additions are descriptive"
+        ],
+        [
+          "Internal discovery",
+          15,
+          19,
+          "Contextual hub/method links and workflow connections"
+        ],
+        [
+          "Content depth and distinct intent",
+          12,
+          18,
+          "Expanded cost/MOQ guides and substantial new intents"
+        ],
+        [
+          "Indexing and performance evidence",
+          3,
+          3,
+          "Search retrieval and local Lighthouse observed; actual indexing and field CWV remain unmeasured. Conservative score retained because one local homepage run cannot establish site-wide field performance."
+        ]
+      ],
+      "before": 68,
+      "after": 78
+    },
+    {
+      "name": "Entity authority",
+      "criteria": [
+        [
+          "Identifiable business",
+          10,
+          10,
+          "Named founder and contact; exact legal entities still missing"
+        ],
+        [
+          "Consistent specialization",
+          19,
+          19,
+          "Packaging/textiles; China; U.S. customers; no invented infrastructure"
+        ],
+        [
+          "Documented method",
+          12,
+          18,
+          "Method, editorial policy and operational decision records"
+        ],
+        [
+          "Independent identity corroboration",
+          3,
+          3,
+          "No verified sameAs profiles supplied"
+        ],
+        [
+          "Documented experience and outcomes",
+          6,
+          6,
+          "Published founder experience retained; no case study evidence added"
+        ]
+      ],
+      "before": 50,
+      "after": 56
+    },
+    {
+      "name": "AI citation readiness",
+      "criteria": [
+        [
+          "Self-contained passages",
+          13,
+          17,
+          "Direct answers and decision-oriented sections"
+        ],
+        [
+          "Useful intent coverage",
+          12,
+          16,
+          "Supplier, QC, fees, comparison, Canton and project briefs"
+        ],
+        [
+          "Original reusable material",
+          5,
+          15,
+          "Worksheets, scorecard and arithmetic examples"
+        ],
+        [
+          "Attribution and source discipline",
+          10,
+          14,
+          "Distinct organization authorship, visible updates and primary-source links"
+        ],
+        [
+          "Independent proof",
+          4,
+          4,
+          "No external research or client outcomes invented"
+        ]
+      ],
+      "before": 44,
+      "after": 66
+    },
+    {
+      "name": "Conversion readiness",
+      "criteria": [
+        [
+          "Landing relevance",
+          16,
+          18,
+          "Existing category landing pages and guide/service pathways"
+        ],
+        [
+          "Offer and contracting clarity",
+          15,
+          16,
+          "Current product supply model preserved and explained"
+        ],
+        [
+          "Contact usability",
+          14,
+          17,
+          "Dedicated contact route, optional fields, tested delivery logic"
+        ],
+        [
+          "Qualification usefulness",
+          6,
+          13,
+          "Budget, market, customization, supplier status and timing in brief"
+        ],
+        [
+          "Revenue attribution verification",
+          1,
+          1,
+          "Offline CRM/ad conversion import not connected; no live test lead sent"
+        ]
+      ],
+      "before": 52,
+      "after": 65
+    }
+  ]
+}

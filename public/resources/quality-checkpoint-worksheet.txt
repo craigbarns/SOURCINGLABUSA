@@ -1,0 +1,40 @@
+SOURCING LAB USA — QUALITY CHECKPOINT WORKSHEET
+Version: 2026-09-14
+Guide: https://sourcinglabusa.com/blog/quality-control-checklist
+Planning template only. Not an inspection standard or product certificate.
+
+Product / order / specification revision:
+Quantity and variant breakdown:
+Sample reference / approved features / exceptions:
+Responsible buyer / supplier / external provider, if appointed:
+
+For each checkpoint:
+- Stage and requirement:
+- Approved reference:
+- Checking method / measurement units:
+- Tolerance or acceptance criteria and who established them:
+- Sampling scope, if applicable, agreed with the appropriate provider:
+- Person performing the check / date:
+- Evidence / finding / affected scope / limitations:
+- Decision owner:
+- Required response if unmet:
+
+Suggested stages: pre-production files; materials; construction/fit;
+branding/labels; packing; open issues before release; receiving.
+
+ISSUE RECORD
+Issue identifier / date:
+Requirement and observed difference:
+Evidence references:
+Affected scope (state unknown if unknown):
+Action: hold / correct and recheck / approved specification change
+Action owner / target review date:
+Recheck evidence / unresolved items:
+Decision / approver / date:
+
+RELEASE RECORD
+Outstanding issues:
+Product documents and external reviews required for this order:
+Who reviews those documents:
+Release decision / authority / date:
+Shipment authorization is separate from acknowledging a supplier photograph.

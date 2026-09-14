@@ -15,7 +15,7 @@ import { BRIEF_CONTACT_EMAIL } from '@/lib/brief-copy';
  * business will operate in.
  */
 
-const LAST_UPDATED = '7 September 2026';
+const LAST_UPDATED = '14 September 2026';
 
 export const metadata = pageMetadata({
   title: 'Privacy notice',
@@ -76,6 +76,9 @@ export default function PrivacyPage() {
                 address, the type of product you need, an approximate quantity,
                 the page you sent the brief from, and — if you choose to provide
                 them — your company name and a description of your project.
+                Optional project details include purchasing budget, target
+                market or delivery destination, customization, current supplier
+                status and timing. These are included with your project brief.
               </p>
               <p>
                 If you join the product update list we collect your email

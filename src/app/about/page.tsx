@@ -109,7 +109,7 @@ export default function AboutPage() {
             </h2>
             <dl className="company-facts">
               {facts.map(([label, value]) => (
-                <div key={label}>
+                <div key={label} id={label === 'Founder' ? 'founder' : undefined}>
                   <dt>{label}</dt>
                   <dd>{value}</dd>
                 </div>
@@ -161,6 +161,11 @@ export default function AboutPage() {
                   product quotation checklist
                 </Link>
                 .
+              </p>
+              <p className="editorial-body">
+                See <Link href="/how-we-work">how the sourcing process and approvals work</Link>,
+                browse our <Link href="/resources">planning worksheets</Link>, or
+                review the <Link href="/editorial-policy">editorial policy</Link> for sources, examples and corrections.
               </p>
             </div>
           </div>

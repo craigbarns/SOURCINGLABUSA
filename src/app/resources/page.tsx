@@ -29,6 +29,10 @@ const directAnswer =
  */
 const clusters = [
   {
+    name: 'Find and qualify suppliers',
+    slugs: ['china-sourcing-guide-us-businesses', 'verify-chinese-supplier', 'alibaba-vs-sourcing-company'],
+  },
+  {
     name: 'Before you request a quotation',
     slugs: ['china-sourcing-rfq-checklist', 'custom-packaging-moq-guide'],
   },
@@ -45,7 +49,12 @@ const clusters = [
     slugs: [
       'calculating-landed-costs-merchandise',
       'importing-textiles-usa-checklist',
+      'sourcing-agent-fees',
     ],
+  },
+  {
+    name: 'Production and project preparation',
+    slugs: ['quality-control-checklist', 'canton-fair-sourcing-guide', 'building-materials-sourcing-brief'],
   },
 ];
 
@@ -117,6 +126,10 @@ export default function ResourcesPage() {
               <em>before you order.</em>
             </h1>
             <p className="direct-answer">{directAnswer}</p>
+            <p className="editorial-body">
+              Start with the <Link href="/blog/china-sourcing-guide-us-businesses">China sourcing workflow</Link>, then use the worksheets at each decision.
+              {' '}Read <Link href="/how-we-work">our supply method</Link> and <Link href="/editorial-policy">how sources and examples are presented</Link>.
+            </p>
           </div>
         </section>
 
@@ -150,7 +163,7 @@ export default function ResourcesPage() {
           cluster.posts.length === 0 ? null : (
             <section key={cluster.name} className="editorial-section section-ruled">
               <div className="editorial-container">
-                <p className="editorial-kicker">{cluster.name.toUpperCase()}</p>
+                <h2 className="editorial-kicker">{cluster.name.toUpperCase()}</h2>
                 <div className="resource-list">
                   {cluster.posts.map((post) => (
                     <Link

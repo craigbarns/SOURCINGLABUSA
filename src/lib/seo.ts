@@ -8,7 +8,7 @@ export const ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
 export const FOUNDER_ID = `${SITE_ORIGIN}/about#founder`;
 export const WEBSITE_ID = `${SITE_ORIGIN}/#website`;
 export const SITE_DESCRIPTION =
-  'China sourcing and product supply for business customers. Clothing, sportswear, packaging and labels. Projects open now; invoicing from France or China.';
+  'Custom packaging and textile procurement partner for U.S. brands. China sourcing, product purchase and supply; projects invoiced from France or China.';
 
 export const homeLanguages = {
   'en-US': `${SITE_ORIGIN}/`,
@@ -123,6 +123,7 @@ export function organizationGraph() {
           height: 512,
         },
         email: CONTACT_EMAIL,
+        publishingPrinciples: absoluteUrl('/editorial-policy'),
         contactPoint: {
           '@type': 'ContactPoint',
           email: CONTACT_EMAIL,
