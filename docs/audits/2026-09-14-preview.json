@@ -1,0 +1,40 @@
+{
+  "verifiedAt": "2026-09-14T15:58:56.664Z",
+  "origin": "https://deploy-preview-5--stunning-sundae-86a5b9.netlify.app",
+  "commit": "f68628423fb240058beea5695b5a9f6f0fe62db4",
+  "legacyFormEndpoint": {
+    "path": "/contact.html",
+    "status": 200
+  },
+  "formSubmitted": false,
+  "records": [
+    {
+      "path": "/contact-us",
+      "status": 200,
+      "title": "Discuss Your China Sourcing Project | Sourcing Lab USA",
+      "canonical": "https://sourcinglabusa.com/contact-us",
+      "robots": "noindex, nofollow, noarchive, noindex"
+    },
+    {
+      "path": "/how-we-work",
+      "status": 200,
+      "title": "How Our China Sourcing and Product Supply Process Works | Sourcing Lab USA",
+      "canonical": "https://sourcinglabusa.com/how-we-work",
+      "robots": "noindex, nofollow, noarchive, noindex"
+    },
+    {
+      "path": "/blog/verify-chinese-supplier",
+      "status": 200,
+      "title": "How to Verify a Chinese Supplier: Evidence and Scorecard | Sourcing Lab USA",
+      "canonical": "https://sourcinglabusa.com/blog/verify-chinese-supplier",
+      "robots": "noindex, nofollow, noarchive, noindex"
+    },
+    {
+      "path": "/blog/calculating-landed-costs-merchandise",
+      "status": 200,
+      "title": "How to Plan Landed Costs for Custom Packaging and Textile Orders | Sourcing Lab USA",
+      "canonical": "https://sourcinglabusa.com/blog/calculating-landed-costs-merchandise",
+      "robots": "noindex, nofollow, noarchive, noindex"
+    }
+  ]
+}

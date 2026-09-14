@@ -1,0 +1,39 @@
+{
+  "verifiedAt": "2026-09-14T16:10:12.496Z",
+  "pullRequest": "https://github.com/craigbarns/SOURCINGLABUSA/pull/5",
+  "commit": "dfd364db0b1075093a6bf3295392c5cdbc2ba64f",
+  "deployment": "6aa819ea09b878000868d7dd",
+  "deploymentState": "ready",
+  "canonicalOrigin": "https://sourcinglabusa.com",
+  "oldPagesPreserved": 21,
+  "publicSitemapPages": 31,
+  "robotsPolicyUnchanged": true,
+  "wwwRedirect": {
+    "status": 301,
+    "location": "https://sourcinglabusa.com/"
+  },
+  "appBoundary": {
+    "redirectStatus": 308,
+    "target": "https://app.sourcinglabusa.com/",
+    "dnsStatus": "NXDOMAIN",
+    "dnsResponseCode": 3,
+    "dnsSource": "https://dns.google/resolve?name=app.sourcinglabusa.com&type=A",
+    "publicTargetNoindex": "unverified because DNS does not resolve",
+    "sourceAndLocalNoindexChecks": "passed",
+    "configurationChanged": false
+  },
+  "formSubmitted": false,
+  "records": [
+    {
+      "path": "/contact-us",
+      "status": 200,
+      "robotsHeader": null,
+      "optionalFieldsPresent": true
+    },
+    {
+      "path": "/contact.html",
+      "status": 200,
+      "metaNoindex": true
+    }
+  ]
+}

@@ -1,7 +1,7 @@
 {
   "method": "Editorial evidence-based readiness rubric, not a vendor score, ranking probability or measured platform visibility. Each dimension has five criteria out of 20. Missing evidence earns no implied credit; scores are judgment calls supported by the audit.",
   "baseline": "Public site crawled on 2026-09-14; 21 pages.",
-  "implemented": "Local reviewed implementation based on origin/main eb2eb89; not a measured post-deployment effect.",
+  "implemented": "GEO implementation released through PR #5 at dfd364d and verified publicly; editorial readiness scores are not measured ranking or citation effects.",
   "dimensions": [
     {
       "name": "GEO readiness",
@@ -71,7 +71,7 @@
           "Indexing and performance evidence",
           3,
           3,
-          "Search retrieval and local Lighthouse observed; actual indexing and field CWV remain unmeasured. Conservative score retained because one local homepage run cannot establish site-wide field performance."
+          "Search retrieval and local/public homepage Lighthouse observed; actual indexing and field CWV remain unmeasured. Conservative score retained because isolated lab runs cannot establish site-wide field performance."
         ]
       ],
       "before": 68,

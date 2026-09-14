@@ -1,0 +1,68 @@
+{
+  "verifiedAt": "2026-09-14T16:04:33.151Z",
+  "target": "local production build with Spanish typography fix",
+  "records": [
+    {
+      "viewport": 320,
+      "width": 288,
+      "height": 108,
+      "font": "34px",
+      "lineHeight": "35.36px",
+      "lines": 3,
+      "overflow": false,
+      "lang": "es-US"
+    },
+    {
+      "viewport": 390,
+      "width": 350,
+      "height": 72,
+      "font": "34.3px",
+      "lineHeight": "35.672px",
+      "lines": 2,
+      "overflow": false,
+      "lang": "es-US"
+    },
+    {
+      "viewport": 768,
+      "width": 338,
+      "height": 72,
+      "font": "34px",
+      "lineHeight": "35.36px",
+      "lines": 2,
+      "overflow": false,
+      "lang": "es-US"
+    },
+    {
+      "viewport": 1024,
+      "width": 466,
+      "height": 96,
+      "font": "45.668px",
+      "lineHeight": "47.4947px",
+      "lines": 2,
+      "overflow": false,
+      "lang": "es-US"
+    },
+    {
+      "viewport": 1280,
+      "width": 523,
+      "height": 108,
+      "font": "51.2999px",
+      "lineHeight": "53.3519px",
+      "lines": 2,
+      "overflow": false,
+      "lang": "es-US"
+    },
+    {
+      "viewport": 1440,
+      "width": 597,
+      "height": 123,
+      "font": "58.5137px",
+      "lineHeight": "60.8542px",
+      "lines": 2,
+      "overflow": false,
+      "lang": "es-US"
+    }
+  ],
+  "englishFontUnchanged": "82.08px",
+  "formSubmitted": false
+}
