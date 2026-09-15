@@ -9,6 +9,40 @@ const nextConfig = {
   turbopack: {
     root: projectRoot,
   },
+  async redirects() {
+    return [
+      {
+        source: '/non-woven-bags',
+        destination: '/custom-packaging',
+        permanent: true,
+      },
+      {
+        source: '/blog/fsc-certification-explained',
+        destination: '/custom-packaging',
+        permanent: true,
+      },
+      {
+        source: '/insulated-packaging',
+        destination: '/custom-packaging',
+        permanent: true,
+      },
+      {
+        source: '/blog/china-us-shipping-timelines-costs-2026',
+        destination: '/china-to-us-procurement',
+        permanent: true,
+      },
+      {
+        source: '/blog/non-woven-bag-guide',
+        destination: '/custom-packaging',
+        permanent: true,
+      },
+      {
+        source: '/custom-paper',
+        destination: '/custom-packaging',
+        permanent: true,
+      },
+    ];
+  },
   async headers() {
     return [
       {
