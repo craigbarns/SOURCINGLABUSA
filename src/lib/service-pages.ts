@@ -22,7 +22,7 @@ export const customPackagingPage: ServicePageContent = {
     },
     {
       title: 'Materials and finish',
-      body: 'Set the material, structure, print requirements, and finish that support the intended product and brand experience.',
+      body: 'Set the material, structure, print requirements, and finish that support the intended product and brand experience. We source FSC certified paper, cardboard, sustainable options, and non-woven eco bags to meet your compliance needs.',
     },
     {
       title: 'A complete brief',

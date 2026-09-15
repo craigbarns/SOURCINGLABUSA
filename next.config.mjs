@@ -17,11 +17,6 @@ const nextConfig = {
         permanent: true,
       },
       {
-        source: '/blog/fsc-certification-explained',
-        destination: '/custom-packaging',
-        permanent: true,
-      },
-      {
         source: '/insulated-packaging',
         destination: '/custom-packaging',
         permanent: true,
