@@ -12,6 +12,14 @@ const nextConfig = {
   async redirects() {
     return [
       {
+        // Ranked position 2 in Search but the page no longer exists, so every
+        // FSC impression landed on a 404. FSC packaging is a Custom Packaging
+        // enquiry, which is where the commercial answer lives.
+        source: '/fsc-boxes',
+        destination: '/custom-packaging',
+        permanent: true,
+      },
+      {
         source: '/non-woven-bags',
         destination: '/custom-packaging',
         permanent: true,
