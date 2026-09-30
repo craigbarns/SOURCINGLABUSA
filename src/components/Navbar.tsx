@@ -12,7 +12,7 @@ interface NavbarProps {
   area?: 'app' | 'marketing';
   appearance?: 'dark' | 'light';
   contactHref?: string;
-  locale?: 'en' | 'es';
+  locale?: 'en' | 'es' | 'zh';
 }
 
 const navigation = [
@@ -34,8 +34,22 @@ export const Navbar: React.FC<NavbarProps> = ({
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const isAppArea = area === 'app';
-  const isSpanish = locale ? locale === 'es' : (pathname?.startsWith('/es') ?? false);
-  const marketingHref = isAppArea ? '/marketing' : isSpanish ? '/es' : '/';
+  const currentLocale: 'en' | 'es' | 'zh' = locale
+    ? locale
+    : pathname?.startsWith('/es')
+      ? 'es'
+      : pathname?.startsWith('/zh')
+        ? 'zh'
+        : 'en';
+  const isSpanish = currentLocale === 'es';
+  const isChinese = currentLocale === 'zh';
+  const marketingHref = isAppArea
+    ? '/marketing'
+    : isSpanish
+      ? '/es'
+      : isChinese
+        ? '/zh'
+        : '/';
 
   const menuButtonRef = useRef<HTMLButtonElement>(null);
   useEffect(() => {
@@ -49,24 +63,34 @@ export const Navbar: React.FC<NavbarProps> = ({
     document.addEventListener('keydown', closeOnEscape);
     return () => document.removeEventListener('keydown', closeOnEscape);
   }, [isMenuOpen]);
-  const items = navigation.map((item) => ({
-    ...item,
-    label: isSpanish
-      ? ({
-          Sourcing: 'Sourcing',
-          'U.S. Market Entry': 'Entrada a EE. UU.',
-          Packaging: 'Empaques',
-          Clothing: 'Prendas',
-          'Private label': 'Marca privada',
-          'How it works': 'Cómo funciona',
-          Resources: 'Recursos',
-        }[item.label] ?? item.label)
-      : item.label,
-    href:
-      isSpanish && item.href === '/#how-it-works'
-        ? '/es#how-it-works'
-        : item.href,
-  }));
+
+  const items = isChinese
+    ? [
+        { label: '商业代表', href: '/zh#representation' },
+        { label: '法规合规', href: '/zh#compliance' },
+        { label: '到岸关税', href: '/zh#landed-cost' },
+        { label: '3PL海外仓', href: '/zh#fulfillment' },
+        { label: '出海流程', href: '/zh#workflow' },
+        { label: '常见解答', href: '/zh#faq' },
+      ]
+    : navigation.map((item) => ({
+        ...item,
+        label: isSpanish
+          ? ({
+              Sourcing: 'Sourcing',
+              'U.S. Market Entry': 'Entrada a EE. UU.',
+              Packaging: 'Empaques',
+              Clothing: 'Prendas',
+              'Private label': 'Marca privada',
+              'How it works': 'Cómo funciona',
+              Resources: 'Recursos',
+            }[item.label] ?? item.label)
+          : item.label,
+        href:
+          isSpanish && item.href === '/#how-it-works'
+            ? '/es#how-it-works'
+            : item.href,
+      }));
 
   return (
     <header
@@ -83,7 +107,11 @@ export const Navbar: React.FC<NavbarProps> = ({
         {!isAppArea && (
           <nav
             aria-label={
-              isSpanish ? 'Navegación principal' : 'Primary navigation'
+              isChinese
+                ? '主导航'
+                : isSpanish
+                  ? 'Navegación principal'
+                  : 'Primary navigation'
             }
             className="hidden items-center gap-6 xl:flex"
           >
@@ -104,17 +132,30 @@ export const Navbar: React.FC<NavbarProps> = ({
           <div className="nav-language hidden sm:flex items-center gap-1 bg-white/[0.04] rounded-lg p-1 border border-white/10 mr-2">
             <Link
               href={isAppArea ? '/marketing' : '/'}
-              aria-current={isSpanish ? undefined : 'page'}
-              className={`rounded-md px-2 py-1 text-xs font-bold hover:bg-white/[0.08] ${isSpanish ? 'text-[#96a29b]' : 'text-white'}`}
+              aria-current={currentLocale === 'en' ? 'page' : undefined}
+              className={`rounded-md px-2 py-1 text-xs font-bold hover:bg-white/[0.08] transition-colors ${
+                currentLocale === 'en' ? 'bg-white/10 text-white' : 'text-[#96a29b]'
+              }`}
             >
               EN
             </Link>
             <Link
               href={isAppArea ? '/marketing/es' : '/es'}
-              aria-current={isSpanish ? 'page' : undefined}
-              className={`rounded-md px-2 py-1 text-xs font-bold hover:bg-white/[0.08] ${isSpanish ? 'text-white' : 'text-[#96a29b]'}`}
+              aria-current={currentLocale === 'es' ? 'page' : undefined}
+              className={`rounded-md px-2 py-1 text-xs font-bold hover:bg-white/[0.08] transition-colors ${
+                currentLocale === 'es' ? 'bg-white/10 text-white' : 'text-[#96a29b]'
+              }`}
             >
               ES
+            </Link>
+            <Link
+              href={isAppArea ? '/marketing/zh' : '/zh'}
+              aria-current={currentLocale === 'zh' ? 'page' : undefined}
+              className={`rounded-md px-2 py-1 text-xs font-bold hover:bg-white/[0.08] transition-colors ${
+                currentLocale === 'zh' ? 'bg-white/10 text-white' : 'text-[#96a29b]'
+              }`}
+            >
+              中文
             </Link>
           </div>
 
@@ -135,12 +176,20 @@ export const Navbar: React.FC<NavbarProps> = ({
                 trackCtaClick('navbar', 'Send a project brief');
               }}
               aria-label={
-                isSpanish ? 'Enviar un proyecto' : 'Send a project brief'
+                isChinese
+                  ? '提交出海需求'
+                  : isSpanish
+                    ? 'Enviar un proyecto'
+                    : 'Send a project brief'
               }
               className="nav-cta group inline-flex h-10 w-10 shrink-0 items-center justify-center gap-2 rounded-xl bg-[#c7ff6b] text-sm font-extrabold text-[#0a0d0b] shadow-[0_8px_30px_rgba(199,255,107,0.13)] transition hover:bg-[#d6ff91] sm:h-auto sm:w-auto sm:px-4 sm:py-2.5"
             >
               <span className="hidden sm:inline">
-                {isSpanish ? 'Cuéntanos tu proyecto' : 'Start a project'}
+                {isChinese
+                  ? '提交出海意向'
+                  : isSpanish
+                    ? 'Cuéntanos tu proyecto'
+                    : 'Start a project'}
               </span>
               <ArrowUpRight
                 className="h-4 w-4 transition-transform group-hover:-translate-y-0.5 group-hover:translate-x-0.5"
@@ -156,12 +205,16 @@ export const Navbar: React.FC<NavbarProps> = ({
               className="nav-toggle grid h-10 w-10 shrink-0 place-items-center rounded-xl border border-white/10 text-[#dce5df] xl:hidden"
               aria-label={
                 isMenuOpen
-                  ? isSpanish
-                    ? 'Cerrar menú'
-                    : 'Close navigation menu'
-                  : isSpanish
-                    ? 'Abrir menú'
-                    : 'Open navigation menu'
+                  ? isChinese
+                    ? '关闭菜单'
+                    : isSpanish
+                      ? 'Cerrar menú'
+                      : 'Close navigation menu'
+                  : isChinese
+                    ? '打开菜单'
+                    : isSpanish
+                      ? 'Abrir menú'
+                      : 'Open navigation menu'
               }
               aria-expanded={isMenuOpen}
               aria-controls="mobile-navigation"
@@ -180,7 +233,13 @@ export const Navbar: React.FC<NavbarProps> = ({
       {!isAppArea && isMenuOpen && (
         <nav
           id="mobile-navigation"
-          aria-label={isSpanish ? 'Navegación móvil' : 'Mobile navigation'}
+          aria-label={
+            isChinese
+              ? '移动端导航'
+              : isSpanish
+                ? 'Navegación móvil'
+                : 'Mobile navigation'
+          }
           className="nav-mobile border-t border-white/[0.07] bg-[#0a0e0c] px-4 py-4 xl:hidden"
         >
           <div className="mx-auto grid max-w-7xl gap-1">
@@ -197,32 +256,44 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             <div className="mt-3 border-t border-white/[0.08] pt-4">
               <p className="px-3 text-[10px] font-black uppercase tracking-[0.16em] text-[#7d8b83]">
-                Language
+                {isChinese ? '语言 / Language' : isSpanish ? 'Idioma' : 'Language'}
               </p>
-              <div className="mt-2 grid grid-cols-2 gap-2">
+              <div className="mt-2 grid grid-cols-3 gap-2">
                 <Link
                   href="/"
-                  aria-current={isSpanish ? undefined : 'page'}
+                  aria-current={currentLocale === 'en' ? 'page' : undefined}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`rounded-xl border px-3 py-3 text-center text-sm font-bold transition-colors ${
-                    isSpanish
-                      ? 'border-white/[0.08] text-[#96a29b] hover:bg-white/[0.05] hover:text-white'
-                      : 'border-[#c7ff6b]/30 bg-[#c7ff6b]/10 text-[#dfffab]'
+                  className={`rounded-xl border px-2 py-3 text-center text-xs font-bold transition-colors ${
+                    currentLocale === 'en'
+                      ? 'border-[#c7ff6b]/30 bg-[#c7ff6b]/10 text-[#dfffab]'
+                      : 'border-white/[0.08] text-[#96a29b] hover:bg-white/[0.05] hover:text-white'
                   }`}
                 >
                   English
                 </Link>
                 <Link
                   href="/es"
-                  aria-current={isSpanish ? 'page' : undefined}
+                  aria-current={currentLocale === 'es' ? 'page' : undefined}
                   onClick={() => setIsMenuOpen(false)}
-                  className={`rounded-xl border px-3 py-3 text-center text-sm font-bold transition-colors ${
-                    isSpanish
+                  className={`rounded-xl border px-2 py-3 text-center text-xs font-bold transition-colors ${
+                    currentLocale === 'es'
                       ? 'border-[#c7ff6b]/30 bg-[#c7ff6b]/10 text-[#dfffab]'
                       : 'border-white/[0.08] text-[#96a29b] hover:bg-white/[0.05] hover:text-white'
                   }`}
                 >
                   Español
+                </Link>
+                <Link
+                  href="/zh"
+                  aria-current={currentLocale === 'zh' ? 'page' : undefined}
+                  onClick={() => setIsMenuOpen(false)}
+                  className={`rounded-xl border px-2 py-3 text-center text-xs font-bold transition-colors ${
+                    currentLocale === 'zh'
+                      ? 'border-[#c7ff6b]/30 bg-[#c7ff6b]/10 text-[#dfffab]'
+                      : 'border-white/[0.08] text-[#96a29b] hover:bg-white/[0.05] hover:text-white'
+                  }`}
+                >
+                  简体中文
                 </Link>
               </div>
             </div>

@@ -17,6 +17,11 @@ const COPY: Record<BriefLocale, { cta: string; email: string; subject: string }>
     email: 'Escríbanos',
     subject: 'Proyecto de packaging o textil personalizado',
   },
+  zh: {
+    cta: '提交出海需求评估',
+    email: '邮件联络',
+    subject: '中国工厂出海美国市场合作意向',
+  },
 };
 
 const REVEAL_OFFSET_PX = 640;

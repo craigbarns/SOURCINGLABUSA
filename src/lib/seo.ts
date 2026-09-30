@@ -13,6 +13,7 @@ export const SITE_DESCRIPTION =
 export const homeLanguages = {
   'en-US': `${SITE_ORIGIN}/`,
   'es-US': `${SITE_ORIGIN}/es`,
+  'zh-Hans': `${SITE_ORIGIN}/zh`,
   'x-default': `${SITE_ORIGIN}/`,
 };
 
@@ -31,7 +32,7 @@ export function pageMetadata({
   title: string;
   description: string;
   path: string;
-  locale?: 'en-US' | 'es-US';
+  locale?: 'en-US' | 'es-US' | 'zh-Hans';
   translatedHome?: boolean;
   article?: { published: string; modified: string };
 }): Metadata {
@@ -44,6 +45,8 @@ export function pageMetadata({
       alt: 'Sourcing Lab USA — Global Sourcing, Overseas Manufacturing & U.S. Market Entry Execution.',
     },
   ];
+
+  const currentLocale = locale === 'zh-Hans' ? 'zh_CN' : locale.replace('-', '_');
 
   return {
     title: { absolute: socialTitle },
@@ -58,9 +61,13 @@ export function pageMetadata({
       title: socialTitle,
       description,
       siteName: SITE_NAME,
-      locale: locale.replace('-', '_'),
+      locale: currentLocale,
       ...(translatedHome
-        ? { alternateLocale: [locale === 'en-US' ? 'es_US' : 'en_US'] }
+        ? {
+            alternateLocale: ['en_US', 'es_US', 'zh_CN'].filter(
+              (l) => l !== currentLocale,
+            ),
+          }
         : {}),
       ...(article
         ? { publishedTime: article.published, modifiedTime: article.modified }
