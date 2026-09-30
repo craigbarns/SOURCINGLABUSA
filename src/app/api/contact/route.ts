@@ -49,7 +49,9 @@ async function storeBrief(
   const messageWithLocale =
     brief.locale === 'es'
       ? (brief.message ? `${brief.message}\n\n[Idioma: Español / Spanish]` : '[Idioma: Español / Spanish]')
-      : (brief.message || null);
+      : brief.locale === 'zh'
+        ? (brief.message ? `${brief.message}\n\n[语言: 中文 / Chinese]` : '[语言: 中文 / Chinese]')
+        : (brief.message || null);
 
   try {
     const { error } = await supabase.from('project_briefs').insert({

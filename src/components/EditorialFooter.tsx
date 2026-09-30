@@ -5,11 +5,12 @@ export function EditorialFooter({
   locale = 'en',
   linkPrefix = '',
 }: {
-  locale?: 'en' | 'es';
+  locale?: 'en' | 'es' | 'zh';
   linkPrefix?: string;
 }) {
   const es = locale === 'es';
-  const home = `${linkPrefix}${es ? '/es' : '/'}`;
+  const zh = locale === 'zh';
+  const home = `${linkPrefix}${zh ? '/zh' : es ? '/es' : '/'}`;
   return (
     <footer className="editorial-footer">
       <div className="editorial-container">
@@ -19,17 +20,19 @@ export function EditorialFooter({
               <Logo appearance="light" />
             </Link>
             <p>
-              {es
-                ? 'Sourcing global, gestión de fabricación internacional y ejecución de entrada al mercado estadounidense. Verificación de fábricas, control de calidad y representación comercial.'
-                : 'Global sourcing, overseas manufacturing management, and U.S. market-entry execution. Direct factory audits, AQL 2.5 quality control, tariffs, and U.S. commercial representation.'}
+              {zh
+                ? '全球供应链运营与美国本土市场开拓执行。为中国制造企业与出海品牌提供全美商业代表、B2B买家对接、FDA/CPSC/FCC法规映射、到岸关税测算及本土3PL履约协同。'
+                : es
+                  ? 'Sourcing global, gestión de fabricación internacional y ejecución de entrada al mercado estadounidense. Verificación de fábricas, control de calidad y representación comercial.'
+                  : 'Global sourcing, overseas manufacturing management, and U.S. market-entry execution. Direct factory audits, AQL 2.5 quality control, tariffs, and U.S. commercial representation.'}
             </p>
           </div>
-          <nav aria-label={es ? 'Sourcing y fabricación' : 'Sourcing & Manufacturing'}>
-            <span>{es ? 'SOURCING Y FÁBRICAS' : 'GLOBAL SOURCING'}</span>
+          <nav aria-label={zh ? '全球制造与出海' : es ? 'Sourcing y fabricación' : 'Sourcing & Manufacturing'}>
+            <span>{zh ? '美国市场准入' : es ? 'SOURCING Y FÁBRICAS' : 'GLOBAL SOURCING'}</span>
             <ul>
               <li>
-                <Link href={`${linkPrefix}/product-sourcing`}>
-                  {es ? 'Sourcing de producto' : 'Product sourcing'}
+                <Link href={`${linkPrefix}/us-market-entry`}>
+                  {zh ? '美国市场拓展' : es ? 'Sourcing de producto' : 'Product sourcing'}
                 </Link>
               </li>
               <li>
@@ -156,18 +159,24 @@ export function EditorialFooter({
         <div className="editorial-footer-bottom">
           <p>
             © {new Date().getFullYear()} Sourcing Lab USA.{' '}
-            {es ? 'Todos los derechos reservados.' : 'All rights reserved.'}
+            {zh
+              ? '保留所有权利。'
+              : es
+                ? 'Todos los derechos reservados.'
+                : 'All rights reserved.'}
           </p>
           <p>
-            {es
-              ? 'Empaques. Textiles. Posibilidades.'
-              : 'Packaging. Textiles. Possibilities.'}
+            {zh
+              ? '全球制造 · 法规合规 · 美国本土落地。'
+              : es
+                ? 'Empaques. Textiles. Posibilidades.'
+                : 'Packaging. Textiles. Possibilities.'}
           </p>
           <a href="mailto:contact@sourcinglabusa.com">
             contact@sourcinglabusa.com ↗
           </a>
           <Link href={`${linkPrefix}/privacy`}>
-            {es ? 'Privacidad' : 'Privacy notice'}
+            {zh ? '隐私政策' : es ? 'Privacidad' : 'Privacy notice'}
           </Link>
         </div>
       </div>

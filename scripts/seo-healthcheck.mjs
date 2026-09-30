@@ -86,16 +86,49 @@ async function runHealthCheck() {
     detail: 'Verified native Spanish copy & headings',
   });
 
-  // 3. Sitemap XML
+  // 3. Chinese Homepage (/zh)
+  const zh = await checkUrl(`${PRODUCTION_ORIGIN}/zh`);
+  const zhLangOk = /<html[^>]*lang=["']zh-Hans["']/i.test(zh.text);
+  const zhCanonicalOk = /<link[^>]*rel=["']canonical["'][^>]*href=["']https:\/\/sourcinglabusa\.com\/zh\/?["']/i.test(zh.text);
+  const zhHreflangOk =
+    /hreflang=["']en-US["']/i.test(zh.text) &&
+    /hreflang=["']es-US["']/i.test(zh.text) &&
+    /hreflang=["']zh-Hans["']/i.test(zh.text) &&
+    /hreflang=["']x-default["']/i.test(zh.text);
+  const zhContentOk = zh.text.includes('美国市场准入') || zh.text.includes('稳健开拓美国本土市场');
+
+  results.push({
+    test: 'Chinese (/zh) HTTP 200',
+    status: zh.status === 200 ? '✅ Pass' : '❌ Fail',
+    detail: `${zh.duration}ms (status ${zh.status})`,
+  });
+  results.push({
+    test: 'Chinese (/zh) <html lang="zh-Hans">',
+    status: zhLangOk ? '✅ Pass' : '❌ Fail',
+    detail: zhLangOk ? 'Found zh-Hans' : 'Missing or incorrect',
+  });
+  results.push({
+    test: 'Chinese (/zh) Canonical & Hreflang',
+    status: zhCanonicalOk && zhHreflangOk ? '✅ Pass' : '❌ Fail',
+    detail: 'Canonical https://sourcinglabusa.com/zh + hreflang reciprocity',
+  });
+  results.push({
+    test: 'Chinese (/zh) Native Content',
+    status: zhContentOk ? '✅ Pass' : '❌ Fail',
+    detail: 'Verified native Simplified Chinese copy & headings',
+  });
+
+  // 4. Sitemap XML
   const sitemap = await checkUrl(`${PRODUCTION_ORIGIN}/sitemap.xml`);
   const sitemapEn = sitemap.text.includes('https://sourcinglabusa.com/');
   const sitemapEs = sitemap.text.includes('https://sourcinglabusa.com/es');
+  const sitemapZh = sitemap.text.includes('https://sourcinglabusa.com/zh');
   const sitemapCount = (sitemap.text.match(/<loc>/g) || []).length;
 
   results.push({
     test: 'Sitemap.xml Availability & URLs',
-    status: sitemap.status === 200 && sitemapEn && sitemapEs ? '✅ Pass' : '❌ Fail',
-    detail: `${sitemapCount} URLs indexed (including / and /es)`,
+    status: sitemap.status === 200 && sitemapEn && sitemapEs && sitemapZh ? '✅ Pass' : '❌ Fail',
+    detail: `${sitemapCount} URLs indexed (including /, /es, and /zh)`,
   });
 
   // 4. Robots.txt

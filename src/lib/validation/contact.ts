@@ -80,7 +80,7 @@ export const contactInputSchema = z
       .transform((value) => (value.startsWith('/') ? value : '/')),
     // Honeypot. Real visitors never see this field, so any value means a bot.
     botField: z.string().max(200).default(''),
-    locale: z.enum(['en', 'es']).default('en'),
+    locale: z.enum(['en', 'es', 'zh']).default('en'),
   })
   .strict();
 
