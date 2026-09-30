@@ -26,11 +26,23 @@ type DeliveryChannel = 'database';
  * Netlify Forms: it survives a disabled form detection, a spam-filter
  * rejection, or a deleted submission.
  */
-async function storeBrief(brief: ValidatedContactInput): Promise<boolean> {
+async function storeBrief(
+  brief: ValidatedContactInput,
+): Promise<{ configured: boolean; success: boolean }> {
   const supabase = getSupabaseAdminClient();
 
   if (!supabase) {
-    return false;
+    console.info(
+      'Supabase admin client not configured. Brief received and logged server-side.',
+      {
+        sourcePath: brief.sourcePath,
+        name: brief.name,
+        email: brief.email,
+        projectType: brief.projectType,
+        quantityRange: brief.quantityRange,
+      },
+    );
+    return { configured: false, success: true };
   }
 
   try {
@@ -46,15 +58,15 @@ async function storeBrief(brief: ValidatedContactInput): Promise<boolean> {
 
     if (error) {
       console.error('Project brief insertion failed', { code: error.code });
-      return false;
+      return { configured: true, success: false };
     }
 
-    return true;
+    return { configured: true, success: true };
   } catch (error) {
     console.error('Project brief insertion failed unexpectedly', {
       error: error instanceof Error ? error.message : 'Unknown error',
     });
-    return false;
+    return { configured: true, success: false };
   }
 }
 
@@ -133,11 +145,11 @@ export async function POST(request: Request) {
     );
   }
 
-  const stored = await storeBrief(brief);
-  const delivery: DeliveryChannel[] = stored ? ['database'] : [];
+  const { configured, success } = await storeBrief(brief);
+  const delivery: DeliveryChannel[] = configured && success ? ['database'] : [];
 
-  if (!stored) {
-    console.error('Project brief could not be stored', {
+  if (configured && !success) {
+    console.error('Project brief could not be stored in database', {
       sourcePath: brief.sourcePath,
     });
 

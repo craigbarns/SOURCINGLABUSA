@@ -1,12 +1,16 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import {
   AlertTriangle,
   ArrowRight,
   ArrowUpRight,
+  Award,
   CheckCircle2,
+  FileCheck,
   Globe2,
   HelpCircle,
   Layers,
+  Lock,
   Plus,
   ShieldAlert,
   ShieldCheck,
@@ -482,6 +486,140 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                 <p className="mt-2 text-xs leading-relaxed text-brand-muted">{risk.body}</p>
               </div>
             ))}
+          </div>
+        </div>
+      </section>
+
+      {/* OPERATIONAL SAFEGUARDS & VERIFIED STANDARDS */}
+      <section id="safeguards" className="editorial-section border-t border-brand-line bg-brand-surface/40 py-20">
+        <div className="editorial-container">
+          <div className="mb-14 max-w-3xl">
+            <p className="editorial-kicker">
+              <ShieldCheck className="h-3.5 w-3.5 text-brand-green" aria-hidden="true" />
+              {es ? 'SEGURIDAD OPERATIVA Y ESTÁNDARES VERIFICABLES' : 'OPERATIONAL SAFEGUARDS & VERIFIED STANDARDS'}
+            </p>
+            <h2 className="editorial-title">
+              {es ? 'Garantías operativas concretas.' : 'Verifiable operational safeguards.'}
+              <br />
+              <em>
+                {es
+                  ? 'Estándares internacionales, no promesas vacías.'
+                  : 'Rigorous industry standards, not unverified claims.'}
+              </em>
+            </h2>
+            <p className="editorial-body mt-4 text-base">
+              {es
+                ? 'El abastecimiento internacional exige garantías verificables antes de movilizar capital. Respaldamos cada proyecto con marcos normativos internacionales, auditorías in situ y contratos comerciales transparentes.'
+                : 'International procurement and market entry demand verifiable risk mitigation before capital is transferred. We anchor every engagement in recognized quality frameworks, independent lab testing, and enforceable commercial safeguards.'}
+            </p>
+          </div>
+
+          <div className="grid gap-8 lg:grid-cols-12 items-start">
+            {/* Left: 4 Verified Standard Cards */}
+            <div className="lg:col-span-7 grid gap-6 sm:grid-cols-2">
+              <div className="rounded-xl border border-brand-line bg-white p-6 shadow-xs">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-green/10 text-brand-green shrink-0">
+                    <FileCheck className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-muted">ISO 9001 · ISO 2859-1</span>
+                    <h3 className="text-base font-semibold text-brand-ink">{es ? 'Control de calidad AQL' : 'Tailored AQL Quality Control'}</h3>
+                  </div>
+                </div>
+                <p className="mt-3 text-xs leading-relaxed text-brand-muted">
+                  {es
+                    ? 'Inspecciones independientes durante la producción (DUPRO) y pre-embarque (PSI) con planes de muestreo estadístico ISO 2859-1 adaptados a cada producto.'
+                    : 'Independent pre-shipment inspections (PSI) and during-production audits (DUPRO) using ISO 2859-1 statistical sampling with defect thresholds tailored to your product category.'}
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-brand-line bg-white p-6 shadow-xs">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-green/10 text-brand-green shrink-0">
+                    <Award className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-muted">CPSC · ASTM · FDA · FCC</span>
+                    <h3 className="text-base font-semibold text-brand-ink">{es ? 'Mapeo normativo de EE. UU.' : 'U.S. Regulatory Mapping'}</h3>
+                  </div>
+                </div>
+                <p className="mt-3 text-xs leading-relaxed text-brand-muted">
+                  {es
+                    ? 'Identificación anticipada de requisitos federales y estatales aplicables, coordinando ensayos de seguridad con laboratorios acreditados independientes.'
+                    : 'Advance mapping of applicable federal and state requirements, coordinating mechanical and safety testing with independent accredited testing laboratories.'}
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-brand-line bg-white p-6 shadow-xs">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-green/10 text-brand-green shrink-0">
+                    <Lock className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-muted">{es ? 'PAGOS POR HITOS' : 'MILESTONE PAYMENTS'}</span>
+                    <h3 className="text-base font-semibold text-brand-ink">{es ? 'Protección total de capital' : 'Zero Pre-Inspection Balance'}</h3>
+                  </div>
+                </div>
+                <p className="mt-3 text-xs leading-relaxed text-brand-muted">
+                  {es
+                    ? 'El saldo final de producción nunca se libera hasta haber superado con éxito la inspección física de calidad y la verificación de empaque en fábrica.'
+                    : 'Production balances remain protected until physical on-site quality inspection and packaging verification reports are fully approved.'}
+                </p>
+              </div>
+
+              <div className="rounded-xl border border-brand-line bg-white p-6 shadow-xs">
+                <div className="flex items-center gap-3">
+                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-green/10 text-brand-green shrink-0">
+                    <ShieldCheck className="h-5 w-5" aria-hidden="true" />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-muted">{es ? 'PROPIEDAD DE UTILLAJE' : '100% TOOLING IP'}</span>
+                    <h3 className="text-base font-semibold text-brand-ink">{es ? 'Propiedad exclusiva de moldes' : 'Client Tooling Covenants'}</h3>
+                  </div>
+                </div>
+                <p className="mt-3 text-xs leading-relaxed text-brand-muted">
+                  {es
+                    ? 'Acuerdos contractuales por escrito que garantizan la propiedad legal exclusiva de moldes, troqueles, fichas técnicas y archivos CAD para el cliente.'
+                    : 'Binding written covenants guaranteeing that custom molds, tooling dies, CAD files, and technical specifications remain 100% client-owned property.'}
+                </p>
+              </div>
+            </div>
+
+            {/* Right: Visual feature showcasing tactile quality and transparency */}
+            <div className="lg:col-span-5 flex flex-col justify-between rounded-xl border border-brand-line bg-white p-5 shadow-xs">
+              <div className="relative overflow-hidden rounded-lg">
+                <Image
+                  src="/images/packaging-collection.webp"
+                  alt="Photorealistic unbranded custom packaging and material sample arrangement"
+                  width={1536}
+                  height={1024}
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(max-width: 1024px) 100vw, 480px"
+                  className="w-full h-auto rounded-lg object-cover transition-transform duration-500 hover:scale-[1.02]"
+                />
+              </div>
+              <div className="mt-4 pt-4 border-t border-brand-line/60">
+                <p className="text-[11px] leading-relaxed text-brand-muted">
+                  <span className="font-semibold text-brand-ink">{es ? 'Inspección de materiales y prototipos' : 'Material Inspection & Prototype Standards'}</span> —{' '}
+                  {es
+                    ? 'Supervisión directa de gramajes de papel, resistencias de cartón corrugado, tolerancias dimensionales y acabados antes de la producción en masa.'
+                    : 'Direct oversight of paperboard calipers, flute strengths, dimensional tolerances, and surface treatments before mass production runs.'}
+                </p>
+                <div className="mt-3 flex flex-wrap items-center gap-2 text-[10px] font-medium text-brand-muted">
+                  <span className="rounded-md bg-brand-surface px-2 py-0.5 border border-brand-line">
+                    {es ? 'Muestras no marcadas' : 'Unbranded Samples'}
+                  </span>
+                  <span className="rounded-md bg-brand-surface px-2 py-0.5 border border-brand-line">
+                    {es ? 'Clasificación HTS 10 dígitos' : '10-Digit HTS Classification'}
+                  </span>
+                  <span className="rounded-md bg-brand-surface px-2 py-0.5 border border-brand-line">
+                    {es ? 'Facturación Francia / China' : 'Invoicing via France / China'}
+                  </span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
