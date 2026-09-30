@@ -1,0 +1,27 @@
+name: Weekly SEO & System Health Check
+
+on:
+  schedule:
+    # Every Monday at 08:00 UTC
+    - cron: '0 8 * * 1'
+  workflow_dispatch:
+
+jobs:
+  healthcheck:
+    name: Production SEO & API Healthcheck
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Run SEO & API healthcheck
+        env:
+          SITE_ORIGIN: https://sourcinglabusa.com
+        run: node scripts/seo-healthcheck.mjs
