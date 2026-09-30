@@ -1,60 +1,69 @@
 export const homeFaqs = [
   [
-    'Do you supply products or only introduce factories?',
-    'Our offer is product sourcing, purchase and supply. The company identified in your quotation contracts with you and invoices the products. Specifications, samples, product pricing and order responsibilities are agreed before you commit.',
+    'What does a global sourcing company do?',
+    'A global sourcing company identifies, vets, negotiates, and manages international manufacturers on behalf of domestic businesses. Rather than leaving buyers to navigate unverified online directories or trading brokers, an operational sourcing partner audits factory facilities, validates business licenses, negotiates direct manufacturing pricing, manages tooling and sample approvals, enforces on-site quality control, and coordinates cross-border freight and customs clearance to final delivery.',
   ],
   [
-    'Do you only source clothing and packaging?',
-    'Clothing, textiles and packaging are our core specialties. We also source other products on request, after reviewing the product, quantity, specifications and production requirements.',
+    'How does Sourcing Lab USA verify overseas manufacturers?',
+    'We conduct rigorous due diligence on the ground. We check official government corporate registries (such as China’s AIC system) to confirm active legal status, verify registered versus paid-in capital, inspect physical plant facilities and machinery ownership, examine worker headcount, and review past export customs records to ensure the supplier is a legitimate direct manufacturer rather than an unauthorized broker or middleman.',
   ],
   [
-    'Can I start a sourcing project now?',
-    'Yes. We can work on projects and invoice from France or China now, supported by an established independent China sourcing partnership. The contracting company is identified in your quotation. The planned Miami expansion in 2027 does not prevent you from starting a project today.',
+    'How do you protect buyers against quality fade and defective shipments?',
+    'Quality fade is prevented through binding bilingual manufacturing contracts that explicitly link payment milestones to objective AQL (Acceptance Quality Limit) 2.5 inspection results. We retain approved physical golden samples, conduct during-production checks (DUPRO), and perform final pre-shipment inspections (PSI) at the factory before authorizing the release of final balance payments.',
   ],
   [
-    'Can you work from an existing design or sample?',
-    'Yes. Send your brief, reference images, dimensions, quantity, and target timing. We will confirm what can be quoted and sampled.',
+    'How do U.S. tariffs and Section 301 duties affect landed costs?',
+    'Imported goods are subject to base ad valorem customs duties under the U.S. Harmonized Tariff Schedule (HTSUS), and goods originating from China may be subject to additional Section 301 tariffs (typically 7.5% to 25%). We classify your product under the exact 10-digit HTS code, modeling all duties, harbor maintenance fees (HMF), and merchandise processing fees (MPF) to establish your true delivered landed cost before you order.',
   ],
   [
-    'Who handles compliance and import requirements?',
-    'Requirements depend on the exact product and destination. Product specifications, certificates, shipping terms, and importer responsibilities are confirmed for each order before production and shipment.',
+    'How does Sourcing Lab USA help foreign manufacturers enter the U.S. market?',
+    'We provide comprehensive operational support for international manufacturers and global brands: mapping products against U.S. federal and state regulations (FDA, CPSC, FCC, California Prop 65), helping determine and coordinate an appropriate U.S. importer-of-record structure, onboarding domestic 3PL fulfillment warehouses, creating American-standard wholesale sales collateral, and facilitating outreach to qualified U.S. distributors and retailers.',
   ],
   [
-    'Which company will invoice my order?',
-    'Current projects are contracted and invoiced through a company in France or China, identified in your quotation before you commit. Product specifications, pricing, samples, payment terms and delivery responsibilities are agreed for each order. The U.S. expansion remains planned.',
+    'Do you provide U.S. sales representation for international factories?',
+    'Yes. For qualified manufacturers with verified production facilities, competitive export pricing, and compliant products, we act as a dedicated U.S. commercial representative. We pitch American wholesale distributors and retail buyers, manage buyer communications in U.S. business hours, and secure recurring purchase orders.',
   ],
   [
-    'What is the minimum order quantity?',
-    'There is no single minimum order quantity for every product. Materials, construction, finishes and quantities by size, color or artwork affect the proposal. Send your brief so we can review the available options.',
+    'What is the typical minimum order quantity (MOQ)?',
+    'MOQs vary by product category and customization level. For custom packaging and private label products, initial runs typically start between 500 and 1,000 units. For cut-and-sew apparel, MOQs start around 300 to 500 units per style. For custom injection molded hardgoods, initial runs typically start at 1,000 units. We review your specifications to negotiate the lowest viable threshold.',
+  ],
+  [
+    'Which entity invoices our order and how are contracts structured?',
+    'Contracts and invoicing are structured transparently based on client requirements. Sourcing and product supply projects are contracted through our established commercial entities in France or China, clearly identified in your formal quotation before you commit, with complete specification, pricing, sample, and delivery terms locked into your order.',
   ],
 ] as const;
+
 export const homeFaqsES = [
   [
-    '¿Suministran productos o solo presentan fábricas?',
-    'Nuestra oferta incluye sourcing, compra y suministro de productos. La empresa identificada en el presupuesto contrata contigo y factura los productos. Las especificaciones, muestras, precios y responsabilidades se acuerdan antes de comprometerse.',
+    '¿Qué hace una empresa de sourcing global?',
+    'Una empresa de sourcing global identifica, audita, negocia y gestiona fabricantes internacionales para empresas locales. En lugar de depender de directorios online sin verificar, un socio operativo inspecciona instalaciones fabriles, verifica licencias legales, negocia precios directos de fábrica, supervisa muestras, ejecuta controles de calidad en fábrica y coordina el transporte y las aduanas hasta el destino final.',
   ],
   [
-    '¿Solo trabajan con prendas y empaques?',
-    'Prendas, textiles y empaques son nuestras especialidades. También gestionamos otros productos bajo pedido, tras revisar el producto, las cantidades, las especificaciones y los requisitos de producción.',
+    '¿Cómo verifica Sourcing Lab USA a los fabricantes extranjeros?',
+    'Realizamos una exhaustiva diligencia debida sobre el terreno. Consultamos los registros oficiales del gobierno para validar la vigencia legal, el capital registrado, la propiedad de las instalaciones y maquinaria, el número de empleados y los antecedentes aduaneros de exportación para asegurar que el proveedor es un fabricante directo legítimo.',
   ],
   [
-    '¿Puedo iniciar un proyecto de sourcing ahora?',
-    'Sí. Podemos trabajar en proyectos y facturar desde Francia o China desde ahora, con el apoyo de una colaboración independiente establecida en China. El presupuesto identifica la empresa contratante. La expansión prevista a Miami para 2027 no impide iniciar un proyecto hoy.',
+    '¿Cómo protegen a los compradores contra defectos y bajadas de calidad?',
+    'Protegemos la producción mediante acuerdos de fabricación vinculantes que condicionan los pagos a los resultados de inspecciones objetivas AQL 2.5. Conservamos muestras doradas aprobadas y realizamos inspecciones previas al envío (PSI) en la propia fábrica antes de autorizar el pago del saldo final.',
   ],
   [
-    '¿Pueden trabajar con un diseño o una muestra existente?',
-    'Sí. Comparte tu brief, imágenes de referencia, dimensiones, cantidad y fechas previstas. Confirmaremos qué se puede cotizar y producir como muestra.',
+    '¿Cómo influyen los aranceles de EE. UU. en el coste puesto en destino?',
+    'Los productos importados están sujetos a aranceles según el Arancel Armonizado de EE. UU. (HTSUS), y los productos de origen chino pueden tener aranceles adicionales de la Sección 301 (7,5% al 25%). Clasificamos tu producto a 10 dígitos y calculamos todos los aranceles y tasas portuarias para determinar el coste total antes de producir.',
   ],
   [
-    '¿Quién se encarga de los requisitos de importación?',
-    'Los requisitos dependen del producto y el destino. Las especificaciones, los certificados, las condiciones de envío y las responsabilidades del importador se confirman para cada pedido antes de producir y enviar.',
+    '¿Cómo ayudan a fabricantes extranjeros a entrar al mercado de EE. UU.?',
+    'Proporcionamos apoyo operativo integral: mapeo de requisitos normativos (FDA, CPSC, FCC, Prop 65 de California), determinación y coordinación de una estructura adecuada de importador de registro en EE. UU., integración con almacenes logísticos 3PL en EE. UU., desarrollo de presentaciones comerciales y facilitación de contactos comerciales con distribuidores y compradores estadounidenses.',
   ],
   [
-    '¿Qué empresa facturará mi pedido?',
-    'Los proyectos actuales se contratan y facturan a través de una empresa de Francia o China, identificada en el presupuesto antes de comprometerse. Las especificaciones, precios, muestras, condiciones de pago y responsabilidades de entrega se acuerdan para cada pedido. La expansión estadounidense sigue siendo un proyecto previsto.',
+    '¿Ofrecen representación comercial en EE. UU. para fábricas internacionales?',
+    'Sí. Para fabricantes cualificados con instalaciones verificadas, precios competitivos y productos conformes, actuamos como representantes comerciales en EE. UU. Presentamos tus productos a distribuidores mayoristas, gestionamos la relación con compradores en horario local y cerramos pedidos de compra.',
   ],
   [
-    '¿Cuál es la cantidad mínima de pedido?',
-    'No existe una cantidad mínima única para todos los productos. Los materiales, la construcción, los acabados y las cantidades por talla, color o diseño influyen en la propuesta. Comparte tu brief para revisar las opciones disponibles.',
+    '¿Cuál es la cantidad mínima de pedido (MOQ)?',
+    'El MOQ depende del producto y del grado de personalización. En empaques y marca privada suele comenzar entre 500 y 1.000 unidades; en prendas textiles, entre 300 y 500 unidades por modelo; y en artículos moldeados por inyección, a partir de 1.000 unidades. Negociamos siempre el mínimo más ventajoso para tu proyecto.',
+  ],
+  [
+    '¿Qué empresa factura el pedido y cómo se formalizan los contratos?',
+    'La contratación y facturación se estructuran con total transparencia. Los proyectos se contratan a través de nuestras entidades en Francia o China, identificadas claramente en tu presupuesto antes de confirmar el pedido, con todas las especificaciones, precios y plazos acordados por escrito.',
   ],
 ] as const;

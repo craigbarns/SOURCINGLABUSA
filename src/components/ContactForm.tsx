@@ -67,6 +67,8 @@ const serverIsReady = () => false;
 interface ServerRouteOutcome {
   /** True once the brief is in the database. */
   stored: boolean;
+  /** True when the API endpoint accepted the submission (HTTP 201). */
+  accepted?: boolean;
   message?: string;
   reason?: string;
   /** Present only when the server rejected specific fields. */
@@ -97,7 +99,10 @@ async function postBrief(
     }
 
     if (response.ok) {
-      return { stored: body.delivery?.includes('database') ?? false };
+      return {
+        stored: body.delivery?.includes('database') ?? false,
+        accepted: true,
+      };
     }
 
     const fieldErrors = Object.fromEntries(
@@ -208,6 +213,7 @@ export function ContactForm({
       quantityRange: values.quantityRange,
       message: formatBriefMessage(values.message, values),
       sourcePath,
+      locale,
       botField: '',
     };
 
@@ -250,7 +256,7 @@ export function ContactForm({
       return;
     }
 
-    if (!apiOutcome.stored && !notified) {
+    if (!apiOutcome.stored && !apiOutcome.accepted && !notified) {
       failWith(
         {},
         apiOutcome.message ?? copy.genericError,
@@ -323,21 +329,31 @@ export function ContactForm({
 
   return (
     <form
+      action="/api/contact"
       method="post"
       onSubmit={handleSubmit}
       noValidate
       aria-busy={status === 'submitting'}
       className={`grid gap-5 ${appearance === 'editorial' ? 'contact-form' : ''}`}
     >
+      <input
+        type="hidden"
+        name="locale"
+        value={locale}
+        disabled={!isReady || status === 'submitting'}
+      />
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor={`${fieldId}-name`} className={labelClassName}>
-            {copy.nameLabel}
+            {copy.nameLabel}{' '}
+            <span className="text-[#c7ff6b]" aria-hidden="true" title="Required">*</span>
           </label>
           <input
             id={`${fieldId}-name`}
             name="name"
             type="text"
+            required
+            aria-required="true"
             autoComplete="name"
             placeholder={copy.namePlaceholder}
             value={values.name}
@@ -362,12 +378,15 @@ export function ContactForm({
 
         <div>
           <label htmlFor={`${fieldId}-email`} className={labelClassName}>
-            {copy.emailLabel}
+            {copy.emailLabel}{' '}
+            <span className="text-[#c7ff6b]" aria-hidden="true" title="Required">*</span>
           </label>
           <input
             id={`${fieldId}-email`}
             name="email"
             type="email"
+            required
+            aria-required="true"
             autoComplete="email"
             inputMode="email"
             placeholder={copy.emailPlaceholder}
@@ -448,12 +467,15 @@ export function ContactForm({
 
       <div>
         <label htmlFor={`${fieldId}-project-type`} className={labelClassName}>
-          {copy.projectTypeLabel}
+          {copy.projectTypeLabel}{' '}
+          <span className="text-[#c7ff6b]" aria-hidden="true" title="Required">*</span>
         </label>
         <div className="relative">
           <select
             id={`${fieldId}-project-type`}
             name="projectType"
+            required
+            aria-required="true"
             value={values.projectType}
             disabled={!isReady || status === 'submitting'}
             onChange={(event) =>

@@ -52,6 +52,12 @@ export type ServicePageContent = {
   briefTitle: string;
   /** Supporting line of the brief form on this page. */
   briefIntro: string;
+  /** Set to true to omit product brief showcase cards for pure consulting/audit services */
+  hideShowcase?: boolean;
+  /** Optional custom benchmarks for non-standard services */
+  benchmarks?: typeof SOURCING_BENCHMARKS;
+  /** Optional custom benchmark footnote */
+  benchmarksNote?: string;
   relatedPages: Array<{
     href: string;
     title: string;
@@ -161,7 +167,7 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
           </div>
         </section>
 
-        <ProductShowcase category={page.showcaseCategory} />
+        {!page.hideShowcase && <ProductShowcase category={page.showcaseCategory} />}
 
         <section id="order-terms" className="editorial-section process-section scroll-mt-24">
           <div className="editorial-container">
@@ -179,7 +185,7 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
               ))}
             </ol>
             <dl className="sourcing-benchmarks">
-              {SOURCING_BENCHMARKS.map((benchmark) => (
+              {(page.benchmarks ?? SOURCING_BENCHMARKS).map((benchmark) => (
                 <div key={benchmark.label}>
                   <dt>{benchmark.label}</dt>
                   <dd className="benchmark-value">{benchmark.value}</dd>
@@ -187,7 +193,7 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
                 </div>
               ))}
             </dl>
-            <p className="benchmarks-note">{BENCHMARKS_NOTE}</p>
+            <p className="benchmarks-note">{page.benchmarksNote ?? BENCHMARKS_NOTE}</p>
             <p className="editorial-body mt-8">
               Review the product specifications, sample requirements, quantities,
               product pricing and payment terms before approving your order.

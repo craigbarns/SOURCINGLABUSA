@@ -5,20 +5,20 @@ import { ArrowUpRight } from 'lucide-react';
 export function SourcingOverview({ locale = 'en' }: { locale?: 'en' | 'es' }) {
   const es = locale === 'es';
   const categories = es ? [
-    ['/custom-textile', '01', 'Prendas', 'Colecciones, uniformes, tejidos y acabados.'],
-    ['/sportswear-sourcing', '02', 'Deporte y prendas técnicas', 'Uso, ajuste, tejidos y requisitos de rendimiento.'],
-    ['/custom-packaging', '03', 'Packaging y etiquetas', 'Cajas, bolsas, empaques, insertos y etiquetas.'],
-    ['/es#other-products', '04', 'Tu solicitud de sourcing', 'Otros productos, tras revisar su viabilidad.'],
+    ['/product-sourcing', '01', 'Sourcing y fabricación global', 'Búsqueda de fábricas directas, negociación y utillaje.'],
+    ['/factory-verification', '02', 'Verificación de fábricas y QC', 'Auditorías in situ, verificación por capas y control de calidad.'],
+    ['/landed-cost-analysis', '03', 'Aduanas, aranceles y costes', 'Clasificación HTSUS, Sección 301 y modelado logístico.'],
+    ['/us-market-entry', '04', 'Entrada al mercado de EE. UU.', 'Apoyo estratégico y representación comercial para fabricantes.'],
   ] : [
-    ['/custom-textile', '01', 'Clothing', 'Collections, uniforms, fabrics and finishes.'],
-    ['/sportswear-sourcing', '02', 'Sportswear & technical apparel', 'Intended use, fit, fabrics and performance requirements.'],
-    ['/custom-packaging', '03', 'Packaging & labels', 'Boxes, bags, packaging, inserts and labels.'],
-    ['/#other-products', '04', 'Your sourcing request', 'Other products, after a feasibility review.'],
+    ['/product-sourcing', '01', 'Global Product Sourcing', 'Direct factory identification, vetting, and negotiation.'],
+    ['/factory-verification', '02', 'Factory Verification & QC', 'On-site audits, multi-layer vetting, and tailored quality checks.'],
+    ['/landed-cost-analysis', '03', 'Tariffs, Customs & Landed Cost', '10-digit HTS codes, Section 301 duties, and logistics modeling.'],
+    ['/us-market-entry', '04', 'U.S. Market Entry & Sales', 'Helping foreign manufacturers prepare entry and access local representation.'],
   ];
   return (
-    <aside className="sourcing-overview" aria-label={es ? 'Especialidades de sourcing' : 'Sourcing specialties'}>
-      <p className="editorial-kicker">SOURCING LAB USA / {es ? 'ALCANCE DEL PRODUCTO' : 'PRODUCT SCOPE'}</p>
-      <h2>{es ? '¿Qué necesitas fabricar?' : 'What do you need made?'}</h2>
+    <aside className="sourcing-overview" aria-label={es ? 'Pilares de servicio' : 'Service pillars'}>
+      <p className="editorial-kicker">SOURCING LAB USA / {es ? 'SERVICIOS PRINCIPALES' : 'CORE PILLARS'}</p>
+      <h2>{es ? '¿Qué proyecto deseas gestionar?' : 'What do you need accomplished?'}</h2>
       <div>{categories.map(([href, number, title, body]) => (
         <Link href={href} key={number} className="sourcing-category">
           <span className="sourcing-category-number">{number}</span>
@@ -26,7 +26,7 @@ export function SourcingOverview({ locale = 'en' }: { locale?: 'en' | 'es' }) {
           <ArrowUpRight size={18} aria-hidden="true" />
         </Link>
       ))}</div>
-      <p className="sourcing-overview-note">{es ? 'Producto + cantidades + referencias + destino + fechas' : 'Product + quantity + references + destination + timing'}</p>
+      <p className="sourcing-overview-note">{es ? 'Sourcing directo · Verificación en fábrica · Entrada en EE. UU.' : 'Direct Sourcing · Factory Verification · U.S. Market Entry'}</p>
     </aside>
   );
 }

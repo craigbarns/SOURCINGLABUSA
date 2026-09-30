@@ -20,50 +20,113 @@ export function EditorialFooter({
             </Link>
             <p>
               {es
-                ? 'Sourcing en China de prendas, ropa deportiva, empaques y etiquetas. Proyectos disponibles ahora; facturación desde Francia o China. Expansión a Miami prevista para 2027.'
-                : 'China sourcing for clothing, sportswear, packaging and labels. Projects open now; invoicing from France or China. Miami expansion planned for 2027.'}
+                ? 'Sourcing global, gestión de fabricación internacional y ejecución de entrada al mercado estadounidense. Verificación de fábricas, control de calidad y representación comercial.'
+                : 'Global sourcing, overseas manufacturing management, and U.S. market-entry execution. Direct factory audits, AQL 2.5 quality control, tariffs, and U.S. commercial representation.'}
             </p>
           </div>
-          <nav aria-label={es ? 'Servicios' : 'Service links'}>
-            <span>{es ? 'LAS POSIBILIDADES' : 'THE POSSIBILITIES'}</span>
+          <nav aria-label={es ? 'Sourcing y fabricación' : 'Sourcing & Manufacturing'}>
+            <span>{es ? 'SOURCING Y FÁBRICAS' : 'GLOBAL SOURCING'}</span>
             <ul>
               <li>
+                <Link href={`${linkPrefix}/product-sourcing`}>
+                  {es ? 'Sourcing de producto' : 'Product sourcing'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`${linkPrefix}/china-sourcing`}>
+                  {es ? 'Sourcing en China' : 'China sourcing'}
+                </Link>
+              </li>
+              <li>
                 <Link href={`${linkPrefix}/china-sourcing-agent`}>
-                  {es ? 'Cómo trabajamos' : 'How the arrangement works'}
+                  {es ? 'Agente de sourcing China' : 'China sourcing agent'}
                 </Link>
               </li>
               <li>
-                <Link href={`${linkPrefix}/custom-packaging`}>
-                  {es ? 'Empaques personalizados' : 'Custom packaging'}
+                <Link href={`${linkPrefix}/factory-verification`}>
+                  {es ? 'Verificación de fábricas' : 'Factory verification'}
                 </Link>
               </li>
               <li>
-                <Link href={`${linkPrefix}/custom-textile`}>
-                  {es ? 'Prendas y textiles' : 'Clothing & textiles'}
+                <Link href={`${linkPrefix}/supplier-audit-china`}>
+                  {es ? 'Auditoría de proveedores' : 'Supplier audit China'}
                 </Link>
               </li>
               <li>
-                <Link href={`${linkPrefix}/private-label-packaging`}>
-                  {es ? 'Empaques de marca privada' : 'Private label packaging'}
+                <Link href={`${linkPrefix}/quality-control-china`}>
+                  {es ? 'Control de calidad AQL' : 'Quality control China'}
                 </Link>
               </li>
               <li>
-                <Link href={`${linkPrefix}/sportswear-sourcing`}>
-                  {es ? 'Ropa deportiva y técnica' : 'Sportswear & technical apparel'}
+                <Link href={`${linkPrefix}/private-label-manufacturing`}>
+                  {es ? 'Marca privada' : 'Private label sourcing'}
                 </Link>
               </li>
               <li>
-                <Link href={`${linkPrefix}/china-to-us-procurement`}>
-                  {es
-                    ? 'Compras de China a EE. UU.'
-                    : 'China-to-U.S. procurement'}
+                <Link href={`${linkPrefix}/product-development`}>
+                  {es ? 'Desarrollo de producto' : 'Product development'}
                 </Link>
               </li>
             </ul>
           </nav>
-          <nav aria-label={es ? 'Empresa' : 'Company links'}>
-            <span>{es ? 'CONOCE SOURCING LAB' : 'GET TO KNOW US'}</span>
+          <nav aria-label={es ? 'Comercio y aduanas' : 'Trade & Logistics'}>
+            <span>{es ? 'COMERCIO Y ADUANAS' : 'TRADE & LOGISTICS'}</span>
             <ul>
+              <li>
+                <Link href={`${linkPrefix}/china-to-us-procurement`}>
+                  {es ? 'Compras China a EE. UU.' : 'China-to-U.S. procurement'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`${linkPrefix}/import-from-china`}>
+                  {es ? 'Importar de China' : 'Import from China'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`${linkPrefix}/freight-logistics`}>
+                  {es ? 'Fletes y logística' : 'Freight & logistics'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`${linkPrefix}/hs-code-consulting`}>
+                  {es ? 'Códigos HS y aranceles' : 'HS code consulting'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`${linkPrefix}/landed-cost-analysis`}>
+                  {es ? 'Coste puesto en destino' : 'Landed cost analysis'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`${linkPrefix}/us-market-entry`}>
+                  {es ? 'Entrada al mercado EE. UU.' : 'U.S. market entry'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`${linkPrefix}/us-sales-representation`}>
+                  {es ? 'Representación comercial' : 'U.S. sales representation'}
+                </Link>
+              </li>
+            </ul>
+          </nav>
+          <nav aria-label={es ? 'Empresa e industrias' : 'Industries & Company'}>
+            <span>{es ? 'INDUSTRIAS Y EMPRESA' : 'INDUSTRIES & ABOUT'}</span>
+            <ul>
+              <li>
+                <Link href={`${linkPrefix}/industries/packaging`}>
+                  {es ? 'Industria de packaging' : 'Packaging industry'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`${linkPrefix}/industries/textiles`}>
+                  {es ? 'Textiles y confección' : 'Textile & apparel'}
+                </Link>
+              </li>
+              <li>
+                <Link href={`${linkPrefix}/industries/consumer-products`}>
+                  {es ? 'Bienes de consumo' : 'Consumer products'}
+                </Link>
+              </li>
               <li>
                 <Link href={`${linkPrefix}/how-we-work`}>
                   {es ? 'Cómo funciona' : 'How it works'}
@@ -71,27 +134,17 @@ export function EditorialFooter({
               </li>
               <li>
                 <Link href={`${linkPrefix}/about`}>
-                  {es ? 'Sobre Sourcing Lab USA' : 'About Sourcing Lab USA'}
+                  {es ? 'Sobre nosotros' : 'About Sourcing Lab'}
                 </Link>
               </li>
               <li>
                 <Link href={`${linkPrefix}/resources`}>
-                  {es ? 'Plantillas y guías' : 'Templates & guides'}
-                </Link>
-              </li>
-              <li>
-                <Link href={`${linkPrefix}/blog`}>
-                  {es ? 'Recursos y guías' : 'Insights & guides'}
+                  {es ? 'Recursos y plantillas' : 'Templates & guides'}
                 </Link>
               </li>
               <li>
                 <Link href={`${linkPrefix}/contact-us`}>
-                  {es ? 'Cuéntanos tu proyecto' : 'Start a conversation'}
-                </Link>
-              </li>
-              <li>
-                <Link href={`${linkPrefix}/editorial-policy`}>
-                  {es ? 'Política editorial' : 'Editorial policy'}
+                  {es ? 'Contacto' : 'Start a project'}
                 </Link>
               </li>
             </ul>

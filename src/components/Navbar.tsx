@@ -12,9 +12,12 @@ interface NavbarProps {
   area?: 'app' | 'marketing';
   appearance?: 'dark' | 'light';
   contactHref?: string;
+  locale?: 'en' | 'es';
 }
 
 const navigation = [
+  { label: 'Sourcing', href: '/product-sourcing' },
+  { label: 'U.S. Market Entry', href: '/us-market-entry' },
   { label: 'Packaging', href: '/custom-packaging' },
   { label: 'Clothing', href: '/custom-textile' },
   { label: 'Private label', href: '/private-label-packaging' },
@@ -26,11 +29,12 @@ export const Navbar: React.FC<NavbarProps> = ({
   area = 'marketing',
   appearance = 'light',
   contactHref = '#contact',
+  locale,
 }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const pathname = usePathname();
   const isAppArea = area === 'app';
-  const isSpanish = pathname?.startsWith('/es') ?? false;
+  const isSpanish = locale ? locale === 'es' : (pathname?.startsWith('/es') ?? false);
   const marketingHref = isAppArea ? '/marketing' : isSpanish ? '/es' : '/';
 
   const menuButtonRef = useRef<HTMLButtonElement>(null);
@@ -49,6 +53,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     ...item,
     label: isSpanish
       ? ({
+          Sourcing: 'Sourcing',
+          'U.S. Market Entry': 'Entrada a EE. UU.',
           Packaging: 'Empaques',
           Clothing: 'Prendas',
           'Private label': 'Marca privada',
