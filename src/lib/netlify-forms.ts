@@ -33,6 +33,7 @@ export async function submitToNetlifyForms(
     quantityRange: QUANTITY_RANGE_LABELS[brief.quantityRange],
     message: brief.message,
     sourcePath: brief.sourcePath,
+    locale: brief.locale ?? 'en',
     'bot-field': '',
   });
 

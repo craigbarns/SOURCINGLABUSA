@@ -36,6 +36,7 @@ async function storeBrief(
       'Supabase admin client not configured. Brief received and logged server-side.',
       {
         sourcePath: brief.sourcePath,
+        locale: brief.locale,
         name: brief.name,
         email: brief.email,
         projectType: brief.projectType,
@@ -45,6 +46,11 @@ async function storeBrief(
     return { configured: false, success: true };
   }
 
+  const messageWithLocale =
+    brief.locale === 'es'
+      ? (brief.message ? `${brief.message}\n\n[Idioma: Español / Spanish]` : '[Idioma: Español / Spanish]')
+      : (brief.message || null);
+
   try {
     const { error } = await supabase.from('project_briefs').insert({
       name: brief.name,
@@ -52,7 +58,7 @@ async function storeBrief(
       company: brief.company ?? null,
       project_type: brief.projectType,
       quantity_range: brief.quantityRange,
-      message: brief.message || null,
+      message: messageWithLocale,
       source_path: brief.sourcePath,
     });
 

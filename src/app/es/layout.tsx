@@ -7,9 +7,9 @@ import type { Metadata } from 'next';
 import { getDomainRoutingConfig } from '@/lib/routing/subdomains';
 
 import { StructuredData } from '@/components/StructuredData';
-import { organizationGraph, SITE_DESCRIPTION } from '@/lib/seo';
+import { homeLanguages, organizationGraph } from '@/lib/seo';
 
-import './globals.css';
+import '../globals.css';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -32,10 +32,15 @@ export const metadata: Metadata = {
     telephone: false,
   },
   title: {
-    default: 'China Sourcing & Product Supply | Sourcing Lab USA',
+    default: 'Sourcing Global y Entrada al Mercado de EE. UU. | Sourcing Lab USA',
     template: '%s | Sourcing Lab USA',
   },
-  description: SITE_DESCRIPTION,
+  description:
+    'Ayudamos a empresas estadounidenses a buscar y fabricar en el extranjero, y ayudamos a fabricantes internacionales a entrar, distribuir y crecer en el mercado de Estados Unidos. Verificación directa de fábricas, control de calidad y representación comercial.',
+  alternates: {
+    canonical: `${marketingOrigin}/es`,
+    languages: homeLanguages,
+  },
   robots: {
     index: true,
     follow: true,
@@ -55,28 +60,29 @@ export const metadata: Metadata = {
   },
   openGraph: {
     type: 'website',
-    locale: 'en_US',
-    siteName: 'SourcingLab USA',
-    url: marketingOrigin,
-    title: 'China Sourcing & Product Supply | Sourcing Lab USA',
+    locale: 'es_US',
+    alternateLocale: ['en_US'],
+    siteName: 'Sourcing Lab USA',
+    url: `${marketingOrigin}/es`,
+    title: 'Sourcing Global y Entrada al Mercado de EE. UU. | Sourcing Lab USA',
     description:
-      'Source clothing, sportswear, packaging and labels from China. Start your project now, with the invoicing company in France or China identified in your quote.',
+      'Ayudamos a empresas estadounidenses a buscar y fabricar en el extranjero, y ayudamos a fabricantes internacionales a entrar, distribuir y crecer en el mercado de Estados Unidos. Verificación directa de fábricas, control de calidad y representación comercial.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'China Sourcing & Product Supply | Sourcing Lab USA',
+    title: 'Sourcing Global y Entrada al Mercado de EE. UU. | Sourcing Lab USA',
     description:
-      'Source clothing, sportswear, packaging and labels from China. Start your project now, with the invoicing company in France or China identified in your quote.',
+      'Ayudamos a empresas estadounidenses a buscar y fabricar en el extranjero, y ayudamos a fabricantes internacionales a entrar, distribuir y crecer en el mercado de Estados Unidos. Verificación directa de fábricas, control de calidad y representación comercial.',
   },
 };
 
-export default function RootLayout({
+export default function SpanishRootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en-US" className={inter.variable}>
+    <html lang="es-US" className={inter.variable}>
       <head>
         <Script id="google-analytics" strategy="beforeInteractive">
           {analyticsBootstrap([marketingOrigin, appOrigin])}

@@ -213,6 +213,7 @@ export function ContactForm({
       quantityRange: values.quantityRange,
       message: formatBriefMessage(values.message, values),
       sourcePath,
+      locale,
       botField: '',
     };
 
@@ -335,6 +336,12 @@ export function ContactForm({
       aria-busy={status === 'submitting'}
       className={`grid gap-5 ${appearance === 'editorial' ? 'contact-form' : ''}`}
     >
+      <input
+        type="hidden"
+        name="locale"
+        value={locale}
+        disabled={!isReady || status === 'submitting'}
+      />
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor={`${fieldId}-name`} className={labelClassName}>

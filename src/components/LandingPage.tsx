@@ -16,7 +16,12 @@ export function LandingPage({ locale = 'en' }: { locale?: 'en' | 'es' }) {
       >
         {locale === 'es' ? 'Saltar al contenido' : 'Skip to content'}
       </a>
-      <Navbar area="marketing" appearance="light" />
+      <Navbar
+        area="marketing"
+        appearance="light"
+        locale={locale}
+        contactHref={locale === 'es' ? '/es#contact' : '#contact'}
+      />
       <main id="main-content" className="flex-1">
         <Hero locale={locale} />
         <MarketingSections locale={locale} />
