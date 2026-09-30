@@ -15,6 +15,8 @@ interface NavbarProps {
 }
 
 const navigation = [
+  { label: 'Sourcing', href: '/product-sourcing' },
+  { label: 'U.S. Market Entry', href: '/us-market-entry' },
   { label: 'Packaging', href: '/custom-packaging' },
   { label: 'Clothing', href: '/custom-textile' },
   { label: 'Private label', href: '/private-label-packaging' },
@@ -49,6 +51,8 @@ export const Navbar: React.FC<NavbarProps> = ({
     ...item,
     label: isSpanish
       ? ({
+          Sourcing: 'Sourcing',
+          'U.S. Market Entry': 'Entrada a EE. UU.',
           Packaging: 'Empaques',
           Clothing: 'Prendas',
           'Private label': 'Marca privada',

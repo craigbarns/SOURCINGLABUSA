@@ -19,7 +19,10 @@ const description =
 export const metadata = pageMetadata({ title, description, path: '/about' });
 
 const facts = [
-  ['Founder', 'Gregory Baranes, twenty years of experience in product sourcing.'],
+  [
+    'Founder',
+    'Gregory Baranes, with years of hands-on experience in international sourcing, product development and cross-border business.',
+  ],
   ['Current availability', 'Projects can start now. Contracting and invoicing from France or China, with the company identified in your quotation.'],
   ['U.S. expansion', 'Planned for Miami in 2027.'],
   [

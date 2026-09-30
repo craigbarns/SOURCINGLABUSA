@@ -8,17 +8,14 @@ import {
   serviceSchema,
 } from '@/lib/seo';
 
-const title = 'China Sourcing for U.S. Brands';
+const title = 'Global Sourcing & U.S. Market Entry | Sourcing Lab USA';
 const description =
-  'Custom packaging and textile procurement for U.S. brands. Source products from China with a clear brief, sample approvals and agreed supply terms.';
-// Answer-first summary for the page schema. It restates what the hero already
-// shows a reader — the description and the availability note — so the markup
-// never carries a claim that is not visible on the page.
+  'We help U.S. companies source and manufacture overseas — and help international manufacturers enter, distribute, and grow in the United States. Direct factory verification, quality control, and commercial representation.';
 const homeAnswer =
-  'Sourcing Lab USA is a custom packaging and textile procurement partner for U.S. brands. We source, purchase and supply products from China, starting with your specifications, quantities and destination. Projects open now. Invoicing from France or China, with the company identified in your quotation.';
+  'Sourcing Lab USA is an operational international trade and procurement firm. We manage global product sourcing, direct factory audits, price and MOQ negotiations, on-site quality control, and cross-border logistics for American brands, while providing U.S. market-entry consulting, regulatory compliance, and commercial sales representation for international manufacturers.';
 
 export const metadata = pageMetadata({
-  title,
+  title: 'Global Sourcing & U.S. Market Entry',
   description,
   path: '/',
   locale: 'en-US',
@@ -37,8 +34,8 @@ export default function HomePage() {
             }),
             serviceSchema(
               '/',
-              'China Sourcing & Product Supply',
-              'Sourcing and supply of clothing, textiles, sportswear, packaging and labels from China for U.S. business customers, from written brief through sampling to delivered order.',
+              'Global Sourcing & U.S. Market Entry Execution',
+              'End-to-end overseas product sourcing, factory audits, quality control, and landed cost analysis for U.S. brands, plus U.S. market-entry consulting and sales representation for international manufacturers.',
             ),
             faqSchema('/', homeFaqs, 'en-US'),
           ],
