@@ -54,7 +54,7 @@ const page: ServicePageContent = {
     },
     {
       title: 'Auditor Dispatch & Random Sampling',
-      body: 'A certified quality inspector arrives at the factory, verifies total batch quantities, and randomly selects sample cartons according to ISO 2859-1 AQL inspection level II.',
+      body: 'The appointed quality inspector arrives at the factory, verifies total batch quantities, and randomly selects sample cartons according to ISO 2859-1 AQL inspection level II.',
     },
     {
       title: 'Visual, Dimensional & Functional Audit',

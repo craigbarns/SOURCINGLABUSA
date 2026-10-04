@@ -103,7 +103,7 @@ const page: ServicePageContent = {
     {
       question: 'Can you source custom extrusion dies for aluminum profiles?',
       answer:
-        'Yes. We regularly manage custom extrusion tooling for commercial facades, window systems, and modular railing systems, with die tooling costs in Asia typically 70% lower than domestic American tooling.',
+        'Yes. We regularly manage custom extrusion tooling for commercial facades, window systems, and modular railing systems. Tooling is quoted per project: die complexity, alloy, profile tolerances and run length all move the cost, so it is compared against your domestic quotation case by case.',
     },
     {
       question: 'How do you manage freight for heavy building materials?',

@@ -108,7 +108,7 @@ const page: ServicePageContent = {
     {
       question: 'What is the typical gross margin on private label products sourced overseas?',
       answer:
-        'Private label consumer goods typically achieve gross margins between 55% and 75% when sourced directly from overseas factories, compared to 20% to 35% when buying through domestic wholesale distributors.',
+        'Margin depends on the product, the specification, the order quantity and the landed cost, so a single published figure would mislead. Buying directly from a factory removes the distributor margin from the cost base, but tooling, sampling, freight, duty and minimum quantities sit against that gain. Ask for a landed-cost breakdown before assuming a margin.',
     },
   ],
   briefTitle: 'Start your private label sourcing project.',

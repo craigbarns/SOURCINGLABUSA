@@ -62,7 +62,7 @@ const page: ServicePageContent = {
     },
     {
       title: 'Production Oversight & Moisture Monitoring',
-      body: 'During production, our inspectors verify that kiln-dried wood moisture content remains strictly between 8% and 12% to prevent cracking or warping in dry U.S. climates.',
+      body: 'During production, the appointed inspector verifies that kiln-dried wood moisture content remains between 8% and 12% to prevent cracking or warping in dry U.S. climates.',
     },
     {
       title: 'ISTA 3A Packaging & Container Stuffing',

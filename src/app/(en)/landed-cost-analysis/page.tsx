@@ -78,7 +78,7 @@ const page: ServicePageContent = {
     },
     {
       label: 'CBM container optimization',
-      value: 'Up to 20% savings',
+      value: 'Reviewed per product',
       qualifier: 'Redesigning master carton dimensions to maximize 40HQ container cube utilization.',
     },
   ],
