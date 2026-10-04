@@ -12,7 +12,7 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' | 'zh' }) {
           <p className="editorial-kicker">
             <span className="launch-dot" aria-hidden="true" />
             {zh
-              ? '全球制造出海 · 美国市场准入与本土商业代表'
+              ? '全球制造出海 · 美国市场准入与商业代表'
               : es
                 ? 'SOURCING GLOBAL & ENTRADA AL MERCADO DE EE. UU.'
                 : 'GLOBAL SOURCING & U.S. MARKET ENTRY'}
@@ -21,7 +21,7 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' | 'zh' }) {
             {zh ? (
               <>
                 美国市场准入<br />
-                <em>&amp; 全美本土商业代表</em>
+                <em>&amp; 美国商业代表</em>
               </>
             ) : es ? (
               <>
@@ -64,7 +64,7 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' | 'zh' }) {
           </div>
           <p className="sourcing-launch-note">
             {zh
-              ? '美东/美西工作时间即时沟通 · FDA/CPSC/FCC法规映射 · 全美批发商对接 · 10位数HTS税号测算'
+              ? '按美东/美西工作时间沟通 · FDA/CPSC/FCC法规映射 · 美国批发商对接 · 10位数HTS税号测算'
               : es
                 ? 'Ejecución transparente de compras internacionales y apoyo comercial para empresas en el mercado de EE. UU.'
                 : 'Transparent procurement execution and commercial coordination for companies operating in the U.S. market.'}

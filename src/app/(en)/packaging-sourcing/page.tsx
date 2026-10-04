@@ -88,7 +88,7 @@ const page: ServicePageContent = {
     },
   ],
   benchmarksNote:
-    'Production run averages 20 to 30 days after proof approval. FSC certified papers and soy-based inks available upon request.',
+    'Production typically runs 45 to 60 days after proof approval, depending on quantity, materials and finishes, and is confirmed in your quotation. FSC certified papers and soy-based inks available upon request.',
   faqs: [
     {
       question: 'What is the minimum order quantity (MOQ) for custom packaging?',

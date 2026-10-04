@@ -8,7 +8,7 @@ export function SourcingOverview({ locale = 'en' }: { locale?: 'en' | 'es' | 'zh
   const categories = zh ? [
     ['#representation', '01', '全美商业代表与买家对接', '美东美西工作时间沟通，推介全美批发商与采购经理。'],
     ['#compliance', '02', '法规合规与准入标准映射', 'FDA注册、儿童产品CPC认证、FCC及加州65号提案。'],
-    ['#landed-cost', '03', '海关税号与到岸成本测算', '10位数HTS税号核定、Section 301额外关税与到岸利润分析。'],
+    ['#landed-cost', '03', '海关税号与到岸成本测算', '10位数HTS税号归类研究、Section 301额外关税与到岸利润分析。'],
     ['#fulfillment', '04', '美国本土3PL海外仓履约', '主流港口仓储对接、小批量分拨打托与退换货协同。'],
   ] : es ? [
     ['/product-sourcing', '01', 'Sourcing y fabricación global', 'Búsqueda de fábricas directas, negociación y utillaje.'],

@@ -21,12 +21,12 @@ const PILLARS = [
   {
     id: 'representation-card',
     icon: Globe,
-    title: '全美商业代表与渠道开拓',
+    title: '美国商业代表与渠道开拓',
     subtitle: 'U.S. Commercial & Sales Representation',
     description:
-      '克服中美12至15小时时差与商务文化壁垒。我们在美国本土工作时间直接对接全美B2B批发商、连锁采购商及工业采购经理，按照美标商务流程推介您的产品并促成长期采购订单。',
+      '克服中美12至15小时时差与商务文化壁垒。我们按美国工作时间安排沟通，对接目标B2B批发商、连锁采购商及工业采购经理，按照美国商务习惯推介您的产品，推动长期采购合作。',
     bullets: [
-      '美东/美西工作时间即时沟通与商务跟进',
+      '按美东/美西工作时间安排沟通与商务跟进',
       '制作符合美国采购习惯的英文选品手册与报价单',
       '协助安排样品寄送、质检验收与商务条款谈判',
     ],
@@ -56,7 +56,7 @@ const PILLARS = [
     description:
       '精准界定适用的10位数HTSUS海关税号。全面核算基准关税、Section 301额外关税、港口维护费（HMF）与货物处理费（MPF），协助规划合规且经济的到岸成本（Landed Cost）与美标定价体系。',
     bullets: [
-      '精准核定10位数海关税号与Section 301适用税率',
+      '研究10位数海关税号归类与Section 301适用税率',
       '科学核算DDP/到岸成本，测算真实批发与零售毛利',
       '协助梳理外国进口商（IOR）架构与海关保函（Bond）',
     ],
@@ -98,9 +98,9 @@ const WORKFLOW_STEPS = [
   {
     step: '03',
     name: '测算',
-    title: '税号核定与到岸定价模型',
+    title: '税号归类研究与到岸定价模型',
     description:
-      '核定精准的10位数HTS海关税号，全面测算关税、海运、清关与港口杂费，建立透明科学的到岸成本与美金批发定价阶梯。',
+      '研究10位数HTS海关税号归类（由报关行最终确认），全面测算关税、海运、清关与港口杂费，建立透明科学的到岸成本与美金批发定价阶梯。',
   },
   {
     step: '04',
@@ -114,7 +114,7 @@ const WORKFLOW_STEPS = [
     name: '拓客',
     title: '目标买家触达与商务谈判',
     description:
-      '在美国本土工作时间直接联络目标分销商、批发买家及零售商采购经理，管理商业沟通，协调样品寄送并推进商务合作谈判。',
+      '按美国工作时间联络目标分销商、批发买家及零售商采购经理，管理商业沟通，协调样品寄送并推进商务合作谈判。',
   },
   {
     step: '06',
@@ -152,7 +152,7 @@ export function LandingPageZH() {
                 <em>用美国本土化的方式做成高价值大单。</em>
               </h2>
               <p className="editorial-body mt-4 text-base">
-                传统广交会与线上平台只解决了“产品展示”，难以解决美国本地买家对时区沟通、合规准入、到岸交付和商业信任的核心顾虑。我们深入美国本土采购生态，为中国制造企业搭建真正的落地桥梁。
+                传统广交会与线上平台只解决了“产品展示”，难以解决美国本地买家对时区沟通、合规准入、到岸交付和商业信任的核心顾虑。我们熟悉美国采购流程与买家要求，为中国制造企业搭建切实的对接桥梁。
               </p>
             </div>
 
@@ -246,7 +246,7 @@ export function LandingPageZH() {
                     严谨求真，只与符合准入标准的优质工厂同行
                   </h3>
                   <p className="mt-2 text-sm leading-relaxed text-brand-muted">
-                    我们不是海关律师事务所，也不自称政府授权的发证机构；我们是务实的外贸供应链与美国市场商业代表伙伴。所有法规映射均协助对接具备资质的第三方机构，协助您在合规框架内合法拓展全美商业版图。
+                    我们不是海关律师事务所，也不自称政府授权的发证机构；我们是务实的外贸供应链与美国市场商业代表伙伴。目前项目由报价单中注明的法国或中国签约公司执行并开具发票；美国（迈阿密）实体计划于2027年设立。所有法规映射均协助对接具备资质的第三方机构，协助您在合规框架内合法拓展全美商业版图。
                   </p>
                 </div>
                 <div className="shrink-0">
@@ -296,13 +296,13 @@ export function LandingPageZH() {
           <div className="editorial-container">
             <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
               <div className="lg:col-span-5">
-                <p className="editorial-kicker">立即对接美国团队</p>
+                <p className="editorial-kicker">立即提交出海需求</p>
                 <h2 className="editorial-title">
                   告诉我们您的<br />
                   <em>工厂实力与出海意向</em>
                 </h2>
                 <p className="editorial-body mt-4 text-sm leading-relaxed">
-                  提交您的主营品类、产能规模与出海诉求。我们的美国团队将在1-2个工作日内进行初步可行性审阅，并与您建立直接联络。
+                  提交您的主营品类、产能规模与出海诉求。我们将进行初步可行性审阅，并通过邮件与您联系。
                 </p>
 
                 <div className="mt-8 space-y-4 rounded-2xl border border-brand-line bg-white p-6 shadow-xs text-xs text-brand-ink">

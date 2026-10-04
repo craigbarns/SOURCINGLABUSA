@@ -66,7 +66,7 @@ const page: ServicePageContent = {
     },
     {
       title: 'Pre-Shipment Inspection & Port Delivery',
-      body: 'Independent pre-shipment quality inspection confirms agreed specifications, zero critical defects, and verified barcode scanning before goods are loaded for ocean or air transit to the USA.',
+      body: 'Third-party pre-shipment quality inspection checks the agreed specifications, critical defects against the agreed acceptance criteria, and barcode scanning before goods are loaded for ocean or air transit to the USA.',
     },
   ],
   benchmarks: [

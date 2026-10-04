@@ -106,7 +106,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
           step: '05',
           name: 'Validar',
           title: 'Muestras doradas y control de calidad adaptado',
-          body: 'Supervisamos prototipos físicos y coordinamos inspecciones de calidad independientes con criterios de aceptación adaptados a tu producto antes del pago final.',
+          body: 'Supervisamos prototipos físicos y coordinamos inspecciones de calidad por terceros con criterios de aceptación adaptados a tu producto antes del pago final.',
         },
         {
           step: '06',
@@ -144,7 +144,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
           step: '05',
           name: 'Validate',
           title: 'Golden Samples & Tailored Quality Control',
-          body: 'We oversee prototype sample iterations and coordinate independent on-site quality inspections with acceptance criteria tailored to your product category.',
+          body: 'We oversee prototype sample iterations and coordinate third-party on-site quality inspections with acceptance criteria tailored to your product category.',
         },
         {
           step: '06',
@@ -207,8 +207,8 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
       title: es ? 'Control de calidad e inspecciones' : 'Quality Control & Inspections',
       href: '/quality-control-china',
       desc: es
-        ? 'Inspecciones independientes previas al envío (PSI) y durante la producción (DUPRO) con niveles de muestreo y criterios adaptados a tu producto.'
-        : 'Independent pre-shipment inspections (PSI) and during-production audits with sampling levels and defect criteria tailored to your product category.',
+        ? 'Inspecciones por terceros previas al envío (PSI) y durante la producción (DUPRO) con niveles de muestreo y criterios adaptados a tu producto.'
+        : 'Third-party pre-shipment inspections (PSI) and during-production audits with sampling levels and defect criteria tailored to your product category.',
       tag: es ? 'Control de calidad' : 'Quality Control',
     },
     {
@@ -223,8 +223,8 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
       title: es ? 'Consultoría arancelaria y códigos HS' : 'HS Code & Tariff Consulting',
       href: '/hs-code-consulting',
       desc: es
-        ? 'Clasificación precisa HTSUS a 10 dígitos, análisis de aranceles Sección 301 e identificación de requisitos aduaneros.'
-        : 'Definitive 10-digit HTSUS tariff classification, Section 301 duty analysis, and tariff research in support of trade compliance.',
+        ? 'Investigación de la clasificación HTSUS a 10 dígitos, análisis de aranceles Sección 301 e identificación de requisitos aduaneros.'
+        : '10-digit HTSUS classification research, Section 301 duty analysis, and tariff research in support of trade compliance.',
       tag: es ? 'Aduanas y HTS' : 'Tariff Advisory',
     },
     {
@@ -257,7 +257,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
     ? [
         {
           q: '¿Qué hace una empresa de sourcing?',
-          a: 'Una empresa de sourcing ayuda a las empresas a gestionar su aprovisionamiento internacional: evalúa fabricantes directos, analiza costes y mínimos de pedido (MOQ), supervisa el desarrollo de muestras, coordina inspecciones independientes de calidad y apoya la logística y el paso aduanero hasta el almacén del cliente.',
+          a: 'Una empresa de sourcing ayuda a las empresas a gestionar su aprovisionamiento internacional: evalúa fabricantes directos, analiza costes y mínimos de pedido (MOQ), supervisa el desarrollo de muestras, coordina inspecciones de calidad por terceros y apoya la logística y el paso aduanero hasta el almacén del cliente.',
         },
         {
           q: '¿Qué es un agente de sourcing en China?',
@@ -275,7 +275,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
     : [
         {
           q: 'What does a sourcing company do?',
-          a: 'A sourcing company helps domestic businesses manage overseas procurement: identifying qualified direct manufacturers, evaluating production capabilities, negotiating pricing and MOQs, managing sample development, coordinating independent quality inspections, and supporting international freight and customs clearance.',
+          a: 'A sourcing company helps domestic businesses manage overseas procurement: identifying qualified direct manufacturers, evaluating production capabilities, negotiating pricing and MOQs, managing sample development, coordinating third-party quality inspections, and supporting international freight and customs clearance.',
         },
         {
           q: 'What is a China sourcing agent?',
@@ -529,8 +529,8 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                 </div>
                 <p className="mt-3 text-xs leading-relaxed text-brand-muted">
                   {es
-                    ? 'Inspecciones independientes durante la producción (DUPRO) y pre-embarque (PSI) con planes de muestreo estadístico ISO 2859-1 adaptados a cada producto.'
-                    : 'Independent pre-shipment inspections (PSI) and during-production audits (DUPRO) using ISO 2859-1 statistical sampling with defect thresholds tailored to your product category.'}
+                    ? 'Inspecciones por terceros durante la producción (DUPRO) y pre-embarque (PSI) con planes de muestreo estadístico ISO 2859-1 adaptados a cada producto.'
+                    : 'Third-party pre-shipment inspections (PSI) and during-production audits (DUPRO) using ISO 2859-1 statistical sampling with defect thresholds tailored to your product category.'}
                 </p>
               </div>
 
@@ -693,7 +693,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
               <h2 className="editorial-title">
                 {es ? 'Servicios especializados.' : 'Specialized services.'}
                 <br />
-                <em>{es ? 'Cada área con su propio equipo y metodología.' : 'Each with dedicated expertise and execution.'}</em>
+                <em>{es ? 'Cada área con su propia experiencia y ejecución.' : 'Each with dedicated expertise and execution.'}</em>
               </h2>
             </div>
             <p className="editorial-body">

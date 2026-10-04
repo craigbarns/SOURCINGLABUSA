@@ -32,11 +32,11 @@ export const metadata: Metadata = {
     telephone: false,
   },
   title: {
-    default: '美国市场准入与本土商业代表 | Sourcing Lab USA',
+    default: '美国市场准入与商业代表 | Sourcing Lab USA',
     template: '%s | Sourcing Lab USA',
   },
   description:
-    '为中国优质制造企业与出海品牌提供端到端的美国本土市场开拓支持：全美商业代表、B2B渠道买家对接、FDA/CPSC/FCC法规合规映射、到岸关税测算及本土3PL海外仓履约协同。',
+    '为中国优质制造企业与出海品牌提供端到端的美国本土市场开拓支持：美国商业代表、B2B渠道买家对接、FDA/CPSC/FCC法规合规映射、到岸关税测算及本土3PL海外仓履约协同。',
   alternates: {
     canonical: `${marketingOrigin}/zh`,
     languages: homeLanguages,
@@ -64,15 +64,15 @@ export const metadata: Metadata = {
     alternateLocale: ['en_US', 'es_US'],
     siteName: 'Sourcing Lab USA',
     url: `${marketingOrigin}/zh`,
-    title: '美国市场准入与本土商业代表 | Sourcing Lab USA',
+    title: '美国市场准入与商业代表 | Sourcing Lab USA',
     description:
-      '为中国优质制造企业与出海品牌提供端到端的美国本土市场开拓支持：全美商业代表、B2B渠道买家对接、FDA/CPSC/FCC法规合规映射、到岸关税测算及本土3PL海外仓履约协同。',
+      '为中国优质制造企业与出海品牌提供端到端的美国本土市场开拓支持：美国商业代表、B2B渠道买家对接、FDA/CPSC/FCC法规合规映射、到岸关税测算及本土3PL海外仓履约协同。',
   },
   twitter: {
     card: 'summary_large_image',
-    title: '美国市场准入与本土商业代表 | Sourcing Lab USA',
+    title: '美国市场准入与商业代表 | Sourcing Lab USA',
     description:
-      '为中国优质制造企业与出海品牌提供端到端的美国本土市场开拓支持：全美商业代表、B2B渠道买家对接、FDA/CPSC/FCC法规合规映射、到岸关税测算及本土3PL海外仓履约协同。',
+      '为中国优质制造企业与出海品牌提供端到端的美国本土市场开拓支持：美国商业代表、B2B渠道买家对接、FDA/CPSC/FCC法规合规映射、到岸关税测算及本土3PL海外仓履约协同。',
   },
 };
 

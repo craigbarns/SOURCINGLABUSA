@@ -38,7 +38,7 @@ const page: ServicePageContent = {
     },
     {
       title: 'Stringent Pre-Shipment Quality Control',
-      body: 'We coordinate independent quality inspections, functional drop testing, and carton packaging checks at the factory floor before final balance payments are authorized.',
+      body: 'We coordinate third-party quality inspections, functional drop testing, and carton packaging checks at the factory floor before final balance payments are authorized.',
     },
   ],
   briefItems: [
@@ -88,7 +88,7 @@ const page: ServicePageContent = {
     {
       question: 'How long does it take to produce and ship goods from China to the USA?',
       answer:
-        'Typical production runs take 30 to 60 days following sample sign-off. Ocean freight transit from major Chinese ports (Shanghai, Ningbo, Shenzhen) to U.S. West Coast ports takes approximately 14-22 days, and to U.S. East Coast ports takes 28-35 days, plus customs clearance and inland drayage.',
+        'Production typically runs about 45 to 60 days following sample sign-off, confirmed in your quotation. Ocean freight transit from major Chinese ports (Shanghai, Ningbo, Shenzhen) to U.S. West Coast ports takes approximately 14-22 days, and to U.S. East Coast ports takes 28-35 days, plus customs clearance and inland drayage.',
     },
     {
       question: 'How are tariffs and customs duties managed for China imports?',

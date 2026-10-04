@@ -285,7 +285,7 @@ export const BRIEF_SECTION_COPY: Record<BriefLocale, BriefSectionCopy> = {
       },
       {
         title: '定制落地拓展方案',
-        body: '提供美国本土商业代表、买家对接方案与合规落地执行路径。',
+        body: '提供美国市场商业代表、买家对接方案与合规落地执行路径。',
       },
     ],
     directLabel: '或直接与我们的顾问联络',

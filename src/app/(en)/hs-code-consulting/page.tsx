@@ -22,7 +22,7 @@ const page: ServicePageContent = {
   processTitle: 'The 4-step tariff classification methodology.',
   offerName: 'HS Code & Customs Tariff Consulting',
   offerDescription:
-    'Definitive 10-digit HTSUS classification, Section 301 tariff analysis, CBP binding ruling requests, and strategic tariff engineering advisory.',
+    '10-digit HTSUS classification research, Section 301 tariff analysis, preparation of CBP binding ruling requests for the importer, and tariff engineering advisory.',
   focusAreas: [
     {
       title: '10-Digit HTSUS Precision Classification',
