@@ -66,7 +66,7 @@ const page: ServicePageContent = {
     },
     {
       title: 'AQL Garment Inspection & Packing',
-      body: 'Finished garments undergo 100% metal detector needle checks, measurement tolerance audits, steam finishing, individual polybagging, and master carton packing.',
+      body: 'Where the specification requires it, finished garments undergo metal detector needle checks, measurement tolerance audits, steam finishing, individual polybagging, and master carton packing.',
     },
   ],
   showcaseCategory: 'textile',

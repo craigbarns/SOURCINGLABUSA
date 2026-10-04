@@ -96,7 +96,7 @@ const page: ServicePageContent = {
     {
       question: 'Do you handle customs clearance and freight forwarding?',
       answer:
-        'No. Shipping terms and import responsibilities are confirmed in the commercial terms for each order, and we identify which requirements need to be settled before production. Customs brokerage and freight forwarding are handled by the specialists appointed for that purpose.',
+        'We coordinate them rather than act as a licensed broker ourselves. Shipping terms and import responsibilities are confirmed in the commercial terms for each order. Freight is booked and the customs entry is filed by the licensed specialists appointed for that purpose, and we coordinate them alongside your order.',
     },
     {
       question: 'Can I start a project now?',

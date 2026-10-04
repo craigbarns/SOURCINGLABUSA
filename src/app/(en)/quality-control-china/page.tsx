@@ -4,7 +4,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata({
   title: 'Quality Control China & Pre-Shipment Inspection | Sourcing Lab USA',
   description:
-    'Independent third-party quality control inspections in China. Pre-Shipment Inspection (PSI), During Production (DUPRO), container loading checks, and AQL 2.5 reports.',
+    'Third-party quality control inspections coordinated in China. Pre-Shipment Inspection (PSI), During Production (DUPRO), container loading checks, and AQL 2.5 reports.',
   path: '/quality-control-china',
 });
 
@@ -15,14 +15,14 @@ const page: ServicePageContent = {
   directAnswer:
     'Quality control in China is the systematic on-site verification of manufactured goods against approved product specifications, engineering tolerances, cosmetic criteria, and safety regulations. Utilizing the international ISO 2859-1 / ANSI-ASQ Z1.4 (AQL) statistical sampling standard, professional QC inspectors evaluate raw materials, in-line assembly, finished product functionality, packaging durability, and labeling before final balance payments are authorized and goods are loaded for export.',
   intro:
-    'Once defective goods leave a foreign port and cross the ocean, returns or remanufacturing are practically impossible. Discovering defects in an American warehouse means catastrophic write-downs, missed retail delivery windows, and brand damage. Sourcing Lab USA coordinates rigorous, independent on-site inspections to protect your supply chain at the factory source.',
-  overviewTitle: 'Independent inspection protocols based on statistical sampling.',
+    'Once defective goods leave a foreign port and cross the ocean, returns or remanufacturing are practically impossible. Discovering defects in an American warehouse means catastrophic write-downs, missed retail delivery windows, and brand damage. Sourcing Lab USA coordinates rigorous on-site inspections to protect your supply chain at the factory source.',
+  overviewTitle: 'Inspection protocols based on statistical sampling.',
   overview:
-    'Never rely on a factory’s internal quality control team to verify their own production. Factory quality managers face internal corporate pressures to meet shipping quotas and clear inventory. Independent field inspectors act as your eyes and ears on the factory floor, executing objective, standardized test protocols to catch defects while corrective rework is still fast and enforceable.',
+    'Never rely on a factory’s internal quality control team to verify their own production. Factory quality managers face internal corporate pressures to meet shipping quotas and clear inventory. Field inspectors act as your eyes and ears on the factory floor, executing objective, standardized test protocols to catch defects while corrective rework is still fast and enforceable.',
   processTitle: 'The 4 primary stages of factory quality control.',
   offerName: 'China Quality Control & Inspection Services',
   offerDescription:
-    'Independent on-site pre-shipment inspections (PSI), during-production checks (DUPRO), first-article inspections (FAI), and container loading supervision across China.',
+    'On-site pre-shipment inspections (PSI), during-production checks (DUPRO), first-article inspections (FAI), and container loading supervision across China.',
   focusAreas: [
     {
       title: 'Pre-Shipment Inspection (PSI / FRI)',
@@ -83,7 +83,7 @@ const page: ServicePageContent = {
     {
       label: 'Report turnaround',
       value: 'Within 24 hours',
-      qualifier: 'Complete photo-documented report delivered within 24 hours of on-site inspection.',
+      qualifier: 'Complete photo-documented report, delivered on the timeline agreed for the inspection.',
     },
   ],
   benchmarksNote:
@@ -108,7 +108,7 @@ const page: ServicePageContent = {
     {
       question: 'Why can’t I rely on the factory’s internal QC department?',
       answer:
-        'Internal factory QC reports directly to factory management, who are commercially incentivized to ship orders on schedule and minimize factory losses. An independent third-party QC firm represents exclusively the buyer’s commercial interests.',
+        'Internal factory QC reports directly to factory management, who are commercially incentivized to ship orders on schedule and minimize factory losses. An appointed third-party QC firm reports to the buyer rather than to factory management. Where the goods are supplied by Sourcing Lab USA itself, the inspection is a production checkpoint on your behalf and is not presented as an independent audit.',
     },
     {
       question: 'Which cities and regions in China do your quality inspectors cover?',

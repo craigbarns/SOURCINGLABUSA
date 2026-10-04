@@ -50,7 +50,7 @@ const page: ServicePageContent = {
   workflow: [
     {
       title: 'Desk Audit & Corporate Records Search',
-      body: 'Within 24-48 hours, we pull certified government corporate records, check tax status, operational licenses, unified social credit codes, and review any pending legal disputes.',
+      body: 'We pull official government corporate records, check tax status, operational licenses, unified social credit codes, and review any pending legal disputes. Desk-audit turnaround is confirmed when the engagement is scoped.',
     },
     {
       title: 'Physical On-Site Facility Inspection',
@@ -79,7 +79,7 @@ const page: ServicePageContent = {
     {
       label: 'Risk rating report',
       value: 'Delivered in 24 hours',
-      qualifier: 'Delivered within 24 hours of on-site inspection completion with executive summary.',
+      qualifier: 'Photo-documented report with an executive summary, delivered on the timeline agreed for the engagement.',
     },
   ],
   benchmarksNote:

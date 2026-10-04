@@ -94,7 +94,7 @@ const page: ServicePageContent = {
     {
       question: 'What are the Merchandise Processing Fee (MPF) and Harbor Maintenance Fee (HMF)?',
       answer:
-        'MPF is a statutory U.S. Customs fee assessed on commercial formal entries at 0.3464% of the cargo value (subject to a minimum and maximum cap adjusted annually). HMF is a 0.125% fee assessed on the commercial value of all cargo transported via ocean vessels entering U.S. ports to maintain federal harbors.',
+        'MPF is a statutory U.S. Customs fee assessed on commercial formal entries at 0.3464% of the cargo value (subject to a minimum and maximum cap adjusted annually). HMF is a 0.125% fee assessed on the commercial value of all cargo transported via ocean vessels entering U.S. ports to maintain federal harbors. These statutory rates and their caps are adjusted periodically: confirm the figures in force with CBP or your customs broker before pricing against them.',
     },
     {
       question: 'Why does packaging size affect landed cost so drastically?',
@@ -104,7 +104,7 @@ const page: ServicePageContent = {
     {
       question: 'How do Section 301 tariffs impact landed cost?',
       answer:
-        'Section 301 tariffs impose an additional 7.5% or 25% duty on products originating from China on top of standard HTS duties. On a product with a $10 FOB cost and a standard 3% duty, a 25% Section 301 tariff adds an extra $2.50 per unit in direct taxes, significantly altering margin requirements.',
+        'Section 301 tariffs impose an additional 7.5% or 25% duty on products originating from China on top of standard HTS duties. On a product with a $10 FOB cost and a standard 3% duty, a 25% Section 301 tariff adds an extra $2.50 per unit in direct taxes, significantly altering margin requirements. Section 301 lists and rates change by executive action: confirm your product’s current exposure with CBP or your customs broker before relying on this figure.',
     },
     {
       question: 'Can landed cost analysis help negotiate better supplier terms?',

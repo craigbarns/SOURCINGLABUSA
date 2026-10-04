@@ -98,7 +98,7 @@ const page: ServicePageContent = {
     {
       question: 'What is Section 301 and how does it affect imports from China?',
       answer:
-        'Section 301 is a U.S. trade policy that imposes additional tariffs (ranging from 7.5% to 25% or higher) on thousands of Chinese-origin products across Lists 1 through 4. These tariffs are added on top of the base HTS duty rate and must be factored into your landed-cost calculations.',
+        'Section 301 is a U.S. trade policy that imposes additional tariffs (ranging from 7.5% to 25% or higher) on thousands of Chinese-origin products across Lists 1 through 4. These tariffs are added on top of the base HTS duty rate and must be factored into your landed-cost calculations. The lists and rates change by executive action, so confirm your product’s current exposure with CBP or your customs broker rather than relying on a published range.',
     },
     {
       question: 'What is an Importer Security Filing (ISF 10+2)?',

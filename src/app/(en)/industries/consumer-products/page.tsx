@@ -18,7 +18,7 @@ const page: ServicePageContent = {
     'The consumer products landscape moves at breakneck speed. Brands that rely on domestic importers face thin margins and delayed product cycles, while those that navigate overseas manufacturing without local oversight risk safety recalls, customs holds, and quality inconsistencies. Sourcing Lab USA provides end-to-end procurement execution.',
   overviewTitle: 'Multi-material manufacturing and strict consumer safety standards.',
   overview:
-    'Consumer hardgoods frequently combine diverse materials: molded plastics, stainless steel hardware, silicone seals, and printed packaging. Sourcing Lab USA coordinates specialized component suppliers into unified assembly lines, ensuring precise part mating, flawless surface finishes, and strict regulatory compliance with U.S. consumer safety standards.',
+    'Consumer hardgoods frequently combine diverse materials: molded plastics, stainless steel hardware, silicone seals, and printed packaging. Sourcing Lab USA coordinates specialized component suppliers into unified assembly lines, with part mating, surface finish and the applicable U.S. consumer safety requirements specified and checked against the approved sample.',
   processTitle: 'The consumer goods manufacturing lifecycle.',
   offerName: 'Consumer Products Sourcing & Production Management',
   offerDescription:
@@ -98,7 +98,7 @@ const page: ServicePageContent = {
     {
       question: 'How do you ensure consumer products comply with FDA food contact requirements?',
       answer:
-        'For food-contact items, we source only certified virgin food-grade resins (such as Tritan, PP, or food-grade silicone) and submit finished production samples to accredited laboratories (SGS, Intertek) to test for heavy metal extraction, BPA presence, and FDA 21 CFR compliance.',
+        'For food-contact items, we specify certified virgin food-grade resins (such as Tritan, PP, or food-grade silicone) and submit finished production samples to accredited laboratories (SGS, Intertek) to test for heavy metal extraction, BPA presence, and FDA 21 CFR compliance.',
     },
     {
       question: 'Can you source custom multi-material assembled products?',

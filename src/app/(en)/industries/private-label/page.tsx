@@ -38,7 +38,7 @@ const page: ServicePageContent = {
     },
     {
       title: 'Strict Batch Consistency & Pre-Shipment Inspection',
-      body: 'Independent on-site pre-shipment inspections ensuring exact color matching, zero branding defects, flawless packaging integrity, and verified barcode readability.',
+      body: 'On-site pre-shipment inspections covering colour matching against the approved sample, branding and print defects, packaging integrity, and barcode readability. Acceptance criteria are agreed per order.',
     },
   ],
   briefItems: [

@@ -10,12 +10,12 @@ export const metadata = pageMetadata({
 
 const page: ServicePageContent = {
   path: '/us-sales-representation',
-  eyebrow: 'Commercial Representation · Local American Sales Force',
+  eyebrow: 'Commercial Representation · U.S. Buyer Access',
   title: 'U.S. Sales Representation for Foreign Manufacturers',
   directAnswer:
     'U.S. sales representation is a commercial agency service where an experienced American sales firm acts as the local commercial representative for an international manufacturer. The sales representative bridges the gap between overseas factory production and American commercial buyers: pitching wholesale distributors, managing trade negotiations, attending domestic trade events, handling buyer communications in the U.S. timezone, and securing recurring purchase orders on behalf of the manufacturer.',
   intro:
-    'For overseas factories, winning business from American enterprise buyers from thousands of miles away is notoriously difficult. American procurement directors hesitate to wire deposits to foreign entities, deal with 12-hour time-zone delays, or navigate language barriers when resolving production emergencies. Having an operational, credible commercial representative on the ground in the United States removes that friction instantly.',
+    'For overseas factories, winning business from American enterprise buyers from thousands of miles away is notoriously difficult. American procurement directors hesitate to wire deposits to foreign entities, deal with 12-hour time-zone delays, or navigate language barriers when resolving production emergencies. Having an operational, credible commercial representative on the ground in the United States removes much of that friction.',
   overviewTitle: 'Dedicated commercial representation for capable manufacturers.',
   overview:
     'Sourcing Lab USA supports international manufacturers seeking local commercial representation in the United States. For manufacturers with capable production facilities, competitive unit economics, and compliant goods, we provide structured commercial agency support: assisting with buyer outreach, preparing professional sales collateral, and supporting negotiations with American corporate buyers.',
