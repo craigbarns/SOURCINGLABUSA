@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata({
   title: 'Custom Packaging Sourcing from China',
   description:
-    'Custom boxes, bags, labels and branded packaging sourced in China to your brief. Share dimensions, quantity and artwork to request a sourcing quote.',
+    'Packaging sourcing from China for U.S. brands: rigid boxes, folding cartons, mailers, bags, labels and inserts made to your brief. Request a quote.',
   path: '/custom-packaging',
 });
 

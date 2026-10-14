@@ -11,46 +11,54 @@ export const customPackagingPage: ServicePageContent = {
   directAnswer:
     'Custom packaging sourcing means developing boxes, bags, labels, inserts and retail packaging to your own specification rather than buying a stock item. Sourcing Lab USA works from a written brief covering product, dimensions, material, print finish, quantity and destination, coordinates supplier options and samples through an independent China partnership, and supplies the approved packaging to U.S. business customers.',
   overview:
-    'Custom packaging works best when format, material, print, finish, and packing method are considered together. We help turn those choices into a documented brief that can be reviewed before production begins.',
+    'Custom packaging works best when format, material, print, finish and packing method are decided together, because each one constrains the others: a soft-touch lamination changes how foil sits, a rigid box ships assembled and takes more freight volume than a folding carton, and the number of artwork versions decides how quickly a minimum quantity is reached. The brief records those choices so the quotation and the samples are reviewed on the same basis.',
   offerName: 'Custom Packaging Sourcing',
   offerDescription:
-    'Custom packaging products developed from a brand brief, including boxes, paper bags, labels, tissue paper, inserts, and retail packaging.',
+    'Custom packaging developed from a brand brief: rigid boxes, folding cartons, corrugated mailers, paper and non-woven bags, labels, tissue paper and inserts.',
   focusAreas: [
     {
-      title: 'Packaging formats',
-      body: 'Discuss the format your product needs, from retail boxes and paper bags to labels, tissue paper, inserts, and presentation details.',
+      title: 'Rigid boxes and gift sets',
+      body: 'Magnetic-closure, two-piece lid, shoulder-and-neck and book-style boxes: greyboard wrapped in printed, uncoated or textured paper, with the board thickness and wrap set in the specification.',
     },
     {
-      title: 'Materials and finish',
-      body: 'Set the material, structure, print requirements, and finish that support the intended product and brand experience. We source FSC certified paper, cardboard, sustainable options, and non-woven eco bags to meet your compliance needs.',
+      title: 'Folding cartons and mailers',
+      body: 'SBS, C1S and kraft folding cartons for retail shelves, and E-flute or B-flute corrugated mailers for e-commerce. The board grade is chosen against the product weight and the way the box will be packed and shipped.',
     },
     {
-      title: 'A complete brief',
-      body: 'Bring dimensions, artwork, quantity, reference images, and destination together so the proposal can be reviewed on the right basis.',
+      title: 'Bags, labels and the full kit',
+      body: 'Paper bags, non-woven bags, printed tissue, stickers, swing tags and labels can be specified alongside the box, so one brief covers the whole unboxing rather than several separate orders.',
     },
     {
-      title: 'Samples before approval',
-      body: 'Sample requirements are agreed for the project so product details can be reviewed before a production approval is made.',
+      title: 'Inserts and protection',
+      body: 'Molded pulp, EVA foam, folded card and thermoformed trays hold the product in place. The insert is fitted on the unprinted structural sample, before anything is printed.',
+    },
+    {
+      title: 'Print and finishes',
+      body: 'Offset or digital print, hot foil, spot UV, embossing and debossing, and matte, gloss or soft-touch lamination. Brand colors are specified by Pantone code and checked against the approved proof.',
+    },
+    {
+      title: 'Certified and recycled materials',
+      body: 'FSC-certified board and recycled-content paper can be specified. Any FSC label or recycled-content claim printed on the packaging must be backed by the supplier’s certificate and order documents, checked before the artwork is approved.',
     },
   ],
   briefItems: [
-    'Product type and packaging format',
-    'Dimensions, artwork, and reference images',
-    'Estimated quantity and target timing',
-    'Destination and any known order requirements',
+    'Packaging format: rigid box, folding carton, mailer, bag, tube or pouch',
+    'Internal dimensions of the product to fit, and any target outer size',
+    'Artwork or dieline files, Pantone references and finishes',
+    'Quantity per design, target timing and delivery destination',
   ],
   workflow: [
     {
       title: 'Define the packaging brief',
-      body: 'Share the product, packaging use case, dimensions, visual references, quantity, and target timing.',
+      body: 'Share the product, packaging format, dimensions, artwork status, quantity per design and target timing. Anything still open is marked to confirm rather than guessed.',
     },
     {
-      title: 'Review options and samples',
-      body: 'Confirm the product specification, available options, quote basis, and sample requirements before approval.',
+      title: 'Fit first, then print',
+      body: 'An unprinted structural sample confirms the fit and the insert before artwork is applied. A printed sample then confirms color, finishes and assembly. Each is approved before the next step.',
     },
     {
       title: 'Approve the order terms',
-      body: 'Production and delivery arrangements are confirmed for the exact order, including responsibilities agreed by the parties.',
+      body: 'Production and delivery arrangements are confirmed for the exact order, including the packing method, shipping terms and the import responsibilities agreed by the parties.',
     },
   ],
   faqs: [
@@ -59,14 +67,29 @@ export const customPackagingPage: ServicePageContent = {
       answer: 'The quotation is based on the packaging specification, materials, print and finish, quantities and agreed sample requirements. Product pricing and any separately quoted costs are reviewed with the payment, delivery and import terms before you approve an order.',
     },
     {
+      question: 'What is the minimum order quantity for custom packaging?',
+      answer:
+        'As a starting point, custom printed packaging commonly starts around 500 units per design. The real minimum follows the format, material, print process and finish, and the split across sizes or artwork versions, and it is confirmed in your quotation.',
+    },
+    {
       question: 'Can you work from packaging we already use?',
       answer:
         'Yes. Send photos, dimensions, artwork, material references, and quantity. We will confirm the information needed to review the project.',
     },
     {
-      question: 'What determines the minimum quantity?',
+      question: 'Can brand colors be matched across boxes, bags and labels?',
       answer:
-        'Minimums depend on the packaging format, material, print process, finish, and the specific production requirements. They are confirmed for the project.',
+        'Specify brand colors by Pantone code. They are checked against the approved printed proof, and different materials are reviewed side by side, because the same ink prints differently on coated board, kraft paper and fabric.',
+    },
+    {
+      question: 'Can the packaging use FSC-certified or recycled materials?',
+      answer:
+        'Yes, they can be specified in the brief. An FSC label or a recycled-content claim printed on the packaging needs the supplier’s chain-of-custody certificate and the order documents behind it, so those are checked before the artwork is approved.',
+    },
+    {
+      question: 'How does empty packaging ship?',
+      answer:
+        'Folding cartons, mailers and bags ship flat, which keeps freight volume low. Rigid boxes usually ship assembled and take far more space, so the format choice changes the landed cost as well as the presentation.',
     },
     {
       question: 'Can packaging be delivered to the United States?',
@@ -79,6 +102,18 @@ export const customPackagingPage: ServicePageContent = {
   briefIntro:
     'Product, dimensions, material, print finish, quantity, and destination. We confirm what can be quoted and sampled, and reply by email.',
   relatedPages: [
+    {
+      href: '/blog/fsc-certification-explained',
+      title: 'FSC certified packaging explained',
+      description:
+        'What FSC 100%, Mix and Recycled mean, and how to verify a supplier before printing an FSC claim.',
+    },
+    {
+      href: '/blog/custom-packaging-moq-guide',
+      title: 'Custom packaging MOQ guide',
+      description:
+        'Read a practical guide to preparing a packaging brief and discussing quantity requirements.',
+    },
     {
       href: '/blog/sustainable-packaging-ecommerce',
       title: 'Packaging materials and environmental claims',
@@ -101,12 +136,6 @@ export const customPackagingPage: ServicePageContent = {
       title: 'China-to-U.S. procurement',
       description:
         'Understand the project information and order terms to confirm for a U.S. destination.',
-    },
-    {
-      href: '/blog/custom-packaging-moq-guide',
-      title: 'Custom packaging MOQ guide',
-      description:
-        'Read a practical guide to preparing a packaging brief and discussing quantity requirements.',
     },
   ],
 };

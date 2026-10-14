@@ -116,7 +116,7 @@ export function EditorialFooter({
             <span>{es ? 'INDUSTRIAS Y EMPRESA' : 'INDUSTRIES & ABOUT'}</span>
             <ul>
               <li>
-                <Link href={`${linkPrefix}/industries/packaging`}>
+                <Link href={`${linkPrefix}/custom-packaging`}>
                   {es ? 'Industria de packaging' : 'Packaging industry'}
                 </Link>
               </li>

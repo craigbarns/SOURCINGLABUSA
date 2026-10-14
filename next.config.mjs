@@ -11,6 +11,21 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Two template duplicates of /custom-packaging, consolidated per the
+      // no-doorway rule in AGENTS.md. Search Console (Jul-Oct 2026) never
+      // showed /packaging-sourcing and gave /industries/packaging 3
+      // impressions, while /custom-packaging drew 192 and ranks for
+      // "packaging sourcing china". One page now carries the subject.
+      {
+        source: '/packaging-sourcing',
+        destination: '/custom-packaging',
+        permanent: true,
+      },
+      {
+        source: '/industries/packaging',
+        destination: '/custom-packaging',
+        permanent: true,
+      },
       {
         // Ranked position 2 in Search but the page no longer exists, so every
         // FSC impression landed on a 404. FSC packaging is a Custom Packaging

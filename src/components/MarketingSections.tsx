@@ -213,7 +213,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
     },
     {
       title: es ? 'Sourcing de packaging personalizado' : 'Packaging Sourcing',
-      href: '/packaging-sourcing',
+      href: '/custom-packaging',
       desc: es
         ? 'Cajas rígidas, estuches plegables, cajas de envío corrugadas e insertos protectores directamente con fabricantes especializados.'
         : 'Direct factory procurement of luxury rigid boxes, folding cartons, corrugated mailers, and protective inserts.',
@@ -294,7 +294,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
   const industryVerticals = [
     {
       title: es ? 'Packaging e imprenta' : 'Packaging & Paperboard',
-      href: '/industries/packaging',
+      href: '/custom-packaging',
       body: es
         ? 'Cajas rígidas de lujo, estuches de cartón, cajas de envío corrugadas y soluciones de unboxing sostenibles.'
         : 'Luxury rigid presentation boxes, folding retail cartons, corrugated mailers, and sustainable pulp inserts.',
