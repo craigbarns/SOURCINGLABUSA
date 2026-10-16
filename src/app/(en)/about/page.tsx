@@ -21,7 +21,7 @@ export const metadata = pageMetadata({ title, description, path: '/about' });
 const facts = [
   [
     'Founder',
-    'Gregory Baranes, with years of hands-on experience in international sourcing, product development and cross-border business.',
+    'Gregory Baranes, who has managed China sourcing projects since 2011 through a company with an office in Shanghai, for French fashion and retail brands: apparel, leather jackets, bags, labels and hangtags, hangers, retail packaging and promotional products.',
   ],
   ['Current availability', 'Projects can start now. Contracting and invoicing from France or China, with the company identified in your quotation.'],
   ['U.S. expansion', 'Planned for Miami in 2027.'],
@@ -169,6 +169,10 @@ export default function AboutPage() {
                 See <Link href="/how-we-work">how the sourcing process and approvals work</Link>,
                 browse our <Link href="/resources">planning worksheets</Link>, or
                 review the <Link href="/editorial-policy">editorial policy</Link> for sources, examples and corrections.
+              </p>
+              <p className="editorial-body">
+                Read <Link href="/case-studies">case studies</Link> written from
+                the founder’s project records.
               </p>
             </div>
           </div>

@@ -16,7 +16,7 @@ import { breadcrumbSchema, pageMetadata, webpageSchema } from '@/lib/seo';
 const path = '/case-studies';
 const title = 'Sourcing Case Studies: Real Projects, Documented';
 const description =
-  'Anonymized sourcing projects for clothing, textiles and packaging: the product, the difficulty, what was done and the result, each stating where it was delivered.';
+  'Real sourcing projects written from their email record: rigid boxes, bags and retail hangers, what went wrong and what was done about it.';
 
 export const metadata = pageMetadata({ title, description, path });
 
@@ -55,10 +55,11 @@ export default function CaseStudiesPage() {
               <em>documented.</em>
             </h1>
             <p className="direct-answer">
-              Each case describes a real sourcing project: the product, what made
-              it difficult, what was done and the result. Clients are anonymized
-              unless they approved being named, and every case states where it
-              was delivered.
+              Each case is written from a real project’s email record: the
+              product, what made it difficult and what was done. Where the record
+              stops, the outcome adds only what the founder confirmed, and says
+              so. Clients are described, not named, and every case states the
+              business it was delivered through.
             </p>
           </div>
         </section>

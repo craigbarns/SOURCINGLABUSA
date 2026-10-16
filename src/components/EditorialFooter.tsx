@@ -141,6 +141,11 @@ export function EditorialFooter({
                 </Link>
               </li>
               <li>
+                <Link href={`${linkPrefix}/case-studies`}>
+                  {es ? 'Casos documentados' : 'Case studies'}
+                </Link>
+              </li>
+              <li>
                 <Link href={`${linkPrefix}/resources`}>
                   {es ? 'Recursos y plantillas' : 'Templates & guides'}
                 </Link>

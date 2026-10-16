@@ -52,6 +52,9 @@ describe('case studies', () => {
     expect(caseStudySummary(valid)).toBe(
       'Magnetic-closure rigid boxes, 3,000 units in two sizes, for a U.S. cosmetics brand, delivered to New Jersey, United States.',
     );
+    expect(caseStudySummary({ ...valid, destination: undefined })).toBe(
+      'Magnetic-closure rigid boxes, 3,000 units in two sizes, for a U.S. cosmetics brand.',
+    );
     expect(
       caseStudySummary({
         ...valid,

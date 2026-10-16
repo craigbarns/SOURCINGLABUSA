@@ -14,6 +14,10 @@ import {
 } from '@/lib/case-studies';
 import { breadcrumbSchema, pageMetadata, webpageSchema } from '@/lib/seo';
 
+function summaryLowerFirst(summary: string): string {
+  return summary.charAt(0).toLowerCase() + summary.slice(1);
+}
+
 export async function generateStaticParams() {
   return CASE_STUDIES.map((study) => ({ slug: study.slug }));
 }
@@ -28,7 +32,9 @@ export async function generateMetadata({
   if (!study) return {};
   return pageMetadata({
     title: study.title,
-    description: `${caseStudySummary(study)} ${study.deliveredBy}, ${study.year}.`,
+    // Provenance first: a search snippet is cut around 155 characters, and
+    // where the project was delivered must survive the cut.
+    description: `${study.deliveredBy} (${study.year}): ${summaryLowerFirst(caseStudySummary(study))}`,
     path: `/case-studies/${study.slug}`,
   });
 }
@@ -79,7 +85,10 @@ export default async function CaseStudyPage({
             </p>
             <h1 className="editorial-title page-title">{study.title}</h1>
             <p className="direct-answer">{summary}</p>
-            <p className="page-note">{study.deliveredBy}.</p>
+            <p className="page-note">
+              {study.deliveredBy}. Written from the project’s email record; where
+              the record stops, the outcome adds only what the founder confirmed.
+            </p>
           </div>
         </section>
 
