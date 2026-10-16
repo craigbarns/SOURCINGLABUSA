@@ -134,6 +134,35 @@ export const CASE_STUDIES: CaseStudy[] = [
       'Quantities and the single change from the approved sample were set down in writing before production, so the order did not rest on a verbal brief. The founder confirms the order was completed; the email record itself ends at that confirmation.',
     approval: { approvedBy: 'Gregory Baranes', date: '2026-10-16', namedClient: false },
   },
+  {
+    slug: 'womens-cycling-base-layer-reorder',
+    title: 'Women’s cycling base layers approved from print strike-offs, then reordered',
+    category: 'sportswear',
+    client: 'A French cycling apparel brand',
+    deliveredBy: 'Led by the founder through a sourcing company with an office in Shanghai; not a Sourcing Lab USA project',
+    year: 2026,
+    product: 'Printed women’s cycling base layers',
+    quantity: 'a first run in white and pink, then a 3,000-piece reorder',
+    challenge:
+      'The print had to be right in two colorways before bulk production: the pink on the first samples was not the approved shade, the logo lettering on the chest could not be read, and printing ran late against the factory’s Chinese New Year closure.',
+    approach: [
+      'Revised the print proofs to the brand’s comments: removed the rectangle under the chest logo and printed the side panels in pink.',
+      'Printed pink swatches 15%, 20% and 25% lighter, so the brand could choose a shade instead of describing one.',
+      'Sent samples with print strike-offs. The brand confirmed the fit and the packaging, and approved the pink from the strike-off rather than from the sample.',
+      'Tested the logo lettering in two dark gray Pantone references and sent photos; the brand chose the lighter, 8421C.',
+      'When printing ran late, the Shanghai team met the factory to finish before the holiday closure, then sent the brand the inspection report on the finished goods before shipping.',
+    ],
+    outcome:
+      'The brand approved shipment from the inspection report and, on receipt, found the goods compliant with one exception: the hangtags were not pinned to the garments, as its brief required. That packing rule was recorded for later production. Two months later the brand wrote that the base layer was selling well and reordered 3,000 pieces, 1,500 in each color; the reorder was packed and invoiced in June 2026. The founder confirms the brand has placed several orders since.',
+    figures: [
+      {
+        label: 'Reorder',
+        value: '3,000 pieces',
+        evidence: 'Brand reorder email of 27 April 2026; packing list and balance invoice of 8 June 2026',
+      },
+    ],
+    approval: { approvedBy: 'Gregory Baranes', date: '2026-10-16', namedClient: false },
+  },
 ];
 
 /** Lists what stops a study from being published; empty means publishable. */
