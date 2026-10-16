@@ -78,7 +78,7 @@ const page: ServicePageContent = {
     {
       question: 'How do you prevent quality fade between sample and mass production?',
       answer:
-        'Quality fade is prevented by establishing clear written manufacturing specifications that tie payment milestones to objective quality inspection results against approved golden samples before releasing final balance payments.',
+        'Quality fade is reduced by written manufacturing specifications that tie payment milestones to inspection results against approved golden samples, with the final balance released after the agreed inspection, on the terms set in each quotation.',
     },
     {
       question: 'What is the difference between a China sourcing agent and a sourcing partner?',

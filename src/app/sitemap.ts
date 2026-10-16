@@ -3,6 +3,7 @@ import type { MetadataRoute } from 'next';
 import { getDomainRoutingConfig } from '@/lib/routing/subdomains';
 import { homeLanguages } from '@/lib/seo';
 import { getAllPosts } from '@/lib/blog';
+import { CASE_STUDIES } from '@/lib/case-studies';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const { marketingOrigin } = getDomainRoutingConfig();
@@ -82,6 +83,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
     ...serviceUrls,
     ...blogUrls,
+    // Listed only once real, approved projects exist (src/lib/case-studies.ts).
+    ...(CASE_STUDIES.length > 0
+      ? [
+          { url: `${marketingOrigin}/case-studies`, changeFrequency: 'monthly' as const, priority: 0.7 },
+          ...CASE_STUDIES.map((study) => ({
+            url: `${marketingOrigin}/case-studies/${study.slug}`,
+            changeFrequency: 'yearly' as const,
+            priority: 0.6,
+          })),
+        ]
+      : []),
     {
       url: `${marketingOrigin}/resources`,
       changeFrequency: 'monthly' as const,

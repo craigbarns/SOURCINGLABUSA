@@ -558,13 +558,13 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                   </div>
                   <div>
                     <span className="text-[10px] font-bold uppercase tracking-wider text-brand-muted">{es ? 'PAGOS POR HITOS' : 'MILESTONE PAYMENTS'}</span>
-                    <h3 className="text-base font-semibold text-brand-ink">{es ? 'Protección total de capital' : 'Zero Pre-Inspection Balance'}</h3>
+                    <h3 className="text-base font-semibold text-brand-ink">{es ? 'Saldo vinculado a la inspección' : 'Balance Tied to Inspection'}</h3>
                   </div>
                 </div>
                 <p className="mt-3 text-xs leading-relaxed text-brand-muted">
                   {es
-                    ? 'El saldo final de producción nunca se libera hasta haber superado con éxito la inspección física de calidad y la verificación de empaque en fábrica.'
-                    : 'Production balances remain protected until physical on-site quality inspection and packaging verification reports are fully approved.'}
+                    ? 'Los hitos de pago se fijan en cada cotización, y el saldo de producción puede vincularse a la aprobación del informe de inspección previa al envío.'
+                    : 'Payment milestones are set in each quotation, and the production balance can be tied to approval of the pre-shipment inspection report.'}
                 </p>
               </div>
 
@@ -574,14 +574,14 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                     <ShieldCheck className="h-5 w-5" aria-hidden="true" />
                   </div>
                   <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-muted">{es ? 'PROPIEDAD DE UTILLAJE' : '100% TOOLING IP'}</span>
-                    <h3 className="text-base font-semibold text-brand-ink">{es ? 'Propiedad exclusiva de moldes' : 'Client Tooling Covenants'}</h3>
+                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-muted">{es ? 'PROPIEDAD DE UTILLAJE' : 'TOOLING OWNERSHIP'}</span>
+                    <h3 className="text-base font-semibold text-brand-ink">{es ? 'Propiedad del utillaje por escrito' : 'Tooling Terms in Writing'}</h3>
                   </div>
                 </div>
                 <p className="mt-3 text-xs leading-relaxed text-brand-muted">
                   {es
-                    ? 'Acuerdos contractuales por escrito que garantizan la propiedad legal exclusiva de moldes, troqueles, fichas técnicas y archivos CAD para el cliente.'
-                    : 'Binding written covenants guaranteeing that custom molds, tooling dies, CAD files, and technical specifications remain 100% client-owned property.'}
+                    ? 'La propiedad de los moldes, troqueles, archivos CAD y especificaciones que usted paga se fija por escrito en el contrato de cada pedido, antes de fabricar el utillaje.'
+                    : 'Ownership of the custom molds, tooling dies, CAD files and specifications you pay for is set out in writing in the contract for each order, before any tooling is cut.'}
                 </p>
               </div>
             </div>
@@ -591,7 +591,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
               <div className="relative overflow-hidden rounded-lg">
                 <Image
                   src="/images/packaging-collection.webp"
-                  alt="Photorealistic unbranded custom packaging and material sample arrangement"
+                  alt="Illustrative image of unbranded custom packaging and material samples"
                   width={1536}
                   height={1024}
                   loading="lazy"
@@ -604,15 +604,15 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                 <p className="text-[11px] leading-relaxed text-brand-muted">
                   <span className="font-semibold text-brand-ink">{es ? 'Inspección de materiales y prototipos' : 'Material Inspection & Prototype Standards'}</span> —{' '}
                   {es
-                    ? 'Supervisión directa de gramajes de papel, resistencias de cartón corrugado, tolerancias dimensionales y acabados antes de la producción en masa.'
-                    : 'Direct oversight of paperboard calipers, flute strengths, dimensional tolerances, and surface treatments before mass production runs.'}
+                    ? 'Los gramajes de papel, la resistencia del cartón corrugado, las tolerancias dimensionales y los acabados se verifican frente a la muestra aprobada antes de la producción en masa.'
+                    : 'Paperboard calipers, flute strengths, dimensional tolerances and surface treatments are checked against the approved sample before mass production.'}
                 </p>
                 <div className="mt-3 flex flex-wrap items-center gap-2 text-[10px] font-medium text-brand-muted">
                   <span className="rounded-md bg-brand-surface px-2 py-0.5 border border-brand-line">
-                    {es ? 'Muestras no marcadas' : 'Unbranded Samples'}
+                    {es ? 'Imagen ilustrativa' : 'Illustrative image'}
                   </span>
                   <span className="rounded-md bg-brand-surface px-2 py-0.5 border border-brand-line">
-                    {es ? 'Clasificación HTS 10 dígitos' : '10-Digit HTS Classification'}
+                    {es ? 'Investigación HTS a 10 dígitos' : '10-Digit HTS Research'}
                   </span>
                   <span className="rounded-md bg-brand-surface px-2 py-0.5 border border-brand-line">
                     {es ? 'Facturación Francia / China' : 'Invoicing via France / China'}

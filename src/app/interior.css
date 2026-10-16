@@ -100,11 +100,27 @@
   letter-spacing: -0.035em;
 }
 .detail-card p,
+.detail-card ol,
+.detail-card dl,
 .resource-links p {
   margin-top: 12px;
   font-size: 13px;
   line-height: 1.85;
   color: #596755;
+}
+.detail-card ol {
+  padding-left: 1.2em;
+  list-style: decimal;
+}
+.detail-card dl > div {
+  display: flex;
+  gap: 8px;
+}
+.detail-card dt {
+  font-weight: 600;
+}
+.detail-card dt::after {
+  content: ':';
 }
 .service-process-grid {
   display: grid;

@@ -9,7 +9,7 @@ export const homeFaqs = [
   ],
   [
     'How do you protect buyers against quality fade and defective shipments?',
-    'Quality fade is prevented through binding bilingual manufacturing contracts that explicitly link payment milestones to objective AQL (Acceptance Quality Limit) 2.5 inspection results. We retain approved physical golden samples, conduct during-production checks (DUPRO), and perform final pre-shipment inspections (PSI) at the factory before authorizing the release of final balance payments.',
+    'Quality fade can be reduced, not ruled out, with written manufacturing specifications that link payment milestones to inspection results against agreed acceptance criteria, such as an AQL (Acceptance Quality Limit) level set for the product. Approved golden samples are kept as the reference, and during-production (DUPRO) and pre-shipment (PSI) inspections are coordinated at the factory before the final balance is released, on the terms agreed in each quotation.',
   ],
   [
     'How do U.S. tariffs and Section 301 duties affect landed costs?',
@@ -44,7 +44,7 @@ export const homeFaqsES = [
   ],
   [
     '¿Cómo protegen a los compradores contra defectos y bajadas de calidad?',
-    'Protegemos la producción mediante acuerdos de fabricación vinculantes que condicionan los pagos a los resultados de inspecciones objetivas AQL 2.5. Conservamos muestras doradas aprobadas y realizamos inspecciones previas al envío (PSI) en la propia fábrica antes de autorizar el pago del saldo final.',
+    'Las bajadas de calidad se reducen, sin poder descartarse por completo, con especificaciones de fabricación por escrito que vinculan los pagos a los resultados de inspección frente a criterios de aceptación acordados, como un nivel AQL definido para el producto. Se conservan muestras de referencia aprobadas y se coordinan inspecciones previas al envío (PSI) en la fábrica antes de liberar el saldo final, según los términos de cada cotización.',
   ],
   [
     '¿Cómo influyen los aranceles de EE. UU. en el coste puesto en destino?',
