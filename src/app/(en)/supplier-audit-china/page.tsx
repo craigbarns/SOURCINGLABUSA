@@ -13,12 +13,12 @@ const page: ServicePageContent = {
   eyebrow: 'Manufacturing Due Diligence · On-Site Supplier Audits',
   title: 'Supplier Audits in China: Quality & Technical Evaluation',
   directAnswer:
-    'A supplier audit in China is an in-depth on-site technical evaluation of a manufacturing facility’s quality management systems, operational capacity, machinery maintenance, and workforce standards. Conducted by certified industrial auditors before major purchase orders are signed, a supplier audit verifies whether a factory has the processes, equipment, and management discipline required to produce consistent goods to Western engineering tolerances.',
+    'A supplier audit examines selected factory systems and records against an agreed checklist. It may cover manufacturing capability, quality controls, traceability and corrective actions. Sourcing Lab USA can coordinate the scope and an appointed provider where available; the provider’s qualifications, framework, access, report and limits must be confirmed before the visit.',
   intro:
-    'Relying on self-reported factory credentials or generic ISO certificates creates operational vulnerability. Sourcing Lab USA coordinates structured on-site technical and quality audits across China’s primary industrial centers, inspecting everything from incoming raw material testing to final packaging protocols.',
-  overviewTitle: 'Technical manufacturing audits based on international standards.',
+    'A supplier’s claims need evidence relevant to your product and order. Define which production processes and records matter, then confirm factory access and an appropriately appointed provider. Sourcing Lab USA coordinates the review accepted for the project, with any independent specialist scope agreed separately.',
+  overviewTitle: 'An audit scope tied to your manufacturing risks.',
   overview:
-    'Supplier audits evaluate the critical intersection between engineering capability and shop-floor discipline. We coordinate evaluations of incoming raw material inspection (IQC), in-process quality control (IPQC), final quality assurance (FQA), equipment calibration schedules, and internal defect remediation processes based on ISO 9001 and industry-specific frameworks.',
+    'Review how the factory handles incoming materials, work instructions, in-process checks, finished-goods release, equipment records and nonconforming products. The appointed provider should explain what can be examined and which records are unavailable. A sourcing review is not an accredited certification audit.',
   processTitle: 'The comprehensive on-site audit methodology.',
   offerName: 'China Supplier Technical & Quality Audits',
   offerDescription:
@@ -34,11 +34,11 @@ const page: ServicePageContent = {
     },
     {
       title: 'Incoming Material & Traceability Controls',
-      body: 'We inspect warehouse storage conditions, raw material quarantine zones, component batch tracking, and traceability systems to ensure substandard materials never enter production.',
+      body: 'The agreed checklist can examine storage, material identification, quarantine and batch traceability. Findings describe the evidence reviewed and cannot guarantee that unsuitable material never enters production.',
     },
     {
       title: 'Social Compliance & Environmental Standards',
-      body: 'We audit workplace safety, emergency egress, working hour documentation, child/forced labor prohibitions, and environmental waste management (aligned with BSCI and SMETA benchmarks).',
+      body: 'Where these risks are in scope, identify a suitably qualified specialist and the required framework. A general sourcing visit does not establish social-compliance certification or conformance with a named audit scheme.',
     },
   ],
   briefItems: [
@@ -54,7 +54,7 @@ const page: ServicePageContent = {
     },
     {
       title: 'On-Site Opening Meeting & Facility Walkthrough',
-      body: 'Qualified industrial auditors review documentation with factory management, followed by a comprehensive walk of incoming material bays, production floors, and testing labs.',
+      body: 'The appointed provider reviews the agreed documents and accessible facility areas with factory management. Credentials, access permissions and the scope of observation are confirmed beforehand.',
     },
     {
       title: 'Deep-Dive Process & Record Examination',
@@ -66,39 +66,39 @@ const page: ServicePageContent = {
     },
     {
       title: 'Comprehensive Written Audit Report',
-      body: 'Within 24 hours of audit completion, you receive an itemized 30+ page report with photographic evidence, grading metrics, and actionable recommendations.',
+      body: 'The agreed report records scope, evidence, findings, missing information and recommended follow-up. Format, permitted photography, grading method and delivery timing depend on the engagement.',
     },
   ],
   benchmarks: [
     {
       label: 'Audit execution',
-      value: '3 to 5 business days notice',
-      qualifier: 'Auditor scheduling coordinated across major Chinese manufacturing provinces.',
+      value: 'Provider confirmed',
+      qualifier: 'Scheduling depends on location, scope, factory access and provider availability.',
     },
     {
       label: 'On-site audit duration',
-      value: '1 to 2 full days',
+      value: 'Scope-specific',
       qualifier: 'Dependent on factory footprint, number of production lines, and audit scope.',
     },
     {
       label: 'Report delivery',
-      value: 'Within 24 hours',
-      qualifier: 'Full audit report with high-resolution photos and CAPA recommendations delivered next business day.',
+      value: 'Agreed in proposal',
+      qualifier: 'Report format, findings and corrective-action follow-up are defined before the audit.',
     },
   ],
   benchmarksNote:
-    'Audits follow ISO 9001 quality framework guidelines. Detailed corrective action plans (CAPA) can be monitored on request.',
+    'Sourcing Lab USA does not claim accredited audit credentials. Independent specialist work and any corrective-action monitoring are scoped separately.',
   hideShowcase: true,
   faqs: [
     {
       question: 'What is the difference between a factory verification and a supplier audit?',
       answer:
-        'A factory verification is a preliminary due diligence check that confirms a supplier legally exists, owns machinery, and is not a fraud. A supplier audit is a technical evaluation that assesses whether the factory has the quality systems, maintenance schedules, process controls, and capacity to manufacture your specific product reliably.',
+        'Verification begins with supplier identity and evidence of its role and facilities. An audit examines selected processes and records in more depth. Both have access and evidence limits; neither proves that fraud or future production problems are impossible.',
     },
     {
       question: 'What are the main types of supplier audits you conduct in China?',
       answer:
-        'We conduct Manufacturing & Quality Audits (evaluating QMS and technical capability), Capacity Audits (evaluating monthly output and bottleneck constraints), and Social Compliance Audits (evaluating labor standards, safety, and working conditions).',
+        'A project can request review of manufacturing processes, quality controls or capacity. Specialist labor, environmental or certification work requires an appropriately appointed provider and an explicitly agreed framework. Availability is confirmed before acceptance.',
     },
     {
       question: 'What happens if a factory fails the audit?',
@@ -108,12 +108,12 @@ const page: ServicePageContent = {
     {
       question: 'Do Chinese factories cooperate with independent audits?',
       answer:
-        'Legitimate direct manufacturers that are proud of their facilities and seek serious international clients welcome professional audits. Resistance or refusal to allow an audit is one of the strongest red flags that a supplier is hiding subcontractor relationships or substandard conditions.',
+        'Access depends on the supplier, confidentiality requirements and the requested scope. Ask for the reason for any restriction and record what could not be checked. Refusal is a factor to investigate, not proof of misconduct by itself.',
     },
     {
       question: 'Which industrial regions in China do you audit?',
       answer:
-        'We coordinate on-site audits across all major Chinese manufacturing provinces: Guangdong (Shenzhen, Dongguan, Guangzhou, Foshan), Zhejiang (Ningbo, Hangzhou, Yiwu, Wenzhou), Jiangsu (Suzhou, Wuxi, Changzhou), Shandong (Qingdao, Weihai), Fujian (Xiamen, Quanzhou), and surrounding hubs.',
+        'Provide the factory address, product and requested framework. Coverage, travel requirements and specialist availability are confirmed for the location rather than assumed nationwide.',
     },
   ],
   briefTitle: 'Schedule a supplier audit in China.',

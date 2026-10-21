@@ -2,143 +2,117 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'International Market Entry Strategy for the United States | Sourcing Lab USA',
-  description:
-    'Tailored U.S. market entry strategy for European and Chinese manufacturers. Overcome regulatory barriers, optimize tariffs, and establish American commercial channels.',
-  path: '/market-entry-consulting',
+  "title": "U.S. Market Research & Entry Feasibility for Manufacturers",
+  "description": "Scope evidence-based U.S. market research: buyer segments, competitors, pricing and channel assumptions for foreign manufacturers planning their first commercial test.",
+  "path": "/market-entry-consulting"
 });
 
 const page: ServicePageContent = {
-  path: '/market-entry-consulting',
-  eyebrow: 'Cross-Border Advisory · European & Asian Manufacturers',
-  title: 'Strategic U.S. Market Entry for Global Manufacturers',
-  directAnswer:
-    'International market entry strategy for the United States is the tailored commercial roadmap designed to help European, Asian, and global manufacturers expand into the American market profitably and compliantly. It bridges the critical cultural, legal, and operational divides: converting metric technical standards to imperial specifications, navigating Section 301 and antidumping trade regulations, structuring domestic wholesale pricing models, and establishing localized fulfillment and sales distribution.',
-  intro:
-    'Expanding into the United States is the ultimate milestone for ambitious global manufacturing enterprises. Yet what works in Berlin, Paris, Tokyo, or Shenzhen rarely transfers seamlessly to New York, Chicago, or Los Angeles. American buyers demand immediate product availability, transparent wholesale terms, aggressive warranty support, and absolute legal compliance.',
-  overviewTitle: 'Specialized playbooks for European and Chinese manufacturers.',
-  overview:
-    'European and Asian manufacturers face fundamentally distinct challenges when targeting the U.S. European firms often struggle with American commercial pacing, volume scaling, and high domestic logistics costs, while Chinese manufacturers face heightened tariff scrutiny, intellectual property skepticism, and complex brand localization hurdles. Sourcing Lab USA provides custom strategic roadmaps for both.',
-  processTitle: 'The 4-pillar international entry strategy.',
-  offerName: 'Cross-Border U.S. Market Entry Strategy',
-  offerDescription:
-    'Strategic advisory, regulatory roadmap design, commercial pricing alignment, and partner matchmaking for foreign manufacturers entering North America.',
-  focusAreas: [
+  "path": "/market-entry-consulting",
+  "journey": "market-entry",
+  "eyebrow": "Decision support · Before market-entry investment",
+  "title": "Research the U.S. opportunity before committing to a route.",
+  "directAnswer": "A useful market-entry study answers a specific commercial decision: which buyer segment to test, which products to prioritize and which route can work economically. Sourcing Lab USA scopes research around those decisions, documenting public sources, competitor observations, pricing assumptions and unresolved questions. Findings support a commercial test; they are not a forecast of guaranteed demand or a legal clearance.",
+  "intro": "Use this service when the target customer, product selection or distribution model is still uncertain. The work begins with the decision you need to make and the evidence available to make it.",
+  "overviewTitle": "A research brief that exposes its assumptions.",
+  "overview": "A competitor price observed online may exclude freight, volume discounts or distributor terms. A large addressable market does not prove that a new supplier can win business. We distinguish public observations, manufacturer-supplied information and assumptions requiring interviews or professional review. The research scope states the geography, product range, channels, sources and limitations.",
+  "processTitle": "Define the decision and build an evidence trail.",
+  "offerName": "U.S. Market Research & Feasibility",
+  "offerDescription": "Scoped market research and commercial feasibility preparation for international manufacturers considering U.S. buyer channels.",
+  "focusAreas": [
     {
-      title: 'Chinese Manufacturer Direct-to-U.S. Expansion',
-      body: 'We help Chinese factory owners move up the value chain from white-label contract manufacturing to direct U.S. commercial distribution, establishing independent brand equity and mitigating Section 301 exposure.',
+      "title": "Customer and use-case hypothesis",
+      "body": "Define buyer roles, purchase triggers, current alternatives and qualification criteria. Narrow the initial segment enough to research and contact relevant companies."
     },
     {
-      title: 'European Industrial & Premium Brand Entry',
-      body: 'We guide European manufacturers through American commercial standardizations: ANSI/ASME engineering conversions, UL certifications, imperial packaging design, and multi-state sales tax compliance.',
+      "title": "Competitive offer comparison",
+      "body": "Compare relevant product specifications, public prices, channels and positioning. Record the date and basis of each comparison and avoid presenting incomparable retail and factory prices as equivalent."
     },
     {
-      title: 'Wholesale Pricing & Distributor Margin Architecture',
-      body: 'We structure competitive U.S. wholesale pricing tiers (MSRP, MAP policies, wholesale Keystone pricing, and distributor margin allowances) to ensure your products are commercially attractive to American trade buyers.',
+      "title": "Commercial economics",
+      "body": "Model product pricing, estimated delivery costs and channel assumptions using manufacturer inputs. Show sensitivities and missing costs rather than presenting a single unsupported margin."
     },
     {
-      title: 'Commercial Risk & Product Liability Preparation',
-      body: 'We help foreign principals understand common U.S. commercial insurance conventions, standard commercial terms, and state-level compliance mandates including California Prop 65, coordinating with legal counsel when specialized legal drafting is needed.',
-    },
+      "title": "Route-to-market decision",
+      "body": "Compare a direct B2B pilot, representative support and distributor development. Assign unresolved product, import and contractual questions to the appropriate specialists."
+    }
   ],
-  briefItems: [
-    'Country of origin, manufacturing capacity, and current international export markets',
-    'Product category, existing European/Asian certifications, and patent status',
-    'Target entry segment (Industrial OEM, Commercial B2B, Retail Distribution, or Direct-to-Consumer)',
-    'Anticipated initial U.S. capital allocation and executive point of contact',
+  "briefItems": [
+    "The decision you need to make",
+    "Initial products and documented capabilities",
+    "Target buyer or channel hypothesis",
+    "Available price inputs, budget and constraints"
   ],
-  workflow: [
+  "workflow": [
     {
-      title: 'Competitive Landscape & Price Elasticity Audit',
-      body: 'We benchmark domestic U.S. competitors, analyzing their wholesale pricing structures, distribution channels, packaging aesthetics, and lead-time guarantees.',
+      "title": "Scope the research question",
+      "body": "Agree the product range, segment, geography, evidence sources and deliverable. State what the research cannot establish."
     },
     {
-      title: 'Regulatory & Certification Gap Review',
-      body: 'We review your existing CE, ISO, or CCC documentation to identify potential gaps against common U.S. compliance benchmarks (such as UL, ETL, NSF, FDA, or FCC standards).',
+      "title": "Collect and compare evidence",
+      "body": "Record public competitor offers and available industry evidence. Interview or outreach work is included only where explicitly scoped."
     },
     {
-      title: 'Commercial Distribution Model Design',
-      body: 'We define the optimal commercial channel: direct sales rep networks, master stocking distributors, hybrid 3PL e-commerce fulfillment, or OEM partnership licensing.',
+      "title": "Test the economics",
+      "body": "Use consistent pricing and delivery assumptions. Flag missing buyer or distributor terms and specialist review needs."
     },
     {
-      title: 'Go-to-Market Pilot Launch & Outreach',
-      body: 'We launch a structured 90-day pilot program targeting prospective commercial buyers with Americanized sales collateral and sample kits.',
-    },
+      "title": "Recommend a commercial test",
+      "body": "Summarize findings, uncertainties and a practical next step. Proceed, revise or stop based on evidence rather than an assumed market size."
+    }
   ],
-  benchmarks: [
+  "faqs": [
     {
-      label: 'Strategic roadmap delivery',
-      value: '3 to 4 weeks',
-      qualifier: 'Full market analysis, regulatory audit, wholesale pricing matrix, and channel design.',
+      "question": "Does a feasibility study prove that U.S. customers will buy?",
+      "answer": "No. Desk research can identify plausible segments and assumptions. Direct buyer feedback and an executable product offer are needed to test demand. Research findings should state their evidence and limitations."
     },
     {
-      label: 'Wholesale pricing alignment',
-      value: 'Keystone margin standard',
-      qualifier: 'Modeling 50% retail margins and 20–35% distributor margins across all target SKUs.',
+      "question": "What information should a manufacturer provide?",
+      "answer": "Provide a product catalog, capabilities, available product evidence, sample terms, export pricing, existing channels and the decision you are trying to make. Identify which figures are current quotes and which are estimates."
     },
     {
-      label: 'Pilot buyer outreach',
-      value: 'Month 2 to Month 3',
-      qualifier: 'Targeted outreach to prospective commercial distributors and relevant retail category buyers.',
-    },
+      "question": "How does this differ from sales representation?",
+      "answer": "Research supports a go-to-market decision. Representation is an ongoing commercial activity with agreed outreach, follow-up and reporting. A research project does not automatically include a representation mandate or distributor introductions."
+    }
   ],
-  benchmarksNote:
-    'All strategic recommendations are accompanied by actionable operational blueprints and verified vendor contacts.',
-  hideShowcase: true,
-  faqs: [
+  "briefTitle": "Scope a U.S. market research brief.",
+  "briefIntro": "Tell us which products and buyers you are considering, and what decision the research needs to support.",
+  "relatedPages": [
     {
-      question: 'How can a Chinese manufacturing company enter the U.S. market successfully?',
-      answer:
-        'A Chinese manufacturer can succeed in the U.S. by: (1) establishing a distinct, trademarked brand identity rather than selling unbranded commodities, (2) securing independent U.S. product liability insurance, (3) stocking inventory inside domestic U.S. warehouses to eliminate 40-day transpacific lead times for buyers, and (4) partnering with an experienced U.S.-based commercial partner to handle customer relationships and contract negotiation.',
+      "href": "/us-market-entry",
+      "title": "Market-entry preparation",
+      "description": "Turn the research decision into an initial commercial plan."
     },
     {
-      question: 'What are the main regulatory hurdles for European companies entering the USA?',
-      answer:
-        'European companies frequently face hurdles with: (1) CE marking not being recognized by U.S. authorities (requiring OSHA Nationally Recognized Testing Laboratories like UL or ETL), (2) metric packaging violating the Fair Packaging and Labeling Act (requiring imperial units), and (3) stringent state-level regulations like California’s Safe Drinking Water and Toxic Enforcement Act (Prop 65).',
+      "href": "/us-sales-representation",
+      "title": "Ongoing sales representation",
+      "description": "Define a recurring prospecting and reporting scope."
     },
     {
-      question: 'What is Keystone pricing and why is it important in the United States?',
-      answer:
-        'Keystone pricing is the standard American retail pricing benchmark where a retail store marks up merchandise by 100% of wholesale cost (a 50% gross margin). Foreign manufacturers must price their goods so that after distributor cuts (20–30%) and retailer Keystone margins, the final retail price remains competitive in the marketplace.',
-    },
-    {
-      question: 'How does Sourcing Lab USA support international companies entering the U.S.?',
-      answer:
-        'We support market entry through: market feasibility studies, regulatory compliance roadmaps, tariff classification assistance, 3PL warehouse onboarding support, commercial sales collateral development, and commercial representation support.',
-    },
-    {
-      question: 'Do we need a physical office or American employees to enter the U.S. market?',
-      answer:
-        'No. By coordinating an appropriate U.S. importer-of-record structure, domestic third-party logistics (3PL) warehousing, and independent commercial representation support, international manufacturers can achieve substantial commercial scale without the expense and complexity of physical American brick-and-mortar entities.',
-    },
+      "href": "/tools/us-market-entry-assessment",
+      "title": "Free readiness assessment",
+      "description": "Identify missing evidence and documents."
+    }
   ],
-  briefTitle: 'Request a U.S. market entry strategy session.',
-  briefIntro:
-    'Tell us about your manufacturing capabilities, existing export markets, and U.S. expansion goals. We will review your product catalog and propose a strategic entry roadmap.',
-  relatedPages: [
+  "hideShowcase": true,
+  "benchmarks": [
     {
-      href: '/us-market-entry',
-      title: 'U.S. Market Entry Overview',
-      description: 'Comprehensive operational and regulatory execution for international companies.',
+      "label": "Current delivery",
+      "value": "International coordination",
+      "qualifier": "Current projects contracted and invoiced through the company in France or China named in your proposal."
     },
     {
-      href: '/us-sales-representation',
-      title: 'U.S. Sales Representation',
-      description: 'Dedicated commercial representation and buyer access for foreign manufacturers.',
+      "label": "U.S. presence",
+      "value": "Miami planned for 2027",
+      "qualifier": "The proposed expansion is separate from services available today."
     },
     {
-      href: '/landed-cost-analysis',
-      title: 'Landed Cost Analysis',
-      description: 'Model wholesale margins, tariffs, and distribution costs.',
-    },
-    {
-      href: '/hs-code-consulting',
-      title: 'HS Code & Customs Consulting',
-      description: 'Optimize customs tariffs and maintain absolute U.S. trade compliance.',
-    },
+      "label": "Commercial commitment",
+      "value": "Scope agreed first",
+      "qualifier": "Deliverables, timing, responsibilities and pricing are documented before work begins."
+    }
   ],
+  "benchmarksNote": "Timing, specialist involvement and deliverables are established for the engagement. No buyer response or sales outcome is guaranteed."
 };
 
-export default function MarketEntryConsultingPage() {
-  return <ServiceLandingPage page={page} />;
-}
+export default function Page() { return <ServiceLandingPage page={page} />; }

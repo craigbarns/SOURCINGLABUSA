@@ -36,7 +36,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/industries/building-materials',
     '/industries/furniture',
     '/industries/private-label',
-    '/tools/hs-code-finder',
   ].map((path) => ({
     url: `${marketingOrigin}${path}`,
     changeFrequency: 'weekly' as const,
@@ -67,7 +66,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${marketingOrigin}/zh`,
-      alternates: { languages: homeLanguages },
       changeFrequency: 'weekly',
       priority: 0.9,
     },
@@ -76,12 +74,17 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: 'weekly',
       priority: 0.9,
     },
-    { url: `${marketingOrigin}/about`, lastModified: '2026-09-14' },
-    ...['/how-we-work', '/editorial-policy', '/contact-us'].map((path) => ({
+    // Only articles carry documented modification dates in their frontmatter.
+    // Do not give static pages a fabricated date or refresh it on every build.
+    ...['/about', '/how-we-work', '/editorial-policy', '/contact-us'].map((path) => ({
       url: `${marketingOrigin}${path}`,
-      lastModified: '2026-09-14',
     })),
     ...serviceUrls,
+    ...['/tools/landed-cost-calculator', '/tools/us-market-entry-assessment'].map((path) => ({
+      url: `${marketingOrigin}${path}`,
+      changeFrequency: 'monthly' as const,
+      priority: 0.8,
+    })),
     ...blogUrls,
     // Listed only once real, approved projects exist (src/lib/case-studies.ts).
     ...(CASE_STUDIES.length > 0

@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'unsafe-inline'; script-src 'unsafe-inline'; connect-src 'none'; img-src data:; base-uri 'none'; form-action 'none'">
+<title>Sourcing Lab USA — Suivi acquisition</title>
+<style>
+:root{color-scheme:light;--ink:#20382e;--muted:#657269;--paper:#f5f3ec;--line:#d8ded2;--accent:#2c503c}*{box-sizing:border-box}body{margin:0;background:var(--paper);color:var(--ink);font:15px/1.6 system-ui,sans-serif}main{max-width:1220px;margin:auto;padding:52px 28px 80px}h1{font-size:clamp(30px,5vw,54px);line-height:1.12;letter-spacing:-.045em;font-weight:550;margin:14px 0 22px}h2{font-size:22px;line-height:1.3;letter-spacing:-.025em;font-weight:600;margin:0 0 16px}p{margin:0 0 16px}small,.muted{color:var(--muted)}.eyebrow{font-size:11px;letter-spacing:.16em;text-transform:uppercase;font-weight:700}.intro{max-width:830px}.badge{display:inline-block;border:1px solid var(--line);border-radius:30px;padding:5px 10px;font-size:12px}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:28px 0}.card,.panel{border:1px solid var(--line);background:#fffdf8;border-radius:12px;padding:22px}.card h2{font-size:13px;letter-spacing:0;font-weight:600}.card strong{display:block;font-size:26px;letter-spacing:-.02em;margin:6px 0}.card small{display:block;font-size:12px;overflow-wrap:anywhere}.panel{margin-top:20px}.toolbar{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin:18px 0}button,.file-button{border:1px solid var(--accent);border-radius:6px;min-height:42px;padding:10px 16px;background:var(--accent);color:white;font:600 13px system-ui;cursor:pointer}.secondary{background:transparent;color:var(--ink);border-color:var(--line)}.danger{color:#8b362d}button:focus-visible,input:focus-visible,select:focus-visible,textarea:focus-visible,.file-button:focus-within{outline:3px solid #6a935a;outline-offset:3px}button:disabled{cursor:not-allowed;opacity:.5}label{display:block;font-size:12px;font-weight:600;margin-bottom:6px}input,select,textarea{display:block;width:100%;min-height:44px;background:white;color:var(--ink);border:1px solid #bbc7b8;border-radius:5px;padding:10px;font:14px system-ui}textarea{resize:vertical}.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.wide{grid-column:span 2}.full{grid-column:1/-1}.table-wrap{overflow-x:auto}table{width:100%;border-collapse:collapse;font-size:13px}th,td{padding:12px 10px;text-align:left;border-bottom:1px solid var(--line);vertical-align:top}th{font-weight:650;white-space:nowrap}.value{font-variant-numeric:tabular-nums;font-weight:650}.delete{min-height:32px;padding:6px 9px;background:transparent;color:#8b362d;border-color:#d8b4a7;font-size:12px}.status{padding:14px 0;min-height:46px;font-size:13px}.hint{font-size:12px;margin-top:6px}.hidden{display:none!important}details{margin-top:20px}summary{cursor:pointer;font-weight:600}.code{font-family:ui-monospace,monospace;overflow-wrap:anywhere;font-size:12px}footer{font-size:12px;color:var(--muted);margin-top:28px;border-top:1px solid var(--line);padding-top:20px}@media(max-width:760px){main{padding:30px 16px 60px}.cards{grid-template-columns:repeat(2,1fr)}.grid{grid-template-columns:1fr}.wide{grid-column:auto}.card,.panel{padding:17px}}@media(max-width:430px){.cards{grid-template-columns:1fr}}
+</style>
+</head>
+<body><main>
+<span class="eyebrow">Sourcing Lab USA · Document interne</span>
+<h1>Mesurer les opportunités.<br>Documenter la progression.</h1>
+<p class="intro">Le résultat principal est une opportunité B2B qualifiée : entreprise identifiable, besoin correspondant à l’offre, projet exploitable, interlocuteur pertinent et prochaine étape acceptée. Une soumission acceptée reste un lead jusqu’à cette qualification.</p>
+<span class="badge">Hors ligne · Aucun compte connecté · Aucun envoi réseau</span>
+<p class="muted hint">Données conservées uniquement dans ce navigateur lorsque le stockage local est disponible. Exportez régulièrement un CSV. N’ajoutez ni coordonnées clients, ni informations confidentielles. Aucune mesure de départ n’est préremplie.</p>
+<div class="toolbar"><label for="scope-filter">Périmètre affiché</label><select id="scope-filter" style="width:auto;max-width:100%"><option value="">Tous les périmètres — pas d’agrégation</option></select></div>
+<div class="cards" id="cards" aria-label="Dernières observations mesurées"></div>
+<section class="panel" aria-labelledby="data-title"><h2 id="data-title">Historique des observations</h2>
+<p class="muted">Chaque ligne conserve sa période, sa source et son périmètre. Une case vide signifie « non mesuré ». Un zéro saisi signifie « mesuré : aucun ». Les chiffres de sources ou périmètres différents ne sont jamais additionnés automatiquement.</p>
+<div class="toolbar"><button type="button" id="export" class="secondary">Exporter le CSV</button><button type="button" id="template" class="secondary">Télécharger le modèle vide</button><label class="file-button secondary" for="import" style="margin:0">Importer un CSV<input id="import" type="file" accept=".csv,text/csv" style="position:absolute;width:1px;height:1px;min-height:0;opacity:0;padding:0;border:0"></label><button type="button" id="clear" class="secondary danger">Effacer les observations</button></div>
+<p id="status" class="status" role="status" aria-live="polite"></p>
+<p id="empty" class="muted">Aucune observation enregistrée. Ajoutez une mesure réelle ou importez le modèle complété.</p>
+<div id="table-wrap" class="table-wrap hidden"><table><caption style="text-align:left;padding:0 10px 10px">Observations saisies — sans estimation automatique</caption><thead><tr><th scope="col">Mois</th><th scope="col">Indicateur</th><th scope="col">Valeur</th><th scope="col">Périmètre / page</th><th scope="col">Source et date</th><th scope="col">Notes</th><th scope="col">Action</th></tr></thead><tbody id="rows"></tbody></table></div>
+</section>
+<section class="panel" aria-labelledby="add-title"><h2 id="add-title">Ajouter une observation</h2>
+<p class="muted">Relevez les données depuis un export Search Console, Bing, analytics consenti ou votre registre commercial. Renseignez les filtres employés : pays, marque / non-marque, canal, page et définition du décompte.</p>
+<form id="entry"><div class="grid">
+<div><label for="month">Mois observé *</label><input id="month" name="month" type="month" required></div>
+<div class="wide"><label for="metric">Indicateur *</label><select id="metric" name="metric" required></select></div>
+<div><label for="value">Valeur mesurée</label><input id="value" name="value" type="number" min="0" step="1" placeholder="Non mesuré"><p class="hint muted">Laissez vide si la donnée manque.</p></div>
+<div class="wide"><label for="scope">Périmètre exact *</label><input id="scope" name="scope" maxlength="180" required placeholder="Ex. Site entier · États-Unis · non-marque"></div>
+<div><label for="source">Source / export *</label><input id="source" name="source" maxlength="180" required placeholder="Ex. Search Console · export mensuel"></div>
+<div><label for="source_date">Date du relevé *</label><input id="source_date" name="source_date" type="date" required></div>
+<div><label for="landing_page">Page d’entrée (facultative)</label><input id="landing_page" name="landing_page" maxlength="300" placeholder="/china-sourcing"></div>
+<div class="full"><label for="notes">Méthode, filtres et limites (facultatif)</label><textarea id="notes" name="notes" maxlength="1200" rows="2" placeholder="Ex. Leads dédupliqués et qualifiés manuellement ; le consentement limite l’analytics."></textarea></div>
+</div><div class="toolbar"><button type="submit">Enregistrer l’observation</button></div></form>
+</section>
+<details class="panel"><summary>Définitions et format d’import</summary>
+<p style="margin-top:18px"><strong>Opportunités qualifiées :</strong> qualification humaine dans le registre commercial, séparée par pilier. <strong>Conversions :</strong> soumissions effectivement acceptées, dédupliquées ; n’indiquent ni vente ni opportunité qualifiée. <strong>Organique :</strong> préciser États-Unis, non-marque et moteur. <strong>Citations IA :</strong> préciser le rapport Bing ou le panel réellement testé ; une citation n’est pas un classement.</p>
+<p>CSV UTF-8 avec en-tête exact ci-dessous. Les champs entre guillemets peuvent contenir virgules et retours à la ligne. Le modèle vide contient seulement l’en-tête. Import cumulatif : les lignes déjà présentes à l’identique sont ignorées. Une valeur vide est conservée comme non mesurée. L’import complet est annulé si une ligne est invalide.</p>
+<p class="code">month,metric,value,source,source_date,scope,landing_page,notes</p>
+<p id="metric-keys" class="code"></p>
+<p class="muted">Choisir une date de relevé ne certifie pas les données : conservez l’export et les filtres dans votre espace interne. N’enregistrez pas les exports contenant des informations clients dans un dépôt public. Le fichier ne calcule pas de taux entre sources dont les dénominateurs diffèrent.</p>
+</details>
+<footer>Outil interne préparé le 21 octobre 2026. Aucune donnée commerciale, statistique de recherche ou citation IA n’est inventée. L’effacement nécessite une confirmation et ne touche que les observations de ce navigateur.</footer>
+</main>
+<script>
+'use strict';
+const STORAGE_KEY='sourcinglabusa-acquisition-observations-v1';
+const columns=['month','metric','value','source','source_date','scope','landing_page','notes'];
+const metrics={qualified_sourcing_leads:'Opportunités sourcing qualifiées',qualified_market_entry_leads:'Opportunités market entry qualifiées',organic_clicks:'Clics organiques',organic_impressions:'Impressions organiques',accepted_submissions:'Conversions · soumissions acceptées',ai_citations:'Citations IA observées',form_starts:'Démarrages de formulaire',google_ai_impressions:'Impressions IA Google',indexed_pages:'Pages canoniques indexées',ai_questions_tested:'Questions IA réellement testées',ai_referral_qualified_leads:'Opportunités qualifiées via référent IA',paid_engagements:'Commandes / engagements payés'};
+const cardKeys=Object.keys(metrics).slice(0,6);
+const $=id=>document.getElementById(id);
+let observations=[];
+let storageAvailable=true;
+function say(message){$('status').textContent=message;}
+function validDate(date){return /^\d{4}-\d{2}-\d{2}$/.test(date)&&!Number.isNaN(Date.parse(date+'T00:00:00Z'))&&new Date(date+'T00:00:00Z').toISOString().slice(0,10)===date;}
+function validate(row){
+ const out={};for(const key of columns)out[key]=String(row[key]??'').trim();
+ if(!/^\d{4}-(0[1-9]|1[0-2])$/.test(out.month))throw Error('Mois invalide : format AAAA-MM attendu.');
+ if(!Object.hasOwn(metrics,out.metric))throw Error('Indicateur inconnu : '+out.metric);
+ if(out.value!==''&&(!/^\d+$/.test(out.value)||!Number.isSafeInteger(Number(out.value))))throw Error('La valeur doit être un entier positif, zéro ou vide.');
+ if(!out.source||out.source.length>180||!out.scope||out.scope.length>180)throw Error('Source et périmètre requis, 180 caractères maximum.');
+ if(!validDate(out.source_date))throw Error('Date de relevé invalide : format AAAA-MM-JJ attendu.');
+ if(out.landing_page.length>300||out.notes.length>1200)throw Error('Page ou notes trop longues.');
+ if(out.landing_page&&!out.landing_page.startsWith('/'))throw Error('La page d’entrée doit être un chemin du site commençant par /.');
+ if(out.value!=='')out.value=String(Number(out.value));
+ return out;
+}
+function rowKey(row){return JSON.stringify(columns.map(key=>row[key]));}
+function save(){try{localStorage.setItem(STORAGE_KEY,JSON.stringify(observations));storageAvailable=true;}catch{storageAvailable=false;say('Stockage local indisponible : les observations restent en mémoire pendant cette session. Exportez un CSV pour les conserver.');}}
+function cell(text,className){const td=document.createElement('td');td.textContent=text;if(className)td.className=className;return td;}
+function render(){
+ const oldFilter=$('scope-filter').value;
+ $('scope-filter').replaceChildren(new Option('Tous les périmètres — pas d’agrégation',''));
+ [...new Set(observations.map(row=>row.scope))].sort().forEach(scope=>$('scope-filter').add(new Option(scope,scope)));
+ if([...$('scope-filter').options].some(option=>option.value===oldFilter))$('scope-filter').value=oldFilter;
+ const filter=$('scope-filter').value;
+ const rows=observations.map((row,index)=>({...row,index})).filter(row=>!filter||row.scope===filter).sort((a,b)=>b.month.localeCompare(a.month)||b.source_date.localeCompare(a.source_date));
+ $('cards').replaceChildren();
+ for(const key of cardKeys){
+  const card=document.createElement('article');card.className='card';const heading=document.createElement('h2');heading.textContent=metrics[key];const value=document.createElement('strong');const detail=document.createElement('small');
+  const measured=rows.filter(row=>row.metric===key&&row.value!=='');
+  if(!measured.length){value.textContent='Non mesuré';detail.textContent='Aucune valeur documentée pour ce périmètre.';}
+  else{const latestMonth=measured[0].month;const latest=measured.filter(row=>row.month===latestMonth);if(latest.length===1){const row=latest[0];value.textContent=Number(row.value).toLocaleString('fr-FR');detail.textContent=row.month+' · '+row.scope+' · '+row.source+' · relevé '+row.source_date+(row.landing_page?' · '+row.landing_page:'');}else{value.textContent=latest.length+' observations';detail.textContent=latestMonth+' · Plusieurs sources, pages ou périmètres : voir le tableau, aucun total automatique.';}}
+  card.append(heading,value,detail);$('cards').append(card);
+ }
+ $('rows').replaceChildren();$('empty').classList.toggle('hidden',rows.length>0);$('table-wrap').classList.toggle('hidden',rows.length===0);
+ for(const row of rows){const tr=document.createElement('tr');tr.append(cell(row.month),cell(metrics[row.metric]),cell(row.value===''?'Non mesuré':Number(row.value).toLocaleString('fr-FR'),'value'),cell(row.scope+(row.landing_page?'\n'+row.landing_page:'')),cell(row.source+'\nRelevé : '+row.source_date),cell(row.notes));const action=cell('');const button=document.createElement('button');button.type='button';button.className='delete';button.textContent='Supprimer';button.setAttribute('aria-label','Supprimer '+metrics[row.metric]+' — '+row.month+' — '+row.source);button.addEventListener('click',()=>{observations.splice(row.index,1);save();render();if(storageAvailable)say('Observation supprimée.');});action.append(button);tr.append(action);$('rows').append(tr);}
+ $('export').disabled=observations.length===0;$('clear').disabled=observations.length===0;
+}
+function csvField(value){let text=String(value);if(/^[=+@\-\t\r]/.test(text))text="'"+text;return '"'+text.replaceAll('"','""')+'"';}
+function download(name,content){const url=URL.createObjectURL(new Blob(['\uFEFF'+content],{type:'text/csv;charset=utf-8'}));const anchor=document.createElement('a');anchor.href=url;anchor.download=name;document.body.append(anchor);anchor.click();anchor.remove();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+function parseCsv(text){
+ const rows=[];let row=[],field='',quoted=false,closed=false;text=text.replace(/^\uFEFF/,'');
+ for(let i=0;i<text.length;i++){const char=text[i];if(quoted){if(char==='"'){if(text[i+1]==='"'){field+='"';i++;}else{quoted=false;closed=true;}}else field+=char;continue;}
+ if(char==='"'){if(field||closed)throw Error('Guillemets CSV invalides.');quoted=true;}else if(char===','){row.push(field);field='';closed=false;}else if(char==='\n'||char==='\r'){if(char==='\r'&&text[i+1]==='\n')i++;row.push(field);if(row.some(value=>value!==''))rows.push(row);row=[];field='';closed=false;}else{if(closed)throw Error('Texte inattendu après un champ entre guillemets.');field+=char;}}
+ if(quoted)throw Error('Champ CSV entre guillemets non terminé.');if(field||row.length){row.push(field);if(row.some(value=>value!==''))rows.push(row);}return rows;
+}
+$('entry').addEventListener('submit',event=>{event.preventDefault();try{const row=validate(Object.fromEntries(new FormData(event.currentTarget)));if(observations.some(old=>rowKey(old)===rowKey(row))){say('Cette observation existe déjà.');return;}observations.push(row);save();render();if(storageAvailable)say('Observation enregistrée localement.');event.currentTarget.reset();}catch(error){say(error.message);}});
+$('scope-filter').addEventListener('change',render);
+$('export').addEventListener('click',()=>download('sourcinglab-acquisition-'+new Date().toISOString().slice(0,10)+'.csv',[columns.join(','),...observations.map(row=>columns.map(key=>csvField(row[key])).join(','))].join('\r\n')+'\r\n'));
+$('template').addEventListener('click',()=>download('sourcinglab-modele-vide.csv',columns.join(',')+'\r\n'));
+$('import').addEventListener('change',async event=>{const file=event.target.files[0];if(!file)return;try{if(file.size>1024*1024)throw Error('CSV trop volumineux : maximum 1 Mo.');const rows=parseCsv(await file.text());if(!rows.length||rows[0].join(',')!==columns.join(','))throw Error('En-tête invalide. Téléchargez le modèle vide pour obtenir le format exact.');const incoming=rows.slice(1).map((values,index)=>{if(values.length!==columns.length)throw Error('Ligne '+(index+2)+' : nombre de colonnes invalide.');try{return validate(Object.fromEntries(columns.map((key,i)=>[key,values[i]])));}catch(error){throw Error('Ligne '+(index+2)+' : '+error.message);}});const keys=new Set(observations.map(rowKey));let added=0;for(const row of incoming){if(!keys.has(rowKey(row))){observations.push(row);keys.add(rowKey(row));added++;}}save();render();if(storageAvailable)say(added+' observation(s) importée(s), '+(incoming.length-added)+' doublon(s) ignoré(s).');}catch(error){say('Import annulé : '+error.message);}finally{event.target.value='';}});
+$('clear').addEventListener('click',()=>{if(confirm('Effacer toutes les observations de ce navigateur ? Exportez un CSV avant de continuer.')){observations=[];save();render();if(storageAvailable)say('Observations effacées de ce navigateur.');}});
+for(const[key,label]of Object.entries(metrics))$('metric').add(new Option(label,key));
+$('metric').selectedIndex=-1;
+$('metric-keys').textContent='Clés autorisées : '+Object.keys(metrics).join(', ');
+try{const stored=localStorage.getItem(STORAGE_KEY);if(stored){const parsed=JSON.parse(stored);if(!Array.isArray(parsed))throw Error();observations=parsed.map(validate);}}catch{storageAvailable=false;say('Données locales indisponibles ou invalides. Aucun relevé n’a été inventé. Vous pouvez repartir d’un export CSV.');}
+render();
+</script></body></html>

@@ -5,8 +5,8 @@ import { pageMetadata } from '@/lib/seo';
 // Netlify serves public/contact.html at /contact through Pretty URLs.
 // Preserve that existing form endpoint and keep this page on a distinct URL.
 const path = '/contact-us';
-const title = 'Discuss Your China Sourcing Project';
-const description = 'Send Sourcing Lab USA your product, quantity and requirements for a China sourcing and supply discussion. Packaging and textiles are core specialties; other products are assessed for feasibility.';
+const title = 'Request a Sourcing Quote';
+const description = 'Tell us about your product, specifications and estimated quantity. Request a sourcing and product supply quote for your U.S. business.';
 export const metadata = pageMetadata({ path, title, description });
 
 export default function ContactPage() {
@@ -28,5 +28,9 @@ Current projects are contracted and invoiced through France or China, with the c
 Write to [contact@sourcinglabusa.com](mailto:contact@sourcinglabusa.com). Include your company, product and approximate quantity so the conversation can begin with a concrete brief. Please avoid sending sensitive identity or banking documents with an initial inquiry.
 
 See [how we handle project details](/privacy).
+
+## A separate inquiry for manufacturers
+
+Manufacturing overseas and looking for American customers? Use the [dedicated market-entry form](/us-market-entry#contact). The sourcing form below is for business buyers requesting products.
 `}</GuideMarkdown></InformationPage>;
 }

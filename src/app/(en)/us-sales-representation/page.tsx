@@ -2,143 +2,125 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'U.S. Sales Representation for Foreign Manufacturers | Sourcing Lab USA',
-  description:
-    'Dedicated U.S. sales representation and commercial agent services for international manufacturers. Direct access to American retail buyers, wholesale distributors, and B2B clients.',
-  path: '/us-sales-representation',
+  "title": "U.S. Sales Representation for Foreign Manufacturers",
+  "description": "Explore B2B prospecting and sales representation for international manufacturers: buyer research, commercial materials and follow-up, with a scoped monthly retainer.",
+  "path": "/us-sales-representation"
 });
 
 const page: ServicePageContent = {
-  path: '/us-sales-representation',
-  eyebrow: 'Commercial Representation · U.S. Buyer Access',
-  title: 'U.S. Sales Representation for Foreign Manufacturers',
-  directAnswer:
-    'U.S. sales representation is a commercial agency service where an experienced American sales firm acts as the local commercial representative for an international manufacturer. The sales representative bridges the gap between overseas factory production and American commercial buyers: pitching wholesale distributors, managing trade negotiations, attending domestic trade events, handling buyer communications in the U.S. timezone, and securing recurring purchase orders on behalf of the manufacturer.',
-  intro:
-    'For overseas factories, winning business from American enterprise buyers from thousands of miles away is notoriously difficult. American procurement directors hesitate to wire deposits to foreign entities, deal with 12-hour time-zone delays, or navigate language barriers when resolving production emergencies. Having an operational, credible commercial representative on the ground in the United States removes much of that friction.',
-  overviewTitle: 'Dedicated commercial representation for capable manufacturers.',
-  overview:
-    'Sourcing Lab USA supports international manufacturers seeking local commercial representation in the United States. For manufacturers with capable production facilities, competitive unit economics, and compliant goods, we provide structured commercial agency support: assisting with buyer outreach, preparing professional sales collateral, and supporting negotiations with American corporate buyers.',
-  processTitle: 'The 4-stage commercial sales representation model.',
-  offerName: 'Manufacturer Sales Representation in the United States',
-  offerDescription:
-    'B2B commercial representation, distributor outreach, sales collateral development, and communication support for foreign manufacturers targeting the U.S. market.',
-  focusAreas: [
+  "path": "/us-sales-representation",
+  "journey": "market-entry",
+  "eyebrow": "For manufacturers · U.S. commercial development",
+  "title": "Build a repeatable approach to American B2B buyers.",
+  "directAnswer": "A manufacturer sales representative develops buyer relationships for a manufacturer under an agreed commercial scope. Sourcing Lab USA offers U.S.-focused buyer research, sales preparation, outreach and follow-up for suitable international manufacturers. An engagement may combine a monthly retainer with an agreed commission. Current work is contracted through France or China; this does not imply an existing U.S. sales office or a guaranteed order.",
+  "intro": "For manufacturers ready to commit time, samples and commercial resources to U.S. business development. Begin with a fit assessment before agreeing a recurring engagement.",
+  "overviewTitle": "A monthly commercial process with clear accountability.",
+  "overview": "Representation works when the product scope, target buyers, follow-up responsibilities and reporting are explicit. A proposed monthly cycle can cover prospect research, agreed outreach, responses, sample coordination and an opportunity review. The work plan is tailored to the product and buying cycle. Activity targets and meeting availability are agreed in the proposal; neither a buyer response nor a purchase order can be promised.",
+  "processTitle": "Agree the scope, test the offer and review the pipeline.",
+  "offerName": "U.S. Sales Representation",
+  "offerDescription": "U.S.-focused B2B prospecting, buyer communications and commercial follow-up for international manufacturers under a written representation engagement.",
+  "focusAreas": [
     {
-      title: 'Targeted B2B Buyer Outreach',
-      body: 'We identify and pitch senior procurement directors, retail category managers, and regional wholesale distributors across North America who actively purchase your product category.',
+      "title": "Prospect qualification",
+      "body": "Define target company types, roles, territories and exclusions. Research product fit and publicly evidenced channel activity before adding a prospect to the working list."
     },
     {
-      title: 'Real-Time U.S. Timezone Communications',
-      body: 'We eliminate the response lag that slows deals down. Our commercial team answers buyer technical questions, coordinates sample shipments, and supports commercial discussions during standard American business hours.',
+      "title": "Buyer-ready materials",
+      "body": "Develop English line sheets, product specifications, sample availability and a consistent quotation basis. Claims and certifications need supporting evidence supplied by the manufacturer."
     },
     {
-      title: 'Americanized Commercial Collateral',
-      body: 'We transform overseas factory catalogs into high-converting American B2B sales sheets, line cards, sample presentations, and wholesale pricing rate cards adhering to U.S. commercial norms.',
+      "title": "Outreach and follow-up",
+      "body": "Agree a relevant introduction and a follow-up process. Coordinate buyer questions and sample requests with the manufacturer. Communication windows and any travel are separately agreed; no standing U.S. workforce is implied."
     },
     {
-      title: 'Contract & Commercial Term Structuring',
-      body: 'We help negotiate purchase order terms, payment security mechanisms (letters of credit, wire milestones, escrow), and volume pricing structures that protect factory cash flow while satisfying buyer requirements.',
-    },
+      "title": "Reporting and commercial handover",
+      "body": "Review contacted prospects, responses, qualified opportunities, objections and next actions. Define who approves quotes, signs supply contracts, invoices the buyer and handles delivery or after-sales issues."
+    }
   ],
-  briefItems: [
-    'Manufacturer profile, factory location, annual production capacity, and employee headcount',
-    'Primary product lines, technical catalogs, sample availability, and international certifications',
-    'Existing export volume (if any) and current pricing structures (FOB port of origin)',
-    'Target industry sectors and preferred commercial arrangement in the United States',
+  "briefItems": [
+    "Manufacturing location, capabilities and priority product lines",
+    "Evidence, English catalog and sample availability",
+    "Current export activity and target American buyers",
+    "Expansion objectives, budget and proposed commercial responsibilities"
   ],
-  workflow: [
+  "workflow": [
     {
-      title: 'Factory Audit & Catalog Selection',
-      body: 'We review your manufacturing credentials, verify product quality standards, and select the top 20% of your product catalog with the strongest competitive advantage in the U.S. market.',
+      "title": "Confirm manufacturer and offer fit",
+      "body": "Review capabilities, product evidence, sample readiness and economics. Identify gaps before accepting an outreach mandate."
     },
     {
-      title: 'U.S. Commercial Positioning & Collateral',
-      body: 'We build professional American line sheets, calculate FOB and DDP price matrices, and assemble physical sample presentation kits for prospective buyers.',
+      "title": "Document the representation plan",
+      "body": "Agree products, territory, exclusions, deliverables, reporting and authorized communications. Fees, commission triggers and any exclusivity require a written proposal."
     },
     {
-      title: 'Active Prospecting & Buyer Introductions',
-      body: 'We conduct targeted outreach to prospective distributors, retail chains, and commercial procurement managers, organizing structured product introductions.',
+      "title": "Run the agreed prospecting cycle",
+      "body": "Research and contact relevant prospective buyers within the agreed scope. Track responses and reasons for disqualification; do not treat a contact list as a sales pipeline."
     },
     {
-      title: 'Sample Coordination & Commercial Support',
-      body: 'We coordinate buyer sample evaluations, assist with technical discussions between buyers and factory engineers, and support commercial negotiations through to purchase orders.',
-    },
+      "title": "Review opportunities and renew the plan",
+      "body": "Review progress, qualified conversations and commercial blockers. Decide what to adjust before the next cycle rather than assuming that outreach guarantees orders."
+    }
   ],
-  benchmarks: [
+  "faqs": [
     {
-      label: 'Onboarding & collateral prep',
-      value: '2 to 3 weeks',
-      qualifier: 'Catalog selection, wholesale pricing matrix, sample kits, and pitch materials.',
+      "question": "How much does a U.S. sales representative cost?",
+      "answer": "The cost depends on the product, target buyers, territory and workload. A representation proposal may include a monthly retainer for agreed commercial work and a commission on defined sales. No fixed price or commission percentage is published here. Review the services covered, expenses, termination provisions and commission triggers before committing."
     },
     {
-      label: 'Buyer outreach campaign',
-      value: 'Continuous monthly cycles',
-      qualifier: 'Targeting 50 to 100 verified commercial distributors and retail category buyers per month.',
+      "question": "Is a sales representative the same as a distributor?",
+      "answer": "A representative generally supports the selling relationship under an agency or services agreement. A distributor may purchase and resell products, carry inventory and set its own resale terms. The precise responsibilities depend on the contract. Decide which model fits your delivery capacity and channel economics."
     },
     {
-      label: 'Sales cycle to first PO',
-      value: '60 to 120 days',
-      qualifier: 'Dependent on industry buying cycles, sample approvals, and vendor onboarding protocols.',
+      "question": "Will you guarantee sales or exclusive distributor agreements?",
+      "answer": "No. Prospecting can generate feedback and opportunities, but buyers decide whether to engage and purchase. We agree the work and reporting scope, not a guaranteed number of orders, a sales value or a launch deadline."
     },
+    {
+      "question": "Who signs contracts and invoices buyers?",
+      "answer": "The proposal identifies the France- or China-based company providing the representation services. Product sales may be contracted directly by the manufacturer or under a separately agreed purchase-and-resale arrangement. Buyer invoicing, import and delivery responsibilities must be defined for the transaction."
+    },
+    {
+      "question": "Can you represent Chinese and European manufacturers?",
+      "answer": "The offer is intended for international manufacturers, including China and Europe, where product fit, evidence, capacity and commercial resources support a realistic engagement. Each product range and market route is assessed before a scope is agreed."
+    }
   ],
-  benchmarksNote:
-    'We represent manufacturers on a structured retainer + success commission model, aligning our commercial incentives directly with your export sales growth.',
-  hideShowcase: true,
-  faqs: [
+  "briefTitle": "Discuss U.S. sales representation.",
+  "briefIntro": "Share your manufacturing capabilities, target American customers and expansion objectives. We will review fit before proposing a recurring scope.",
+  "relatedPages": [
     {
-      question: 'What is a manufacturer sales representative in the USA?',
-      answer:
-        'A manufacturer sales representative (or manufacturer’s rep) is an independent commercial sales agent that represents a manufacturing company’s products to wholesale distributors, commercial buyers, and retailers within a defined geographic territory. The rep acts as the local sales team, earning a combination of base representation fees and commissions on closed purchase orders.',
+      "href": "/us-market-entry",
+      "title": "U.S. market entry",
+      "description": "Prepare a defined product and channel strategy before ongoing representation."
     },
     {
-      question: 'Why do American buyers prefer working through a U.S.-based representative?',
-      answer:
-        'American buyers prefer local reps because they operate in the same timezone, speak fluent American business English, understand domestic contract and liability standards, can meet in person or attend U.S. trade shows, and provide an immediate point of contact for order status and dispute resolution.',
+      "href": "/tools/us-market-entry-assessment",
+      "title": "Readiness assessment",
+      "description": "Check whether key commercial documents and responsibilities are ready."
     },
     {
-      question: 'What qualifications must an international factory have for representation?',
-      answer:
-        'To qualify for representation through Sourcing Lab USA, a factory must have verified manufacturing assets (no trading intermediaries), proven capacity to produce consistent quality, valid international certifications, competitive export pricing, and the ability to fulfill samples within 1 to 2 weeks.',
-    },
-    {
-      question: 'How are commercial sales representation agreements structured?',
-      answer:
-        'Representation engagements are typically structured as an exclusive or non-exclusive representation agreement combining a monthly operational retainer (covering dedicated sales prospecting, CRM management, collateral creation, and trade outreach) plus an agreed percentage commission on completed sales.',
-    },
-    {
-      question: 'Who invoices the American buyer and handles the product shipments?',
-      answer:
-        'Depending on the arrangement, the manufacturer can invoice the U.S. buyer directly (with representation fees settled per contract), or transactions can be structured through mutually agreed commercial procurement agreements.',
-    },
+      "href": "/market-entry-consulting",
+      "title": "Market research brief",
+      "description": "Investigate demand assumptions and channel fit."
+    }
   ],
-  briefTitle: 'Apply for U.S. sales representation.',
-  briefIntro:
-    'Submit your factory profile, product catalog, and export capabilities. Our commercial team will evaluate market fit and discuss potential U.S. representation.',
-  relatedPages: [
+  "hideShowcase": true,
+  "benchmarks": [
     {
-      href: '/us-market-entry',
-      title: 'U.S. Market Entry Consulting',
-      description: 'Comprehensive regulatory, legal, and operational market entry execution.',
+      "label": "Current delivery",
+      "value": "International coordination",
+      "qualifier": "Current projects contracted and invoiced through the company in France or China named in your proposal."
     },
     {
-      href: '/market-entry-consulting',
-      title: 'Market Entry Strategy',
-      description: 'Strategic market sizing and commercial channel architecture for foreign brands.',
+      "label": "U.S. presence",
+      "value": "Miami planned for 2027",
+      "qualifier": "The proposed expansion is separate from services available today."
     },
     {
-      href: '/landed-cost-analysis',
-      title: 'Landed Cost Analysis',
-      description: 'Calculate wholesale pricing and distributor margins in the U.S. market.',
-    },
-    {
-      href: '/china-sourcing-agent',
-      title: 'Sourcing Agent vs Supplier',
-      description: 'Understand how international supply contracts and representation compare.',
-    },
+      "label": "Commercial commitment",
+      "value": "Scope agreed first",
+      "qualifier": "Deliverables, timing, responsibilities and pricing are documented before work begins."
+    }
   ],
+  "benchmarksNote": "Timing, specialist involvement and deliverables are established for the engagement. No buyer response or sales outcome is guaranteed."
 };
 
-export default function UsSalesRepresentationPage() {
-  return <ServiceLandingPage page={page} />;
-}
+export default function Page() { return <ServiceLandingPage page={page} />; }

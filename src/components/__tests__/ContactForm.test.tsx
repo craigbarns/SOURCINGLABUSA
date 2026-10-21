@@ -141,7 +141,7 @@ describe('ContactForm', () => {
     fetchMock.mockImplementation((target: string) =>
       Promise.resolve(
         target === '/contact.html'
-          ? ({ ok: true, status: 200, json: vi.fn() } as unknown as Response)
+          ? ({ ok: true, status: 200, text: vi.fn().mockResolvedValue('<h1>Thank you!</h1><p>Your form submission has been received.</p>') } as unknown as Response)
           : ({
               ok: false,
               status: 503,
@@ -155,6 +155,33 @@ describe('ContactForm', () => {
     await user.click(screen.getByRole('button', { name: /Send my project brief/i }));
 
     expect(await screen.findByText('Brief received.')).toBeInTheDocument();
+  });
+
+  it('does not report success when API accepted without storage and Netlify served static HTML', async () => {
+    const user = userEvent.setup();
+    fetchMock.mockImplementation((target: string) => Promise.resolve(target === '/api/contact'
+      ? { ok: true, status: 201, json: vi.fn().mockResolvedValue({ delivery: [] }) }
+      : { ok: true, status: 200, text: vi.fn().mockResolvedValue('<html>Start your project</html>') }));
+    render(<ContactForm />);
+    await fillRequiredFields(user);
+    await user.click(screen.getByRole('button', { name: /Send my project brief/i }));
+    expect(await screen.findByRole('link', { name: /Send it by email instead/i })).toBeInTheDocument();
+    expect(screen.queryByText('Brief received.')).not.toBeInTheDocument();
+    expect(screen.getByLabelText(/Work email/i)).toHaveValue('jane@example.com');
+    expect(vi.mocked(trackEvent).mock.calls.some(([name]) => name === 'generate_lead')).toBe(false);
+  });
+
+  it('carries the real honeypot field to both delivery channels', async () => {
+    const { fireEvent } = await import('@testing-library/react');
+    const user = userEvent.setup();
+    fetchMock.mockResolvedValue({ ok: true, status: 201, json: vi.fn().mockResolvedValue({ delivery: [] }), text: vi.fn().mockResolvedValue('') });
+    const { container } = render(<ContactForm />);
+    await fillRequiredFields(user);
+    fireEvent.change(container.querySelector('input[name="bot-field"]')!, { target: { value: 'automated' } });
+    await user.click(screen.getByRole('button', { name: /Send my project brief/i }));
+    await waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(2));
+    expect(JSON.parse(fetchMock.mock.calls.find(([target]) => target === '/api/contact')![1].body).botField).toBe('automated');
+    expect(new URLSearchParams(fetchMock.mock.calls.find(([target]) => target === '/contact.html')![1].body).get('bot-field')).toBe('automated');
   });
 
   it('offers an email fallback carrying the brief when delivery fails', async () => {
@@ -186,6 +213,17 @@ describe('ContactForm', () => {
       encodeURIComponent('5000 rigid boxes'),
     );
     expect(vi.mocked(trackEvent).mock.calls.some(([name]) => name === 'generate_lead')).toBe(false);
+  });
+
+  it('preserves the entered brief after aborted network requests', async () => {
+    const user = userEvent.setup();
+    fetchMock.mockRejectedValue(new DOMException('Timed out', 'AbortError'));
+    render(<ContactForm />);
+    await fillRequiredFields(user);
+    await user.click(screen.getByRole('button', { name: /Send my project brief/i }));
+    expect(await screen.findByRole('link', { name: /Send it by email instead/i })).toBeInTheDocument();
+    expect(screen.getByLabelText(/Work email/i)).toHaveValue('jane@example.com');
+    expect(screen.getByRole('button', { name: /Send my project brief/i })).toBeEnabled();
   });
 
   it('starts a category inquiry with the relevant product selected but allows changing it', async () => {

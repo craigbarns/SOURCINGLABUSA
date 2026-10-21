@@ -21,17 +21,17 @@ export function EditorialFooter({
             </Link>
             <p>
               {zh
-                ? '全球供应链运营与美国本土市场开拓执行。为中国制造企业与出海品牌提供全美商业代表、B2B买家对接、FDA/CPSC/FCC法规映射、到岸关税测算及本土3PL履约协同。'
+                ? '国际采购、制造协调和美国市场拓展准备。当前项目通过法国或中国公司签约；迈阿密扩展计划于2027年开展。'
                 : es
-                  ? 'Sourcing global, gestión de fabricación internacional y ejecución de entrada al mercado estadounidense. Verificación de fábricas, control de calidad y representación comercial.'
-                  : 'Global sourcing, overseas manufacturing management, and U.S. market-entry execution. Direct factory audits, AQL 2.5 quality control, tariffs, and U.S. commercial representation.'}
+                  ? 'Sourcing, coordinación de fabricación y suministro para compradores empresariales de Estados Unidos. Prendas, textiles y packaging son nuestras especialidades; otros productos se evalúan según viabilidad.'
+                  : 'Sourcing, manufacturing coordination and product supply for U.S. business buyers. Clothing, textiles and packaging are our deepest specialties; other products are reviewed for feasibility.'}
             </p>
           </div>
           <nav aria-label={zh ? '全球制造与出海' : es ? 'Sourcing y fabricación' : 'Sourcing & Manufacturing'}>
             <span>{zh ? '美国市场准入' : es ? 'SOURCING Y FÁBRICAS' : 'GLOBAL SOURCING'}</span>
             <ul>
               <li>
-                <Link href={`${linkPrefix}/us-market-entry`}>
+                <Link href={`${linkPrefix}${zh ? '/us-market-entry' : '/product-sourcing'}`}>
                   {zh ? '美国市场拓展' : es ? 'Sourcing de producto' : 'Product sourcing'}
                 </Link>
               </li>
@@ -100,6 +100,7 @@ export function EditorialFooter({
                   {es ? 'Coste puesto en destino' : 'Landed cost analysis'}
                 </Link>
               </li>
+              <li className="pt-3"><span className="text-xs">{es ? 'PARA FABRICANTES' : 'FOR MANUFACTURERS'}</span></li>
               <li>
                 <Link href={`${linkPrefix}/us-market-entry`}>
                   {es ? 'Entrada al mercado EE. UU.' : 'U.S. market entry'}
@@ -110,6 +111,8 @@ export function EditorialFooter({
                   {es ? 'Representación comercial' : 'U.S. sales representation'}
                 </Link>
               </li>
+              <li><Link href={`${linkPrefix}/tools/us-market-entry-assessment`}>{es ? 'Preparación para EE. UU.' : 'U.S. entry readiness'}</Link></li>
+              <li><Link href={`${linkPrefix}/zh`}>{es ? 'Fabricantes: portal en chino' : 'Manufacturers: 中文 hub'}</Link></li>
             </ul>
           </nav>
           <nav aria-label={es ? 'Empresa e industrias' : 'Industries & Company'}>
@@ -150,6 +153,8 @@ export function EditorialFooter({
                   {es ? 'Recursos y plantillas' : 'Templates & guides'}
                 </Link>
               </li>
+              <li><Link href={`${linkPrefix}/tools/landed-cost-calculator`}>{es ? 'Calculadora de coste landed' : 'Landed cost calculator'}</Link></li>
+              <li><Link href={`${linkPrefix}/editorial-policy`}>{zh ? '内容与来源政策' : es ? 'Política editorial y fuentes' : 'Editorial policy & sources'}</Link></li>
               <li>
                 <Link href={`${linkPrefix}/contact-us`}>
                   {es ? 'Contacto' : 'Start a project'}

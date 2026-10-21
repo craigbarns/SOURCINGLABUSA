@@ -12,6 +12,13 @@ October 4, 2026:
 2. **Inbound market entry.** International manufacturers preparing to enter,
    distribute and sell in the United States.
 
+On October 21, 2026, the owner clarified the commercial priority: the public
+website is first for prospective customers who need products sourced,
+manufactured and supplied. Lead the homepage, primary navigation, SEO and
+conversion calls to action with that buyer journey. Market-entry and sales
+representation remain secondary offers on their dedicated pages; do not give
+them equal prominence in the main acquisition message.
+
 Clothing, textiles, and packaging remain the deepest specialties. Other
 products and industries may be served after the product scope and feasibility
 are confirmed.

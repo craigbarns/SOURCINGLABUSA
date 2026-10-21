@@ -8,6 +8,20 @@ const canonicalOrigin = new URL(
   process.env.MARKETING_ORIGIN || 'https://sourcinglabusa.com',
 ).origin;
 const pages = new Map();
+const homeAlternates = [
+  ['en-US', '/'],
+  ['es-US', '/es'],
+  ['x-default', '/'],
+];
+const isNonindexablePath = (path) =>
+  /^\/(app|api)(\/|$)/.test(path) || path === '/tools/hs-code-finder';
+
+function assertPastDate(value, label) {
+  assert.match(value, /^\d{4}-\d{2}-\d{2}(?:T.*)?$/, `${label}: invalid date`);
+  const date = new Date(value);
+  assert.ok(!Number.isNaN(date.getTime()), `${label}: invalid date`);
+  assert.ok(date.getTime() <= Date.now(), `${label}: future date`);
+}
 
 async function get(path, headers) {
   const response = await fetch(new URL(path, base), {
@@ -41,8 +55,8 @@ for (const url of urls) {
     'Sitemap must use the canonical domain',
   );
   assert.ok(
-    !/^\/(app|api|tools)(\/|$)/.test(url.pathname),
-    'Private/tool URL in sitemap',
+    !isNonindexablePath(url.pathname),
+    'Nonindexable URL in sitemap',
   );
   const { response, text } = await get(url.pathname);
   const document = new JSDOM(text).window.document;
@@ -122,6 +136,12 @@ for (const url of urls) {
     `${url.pathname}: duplicate/missing company entity`,
   );
   assert.equal(organizations[0]['@id'], `${canonicalOrigin}/#organization`);
+  const website = graph.find((node) => node['@type'] === 'WebSite');
+  assert.deepEqual(
+    [...(website?.inLanguage || [])].sort(),
+    ['en-US', 'es-US', 'zh-Hans'].sort(),
+    `${url.pathname}: website schema languages`,
+  );
   assert.ok(
     !organizations[0].address && !organizations[0].foundingDate,
     'Planned launch must not imply a current address/founding date',
@@ -154,6 +174,20 @@ for (const url of urls) {
         article.datePublished &&
         article.dateModified,
       `${url.pathname}: incomplete article identity/dates`,
+    );
+    assertPastDate(article.datePublished, `${url.pathname}: published`);
+    assertPastDate(article.dateModified, `${url.pathname}: modified`);
+    assert.ok(
+      new Date(article.dateModified) >= new Date(article.datePublished),
+      `${url.pathname}: modification predates publication`,
+    );
+    const entry = [...sitemap.querySelectorAll('url')].find(
+      (node) => node.querySelector('loc').textContent === url.href,
+    );
+    assert.equal(
+      entry.querySelector('lastmod')?.textContent,
+      article.dateModified.slice(0, 10),
+      `${url.pathname}: sitemap modification date differs from article`,
     );
     assert.ok(
       document.querySelector(`time[datetime="${article.dateModified}"]`),
@@ -191,7 +225,7 @@ for (const [path, { document }] of pages) {
       !['https:', 'http:'].includes(url.protocol)
     )
       continue;
-    if (/^\/(app|api|tools)(\/|$)/.test(url.pathname)) continue;
+    if (isNonindexablePath(url.pathname)) continue;
     const target = pages.get(url.pathname);
     if (!target) {
       // Downloadable public resources are valid links but don't belong in the page sitemap.
@@ -214,34 +248,103 @@ for (const path of internalAssets) await get(path);
 assert.ok(pages.get('/about').document.getElementById('founder'), 'Founder entity must resolve to a visible anchor');
 assert.ok(pages.get('/contact-us').document.querySelector('form'), 'Contact page must contain the qualification form');
 
+// The primary public journey is product sourcing; manufacturer support is a
+// separate secondary offer, not a competing homepage conversion.
+for (const path of ['/', '/es']) {
+  const { document, title, description } = pages.get(path);
+  assert.ok(!/market.entry|entrada al mercado/i.test(`${title} ${description}`), `${path}: buyer positioning must lead metadata`);
+  const hero = document.querySelector('.editorial-hero');
+  assert.equal(hero?.querySelector('.hero-actions a')?.getAttribute('href'), '#contact', `${path}: primary hero action must reach the buyer form`);
+  assert.equal(document.querySelectorAll('main a[href*="/us-market-entry"], main a[href*="/us-sales-representation"]').length, 0, `${path}: manufacturer offer must not compete in main homepage content`);
+  assert.ok(document.querySelector('main form select[name="projectType"]'), `${path}: sourcing qualification must remain the homepage form`);
+}
+
 for (const path of ['/', '/es']) {
   const document = pages.get(path).document;
-  for (const [language, target] of [
-    ['en-US', '/'],
-    ['es-US', '/es'],
-    ['x-default', '/'],
-  ]) {
+  assert.equal(
+    document.documentElement.lang,
+    homeAlternates.find(([, target]) => target === path)[0],
+    `${path}: document language`,
+  );
+  for (const [language, target] of homeAlternates) {
     assert.equal(
       document.querySelector(`link[hreflang="${language}"]`)?.href,
       `${canonicalOrigin}${target}`,
       `${path}: incorrect ${language} alternate`,
     );
   }
+  assert.equal(
+    document.querySelectorAll('link[hreflang]').length,
+    homeAlternates.length,
+    `${path}: only equivalent buyer homepages belong in hreflang`,
+  );
+  assert.deepEqual(
+    [...document.querySelectorAll('meta[property="og:locale:alternate"]')].map((node) => node.content),
+    [path === '/' ? 'es_US' : 'en_US'],
+    `${path}: social alternate locale must match the buyer translations`,
+  );
   const entry = [...sitemap.querySelectorAll('url')].find(
     (node) =>
       node.querySelector('loc').textContent === `${canonicalOrigin}${path}`,
   );
   assert.equal(
     entry.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'link').length,
-    3,
+    homeAlternates.length,
     `${path}: sitemap language alternates`,
   );
+  for (const [language, target] of homeAlternates) {
+    const link = [...entry.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'link')]
+      .find((node) => node.getAttribute('hreflang') === language);
+    assert.equal(
+      link?.getAttribute('href'),
+      `${canonicalOrigin}${target}`,
+      `${path}: sitemap ${language} alternate`,
+    );
+  }
 }
+
+const manufacturerHub = pages.get('/zh').document;
+assert.equal(manufacturerHub.documentElement.lang, 'zh-Hans', 'Chinese hub document language');
+assert.equal(
+  manufacturerHub.querySelectorAll('link[hreflang]').length,
+  0,
+  'Chinese manufacturer hub must not claim buyer-homepage translations',
+);
+assert.equal(
+  manufacturerHub.querySelectorAll('meta[property="og:locale:alternate"]').length,
+  0,
+  'Chinese manufacturer hub must not claim buyer social alternates',
+);
+const manufacturerHubEntry = [...sitemap.querySelectorAll('url')].find(
+  (node) => node.querySelector('loc').textContent === `${canonicalOrigin}/zh`,
+);
+assert.equal(
+  manufacturerHubEntry.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'link').length,
+  0,
+  'Chinese hub sitemap entry must remain outside the buyer hreflang cluster',
+);
 
 const { text: robots } = await get('/robots.txt');
 assert.match(robots, /User-Agent: \*/i);
 assert.match(robots, /Allow: \//i);
 assert.ok(robots.includes(`Sitemap: ${canonicalOrigin}/sitemap.xml`));
+const robotGroups = robots.split(/\n\s*\n/).filter((group) => /User-Agent:/i.test(group));
+for (const userAgent of ['*', 'OAI-SearchBot', 'ChatGPT-User', 'GPTBot']) {
+  const group = robotGroups.find((value) => value.split('\n').some(
+    (line) => line.trim().toLowerCase() === `user-agent: ${userAgent.toLowerCase()}`,
+  ));
+  assert.ok(group, `${userAgent}: missing explicit crawler policy`);
+  assert.match(group, /^Allow: \/\s*$/im, `${userAgent}: public crawling must remain allowed`);
+  assert.match(group, /^Disallow: \/app\s*$/im, `${userAgent}: app must remain excluded`);
+  assert.match(group, /^Disallow: \/api\/\s*$/im, `${userAgent}: API must remain excluded`);
+}
+const { text: toolHtml } = await get('/tools/hs-code-finder');
+const toolDocument = new JSDOM(toolHtml).window.document;
+assert.match(
+  toolDocument.querySelector('meta[name="robots"]')?.content || '',
+  /noindex/i,
+  'Preliminary HS code helper must stay noindex',
+);
 
 if (['localhost', '127.0.0.1'].includes(base.hostname)) {
   const production = await get('/', {
@@ -283,7 +386,7 @@ console.log(
         'visible FAQ consistency',
         'article dates',
         'internal links and anchors',
-        'EN/ES hreflang',
+        'EN/ES hreflang and separate Chinese manufacturer hub',
         'sitemap',
         'crawler access',
         'indexing boundaries',

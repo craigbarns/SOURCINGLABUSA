@@ -3,8 +3,8 @@ import { GuideMarkdown } from '@/components/GuideMarkdown';
 import { pageMetadata } from '@/lib/seo';
 
 const path = '/how-we-work';
-const title = 'How Our China Sourcing and Product Supply Process Works';
-const description = 'Sourcing Lab USA starts with your brief, reviews supplier options and samples, and agrees product pricing, production checkpoints and order responsibilities before purchasing and supplying the goods.';
+const title = 'How Our Sourcing and Product Supply Process Works';
+const description = 'From your product brief to supplier options, quotations, samples and an agreed order. Understand sourcing, production follow-up and delivery responsibilities.';
 export const metadata = pageMetadata({ path, title, description });
 
 export default function HowWeWorkPage() {
@@ -52,6 +52,10 @@ Compare the [landed-cost inputs](/blog/calculating-landed-costs-merchandise) and
 
 Send product references, estimated quantity, intended market, budget basis if available, and the date you are working toward. Tell us if you already have a supplier or sample and which decisions are still open. You can start with a short brief and provide more detail after the scope is discussed.
 
-[Discuss your sourcing project](/contact-us#contact). Method explained September 14, 2026; specific order terms control the work agreed for your project.
+[Request a sourcing quote](/contact-us#contact). Method reviewed October 21, 2026; the specific proposal controls the work agreed for your project.
+
+## Separate support for international manufacturers
+
+If you manufacture overseas and are looking for American customers, use the separate [market-entry support page](/us-market-entry) and [manufacturer qualification form](/us-market-entry#contact). That service has its own brief, commercial scope and proposal; the sourcing and product supply process above is for buyers purchasing products.
 `}</GuideMarkdown></InformationPage>;
 }

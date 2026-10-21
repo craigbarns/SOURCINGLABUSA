@@ -2,140 +2,133 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Private Label Brand Manufacturing Sourcing | Sourcing Lab USA',
-  description:
-    'Dedicated private label manufacturing sourcing for e-commerce, Amazon FBA brands, and retail chains. Turnkey branding, packaging, QC, and delivered supply.',
-  path: '/industries/private-label',
+  "title": "Private Label Buyers: Assortment, Packing and Reorder Planning",
+  "description": "Prepare a private label range for sourcing: SKU list, quantity allocation, channel packing, reorder records and cost assumptions for U.S. brands.",
+  "path": "/industries/private-label"
 });
 
 const page: ServicePageContent = {
-  path: '/industries/private-label',
-  eyebrow: 'Industry Vertical · Private Label & Retail Brands',
-  title: 'Private Label Brand Sourcing & Contract Manufacturing',
-  directAnswer:
-    'Private label brand sourcing enables e-commerce merchants, retail store brands, and direct-to-consumer (DTC) companies to build high-margin proprietary product lines utilizing proven overseas manufacturing infrastructure. Sourcing Lab USA customizes existing high-quality factory platforms with proprietary branding, custom Pantone colors, bespoke retail packaging, and complete U.S. regulatory compliance, dramatically reducing time-to-market.',
-  intro:
-    'In competitive e-commerce and retail environments, selling unbranded or generic products leads to immediate price wars and margin decay. Private labeling allows companies to establish defensible brand equity, control the customer unboxing experience, and command premium retail pricing without investing millions into initial tooling.',
-  overviewTitle: 'Turn proven industrial platforms into distinctive consumer brands.',
-  overview:
-    'We evaluate and select capable original design manufacturers (ODMs) across Asia and Europe. Rather than accepting basic factory templates, we work with factory engineers to refine materials, apply custom surface finishes, integrate custom molded logos, and produce packaging suites that position your brand effectively.',
-  processTitle: 'The 5-stage private label product launch cycle.',
-  offerName: 'Private Label Brand Procurement & Management',
-  offerDescription:
-    'Full-service private label brand sourcing, product customization, bespoke packaging manufacturing, quality control, and delivered international supply.',
-  focusAreas: [
+  "path": "/industries/private-label",
+  "eyebrow": "For brand and retail buyers · Organize the range",
+  "title": "Plan a private label range beyond the first branded sample.",
+  "directAnswer": "Private label buyers need a consistent plan for the product range, quantities, artwork, receiving requirements and reorders. Sourcing Lab USA coordinates those inputs for a sourcing and supply proposal. Clothing, textiles and packaging are the deepest specialties; additional products are reviewed for feasibility. The proposal identifies goods pricing, any separately scoped services, sample approvals and the parties responsible for shipment and import.",
+  "intro": "A finished sample answers a product question. It does not answer how many variants to order, how stock will be received or what must stay consistent for a reorder. Bring those buying decisions into the brief early.",
+  "overviewTitle": "Give each SKU a commercial and production record.",
+  "overview": "Start with a range list that connects the product variant, quantity, artwork, packaging and sales channel. Distinguish one-time setup costs from recurring goods costs and record what each quote includes. If several channels need different identifiers or packs, show those separately. We help review the sourcing implications; we do not assume a forecast is demand or publish a margin target that applies to every brand.",
+  "processTitle": "A buyer plan from range selection to replenishment.",
+  "offerName": "Private Label Range Sourcing Coordination",
+  "offerDescription": "Coordination of private label assortment briefs, quotation comparison, product and packing approvals, and reorder records for U.S. business buyers.",
+  "hideShowcase": true,
+  "focusAreas": [
     {
-      title: 'Proprietary Brand Customization',
-      body: 'Laser engraving, pad printing, custom silicone tags, embossed metal badges, and custom molded component details that create immediate visual distinction.',
+      "title": "Range and quantity allocation",
+      "body": "List the styles or variants and the quantity for each. Identify which features are shared and which create separate materials, print runs or sample approvals. Ask suppliers to state the quantity assumptions behind their proposals."
     },
     {
-      title: 'Bespoke Retail Packaging Suites',
-      body: 'Rigid presentation boxes, custom dieline folding cartons, printed tissue wraps, branded poly mailers, and GS1-compliant scannable barcodes (UPC/EAN/FNSKU).',
+      "title": "Channel and receiving instructions",
+      "body": "Provide the current written instructions for the intended retailer, marketplace or warehouse. Record identifiers, carton counts, packing and receiving details supplied by that channel. We review feasibility and coordinate the agreed supplier scope; acceptance by the channel is not guaranteed."
     },
     {
-      title: 'U.S. Consumer Safety & Labeling Compliance',
-      body: 'Full adherence to U.S. labeling laws: Country of Origin markings (19 U.S.C. § 1304), tracking labels (CPSIA § 103), FDA guidelines, and Prop 65 warning labels.',
+      "title": "Artwork and version control",
+      "body": "Name the owner of each logo, artwork and product-information file. Use revisions and a clear approval record to keep old artwork from reaching a reorder. Product claims, brand permissions and any exclusivity need their own supporting information or agreement."
     },
     {
-      title: 'Strict Batch Consistency & Pre-Shipment Inspection',
-      body: 'On-site pre-shipment inspections covering colour matching against the approved sample, branding and print defects, packaging integrity, and barcode readability. Acceptance criteria are agreed per order.',
-    },
+      "title": "Replenishment and cost review",
+      "body": "Keep the approved samples and specification with the previous order record. Review material availability, changes, new quantities and shipment assumptions before a reorder. Cost comparisons should use the current specification and delivery basis."
+    }
   ],
-  briefItems: [
-    'Target product category, reference benchmark links, or competitor listings',
-    'Required brand customizations (logo placement, colorways, finish enhancements)',
-    'Packaging requirements (retail box, mailer, hang tags, barcode format)',
-    'Initial target launch volume (starting from 500–1,000 units) and target launch date',
+  "briefItems": [
+    "Range and SKU list, references and the quantity proposed for each variant",
+    "Branding files, approved artwork and the person responsible for approval",
+    "Sales channels, identifiers and current packing or receiving instructions",
+    "Budget basis, destination, reorder expectations and requested launch sequence"
   ],
-  workflow: [
+  "workflow": [
     {
-      title: 'Supplier Benchmarking & Factory Screening',
-      body: 'We screen 5-10 specialized manufacturers, filtering out trading brokers to secure direct factory-floor pricing and verified production capacity.',
+      "title": "Review the assortment brief",
+      "body": "Identify core products, optional variants and missing information. Product and category feasibility is confirmed before a proposed range is described as available."
     },
     {
-      title: 'Branding Integration & Dieline Engineering',
-      body: 'We map your vector branding, Pantone color codes, and legal disclosures directly onto factory technical dielines and assembly templates.',
+      "title": "Compare the quotation structure",
+      "body": "Separate product supply from any agreed development or coordination fee. Review the effect of quantity splits, packaging, tooling and sampling on the quote and identify items that are still estimates."
     },
     {
-      title: 'Physical Golden Sample Sign-Off',
-      body: 'The factory manufactures a complete, production-grade sample with final branding, retail packaging, and inserts for your physical inspection and approval.',
+      "title": "Approve product and packing records",
+      "body": "Set the sample and proof stages needed for the range. Record the approved specification, artwork revision and packing instructions for each variant, including any accepted exceptions."
     },
     {
-      title: 'Mass Production Oversight & In-Line QC',
-      body: 'We track factory production milestones, audit color uniformity across dye and resin batches, and inspect print registration.',
+      "title": "Confirm the order and delivery plan",
+      "body": "The company named in the proposal contracts and invoices. Production checkpoints and any appointed inspection or testing work are agreed, together with shipment, import and receiving responsibilities."
     },
     {
-      title: 'Pre-Shipment Inspection & Door Delivery',
-      body: 'A final pre-shipment quality inspection confirms agreed specifications before goods are cleared for ocean or air shipping to U.S. destinations.',
-    },
+      "title": "Review before replenishment",
+      "body": "Compare the proposed reorder with the retained record and current channel instructions. Update quantities, material availability, artwork and landed-cost assumptions before accepting the next order."
+    }
   ],
-  benchmarks: [
+  "benchmarks": [
     {
-      label: 'Minimum order quantity',
-      value: '500 to 1,000 units',
-      qualifier: 'Standard starting volume for custom branded packaging and product color matching.',
+      "label": "Assortment",
+      "value": "One record per variant",
+      "qualifier": "Connect product, quantity, artwork and packing to the quotation."
     },
     {
-      label: 'Branded sample turnaround',
-      value: '10 to 18 days',
-      qualifier: 'Complete physical sample including custom printed packaging and logo application.',
+      "label": "Receiving requirements",
+      "value": "Provided for the channel",
+      "qualifier": "Current instructions are reviewed and included only in the agreed scope."
     },
     {
-      label: 'Mass production cycle',
-      value: '30 to 45 days',
-      qualifier: 'From physical golden sample approval to container port dispatch.',
-    },
+      "label": "Replenishment",
+      "value": "Reviewed before reorder",
+      "qualifier": "Earlier approvals remain references; changes and current availability need confirmation."
+    }
   ],
-  benchmarksNote:
-    'Private label timelines vary primarily based on the complexity of custom packaging printing and custom color formulation.',
-  hideShowcase: true,
-  faqs: [
+  "benchmarksNote": "No standard launch deadline, minimum order or margin is promised. The range, quantities, approval work and delivery assumptions determine the proposal.",
+  "faqs": [
     {
-      question: 'Why choose private labeling over custom OEM product development?',
-      answer:
-        'Private labeling is faster (launch in 60–90 days versus 6–12 months for OEM), requires significantly less upfront capital (no $20,000–$50,000 custom tooling costs), and utilizes pre-tested manufacturing platforms with proven reliability.',
+      "question": "Should I start with a full range or a smaller selection?",
+      "answer": "That is a commercial decision for your brand. For sourcing review, show the priority products, optional variants and quantity assumptions separately. We can then identify shared materials, separate minimums and the sample work that each option requires."
     },
     {
-      question: 'Can you help prepare products for Amazon FBA warehouses?',
-      answer:
-        'Yes. We ensure full compliance with Amazon FBA inbound requirements: verified FNSKU barcode labeling, carton weight and dimension compliance, polybag suffocation warnings, and prep for carton or palletized delivery.',
+      "question": "Can a supplier prepare packing for my fulfillment provider?",
+      "answer": "Provide the provider’s current written requirements with the brief. We review whether the supplier can support the instructions and include the agreed work in the order. Generic packing, barcode or carton instructions do not establish acceptance by every retailer or fulfillment provider."
     },
     {
-      question: 'How do you prevent other sellers from ordering the exact same product?',
-      answer:
-        'We customize key visual and functional elements: proprietary colorways, customized ergonomic grips, upgraded materials, and unique structural packaging dielines that make your product stand out distinctly.',
+      "question": "Does branding make the underlying product exclusive?",
+      "answer": "No. Brand application and exclusive product rights are separate matters. Design use, tooling, exclusivity or territory restrictions must be agreed in writing where relevant. We do not imply that a logo or a custom color prevents other sellers from buying a similar product."
     },
     {
-      question: 'What is the typical gross margin on private label products sourced overseas?',
-      answer:
-        'Margin depends on the product, the specification, the order quantity and the landed cost, so a single published figure would mislead. Buying directly from a factory removes the distributor margin from the cost base, but tooling, sampling, freight, duty and minimum quantities sit against that gain. Ask for a landed-cost breakdown before assuming a margin.',
+      "question": "How should I compare the cost of two range proposals?",
+      "answer": "Compare the same specification, quantities and delivery basis. Identify sample, development, tooling, packaging and service charges separately and account for shipment and import assumptions. A unit price alone does not establish the cost or margin of the range."
     },
+    {
+      "question": "What should I include in a reorder request?",
+      "answer": "Identify the earlier order and approved specification, then list the new quantities and any changes to materials, colors, artwork, packing or receiving instructions. We review availability and determine which fresh quotes or approvals are needed. A previous order price or schedule is not automatically carried forward."
+    }
   ],
-  briefTitle: 'Start your private label sourcing project.',
-  briefIntro:
-    'Share your product concept, branding ideas, and target launch quantities. We will benchmark qualified manufacturers and deliver factory-direct pricing.',
-  relatedPages: [
+  "briefTitle": "Share the range you want to build.",
+  "briefIntro": "Send the product list, variant quantities, branding files and channel requirements. We identify what is needed for a sourcing and supply proposal.",
+  "relatedPages": [
     {
-      href: '/private-label-manufacturing',
-      title: 'Private Label Manufacturing Overview',
-      description: 'Comprehensive private label sourcing, tooling, and brand customization.',
+      "href": "/private-label-manufacturing",
+      "title": "Product customization and sampling",
+      "description": "Prepare the product, branding, rights and approval decisions."
     },
     {
-      href: '/private-label-packaging',
-      title: 'Private Label Packaging',
-      description: 'Custom retail boxes, mailers, and luxury unboxing design.',
+      "href": "/private-label-packaging",
+      "title": "Brand packaging",
+      "description": "Define the packaging structure, artwork and presentation requirements."
     },
     {
-      href: '/quality-control-china',
-      title: 'Quality Control & Inspections',
-      description: 'Pre-shipment inspections and finished goods validation.',
+      "href": "/landed-cost-analysis",
+      "title": "Range cost assumptions",
+      "description": "Keep goods, development, transport and import inputs on a clear basis."
     },
     {
-      href: '/landed-cost-analysis',
-      title: 'Landed Cost Analysis',
-      description: 'Calculate wholesale and retail margins before placing orders.',
-    },
-  ],
+      "href": "/industries/textiles",
+      "title": "Textile collection buying",
+      "description": "Organize fabric, fit, color and size decisions for an apparel range."
+    }
+  ]
 };
 
 export default function PrivateLabelIndustryPage() {

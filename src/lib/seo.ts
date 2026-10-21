@@ -8,14 +8,21 @@ export const ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
 export const FOUNDER_ID = `${SITE_ORIGIN}/about#founder`;
 export const WEBSITE_ID = `${SITE_ORIGIN}/#website`;
 export const SITE_DESCRIPTION =
-  'Global sourcing, overseas manufacturing management, and U.S. market-entry execution for American brands and international manufacturers. Supplier verification, quality control, landed-cost modeling, and U.S. sales representation.';
+  'China sourcing, overseas manufacturing coordination and product supply for U.S. business buyers. Clothing, textiles and packaging are core specialties; other products are reviewed for feasibility.';
 
+export const SITE_LANGUAGES = ['en-US', 'es-US', 'zh-Hans'] as const;
+
+// These pages serve the same buyer journey. The Chinese manufacturer hub has
+// a different purpose and is not an alternate translation of this homepage.
 export const homeLanguages = {
   'en-US': `${SITE_ORIGIN}/`,
   'es-US': `${SITE_ORIGIN}/es`,
-  'zh-Hans': `${SITE_ORIGIN}/zh`,
   'x-default': `${SITE_ORIGIN}/`,
 };
+
+function socialLocale(language: string) {
+  return language === 'zh-Hans' ? 'zh_CN' : language.replace('-', '_');
+}
 
 export function absoluteUrl(path: string) {
   return new URL(path, `${SITE_ORIGIN}/`).toString();
@@ -36,17 +43,18 @@ export function pageMetadata({
   translatedHome?: boolean;
   article?: { published: string; modified: string };
 }): Metadata {
-  const socialTitle = `${title} | ${SITE_NAME}`;
+  const cleanTitle = title.replace(/\s*\|\s*Sourcing\s?Lab USA$/i, '');
+  const socialTitle = `${cleanTitle} | ${SITE_NAME}`;
   const images = [
     {
       url: absoluteUrl('/opengraph-image'),
       width: 1200,
       height: 630,
-      alt: 'Sourcing Lab USA — Global Sourcing, Overseas Manufacturing & U.S. Market Entry Execution.',
+      alt: 'Sourcing Lab USA — China Sourcing & Product Supply',
     },
   ];
 
-  const currentLocale = locale === 'zh-Hans' ? 'zh_CN' : locale.replace('-', '_');
+  const currentLocale = socialLocale(locale);
 
   return {
     title: { absolute: socialTitle },
@@ -64,9 +72,10 @@ export function pageMetadata({
       locale: currentLocale,
       ...(translatedHome
         ? {
-            alternateLocale: ['en_US', 'es_US', 'zh_CN'].filter(
-              (l) => l !== currentLocale,
-            ),
+            alternateLocale: Object.keys(homeLanguages)
+              .filter((language) => language !== 'x-default')
+              .map(socialLocale)
+              .filter((language) => language !== currentLocale),
           }
         : {}),
       ...(article
@@ -175,7 +184,7 @@ export function organizationGraph() {
         url: absoluteUrl('/'),
         name: SITE_NAME,
         publisher: { '@id': ORGANIZATION_ID },
-        inLanguage: ['en-US', 'es-US'],
+        inLanguage: [...SITE_LANGUAGES],
       },
     ],
   };

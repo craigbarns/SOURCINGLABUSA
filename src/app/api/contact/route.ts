@@ -14,6 +14,8 @@ import {
   type ValidatedContactInput,
 } from '@/lib/validation/contact';
 
+import { marketEntryInputSchema, marketEntryToContact } from '@/lib/validation/market-entry';
+
 const INVALID_REQUEST_MESSAGE = 'Some details are missing or invalid.';
 const UNAVAILABLE_MESSAGE =
   'Your brief could not be saved. Please email it to us directly so nothing is lost.';
@@ -32,18 +34,10 @@ async function storeBrief(
   const supabase = getSupabaseAdminClient();
 
   if (!supabase) {
-    console.info(
-      'Supabase admin client not configured. Brief received and logged server-side.',
-      {
-        sourcePath: brief.sourcePath,
-        locale: brief.locale,
-        name: brief.name,
-        email: brief.email,
-        projectType: brief.projectType,
-        quantityRange: brief.quantityRange,
-      },
-    );
-    return { configured: false, success: true };
+    // No durable sink is available. Never log contact details or report
+    // a stored lead when the only record would be an ephemeral function log.
+    console.error('Project brief storage is not configured.');
+    return { configured: false, success: false };
   }
 
   const messageWithLocale =
@@ -72,7 +66,7 @@ async function storeBrief(
     return { configured: true, success: true };
   } catch (error) {
     console.error('Project brief insertion failed unexpectedly', {
-      error: error instanceof Error ? error.message : 'Unknown error',
+      errorType: error instanceof Error ? error.name : 'Unknown error',
     });
     return { configured: true, success: false };
   }
@@ -122,28 +116,28 @@ export async function POST(request: Request) {
     );
   }
 
-  const validation = contactInputSchema.safeParse(body);
+  const marketEntry = typeof body === 'object' && body !== null
+    && 'journey' in body && body.journey === 'market_entry';
+  const validation = marketEntry
+    ? marketEntryInputSchema.safeParse(body)
+    : contactInputSchema.safeParse(body);
 
   if (!validation.success) {
     const fieldErrors = validation.error.flatten().fieldErrors;
-
     return NextResponse.json(
       {
         message: INVALID_REQUEST_MESSAGE,
-        fieldErrors: {
-          name: fieldErrors.name?.[0],
-          email: fieldErrors.email?.[0],
-          company: fieldErrors.company?.[0],
-          projectType: fieldErrors.projectType?.[0],
-          quantityRange: fieldErrors.quantityRange?.[0],
-          message: fieldErrors.message?.[0],
-        },
+        fieldErrors: Object.fromEntries(
+          Object.entries(fieldErrors).map(([field, errors]) => [field, errors?.[0]]),
+        ),
       },
       { status: 400, headers: { 'Cache-Control': 'no-store' } },
     );
   }
 
-  const brief = validation.data;
+  const brief = 'journey' in validation.data
+    ? marketEntryToContact(validation.data)
+    : validation.data;
 
   if (brief.botField) {
     // Answer like a success so the bot does not retry, but store nothing.
@@ -156,10 +150,8 @@ export async function POST(request: Request) {
   const { configured, success } = await storeBrief(brief);
   const delivery: DeliveryChannel[] = configured && success ? ['database'] : [];
 
-  if (configured && !success) {
-    console.error('Project brief could not be stored in database', {
-      sourcePath: brief.sourcePath,
-    });
+  if (!success) {
+    console.error('Project brief could not be stored in database.');
 
     return NextResponse.json(
       { message: UNAVAILABLE_MESSAGE },

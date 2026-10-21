@@ -1,0 +1,36 @@
+MANUFACTURING COST COMPARISON WORKSHEET
+Sourcing Lab USA | Version: 21 October 2026
+
+Compare the same specification, currency, quantity and delivery basis.
+Keep a source and validity date for each input. Do not treat a missing cost as 0.
+This worksheet makes no savings or supplier performance guarantee.
+
+Specification revision: [ ]
+Quantity and variants: [ ]
+Destination / quotation currency: [ ]
+Quotation A / supplier / date / validity: [ ]
+Quotation B / supplier / date / validity: [ ]
+
+Item | A | B | Comparable? | Source / unresolved assumption
+Unit price | [ ] | [ ] | [ ] | [ ]
+Total goods = unit price x quantity | [ ] | [ ] | [ ] | [ ]
+Samples (one-time) | [ ] | [ ] | [ ] | [ ]
+Tooling (one-time; ownership/access documented?) | [ ] | [ ] | [ ] | [ ]
+Packaging and labeling | [ ] | [ ] | [ ] | [ ]
+Testing/inspection scope | [ ] | [ ] | [ ] | [ ]
+Origin transport/export handling | [ ] | [ ] | [ ] | [ ]
+International freight and insurance | [ ] | [ ] | [ ] | [ ]
+Duties and fees using verified bases | [ ] | [ ] | [ ] | [ ]
+Destination transport/receiving | [ ] | [ ] | [ ] | [ ]
+Other applicable cost | [ ] | [ ] | [ ] | [ ]
+Total included costs | [ ] | [ ] | [ ] | [ ]
+Unit cost = total / quantity | [ ] | [ ] | [ ] | [ ]
+
+Are one-time costs allocated consistently across both offers? [ ]
+Does an Incoterm already include a cost counted elsewhere? [ ]
+Are quotes based on the same approved sample and acceptance criteria? [ ]
+Are payment milestones and delivery responsibilities different? [ ]
+Sensitivity: rerun quantity, freight and duty assumptions separately.
+Do not rank a lower quote as preferable while material scope gaps remain.
+
+Calculator: https://sourcinglabusa.com/tools/landed-cost-calculator

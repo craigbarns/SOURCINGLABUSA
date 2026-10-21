@@ -4,41 +4,47 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata({
   title: 'HS Code Consulting & Tariff Classification USA | Sourcing Lab USA',
   description:
-    'Expert HS code consulting and U.S. Harmonized Tariff Schedule (HTS) classification. Avoid customs penalties, overpaid duties, and Section 301 tariff exposure.',
+    'HTSUS classification research, product documentation and tariff assumptions for review with your appointed customs broker or trade adviser.',
   path: '/hs-code-consulting',
 });
 
 const page: ServicePageContent = {
   path: '/hs-code-consulting',
+  reviewedDate: '2026-10-21',
+  references: [
+    { title: 'USITC — Harmonized Tariff Schedule', url: 'https://hts.usitc.gov/' },
+    { title: 'CBP — Binding Ruling Program', url: 'https://www.help.cbp.gov/s/article/Article-1106?language=en_US' },
+    { title: 'USTR — China Section 301 tariff actions', url: 'https://ustr.gov/issue-areas/enforcement/section-301-investigations/tariff-actions' },
+  ],
   eyebrow: 'Customs & Trade Advisory · Tariff Classification',
   title: 'HS Code Consulting & U.S. Tariff Classification',
   directAnswer:
-    'HS code consulting is the specialized trade advisory service of identifying the precise 10-digit Harmonized Tariff Schedule (HTSUS) classification code for imported commercial goods entering the United States. Accurate classification determines the exact ad valorem duty rate, assesses Section 301 punitive tariff liabilities, supports regulatory compliance with U.S. Customs and Border Protection (CBP), and identifies legitimate tariff engineering options to review with a licensed customs broker. Classification research is advisory: the entry filed remains the importer’s legal responsibility, and only CBP can issue a binding ruling.',
+    'HS code research brings together a product description, materials, intended use and candidate U.S. Harmonized Tariff Schedule classifications for review before importing. Sourcing Lab USA helps organize this research and its assumptions. Your appointed customs broker or trade adviser should review classification and applicable duties; only CBP can issue a binding customs ruling.',
   intro:
-    'Importers are legally responsible under U.S. law (19 U.S.C. § 1484) for exercising "reasonable care" in classifying their imported merchandise. Misclassifying an HS code—whether accidentally or through supplier misdirection—can trigger retroactive duty assessments, 20% to 40% negligence penalties from CBP, shipping container holds, and formal customs audits. Sourcing Lab USA provides technical classification research and documents the reasoning behind it, so your customs broker or trade counsel can file with confidence.',
+    'An unsupported tariff code can distort a purchasing budget and create questions when goods are entered. Start with the actual product specification and record the basis for any classification assumption. Sourcing Lab USA provides research support and organizes technical information for your appointed customs professional; it does not act as a licensed customs broker or issue legal opinions.',
   overviewTitle: 'Defensible classification research, grounded in the GRIs and published CBP rulings.',
   overview:
-    'Relying on a 6-digit code provided by a Chinese supplier is one of the most dangerous mistakes an importer can make. Chinese export commodity codes differ fundamentally from U.S. 10-digit HTS codes. We analyze your product’s essential character, chemical composition, primary utility, and General Rules of Interpretation (GRIs) to identify the defensible 10-digit classification.',
+    'A supplier code is a starting point to investigate. Gather material composition, construction, function, images and relevant product variants, then compare candidate HTSUS entries and notes. Record uncertainties and questions for the broker or trade adviser rather than treating a search result as an approved classification.',
   processTitle: 'The 4-step tariff classification methodology.',
   offerName: 'HS Code & Customs Tariff Consulting',
   offerDescription:
-    '10-digit HTSUS classification research, Section 301 tariff analysis, preparation of CBP binding ruling requests for the importer, and tariff engineering advisory.',
+    'Product documentation, candidate HTSUS classification research and tariff assumptions for review by appointed customs professionals.',
   focusAreas: [
     {
       title: '10-Digit HTSUS Precision Classification',
-      body: 'We classify products down to the 10-digit statistical reporting level based on General Rules of Interpretation (GRIs), Chapter Notes, and Section Notes under the U.S. Harmonized Tariff Schedule.',
+      body: 'We gather the product facts and identify candidate HTSUS entries and notes to discuss with your customs broker. A candidate code is not a binding classification decision.',
     },
     {
       title: 'Section 301 & Antidumping (AD/CVD) Screening',
-      body: 'We identify whether your product falls under Section 301 tariff Lists 1, 2, 3, or 4A (carrying additional 7.5%–25% duties), and screen for devastating Antidumping or Countervailing duties (AD/CVD).',
+      body: 'Flag additional-duty and trade-remedy questions for specialist review using current official information. Applicability depends on the merchandise, origin, scope and entry date; no universal rate is assumed.',
     },
     {
       title: 'CBP Binding Ruling Submissions (e-Rulings)',
-      body: 'For novel, complex, or multi-component goods, we draft formal ruling requests to U.S. Customs and Border Protection (e-Rulings), securing a legally binding national classification ruling before you import.',
+      body: 'For uncertain classifications, we can organize the product facts that your importer or appointed adviser needs to consider a CBP ruling request. CBP determines acceptance, timing and the decision; we do not guarantee a ruling.',
     },
     {
-      title: 'Strategic Tariff Engineering Advisory',
-      body: 'We advise on subtle modifications to material composition, minor functional features, or unbundled packaging that legally classify the item into lower-duty tariff subheadings.',
+      title: 'Product Changes & Classification Questions',
+      body: 'Changes to materials, construction or presentation may require a new classification review. Discuss proposed changes with qualified trade counsel before relying on any expected duty outcome.',
     },
   ],
   briefItems: [
@@ -58,68 +64,68 @@ const page: ServicePageContent = {
     },
     {
       title: 'Classification Opinion & Duty Schedule',
-      body: 'We deliver an actionable classification memorandum outlining the recommended 10-digit HTS code, base duty rate, Section 301 status, and legal justification.',
+      body: 'An agreed research note records candidate codes, sources, review date and unresolved questions. Any duty scenario states its assumptions and requires professional confirmation for the shipment.',
     },
     {
       title: 'Broker Coordination & Customs Alignment',
-      body: 'We coordinate directly with your licensed customs broker to ensure the approved HTS code and supporting descriptions are reflected on entry summaries (CBP Form 7501).',
+      body: 'Share the research and supporting documents with your appointed broker or adviser. The importer and its appointed professionals handle the entry decisions and filings.',
     },
   ],
   benchmarks: [
     {
       label: 'Standard classification memo',
-      value: '2 to 3 business days',
-      qualifier: 'Full 10-digit HTS code report with duty rates, Section 301 analysis, and legal citations.',
+      value: 'Scope agreed first',
+      qualifier: 'Product facts, candidate codes, sources and questions to resolve.',
     },
     {
       label: 'CBP Binding Ruling petition',
-      value: '30 to 45 days',
-      qualifier: 'Official binding classification ruling issued directly by U.S. Customs Regulations & Rulings.',
+      value: 'CBP decision',
+      qualifier: 'Your appointed adviser can explain the request process; no agency processing time is promised.',
     },
     {
-      label: 'Tariff engineering analysis',
-      value: '5 to 7 business days',
-      qualifier: 'Analysis of material or assembly modifications to legally qualify for lower tariff subheadings.',
+      label: 'Specialist review',
+      value: 'Before reliance',
+      qualifier: 'Trade-remedy scope and proposed product changes require appropriate professional review.',
     },
   ],
   benchmarksNote:
-    'Our classification memos cite official CBP General Rules of Interpretation (GRIs), Explanatory Notes, and relevant CROSS precedents.',
+    'Research deliverables and timing are agreed for the product. Rates and applicability must be rechecked for the shipment date.',
   hideShowcase: true,
   faqs: [
     {
       question: 'What is the difference between an HS code and an HTS code?',
       answer:
-        'The HS (Harmonized System) code is an international 6-digit standard administered by the World Customs Organization (WCO) used by over 200 countries. The HTS (Harmonized Tariff Schedule) code adds additional country-specific digits. In the United States, the HTSUS code is 10 digits: 6 international digits plus 2 digits for U.S. duty rate subheadings and 2 digits for statistical reporting.',
+        'The international Harmonized System provides six-digit product groupings. The U.S. HTSUS adds national detail, including ten-digit statistical reporting numbers. A supplier’s shorter code does not by itself establish the correct U.S. entry classification.',
     },
     {
       question: 'Can I just use the HS code provided by my Chinese supplier?',
       answer:
-        'No. Chinese suppliers provide Chinese export commodity codes, which frequently differ from U.S. import classifications at the 8- and 10-digit levels. Under U.S. Customs law, the U.S. Importer of Record is solely responsible for classification accuracy. Accepting an incorrect supplier code does not relieve you from CBP penalties.',
+        'Treat it as a suggestion. Check the actual product against U.S. HTSUS descriptions and notes, and have your appointed customs professional review it. A supplier’s export documentation does not replace the importer’s U.S. classification review.',
     },
     {
       question: 'What is a CBP Binding Ruling and why is it valuable?',
       answer:
-        'A Binding Ruling is an official written decision issued by U.S. Customs and Border Protection confirming the exact HTS code and duty rate for your specific product. Once issued, it is legally binding on all U.S. ports of entry, protecting you from future customs audits, reclassifications, or retroactive duty clawbacks.',
+        'A CBP ruling addresses a prospective transaction on the facts presented. Its applicability depends on the ruling, the merchandise and the governing rules. It does not confer blanket immunity from audits, changed laws or examination of whether the imported goods match those facts. Ask your trade adviser whether a request is appropriate.',
     },
     {
       question: 'What happens if U.S. Customs reclassifies my imported product?',
       answer:
-        'If CBP audits an entry and reclassifies your product into a higher-duty tariff code, you will receive a CBP Form 28 (Request for Information) or Form 29 (Notice of Action). You may be forced to pay back-taxes on past shipments going back up to 5 years, plus interest and penalties.',
+        'Provide the notice and supporting product and entry records to your customs broker or trade counsel promptly. The response, duty consequences and available procedures depend on the facts and the notice; a generic website answer cannot determine them.',
     },
     {
       question: 'What is legal tariff engineering?',
       answer:
-        'Tariff engineering is the legitimate practice of designing or assembling a product so that it satisfies the specific legal definitions of a lower-duty tariff code. The U.S. Supreme Court has long affirmed that importers have the legal right to fashion merchandise to minimize applicable customs duties.',
+        'The term describes considering tariff treatment when designing a product. A proposed material, assembly or presentation change needs a fact-specific review by qualified trade counsel. Do not alter descriptions or assume a lower duty without that review.',
     },
   ],
   briefTitle: 'Request an HS code classification review.',
   briefIntro:
-    'Share your product description, materials, and photos. Our customs specialists will determine the defensible 10-digit HTS code and calculate applicable import duties.',
+    'Share your product description, materials, and photos. We can scope the research and identify questions to review with your appointed customs professional.',
   relatedPages: [
     {
       href: '/landed-cost-analysis',
       title: 'Landed Cost Analysis',
-      description: 'Model complete import margins incorporating exact HTS duty and Section 301 tariffs.',
+      description: 'Model import costs using documented duty assumptions and verified shipment inputs.',
     },
     {
       href: '/tools/hs-code-finder',
@@ -134,7 +140,7 @@ const page: ServicePageContent = {
     {
       href: '/freight-logistics',
       title: 'Freight Sourcing & Logistics',
-      description: 'Ocean and air shipping with integrated customs clearance.',
+      description: 'Compare transport requirements and coordinate with appointed freight and customs providers.',
     },
   ],
 };

@@ -8,11 +8,11 @@ import {
   serviceSchema,
 } from '@/lib/seo';
 
-const title = 'Sourcing Global y Entrada al Mercado de EE. UU.';
+const title = 'Sourcing en China y Suministro de Productos';
 const description =
-  'Ayudamos a empresas estadounidenses a buscar y fabricar en el extranjero, y ayudamos a fabricantes internacionales a entrar, distribuir y crecer en el mercado de Estados Unidos. Verificación directa de fábricas, control de calidad y representación comercial.';
+  'Sourcing en China, coordinación de fabricación y suministro para empresas de EE. UU. Especialistas en prendas, textiles y packaging; otros productos según viabilidad.';
 const homeAnswerES =
-  'Sourcing Lab USA es un socio operativo de comercio internacional y compras. Gestionamos el sourcing global de productos, auditorías de fábricas directas, negociación de precios y MOQ, control de calidad in situ y logística transfronteriza para marcas estadounidenses, al tiempo que ofrecemos consultoría de entrada al mercado de EE. UU., cumplimiento normativo y representación comercial para fabricantes internacionales.';
+  'Sourcing Lab USA ayuda a compradores empresariales de Estados Unidos a buscar y fabricar productos en el extranjero, principalmente en China mediante una colaboración independiente. Prendas, textiles y packaging son las especialidades más desarrolladas; otros productos se evalúan según viabilidad. Coordinamos el brief, las consultas a proveedores, la aprobación de muestras y el seguimiento de producción acordado. El presupuesto confirma precios, empresa contratante y responsabilidades de entrega.';
 
 export const metadata = pageMetadata({
   title,
@@ -34,8 +34,8 @@ export default function HomePageES() {
             }),
             serviceSchema(
               '/es',
-              'Sourcing Global y Ejecución de Entrada al Mercado de EE. UU.',
-              'Sourcing integral de productos en el extranjero, auditorías de fábrica, control de calidad y análisis de costes en destino para marcas estadounidenses, junto con consultoría de entrada al mercado y representación comercial para fabricantes internacionales.',
+              'Sourcing en China, Coordinación de Fabricación y Suministro',
+              'Sourcing y suministro de productos para compradores empresariales de Estados Unidos, principalmente desde China. Prendas, textiles y packaging son las especialidades principales; otros productos se evalúan según viabilidad. Especificaciones, muestras, precios y responsabilidades de entrega se acuerdan por pedido.',
             ),
             faqSchema('/es', homeFaqsES, 'es-US'),
           ],

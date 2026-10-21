@@ -17,6 +17,8 @@ import {
   QUANTITY_RANGE_LABELS,
 } from '@/lib/validation/contact';
 
+export const FORM_DELIVERY_TIMEOUT_MS = 15_000;
+
 export const NETLIFY_FORM_NAME = 'contact';
 export const NETLIFY_FORM_PATH = '/contact.html';
 
@@ -34,20 +36,28 @@ export async function submitToNetlifyForms(
     message: brief.message,
     sourcePath: brief.sourcePath,
     locale: brief.locale ?? 'en',
-    'bot-field': '',
+    'bot-field': brief.botField,
   });
 
   try {
     const response = await fetch(NETLIFY_FORM_PATH, {
       method: 'POST',
+      signal: AbortSignal.timeout(FORM_DELIVERY_TIMEOUT_MS),
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: body.toString(),
     });
 
-    return response.ok;
+    if (!response.ok) return false;
+
+    // Netlify's built-in confirmation explicitly acknowledges receipt. A
+    // static fallback can also return HTTP 200 (including /contact.html), so
+    // its status cannot establish that Forms actually accepted the lead.
+    const acknowledgement = await response.text();
+    return /Your form submission has been received/i.test(acknowledgement)
+      && /Thank you/i.test(acknowledgement);
   } catch {
-    // The durable record still goes to the server route, so a failure here is
-    // reported but never blocks the submission.
+    // The caller can still succeed when its independent database write is
+    // acknowledged. Otherwise it preserves the brief and offers email.
     return false;
   }
 }

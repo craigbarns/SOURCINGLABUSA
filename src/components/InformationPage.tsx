@@ -6,12 +6,13 @@ import { BriefSection } from '@/components/BriefSection';
 import { StructuredData } from '@/components/StructuredData';
 import { breadcrumbSchema, webpageSchema } from '@/lib/seo';
 
-export function InformationPage({ path, title, description, children, contact = false }: {
+export function InformationPage({ path, title, description, children, contact = false, contactHref }: {
   path: string;
   title: string;
   description: string;
   children: ReactNode;
   contact?: boolean;
+  contactHref?: string;
 }) {
   return (
     <div className="editorial-shell flex min-h-screen flex-col">
@@ -19,7 +20,7 @@ export function InformationPage({ path, title, description, children, contact = 
         { ...webpageSchema(path, title, description), '@type': contact ? 'ContactPage' : 'WebPage' },
         breadcrumbSchema([{ name: 'Home', path: '/' }, { name: title, path }]),
       ] }} />
-      <Navbar area="marketing" contactHref={contact ? '#contact' : '/contact-us#contact'} />
+      <Navbar area="marketing" contactHref={contactHref ?? (contact ? '#contact' : '/contact-us#contact')} />
       <main className="flex-1">
         <article className="article-layout">
           <nav aria-label="Breadcrumb" className="page-breadcrumb">

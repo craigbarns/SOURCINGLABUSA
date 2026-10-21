@@ -2,133 +2,132 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'China Sourcing Agent vs Supplier for U.S. Companies',
-  description:
-    'Sourcing agent, trading company or supplier: what each one does, who carries the risk, and how Sourcing Lab USA works. Projects open now — request a quotation.',
-  path: '/china-sourcing-agent',
+  "title": "China Sourcing Agent, Supplier or Coordination Partner?",
+  "description": "Compare agency services with product purchase and resale. Clarify the contracting company, price basis, approval duties and specialist appointments.",
+  "path": "/china-sourcing-agent"
 });
 
 const page: ServicePageContent = {
-  path: '/china-sourcing-agent',
-  eyebrow: 'China sourcing · how the arrangement works',
-  overviewTitle: 'Three arrangements, three very different positions.',
-  processTitle: 'From your brief to a supplied order.',
-  title:
-    'Sourcing agent, trading company or supplier: what you are actually hiring.',
-  directAnswer:
-    'A China sourcing agent finds suppliers on your behalf and is usually paid a commission, while you buy from the factory and carry the order. A trading company buys and resells, and a supplier does the same under its own commercial terms. Sourcing Lab USA buys and supplies the products: the company named in your quotation contracts with you and invoices the goods.',
-  intro:
-    'U.S. companies searching for a China sourcing agent are usually trying to solve one problem: getting a product made properly without managing suppliers themselves. The arrangements on offer differ in who contracts with the factory, who carries the order, and who is accountable if the goods are wrong.',
-  overview:
-    'The distinction matters before anything is ordered. Under an agency arrangement you contract with the factory directly and the agent is paid for the introduction and coordination. Where a company buys and resells, it contracts with the supplier and then sells the goods to you, so your commercial relationship and your recourse sit with that company. Sourcing Lab USA works the second way. Clothing, textiles and packaging are the core specialties; other products are reviewed for feasibility before anything is quoted.',
-  offerName: 'China Sourcing and Product Supply',
-  offerDescription:
-    'Sourcing, purchase and supply of clothing, textiles, sportswear, packaging and labels from China for U.S. business customers, from written brief through sampling to a delivered order.',
-  focusAreas: [
+  "path": "/china-sourcing-agent",
+  "eyebrow": "China sourcing · Choose the agreement before the order",
+  "title": "What are you hiring a China sourcing partner to do?",
+  "directAnswer": "A sourcing agent can be engaged to find and coordinate suppliers, while a product supplier purchases and resells goods under a sales agreement. The title alone does not define the relationship. Sourcing Lab USA’s core model is product purchase and resale; separately scoped sourcing or coordination services may also be agreed. The quotation identifies the contracting company, goods or deliverables, price basis and responsibilities.",
+  "intro": "Two proposals can use the word sourcing and cover different work. One may pay for supplier research while you buy directly from a factory. Another may price the finished goods supplied to you. Read the deliverables and contracts before comparing the totals.",
+  "overviewTitle": "Ask who buys, who approves and who invoices.",
+  "overview": "For a product supply order, the company named in the quotation sells and invoices the goods. For a separately agreed coordination service, the scope identifies the work and fee, as well as the parties placing the purchase order and making supplier payments. Mixed engagements need both parts described. Clothing, textiles and packaging remain the deepest specialties; other products are reviewed for feasibility through the independent China partnership.",
+  "processTitle": "Make the commercial arrangement reviewable.",
+  "offerName": "China Sourcing and Product Supply",
+  "offerDescription": "Product sourcing, purchase and resale for U.S. business customers, with any separate supplier research, audit or coordination engagement scoped and priced in writing.",
+  "focusAreas": [
     {
-      title: 'Who contracts with the factory',
-      body: 'Under an agency arrangement you do, and the agent coordinates. Where a company buys and resells, it holds that contract and supplies you. Sourcing Lab USA buys and supplies, so your agreement is with the company identified in your quotation.',
+      "title": "The parties to the order",
+      "body": "Identify the seller, buyer, invoicing company and party contracting with the manufacturer. Projects can be contracted now through France or China. A planned Miami expansion in 2027 does not establish a current U.S. contracting entity."
     },
     {
-      title: 'How the work is paid for',
-      body: 'An agent is typically paid a commission on order value or a retainer. A supply arrangement is priced as a product price for the goods supplied. Ask which applies before comparing two proposals, because the numbers are not equivalent.',
+      "title": "The basis of the price",
+      "body": "A goods quotation prices the agreed product and quantity, with its stated inclusions. A service proposal prices defined work, which may be a fixed fee or another agreed basis. Ask how sampling, tooling, travel, specialist checks and transport are charged."
     },
     {
-      title: 'Where accountability sits',
-      body: 'If goods arrive wrong, recourse follows the contract. With an agency arrangement it generally sits between you and the factory. Where the goods are bought and resold to you, it sits with the company that supplied them.',
+      "title": "Approvals and changes",
+      "body": "Decide who approves the specification, sample, artwork and production release. Record which changes need a revised quotation. Coordination does not give anyone permission to substitute material, change packaging or approve an order without the agreed authority."
     },
     {
-      title: 'What is agreed before production',
-      body: 'Specification, sample approval, quantities, quality checkpoints, shipping terms and import responsibilities are confirmed per order. None of these should be assumed from a product description or a reference sample alone.',
-    },
+      "title": "Issues and handoff",
+      "body": "The agreement should explain the process for reporting defects or missing goods and which party responds. Confirm delivery terms, import responsibilities and any appointed specialist. Rights and remedies follow the actual agreements and applicable law, not the label sourcing agent."
+    }
   ],
-  briefItems: [
-    'The product, with references, drawings or an existing sample',
-    'Quantity, or the range you are considering',
-    'Materials, finish, branding and any requirement that must be met',
-    'Destination and the timing you are working towards',
+  "briefItems": [
+    "The product, reference material, quantity and intended destination",
+    "Whether you want goods supplied or a defined coordination engagement",
+    "Any factory relationship, existing quotation or sample already in place",
+    "The decisions, checks and delivery tasks you expect the engagement to cover"
   ],
-  workflow: [
+  "workflow": [
     {
-      title: 'Send the product brief',
-      body: 'Describe the product, quantity, references and destination. We identify what is missing and confirm whether it can be quoted and sampled through our independent China sourcing partnership.',
+      "title": "Describe the buying situation",
+      "body": "Tell us whether you are starting with a product idea, comparing existing suppliers or preparing a repeat order. We review feasibility and identify the decisions that still need an owner."
     },
     {
-      title: 'Review options and samples',
-      body: 'Supplier options, a quotation basis, sample scope and production timing are put to you for review. Nothing is ordered at this stage and no minimum quantity or deadline is assumed.',
+      "title": "Review the proposed arrangement",
+      "body": "The proposal states whether it covers goods, a service or both. It identifies the company in France or China that contracts and invoices, the deliverables or product specification and the proposed price basis."
     },
     {
-      title: 'Agree and supply the order',
-      body: 'The company in France or China identified in your quotation purchases and supplies the products. Specification, pricing, samples, quality checkpoints and delivery responsibilities are agreed for that order.',
+      "title": "Agree the approval and reporting plan",
+      "body": "Confirm who signs off samples, specification changes and production milestones. Audits, inspections, testing and shipment providers are included only when their scope and appointment are agreed."
     },
+    {
+      "title": "Proceed under the accepted terms",
+      "body": "Product supply, payments, reporting and delivery follow the accepted order. A separately agreed service remains limited to its defined deliverables. Sending an inquiry or receiving a supplier option does not place an order."
+    }
   ],
-  faqs: [
+  "benchmarks": [
     {
-      question: 'What does a China sourcing agent do?',
-      answer:
-        'A sourcing agent looks for suppliers on your behalf, requests quotations, coordinates samples and follows production. In a typical agency arrangement you contract with and pay the factory directly, and the agent is paid a commission or a fee for that coordination.',
+      "label": "Product supply",
+      "value": "Goods quotation",
+      "qualifier": "Specification, quantity, price inclusions and shipping responsibilities are stated."
     },
     {
-      question: 'What is the difference between a sourcing agent and a trading company?',
-      answer:
-        'An agent acts on your behalf and is paid for the service, while you buy from the factory. A trading company buys the goods and resells them to you, so it holds the supplier contract and you buy from it. The practical difference is who carries the order and where your recourse sits if something is wrong.',
+      "label": "Separate services",
+      "value": "Defined deliverables",
+      "qualifier": "Scope, fee basis and third-party costs are agreed before work starts."
     },
     {
-      question: 'Is Sourcing Lab USA a sourcing agent?',
-      answer:
-        'No. Sourcing Lab USA sources, purchases and supplies the products. The company identified in your quotation contracts with you and invoices the goods, rather than introducing you to a factory for a commission.',
-    },
-    {
-      question: 'How much does sourcing from China cost?',
-      answer:
-        'Where goods are bought and supplied, you are quoted a product price for the specification and quantity agreed, rather than a separate commission. What drives that price is the product itself: material, construction, finish, decoration, quantity, packaging and shipping terms. Ask for the basis of any quotation before comparing two of them.',
-    },
-    {
-      question: 'How long does it take to source a product from China?',
-      answer:
-        'As an indication, samples take one to two weeks once the specification is agreed, and production runs about 45 to 60 days after sample approval, before shipping. A new mould or tooling, a custom material, a revised sample or factory loading at the time of order all extend it. The timing for your project is confirmed in your quotation.',
-    },
-    {
-      question: 'What is the minimum order quantity?',
-      answer:
-        'Minimum order quantities commonly start around 500 units. The real minimum follows the product, material, construction, decoration and the split across sizes or colours, so send the quantity you are considering and it can be reviewed against what the product actually requires.',
-    },
-    {
-      question: 'Do you handle customs clearance and freight forwarding?',
-      answer:
-        'We coordinate them rather than act as a licensed broker ourselves. Shipping terms and import responsibilities are confirmed in the commercial terms for each order. Freight is booked and the customs entry is filed by the licensed specialists appointed for that purpose, and we coordinate them alongside your order.',
-    },
-    {
-      question: 'Can I start a project now?',
-      answer:
-        'Yes. Projects and invoicing are available now through France or China, with the contracting company identified in your quotation. You do not need to wait for the planned U.S. expansion in Miami in 2027. Submitting a brief does not place an order.',
-    },
+      "label": "Contracting company",
+      "value": "Named in the proposal",
+      "qualifier": "Current projects can contract and invoice through France or China."
+    }
   ],
-  briefTitle: 'Tell us what you need sourced.',
-  briefIntro:
-    'Send the product, quantity, references, destination and timing. We confirm what can be quoted and sampled, and reply by email. No order is placed by submitting this form.',
-  relatedPages: [
+  "benchmarksNote": "No standard sourcing percentage or fixed project price is published. Compare written scope, inclusions and responsibilities alongside the amount.",
+  "faqs": [
     {
-      href: '/china-to-us-procurement',
-      title: 'China-to-U.S. procurement',
-      description: 'How a product moves from a brief to a delivered order.',
+      "question": "Is Sourcing Lab USA a sourcing agent or a supplier?",
+      "answer": "The core product supply model is purchase and resale: the company named in the quotation supplies and invoices the goods. Separately scoped sourcing, audit or coordination work may also be agreed. The quotation identifies which arrangement applies to your project."
     },
     {
-      href: '/custom-textile',
-      title: 'Clothing and textile sourcing',
-      description: 'The deepest specialty: fabrics, construction and branding.',
+      "question": "How does a product price differ from a sourcing service fee?",
+      "answer": "A product price is for the goods described in the sales quotation. A service fee is for the work and deliverables described in a separate scope. Sampling, tooling, transport and specialist costs may be included or quoted separately; the written proposal states the basis."
     },
     {
-      href: '/custom-packaging',
-      title: 'Packaging, boxes and labels',
-      description: 'Materials, print finishes and retail packaging to specification.',
+      "question": "Can you work with a supplier I already found?",
+      "answer": "Send the product brief, supplier information and the issue you want to resolve. We review whether a defined comparison, sample coordination, audit or other engagement is feasible. An existing supplier is not automatically accepted or verified by being introduced to us."
     },
     {
-      href: '/blog/china-sourcing-rfq-checklist',
-      title: 'Prepare your sourcing brief',
-      description: 'A practical checklist for the information a quotation needs.',
+      "question": "Who performs on-site audits and inspections?",
+      "answer": "We coordinate an appointed specialist when the project includes a site audit or inspection. Agree the purpose, scope, report and cost before booking. The independent China sourcing relationship is not described as a Sourcing Lab USA employee inspection team."
     },
+    {
+      "question": "Do you provide a fixed minimum quantity or delivery schedule?",
+      "answer": "Quantity and timing depend on the product, materials, tooling, sample stages and supplier availability. The proposal confirms the minimum, schedule assumptions and shipment responsibilities for your project. We do not assign a universal minimum or lead time to every sourcing inquiry."
+    },
+    {
+      "question": "Can I begin before the planned Miami expansion?",
+      "answer": "Yes. Projects can be executed and invoiced now through France or China, with the contracting company named in the quotation. Miami is a planned expansion for 2027. Submitting the brief starts a discussion and does not create a purchase order."
+    }
   ],
+  "briefTitle": "Describe the sourcing support you need.",
+  "briefIntro": "Send the product, quantity, current supplier information if any, and the decisions you want help preparing. We confirm the scope and commercial arrangement.",
+  "relatedPages": [
+    {
+      "href": "/product-sourcing",
+      "title": "Prepare the product requirement",
+      "description": "Bring specification, quantities and quotation inclusions onto the same basis."
+    },
+    {
+      "href": "/china-sourcing",
+      "title": "China supplier coordination",
+      "description": "Keep supplier questions, sample approvals and production records aligned."
+    },
+    {
+      "href": "/how-we-work",
+      "title": "How the order is organized",
+      "description": "Review the steps from a product brief to agreed supply terms."
+    },
+    {
+      "href": "/blog/china-sourcing-rfq-checklist",
+      "title": "RFQ preparation checklist",
+      "description": "Collect the product and commercial details needed for a useful quotation."
+    }
+  ]
 };
 
 export default function ChinaSourcingAgentPage() {

@@ -7,6 +7,7 @@ import type { Metadata } from 'next';
 import { getDomainRoutingConfig } from '@/lib/routing/subdomains';
 
 import { StructuredData } from '@/components/StructuredData';
+import { AnalyticsConsent } from '@/components/AnalyticsConsent';
 import { organizationGraph, SITE_DESCRIPTION } from '@/lib/seo';
 
 import '../globals.css';
@@ -32,7 +33,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   title: {
-    default: 'Global Sourcing & U.S. Market Entry | Sourcing Lab USA',
+    default: 'China Sourcing & Product Supply | Sourcing Lab USA',
     template: '%s | Sourcing Lab USA',
   },
   description: SITE_DESCRIPTION,
@@ -58,12 +59,12 @@ export const metadata: Metadata = {
     locale: 'en_US',
     siteName: 'SourcingLab USA',
     url: marketingOrigin,
-    title: 'Global Sourcing & U.S. Market Entry | Sourcing Lab USA',
+    title: 'China Sourcing & Product Supply | Sourcing Lab USA',
     description: SITE_DESCRIPTION,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Global Sourcing & U.S. Market Entry | Sourcing Lab USA',
+    title: 'China Sourcing & Product Supply | Sourcing Lab USA',
     description: SITE_DESCRIPTION,
   },
 };
@@ -83,6 +84,7 @@ export default function EnglishRootLayout({
       <body className="min-h-screen bg-brand-paper text-brand-ink antialiased font-sans">
         <StructuredData data={organizationGraph()} />
         {children}
+        <AnalyticsConsent />
       </body>
     </html>
   );
