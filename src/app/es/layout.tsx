@@ -33,11 +33,11 @@ export const metadata: Metadata = {
     telephone: false,
   },
   title: {
-    default: 'Sourcing Global y Entrada al Mercado de EE. UU. | Sourcing Lab USA',
+    default: 'Sourcing en China y Suministro de Productos | Sourcing Lab USA',
     template: '%s | Sourcing Lab USA',
   },
   description:
-    'Ayudamos a empresas estadounidenses a buscar y fabricar en el extranjero, y ayudamos a fabricantes internacionales a entrar, distribuir y crecer en el mercado de Estados Unidos. Verificación directa de fábricas, control de calidad y representación comercial.',
+    'Sourcing en China, coordinación de fabricación y suministro para empresas de EE. UU. Especialistas en prendas, textiles y packaging; otros productos según viabilidad.',
   alternates: {
     canonical: `${marketingOrigin}/es`,
     languages: homeLanguages,
@@ -65,15 +65,15 @@ export const metadata: Metadata = {
     alternateLocale: ['en_US'],
     siteName: 'Sourcing Lab USA',
     url: `${marketingOrigin}/es`,
-    title: 'Sourcing Global y Entrada al Mercado de EE. UU. | Sourcing Lab USA',
+    title: 'Sourcing en China y Suministro de Productos | Sourcing Lab USA',
     description:
-      'Ayudamos a empresas estadounidenses a buscar y fabricar en el extranjero, y ayudamos a fabricantes internacionales a entrar, distribuir y crecer en el mercado de Estados Unidos. Verificación directa de fábricas, control de calidad y representación comercial.',
+      'Sourcing en China, coordinación de fabricación y suministro para empresas de EE. UU. Especialistas en prendas, textiles y packaging; otros productos según viabilidad.',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sourcing Global y Entrada al Mercado de EE. UU. | Sourcing Lab USA',
+    title: 'Sourcing en China y Suministro de Productos | Sourcing Lab USA',
     description:
-      'Ayudamos a empresas estadounidenses a buscar y fabricar en el extranjero, y ayudamos a fabricantes internacionales a entrar, distribuir y crecer en el mercado de Estados Unidos. Verificación directa de fábricas, control de calidad y representación comercial.',
+      'Sourcing en China, coordinación de fabricación y suministro para empresas de EE. UU. Especialistas en prendas, textiles y packaging; otros productos según viabilidad.',
   },
 };
 

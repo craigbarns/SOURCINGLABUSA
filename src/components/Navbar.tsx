@@ -17,7 +17,6 @@ interface NavbarProps {
 
 const navigation = [
   { label: 'Sourcing', href: '/product-sourcing' },
-  { label: 'U.S. Market Entry', href: '/us-market-entry' },
   { label: 'Packaging', href: '/custom-packaging' },
   { label: 'Clothing', href: '/custom-textile' },
   { label: 'Private label', href: '/private-label-packaging' },
@@ -78,7 +77,6 @@ export const Navbar: React.FC<NavbarProps> = ({
         label: isSpanish
           ? ({
               Sourcing: 'Sourcing',
-              'U.S. Market Entry': 'Entrada a EE. UU.',
               Packaging: 'Empaques',
               Clothing: 'Prendas',
               'Private label': 'Marca privada',
@@ -148,6 +146,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               ES
             </Link>
+            {isChinese && (
             <Link
               href={isAppArea ? '/marketing/zh' : '/zh'}
               aria-current={currentLocale === 'zh' ? 'page' : undefined}
@@ -157,6 +156,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               中文
             </Link>
+            )}
           </div>
 
           {isAppArea ? (
@@ -258,7 +258,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               <p className="px-3 text-[10px] font-black uppercase tracking-[0.16em] text-[#7d8b83]">
                 {isChinese ? '语言 / Language' : isSpanish ? 'Idioma' : 'Language'}
               </p>
-              <div className="mt-2 grid grid-cols-3 gap-2">
+              <div className={`mt-2 grid gap-2 ${isChinese ? 'grid-cols-3' : 'grid-cols-2'}`}>
                 <Link
                   href="/"
                   aria-current={currentLocale === 'en' ? 'page' : undefined}
@@ -283,6 +283,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 >
                   Español
                 </Link>
+                {isChinese && (
                 <Link
                   href="/zh"
                   aria-current={currentLocale === 'zh' ? 'page' : undefined}
@@ -295,6 +296,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 >
                   简体中文
                 </Link>
+                )}
               </div>
             </div>
           </div>

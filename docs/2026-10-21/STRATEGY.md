@@ -1,5 +1,7 @@
 # Sourcing Lab USA — stratégie SEO, visibilité IA et acquisition sur 90 jours
 
+**Current commercial priority:** the owner clarified that the public site is first for prospective sourcing, manufacturing and product-supply customers. The manufacturer market-entry offer is secondary. [Buyer priority correction](BUYER_PRIORITY.md) supersedes recommendations for equal homepage prominence below.
+
 Date : 21 octobre 2026. Document de recherche et de planification. Le code examiné au démarrage correspondait à `401bd35`, après synchronisation du dépôt. Les observations de concurrents et la documentation officielle ont été consultées le 21 octobre 2026. Les travaux de mise en œuvre et leur validation sont documentés séparément dans ce dossier.
 
 ## Décision commerciale et limites des observations

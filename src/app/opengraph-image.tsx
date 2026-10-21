@@ -1,6 +1,6 @@
 import { ImageResponse } from 'next/og';
 
-export const alt = 'Sourcing Lab USA — Global Sourcing & U.S. Market Entry';
+export const alt = 'Sourcing Lab USA — China Sourcing & Product Supply';
 export const size = { width: 1200, height: 630 };
 export const contentType = 'image/png';
 
@@ -55,7 +55,7 @@ export default function OpenGraphImage() {
             </span>
           </div>
           <span style={{ color: '#596755', fontSize: 14 }}>
-            GLOBAL TRADE · PROJECTS OPEN NOW
+            OVERSEAS SOURCING · PROJECTS OPEN NOW
           </span>
         </div>
         <div style={{ display: 'flex', flexDirection: 'column' }}>
@@ -72,11 +72,11 @@ export default function OpenGraphImage() {
               marginTop: 24,
             }}
           >
-            <span>Global sourcing.</span>
-            <span>U.S. market entry.</span>
+            <span>Source your products.</span>
+            <span>Manufacture overseas.</span>
           </div>
           <span style={{ fontSize: 23, color: '#596755', marginTop: 25 }}>
-            Source overseas. Develop your U.S. market.
+            Clothing. Textiles. Packaging. Other products on request.
           </span>
         </div>
         <div

@@ -8,14 +8,14 @@ import {
   serviceSchema,
 } from '@/lib/seo';
 
-const title = 'Global Sourcing & U.S. Market Entry | Sourcing Lab USA';
+const title = 'China Sourcing & Product Supply';
 const description =
-  'Overseas sourcing and manufacturing coordination for U.S. businesses. U.S. market-entry preparation and sales representation for international manufacturers.';
+  'China sourcing, manufacturing coordination and product supply for U.S. businesses. Clothing, textiles and packaging specialists; other products reviewed for feasibility.';
 const homeAnswer =
-  'Sourcing Lab USA supports overseas sourcing and manufacturing coordination for U.S. businesses, and U.S. market-entry preparation and commercial representation for international manufacturers. Clothing, textiles and packaging are the deepest specialties; other products are assessed for feasibility. Current projects are contracted through France or China, with an independent sourcing partnership in China and appointed specialists where required. Miami expansion is planned for 2027.';
+  'Sourcing Lab USA helps U.S. business buyers source and manufacture products overseas, principally in China through an established independent partnership. Clothing, textiles and packaging are the deepest specialties; other products are reviewed for feasibility. We coordinate the product brief, supplier discussions, sample approvals and agreed production follow-up. Product pricing, the contracting company and delivery responsibilities are confirmed in the quotation.';
 
 export const metadata = pageMetadata({
-  title: 'Global Sourcing & U.S. Market Entry',
+  title,
   description,
   path: '/',
   locale: 'en-US',
@@ -34,8 +34,8 @@ export default function HomePage() {
             }),
             serviceSchema(
               '/',
-              'Global Sourcing & U.S. Market Entry Execution',
-              'Overseas sourcing and manufacturing coordination for U.S. business buyers, plus U.S. market research, entry preparation and commercial representation for international manufacturers. Current engagements contracted through France or China.',
+              'China Sourcing, Manufacturing Coordination and Product Supply',
+              'Overseas sourcing and product supply for U.S. business buyers, principally from China. Clothing, textiles and packaging are core specialties; other products are reviewed for feasibility. Specifications, samples, pricing and delivery responsibilities are agreed per order.',
             ),
             faqSchema('/', homeFaqs, 'en-US'),
           ],

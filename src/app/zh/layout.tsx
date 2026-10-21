@@ -8,7 +8,7 @@ import { getDomainRoutingConfig } from '@/lib/routing/subdomains';
 
 import { StructuredData } from '@/components/StructuredData';
 import { AnalyticsConsent } from '@/components/AnalyticsConsent';
-import { homeLanguages, organizationGraph } from '@/lib/seo';
+import { organizationGraph } from '@/lib/seo';
 
 import '../globals.css';
 
@@ -40,7 +40,6 @@ export const metadata: Metadata = {
     '为国际制造企业准备美国市场拓展：客户与渠道研究、商业资料和商业代表合作。当前项目通过法国或中国公司签约；迈阿密扩展计划于2027年开展。',
   alternates: {
     canonical: `${marketingOrigin}/zh`,
-    languages: homeLanguages,
   },
   robots: {
     index: true,
@@ -62,7 +61,6 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'zh_CN',
-    alternateLocale: ['en_US', 'es_US'],
     siteName: 'Sourcing Lab USA',
     url: `${marketingOrigin}/zh`,
     title: '美国市场准入与商业代表 | Sourcing Lab USA',

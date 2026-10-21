@@ -11,7 +11,6 @@ const pages = new Map();
 const homeAlternates = [
   ['en-US', '/'],
   ['es-US', '/es'],
-  ['zh-Hans', '/zh'],
   ['x-default', '/'],
 ];
 const isNonindexablePath = (path) =>
@@ -249,7 +248,18 @@ for (const path of internalAssets) await get(path);
 assert.ok(pages.get('/about').document.getElementById('founder'), 'Founder entity must resolve to a visible anchor');
 assert.ok(pages.get('/contact-us').document.querySelector('form'), 'Contact page must contain the qualification form');
 
-for (const path of ['/', '/es', '/zh']) {
+// The primary public journey is product sourcing; manufacturer support is a
+// separate secondary offer, not a competing homepage conversion.
+for (const path of ['/', '/es']) {
+  const { document, title, description } = pages.get(path);
+  assert.ok(!/market.entry|entrada al mercado/i.test(`${title} ${description}`), `${path}: buyer positioning must lead metadata`);
+  const hero = document.querySelector('.editorial-hero');
+  assert.equal(hero?.querySelector('.hero-actions a')?.getAttribute('href'), '#contact', `${path}: primary hero action must reach the buyer form`);
+  assert.equal(document.querySelectorAll('main a[href*="/us-market-entry"], main a[href*="/us-sales-representation"]').length, 0, `${path}: manufacturer offer must not compete in main homepage content`);
+  assert.ok(document.querySelector('main form select[name="projectType"]'), `${path}: sourcing qualification must remain the homepage form`);
+}
+
+for (const path of ['/', '/es']) {
   const document = pages.get(path).document;
   assert.equal(
     document.documentElement.lang,
@@ -263,6 +273,16 @@ for (const path of ['/', '/es', '/zh']) {
       `${path}: incorrect ${language} alternate`,
     );
   }
+  assert.equal(
+    document.querySelectorAll('link[hreflang]').length,
+    homeAlternates.length,
+    `${path}: only equivalent buyer homepages belong in hreflang`,
+  );
+  assert.deepEqual(
+    [...document.querySelectorAll('meta[property="og:locale:alternate"]')].map((node) => node.content),
+    [path === '/' ? 'es_US' : 'en_US'],
+    `${path}: social alternate locale must match the buyer translations`,
+  );
   const entry = [...sitemap.querySelectorAll('url')].find(
     (node) =>
       node.querySelector('loc').textContent === `${canonicalOrigin}${path}`,
@@ -272,7 +292,37 @@ for (const path of ['/', '/es', '/zh']) {
     homeAlternates.length,
     `${path}: sitemap language alternates`,
   );
+  for (const [language, target] of homeAlternates) {
+    const link = [...entry.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'link')]
+      .find((node) => node.getAttribute('hreflang') === language);
+    assert.equal(
+      link?.getAttribute('href'),
+      `${canonicalOrigin}${target}`,
+      `${path}: sitemap ${language} alternate`,
+    );
+  }
 }
+
+const manufacturerHub = pages.get('/zh').document;
+assert.equal(manufacturerHub.documentElement.lang, 'zh-Hans', 'Chinese hub document language');
+assert.equal(
+  manufacturerHub.querySelectorAll('link[hreflang]').length,
+  0,
+  'Chinese manufacturer hub must not claim buyer-homepage translations',
+);
+assert.equal(
+  manufacturerHub.querySelectorAll('meta[property="og:locale:alternate"]').length,
+  0,
+  'Chinese manufacturer hub must not claim buyer social alternates',
+);
+const manufacturerHubEntry = [...sitemap.querySelectorAll('url')].find(
+  (node) => node.querySelector('loc').textContent === `${canonicalOrigin}/zh`,
+);
+assert.equal(
+  manufacturerHubEntry.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'link').length,
+  0,
+  'Chinese hub sitemap entry must remain outside the buyer hreflang cluster',
+);
 
 const { text: robots } = await get('/robots.txt');
 assert.match(robots, /User-Agent: \*/i);
@@ -336,7 +386,7 @@ console.log(
         'visible FAQ consistency',
         'article dates',
         'internal links and anchors',
-        'EN/ES/ZH hreflang',
+        'EN/ES hreflang and separate Chinese manufacturer hub',
         'sitemap',
         'crawler access',
         'indexing boundaries',

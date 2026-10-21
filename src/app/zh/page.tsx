@@ -19,7 +19,6 @@ export const metadata = pageMetadata({
   description,
   path: '/zh',
   locale: 'zh-Hans',
-  translatedHome: true,
 });
 
 export default function HomePageZH() {

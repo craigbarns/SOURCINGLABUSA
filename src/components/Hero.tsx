@@ -14,8 +14,8 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' | 'zh' }) {
             {zh
               ? '全球制造出海 · 美国市场准入与商业代表'
               : es
-                ? 'SOURCING GLOBAL & ENTRADA AL MERCADO DE EE. UU.'
-                : 'GLOBAL SOURCING & U.S. MARKET ENTRY'}
+                ? 'SOURCING Y SUMINISTRO DE PRODUCTOS'
+                : 'CHINA SOURCING & PRODUCT SUPPLY'}
           </p>
           <h1 id="hero-heading">
             {zh ? (
@@ -25,13 +25,13 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' | 'zh' }) {
               </>
             ) : es ? (
               <>
-                Sourcing global<br />
-                <em>&amp; entrada al mercado de EE. UU.</em>
+                Encuentra y fabrica<br />
+                <em>tu próximo producto.</em>
               </>
             ) : (
               <>
-                Global Sourcing<br />
-                <em>&amp; Market Entry for the U.S.</em>
+                Source and manufacture<br />
+                <em>your next product.</em>
               </>
             )}
           </h1>
@@ -39,26 +39,26 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' | 'zh' }) {
             {zh
               ? '帮助国际制造企业准备美国市场拓展：研究目标客户、准备商业资料、识别潜在分销商并按约定范围开展买家联络。'
               : es
-                ? 'Ayudamos a empresas estadounidenses a buscar, verificar y fabricar en el extranjero, y ayudamos a fabricantes internacionales a entrar, distribuir y crecer en el mercado de Estados Unidos.'
-                : 'We help U.S. companies source and manufacture overseas — and help international manufacturers enter, distribute, and grow in the United States.'}
+                ? 'Ayudamos a marcas, comercios y compradores profesionales a encontrar fabricantes en China, desarrollar muestras y coordinar la producción. Especificaciones claras, presupuestos comparables y condiciones de suministro por escrito.'
+                : 'We help brands, retailers and business buyers source from China, develop samples and coordinate manufacturing. Clear specifications, comparable quotations and agreed supply terms for your next order.'}
           </p>
           <div className="hero-actions">
             <CtaLink
-              href={zh ? '#contact' : '/product-sourcing'}
+              href="#contact"
               location="hero"
-              label={zh ? '提交出海需求评估' : es ? 'Necesito un fabricante' : 'I need a manufacturer'}
+              label={zh ? '提交出海需求评估' : es ? 'Solicitar presupuesto' : 'Request a sourcing quote'}
               className="editorial-button"
             >
-              {zh ? '提交出海需求评估' : es ? 'Necesito un fabricante' : 'I need a manufacturer'}
+              {zh ? '提交出海需求评估' : es ? 'Solicitar presupuesto' : 'Request a sourcing quote'}
               <ArrowUpRight size={18} aria-hidden="true" />
             </CtaLink>
             <CtaLink
-              href={zh ? '#representation' : '/us-market-entry'}
+              href={zh ? '#representation' : '#how-it-works'}
               location="hero"
-              label={zh ? '了解核心能力' : es ? 'Quiero vender en EE. UU.' : 'I want to enter the U.S. market'}
+              label={zh ? '了解核心能力' : es ? 'Cómo trabajamos' : 'See how we work'}
               className="editorial-text-link"
             >
-              {zh ? '了解核心落地能力' : es ? 'Quiero vender en EE. UU.' : 'I want to enter the U.S. market'}
+              {zh ? '了解核心落地能力' : es ? 'Cómo trabajamos' : 'See how we work'}
               <ArrowUpRight size={16} aria-hidden="true" />
             </CtaLink>
           </div>
@@ -66,8 +66,8 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' | 'zh' }) {
             {zh
               ? '当前通过法国或中国公司签约和开票 · 迈阿密扩展计划于2027年开展'
               : es
-                ? 'Proyectos disponibles ahora desde Francia o China · Expansión en Miami prevista para 2027.'
-                : 'Projects available now through France or China · Miami expansion planned for 2027.'}
+                ? 'Comparte tu producto, cantidad y destino. Proyectos disponibles ahora desde Francia o China.'
+                : 'Start with your product, quantity and destination. Projects available now through France or China.'}
           </p>
         </div>
         <SourcingOverview locale={locale} />
@@ -90,7 +90,7 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' | 'zh' }) {
             <span>{es ? 'Desarrollo de producto' : 'Product development'}</span><span aria-hidden="true">✳</span>
             <span>{es ? 'Control de calidad' : 'Quality inspection'}</span><span aria-hidden="true">✳</span>
             <span>{es ? 'Logística y aranceles' : 'Logistics & tariffs'}</span><span aria-hidden="true">✳</span>
-            <span>{es ? 'Entrada al mercado de EE. UU.' : 'U.S. market entry'}</span>
+            <span>{es ? 'Suministro de productos' : 'Product supply'}</span>
           </>
         )}
       </div>

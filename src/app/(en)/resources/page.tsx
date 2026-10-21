@@ -15,12 +15,12 @@ import {
 } from '@/lib/seo';
 
 const path = '/resources';
-const title = 'Sourcing & U.S. Market Entry Resources, Tools and Templates';
+const title = 'Product Sourcing Resources, Tools and Templates';
 const description =
-  'Free sourcing worksheets, a landed cost calculator and U.S. market entry readiness assessment. Prepare supplier quotations and an evidence-based buyer outreach plan.';
+  'Prepare a product sourcing brief, compare supplier quotations, review supplier evidence and estimate landed costs with free worksheets and practical guides.';
 
 const directAnswer =
-  'Free working resources for both commercial directions: sourcing briefs, supplier evidence and cost comparisons for U.S. buyers, plus a readiness assessment and channel preparation worksheets for international manufacturers targeting American customers. Use them to document assumptions and open questions before committing to an order or commercial campaign.';
+  'These free resources help U.S. business buyers prepare an overseas sourcing and product supply project: define the product, compare supplier quotations, review supplier evidence and document landed-cost assumptions. Start with the sourcing brief, then use the relevant worksheets before approving samples or an order. Separate manufacturer market-entry resources are available further down this page.';
 
 /**
  * Guides grouped by the decision they support, rather than by publication
@@ -93,9 +93,21 @@ export default function ResourcesPage() {
                     name: 'Product sourcing brief template',
                     url: absoluteUrl('/resources/product-sourcing-brief'),
                   },
+                  {
+                    '@type': 'ListItem',
+                    position: 2,
+                    name: 'Landed cost calculator',
+                    url: absoluteUrl('/tools/landed-cost-calculator'),
+                  },
+                  {
+                    '@type': 'ListItem',
+                    position: 3,
+                    name: 'Manufacturing cost comparison worksheet',
+                    url: absoluteUrl('/resources/manufacturing-cost-comparison.txt'),
+                  },
                   ...posts.map((post, index) => ({
                     '@type': 'ListItem',
-                    position: index + 2,
+                    position: index + 4,
                     name: post.title,
                     url: absoluteUrl(`/blog/${post.slug}`),
                   })),
@@ -121,7 +133,7 @@ export default function ResourcesPage() {
             </nav>
             <p className="editorial-kicker">TEMPLATES &amp; GUIDES</p>
             <h1 className="editorial-title page-title">
-              What to document
+              Prepare your sourcing project
               <br />
               <em>before you commit.</em>
             </h1>
@@ -135,11 +147,6 @@ export default function ResourcesPage() {
 
         <section className="editorial-section section-ruled">
           <div className="editorial-container">
-            <div className="detail-card-grid mb-10">
-              <article className="detail-card"><h2>Landed cost calculator</h2><p>Use your own product, freight, duty and fee assumptions. All inputs stay in the browser.</p><Link href="/tools/landed-cost-calculator" className="editorial-text-link mt-4">Calculate a scenario <ArrowUpRight size={16} aria-hidden="true" /></Link></article>
-              <article className="detail-card"><h2>U.S. market entry readiness</h2><p>Eight questions about the documents and decisions needed before approaching American buyers.</p><Link href="/tools/us-market-entry-assessment" className="editorial-text-link mt-4">Assess your preparation <ArrowUpRight size={16} aria-hidden="true" /></Link></article>
-              <article className="detail-card"><h2>Manufacturer preparation worksheets</h2><p>Plain-text working templates, available without registration.</p><ul className="mt-4 space-y-3"><li><a href="/resources/us-market-entry-checklist.txt" download className="underline">U.S. market entry checklist</a></li><li><a href="/resources/distributor-evaluation-scorecard.txt" download className="underline">Distributor evaluation scorecard</a></li><li><a href="/resources/manufacturing-cost-comparison.txt" download className="underline">Manufacturing cost comparison</a></li></ul></article>
-            </div>
             <article className="resource-feature">
               <div>
                 <p className="editorial-kicker">START HERE · FREE TEMPLATE</p>
@@ -161,6 +168,11 @@ export default function ResourcesPage() {
                 </div>
               </div>
             </article>
+            <div className="detail-card-grid mt-10">
+              <article className="detail-card"><h2>Landed cost calculator</h2><p>Use your own product, freight, duty and fee assumptions. All inputs stay in the browser.</p><Link href="/tools/landed-cost-calculator" className="editorial-text-link mt-4">Calculate a scenario <ArrowUpRight size={16} aria-hidden="true" /></Link></article>
+              <article className="detail-card"><h2>Supplier evidence and quality checkpoints</h2><p>Document the supplier information, sample references and checks needed for your order.</p><ul className="mt-4 space-y-3"><li><Link href="/blog/verify-chinese-supplier" className="underline">Supplier evidence matrix</Link></li><li><Link href="/blog/quality-control-checklist" className="underline">Quality checkpoint worksheet</Link></li></ul></article>
+              <article className="detail-card"><h2>Manufacturing cost comparison</h2><p>Compare supplier offers on a consistent basis, including quantities, tooling, packaging and delivery assumptions.</p><a href="/resources/manufacturing-cost-comparison.txt" download className="editorial-text-link mt-4">Download the worksheet <ArrowDown size={16} aria-hidden="true" /></a></article>
+            </div>
           </div>
         </section>
 
@@ -225,9 +237,17 @@ export default function ResourcesPage() {
             </ul>
           </div>
         </section>
+        <section className="editorial-section section-ruled">
+          <div className="editorial-container">
+            <aside className="rounded-xl border border-brand-line p-6" aria-label="Additional resources for international manufacturers">
+              <h2 className="text-xl font-medium">Also available for international manufacturers</h2>
+              <p className="editorial-body mt-3">If you manufacture overseas and are preparing to approach American buyers, use the separate <Link href="/tools/us-market-entry-assessment" className="underline">U.S. market entry readiness assessment</Link>, <a href="/resources/us-market-entry-checklist.txt" download className="underline">market entry checklist</a> and <a href="/resources/distributor-evaluation-scorecard.txt" download className="underline">distributor evaluation scorecard</a>. For that inquiry, start with <Link href="/us-market-entry" className="underline">manufacturer market-entry support</Link>.</p>
+            </aside>
+          </div>
+        </section>
         <BriefSection
           formLocation="resources_hub"
-          title="Ready to put a brief together?"
+          title="Request a sourcing quote."
           intro="Send the product, quantity, references, destination and timing. We confirm what can be quoted and sampled, and reply by email."
         />
       </main>

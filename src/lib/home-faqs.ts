@@ -1,70 +1,70 @@
 export const homeFaqs = [
   [
     "What does Sourcing Lab USA do?",
-    "Sourcing Lab USA supports two commercial directions: overseas sourcing and manufacturing coordination for U.S. businesses, and U.S. market-entry preparation and commercial representation for international manufacturers. Clothing, textiles and packaging are the deepest specialties; other products are reviewed for feasibility. Current projects are contracted through France or China, with Miami expansion planned for 2027."
+    "Sourcing Lab USA helps U.S. business buyers source, manufacture and buy products overseas, principally from China. We coordinate supplier discussions, quotations, samples and agreed production follow-up through an established independent China partnership. Product supply is based on the specification, quantity and commercial terms accepted for your order."
+  ],
+  [
+    "What products can you source?",
+    "Clothing, textiles and packaging are our deepest specialties. Other products are reviewed after we understand the specification, intended use, quantity and technical requirements. We confirm sourcing feasibility before offering a quotation; a reference image or inquiry does not establish product availability."
   ],
   [
     "How do you find and evaluate a manufacturer in China?",
-    "Start with a clear specification, quantity and intended use. Candidate suppliers are compared against that brief, with document reviews, samples and appropriately scoped on-site checks. Sourcing Lab USA coordinates through an established independent China partnership and appointed specialists where needed. No single check proves that every future order will meet expectations."
+    "Start with a clear specification, quantity and intended use. Candidate suppliers are compared against the brief through the independent China partnership, using relevant documents, samples and scoped checks. Audits or technical assessments are coordinated with appointed specialists when agreed. A single document or factory visit does not establish suitability for every order."
   ],
   [
     "How much does sourcing or private label manufacturing cost?",
-    "Costs depend on specifications, materials, quantities, sampling, tooling, delivery and the commercial arrangement. Product purchase-and-resale quotations and separately scoped service fees have different responsibilities. The proposal identifies the contracting company, pricing, any fee or commission and what is included before you commit."
+    "The price depends on materials, construction, quantity, branding, packaging, sampling, tooling and delivery terms. Our core supply model is product purchase and resale. Any separate sourcing or coordination service has its own agreed scope and fee. The quotation states the goods or deliverables, inclusions and price basis before you commit."
   ],
   [
-    "How do you calculate landed cost?",
-    "Add goods, freight, insurance, applicable duties, brokerage and entry charges, and destination costs, then divide by quantity for a unit estimate. Use verified values for the exact product and shipment. The free calculator uses your inputs and does not determine a tariff code or fetch live duty rates."
-  ],
-  [
-    "How can a foreign manufacturer enter the U.S. market?",
-    "Define a buyer segment, compare competing offers and channel economics, document product evidence and order responsibilities, then prepare a commercial test. Sourcing Lab USA can scope research, sales materials, distributor identification and outreach. Product, import and legal questions require the appropriate specialists."
-  ],
-  [
-    "Do you offer monthly sales representation?",
-    "A suitable engagement may combine a monthly retainer for agreed prospecting, communications and reporting with an agreed commission. Scope, pricing and responsibilities are set in a written proposal. No buyer response, sales volume or first-order deadline is guaranteed. Current representation services are contracted through France or China."
+    "How is product quality checked?",
+    "Agree the product specification, sample approval and production checkpoints before ordering. Production follow-up records the agreed milestones and issues. On-site inspections or laboratory tests are separate scopes carried out by appointed specialists when required. The proposal identifies the checks, report and cost included for your project."
   ],
   [
     "Is there a standard minimum order quantity?",
-    "No single minimum applies across products. The practical quantity depends on material purchasing, manufacturing setup, variants, branding and supplier constraints. Share your required quantity and customization so feasibility and quotation terms can be reviewed."
+    "No single minimum applies across products. The practical quantity depends on materials, manufacturing setup, sizes or colors, branding and supplier constraints. Share the quantity and customization you need so feasibility and the quotation basis can be reviewed."
   ],
   [
-    "Are you already based in Miami?",
-    "Miami expansion is planned for 2027. Current projects can start through the company in France or China identified in your proposal. The brand does not imply an existing U.S. office, employees, warehouse or inventory."
+    "How long will sampling and production take?",
+    "Timing is confirmed for the actual product and sample plan. New tooling, custom materials, sample corrections, order quantity and factory availability can affect the schedule. Production and transport have separate milestones and assumptions, which are stated in the quotation rather than promised as one standard lead time."
+  ],
+  [
+    "Which company contracts with me and invoices the order?",
+    "Current projects can be contracted and invoiced through France or China. Your quotation names the company and sets the product specification, price basis, payment terms and delivery responsibilities. Any separate service is scoped in writing. The planned Miami expansion in 2027 is a future step; projects can start now."
   ]
 ] as const;
 
 export const homeFaqsES = [
   [
     "¿Qué hace Sourcing Lab USA?",
-    "Apoyamos dos direcciones comerciales: sourcing y coordinación de fabricación internacional para empresas estadounidenses, y preparación de entrada al mercado y representación comercial para fabricantes internacionales. Prendas, textiles y packaging son las especialidades más desarrolladas; otros productos se evalúan según viabilidad. Los proyectos actuales se contratan desde Francia o China."
+    "Ayudamos a compradores empresariales de Estados Unidos a buscar, fabricar y comprar productos en el extranjero, principalmente en China. Coordinamos consultas a proveedores, presupuestos, muestras y el seguimiento de producción acordado mediante una colaboración independiente en China. El suministro se basa en las especificaciones, cantidades y condiciones comerciales aceptadas para el pedido."
+  ],
+  [
+    "¿Qué productos pueden buscar y suministrar?",
+    "Prendas, textiles y packaging son nuestras especialidades más desarrolladas. Otros productos se evalúan después de conocer especificaciones, uso previsto, cantidad y requisitos técnicos. Confirmamos la viabilidad antes de ofrecer un presupuesto; una imagen de referencia o consulta no confirma la disponibilidad del producto."
   ],
   [
     "¿Cómo buscan y evalúan fabricantes en China?",
-    "Empezamos por especificaciones, cantidad y uso previsto. Comparamos proveedores con el brief, revisamos documentación y muestras y coordinamos verificaciones en fábrica cuando se acuerdan. Trabajamos mediante una colaboración independiente en China y especialistas designados. Una verificación no garantiza todos los pedidos futuros."
+    "Empezamos por especificaciones, cantidad y uso previsto. Comparamos proveedores con el brief mediante la colaboración independiente en China, revisando documentos, muestras y verificaciones con un alcance definido. Las auditorías o evaluaciones técnicas se coordinan con especialistas designados cuando se acuerdan. Un documento o una visita no demuestra la idoneidad para todos los pedidos."
   ],
   [
     "¿Cuánto cuesta el sourcing o la fabricación de marca privada?",
-    "Depende de producto, materiales, cantidad, muestras, utillaje, entrega y modelo comercial. Una cotización de compra y reventa y unos honorarios de servicio tienen responsabilidades diferentes. El presupuesto identifica empresa contratante, precios y cualquier comisión antes de confirmar."
+    "Depende de materiales, construcción, cantidad, personalización, packaging, muestras, utillaje y entrega. Nuestro modelo principal es la compra y reventa de productos. Cualquier servicio separado de sourcing o coordinación tiene alcance y honorarios acordados. El presupuesto indica productos o entregables, inclusiones y base de precios antes de confirmar."
   ],
   [
-    "¿Cómo se calcula el coste puesto en destino?",
-    "Se suman producto, flete, seguro, aranceles aplicables, despacho, tasas y costes de destino. El total se divide por cantidad para estimar el coste unitario. La calculadora gratuita usa tus datos; no determina códigos aduaneros ni consulta aranceles en tiempo real."
-  ],
-  [
-    "¿Cómo entra un fabricante extranjero al mercado estadounidense?",
-    "Define cliente objetivo, oferta, economía de canal y responsabilidades. Prepara evidencias del producto y una prueba comercial. Podemos acordar investigación, materiales de venta, identificación de distribuidores y prospección. Las cuestiones de producto, importación y derecho se revisan con especialistas adecuados."
-  ],
-  [
-    "¿Ofrecen representación comercial mensual?",
-    "Una colaboración puede incluir un abono mensual para tareas de prospección, comunicación e informes y una comisión acordada. El presupuesto fija alcance, precios y responsabilidades. No se garantizan respuestas, pedidos ni plazos de venta. Los servicios actuales se contratan desde Francia o China."
+    "¿Cómo se verifica la calidad del producto?",
+    "Antes del pedido se acuerdan especificaciones, aprobación de muestras y puntos de control. El seguimiento de producción registra los hitos e incidencias acordados. Las inspecciones en fábrica o ensayos de laboratorio tienen un alcance separado y los realizan especialistas designados cuando corresponde. La propuesta identifica verificaciones, informe y coste incluidos."
   ],
   [
     "¿Existe una cantidad mínima estándar?",
-    "No hay un mínimo único. Depende de materiales, preparación de producción, variantes, personalización y restricciones del proveedor. Comparte la cantidad deseada para evaluar viabilidad y condiciones."
+    "No hay un mínimo único. Depende de materiales, preparación de producción, tallas o colores, personalización y restricciones del proveedor. Comparte la cantidad y los cambios que necesitas para evaluar viabilidad y condiciones del presupuesto."
   ],
   [
-    "¿Ya tienen oficina en Miami?",
-    "La expansión en Miami está prevista para 2027. Los proyectos actuales se contratan y facturan desde la empresa en Francia o China indicada en el presupuesto. La marca no implica oficinas, empleados, almacenes ni inventario actuales en Estados Unidos."
+    "¿Cuánto tardan las muestras y la producción?",
+    "El plazo se confirma para el producto y el plan de muestras. Utillaje nuevo, materiales especiales, correcciones de muestras, cantidad y disponibilidad de fábrica pueden cambiarlo. Producción y transporte tienen hitos e hipótesis separados, indicados en el presupuesto en lugar de prometer un plazo estándar."
+  ],
+  [
+    "¿Qué empresa firma el contrato y factura el pedido?",
+    "Los proyectos actuales pueden contratarse y facturarse desde Francia o China. El presupuesto identifica la empresa y fija especificaciones, precios, pagos y responsabilidades de entrega. Los servicios separados se acuerdan por escrito. La expansión en Miami prevista para 2027 es un paso futuro; los proyectos pueden empezar ahora."
   ]
 ] as const;
 

@@ -1,5 +1,7 @@
 # Sourcing Lab USA — implementation and before/after report
 
+**Current commercial priority:** the owner clarified that the public site is first for prospective sourcing, manufacturing and product-supply customers. The manufacturer market-entry offer is secondary. [Buyer priority correction](BUYER_PRIORITY.md) supersedes recommendations for equal homepage prominence below.
+
 Date: 21 October 2026. Base: `401bd3520dd2c8b9c0e3a147cb634f35cae20e3b`.
 Status: tested implementation on a review branch. No production deployment or real lead submission was performed.
 
@@ -8,7 +10,7 @@ Status: tested implementation on a review branch. No production deployment or re
 - **A — SEO/GEO audit:** [INITIAL_AUDIT.md](INITIAL_AUDIT.md), public production crawl evidence in `live-baseline.json.gz` and redirect checks in `http-baseline.json`.
 - **B — Architecture:** [STRATEGY.md](STRATEGY.md), retaining established service URLs and distinguishing sourcing, market-entry research and recurring representation.
 - **C — Keyword map:** commercial intent and page mapping in the strategy. Historical Search Console analysis was delivered separately in a local private report; account performance data is excluded from this public repository. Search volume, difficulty and current rankings are not invented.
-- **D — Technical changes:** canonical/indexability consistency, reciprocal EN/ES/ZH schema/languages, current social card, explicit crawler policy, audited internal links and patched production dependencies.
+- **D — Technical changes:** canonical/indexability consistency, EN/ES equivalent-page alternates, separate Chinese manufacturer hub and schema languages, current social card, explicit crawler policy, audited internal links and patched production dependencies.
 - **E — Content/conversion:** harmonized homepage and priority service/industry pages; separate sourcing and manufacturer qualification forms; no U.S. office, employees, visa, fixed-price or sales guarantee invented. See [CONVERSIONS.md](CONVERSIONS.md).
 - **F — AI visibility:** source-based crawler/discovery strategy, stable business identifiers and 48 realistic monitoring questions with a manual observation protocol. No AI answer-platform results were simulated.
 - **G — 90-day roadmap:** dated phases, source-specific metrics, owner tasks and acquisition experiments in the strategy.
@@ -44,7 +46,7 @@ Status: tested implementation on a review branch. No production deployment or re
 - Vitest: 25 files / 135 tests passed after the dependency corrections.
 - Next.js 16.3.8 production build: passed with `npm run build -- --webpack`, 77 generated routes/assets. Default Turbopack was unavailable in this host's port-restricted process environment; production framework and configuration remain Next.js. The build's metadataBase warning is limited to the framework fallback `_not-found.html`; all indexable marketing pages passed absolute canonical/social metadata assertions.
 - `npm audit --omit=dev --audit-level=high`: passed. Six moderate transitive production entries remain; this is not a claim that every development dependency is clear.
-- SEO assertions: 59 pages, 3,226 internal links and eight downloads passed, including visible FAQ/schema parity, authors/dates, hreflang, preview/app noindex boundaries and bot policy.
+- SEO assertions: 59 pages, 3,163 internal links and eight downloads passed, including visible FAQ/schema parity, authors/dates, hreflang, preview/app noindex boundaries and bot policy.
 - Complete compiled-site GET crawl: 59 pages, no broken links, duplicates or orphans, maximum link depth three; eight downloadable worksheets return 200.
 - Chrome UI: existing desktop viewport and a 390×844 CSS viewport checked. Homepage, calculator, readiness results and manufacturer conversion path render without horizontal overflow. Calculator arithmetic and the 14/16 readiness gap were exercised. English and Chinese manufacturer field labels verified. Declined analytics produced no Google tag. No production or local form was submitted by browser; form outcomes were tested with mocks.
 

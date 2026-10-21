@@ -5,15 +5,13 @@ import { pageMetadata } from '@/lib/seo';
 // Netlify serves public/contact.html at /contact through Pretty URLs.
 // Preserve that existing form endpoint and keep this page on a distinct URL.
 const path = '/contact-us';
-const title = 'Contact Sourcing Lab USA: Sourcing & U.S. Market Entry';
-const description = 'Request a sourcing quote as a U.S. buyer, or use the dedicated manufacturer form to discuss U.S. market entry and sales representation.';
+const title = 'Request a Sourcing Quote';
+const description = 'Tell us about your product, specifications and estimated quantity. Request a sourcing and product supply quote for your U.S. business.';
 export const metadata = pageMetadata({ path, title, description });
 
 export default function ContactPage() {
   return <InformationPage path={path} title={title} description={description} contact><GuideMarkdown>{`
 ## What should you send first?
-
-**For international manufacturers seeking U.S. customers:** use the [dedicated market-entry form](/us-market-entry#contact) to share your country, products, capabilities and commercial objectives. The product purchasing form below is for U.S. buyers sourcing overseas.
 
 Start with the product and estimated quantity. Reference images, a drawing, a tech pack or a packaging dieline can follow by email. If you know your purchasing budget, intended market, customization needs and target timing, include them. Tell us whether you already have a supplier or sample. Unresolved details can be clarified during the discussion.
 
@@ -30,5 +28,9 @@ Current projects are contracted and invoiced through France or China, with the c
 Write to [contact@sourcinglabusa.com](mailto:contact@sourcinglabusa.com). Include your company, product and approximate quantity so the conversation can begin with a concrete brief. Please avoid sending sensitive identity or banking documents with an initial inquiry.
 
 See [how we handle project details](/privacy).
+
+## A separate inquiry for manufacturers
+
+Manufacturing overseas and looking for American customers? Use the [dedicated market-entry form](/us-market-entry#contact). The sourcing form below is for business buyers requesting products.
 `}</GuideMarkdown></InformationPage>;
 }

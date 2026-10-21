@@ -1,7 +1,7 @@
 {
   "status": "passed",
   "pages": 59,
-  "internalLinks": 3226,
+  "internalLinks": 3163,
   "downloads": 8,
   "checks": [
     "server-rendered content",
@@ -12,7 +12,7 @@
     "visible FAQ consistency",
     "article dates",
     "internal links and anchors",
-    "EN/ES/ZH hreflang",
+    "EN/ES hreflang and separate Chinese manufacturer hub",
     "sitemap",
     "crawler access",
     "indexing boundaries"

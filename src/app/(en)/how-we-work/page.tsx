@@ -3,8 +3,8 @@ import { GuideMarkdown } from '@/components/GuideMarkdown';
 import { pageMetadata } from '@/lib/seo';
 
 const path = '/how-we-work';
-const title = 'How Our Sourcing & U.S. Market Entry Engagements Work';
-const description = 'From a sourcing or manufacturer brief to a written scope: supplier options, samples, commercial research, buyer preparation and clearly agreed responsibilities.';
+const title = 'How Our Sourcing and Product Supply Process Works';
+const description = 'From your product brief to supplier options, quotations, samples and an agreed order. Understand sourcing, production follow-up and delivery responsibilities.';
 export const metadata = pageMetadata({ path, title, description });
 
 export default function HowWeWorkPage() {
@@ -14,12 +14,6 @@ export default function HowWeWorkPage() {
 Sourcing Lab USA is a custom packaging and textile procurement partner for U.S. brands and business customers. We source, purchase and supply products through an established independent China sourcing partnership. Clothing, textiles, sportswear, packaging and labels are core specialties. Other products are reviewed for feasibility before a proposal is made.
 
 Projects can start now. The quotation identifies the company in France or China that contracts with you and invoices the goods. The Miami expansion is planned for 2027. Read [about the business](/about) and [the difference between an agent and a product supply arrangement](/china-sourcing-agent).
-
-## What is the separate route for international manufacturers?
-
-Manufacturers seeking American customers start with a different brief: capabilities, product evidence, current export activity, target buyers and commercial objectives. We scope market research, buyer positioning, distributor identification or commercial representation around those requirements. Use the [manufacturer qualification form](/us-market-entry#contact) rather than the product purchasing form.
-
-A research project may have a fixed scope. Ongoing representation may combine a monthly retainer with an agreed sales commission. The proposal identifies the contracting company, deliverables, reporting and pricing before work begins. It also defines who can approve offers, sign supply contracts and invoice the buyer. No buyer response or sales outcome is guaranteed. Start with the [free readiness assessment](/tools/us-market-entry-assessment).
 
 ## What happens between a brief and an order?
 
@@ -58,6 +52,10 @@ Compare the [landed-cost inputs](/blog/calculating-landed-costs-merchandise) and
 
 Send product references, estimated quantity, intended market, budget basis if available, and the date you are working toward. Tell us if you already have a supplier or sample and which decisions are still open. You can start with a short brief and provide more detail after the scope is discussed.
 
-[Discuss your sourcing project](/contact-us#contact) or [request a U.S. market assessment](/us-market-entry#contact). Method reviewed October 21, 2026; the specific proposal controls the work agreed for your project.
+[Request a sourcing quote](/contact-us#contact). Method reviewed October 21, 2026; the specific proposal controls the work agreed for your project.
+
+## Separate support for international manufacturers
+
+If you manufacture overseas and are looking for American customers, use the separate [market-entry support page](/us-market-entry) and [manufacturer qualification form](/us-market-entry#contact). That service has its own brief, commercial scope and proposal; the sourcing and product supply process above is for buyers purchasing products.
 `}</GuideMarkdown></InformationPage>;
 }
