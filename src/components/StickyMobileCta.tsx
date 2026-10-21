@@ -28,6 +28,7 @@ const REVEAL_OFFSET_PX = 640;
 
 interface StickyMobileCtaProps {
   locale?: BriefLocale;
+  journey?: 'sourcing' | 'market-entry';
 }
 
 /**
@@ -35,8 +36,10 @@ interface StickyMobileCtaProps {
  * conversion point sits far below the fold, so the action follows the reader
  * and steps aside once the brief form is actually on screen.
  */
-export function StickyMobileCta({ locale = 'en' }: StickyMobileCtaProps) {
-  const copy = COPY[locale];
+export function StickyMobileCta({ locale = 'en', journey = 'sourcing' }: StickyMobileCtaProps) {
+  const copy = journey === 'market-entry' && locale === 'en'
+    ? { cta: 'Discuss U.S. market entry', email: 'Email us', subject: 'U.S. market entry and sales representation' }
+    : COPY[locale];
   const [isScrolledPastHero, setIsScrolledPastHero] = useState(false);
   const [isFormVisible, setIsFormVisible] = useState(false);
 

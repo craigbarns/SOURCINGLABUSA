@@ -61,3 +61,9 @@ Thumbs.db
 # Local Netlify build state
 .netlify
 deno.lock
+
+# Private account-performance analysis: deliver locally, not in this public repo.
+/docs/2026-10-21/SEARCH_CONSOLE_BASELINE.md
+# Full crawl evidence is versioned as compressed JSON alongside the reports.
+/docs/2026-10-21/live-baseline.json
+/docs/2026-10-21/local-after.json

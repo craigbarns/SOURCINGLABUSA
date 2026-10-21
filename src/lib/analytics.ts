@@ -14,6 +14,8 @@ declare global {
     dataLayer?: unknown[];
     gtag?: (...args: unknown[]) => void;
     sourcingAnalyticsEnabled?: boolean;
+    sourcingAnalyticsConsent?: 'granted' | 'denied' | null;
+    sourcingSetAnalyticsConsent?: (granted: boolean) => void;
   }
 }
 

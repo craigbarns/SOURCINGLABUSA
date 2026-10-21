@@ -13,9 +13,9 @@ import {
   ORGANIZATION_ID,
 } from '@/lib/seo';
 
-const title = 'About Our China Sourcing & Product Supply Business';
+const title = 'About Our Sourcing & U.S. Market Entry Business';
 const description =
-  'China sourcing projects available now, with invoicing from France or China. Clothing, sportswear, technical apparel and packaging. Miami expansion planned for 2027.';
+  'Meet the founder and understand our two activities: overseas sourcing for U.S. buyers and U.S. market-entry support for manufacturers. Miami planned for 2027.';
 export const metadata = pageMetadata({ title, description, path: '/about' });
 
 const facts = [
@@ -27,7 +27,7 @@ const facts = [
   ['U.S. expansion', 'Planned for Miami in 2027.'],
   [
     'Who the offer is for',
-    'U.S. brands, e-commerce businesses and other business customers.',
+    'U.S. brands, importers and business buyers sourcing overseas, and international manufacturers preparing to reach U.S. customers.',
   ],
   [
     'Core specialties',
@@ -43,7 +43,7 @@ const facts = [
   ],
   [
     'Commercial model',
-    'Product sourcing, purchase and supply. Current contracts and invoices are issued through France or China; the U.S. expansion is a separate planned step.',
+    'Product purchase and resale, separately scoped sourcing or research services, and representation engagements that may combine a monthly retainer with an agreed commission. The proposal sets the scope and pricing; current contracts and invoices are issued through France or China.',
   ],
 ];
 
@@ -77,11 +77,11 @@ export default function AboutPage() {
             </nav>
             <div className="about-intro">
               <div>
-                <p className="editorial-kicker">CHINA SOURCING · PROJECTS OPEN NOW</p>
+                <p className="editorial-kicker">SOURCING &amp; U.S. MARKET ENTRY · PROJECTS OPEN NOW</p>
                 <h1 className="editorial-title">
                   About Sourcing Lab USA.
                   <br />
-                  <em>From brief to product supply.</em>
+                  <em>Two commercial directions.</em>
                 </h1>
                 <p className="editorial-body">
                   Start your China sourcing project now. We work on clothing,
@@ -90,6 +90,7 @@ export default function AboutPage() {
                   and invoiced from France or China, through the company
                   identified in your quotation.
                 </p>
+                <p className="editorial-body">We also help international manufacturers prepare their U.S. commercial approach: market research, buyer positioning, distributor identification and sales representation within an agreed scope. These services are available through current France- or China-based contracting arrangements, separately from the planned U.S. expansion.</p>
                 <CtaLink
                   href="/#contact"
                   location="about_hero"
@@ -174,6 +175,7 @@ export default function AboutPage() {
                 Read <Link href="/case-studies">case studies</Link> written from
                 the founder’s project records.
               </p>
+              <p className="editorial-body">For manufacturers seeking American customers, start with <Link href="/us-market-entry">U.S. market entry preparation</Link> or <Link href="/us-sales-representation">sales representation</Link>. The brand name identifies Sourcing Lab USA; your quotation identifies the legal contracting and invoicing company.</p>
             </div>
           </div>
         </section>

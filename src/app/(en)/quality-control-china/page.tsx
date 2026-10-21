@@ -4,21 +4,25 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata({
   title: 'Quality Control China & Pre-Shipment Inspection | Sourcing Lab USA',
   description:
-    'Third-party quality control inspections coordinated in China. Pre-Shipment Inspection (PSI), During Production (DUPRO), container loading checks, and AQL 2.5 reports.',
+    'Coordinate product-specific quality checkpoints and appointed inspection providers in China. Agree specifications, sampling, reporting and follow-up before production.',
   path: '/quality-control-china',
 });
 
 const page: ServicePageContent = {
   path: '/quality-control-china',
+  reviewedDate: '2026-10-21',
+  references: [
+    { title: 'CPSC — Business Education and product testing guidance', url: 'https://www.cpsc.gov/Business--Manufacturing/Business-Education' },
+  ],
   eyebrow: 'Quality Assurance · On-Site China Inspections',
   title: 'Quality Control in China: Pre-Shipment & Factory Inspections',
   directAnswer:
-    'Quality control in China is the systematic on-site verification of manufactured goods against approved product specifications, engineering tolerances, cosmetic criteria, and safety regulations. Utilizing the international ISO 2859-1 / ANSI-ASQ Z1.4 (AQL) statistical sampling standard, professional QC inspectors evaluate raw materials, in-line assembly, finished product functionality, packaging durability, and labeling before final balance payments are authorized and goods are loaded for export.',
+    'Quality control compares production with a written product specification and agreed acceptance criteria. Sourcing Lab USA coordinates project checkpoints and, where agreed, an appointed inspection provider. A sample inspection describes the goods and tests examined; it does not prove every unit is defect-free or replace product-specific regulatory testing and certification.',
   intro:
-    'Once defective goods leave a foreign port and cross the ocean, returns or remanufacturing are practically impossible. Discovering defects in an American warehouse means catastrophic write-downs, missed retail delivery windows, and brand damage. Sourcing Lab USA coordinates rigorous on-site inspections to protect your supply chain at the factory source.',
+    'Quality expectations are easier to discuss before production than after delivery. Define measurable requirements, sample references, reporting and the response to a failed check. The checkpoint scope and any third-party inspection arrangement are confirmed for the order; Sourcing Lab USA does not claim to be an independent certified inspection company.',
   overviewTitle: 'Inspection protocols based on statistical sampling.',
   overview:
-    'Never rely on a factory’s internal quality control team to verify their own production. Factory quality managers face internal corporate pressures to meet shipping quotas and clear inventory. Field inspectors act as your eyes and ears on the factory floor, executing objective, standardized test protocols to catch defects while corrective rework is still fast and enforceable.',
+    'Factory controls and buyer-appointed inspections serve different purposes. Ask the inspection provider to define the lot, sampling method, inspection level, defect categories and acceptance criteria for your product. Statistical acceptance sampling is not a promise of a particular defect percentage in the whole order.',
   processTitle: 'The 4 primary stages of factory quality control.',
   offerName: 'China Quality Control & Inspection Services',
   offerDescription:
@@ -26,15 +30,15 @@ const page: ServicePageContent = {
   focusAreas: [
     {
       title: 'Pre-Shipment Inspection (PSI / FRI)',
-      body: 'Conducted when 100% of the order is manufactured and at least 80% is packed. Inspectors draw randomized samples using ISO 2859-1 tables to audit appearance, dimensions, functions, and packaging.',
+      body: 'Agree the required production and packing status with the appointed provider. The checklist may cover appearance, dimensions, function, quantity and packaging using the sampling plan selected for the lot.',
     },
     {
       title: 'During Production Inspection (DUPRO)',
-      body: 'Conducted when 10%–30% of goods are finished to verify that initial production units strictly conform to the approved golden sample, catching tooling or assembly flaws early.',
+      body: 'An agreed checkpoint while production is underway can identify deviations before more units are made. Select the timing according to process risks, order size and what corrective action remains possible.',
     },
     {
       title: 'On-Site Functional & Stress Testing',
-      body: 'We perform physical testing directly on the factory floor: drop tests (ISTA 1A/2A), hi-pot electrical tests, moisture readings, pull tests, barcode scan verification, and waterproof tests.',
+      body: 'Specify the checks, equipment, test methods and provider competence needed for the product. Electrical, safety, performance or regulated testing may require a qualified laboratory and a separate engagement.',
     },
     {
       title: 'Container Loading Supervision (CLS)',
@@ -54,56 +58,56 @@ const page: ServicePageContent = {
     },
     {
       title: 'Auditor Dispatch & Random Sampling',
-      body: 'The appointed quality inspector arrives at the factory, verifies total batch quantities, and randomly selects sample cartons according to ISO 2859-1 AQL inspection level II.',
+      body: 'The appointed provider confirms factory access, lot readiness and the agreed sample-selection method. Inspection level and acceptance criteria are selected for the product rather than assumed universally.',
     },
     {
       title: 'Visual, Dimensional & Functional Audit',
-      body: 'Every sampled unit is measured with calibrated instruments, inspected under standardized lighting for cosmetic blemishes, and tested for mechanical and electrical performance.',
+      body: 'The provider performs the visual, dimensional and functional checks included in the protocol and records any limits in equipment, access or test coverage.',
     },
     {
       title: 'Packaging & Barcode Integrity Check',
       body: 'Inspectors verify master carton markings, shipping labels, polybag warning text, individual retail packaging, and verify that all barcodes scan instantly with standard optical scanners.',
     },
     {
-      title: 'Same-Day Comprehensive Inspection Report',
-      body: 'Within 24 hours of inspection, you receive a detailed report with full-color photographic evidence, itemized defect lists, and an unambiguous Pass / Fail conclusion.',
+      title: 'Inspection Findings & Next Decision',
+      body: 'The agreed report records inspected items, observations, defects and limitations, with supporting images where available. Reporting timing and the buyer’s release or corrective-action decision are agreed for the project.',
     },
   ],
   benchmarks: [
     {
-      label: 'Sample AQL threshold',
-      value: 'AQL 0 / 2.5 / 4.0 (Example)',
-      qualifier: 'Common consumer goods example: zero critical defects, 2.5% major defects, 4.0% minor defects. Final criteria tailored to product risk.',
+      label: 'Acceptance criteria',
+      value: 'Product-specific',
+      qualifier: 'Define defect categories, sampling and acceptance numbers with the appointed inspection provider.',
     },
     {
       label: 'Inspector dispatch notice',
-      value: '48 to 72 hours',
-      qualifier: 'Inspectors mobilized to any manufacturing hub across Guangdong, Zhejiang, and Jiangsu.',
+      value: 'Availability confirmed',
+      qualifier: 'Scheduling depends on location, factory access, production readiness and provider availability.',
     },
     {
       label: 'Report turnaround',
-      value: 'Within 24 hours',
+      value: 'Agreed in scope',
       qualifier: 'Complete photo-documented report, delivered on the timeline agreed for the inspection.',
     },
   ],
   benchmarksNote:
-    'We adhere to ISO 2859-1 (ANSI/ASQ Z1.4) international sampling tables. Custom testing jigs can be integrated upon request.',
+    'The appointed provider confirms the applicable sampling protocol. An inspection is a defined checkpoint, not a guarantee of defect-free goods or regulatory approval.',
   hideShowcase: true,
   faqs: [
     {
       question: 'What is AQL 2.5 and is it used for every product?',
       answer:
-        'AQL (Acceptance Quality Limit) 2.5 is a commonly cited statistical benchmark in consumer goods inspections, but it is not a universal standard. Inspection levels and defect acceptance thresholds are determined based on product category, defect severity, order value, customer specifications, and regulatory risk. For higher-risk categories such as medical, food-contact, or precision industrial goods, significantly stricter criteria apply.',
+        'AQL is a parameter in an acceptance-sampling plan, not a guaranteed percentage of defects in an order. The appropriate plan depends on the lot, product risks and agreed criteria. Ask the appointed inspection provider to explain its method and acceptance numbers; do not apply one value to every product.',
     },
     {
       question: 'When is the best time to conduct quality control during production?',
       answer:
-        'For high-volume or complex custom orders, a During Production (DUPRO) inspection at 20% completion catches systemic flaws early, while a final Pre-Shipment Inspection (PSI) at 100% completion ensures that all packaged goods meet final export standards before the final balance is paid.',
+        'Choose checkpoints according to the production process and when problems can still be corrected. During-production checks can expose emerging deviations; a final inspection examines the defined finished lot. Neither establishes that every unit complies with every requirement.',
     },
     {
       question: 'What happens if a factory fails the quality inspection?',
       answer:
-        'If an inspection results in a "Fail", the buyer holds final payment. The factory is presented with the detailed inspection report and required to rework or replace defective units at their own expense before a re-inspection is conducted.',
+        'Review the findings against the order agreement, then decide on corrective action, reinspection and shipment release. Payment holds, rework costs and remedies depend on the agreed contract; they should not be assumed after a failure.',
     },
     {
       question: 'Why can’t I rely on the factory’s internal QC department?',
@@ -113,12 +117,12 @@ const page: ServicePageContent = {
     {
       question: 'Which cities and regions in China do your quality inspectors cover?',
       answer:
-        'We coordinate on-site inspections across primary manufacturing hubs in China: Shenzhen, Dongguan, Guangzhou, Foshan, Zhongshan, Ningbo, Hangzhou, Yiwu, Shaoxing, Wenzhou, Suzhou, Wuxi, Qingdao, and Xiamen.',
+        'Share the factory address and proposed inspection scope. Coverage, access, travel costs and provider availability are confirmed before an engagement is accepted.',
     },
   ],
   briefTitle: 'Book an on-site quality inspection in China.',
   briefIntro:
-    'Provide your factory’s location, product details, and planned shipping date. We will prepare an inspection protocol and dispatch an inspector.',
+    'Provide your factory’s location, product details, and planned shipping date. We will confirm the checkpoint scope and any appointed inspection provider’s availability.',
   relatedPages: [
     {
       href: '/factory-verification',
@@ -138,7 +142,7 @@ const page: ServicePageContent = {
     {
       href: '/freight-logistics',
       title: 'Freight & Cross-Border Logistics',
-      description: 'Secure shipping, customs clearance, and container logistics.',
+      description: 'Shipment planning and coordination with appointed logistics and customs providers.',
     },
   ],
 };

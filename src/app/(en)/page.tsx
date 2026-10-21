@@ -10,9 +10,9 @@ import {
 
 const title = 'Global Sourcing & U.S. Market Entry | Sourcing Lab USA';
 const description =
-  'We help U.S. companies source and manufacture overseas — and help international manufacturers enter, distribute, and grow in the United States. Direct factory verification, quality control, and commercial representation.';
+  'Overseas sourcing and manufacturing coordination for U.S. businesses. U.S. market-entry preparation and sales representation for international manufacturers.';
 const homeAnswer =
-  'Sourcing Lab USA is an operational international trade and procurement firm. We manage global product sourcing, direct factory audits, price and MOQ negotiations, on-site quality control, and cross-border logistics for American brands, while providing U.S. market-entry consulting, regulatory compliance, and commercial sales representation for international manufacturers.';
+  'Sourcing Lab USA supports overseas sourcing and manufacturing coordination for U.S. businesses, and U.S. market-entry preparation and commercial representation for international manufacturers. Clothing, textiles and packaging are the deepest specialties; other products are assessed for feasibility. Current projects are contracted through France or China, with an independent sourcing partnership in China and appointed specialists where required. Miami expansion is planned for 2027.';
 
 export const metadata = pageMetadata({
   title: 'Global Sourcing & U.S. Market Entry',
@@ -35,7 +35,7 @@ export default function HomePage() {
             serviceSchema(
               '/',
               'Global Sourcing & U.S. Market Entry Execution',
-              'End-to-end overseas product sourcing, factory audits, quality control, and landed cost analysis for U.S. brands, plus U.S. market-entry consulting and sales representation for international manufacturers.',
+              'Overseas sourcing and manufacturing coordination for U.S. business buyers, plus U.S. market research, entry preparation and commercial representation for international manufacturers. Current engagements contracted through France or China.',
             ),
             faqSchema('/', homeFaqs, 'en-US'),
           ],

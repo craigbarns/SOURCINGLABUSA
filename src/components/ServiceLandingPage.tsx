@@ -27,6 +27,9 @@ type Question = {
 
 export type ServicePageContent = {
   path: string;
+  journey?: 'sourcing' | 'market-entry';
+  references?: Array<{ title: string; url: string }>;
+  reviewedDate?: string;
   eyebrow: string;
   title: string;
   intro: string;
@@ -66,6 +69,8 @@ export type ServicePageContent = {
 };
 
 export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
+  const marketEntry = page.journey === 'market-entry';
+  const cta = marketEntry ? 'Request a U.S. market assessment' : 'Request a sourcing quote';
   const structuredData = {
     '@context': 'https://schema.org',
     '@graph': [
@@ -105,10 +110,10 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
                 <CtaLink
                   href="#contact"
                   location="service_hero"
-                  label="Share your project brief"
+                  label={cta}
                   className="editorial-button mt-8"
                 >
-                  Share your project brief{' '}
+                  {cta}{' '}
                   <ArrowRight size={17} aria-hidden="true" />
                 </CtaLink>
               </div>
@@ -117,12 +122,14 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
                 <h2>{page.offerName}</h2>
                 <p className="editorial-body">{page.offerDescription}</p>
                 <p className="editorial-body mt-5">
-                  For U.S. business customers. Projects can start now through our
-                  independent China sourcing partnership.
+                  {marketEntry
+                    ? 'For international manufacturers preparing to reach U.S. buyers. Market research, sales preparation and outreach are scoped for your products and target channels.'
+                    : 'For U.S. business customers. Sourcing and supply projects can start now through an established independent partnership in China.'}
                 </p>
                 <p className="sourcing-overview-note">
                   Your quotation identifies the company in France or China that
-                  contracts with you and invoices the products.
+                  contracts with you and invoices the agreed products or services.
+                  Miami expansion is planned for 2027.
                 </p>
                 <Link href="/about" className="editorial-text-link mt-5">
                   About Sourcing Lab USA <ArrowRight size={16} aria-hidden="true" />
@@ -135,7 +142,7 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
         <section className="editorial-section section-ruled">
           <div className="editorial-container service-overview-layout">
             <div>
-              <p className="editorial-kicker">DESIGNED AROUND THE PRODUCT</p>
+              <p className="editorial-kicker">{marketEntry ? 'DESIGNED AROUND YOUR TARGET BUYER' : 'DESIGNED AROUND THE PRODUCT'}</p>
               <h2 className="editorial-title">
                 {page.overviewTitle}
               </h2>
@@ -195,15 +202,21 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
             </dl>
             <p className="benchmarks-note">{page.benchmarksNote ?? BENCHMARKS_NOTE}</p>
             <p className="editorial-body mt-8">
-              Review the product specifications, sample requirements, quantities,
+              {marketEntry ? <>Agree the target products, channels, responsibilities, deliverables and reporting cadence before starting. A market-entry project may use a fixed scope; ongoing representation may use a monthly retainer and, where agreed, a sales commission. Pricing, territory, exclusivity and commission triggers are established in your proposal. No sales volume or buyer response is guaranteed.</> : <>Review the product specifications, sample requirements, quantities,
               product pricing and payment terms before approving your order.
               Delivery and import responsibilities are agreed for each project.{' '}
               <Link href="/china-to-us-procurement#order-terms" className="editorial-text-link">
                 See how product supply and order terms work
               </Link>.
               {' '}Use the <Link href="/blog/verify-chinese-supplier">supplier evidence matrix</Link> and{' '}
-              <Link href="/blog/quality-control-checklist">quality checkpoint worksheet</Link> to prepare the questions for your order.
+              <Link href="/blog/quality-control-checklist">quality checkpoint worksheet</Link> to prepare the questions for your order.</>}
             </p>
+            <p className="editorial-body mt-5">Sourcing Lab USA coordinates the commercial brief and the agreed workflow. Factory audits, product testing, inspections, freight and customs work are coordinated with appointed specialists where needed; the quotation identifies the scope and responsibilities. Current projects are contracted through France or China.</p>
+            {page.references && <aside className="mt-8 rounded-xl border border-brand-line p-6" aria-label="Official references">
+              <h3 className="font-semibold">Official references</h3>
+              {page.reviewedDate && <p className="mt-2 text-sm">References checked <time dateTime={page.reviewedDate}>{page.reviewedDate}</time>. Verify requirements and rates for the exact product and entry date.</p>}
+              <ul className="mt-3 list-disc space-y-2 pl-5 text-sm">{page.references.map(reference => <li key={reference.url}><a className="underline" href={reference.url}>{reference.title}</a></li>)}</ul>
+            </aside>}
           </div>
         </section>
 
@@ -212,7 +225,7 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
             <div>
               <p className="editorial-kicker">RELATED RESOURCES</p>
               <h2 className="editorial-title">
-                Resources for your sourcing brief.
+                {marketEntry ? 'Resources for your U.S. launch plan.' : 'Resources for your sourcing brief.'}
               </h2>
             </div>
             <div className="resource-links">
@@ -255,10 +268,11 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
           title={page.briefTitle}
           intro={page.briefIntro}
           initialProjectType={page.showcaseCategory}
+          journey={page.journey}
         />
       </main>
       <Footer />
-      <StickyMobileCta />
+      <StickyMobileCta journey={page.journey} />
     </div>
   );
 }

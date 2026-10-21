@@ -5,13 +5,15 @@ import { pageMetadata } from '@/lib/seo';
 // Netlify serves public/contact.html at /contact through Pretty URLs.
 // Preserve that existing form endpoint and keep this page on a distinct URL.
 const path = '/contact-us';
-const title = 'Discuss Your China Sourcing Project';
-const description = 'Send Sourcing Lab USA your product, quantity and requirements for a China sourcing and supply discussion. Packaging and textiles are core specialties; other products are assessed for feasibility.';
+const title = 'Contact Sourcing Lab USA: Sourcing & U.S. Market Entry';
+const description = 'Request a sourcing quote as a U.S. buyer, or use the dedicated manufacturer form to discuss U.S. market entry and sales representation.';
 export const metadata = pageMetadata({ path, title, description });
 
 export default function ContactPage() {
   return <InformationPage path={path} title={title} description={description} contact><GuideMarkdown>{`
 ## What should you send first?
+
+**For international manufacturers seeking U.S. customers:** use the [dedicated market-entry form](/us-market-entry#contact) to share your country, products, capabilities and commercial objectives. The product purchasing form below is for U.S. buyers sourcing overseas.
 
 Start with the product and estimated quantity. Reference images, a drawing, a tech pack or a packaging dieline can follow by email. If you know your purchasing budget, intended market, customization needs and target timing, include them. Tell us whether you already have a supplier or sample. Unresolved details can be clarified during the discussion.
 

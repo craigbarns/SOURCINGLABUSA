@@ -87,16 +87,16 @@
     <!--
       Netlify detects forms by scanning deployed HTML. A Next.js page is
       rendered by React, so this static file is what makes the "contact" form
-      exist for Netlify Forms. The server route /api/contact replays each
-      submission here to trigger the Netlify notifications, and also stores the
-      brief in Supabase so a lead is never lost if this channel is unavailable.
-      The field names below must stay in sync with src/app/api/contact/route.ts.
+      exist for Netlify Forms. The browser posts directly here to request Netlify notifications, while
+      /api/contact independently stores the brief in Supabase. Success is shown
+      only after a channel acknowledges receipt; email remains the fallback.
+      Omitting action retains Netlify’s default receipt acknowledgement.
+      The field names below must stay in sync with src/lib/netlify-forms.ts.
     -->
     <form
       hidden
       name="contact"
       method="POST"
-      action="/contact.html"
       data-netlify="true"
       netlify-honeypot="bot-field"
     >

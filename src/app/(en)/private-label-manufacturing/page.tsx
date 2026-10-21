@@ -2,144 +2,143 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Private Label Manufacturing & Sourcing USA | Sourcing Lab USA',
-  description:
-    'Turnkey private label manufacturing and product sourcing for U.S. consumer brands, Amazon sellers, and retailers. Custom branding, packaging, and factory management.',
-  path: '/private-label-manufacturing',
+  "title": "Private Label Manufacturing and Product Supply",
+  "description": "Plan private label clothing, textiles and packaging: product specification, branding, sample approval, labeling questions and order terms for U.S. brands.",
+  "path": "/private-label-manufacturing"
 });
 
 const page: ServicePageContent = {
-  path: '/private-label-manufacturing',
-  eyebrow: 'Private Label & White Label · Custom Brand Manufacturing',
-  title: 'Private Label Manufacturing & Sourcing for U.S. Brands',
-  directAnswer:
-    'Private label manufacturing is the procurement model where an overseas manufacturer produces existing or semi-custom goods that are exclusively branded, packaged, and sold under your company’s trademark. Rather than investing hundreds of thousands of dollars in proprietary tooling, private labeling allows brands to bring high-quality products to market quickly by customizing proven factory designs, materials, finishes, and bespoke retail packaging.',
-  intro:
-    'Launching a successful private label brand requires far more than slapping a logo onto a catalog product. It demands rigorous factory vetting, custom tooling for distinctive aesthetics, premium packaging design, consistent quality control, and strict compliance with U.S. consumer product safety regulations.',
-  overviewTitle: 'Scale your private label brand without manufacturing pitfalls.',
-  overview:
-    'The most common failure in private label e-commerce and retail is product commoditization: ordering generic off-the-shelf items that face immediate price erosion from competitors. Sourcing Lab USA helps you customize proven manufacturing platforms with proprietary material grades, ergonomic refinements, distinctive finishes, and custom retail packaging that command premium margins.',
-  processTitle: 'The private label development & launch roadmap.',
-  offerName: 'Private Label Manufacturing & Procurement',
-  offerDescription:
-    'Turnkey private label product sourcing, custom branding, bespoke retail packaging, quality control, and delivered supply for American consumer brands.',
-  focusAreas: [
+  "path": "/private-label-manufacturing",
+  "eyebrow": "Private label · Turn brand requirements into a production brief",
+  "title": "Put your brand on a product you have defined and approved.",
+  "directAnswer": "Private label sourcing starts with a product made for sale under your brand, whether based on an existing supplier design or an agreed modification. Sourcing Lab USA coordinates product options, branding, packaging and sampling, with clothing, textiles and packaging as the deepest specialties. Other products are reviewed for feasibility. Manufacturing, labeling, testing and inspection requirements are scoped before the order is accepted.",
+  "intro": "A logo file is one part of the brief. Material, construction, brand placement, packaging and the evidence needed for U.S. sale must fit together before artwork or a sample is approved.",
+  "overviewTitle": "Separate the product, the branding and the packaging.",
+  "overview": "Each can have a different minimum quantity, sample method and approval step. A garment may need fit and fabric review before label placement is finalized. A printed box needs a structural reference and approved artwork. An existing supplier design may still require tooling changes, testing or permission to use its features. The quotation should identify these dependencies, the items included and who provides or approves each asset.",
+  "processTitle": "A private label approval plan.",
+  "offerName": "Private Label Sourcing and Supply",
+  "offerDescription": "Coordination of private label product specifications, supplier discussions, branding, packaging and samples, with purchase and resale terms and appointed specialist work agreed per project.",
+  "focusAreas": [
     {
-      title: 'Proprietary Customization & Differentiation',
-      body: 'We work with direct manufacturers to modify base tooling, apply custom Pantone colors, laser-engrave or emboss branding, and introduce unique material blends that separate your product from market generics.',
+      "title": "Define the base product",
+      "body": "Record material, construction, dimensions or size range and intended use. Confirm which features come from an existing supplier design and which require development. Exclusivity, design rights and tooling ownership must be agreed; branding an item does not establish those rights automatically."
     },
     {
-      title: 'Turnkey Retail & E-Commerce Packaging',
-      body: 'From rigid presentation boxes and corrugated mailers to custom insert trays, foil stamping, and bilingual regulatory labeling, we manufacture packaging that delivers a luxury unboxing experience.',
+      "title": "Make artwork usable",
+      "body": "Provide the logo files, placement dimensions, color references and packaging artwork. Specify the decoration method under review, such as print, embroidery or a label. Agree the proof or physical sample needed for approval and record any accepted limitations."
     },
     {
-      title: 'U.S. Regulatory & Labeling Compliance',
-      body: 'We verify mandatory U.S. requirements: country of origin markings (19 U.S.C. § 1304), tracking labels (CPSIA § 103), FDA ingredient/material declarations, FTC textile fiber disclosures, and Prop 65 compliance.',
+      "title": "Plan product information and labeling",
+      "body": "Requirements depend on the exact product and how it will be sold. For covered textile products, FTC guidance addresses fiber content, origin and responsible business identification. We coordinate information gathering; product-specific labeling or safety questions go to the appointed specialist before approval."
     },
     {
-      title: 'Batch Quality Consistency & Pre-Shipment Inspection',
-      body: 'We coordinate pre-shipment inspections to verify consistent color match across production runs, accurate branding application, secure barcode readability, and master carton drop-test durability.',
-    },
+      "title": "Coordinate the evidence",
+      "body": "Agree which production checks and tests are needed, who performs them and what documents must be retained. CPSC guidance explains that testing and certification duties vary with the product and applicable rules. A supplier document should be reviewed for relevance to the actual product and production."
+    }
   ],
-  briefItems: [
-    'Target product category, reference links or competitor benchmarks',
-    'Required customization (logo placement, colorways, surface textures, material upgrades)',
-    'Packaging requirements (retail box, hang tags, polybag, master carton specifications)',
-    'Target initial launch quantity, target unit price, and sales channel (e-commerce, retail, DTC)',
+  "briefItems": [
+    "Base product, intended user and use, with references or a technical pack",
+    "Requested changes to material, construction, color, dimensions or size range",
+    "Logo files, placement, artwork and packaging requirements",
+    "Quantity by variant, U.S. sales channel, destination and known testing or labeling questions"
   ],
-  workflow: [
+  "workflow": [
     {
-      title: 'Product Screening & Supplier Selection',
-      body: 'We benchmark 5-10 specialized manufacturers with proven track records in your category, screening out trading companies to secure direct factory-floor pricing.',
+      "title": "Review the product and customization",
+      "body": "We identify which requests use an existing supplier capability and which need development. Additional categories require a feasibility review. The independent China partnership supports supplier discussions and quotations."
     },
     {
-      title: 'Branding Integration & Packaging Dielines',
-      body: 'We configure your vector logos, custom dielines, and typography directly onto factory production templates, ensuring accurate color calibration and print registration.',
+      "title": "Agree the quotation and rights questions",
+      "body": "Review the product specification, branding, packing, sample charges and any tooling. Record the terms for supplied artwork, designs and tools, including ownership or use restrictions that require agreement."
     },
     {
-      title: 'Pre-Production Golden Samples',
-      body: 'The factory manufactures a complete, finished production sample featuring full branding, retail packaging, and inserts for your physical inspection and sign-off.',
+      "title": "Approve the necessary samples",
+      "body": "Separate fit or construction approval from print, decoration and packaging approval where appropriate. Record corrections, the approved reference and any difference between the sample and intended production goods."
     },
     {
-      title: 'Mass Production & In-Line Oversight',
-      body: 'We supervise production milestones, verifying that raw materials match approved specifications and that print quality remains uniform across all production lots.',
+      "title": "Confirm specialist work and order terms",
+      "body": "Appointed specialists perform the agreed testing, labeling review or inspection. The quotation identifies the contracting company, goods price, payment terms, checks and shipment responsibilities. Separate services are included only when scoped."
     },
     {
-      title: 'Pre-Shipment Inspection & Port Delivery',
-      body: 'Third-party pre-shipment quality inspection checks the agreed specifications, critical defects against the agreed acceptance criteria, and barcode scanning before goods are loaded for ocean or air transit to the USA.',
-    },
+      "title": "Follow production and the packing handoff",
+      "body": "Coordinate the agreed milestones and open issues. Confirm the finished packing, identifiers and receiving instructions against the accepted brief. Retailer or fulfillment requirements must be supplied and checked for the project rather than assumed."
+    }
   ],
-  benchmarks: [
+  "benchmarks": [
     {
-      label: 'Minimum order quantity (MOQ)',
-      value: 'From 500 to 1,000 units',
-      qualifier: 'Standard starting volume for custom branded packaging and product color matching.',
+      "label": "Minimum quantity",
+      "value": "Quoted by product and variant",
+      "qualifier": "Material, decoration and packaging can have separate minimums."
     },
     {
-      label: 'Custom branded samples',
-      value: '10 to 18 days',
-      qualifier: 'Includes sampling with custom printed packaging, silk screening, or laser engraving.',
+      "label": "Approval stages",
+      "value": "Set before sampling",
+      "qualifier": "Fit, construction, artwork and packaging may need different reference samples."
     },
     {
-      label: 'Mass production lead time',
-      value: '30 to 45 days',
-      qualifier: 'Following physical golden sample approval and packaging proof sign-off.',
-    },
+      "label": "Production schedule",
+      "value": "Confirmed after scope review",
+      "qualifier": "Tooling, revisions, required testing and supplier availability affect timing."
+    }
   ],
-  benchmarksNote:
-    'MOQs are dictated primarily by minimum print runs for custom packaging and master carton printing.',
-  faqs: [
+  "benchmarksNote": "No universal minimum quantity, sample turnaround or production duration applies to all private label projects.",
+  "faqs": [
     {
-      question: 'What is the difference between private label and custom OEM manufacturing?',
-      answer:
-        'In private label manufacturing, the factory uses existing production molds or formulations and applies your custom branding, colors, and bespoke packaging. In custom OEM manufacturing, new custom tooling or formulations are engineered from scratch based entirely on your proprietary blueprints.',
+      "question": "How does private label differ from a new custom product?",
+      "answer": "Private label often starts from an existing product or manufacturing base and adds agreed branding or modifications. A new custom design can require additional development and tooling. The proposal should identify which design is being used, the changes required and the rights agreed between the parties."
     },
     {
-      question: 'What are typical minimum order quantities (MOQs) for private label products?',
-      answer:
-        'Most direct factories require MOQs between 500 and 2,000 units for fully customized branding and custom printed packaging. The packaging printing run is often the primary driver of MOQ rather than product assembly itself.',
+      "question": "Do I automatically own the supplier design or tooling?",
+      "answer": "No. Ownership, permitted use, exclusivity, storage and reuse of designs or tooling must be agreed in writing. Your logo on a product does not by itself create exclusive rights to the underlying supplier design. Questions about intellectual property may require separate legal advice."
     },
     {
-      question: 'How do you ensure my logo and packaging colors match our brand guidelines?',
-      answer:
-        'We mandate standard Pantone (PMS) color codes for all plastic molding, textile dyeing, and packaging print runs. We require hardcopy physical print proofs (press proofs) before releasing high-speed production runs.',
+      "question": "What is the minimum quantity for a branded order?",
+      "answer": "We confirm it against the product, material, decoration, packaging and variant breakdown. A low quantity may be feasible with an existing material or simpler decoration, while a custom material or print run may change the minimum. The quotation states the proposal for your brief."
     },
     {
-      question: 'What legal markings are required on private label products imported into the U.S.?',
-      answer:
-        'U.S. Customs and Border Protection (CBP) strictly requires permanent, legible Country of Origin marking (e.g. "Made in China"). Additionally, products may require FTC fiber content labels, CPSIA tracking tags, FDA registration markings, or FCC identifiers depending on product type.',
+      "question": "Will you certify that the goods are ready for U.S. sale?",
+      "answer": "Product safety, testing, certification and labeling requirements depend on the item and the applicable rules. We coordinate the agreed evidence and appointed specialists; we do not issue a blanket regulatory approval. Confirm responsibilities and required documents before authorizing production."
     },
     {
-      question: 'Can you help with FBA preparation and barcode labeling?',
-      answer:
-        'Yes. We ensure master cartons and individual retail packaging meet Amazon FBA or major retailer prep standards, including scannable FNSKU/UPC barcodes, suffocation warning labels, and carton weight/dimension compliance.',
-    },
+      "question": "Can you prepare products for a retailer or fulfillment provider?",
+      "answer": "Provide the current written receiving, labeling and packing instructions for the intended channel. We review whether they can be included in the product brief and supplier scope. Acceptance by a retailer, marketplace or warehouse is not guaranteed by a generic packing specification."
+    }
   ],
-  briefTitle: 'Launch your private label product line.',
-  briefIntro:
-    'Tell us about your product concept, target order quantities, and branding goals. We will identify qualified manufacturers and present transparent pricing.',
-  relatedPages: [
+  "reviewedDate": "2026-10-21",
+  "references": [
     {
-      href: '/custom-packaging',
-      title: 'Custom Packaging & Boxes',
-      description: 'Bespoke retail packaging, rigid boxes, and luxury unboxing design.',
+      "title": "FTC: Textile and wool labeling guidance",
+      "url": "https://www.ftc.gov/business-guidance/resources/threading-your-way-through-labeling-requirements-under-textile-wool-acts"
     },
     {
-      href: '/product-sourcing',
-      title: 'Product Sourcing Overview',
-      description: 'Full-service overseas procurement and direct manufacturer management.',
-    },
-    {
-      href: '/quality-control-china',
-      title: 'Quality Control & Inspections',
-      description: 'Pre-shipment inspections and finished goods validation.',
-    },
-    {
-      href: '/landed-cost-analysis',
-      title: 'Landed Cost Analysis',
-      description: 'Evaluate true product margins before committing capital.',
-    },
+      "title": "CPSC: Business and manufacturing guidance",
+      "url": "https://www.cpsc.gov/Business--Manufacturing"
+    }
   ],
+  "briefTitle": "Prepare your private label brief.",
+  "briefIntro": "Send the product, branding files, quantities and sales channel. We review feasibility, sample needs and the scope that can be quoted.",
+  "relatedPages": [
+    {
+      "href": "/custom-textile",
+      "title": "Clothing and textiles",
+      "description": "Work through fabric, construction, fit and decoration requirements."
+    },
+    {
+      "href": "/custom-packaging",
+      "title": "Packaging and presentation",
+      "description": "Define box structure, print, inserts and finished packing."
+    },
+    {
+      "href": "/product-development",
+      "title": "Product development coordination",
+      "description": "Review requests that need development beyond an existing supplier design."
+    },
+    {
+      "href": "/landed-cost-analysis",
+      "title": "Plan the delivered cost",
+      "description": "Add the quoted goods, transport and import assumptions on a clear basis."
+    }
+  ]
 };
 
 export default function PrivateLabelManufacturingPage() {

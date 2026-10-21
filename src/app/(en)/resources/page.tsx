@@ -15,12 +15,12 @@ import {
 } from '@/lib/seo';
 
 const path = '/resources';
-const title = 'China Sourcing Resources: Templates, Checklists and Guides';
+const title = 'Sourcing & U.S. Market Entry Resources, Tools and Templates';
 const description =
-  'Free templates and practical guides for sourcing from China: the brief a supplier can quote, minimum quantities, landed cost, textile and packaging specifications.';
+  'Free sourcing worksheets, a landed cost calculator and U.S. market entry readiness assessment. Prepare supplier quotations and an evidence-based buyer outreach plan.';
 
 const directAnswer =
-  'These resources cover what a U.S. company needs before ordering from China: the brief a supplier can quote from, how minimum order quantities are set, how landed cost is built up, and what a clothing or packaging specification has to state. They are written to be used during a project rather than read once.';
+  'Free working resources for both commercial directions: sourcing briefs, supplier evidence and cost comparisons for U.S. buyers, plus a readiness assessment and channel preparation worksheets for international manufacturers targeting American customers. Use them to document assumptions and open questions before committing to an order or commercial campaign.';
 
 /**
  * Guides grouped by the decision they support, rather than by publication
@@ -121,9 +121,9 @@ export default function ResourcesPage() {
             </nav>
             <p className="editorial-kicker">TEMPLATES &amp; GUIDES</p>
             <h1 className="editorial-title page-title">
-              What to settle
+              What to document
               <br />
-              <em>before you order.</em>
+              <em>before you commit.</em>
             </h1>
             <p className="direct-answer">{directAnswer}</p>
             <p className="editorial-body">
@@ -135,6 +135,11 @@ export default function ResourcesPage() {
 
         <section className="editorial-section section-ruled">
           <div className="editorial-container">
+            <div className="detail-card-grid mb-10">
+              <article className="detail-card"><h2>Landed cost calculator</h2><p>Use your own product, freight, duty and fee assumptions. All inputs stay in the browser.</p><Link href="/tools/landed-cost-calculator" className="editorial-text-link mt-4">Calculate a scenario <ArrowUpRight size={16} aria-hidden="true" /></Link></article>
+              <article className="detail-card"><h2>U.S. market entry readiness</h2><p>Eight questions about the documents and decisions needed before approaching American buyers.</p><Link href="/tools/us-market-entry-assessment" className="editorial-text-link mt-4">Assess your preparation <ArrowUpRight size={16} aria-hidden="true" /></Link></article>
+              <article className="detail-card"><h2>Manufacturer preparation worksheets</h2><p>Plain-text working templates, available without registration.</p><ul className="mt-4 space-y-3"><li><a href="/resources/us-market-entry-checklist.txt" download className="underline">U.S. market entry checklist</a></li><li><a href="/resources/distributor-evaluation-scorecard.txt" download className="underline">Distributor evaluation scorecard</a></li><li><a href="/resources/manufacturing-cost-comparison.txt" download className="underline">Manufacturing cost comparison</a></li></ul></article>
+            </div>
             <article className="resource-feature">
               <div>
                 <p className="editorial-kicker">START HERE · FREE TEMPLATE</p>
@@ -207,6 +212,19 @@ export default function ResourcesPage() {
           </section>
         )}
 
+        <section className="editorial-section section-ruled">
+          <div className="editorial-container">
+            <h2 className="editorial-title">Product-specific preparation notes.</h2>
+            <p className="editorial-body mt-5">Use these briefs to document the exact product before a feasibility review. They do not represent a stock catalog or a commitment to supply every category.</p>
+            <ul className="mt-6 grid gap-4 sm:grid-cols-2">
+              <li><Link className="editorial-text-link" href="/industries/textiles">Textile collection planning ↗</Link></li>
+              <li><Link className="editorial-text-link" href="/industries/private-label">Private label assortment and channels ↗</Link></li>
+              <li><Link className="editorial-text-link" href="/industries/consumer-products">Consumer product feasibility ↗</Link></li>
+              <li><Link className="editorial-text-link" href="/industries/building-materials">Specified building materials requests ↗</Link></li>
+              <li><Link className="editorial-text-link" href="/industries/furniture">Furniture drawings and prototypes ↗</Link></li>
+            </ul>
+          </div>
+        </section>
         <BriefSection
           formLocation="resources_hub"
           title="Ready to put a brief together?"

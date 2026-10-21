@@ -2,142 +2,116 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Furniture & Home Goods Sourcing Overseas | Sourcing Lab USA',
-  description:
-    'Direct factory sourcing of contract furniture, hospitality furnishings, casegoods, and flat-pack home goods. TSCA Title VI compliance, drop testing, and delivery.',
-  path: '/industries/furniture',
+  "title": "Furniture Sourcing Briefs & Manufacturing Feasibility",
+  "description": "Prepare a furniture sourcing request with drawings, materials, prototype approvals and packing requirements. Product feasibility and specialist needs reviewed first.",
+  "path": "/industries/furniture"
 });
 
 const page: ServicePageContent = {
-  path: '/industries/furniture',
-  eyebrow: 'Industry Vertical · Furniture & Hospitality Furnishings',
-  title: 'Furniture & Contract Furnishings Manufacturing Sourcing',
-  directAnswer:
-    'Furniture industry sourcing connects commercial hospitality developers, interior design firms, and home goods retailers with specialized furniture manufacturers in Asia and Europe. It encompasses solid wood casegoods, metal-frame seating, upholstered commercial furniture, flat-pack cabinetry, EPA TSCA Title VI formaldehyde compliance, TB 117 fire-safety certification, and ISTA 3A transit packaging validation.',
-  intro:
-    'Sourcing furniture internationally provides access to specialized woodworking craftsmanship, advanced metal fabrication, and significant cost savings. However, furniture is highly susceptible to wood moisture warping, transit transit breakage, and complex environmental regulations. Sourcing Lab USA provides rigorous factory-floor oversight and structural testing.',
-  overviewTitle: 'Engineered durability for hospitality, commercial, and residential use.',
-  overview:
-    'We audit furniture manufacturers across primary woodworking and metalworking centers in Guangdong (Foshan, Dongguan), Zhejiang, and Vietnam. Every production run is inspected for kiln-dried wood moisture content (8%–12%), joinery integrity (mortise and tenon, dowel bonding), foam density, and commercial rub counts (Wyzenbeek/Martindale).',
-  processTitle: 'The furniture manufacturing and delivery process.',
-  offerName: 'Furniture Sourcing & Contract Manufacturing',
-  offerDescription:
-    'Direct factory procurement of commercial hospitality furniture, residential casegoods, flat-pack cabinetry, and outdoor living products.',
-  focusAreas: [
+  "path": "/industries/furniture",
+  "eyebrow": "Furniture projects \u00b7 Specification-led feasibility",
+  "title": "Define the furniture before comparing the factory price.",
+  "directAnswer": "A furniture sourcing brief should state intended use, dimensions, construction, materials, finishes, quantity and delivery requirements. A prototype and an agreed packing plan help make offers comparable. Sourcing Lab USA reviews furniture requests for feasibility rather than offering an unlimited catalog. Product testing, technical suitability and regulatory review are scoped with appropriate specialists; there is no universal moisture target or certification covering every design.",
+  "intro": "A render can communicate appearance while leaving joinery, material substitutions, assembly and packing unresolved. Bring the drawings and use conditions so those questions can be documented before comparing quotations.",
+  "overviewTitle": "Treat the prototype as an approval record.",
+  "overview": "Record what the prototype actually represents: dimensions, material, finish, fittings and assembly method. Note every deviation from the production specification. An approved appearance sample does not by itself establish durability, product safety or transport performance. Specify how those questions will be evaluated and by whom.",
+  "processTitle": "From drawings to a documented prototype and order.",
+  "offerName": "Furniture Sourcing Feasibility & Coordination",
+  "offerDescription": "Specification and feasibility review for furniture requests, with supplier offers, prototypes and specialist requirements coordinated within an agreed scope.",
+  "focusAreas": [
     {
-      title: 'Commercial Hospitality Seating & Upholstery',
-      body: 'Dining chairs, lounge chairs, barstools, and banquettes built with kiln-dried hardwood frames, high-resilience fire-rated foam (CAL TB 117-2013), and contract commercial fabrics.',
+      "title": "Materials and intended environment",
+      "body": "Identify wood or panel type, metal construction, upholstery and intended use conditions. Moisture, coatings and material performance targets must fit the product and environment rather than a blanket number."
     },
     {
-      title: 'Architectural Casegoods & Metal Accents',
-      body: 'Credenzas, headboards, desks, and nightstands crafted from solid wood, engineered wood with natural wood veneers, sintered stone tops, and brass/steel metal accents.',
+      "title": "Assembly and hardware",
+      "body": "Document joints, fittings, assembly instructions, spare parts and the acceptance checks needed for the finished item. List proposed substitutions before approving them."
     },
     {
-      title: 'Flat-Pack E-Commerce & KD Furniture',
-      body: 'Knock-down (KD) furniture engineered with cam-lock fasteners, clear bilingual step-by-step assembly instructions, blister-packed hardware, and ISTA 3A certified packaging.',
+      "title": "Prototype review",
+      "body": "Use a signed record of dimensions, appearance, comfort and function. Assign technical or durability testing to the appropriate appointed specialist where required."
     },
     {
-      title: 'Outdoor & Weather-Resistant Furniture',
-      body: 'Rust-proof powder-coated aluminum frames, all-weather synthetic PE wicker, quick-dry reticulated foam, and solution-dyed acrylic outdoor textiles with high UV ratings.',
-    },
+      "title": "Packed dimensions and damage prevention",
+      "body": "Compare the packing method, carton or crate size, gross weight, assembly state and receiving constraints. Agree a suitable transport evaluation rather than describing every carton as certified."
+    }
   ],
-  briefItems: [
-    'Furniture schedule, shop drawings (CAD/PDF), 3D renderings, or reference photography',
-    'Material specifications (wood species, veneer cut, metal finish, fabric rub counts)',
-    'Target unit volumes, project delivery phasing, and target FOB/DDP budget',
-    'Required certifications (TSCA Title VI, TB 117, BIFMA testing) and jobsite zip code',
+  "briefItems": [
+    "Drawings, intended use and reference photos with provenance",
+    "Material, construction, finish and upholstery requirements",
+    "Quantity by model and prototype approval responsibilities",
+    "Packed-size constraints, delivery basis, receiving location and budget"
   ],
-  workflow: [
+  "workflow": [
     {
-      title: 'Shop Drawing Review & Value Engineering',
-      body: 'We review architectural drawings with factory engineers to optimize internal structural framing, reduce shipping cube size, and select durable commercial materials.',
+      "title": "Review product feasibility",
+      "body": "Clarify the construction and material scope, missing drawings and specialist requirements before supplier research."
     },
     {
-      title: 'Factory Benchmarking & Full-Scale Prototyping',
-      body: 'Candidate factories construct full-scale physical prototype samples for client review, examining finish consistency, ergonomics, and structural joint rigidity.',
+      "title": "Compare the same specification",
+      "body": "Request offers on one revision, including tooling, prototypes, packing, exclusions and order assumptions."
     },
     {
-      title: 'Laboratory Testing & Environmental Compliance',
-      body: 'Samples undergo third-party testing for formaldehyde emissions (CARB Phase 2 / TSCA Title VI), foam flammability, and commercial stability/durability (ANSI/BIFMA).',
+      "title": "Record prototype decisions",
+      "body": "Coordinate samples within the agreed scope. Keep written approval, deviations and unresolved technical questions visible."
     },
     {
-      title: 'Production Oversight & Moisture Monitoring',
-      body: 'During production, the appointed inspector verifies that kiln-dried wood moisture content remains between 8% and 12% to prevent cracking or warping in dry U.S. climates.',
-    },
-    {
-      title: 'ISTA 3A Packaging & Container Stuffing',
-      body: 'Furniture cartons undergo rigorous drop and vibration testing, followed by specialized container loading using corner protectors, foam padding, and air bags.',
-    },
+      "title": "Agree production and delivery responsibilities",
+      "body": "Document the order, appointed inspection scope, packing and transport responsibilities. Verify the quotation\u2019s contracting and invoicing company."
+    }
   ],
-  benchmarks: [
+  "faqs": [
     {
-      label: 'Minimum order volume',
-      value: 'From 50 to 100 pcs/model',
-      qualifier: 'Standard starting volume for custom contract hospitality or flat-pack production.',
+      "question": "Is a photograph enough for a furniture quotation?",
+      "answer": "A photograph can start the discussion but usually leaves dimensions, materials, internal construction, fittings and packing undefined. A comparable offer needs those details recorded or expressly marked as assumptions."
     },
     {
-      label: 'Full-scale physical prototype',
-      value: '15 to 25 days',
-      qualifier: 'Hand-crafted physical prototype including final wood finishes, upholstery, and metalwork.',
+      "question": "Do all wood products need the same moisture or test specification?",
+      "answer": "No single value or test covers every material, product and intended environment. Have the relevant product professional specify what should be measured and accepted. Request evidence for the exact product rather than relying on a general factory claim."
     },
     {
-      label: 'Production & container loading',
-      value: '45 to 60 days',
-      qualifier: 'Complete production cycle including kiln drying, assembly, finishing, and packaging.',
-    },
+      "question": "How can I compare flat-pack and assembled furniture?",
+      "answer": "Include factory price, assembly labor, packaging, freight volume, destination handling, missing-part support and potential returns. The lowest factory unit price may not produce the lowest cost for the delivery model."
+    }
   ],
-  benchmarksNote:
-    'All wood materials strictly comply with the U.S. Lacey Act (legal timber verification) and EPA TSCA Title VI formaldehyde emission limits.',
-  hideShowcase: true,
-  faqs: [
+  "briefTitle": "Share a furniture specification for review.",
+  "briefIntro": "Start with the intended use, drawings, materials, quantity and delivery constraints. We review feasibility before proposing a scope.",
+  "hideShowcase": true,
+  "benchmarks": [
     {
-      question: 'How do you prevent wood furniture from cracking or warping in the U.S.?',
-      answer:
-        'The primary cause of wood warping is improper moisture content. We enforce strict industrial kiln-drying protocols, measuring wood moisture with calibrated digital pin meters on the factory floor to ensure moisture content remains at 8%–12%, matching the interior equilibrium of American heated homes.',
+      "label": "Order quantity",
+      "value": "Quoted per specification",
+      "qualifier": "Material, variants and supplier setup determine the practical run size."
     },
     {
-      question: 'What environmental regulations apply to imported wood furniture?',
-      answer:
-        'Imported wood furniture must comply with: (1) EPA TSCA Title VI / CARB Phase 2 regulating formaldehyde emissions from composite wood panels (MDF, particleboard, hardwood plywood), and (2) the U.S. Lacey Act, requiring electronic declarations proving timber was legally harvested.',
+      "label": "Samples and approvals",
+      "value": "Agreed in the proposal",
+      "qualifier": "Record what must be reviewed and who can approve it before production."
     },
     {
-      question: 'Can you source furniture that meets commercial contract BIFMA standards?',
-      answer:
-        'Yes. For office, educational, and commercial projects, we mandate ANSI/BIFMA durability testing (load-bearing static weights, cycle tilt tests, and drop impact tests) conducted by accredited third-party labs.',
-    },
-    {
-      question: 'How do you protect large furniture pieces during ocean transit?',
-      answer:
-        'We mandate heavy-duty 5-ply or 7-ply double-wall corrugated master cartons, reinforced EPS foam corner blocks, edge protectors, and individual moisture-absorbing desiccants, validated through ISTA 3A transit drop tests.',
-    },
+      "label": "Production and delivery",
+      "value": "Confirmed per order",
+      "qualifier": "There is no published standard lead time or guaranteed saving."
+    }
   ],
-  briefTitle: 'Submit your furniture procurement brief.',
-  briefIntro:
-    'Share your furniture schedules, CAD drawings, or hospitality specs. We will review production feasibility and deliver direct factory pricing.',
-  relatedPages: [
+  "benchmarksNote": "These are scoping principles, not performance benchmarks. Availability is subject to product feasibility. Clothing, textiles and packaging remain the deepest specialties.",
+  "relatedPages": [
     {
-      href: '/product-sourcing',
-      title: 'Product Sourcing Overview',
-      description: 'End-to-end global procurement and direct factory management.',
+      "href": "/product-sourcing",
+      "title": "Product sourcing and scope",
+      "description": "Understand how feasibility, quotations and responsibilities are agreed."
     },
     {
-      href: '/factory-verification',
-      title: 'Factory Verification Services',
-      description: 'Physical workshop audits, kiln-dry inspection, and capacity checks.',
+      "href": "/factory-verification",
+      "title": "Factory verification",
+      "description": "Compare the evidence required for a particular supplier decision."
     },
     {
-      href: '/freight-logistics',
-      title: 'Freight & Cross-Border Logistics',
-      description: 'High-cube ocean container shipping and specialized furniture drayage.',
-    },
-    {
-      href: '/landed-cost-analysis',
-      title: 'Landed Cost Analysis',
-      description: 'Model container volumetric efficiency and delivered furniture economics.',
-    },
-  ],
+      "href": "/tools/landed-cost-calculator",
+      "title": "Landed cost calculator",
+      "description": "Model the costs included in your quotation and delivery plan."
+    }
+  ]
 };
 
-export default function FurnitureIndustryPage() {
-  return <ServiceLandingPage page={page} />;
-}
+export default function Page() { return <ServiceLandingPage page={page} />; }

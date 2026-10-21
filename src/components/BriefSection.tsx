@@ -1,4 +1,6 @@
 import { ContactForm } from '@/components/ContactForm';
+import { MARKET_ENTRY_COPY } from '@/lib/market-entry-copy';
+import { MarketEntryForm } from '@/components/MarketEntryForm';
 import { CopyEmailButton } from '@/components/CopyEmailButton';
 import { BRIEF_SECTION_COPY, type BriefLocale } from '@/lib/brief-copy';
 import type { ProjectType } from '@/lib/validation/contact';
@@ -9,6 +11,7 @@ interface BriefSectionProps {
   title?: string;
   intro?: string;
   initialProjectType?: ProjectType;
+  journey?: 'sourcing' | 'market-entry';
 }
 
 export function BriefSection({
@@ -17,8 +20,11 @@ export function BriefSection({
   title,
   intro,
   initialProjectType,
+  journey = 'sourcing',
 }: BriefSectionProps) {
-  const copy = BRIEF_SECTION_COPY[locale];
+  const copy = journey === 'market-entry'
+    ? { ...BRIEF_SECTION_COPY[locale], ...MARKET_ENTRY_COPY[locale].section }
+    : BRIEF_SECTION_COPY[locale];
   return (
     <section id="contact" className="editorial-section contact-section">
       <div className="editorial-container">
@@ -41,12 +47,12 @@ export function BriefSection({
             <p className="editorial-kicker mt-8">{copy.directLabel}</p>
             <CopyEmailButton formLocation={formLocation} />
           </div>
-          <ContactForm
+          {journey === 'market-entry' ? <MarketEntryForm formLocation={formLocation} locale={locale} /> : <ContactForm
             locale={locale}
             formLocation={formLocation}
             appearance="editorial"
             initialProjectType={initialProjectType}
-          />
+          />}
         </div>
       </div>
     </section>

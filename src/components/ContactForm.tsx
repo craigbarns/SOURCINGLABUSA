@@ -14,7 +14,7 @@ import { usePathname } from 'next/navigation';
 import { useId, useMemo, useRef, useState, useSyncExternalStore } from 'react';
 
 import { ANALYTICS_EVENTS, trackEvent } from '@/lib/analytics';
-import { submitToNetlifyForms } from '@/lib/netlify-forms';
+import { FORM_DELIVERY_TIMEOUT_MS, submitToNetlifyForms } from '@/lib/netlify-forms';
 import { BRIEF_DETAIL_FIELDS, EMPTY_BRIEF_DETAILS, formatBriefMessage } from '@/lib/brief-details';
 import {
   BRIEF_CONTACT_EMAIL,
@@ -57,6 +57,7 @@ const emptyValues = {
   projectType: '' as ProjectType | '',
   quantityRange: 'not_sure' as QuantityRange,
   message: '',
+  botField: '',
 };
 
 // Keep the server-rendered fields inactive until their submit handler is ready.
@@ -67,8 +68,6 @@ const serverIsReady = () => false;
 interface ServerRouteOutcome {
   /** True once the brief is in the database. */
   stored: boolean;
-  /** True when the API endpoint accepted the submission (HTTP 201). */
-  accepted?: boolean;
   message?: string;
   reason?: string;
   /** Present only when the server rejected specific fields. */
@@ -82,6 +81,7 @@ async function postBrief(
   try {
     const response = await fetch('/api/contact', {
       method: 'POST',
+      signal: AbortSignal.timeout(FORM_DELIVERY_TIMEOUT_MS),
       headers: { 'Content-Type': 'application/json' },
       body: JSON.stringify(payload),
     });
@@ -101,7 +101,6 @@ async function postBrief(
     if (response.ok) {
       return {
         stored: body.delivery?.includes('database') ?? false,
-        accepted: true,
       };
     }
 
@@ -172,6 +171,7 @@ export function ContactForm({
       trackEvent(ANALYTICS_EVENTS.formStart, {
         form_location: formLocation,
         source_path: sourcePath,
+        lead_journey: 'sourcing',
       });
     }
 
@@ -198,6 +198,7 @@ export function ContactForm({
     trackEvent(ANALYTICS_EVENTS.formError, {
       form_location: formLocation,
       error_reason: reason,
+      lead_journey: 'sourcing',
     });
   };
 
@@ -214,7 +215,7 @@ export function ContactForm({
       message: formatBriefMessage(values.message, values),
       sourcePath,
       locale,
-      botField: '',
+      botField: values.botField,
     };
 
     const validation = contactInputSchema.safeParse(payload);
@@ -240,8 +241,8 @@ export function ContactForm({
     setFieldErrors({});
 
     // Two independent sinks: the server route keeps the durable record, and
-    // Netlify Forms sends the notification email. The brief is delivered as
-    // long as one of them accepts it, so neither can silently lose a lead.
+    // Netlify Forms attempts a notification. A generic HTTP success alone
+    // does not confirm a stored lead; one channel must acknowledge delivery.
     const [apiOutcome, notified] = await Promise.all([
       postBrief(payload, copy.fieldErrors),
       submitToNetlifyForms(validation.data),
@@ -256,7 +257,7 @@ export function ContactForm({
       return;
     }
 
-    if (!apiOutcome.stored && !apiOutcome.accepted && !notified) {
+    if (!apiOutcome.stored && !notified) {
       failWith(
         {},
         apiOutcome.message ?? copy.genericError,
@@ -269,6 +270,7 @@ export function ContactForm({
     trackEvent(ANALYTICS_EVENTS.lead, {
       stored: apiOutcome.stored,
       notified,
+      lead_journey: 'sourcing',
       form_location: formLocation,
       source_path: sourcePath,
       project_type: validation.data.projectType,
@@ -342,6 +344,20 @@ export function ContactForm({
         value={locale}
         disabled={!isReady || status === 'submitting'}
       />
+      <div hidden aria-hidden="true">
+        <label htmlFor={`${fieldId}-bot-field`}>Leave this field empty</label>
+        <input
+          id={`${fieldId}-bot-field`}
+          name="bot-field"
+          type="text"
+          tabIndex={-1}
+          autoComplete="off"
+          maxLength={200}
+          value={values.botField}
+          onChange={(event) => updateValue('botField', event.target.value)}
+          disabled={!isReady || status === 'submitting'}
+        />
+      </div>
       <div className="grid gap-5 sm:grid-cols-2">
         <div>
           <label htmlFor={`${fieldId}-name`} className={labelClassName}>

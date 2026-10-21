@@ -15,7 +15,7 @@ import { BRIEF_CONTACT_EMAIL } from '@/lib/brief-copy';
  * business will operate in.
  */
 
-const LAST_UPDATED = '14 September 2026';
+const LAST_UPDATED = '21 October 2026';
 
 export const metadata = pageMetadata({
   title: 'Privacy notice',
@@ -81,6 +81,14 @@ export default function PrivacyPage() {
                 status and timing. These are included with your project brief.
               </p>
               <p>
+                A U.S. market-entry inquiry also collects your company, country,
+                product category and commercial objectives. Manufacturing
+                capabilities, existing export activity, target American customers
+                and expansion budget are optional details used to assess your inquiry.
+                The public calculators run in your browser; their answers are not
+                submitted as a project inquiry unless you send a form.
+              </p>
+              <p>
                 If you join the product update list we collect your email
                 address and the sourcing role you select.
               </p>
@@ -112,11 +120,21 @@ export default function PrivacyPage() {
                 the service that hosts this website.
               </p>
               <p>
-                We use Google Analytics to understand how the site is used —
+                If you allow analytics, we use Google Analytics to understand how the site is used —
                 which pages are visited and which actions are taken, such as
                 opening or submitting the brief form. Google Analytics sets
                 cookies in your browser and processes this data on Google&apos;s
                 infrastructure. It does not receive the contents of your brief.
+                Analytics is off until you allow it. Declining does not prevent
+                you from using the site, calculators or inquiry forms.
+              </p>
+              <p>
+                Your analytics choice is stored in this browser&apos;s local
+                storage so it can be remembered on later visits. You can reopen
+                Analytics settings at the bottom of the page to change or
+                withdraw permission. Withdrawal disables further analytics and
+                removes accessible Google Analytics cookies from this site;
+                it does not remove data already processed by Google.
               </p>
               <p>
                 These providers operate in the United States and elsewhere, so
@@ -148,8 +166,10 @@ export default function PrivacyPage() {
                 and we will action it.
               </p>
               <p>
-                You can block analytics cookies in your browser settings or with
-                a content blocker. The site works normally without them.
+                You can decline analytics or withdraw permission through Analytics
+                settings at the bottom of any page. Clearing browser storage
+                removes your saved choice. You can also use your browser&apos;s
+                cookie settings or a content blocker.
               </p>
             </Section>
 

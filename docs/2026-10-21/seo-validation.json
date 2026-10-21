@@ -1,0 +1,20 @@
+{
+  "status": "passed",
+  "pages": 59,
+  "internalLinks": 3226,
+  "downloads": 8,
+  "checks": [
+    "server-rendered content",
+    "unique metadata",
+    "canonicals",
+    "social previews",
+    "JSON-LD",
+    "visible FAQ consistency",
+    "article dates",
+    "internal links and anchors",
+    "EN/ES/ZH hreflang",
+    "sitemap",
+    "crawler access",
+    "indexing boundaries"
+  ]
+}

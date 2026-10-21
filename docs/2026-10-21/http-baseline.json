@@ -1,0 +1,90 @@
+{
+  "date": "2026-10-21T08:37:45.319Z",
+  "scope": "Read-only GETs without following redirects; no forms submitted",
+  "results": [
+    {
+      "url": "http://sourcinglabusa.com/",
+      "status": 301,
+      "bytes": 42,
+      "headers": "HTTP/1.1 301 Moved Permanently\r\nContent-Type: text/plain; charset=utf-8\r\nDate: Wed, 21 Oct 2026 08:37:36 GMT\r\nLocation: https://sourcinglabusa.com/\r\nServer: Netlify\r\nX-Nf-Request-Id: 01M5ESQNXVJZD2CCTZZXJ76CF2\r\nContent-Length: 42\r\n\r\n"
+    },
+    {
+      "url": "https://www.sourcinglabusa.com/",
+      "status": 301,
+      "bytes": 42,
+      "headers": "HTTP/2 301 \r\ncontent-type: text/plain; charset=utf-8\r\ndate: Wed, 21 Oct 2026 08:37:37 GMT\r\nlocation: https://sourcinglabusa.com/\r\nserver: Netlify\r\nstrict-transport-security: max-age=31536000; includeSubDomains; preload\r\nx-nf-request-id: 01M5ESQP1N5038CAAZAD5MTC1K\r\ncontent-length: 42\r\n\r\n"
+    },
+    {
+      "url": "https://sourcinglabusa.com/china-sourcing/",
+      "status": 308,
+      "bytes": 15,
+      "headers": "HTTP/2 308 \r\nage: 4\r\ncache-control: no-cache\r\ncache-status: \"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=308; stored\r\ncontent-type: text/plain; charset=utf-8\r\ndate: Wed, 21 Oct 2026 08:37:40 GMT\r\nlocation: /china-sourcing\r\nnetlify-vary: query=__nextDataReq|_rsc,header=x-nextjs-data|x-next-debug-logging|next-router-prefetch|next-router-segment-prefetch|next-router-state-tree|next-url|rsc,cookie=__prerender_bypass|__next_preview_data\r\nrefresh: 0;url=/china-sourcing\r\nserver: Netlify\r\nstrict-transport-security: max-age=31536000\r\nvary: Accept-Encoding, Host, X-Forwarded-Host\r\nx-content-type-options: nosniff\r\nx-nf-request-id: 01M5ESQPCQS9FY211EZQF9QZXK\r\n\r\n"
+    },
+    {
+      "url": "https://sourcinglabusa.com/packaging-sourcing",
+      "status": 308,
+      "bytes": 17,
+      "headers": "HTTP/2 308 \r\nage: 0\r\ncache-control: no-cache\r\ncache-status: \"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=308; stored\r\ncontent-type: text/plain; charset=utf-8\r\ndate: Wed, 21 Oct 2026 08:37:40 GMT\r\nlocation: /custom-packaging\r\nnetlify-vary: query=__nextDataReq|_rsc,header=x-nextjs-data|x-next-debug-logging|next-router-prefetch|next-router-segment-prefetch|next-router-state-tree|next-url|rsc,cookie=__prerender_bypass|__next_preview_data\r\nrefresh: 0;url=/custom-packaging\r\nserver: Netlify\r\nstrict-transport-security: max-age=31536000\r\nvary: Accept-Encoding, Host, X-Forwarded-Host\r\nx-content-type-options: nosniff\r\nx-nf-request-id: 01M5ESQS97NYA5G6EAFZZNCC5H\r\n\r\n"
+    },
+    {
+      "url": "https://sourcinglabusa.com/industries/packaging",
+      "status": 308,
+      "bytes": 17,
+      "headers": "HTTP/2 308 \r\nage: 0\r\ncache-control: no-cache\r\ncache-status: \"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=308; stored\r\ncontent-type: text/plain; charset=utf-8\r\ndate: Wed, 21 Oct 2026 08:37:40 GMT\r\nlocation: /custom-packaging\r\nnetlify-vary: query=__nextDataReq|_rsc,header=x-nextjs-data|x-next-debug-logging|next-router-prefetch|next-router-segment-prefetch|next-router-state-tree|next-url|rsc,cookie=__prerender_bypass|__next_preview_data\r\nrefresh: 0;url=/custom-packaging\r\nserver: Netlify\r\nstrict-transport-security: max-age=31536000\r\nvary: Accept-Encoding, Host, X-Forwarded-Host\r\nx-content-type-options: nosniff\r\nx-nf-request-id: 01M5ESQSRCTTY4AF6HZFD7PFRJ\r\n\r\n"
+    },
+    {
+      "url": "https://sourcinglabusa.com/fsc-boxes",
+      "status": 308,
+      "bytes": 17,
+      "headers": "HTTP/2 308 \r\nage: 0\r\ncache-control: no-cache\r\ncache-status: \"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=308; stored\r\ncontent-type: text/plain; charset=utf-8\r\ndate: Wed, 21 Oct 2026 08:37:41 GMT\r\nlocation: /custom-packaging\r\nnetlify-vary: query=__nextDataReq|_rsc,header=x-nextjs-data|x-next-debug-logging|next-router-prefetch|next-router-segment-prefetch|next-router-state-tree|next-url|rsc,cookie=__prerender_bypass|__next_preview_data\r\nrefresh: 0;url=/custom-packaging\r\nserver: Netlify\r\nstrict-transport-security: max-age=31536000\r\nvary: Accept-Encoding, Host, X-Forwarded-Host\r\nx-content-type-options: nosniff\r\nx-nf-request-id: 01M5ESQT1W3JW781S4AVB8ZYFZ\r\n\r\n"
+    },
+    {
+      "url": "https://sourcinglabusa.com/non-woven-bags",
+      "status": 308,
+      "bytes": 17,
+      "headers": "HTTP/2 308 \r\nage: 0\r\ncache-control: no-cache\r\ncache-status: \"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=308; stored\r\ncontent-type: text/plain; charset=utf-8\r\ndate: Wed, 21 Oct 2026 08:37:41 GMT\r\nlocation: /custom-packaging\r\nnetlify-vary: query=__nextDataReq|_rsc,header=x-nextjs-data|x-next-debug-logging|next-router-prefetch|next-router-segment-prefetch|next-router-state-tree|next-url|rsc,cookie=__prerender_bypass|__next_preview_data\r\nrefresh: 0;url=/custom-packaging\r\nserver: Netlify\r\nstrict-transport-security: max-age=31536000\r\nvary: Accept-Encoding, Host, X-Forwarded-Host\r\nx-content-type-options: nosniff\r\nx-nf-request-id: 01M5ESQTGMBS7PYHRVQSW4KSVB\r\n\r\n"
+    },
+    {
+      "url": "https://sourcinglabusa.com/insulated-packaging",
+      "status": 308,
+      "bytes": 17,
+      "headers": "HTTP/2 308 \r\nage: 0\r\ncache-control: no-cache\r\ncache-status: \"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=308; stored\r\ncontent-type: text/plain; charset=utf-8\r\ndate: Wed, 21 Oct 2026 08:37:42 GMT\r\nlocation: /custom-packaging\r\nnetlify-vary: query=__nextDataReq|_rsc,header=x-nextjs-data|x-next-debug-logging|next-router-prefetch|next-router-segment-prefetch|next-router-state-tree|next-url|rsc,cookie=__prerender_bypass|__next_preview_data\r\nrefresh: 0;url=/custom-packaging\r\nserver: Netlify\r\nstrict-transport-security: max-age=31536000\r\nvary: Accept-Encoding, Host, X-Forwarded-Host\r\nx-content-type-options: nosniff\r\nx-nf-request-id: 01M5ESQTZ7FPCG16J24HZ60T5K\r\n\r\n"
+    },
+    {
+      "url": "https://sourcinglabusa.com/custom-paper",
+      "status": 308,
+      "bytes": 17,
+      "headers": "HTTP/2 308 \r\nage: 0\r\ncache-control: no-cache\r\ncache-status: \"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=308; stored\r\ncontent-type: text/plain; charset=utf-8\r\ndate: Wed, 21 Oct 2026 08:37:42 GMT\r\nlocation: /custom-packaging\r\nnetlify-vary: query=__nextDataReq|_rsc,header=x-nextjs-data|x-next-debug-logging|next-router-prefetch|next-router-segment-prefetch|next-router-state-tree|next-url|rsc,cookie=__prerender_bypass|__next_preview_data\r\nrefresh: 0;url=/custom-packaging\r\nserver: Netlify\r\nstrict-transport-security: max-age=31536000\r\nvary: Accept-Encoding, Host, X-Forwarded-Host\r\nx-content-type-options: nosniff\r\nx-nf-request-id: 01M5ESQVFS47JNWB73FHMY1PPS\r\n\r\n"
+    },
+    {
+      "url": "https://sourcinglabusa.com/shipping",
+      "status": 404,
+      "bytes": 10015,
+      "headers": "HTTP/2 404 \r\nage: 438048\r\ncache-control: private,no-cache,no-store,max-age=0,must-revalidate\r\ncache-status: \"Next.js\"; hit, \"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=404\r\ncontent-security-policy: frame-ancestors 'none'\r\ncontent-type: text/html; charset=utf-8\r\ncross-origin-opener-policy: same-origin\r\ncross-origin-resource-policy: same-origin\r\ndate: Wed, 21 Oct 2026 08:37:43 GMT\r\netag: W/\"6uix0epddd7bk\"\r\nnetlify-vary: query=__nextDataReq|_rsc,header=x-nextjs-data|x-next-debug-logging|next-router-prefetch|next-router-segment-prefetch|next-router-state-tree|next-url|rsc|accept-encoding,cookie=__prerender_bypass|__next_preview_data\r\npermissions-policy: camera=(), microphone=(), geolocation=()\r\nreferrer-policy: strict-origin-when-cross-origin\r\nserver: Netlify\r\nstrict-transport-security: max-age=63072000; includeSubDomains; preload\r\nvary: Accept-Encoding, Host, X-Forwarded-Host\r\nx-content-type-options: nosniff\r\nx-dns-prefetch-control: off\r\nx-frame-options: DENY\r\nx-nextjs-date: Wed, 21 Oct 2026 08:37:43 GMT\r\nx-nextjs-prerender: 1, 1\r\nx-nextjs-stale-time: 300\r\nx-nf-request-id: 01M5ESQW0FMQX7E8NZF95Y54PG\r\nx-powered-by: Next.js\r\n\r\n"
+    },
+    {
+      "url": "https://sourcinglabusa.com/quality-control",
+      "status": 404,
+      "bytes": 10015,
+      "headers": "HTTP/2 404 \r\nage: 438050\r\ncache-control: private,no-cache,no-store,max-age=0,must-revalidate\r\ncache-status: \"Next.js\"; hit, \"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=404\r\ncontent-security-policy: frame-ancestors 'none'\r\ncontent-type: text/html; charset=utf-8\r\ncross-origin-opener-policy: same-origin\r\ncross-origin-resource-policy: same-origin\r\ndate: Wed, 21 Oct 2026 08:37:44 GMT\r\netag: W/\"6uix0epddd7bk\"\r\nnetlify-vary: query=__nextDataReq|_rsc,header=x-nextjs-data|x-next-debug-logging|next-router-prefetch|next-router-segment-prefetch|next-router-state-tree|next-url|rsc|accept-encoding,cookie=__prerender_bypass|__next_preview_data\r\npermissions-policy: camera=(), microphone=(), geolocation=()\r\nreferrer-policy: strict-origin-when-cross-origin\r\nserver: Netlify\r\nstrict-transport-security: max-age=63072000; includeSubDomains; preload\r\nvary: Accept-Encoding, Host, X-Forwarded-Host\r\nx-content-type-options: nosniff\r\nx-dns-prefetch-control: off\r\nx-frame-options: DENY\r\nx-nextjs-date: Wed, 21 Oct 2026 08:37:43 GMT\r\nx-nextjs-prerender: 1, 1\r\nx-nextjs-stale-time: 300\r\nx-nf-request-id: 01M5ESQWNG9XGZR81ZQA706FNK\r\nx-powered-by: Next.js\r\n\r\n"
+    },
+    {
+      "url": "https://sourcinglabusa.com/not-a-real-page-audit-20261021",
+      "status": 404,
+      "bytes": 10015,
+      "headers": "HTTP/2 404 \r\nage: 438049\r\ncache-control: private,no-cache,no-store,max-age=0,must-revalidate\r\ncache-status: \"Next.js\"; hit, \"Netlify Durable\"; fwd=bypass, \"Netlify Edge\"; fwd=miss; fwd-status=404\r\ncontent-security-policy: frame-ancestors 'none'\r\ncontent-type: text/html; charset=utf-8\r\ncross-origin-opener-policy: same-origin\r\ncross-origin-resource-policy: same-origin\r\ndate: Wed, 21 Oct 2026 08:37:44 GMT\r\netag: W/\"6uix0epddd7bk\"\r\nnetlify-vary: query=__nextDataReq|_rsc,header=x-nextjs-data|x-next-debug-logging|next-router-prefetch|next-router-segment-prefetch|next-router-state-tree|next-url|rsc|accept-encoding,cookie=__prerender_bypass|__next_preview_data\r\npermissions-policy: camera=(), microphone=(), geolocation=()\r\nreferrer-policy: strict-origin-when-cross-origin\r\nserver: Netlify\r\nstrict-transport-security: max-age=63072000; includeSubDomains; preload\r\nvary: Accept-Encoding, Host, X-Forwarded-Host\r\nx-content-type-options: nosniff\r\nx-dns-prefetch-control: off\r\nx-frame-options: DENY\r\nx-nextjs-date: Wed, 21 Oct 2026 08:37:44 GMT\r\nx-nextjs-prerender: 1, 1\r\nx-nextjs-stale-time: 300\r\nx-nf-request-id: 01M5ESQX5NFEHPJN3ZQBG94TV7\r\nx-powered-by: Next.js\r\n\r\n"
+    },
+    {
+      "url": "https://sourcinglabusa.com/contact.html",
+      "status": 200,
+      "bytes": 3750,
+      "headers": "HTTP/2 200 \r\naccept-ranges: bytes\r\nage: 0\r\ncache-control: public,max-age=0,must-revalidate\r\ncache-status: \"Netlify Edge\"; fwd=miss; fwd-status=200; stored\r\ncontent-type: text/html; charset=UTF-8\r\ndate: Wed, 21 Oct 2026 08:37:44 GMT\r\netag: \"7e93c52cc7e674ccc2474435c6c297d3-ssl\"\r\npermissions-policy: camera=(), microphone=(), geolocation=(), browsing-topics=()\r\nreferrer-policy: strict-origin-when-cross-origin\r\nserver: Netlify\r\nstrict-transport-security: max-age=31536000; includeSubDomains; preload\r\nvary: Accept-Encoding\r\nx-content-type-options: nosniff\r\nx-frame-options: DENY\r\nx-nf-request-id: 01M5ESQXJP8HK7GYMSRJ9XNMYM\r\nx-xss-protection: 1; mode=block\r\ncontent-length: 3750\r\n\r\n"
+    },
+    {
+      "url": "https://sourcinglabusa.com/llms.txt",
+      "status": 404,
+      "bytes": 10015,
+      "headers": "HTTP/2 404 \r\nage: 438050\r\ncache-control: private,no-cache,no-store,max-age=0,must-revalidate\r\ncache-status: \"Next.js\"; hit\r\ncache-status: \"Netlify Durable\"; fwd=bypass\r\ncache-status: \"Netlify Edge\"; fwd=miss; fwd-status=404\r\ncontent-security-policy: frame-ancestors 'none'\r\ncontent-type: text/html; charset=utf-8\r\ncross-origin-opener-policy: same-origin\r\ncross-origin-resource-policy: same-origin\r\ndate: Wed, 21 Oct 2026 08:37:45 GMT\r\netag: \"6uix0epddd7bk\"\r\nnetlify-vary: query=__nextDataReq|_rsc,header=x-nextjs-data|x-next-debug-logging|next-router-prefetch|next-router-segment-prefetch|next-router-state-tree|next-url|rsc|accept-encoding,cookie=__prerender_bypass|__next_preview_data\r\npermissions-policy: camera=(), microphone=(), geolocation=()\r\nreferrer-policy: strict-origin-when-cross-origin\r\nserver: Netlify\r\nstrict-transport-security: max-age=63072000; includeSubDomains; preload\r\nvary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch, Accept-Encoding\r\nx-content-type-options: nosniff\r\nx-dns-prefetch-control: off\r\nx-frame-options: DENY\r\nx-nextjs-date: Wed, 21 Oct 2026 08:37:45 GMT\r\nx-nextjs-prerender: 1, 1\r\nx-nextjs-stale-time: 300\r\nx-nf-request-id: 01M5ESQY26HC5VD26W7AC81MW8\r\nx-powered-by: Next.js\r\n\r\n"
+    }
+  ]
+}

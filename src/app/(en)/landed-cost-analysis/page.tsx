@@ -2,141 +2,148 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Landed Cost Analysis & Import Cost Calculator | Sourcing Lab USA',
-  description:
-    'Calculate the true, all-inclusive landed cost of importing manufactured goods into the United States. Unit cost, ocean freight, tariffs, MPF, and drayage modeling.',
-  path: '/landed-cost-analysis',
+  "title": "Landed Cost Analysis for U.S. Import Planning",
+  "description": "Build an import cost estimate from product, freight, insurance, duties and destination charges. Compare assumptions with the landed cost calculator.",
+  "path": "/landed-cost-analysis"
 });
 
 const page: ServicePageContent = {
-  path: '/landed-cost-analysis',
-  eyebrow: 'Import Economics · True Landed Cost Modeling',
-  title: 'Landed Cost Analysis for U.S. Importers & Brands',
-  directAnswer:
-    'Landed cost analysis is the comprehensive calculation of the total financial cost incurred to manufacture, transport, insure, clear customs, and deliver a commercial product into a domestic warehouse. It aggregates the factory ex-works unit price, origin handling, international ocean or air freight, marine insurance, U.S. customs duties, Section 301 tariffs, federal customs processing fees (MPF and HMF), and destination port drayage to establish true gross profit margins.',
-  intro:
-    'Calculating profitability based solely on a supplier’s Ex-Works (EXW) or FOB price is the primary reason first-time importers suffer severe margin collapse. International shipping, harbor fees, customs brokerage, and tariffs routinely add 25% to 65% on top of factory gate pricing. Sourcing Lab USA builds deterministic landed-cost models so you know your exact unit economics before placing purchase orders.',
-  overviewTitle: 'Every line item quantified before capital deployment.',
-  overview:
-    'Our landed cost model breaks down the total unit cost into its eight constituent economic drivers: factory production cost, origin export charges, international freight, cargo risk insurance, customs duties, statutory federal fees, port terminal drayage, and warehouse receiving. This enables granular sensitivity analysis against freight rate spikes or tariff increases.',
-  processTitle: 'The 5-component landed cost calculation model.',
-  offerName: 'Comprehensive Landed Cost Modeling & Advisory',
-  offerDescription:
-    'Detailed landed-cost calculations, unit margin audits, tariff sensitivity modeling, and volume break-even analysis for international procurement projects.',
-  focusAreas: [
+  "path": "/landed-cost-analysis",
+  "eyebrow": "Import planning · Costs, assumptions and responsibility",
+  "title": "See what is included in the cost of getting the goods to you.",
+  "directAnswer": "A landed cost estimate combines the purchase price with the transport, insurance, import and destination costs relevant to an agreed delivery point. Sourcing Lab USA helps assemble the available quotations and assumptions, compare scenarios and identify missing information. It is a planning estimate, not a guaranteed customs bill. Classification, valuation and applicable duties require current product-specific review with the importer and appointed customs specialist.",
+  "intro": "Start with the exact supplier terms. A quotation that includes transport should not have the same charge added again, and a factory price should not be mistaken for a delivered price. Every line needs a source, an owner and a date.",
+  "overviewTitle": "Keep quoted amounts separate from estimates.",
+  "overview": "For each cost, record the amount, currency, unit or shipment basis, inclusions and validity date. Mark the charges that are confirmed and those that depend on the final classification, booking or arrival conditions. The calculation is useful when it exposes unknowns early. It cannot make an unsupported tariff input reliable or predict every port, storage or inspection charge.",
+  "processTitle": "Build a cost sheet you can review and update.",
+  "offerName": "Landed Cost Planning and Scenario Analysis",
+  "offerDescription": "Coordination of product, transport and import-cost inputs, scenario comparisons and a record of assumptions for a proposed order. Scope and any service fee are agreed before work begins.",
+  "hideShowcase": true,
+  "focusAreas": [
     {
-      title: 'Factory Gate Unit Economics (EXW vs FOB)',
-      body: 'We quantify raw material costs, production tooling amortization, and origin inland logistics to ensure your base purchase price reflects true manufacturing costs.',
+      "title": "The goods and the quotation basis",
+      "body": "Record quantity, currency, product price, agreed delivery terms and any tooling or sample charges relevant to the decision. Identify the items already included. Customs value and the invoice amount can require separate review; a planning sheet should state its basis rather than treat them as interchangeable."
     },
     {
-      title: 'Ocean & Air Freight Volumetric Allocation',
-      body: 'We allocate container shipping costs accurately across multiple SKUs based on cubic meter volume (CBM) and chargeable gross weight, avoiding distorted per-unit cost averages.',
+      "title": "Freight, insurance and allocation",
+      "body": "Use the proposed route, packing dimensions, weights and dated provider quotations. Allocate shared shipment costs using a stated method suited to the order. Compare carton, mode or quantity scenarios without assuming every route has the same charges."
     },
     {
-      title: 'U.S. Customs Duties & Section 301 Tariffs',
-      body: 'We model exact ad valorem duty rates, Section 301 punitive tariffs, and statutory CBP fees including the Merchandise Processing Fee (MPF) and Harbor Maintenance Fee (HMF).',
+      "title": "Classification and import charges",
+      "body": "USITC publishes the Harmonized Tariff Schedule and USTR maintains information on China Section 301 actions. Product classification, origin, valuation and entry date affect the review. Other measures or fees may also apply. An appointed customs specialist checks the applicable treatment; this page publishes no universal duty rate."
     },
     {
-      title: 'Port Drayage, Demurrage & Receiving Fees',
-      body: 'We incorporate domestic chassis rentals, pier pass charges, clean truck fees, and 3PL palletization and intake labor to determine the true door-to-door cost per unit.',
-    },
+      "title": "Destination and contingent costs",
+      "body": "Check the agreed delivery point and receiving instructions. Request applicable handling, delivery and receiving quotations. Keep possible storage, examination or delay charges visible as uncertainties rather than presenting a fixed all-inclusive amount without contractual support."
+    }
   ],
-  briefItems: [
-    'Supplier quotation (EXW or FOB terms) and currency',
-    'Carton packaging dimensions (L x W x H), gross weight, and units per carton',
-    'Total order volume and anticipated container configuration (20GP, 40HQ, or LCL)',
-    'Target U.S. delivery zip code and intended retail/wholesale sales price',
+  "briefItems": [
+    "Supplier quotation, currency, quantity, named delivery point and shipping terms",
+    "Product description, materials, use, origin and classification information available",
+    "Packed dimensions, gross weight, carton count and proposed transport route",
+    "Destination and receiving requirements, dated provider quotes and target selling price if relevant"
   ],
-  workflow: [
+  "workflow": [
     {
-      title: 'BOM & Unit Packaging Analysis',
-      body: 'We audit the physical dimensions, master carton counts, and weight of your product to determine volumetric density and maximum container loading efficiency.',
+      "title": "Normalize the quotation",
+      "body": "List the goods, quantities, currency and included services. Separate one-time development costs from repeat order costs. Identify where a second quote uses a different material, quantity or delivery basis."
     },
     {
-      title: 'HTS Tariff & Statutory Fee Classification',
-      body: 'We identify the exact 10-digit HTS code, calculating base duty, Section 301 rate, MPF (0.3464% ad valorem), and HMF (0.125% ad valorem for ocean freight).',
+      "title": "Gather transport and destination inputs",
+      "body": "Obtain the packing information and available provider quotations. Record expiry dates, surcharges and exclusions. Freight and clearance work are performed by the appointed providers; we coordinate the information needed for the agreed model."
     },
     {
-      title: 'Freight Lane & Destination Cost Benchmarking',
-      body: 'We benchmark live ocean or air freight rates, terminal handling charges (THC), fuel surcharges, and destination drayage trucking to your warehouse.',
+      "title": "Record the customs assumptions",
+      "body": "Document the proposed classification, origin and valuation basis with the source of each input. The importer and appointed customs specialist review current treatment. CBP notes that using a broker does not remove the importer’s responsibility for the import."
     },
     {
-      title: 'Deterministic Landed Cost Model Delivery',
-      body: 'You receive an interactive financial spreadsheet with per-unit landed costs, margin contribution percentages, and break-even retail pricing tiers.',
-    },
+      "title": "Compare scenarios and unresolved items",
+      "body": "Review how quantity, packing, transport or an unconfirmed import input changes the estimate. The cost sheet distinguishes quoted charges from assumptions and identifies the checks needed before an order or shipment decision."
+    }
   ],
-  benchmarks: [
+  "benchmarks": [
     {
-      label: 'Landed cost model delivery',
-      value: '24 to 48 hours',
-      qualifier: 'Delivered in detailed financial model with all duty, freight, and fee line items.',
+      "label": "Cost inputs",
+      "value": "Dated and attributed",
+      "qualifier": "Keep quote validity, currency, inclusions and shipment basis with every line."
     },
     {
-      label: 'Freight sensitivity testing',
-      value: 'Multi-scenario modeling',
-      qualifier: 'Simulations across spot freight spikes ($2,000 vs $6,000/FEU) and tariff adjustments.',
+      "label": "Customs treatment",
+      "value": "Product-specific review",
+      "qualifier": "Confirm classification, origin, valuation, measures and entry-date assumptions."
     },
     {
-      label: 'CBM container optimization',
-      value: 'Reviewed per product',
-      qualifier: 'Redesigning master carton dimensions to maximize 40HQ container cube utilization.',
-    },
+      "label": "Output",
+      "value": "An updateable estimate",
+      "qualifier": "Unconfirmed costs and contingent charges remain visible in the calculation."
+    }
   ],
-  benchmarksNote:
-    'Landed cost models reflect current federal duty schedules, CBP fee caps, and live carrier fuel/bunker adjustments.',
-  hideShowcase: true,
-  faqs: [
+  "benchmarksNote": "Scope, deliverable format, schedule and any service fee are agreed per project. An estimate is not a binding tariff ruling or a guaranteed final freight or customs charge.",
+  "faqs": [
     {
-      question: 'How do you calculate landed cost when importing into the United States?',
-      answer:
-        'Landed cost is calculated by summing: (1) Product Unit Price + (2) Origin Freight & Export Handling + (3) International Ocean/Air Freight + (4) Marine Cargo Insurance + (5) Customs Brokerage Fee + (6) U.S. Customs Duty & Section 301 Tariffs + (7) Federal Fees (MPF + HMF) + (8) Destination Port Drayage & Receiving, divided by total units imported.',
+      "question": "What belongs in a landed cost calculation?",
+      "answer": "Start with the agreed delivery point and include the goods plus the applicable transport, insurance, import and destination charges needed to reach it. Check which amounts the supplier or transport quote already includes. Record excluded and uncertain costs rather than assuming a standard package fits every shipment."
     },
     {
-      question: 'What are the Merchandise Processing Fee (MPF) and Harbor Maintenance Fee (HMF)?',
-      answer:
-        'MPF is a statutory U.S. Customs fee assessed on commercial formal entries at 0.3464% of the cargo value (subject to a minimum and maximum cap adjusted annually). HMF is a 0.125% fee assessed on the commercial value of all cargo transported via ocean vessels entering U.S. ports to maintain federal harbors. These statutory rates and their caps are adjusted periodically: confirm the figures in force with CBP or your customs broker before pricing against them.',
+      "question": "Can I try a calculation before requesting a project review?",
+      "answer": "Yes. The landed cost calculator lets you enter your own planning assumptions and compare the resulting estimate. It does not retrieve or validate a current tariff classification, freight quote or duty rate. Use confirmed inputs and review the open questions before relying on the estimate."
     },
     {
-      question: 'Why does packaging size affect landed cost so drastically?',
-      answer:
-        'Ocean freight is billed by container capacity (e.g. a 40HQ container holds approximately 68 CBM). If your product packaging contains 20% empty space, 20% of your shipping budget is spent moving air, which drastically inflates the freight cost allocated to each individual unit.',
+      "question": "Do you determine the final HTS code or duty payable?",
+      "answer": "We can coordinate preliminary classification and cost planning within an agreed scope. This is advisory work, not a CBP ruling or a customs entry determination. Review the product-specific classification and current treatment with the importer’s appointed customs specialist and seek a CBP ruling where appropriate."
     },
     {
-      question: 'How do Section 301 tariffs impact landed cost?',
-      answer:
-        'Section 301 tariffs impose an additional 7.5% or 25% duty on products originating from China on top of standard HTS duties. On a product with a $10 FOB cost and a standard 3% duty, a 25% Section 301 tariff adds an extra $2.50 per unit in direct taxes, significantly altering margin requirements. Section 301 lists and rates change by executive action: confirm your product’s current exposure with CBP or your customs broker before relying on this figure.',
+      "question": "Does Section 301 cover every possible additional import charge?",
+      "answer": "No. Review the current HTS, applicable trade measures and CBP guidance for the product, origin and entry date. USTR’s Section 301 hub is one source for China-related actions and exclusions. A single headline rate is not a substitute for the full product-specific review."
     },
     {
-      question: 'Can landed cost analysis help negotiate better supplier terms?',
-      answer:
-        'Yes. By identifying that a supplier’s carton packaging creates excessive volumetric waste or that a small change in material composition drops the HTS tariff bracket by 6%, you can direct the factory to make targeted modifications that lower your total delivered cost.',
+      "question": "Why can the final cost differ from the estimate?",
+      "answer": "A changed quantity, currency, packing plan, transport quote, customs treatment or arrival condition can affect the result. A quote may also expire or exclude a charge. Keep the assumptions dated and update the estimate when the order or shipment information changes."
     },
+    {
+      "question": "Who is responsible for the import and the customs entry?",
+      "answer": "The order must identify the importer and the parties responsible for transport and import tasks. CBP states that the importer remains responsible for the import even when using a customs broker. Sourcing Lab USA coordinates agreed information and appointed providers; it does not present itself as a licensed customs broker."
+    }
   ],
-  briefTitle: 'Calculate your product landed cost.',
-  briefIntro:
-    'Submit your supplier quote, carton dimensions, and destination. We will deliver a complete landed cost breakdown and unit margin audit.',
-  relatedPages: [
+  "reviewedDate": "2026-10-21",
+  "references": [
     {
-      href: '/hs-code-consulting',
-      title: 'HS Code & Tariff Consulting',
-      description: 'Accurate HTS classification to determine exact duty and Section 301 liabilities.',
+      "title": "USITC: Harmonized Tariff Information and current HTS",
+      "url": "https://www.usitc.gov/harmonized_tariff_information"
     },
     {
-      href: '/freight-logistics',
-      title: 'Freight Sourcing & Logistics',
-      description: 'Ocean and air freight booking to optimize international transport costs.',
+      "title": "USTR: China Section 301 tariff actions and exclusions",
+      "url": "https://ustr.gov/issue-areas/enforcement/section-301-investigations/tariff-actions"
     },
     {
-      href: '/import-from-china',
-      title: 'Importing from China to USA',
-      description: 'Full operational import guide covering compliance and customs clearance.',
-    },
-    {
-      href: '/product-sourcing',
-      title: 'Product Sourcing Overview',
-      description: 'Direct factory procurement designed to lower base manufacturing costs.',
-    },
+      "title": "CBP: Using a customs broker and importer responsibility",
+      "url": "https://www.help.cbp.gov/s/article/Article-1169?language=en_US"
+    }
   ],
+  "briefTitle": "Review the costs behind your proposed order.",
+  "briefIntro": "Send the supplier quote, packing details, available transport quotes and destination. We identify the inputs and scope needed for a useful estimate.",
+  "relatedPages": [
+    {
+      "href": "/tools/landed-cost-calculator",
+      "title": "Landed cost calculator",
+      "description": "Enter your own product, shipment and import-cost assumptions to compare an estimate."
+    },
+    {
+      "href": "/hs-code-consulting",
+      "title": "Classification advisory",
+      "description": "Prepare the product evidence and questions for classification review."
+    },
+    {
+      "href": "/freight-logistics",
+      "title": "Transport coordination",
+      "description": "Review the route, provider scope and delivery handoff for the shipment."
+    },
+    {
+      "href": "/product-sourcing",
+      "title": "Define the product order",
+      "description": "Put specification, quantity and price inclusions on a comparable basis."
+    }
+  ]
 };
 
 export default function LandedCostAnalysisPage() {

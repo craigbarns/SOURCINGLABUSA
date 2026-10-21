@@ -7,6 +7,7 @@ import type { Metadata } from 'next';
 import { getDomainRoutingConfig } from '@/lib/routing/subdomains';
 
 import { StructuredData } from '@/components/StructuredData';
+import { AnalyticsConsent } from '@/components/AnalyticsConsent';
 import { homeLanguages, organizationGraph } from '@/lib/seo';
 
 import '../globals.css';
@@ -36,7 +37,7 @@ export const metadata: Metadata = {
     template: '%s | Sourcing Lab USA',
   },
   description:
-    '为中国优质制造企业与出海品牌提供端到端的美国本土市场开拓支持：美国商业代表、B2B渠道买家对接、FDA/CPSC/FCC法规合规映射、到岸关税测算及本土3PL海外仓履约协同。',
+    '为国际制造企业准备美国市场拓展：客户与渠道研究、商业资料和商业代表合作。当前项目通过法国或中国公司签约；迈阿密扩展计划于2027年开展。',
   alternates: {
     canonical: `${marketingOrigin}/zh`,
     languages: homeLanguages,
@@ -66,13 +67,13 @@ export const metadata: Metadata = {
     url: `${marketingOrigin}/zh`,
     title: '美国市场准入与商业代表 | Sourcing Lab USA',
     description:
-      '为中国优质制造企业与出海品牌提供端到端的美国本土市场开拓支持：美国商业代表、B2B渠道买家对接、FDA/CPSC/FCC法规合规映射、到岸关税测算及本土3PL海外仓履约协同。',
+      '为国际制造企业准备美国市场拓展：客户与渠道研究、商业资料和商业代表合作。当前项目通过法国或中国公司签约；迈阿密扩展计划于2027年开展。',
   },
   twitter: {
     card: 'summary_large_image',
     title: '美国市场准入与商业代表 | Sourcing Lab USA',
     description:
-      '为中国优质制造企业与出海品牌提供端到端的美国本土市场开拓支持：美国商业代表、B2B渠道买家对接、FDA/CPSC/FCC法规合规映射、到岸关税测算及本土3PL海外仓履约协同。',
+      '为国际制造企业准备美国市场拓展：客户与渠道研究、商业资料和商业代表合作。当前项目通过法国或中国公司签约；迈阿密扩展计划于2027年开展。',
   },
 };
 
@@ -91,6 +92,7 @@ export default function ChineseRootLayout({
       <body className="min-h-screen bg-brand-paper text-brand-ink antialiased font-sans">
         <StructuredData data={organizationGraph()} />
         {children}
+        <AnalyticsConsent locale="zh" />
       </body>
     </html>
   );

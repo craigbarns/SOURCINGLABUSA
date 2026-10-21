@@ -7,6 +7,7 @@ import type { Metadata } from 'next';
 import { getDomainRoutingConfig } from '@/lib/routing/subdomains';
 
 import { StructuredData } from '@/components/StructuredData';
+import { AnalyticsConsent } from '@/components/AnalyticsConsent';
 import { organizationGraph, SITE_DESCRIPTION } from '@/lib/seo';
 
 import '../globals.css';
@@ -83,6 +84,7 @@ export default function EnglishRootLayout({
       <body className="min-h-screen bg-brand-paper text-brand-ink antialiased font-sans">
         <StructuredData data={organizationGraph()} />
         {children}
+        <AnalyticsConsent />
       </body>
     </html>
   );

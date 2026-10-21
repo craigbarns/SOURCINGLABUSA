@@ -4,41 +4,45 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata({
   title: 'Overseas Product Development & OEM/ODM Consulting | Sourcing Lab USA',
   description:
-    'Turn product concepts and CAD files into mass-produced goods. Design for Manufacturing (DFM), custom tooling, prototyping, and factory scaling overseas.',
+    'Scope overseas product development from specifications and samples. Coordinate feasibility, supplier engineering questions, tooling and approval checkpoints.',
   path: '/product-development',
 });
 
 const page: ServicePageContent = {
   path: '/product-development',
+  reviewedDate: '2026-10-21',
+  references: [
+    { title: 'CPSC — Product requirements, testing and certification guidance', url: 'https://www.cpsc.gov/Business--Manufacturing/Business-Education' },
+  ],
   eyebrow: 'Engineering & Prototyping · Concept to Mass Production',
   title: 'Overseas Product Development & OEM/ODM Manufacturing',
   directAnswer:
-    'Overseas product development is the comprehensive engineering and operational process of converting a concept, 3D CAD design, or prototype into mass-producible finished goods with overseas manufacturing partners. It encompasses Design for Manufacturing (DFM) optimization, custom mold and tooling fabrication, material testing, iterative functional prototyping, compliance certification, and controlled pilot production before commercial launch.',
+    'Overseas product development turns a defined product concept into a specification, supplier feasibility review, samples and an agreed production plan. Sourcing Lab USA coordinates the work accepted for the project with the manufacturer and any appointed specialists. Engineering, tooling and testing needs vary by product; a sourcing engagement does not itself provide regulatory certification.',
   intro:
     'Taking a new physical product from drawing board to factory floor involves high engineering and capital risks. Without rigorous Design for Manufacturing (DFM) oversight, products suffer from expensive tooling reworks, unworkable assembly tolerances, and unexpected material costs. Sourcing Lab USA bridges the gap between American industrial designers and overseas factory engineers.',
   overviewTitle: 'De-risking the transition from prototype to volume manufacturing.',
   overview:
-    'A prototype that works in a 3D printing lab often fails when scaled across a high-speed injection molding or CNC assembly line. We collaborate directly with factory toolmakers and chemical engineers to optimize part geometries, reduce cycle times, select durable commercial-grade materials, and establish strict tolerance limits before steel is cut for expensive production molds.',
+    'A prototype does not by itself establish production readiness. Ask the proposed manufacturer to review materials, construction, tolerances, tooling and assembly before commitments are made. Specialist design or engineering work needs a separately agreed scope, provider and approval responsibility.',
   processTitle: 'The 5-stage product development lifecycle.',
   offerName: 'Overseas Product Development & Engineering Management',
   offerDescription:
-    'Turnkey engineering support for custom product development, DFM analysis, tooling fabrication, functional prototyping, and manufacturing scaling overseas.',
+    'Project scoping, manufacturer feasibility discussions, sample coordination and agreed development checkpoints for overseas production.',
   focusAreas: [
     {
       title: 'Design for Manufacturing (DFM) Analysis',
-      body: 'We review part thicknesses, draft angles, undercut geometries, and parting lines to minimize mold complexity, eliminate sink marks, and lower per-unit cycle costs.',
+      body: 'Coordinate the manufacturer’s review of design and process questions, such as construction, material choice, tolerances and assembly. The appointed engineer confirms technical changes and responsibility for design approval.',
     },
     {
       title: 'Tooling, Mold & Die Management',
-      body: 'We oversee the precision machining of injection molds, stamping dies, and extrusion tooling, verifying steel specifications (such as S136 or H13) and structuring clear written terms for client tooling ownership.',
+      body: 'Where tooling is needed, document its specification, quotation, acceptance tests, maintenance and location. Ownership, access and transfer rights must be agreed in writing with the contracting parties.',
     },
     {
       title: 'Iterative Functional Prototyping (T0 to T-Final)',
-      body: 'From initial mold test shots (T0) to fully functional off-tool samples (T1, T2), we conduct dimensional CMM measurements, fit testing, and cosmetic finishing evaluations.',
+      body: 'Agree what each sample should establish, who performs measurements and tests, and which changes require a new approval. Specialist equipment and test methods are confirmed with the appointed provider.',
     },
     {
       title: 'Regulatory & Lab Compliance Testing',
-      body: 'We coordinate testing with accredited third-party laboratories (SGS, TÜV, Intertek) to certify compliance with U.S. standards including CPSC, FDA, FCC, UL, and RoHS.',
+      body: 'Identify product-specific testing and documentation questions with the importer’s qualified advisers. Any laboratory, required acceptance or accreditation, test scope and certification responsibility must be confirmed before appointment; no laboratory partnership is implied.',
     },
   ],
   briefItems: [
@@ -54,46 +58,46 @@ const page: ServicePageContent = {
     },
     {
       title: 'Tooling Fabrication & Mold Machining',
-      body: 'Tooling is cut using high-precision CNC, EDM, and wire-cutting machinery, with weekly progress reports and steel hardness certification.',
+      body: 'The manufacturer confirms the tooling method, specification, milestones and progress evidence included in the quotation. Review changes before authorizing the next agreed stage.',
     },
     {
       title: 'First-Article Inspection (T1 Samples)',
-      body: 'Initial off-tool samples are produced and subjected to full coordinate measuring machine (CMM) dimensional checks, functional stress tests, and surface finish reviews.',
+      body: 'Review initial samples against the agreed dimensions, function and finish. The appointed technical provider performs any specialist measurement or stress testing explicitly included in scope.',
     },
     {
       title: 'Sample Iteration & Golden Sample Sign-Off',
-      body: 'Tooling is tuned to achieve exact mechanical tolerances and color matching (Pantone/RAL) until physical golden samples receive formal engineering sign-off.',
+      body: 'Review proposed changes against the agreed tolerances, reference colors and acceptance criteria. Record the approved sample and any remaining limitations before production authorization.',
     },
     {
       title: 'Pilot Production & Mass Assembly',
-      body: 'A limited pilot run (500–1,000 units) validates assembly line cycle times, packaging durability, and quality control jigs before releasing full-scale mass production.',
+      body: 'Where useful, agree a pilot quantity and review criteria with the manufacturer before wider production. Volume, test coverage and release decisions depend on product risk, process and the order agreement.',
     },
   ],
   benchmarks: [
     {
       label: 'DFM engineering review',
-      value: '3 to 5 business days',
-      qualifier: 'Full manufacturability analysis, tolerance check, and mold cost breakdown.',
+      value: 'Scope confirmed',
+      qualifier: 'Required files, manufacturer feedback and any specialist engineering work are agreed first.',
     },
     {
       label: 'Tooling & mold fabrication',
-      value: '25 to 45 days',
+      value: 'Supplier schedule',
       qualifier: 'Dependent on mold cavity count, steel hardness, and complexity of part geometry.',
     },
     {
       label: 'T1 off-tool samples',
-      value: '5 to 7 days post-tooling',
+      value: 'Milestone agreed',
       qualifier: 'First physical parts delivered for dimensional verification and mechanical testing.',
     },
   ],
   benchmarksNote:
-    'Tooling timelines vary by manufacturing process (plastic injection molding, die casting, stamping, or blow molding). All client tooling remains client property.',
+    'No standard development lead time is promised. Tooling rights, technical approvals, testing and timing are recorded in the project agreement.',
   hideShowcase: true,
   faqs: [
     {
       question: 'Who owns the tooling and molds created during product development?',
       answer:
-        'Under clear written procurement agreements, custom tooling, dies, and molds funded by clients are defined as client property, with explicit contractual terms restricting unauthorized production, cloning, or transfer.',
+        'Ownership is determined by the actual agreement, not simply by who paid an invoice. Confirm ownership, permitted use, storage, maintenance, access and transfer rights with the parties and qualified counsel where needed before funding tooling.',
     },
     {
       question: 'What file formats do you need to begin a product development project?',
@@ -103,22 +107,22 @@ const page: ServicePageContent = {
     {
       question: 'Can you help if we only have an initial concept sketch or physical prototype?',
       answer:
-        'Yes. We regularly help founders and brands translate hand sketches, physical mockups, or rough 3D prints into production-grade CAD files, detailed BOMs, and manufacturing-ready engineering specifications.',
+        'A sketch or prototype can begin a feasibility discussion. Share what exists and we will confirm which specification work and specialist design input are needed; production-grade engineering files are not assumed to be included.',
     },
     {
       question: 'How do you protect proprietary designs from being copied?',
       answer:
-        'We put in place bilateral Non-Disclosure, Non-Use, and Non-Circumvention (NNN) agreements before proprietary CAD files are shared, coordinating with qualified international counsel when formal jurisdiction-specific agreements are required, and working with factories committed to contract manufacturing.',
+        'Limit disclosure to what is necessary and agree confidentiality, permitted use and tooling rights before sharing sensitive files. Ask qualified counsel to prepare appropriate agreements for the parties and jurisdictions. No agreement or sourcing workflow can guarantee that copying will not occur.',
     },
     {
       question: 'What is the difference between OEM and ODM manufacturing?',
       answer:
-        'OEM (Original Equipment Manufacturing) involves manufacturing a completely custom product designed by the buyer using proprietary tooling. ODM (Original Design Manufacturing) involves selecting an existing factory-developed base product and customizing branding, colors, packaging, or minor functional features.',
+        'OEM and ODM are used inconsistently across suppliers. Broadly, OEM often concerns production to the buyer’s requirements, while ODM often starts from a manufacturer-developed design. Confirm the actual design contribution, customization, intellectual-property rights and tooling needs rather than relying on the label alone.',
     },
   ],
   briefTitle: 'Discuss your product development project.',
   briefIntro:
-    'Submit your CAD files, sketches, or product specs. Our engineering and procurement team will conduct a preliminary DFM review and estimate tooling requirements.',
+    'Describe your product and the files or samples available. We will confirm feasibility review, specialist input and the next development step before a scope is agreed.',
   relatedPages: [
     {
       href: '/private-label-manufacturing',

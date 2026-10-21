@@ -36,13 +36,14 @@ export function pageMetadata({
   translatedHome?: boolean;
   article?: { published: string; modified: string };
 }): Metadata {
-  const socialTitle = `${title} | ${SITE_NAME}`;
+  const cleanTitle = title.replace(/\s*\|\s*Sourcing\s?Lab USA$/i, '');
+  const socialTitle = `${cleanTitle} | ${SITE_NAME}`;
   const images = [
     {
       url: absoluteUrl('/opengraph-image'),
       width: 1200,
       height: 630,
-      alt: 'Sourcing Lab USA — Global Sourcing, Overseas Manufacturing & U.S. Market Entry Execution.',
+      alt: 'Sourcing Lab USA — Global Sourcing & U.S. Market Entry',
     },
   ];
 
@@ -175,7 +176,9 @@ export function organizationGraph() {
         url: absoluteUrl('/'),
         name: SITE_NAME,
         publisher: { '@id': ORGANIZATION_ID },
-        inLanguage: ['en-US', 'es-US'],
+        inLanguage: Object.keys(homeLanguages).filter(
+          (language) => language !== 'x-default',
+        ),
       },
     ],
   };
