@@ -4,471 +4,247 @@ import {
   AlertTriangle,
   ArrowRight,
   ArrowUpRight,
-  Award,
-  CheckCircle2,
   FileCheck,
-  Globe2,
+  FileText,
   HelpCircle,
-  Layers,
   Lock,
   Plus,
   ShieldAlert,
   ShieldCheck,
-  TrendingUp,
 } from 'lucide-react';
-import { ContactForm } from './ContactForm';
-import { homeFaqs, homeFaqsES } from '@/lib/home-faqs';
 
+import { ContactForm } from './ContactForm';
+import { ScopeTable } from './ScopeTable';
+import { homeFaqs, homeFaqsES } from '@/lib/home-faqs';
+import { MARKET_ENTRY_LIMIT, PROMISE } from '@/lib/positioning';
+
+/**
+ * Homepage body, under the hero. The order follows the promise: what a supply
+ * includes, the risks it is set up against, what the contract settles, how a
+ * project runs, what is supplied, short answers and the brief form. Nothing
+ * here may offer more than AGENTS.md allows: no default inspections, no
+ * freight forwarding or customs clearance, no U.S. entity.
+ */
 export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
   const es = locale === 'es';
 
   const riskFactors = es
     ? [
         {
-          title: 'Empresas de trading encubiertas',
-          body: 'Intermediarios que se presentan como fábricas directas en directorios B2B, cobrando sobreprecios del 20% al 40% y subcontratando a talleres no auditados.',
+          title: 'Intermediarios ocultos',
+          body: 'Una empresa de trading que se presenta como fábrica añade su margen y pasa el pedido a un taller que usted nunca evaluó.',
         },
         {
-          title: 'Bajada de calidad (Quality Fade)',
-          body: 'Muestras iniciales de alta calidad ("muestras doradas") que sufren degradación de materiales y mano de obra una vez pagado el anticipo.',
+          title: 'Bajada de calidad',
+          body: 'Una muestra aprobada, seguida de una producción con un material más barato o un acabado apresurado.',
         },
         {
-          title: 'Fallos de comunicación técnica',
-          body: 'Dibujos técnicos y especificaciones malinterpretados debido a barreras lingüísticas, provocando errores dimensionales y ensamblajes incompatibles.',
+          title: 'Especificación perdida en la traducción',
+          body: 'Medidas, materiales y tolerancias que la fábrica interpreta de otra manera, porque nunca se escribieron en un solo documento.',
         },
         {
-          title: 'Incumplimiento normativo y riesgos FDA/CPSC',
-          body: 'Falta de certificaciones válidas para el mercado estadounidense, riesgos de retención aduanera (CBP) y demandas por normativas como Prop 65.',
+          title: 'Responsabilidades de importación sin nombrar',
+          body: 'Aranceles, entrada aduanera y requisitos de producto en EE. UU. recaen en el importador. Si la cotización no dice quién los asume, recaen en usted.',
         },
         {
-          title: 'Sorpresas arancelarias y Sección 301',
-          body: 'Códigos HTS mal clasificados y aranceles punitivos de la Sección 301 no previstos que destruyen el margen bruto de la importación.',
+          title: 'Aranceles descubiertos demasiado tarde',
+          body: 'Un arancel de la Sección 301 o un código arancelario erróneo descubierto en el puerto, cuando el precio ya estaba acordado.',
         },
         {
-          title: 'Costes en destino mal calculados',
-          body: 'Presupuestos EXW o FOB que omiten fletes marítimos, demoras portuarias, tasas de procesamiento aduanero (MPF) y transporte interior.',
+          title: 'Coste en destino incompleto',
+          body: 'Un precio de fábrica que deja fuera el flete, el seguro, los aranceles, el agente de aduanas y el transporte interior.',
         },
       ]
     : [
         {
-          title: 'Hidden Trading Intermediaries',
-          body: 'Middlemen posing as direct manufacturers on online B2B portals, adding 20% to 40% markups while subcontracting to unvetted workshops.',
+          title: 'Hidden intermediaries',
+          body: 'A trading company presenting itself as the factory adds its margin and passes your order to a workshop you never assessed.',
         },
         {
-          title: 'Quality Fade & Material Substitution',
-          body: 'Golden samples that look flawless, followed by mass production runs suffering from degraded resins, diluted dyes, and rushed assembly.',
+          title: 'Quality fade',
+          body: 'An approved sample, followed by production with a cheaper material or a rushed finish.',
         },
         {
-          title: 'Cross-Cultural & Technical Misalignment',
-          body: 'Complex CAD drawings and critical tolerances lost in translation, leading to dimensional mismatches and unworkable product fits.',
+          title: 'A specification lost in translation',
+          body: 'Dimensions, materials and tolerances read differently by the factory, because they were never written down in one place.',
         },
         {
-          title: 'Regulatory & U.S. Compliance Violations',
-          body: 'Missing mandatory test certificates (CPSC, FDA, FCC, California Prop 65) resulting in customs holds, port seizures, or catastrophic recalls.',
+          title: 'Import responsibilities left unnamed',
+          body: 'Duties, customs entry and U.S. product requirements fall on the importer. If the quotation does not say who carries them, they fall on you.',
         },
         {
-          title: 'Section 301 Tariffs & Classification Traps',
-          body: 'Misclassified HS codes and unexpected 25% Section 301 tariffs that wipe out operating margins upon U.S. port arrival.',
+          title: 'Tariffs found too late',
+          body: 'A Section 301 duty or a wrong tariff code discovered at the port, after the price was agreed.',
         },
         {
-          title: 'Landed-Cost Calculation Blindspots',
-          body: 'Factory EXW quotes that fail to account for origin drayage, ocean freight volatility, port demurrage, customs brokerage, and MPF fees.',
+          title: 'An incomplete landed cost',
+          body: 'A factory price that leaves out freight, insurance, duties, brokerage and inland delivery.',
         },
       ];
 
-  const workflowSteps = es
-    ? [
-        {
-          step: '01',
-          name: 'Definir',
-          title: 'Especificaciones y economía objetivo',
-          body: 'Analizamos tu producto, planos técnicos, lista de materiales (BOM), volúmenes proyectados y precio objetivo puesto en destino.',
-        },
-        {
-          step: '02',
-          name: 'Localizar',
-          title: 'Búsqueda directa de fábricas de primer nivel',
-          body: 'Identificamos y preseleccionamos fabricantes directos dentro de los clusters industriales especializados, descartando intermediarios.',
-        },
-        {
-          step: '03',
-          name: 'Verificar',
-          title: 'Verificación por capas y auditorías',
-          body: 'Evaluamos registros oficiales, capacidad productiva, maquinaria y alcance comercial, organizando auditorías en fábrica cuando corresponde.',
-        },
-        {
-          step: '04',
-          name: 'Negociar',
-          title: 'Precios, MOQ y propiedad de utillaje',
-          body: 'Negociamos precios de fábrica, mínimos de pedido (MOQ) y propiedad de moldes, coordinando acuerdos de confidencialidad con asesoramiento legal especializado cuando sea necesario.',
-        },
-        {
-          step: '05',
-          name: 'Validar',
-          title: 'Muestras doradas y control de calidad adaptado',
-          body: 'Supervisamos prototipos físicos y coordinamos inspecciones de calidad por terceros con criterios de aceptación adaptados a tu producto antes del pago final.',
-        },
-        {
-          step: '06',
-          name: 'Entregar',
-          title: 'Logística, aduanas y entrega en destino',
-          body: 'Coordinamos fletes marítimos o aéreos, facilitamos el despacho con agentes de aduanas cualificados y organizamos la entrega en destino.',
-        },
-      ]
-    : [
-        {
-          step: '01',
-          name: 'Define',
-          title: 'Technical Specs & Target Economics',
-          body: 'We analyze your product specifications, CAD drawings, bills of materials (BOM), volume projections, and target delivered unit economics.',
-        },
-        {
-          step: '02',
-          name: 'Source',
-          title: 'Direct Manufacturer Screening',
-          body: 'We identify and evaluate direct manufacturing partners across specialized industrial clusters in China, Asia, and other key markets.',
-        },
-        {
-          step: '03',
-          name: 'Verify',
-          title: 'Layered Due Diligence & Audits',
-          body: 'We review corporate registrations, verify operational scope and machinery, and arrange on-site factory audits when appropriate.',
-        },
-        {
-          step: '04',
-          name: 'Negotiate',
-          title: 'Commercial Terms & Tooling Ownership',
-          body: 'We help negotiate factory pricing, minimum order quantities, and tooling ownership covenants, coordinating legal agreements with specialized counsel when required.',
-        },
-        {
-          step: '05',
-          name: 'Validate',
-          title: 'Golden Samples & Tailored Quality Control',
-          body: 'We oversee prototype sample iterations and coordinate third-party on-site quality inspections with acceptance criteria tailored to your product category.',
-        },
-        {
-          step: '06',
-          name: 'Deliver',
-          title: 'Logistics Coordination & Customs Entry',
-          body: 'We coordinate ocean and air freight bookings, align with qualified customs brokers for CBP entry filings, and arrange transport to your receiving facility.',
-        },
-      ];
-
-  const primaryServices = [
+  const contractTerms = [
     {
-      title: es ? 'Sourcing y compras de producto' : 'Product Sourcing',
-      href: '/product-sourcing',
-      desc: es
-        ? 'Búsqueda integral de fabricantes, licitación de precios directos y gestión integral del suministro internacional.'
-        : 'End-to-end direct factory procurement, supplier screening, price negotiation, and delivered international supply.',
-      tag: es ? 'Sourcing directo' : 'Direct Factory',
+      icon: FileCheck,
+      tag: es ? 'BRIEF ESCRITO' : 'WRITTEN BRIEF',
+      title: es ? 'Especificación y muestra aprobada' : 'Specification and approved sample',
+      body: es
+        ? 'El producto se define por escrito y con una muestra aprobada. La producción se compara con ambos.'
+        : 'The product is defined in writing and by an approved sample. Production is checked against both.',
     },
     {
-      title: es ? 'Sourcing y fabricación en China' : 'China Sourcing Services',
-      href: '/china-sourcing',
-      desc: es
-        ? 'Acceso directo a los clusters industriales de China con supervisión bilingüe sobre el terreno y gestión de producción.'
-        : 'On-the-ground manufacturing coordination, supplier screening, and bilingual negotiation across China’s industrial hubs.',
-      tag: es ? 'Fabricación China' : 'China Execution',
+      icon: Lock,
+      tag: es ? 'PAGOS POR HITOS' : 'MILESTONE PAYMENTS',
+      title: es ? 'Hitos de pago en la cotización' : 'Payment milestones in the quotation',
+      body: es
+        ? 'Cada cotización fija los hitos de pago. Cuando incluye una inspección, el saldo de producción puede vincularse a su informe.'
+        : 'Each quotation sets the payment milestones. When an inspection is written into it, the production balance can be tied to its report.',
     },
     {
-      title: es ? 'Verificación de fábricas' : 'Factory Verification',
-      href: '/factory-verification',
-      desc: es
-        ? 'Auditorías de antecedentes, comprobación de registros oficiales (AIC) e inspección física de maquinaria antes de transferir capital.'
-        : 'Physical on-site audits, government corporate registry checks, machine verification, and anti-fraud screening.',
-      tag: es ? 'Due Diligence' : 'Due Diligence',
+      icon: ShieldCheck,
+      tag: es ? 'PROPIEDAD DE UTILLAJE' : 'TOOLING OWNERSHIP',
+      title: es ? 'Utillaje por escrito' : 'Tooling terms in writing',
+      body: es
+        ? 'La propiedad de los moldes, troqueles, archivos CAD y especificaciones que usted paga se fija por escrito en el contrato de cada pedido, antes de fabricar el utillaje.'
+        : 'Ownership of the custom molds, tooling dies, CAD files and specifications you pay for is set out in writing in the contract for each order, before any tooling is cut.',
     },
     {
-      title: es ? 'Auditoría técnica de proveedores' : 'Supplier Audits in China',
-      href: '/supplier-audit-china',
-      desc: es
-        ? 'Evaluación técnica profunda de sistemas de calidad (ISO 9001), capacidad productiva y cumplimiento social en fábrica.'
-        : 'In-depth on-site audits evaluating quality management systems (QMS), machine maintenance, and workforce compliance.',
-      tag: es ? 'Auditoría ISO' : 'Technical QMS',
-    },
-    {
-      title: es ? 'Desarrollo de producto y OEM/ODM' : 'Product Development & OEM/ODM',
-      href: '/product-development',
-      desc: es
-        ? 'Conversión de archivos CAD y prototipos en productos de producción masiva con análisis DFM y utillaje propio.'
-        : 'Convert CAD models into mass-produced goods with Design for Manufacturing (DFM) analysis and custom tooling management.',
-      tag: es ? 'Ingeniería y moldes' : 'Tooling & DFM',
-    },
-    {
-      title: es ? 'Fabricación de marca privada' : 'Private Label Manufacturing',
-      href: '/private-label-manufacturing',
-      desc: es
-        ? 'Personalización llave en mano de plataformas de producto existentes con branding exclusivo, acabados y packaging a medida.'
-        : 'Turnkey private label sourcing, custom product customization, bespoke packaging, and retail-ready compliance.',
-      tag: es ? 'Marca propia' : 'Private Label',
-    },
-    {
-      title: es ? 'Control de calidad e inspecciones' : 'Quality Control & Inspections',
-      href: '/quality-control-china',
-      desc: es
-        ? 'Inspecciones por terceros previas al envío (PSI) y durante la producción (DUPRO) con niveles de muestreo y criterios adaptados a tu producto.'
-        : 'Third-party pre-shipment inspections (PSI) and during-production audits with sampling levels and defect criteria tailored to your product category.',
-      tag: es ? 'Control de calidad' : 'Quality Control',
-    },
-    {
-      title: es ? 'Sourcing de packaging personalizado' : 'Packaging Sourcing',
-      href: '/custom-packaging',
-      desc: es
-        ? 'Cajas rígidas, estuches plegables, cajas de envío corrugadas e insertos protectores directamente con fabricantes especializados.'
-        : 'Direct factory procurement of luxury rigid boxes, folding cartons, corrugated mailers, and protective inserts.',
-      tag: es ? 'Packaging a medida' : 'Custom Packaging',
-    },
-    {
-      title: es ? 'Consultoría arancelaria y códigos HS' : 'HS Code & Tariff Consulting',
-      href: '/hs-code-consulting',
-      desc: es
-        ? 'Investigación de la clasificación HTSUS a 10 dígitos, análisis de aranceles Sección 301 e identificación de requisitos aduaneros.'
-        : '10-digit HTSUS classification research, Section 301 duty analysis, and tariff research in support of trade compliance.',
-      tag: es ? 'Aduanas y HTS' : 'Tariff Advisory',
-    },
-    {
-      title: es ? 'Análisis de coste puesto en destino' : 'Landed Cost Analysis',
-      href: '/landed-cost-analysis',
-      desc: es
-        ? 'Modelado financiero exhaustivo: precio de fábrica, flete marítimo, aranceles, tasas MPF/HMF y transporte interior.'
-        : 'Deterministic unit economics modeling factory gate pricing, freight, tariffs, customs fees, and domestic drayage.',
-      tag: es ? 'Modelo financiero' : 'Unit Economics',
-    },
-    {
-      title: es ? 'Entrada al mercado de EE. UU.' : 'U.S. Market Entry Consulting',
-      href: '/us-market-entry',
-      desc: es
-        ? 'Evaluación y preparación operativa para fabricantes internacionales: identificación de normativas aplicables, coordinación 3PL y canales B2B.'
-        : 'Strategic and operational preparation for international manufacturers: identifying applicable requirements, 3PL coordination, and commercial channels.',
-      tag: es ? 'Expansión EE. UU.' : 'Market Entry',
-    },
-    {
-      title: es ? 'Representación comercial en EE. UU.' : 'U.S. Sales Representation',
-      href: '/us-sales-representation',
-      desc: es
-        ? 'Apoyo comercial y prospección B2B en EE. UU. para fabricantes internacionales que buscan conectar con distribuidores y compradores comerciales.'
-        : 'Dedicated commercial sales representation supporting international manufacturers seeking to connect with American trade buyers and distributors.',
-      tag: es ? 'Ventas B2B EE. UU.' : 'Sales Agent',
+      icon: FileText,
+      tag: es ? 'SOLO SI FIGURA EN LA COTIZACIÓN' : 'ONLY IF IN THE QUOTATION',
+      title: es ? 'Inspecciones y ensayos' : 'Inspections and lab tests',
+      body: es
+        ? 'Una inspección por terceros o un ensayo de laboratorio se coordina cuando figura en la cotización, con su alcance y sus criterios de aceptación. No se presupone en cada pedido.'
+        : 'A third-party inspection or a lab test is coordinated when it is written into the quotation, with its scope and acceptance criteria. It is not assumed on every order.',
     },
   ];
 
-  const geoAnswers = es
+  const workflowSteps = es
+    ? [
+        { step: '01', name: 'Definir', title: 'Brief y precio objetivo', body: 'Producto, referencias, materiales, cantidad por variante, destino y precio objetivo, reunidos en un solo brief.' },
+        { step: '02', name: 'Buscar', title: 'Búsqueda de fábrica', body: 'Los fabricantes se identifican a través de nuestra colaboración independiente en China y se evalúan frente al brief.' },
+        { step: '03', name: 'Cotizar', title: 'Precio y condiciones', body: 'Las opciones de fábrica se cotizan. La cotización indica la empresa contratante en Francia o China, los hitos de pago y las condiciones del utillaje.' },
+        { step: '04', name: 'Muestrear', title: 'Muestras y aprobación', body: 'Las muestras se fabrican y se revisan frente al brief. Nada pasa a producción antes de aprobar una muestra.' },
+        { step: '05', name: 'Producir', title: 'Pedido y seguimiento', body: 'Se emite el pedido y la producción se sigue frente a la muestra aprobada. Una inspección o un ensayo se añade solo si figura en la cotización.' },
+        { step: '06', name: 'Entregar', title: 'Condiciones de envío en la cotización', body: 'El transporte, el seguro y la entrada en EE. UU. se indican en la cotización con su responsable, o quedan de su lado. No somos transitario, agente de aduanas ni importador.' },
+      ]
+    : [
+        { step: '01', name: 'Define', title: 'Brief and target price', body: 'Product, references, materials, quantity by variant, destination and target price, written into one brief.' },
+        { step: '02', name: 'Source', title: 'Factory search', body: 'Manufacturers are identified through our independent partnership in China and assessed against the brief.' },
+        { step: '03', name: 'Quote', title: 'Pricing and terms', body: 'Factory options are priced. The quotation names the contracting company in France or China, the payment milestones and the tooling terms.' },
+        { step: '04', name: 'Sample', title: 'Samples and approval', body: 'Samples are made and reviewed against the brief. Nothing goes into production before a sample is approved.' },
+        { step: '05', name: 'Produce', title: 'Order and follow-up', body: 'The order is placed and production is followed against the approved sample. An inspection or a lab test is added only if written into the quotation.' },
+        { step: '06', name: 'Hand over', title: 'Shipping terms in the quotation', body: 'Transport, insurance and U.S. entry are named in the quotation with the party responsible, or stay on your side. We are not a freight forwarder, customs broker or importer.' },
+      ];
+
+  const supplyLines = [
+    {
+      href: '/custom-packaging',
+      tag: es ? 'Núcleo' : 'Core',
+      title: es ? 'Packaging a medida' : 'Custom packaging',
+      body: es
+        ? 'Cajas rígidas, estuches plegables, cajas de envío, bolsas, etiquetas e insertos fabricados según su especificación.'
+        : 'Rigid boxes, folding cartons, mailers, bags, labels and inserts, made to your specification.',
+    },
+    {
+      href: '/custom-textile',
+      tag: es ? 'Núcleo' : 'Core',
+      title: es ? 'Ropa y textiles' : 'Clothing and textiles',
+      body: es
+        ? 'Colecciones, uniformes, tejidos y acabados, de la ficha técnica a la muestra aprobada.'
+        : 'Collections, uniforms, fabrics and finishes, from tech pack to approved sample.',
+    },
+    {
+      href: '/sportswear-sourcing',
+      tag: es ? 'Núcleo' : 'Core',
+      title: es ? 'Ropa deportiva y técnica' : 'Sportswear and technical apparel',
+      body: es
+        ? 'Ajuste, tejido y elasticidad definidos para la actividad; las propiedades técnicas solo con evidencias.'
+        : 'Fit, fabric and stretch defined for the activity; performance claims only with evidence.',
+    },
+    {
+      href: '/private-label-packaging',
+      tag: es ? 'Núcleo' : 'Core',
+      title: es ? 'Packaging de marca privada' : 'Private label packaging',
+      body: es
+        ? 'Packaging para su propia línea: estructura, impresión y la información que debe llevar.'
+        : 'Packaging for your own product line: structure, print and the information it has to carry.',
+    },
+    {
+      href: '/product-sourcing',
+      tag: es ? 'Bajo petición' : 'On request',
+      title: es ? 'Otros productos' : 'Other products',
+      body: es
+        ? 'Otros productos se estudian para confirmar su viabilidad antes de cotizar nada.'
+        : 'Other products are reviewed for feasibility before anything is quoted.',
+    },
+    {
+      href: '/us-market-entry',
+      tag: es ? 'Segundo recorrido' : 'Second path',
+      title: es ? 'Vender en Estados Unidos' : 'Selling in the United States',
+      body: es
+        ? `Para fabricantes en producción: lectura de requisitos, precio mayorista y presentaciones selectivas. ${MARKET_ENTRY_LIMIT.es}`
+        : `For manufacturers already in production: a compliance reading, a wholesale price and targeted introductions. ${MARKET_ENTRY_LIMIT.en}`,
+    },
+  ];
+
+  const shortAnswers = es
     ? [
         {
           q: '¿Qué hace una empresa de sourcing?',
-          a: 'Una empresa de sourcing ayuda a las empresas a gestionar su aprovisionamiento internacional: evalúa fabricantes directos, analiza costes y mínimos de pedido (MOQ), supervisa el desarrollo de muestras, coordina inspecciones de calidad por terceros y apoya la logística y el paso aduanero hasta el almacén del cliente.',
+          a: 'Busca y evalúa fabricantes, cotiza el producto, gestiona las muestras y sigue la producción. Sourcing Lab USA además compra y suministra la mercancía: la empresa indicada en su cotización, en Francia o China, contrata con usted y la factura. El flete, la aduana y la importación quedan con las partes indicadas en la cotización.',
         },
         {
           q: '¿Qué es un agente de sourcing en China?',
-          a: 'Un agente de sourcing en China actúa como intermediario local para buscar proveedores y coordinar pedidos a cambio de una comisión. A diferencia de un proveedor o una empresa de suministro directo como Sourcing Lab USA, el agente suele presentar fábricas mientras el comprador asume la relación contractual y el riesgo principal.',
+          a: 'Un agente busca proveedores por cuenta del comprador, normalmente a cambio de una comisión, y el comprador contrata con la fábrica. Sourcing Lab USA no trabaja así: compra y suministra los productos, y la empresa indicada en la cotización le factura.',
         },
         {
-          q: '¿Cómo se verifica un fabricante en el extranjero?',
-          a: 'La verificación requiere un enfoque por capas: comprobación de registros oficiales y licencias de actividad, revisión de titularidad y ámbito comercial, evaluación de maquinaria e instalaciones, revisión documental y de certificaciones, auditorías en fábrica cuando corresponde y validación de muestras previas a la producción.',
+          q: '¿Cómo se comprueba un fabricante en el extranjero?',
+          a: 'Se comprueba el registro y la actividad de la empresa, que fabrique el producto en lugar de revenderlo, y las muestras frente al brief. Cuando el riesgo lo justifica, una auditoría o inspección por terceros se añade a la cotización. Cada comprobación se acuerda por proyecto.',
         },
         {
-          q: '¿Cómo puede entrar una empresa internacional al mercado de EE. UU.?',
-          a: 'Una empresa internacional entra al mercado de EE. UU. identificando los requisitos normativos aplicables (CPSC, FDA, FCC, Prop 65) con especialistas cualificados, evaluando las opciones de importación y fianza aduanera, coordinando almacenes 3PL locales para reducir tiempos de entrega y desarrollando contactos comerciales con distribuidores y compradores B2B.',
+          q: '¿Cómo puede un fabricante extranjero acercarse a compradores de EE. UU.?',
+          a: `Conociendo los requisitos de EE. UU. aplicables a su producto, fijando un precio mayorista coherente con los márgenes del canal y presentándose a compradores seleccionados. Sourcing Lab USA hace estas tres cosas. ${MARKET_ENTRY_LIMIT.es}`,
         },
       ]
     : [
         {
           q: 'What does a sourcing company do?',
-          a: 'A sourcing company helps domestic businesses manage overseas procurement: identifying qualified direct manufacturers, evaluating production capabilities, negotiating pricing and MOQs, managing sample development, coordinating third-party quality inspections, and supporting international freight and customs clearance.',
+          a: 'It finds and assesses manufacturers, prices the product, manages samples and follows production. Sourcing Lab USA also buys and supplies the goods: the company named in your quotation, in France or China, contracts with you and invoices them. Freight, customs and import stay with the parties named in the quotation.',
         },
         {
           q: 'What is a China sourcing agent?',
-          a: 'A China sourcing agent is an on-the-ground intermediary who finds suppliers, requests quotations, and coordinates production on behalf of a buyer, typically earning a commission. Unlike a full-service procurement partner like Sourcing Lab USA, a pure agent introduces factories while the buyer contracts directly and carries the primary order risk.',
+          a: 'An agent finds suppliers on the buyer’s behalf, usually for a commission, and the buyer contracts with the factory. Sourcing Lab USA works differently: it buys and supplies the products, and the company named in the quotation invoices you.',
         },
         {
-          q: 'How do you verify an overseas manufacturer?',
-          a: 'Verifying an overseas manufacturer requires a layered framework: reviewing government corporate registrations, verifying registered business scope and ownership, assessing manufacturing capabilities and operational machinery, reviewing certifications, conducting on-site factory audits when appropriate, and validating pre-production samples and production runs.',
+          q: 'How do you check an overseas manufacturer?',
+          a: 'Check the company’s registration and business scope, confirm it makes the product rather than reselling it, and review samples against the brief. Where the stakes justify it, a third-party audit or inspection is added to the quotation. Each check is agreed per project.',
         },
         {
-          q: 'How can an international manufacturer enter the U.S. market?',
-          a: 'An international manufacturer enters the U.S. market by identifying applicable federal and state requirements (such as CPSC, FDA, or FCC) with qualified specialists, evaluating U.S. import and customs bonding options, coordinating domestic 3PL warehousing to shorten delivery times, and pursuing structured commercial relationships with American distributors and trade buyers.',
+          q: 'How can an overseas manufacturer approach U.S. buyers?',
+          a: `By knowing the U.S. requirements that apply to the product, setting a wholesale price that fits the channel’s margins, and being introduced to selected buyers. Sourcing Lab USA does those three things. ${MARKET_ENTRY_LIMIT.en}`,
         },
       ];
 
-  const industryVerticals = [
-    {
-      title: es ? 'Packaging e imprenta' : 'Packaging & Paperboard',
-      href: '/custom-packaging',
-      body: es
-        ? 'Cajas rígidas de lujo, estuches de cartón, cajas de envío corrugadas y soluciones de unboxing sostenibles.'
-        : 'Luxury rigid presentation boxes, folding retail cartons, corrugated mailers, and sustainable pulp inserts.',
-    },
-    {
-      title: es ? 'Prendas y textiles técnicos' : 'Apparel & Technical Textiles',
-      href: '/industries/textiles',
-      body: es
-        ? 'Ropa de moda, prendas deportivas de alto rendimiento, uniformes corporativos y tejidos técnicos a medida.'
-        : 'Performance activewear, fashion collections, commercial uniforms, and certified custom-knitted fabrics.',
-    },
-    {
-      title: es ? 'Bienes de consumo y hardgoods' : 'Consumer Goods & Hardgoods',
-      href: '/industries/consumer-products',
-      body: es
-        ? 'Menaje del hogar, accesorios deportivos, herramientas de cuidado personal y productos de consumo moldeados.'
-        : 'Housewares, kitchenware, fitness accessories, molded plastics, and stainless steel lifestyle products.',
-    },
-    {
-      title: es ? 'Materiales de construcción y herrajes' : 'Building Materials & Hardware',
-      href: '/industries/building-materials',
-      body: es
-        ? 'Herrajes arquitectónicos, extrusiones de aluminio, fijaciones de acero inoxidable y piezas sanitarias.'
-        : 'Architectural hardware, aluminum extrusions, stainless steel fasteners, and commercial ceramic sanitaryware.',
-    },
-    {
-      title: es ? 'Muebles y contract' : 'Furniture & Contract Furnishings',
-      href: '/industries/furniture',
-      body: es
-        ? 'Mobiliario para hostelería, armazones de madera maciza, sillería contract y muebles listos para montar (KD).'
-        : 'Hospitality furniture, solid wood casegoods, contract commercial seating, and flat-pack KD cabinetry.',
-    },
-    {
-      title: es ? 'Marcas de marca privada' : 'Private Label Brand Development',
-      href: '/industries/private-label',
-      body: es
-        ? 'Desarrollo integral de líneas de producto para e-commerce, Amazon FBA y cadenas minoristas.'
-        : 'Turnkey private label brand creation, custom branding dielines, barcode prep, and delivered retail supply.',
-    },
-  ];
-
   return (
     <>
-      {/* WHO WE HELP / DUAL-DIRECTION PILLARS */}
-      <section id="who-we-help" className="editorial-section border-b border-brand-line bg-brand-surface/40 py-20">
-        <div className="editorial-container">
-          <div className="mb-12 max-w-3xl">
-            <p className="editorial-kicker">
-              <span className="launch-dot" aria-hidden="true" />
-              {es ? '01 — A QUIÉN AYUDAMOS' : '01 — WHO WE HELP'}
-            </p>
-            <h2 className="editorial-title">
-              {es ? 'Dos direcciones.' : 'Two market directions.'}
-              <br />
-              <em>{es ? 'Una misma ejecución de excelencia.' : 'One operational partner.'}</em>
-            </h2>
-            <p className="editorial-body mt-4 text-base">
-              {es
-                ? 'Conectamos a las empresas estadounidenses con los centros de producción más eficientes del mundo y guiamos a los fabricantes internacionales en su expansión comercial en Estados Unidos.'
-                : 'We operate at the critical intersection of international manufacturing and North American commerce, solving cross-border friction for both domestic buyers and global producers.'}
-            </p>
-          </div>
+      <ScopeTable locale={locale} />
 
-          <div className="grid gap-8 md:grid-cols-2">
-            {/* Pillar A: US Brands */}
-            <div className="flex flex-col justify-between rounded-2xl border border-brand-line bg-white p-8 shadow-sm transition hover:shadow-md">
-              <div>
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-green/10 text-brand-green">
-                  <Globe2 className="h-6 w-6" aria-hidden="true" />
-                </div>
-                <p className="text-xs font-bold tracking-wider text-brand-muted uppercase">
-                  {es ? 'PARA MARCAS Y EMPRESAS DE EE. UU.' : 'FOR U.S. BRANDS & IMPORTERS'}
-                </p>
-                <h3 className="mt-2 text-2xl font-semibold tracking-tight text-brand-ink">
-                  {es ? 'Sourcing y fabricación en el extranjero con fabricantes cualificados.' : 'Source and manufacture overseas with qualified manufacturers.'}
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-brand-muted">
-                  {es
-                    ? 'Te ayudamos a encontrar, evaluar y gestionar fabricantes capaces en China y Asia. Aseguramos transparencia de costes, protegemos la propiedad de utillajes, coordinamos inspecciones de calidad adaptadas y calculamos los costes landed reales antes de emitir pedidos.'
-                    : 'We help American companies identify, evaluate, negotiate with, and manage capable overseas manufacturers. Ensure transparent supplier economics, protect tooling ownership, coordinate tailored on-site quality inspections, and calculate realistic landed costs before placing purchase orders.'}
-                </p>
-                <ul className="mt-6 space-y-2.5 text-xs text-brand-ink">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-brand-green shrink-0" />
-                    <span>{es ? 'Precios directos de fábrica con economía transparente' : 'Direct factory pricing with transparent supplier economics'}</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-brand-green shrink-0" />
-                    <span>{es ? 'Verificación escalonada de fábrica e inspecciones pre-embarque' : 'Layered factory verification & pre-shipment quality inspections'}</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-brand-green shrink-0" />
-                    <span>{es ? 'Coordinación de flete marítimo, clasificación HTS y entrada aduanera' : 'Ocean freight coordination, HTS tariff classification support, and customs coordination'}</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="mt-8 pt-6 border-t border-brand-line">
-                <Link
-                  href="/product-sourcing"
-                  className="editorial-button inline-flex w-full items-center justify-center gap-2"
-                >
-                  {es ? 'Explorar servicios de sourcing' : 'Explore Sourcing Services'}
-                  <ArrowRight size={16} aria-hidden="true" />
-                </Link>
-              </div>
-            </div>
-
-            {/* Pillar B: Foreign Manufacturers */}
-            <div className="flex flex-col justify-between rounded-2xl border border-brand-line bg-white p-8 shadow-sm transition hover:shadow-md">
-              <div>
-                <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-green/10 text-brand-green">
-                  <TrendingUp className="h-6 w-6" aria-hidden="true" />
-                </div>
-                <p className="text-xs font-bold tracking-wider text-brand-muted uppercase">
-                  {es ? 'PARA FABRICANTES INTERNACIONALES' : 'FOR INTERNATIONAL MANUFACTURERS'}
-                </p>
-                <h3 className="mt-2 text-2xl font-semibold tracking-tight text-brand-ink">
-                  {es ? 'Entrada y representación comercial en el mercado de EE. UU.' : 'Enter and expand sales in the United States market.'}
-                </h3>
-                <p className="mt-4 text-sm leading-relaxed text-brand-muted">
-                  {es
-                    ? 'Ayudamos a fabricantes internacionales a evaluar, preparar y ejecutar su estrategia de entrada en EE. UU.: mapeo de requisitos normativos (FDA, CPSC, FCC), determinación y coordinación de una estructura adecuada de importador de registro en EE. UU., coordinación con operadores logísticos 3PL y apoyo en representación comercial B2B.'
-                    : 'We help international manufacturers evaluate, prepare, and execute their U.S. market-entry strategy: identifying applicable regulatory requirements, helping determine and coordinate an appropriate U.S. importer-of-record structure, coordinating with third-party logistics (3PL) providers, and supporting B2B commercial representation.'}
-                </p>
-                <ul className="mt-6 space-y-2.5 text-xs text-brand-ink">
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-brand-green shrink-0" />
-                    <span>{es ? 'Mapeo de requisitos normativos en EE. UU.: FDA, CPSC, FCC y California Prop 65 cuando proceda' : 'U.S. regulatory requirements mapping: FDA, CPSC, FCC and California Prop 65 where applicable'}</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-brand-green shrink-0" />
-                    <span>{es ? 'Estructuración de precios mayoristas y márgenes comerciales' : 'Wholesale price matrix, distributor margins & pricing strategy'}</span>
-                  </li>
-                  <li className="flex items-center gap-2">
-                    <CheckCircle2 className="h-4 w-4 text-brand-green shrink-0" />
-                    <span>{es ? 'Apoyo en representación comercial y prospección de compradores B2B' : 'Commercial representation support and targeted B2B buyer outreach'}</span>
-                  </li>
-                </ul>
-              </div>
-              <div className="mt-8 pt-6 border-t border-brand-line">
-                <Link
-                  href="/us-market-entry"
-                  className="editorial-button inline-flex w-full items-center justify-center gap-2"
-                >
-                  {es ? 'Explorar entrada al mercado de EE. UU.' : 'Explore U.S. Market Entry'}
-                  <ArrowRight size={16} aria-hidden="true" />
-                </Link>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* PROBLEM SECTION: REAL CROSS-BORDER RISKS */}
+      {/* THE RISKS A SUPPLY IS SET UP AGAINST */}
       <section id="risks" className="editorial-section py-24">
         <div className="editorial-container">
           <div className="mb-14 max-w-3xl">
             <p className="editorial-kicker text-brand-error">
               <ShieldAlert className="h-3.5 w-3.5" aria-hidden="true" />
-              {es ? '02 — LOS RIESGOS REALES' : '02 — THE REAL RISKS'}
+              {es ? '01 — LOS RIESGOS REALES' : '01 — THE REAL RISKS'}
             </p>
             <h2 className="editorial-title">
               {es ? 'Encontrar un fabricante es fácil.' : 'Finding a manufacturer is easy.'}
               <br />
-              <em>
-                {es
-                  ? 'Conseguir el precio, calidad, conformidad y entrega adecuados, no lo es.'
-                  : 'Getting the right price, verified quality, and compliance is not.'}
-              </em>
+              <em>{es ? 'Recibir el producto aprobado, no.' : 'Getting the product you approved is not.'}</em>
             </h2>
             <p className="editorial-body mt-4 text-base">
               {es
-                ? 'El comercio transfronterizo está lleno de trampas ocultas que destruyen los márgenes de los compradores desinformados. Estos son los seis fallos críticos que prevenimos de forma sistemática:'
-                : 'Cross-border trade carries structural risks that can destroy operating margins if unmanaged. Here is how we safeguard your supply chain before capital is deployed:'}
+                ? 'Esto es lo que una especificación escrita, una muestra aprobada y una cotización completa están para evitar:'
+                : 'This is what a written specification, an approved sample and a complete quotation are there to prevent:'}
             </p>
           </div>
 
@@ -476,7 +252,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
             {riskFactors.map((risk, index) => (
               <div
                 key={risk.title}
-                className="rounded-xl border border-brand-line bg-white/70 p-6 shadow-xs backdrop-blur-xs transition hover:border-brand-ink/40"
+                className="rounded-xl border border-brand-line bg-white/70 p-6 shadow-xs backdrop-blur-xs"
               >
                 <div className="flex items-center justify-between">
                   <span className="text-xs font-mono font-bold text-brand-muted">0{index + 1}</span>
@@ -490,103 +266,44 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
         </div>
       </section>
 
-      {/* OPERATIONAL SAFEGUARDS & VERIFIED STANDARDS */}
-      <section id="safeguards" className="editorial-section border-t border-brand-line bg-brand-surface/40 py-20">
+      {/* WHAT THE CONTRACT SETTLES */}
+      <section id="contract" className="editorial-section border-t border-brand-line bg-brand-surface/40 py-20">
         <div className="editorial-container">
           <div className="mb-14 max-w-3xl">
             <p className="editorial-kicker">
               <ShieldCheck className="h-3.5 w-3.5 text-brand-green" aria-hidden="true" />
-              {es ? 'SEGURIDAD OPERATIVA Y ESTÁNDARES VERIFICABLES' : 'OPERATIONAL SAFEGUARDS & VERIFIED STANDARDS'}
+              {es ? '02 — EN EL CONTRATO' : '02 — IN THE CONTRACT'}
             </p>
             <h2 className="editorial-title">
-              {es ? 'Garantías operativas concretas.' : 'Verifiable operational safeguards.'}
+              {es ? 'Lo que fija el contrato.' : 'What the contract settles.'}
               <br />
-              <em>
-                {es
-                  ? 'Estándares internacionales, no promesas vacías.'
-                  : 'Rigorous industry standards, not unverified claims.'}
-              </em>
+              <em>{es ? 'No lo que promete una portada.' : 'Not what a homepage promises.'}</em>
             </h2>
             <p className="editorial-body mt-4 text-base">
               {es
-                ? 'El abastecimiento internacional exige garantías verificables antes de movilizar capital. Respaldamos cada proyecto con marcos normativos internacionales, auditorías in situ y contratos comerciales transparentes.'
-                : 'International procurement and market entry demand verifiable risk mitigation before capital is transferred. We anchor every engagement in recognized quality frameworks, independent lab testing, and enforceable commercial safeguards.'}
+                ? 'Cada pedido se apoya en una cotización y un contrato. Indican el producto, las muestras, los hitos de pago, el utillaje y todo lo que se añade bajo petición.'
+                : 'Every order rests on a quotation and a contract. They name the product, the samples, the payment milestones, the tooling and anything added on request.'}
             </p>
           </div>
 
           <div className="grid gap-8 lg:grid-cols-12 items-start">
-            {/* Left: 4 Verified Standard Cards */}
             <div className="lg:col-span-7 grid gap-6 sm:grid-cols-2">
-              <div className="rounded-xl border border-brand-line bg-white p-6 shadow-xs">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-green/10 text-brand-green shrink-0">
-                    <FileCheck className="h-5 w-5" aria-hidden="true" />
+              {contractTerms.map(({ icon: Icon, tag, title, body }) => (
+                <div key={title} className="rounded-xl border border-brand-line bg-white p-6 shadow-xs">
+                  <div className="flex items-center gap-3">
+                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-green/10 text-brand-green shrink-0">
+                      <Icon className="h-5 w-5" aria-hidden="true" />
+                    </div>
+                    <div>
+                      <span className="text-[10px] font-bold uppercase tracking-wider text-brand-muted">{tag}</span>
+                      <h3 className="text-base font-semibold text-brand-ink">{title}</h3>
+                    </div>
                   </div>
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-muted">ISO 9001 · ISO 2859-1</span>
-                    <h3 className="text-base font-semibold text-brand-ink">{es ? 'Control de calidad AQL' : 'Tailored AQL Quality Control'}</h3>
-                  </div>
+                  <p className="mt-3 text-xs leading-relaxed text-brand-muted">{body}</p>
                 </div>
-                <p className="mt-3 text-xs leading-relaxed text-brand-muted">
-                  {es
-                    ? 'Inspecciones por terceros durante la producción (DUPRO) y pre-embarque (PSI) con planes de muestreo estadístico ISO 2859-1 adaptados a cada producto.'
-                    : 'Third-party pre-shipment inspections (PSI) and during-production audits (DUPRO) using ISO 2859-1 statistical sampling with defect thresholds tailored to your product category.'}
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-brand-line bg-white p-6 shadow-xs">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-green/10 text-brand-green shrink-0">
-                    <Award className="h-5 w-5" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-muted">CPSC · ASTM · FDA · FCC</span>
-                    <h3 className="text-base font-semibold text-brand-ink">{es ? 'Mapeo normativo de EE. UU.' : 'U.S. Regulatory Mapping'}</h3>
-                  </div>
-                </div>
-                <p className="mt-3 text-xs leading-relaxed text-brand-muted">
-                  {es
-                    ? 'Identificación anticipada de requisitos federales y estatales aplicables, coordinando ensayos de seguridad con laboratorios acreditados independientes.'
-                    : 'Advance mapping of applicable federal and state requirements, coordinating mechanical and safety testing with independent accredited testing laboratories.'}
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-brand-line bg-white p-6 shadow-xs">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-green/10 text-brand-green shrink-0">
-                    <Lock className="h-5 w-5" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-muted">{es ? 'PAGOS POR HITOS' : 'MILESTONE PAYMENTS'}</span>
-                    <h3 className="text-base font-semibold text-brand-ink">{es ? 'Saldo vinculado a la inspección' : 'Balance Tied to Inspection'}</h3>
-                  </div>
-                </div>
-                <p className="mt-3 text-xs leading-relaxed text-brand-muted">
-                  {es
-                    ? 'Los hitos de pago se fijan en cada cotización, y el saldo de producción puede vincularse a la aprobación del informe de inspección previa al envío.'
-                    : 'Payment milestones are set in each quotation, and the production balance can be tied to approval of the pre-shipment inspection report.'}
-                </p>
-              </div>
-
-              <div className="rounded-xl border border-brand-line bg-white p-6 shadow-xs">
-                <div className="flex items-center gap-3">
-                  <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-brand-green/10 text-brand-green shrink-0">
-                    <ShieldCheck className="h-5 w-5" aria-hidden="true" />
-                  </div>
-                  <div>
-                    <span className="text-[10px] font-bold uppercase tracking-wider text-brand-muted">{es ? 'PROPIEDAD DE UTILLAJE' : 'TOOLING OWNERSHIP'}</span>
-                    <h3 className="text-base font-semibold text-brand-ink">{es ? 'Propiedad del utillaje por escrito' : 'Tooling Terms in Writing'}</h3>
-                  </div>
-                </div>
-                <p className="mt-3 text-xs leading-relaxed text-brand-muted">
-                  {es
-                    ? 'La propiedad de los moldes, troqueles, archivos CAD y especificaciones que usted paga se fija por escrito en el contrato de cada pedido, antes de fabricar el utillaje.'
-                    : 'Ownership of the custom molds, tooling dies, CAD files and specifications you pay for is set out in writing in the contract for each order, before any tooling is cut.'}
-                </p>
-              </div>
+              ))}
             </div>
 
-            {/* Right: Visual feature showcasing tactile quality and transparency */}
             <div className="lg:col-span-5 flex flex-col justify-between rounded-xl border border-brand-line bg-white p-5 shadow-xs">
               <div className="relative overflow-hidden rounded-lg">
                 <Image
@@ -597,26 +314,26 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                   loading="lazy"
                   decoding="async"
                   sizes="(max-width: 1024px) 100vw, 480px"
-                  className="w-full h-auto rounded-lg object-cover transition-transform duration-500 hover:scale-[1.02]"
+                  className="w-full h-auto rounded-lg object-cover"
                 />
               </div>
               <div className="mt-4 pt-4 border-t border-brand-line/60">
                 <p className="text-[11px] leading-relaxed text-brand-muted">
-                  <span className="font-semibold text-brand-ink">{es ? 'Inspección de materiales y prototipos' : 'Material Inspection & Prototype Standards'}</span> —{' '}
+                  <span className="font-semibold text-brand-ink">{es ? 'Revisión de muestras' : 'Sample review'}</span> —{' '}
                   {es
-                    ? 'Los gramajes de papel, la resistencia del cartón corrugado, las tolerancias dimensionales y los acabados se verifican frente a la muestra aprobada antes de la producción en masa.'
-                    : 'Paperboard calipers, flute strengths, dimensional tolerances and surface treatments are checked against the approved sample before mass production.'}
+                    ? 'Los gramajes, la resistencia del cartón, las medidas y los acabados se comparan con la muestra aprobada antes de producir.'
+                    : 'Board caliper, flute strength, dimensions and finishes are compared with the approved sample before production.'}
                 </p>
                 <div className="mt-3 flex flex-wrap items-center gap-2 text-[10px] font-medium text-brand-muted">
-                  <span className="rounded-md bg-brand-surface px-2 py-0.5 border border-brand-line">
-                    {es ? 'Imagen ilustrativa' : 'Illustrative image'}
-                  </span>
-                  <span className="rounded-md bg-brand-surface px-2 py-0.5 border border-brand-line">
-                    {es ? 'Investigación HTS a 10 dígitos' : '10-Digit HTS Research'}
-                  </span>
-                  <span className="rounded-md bg-brand-surface px-2 py-0.5 border border-brand-line">
-                    {es ? 'Facturación Francia / China' : 'Invoicing via France / China'}
-                  </span>
+                  {[
+                    es ? 'Imagen ilustrativa' : 'Illustrative image',
+                    es ? 'Especificación escrita' : 'Written specification',
+                    es ? 'Facturación Francia / China' : 'Invoicing via France / China',
+                  ].map((tag) => (
+                    <span key={tag} className="rounded-md bg-brand-surface px-2 py-0.5 border border-brand-line">
+                      {tag}
+                    </span>
+                  ))}
                 </div>
               </div>
             </div>
@@ -624,25 +341,25 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
         </div>
       </section>
 
-      {/* HOW IT WORKS: 6-STAGE WORKFLOW */}
+      {/* HOW A PROJECT RUNS */}
       <section id="how-it-works" className="editorial-section process-section border-t border-brand-line bg-brand-surface/30 py-24">
         <div className="editorial-container">
           <div className="section-heading-row">
             <div>
               <p className="editorial-kicker">
                 <span className="launch-dot" aria-hidden="true" />
-                {es ? '03 — METODOLOGÍA OPERATIVA' : '03 — HOW IT WORKS'}
+                {es ? '03 — CÓMO FUNCIONA' : '03 — HOW IT WORKS'}
               </p>
               <h2 className="editorial-title">
-                {es ? 'Del brief técnico inicial' : 'From initial technical brief'}
+                {es ? 'Del brief' : 'From brief'}
                 <br />
-                <em>{es ? 'a la entrega del suministro en destino.' : 'to verified supply in warehouse.'}</em>
+                <em>{es ? 'al pedido aprobado.' : 'to an approved order.'}</em>
               </h2>
             </div>
             <p className="editorial-body">
               {es
-                ? 'Un proceso transparente y riguroso en 6 etapas que elimina la incertidumbre en cada fase de la compra internacional o de la entrada en el mercado estadounidense.'
-                : 'A structured 6-stage operational framework that replaces guesswork with verified data, on-site quality checkpoints, and transparent commercial contracts.'}
+                ? 'Seis etapas, cada una por escrito antes de empezar la siguiente.'
+                : 'Six steps, each written down before the next one starts.'}
             </p>
           </div>
 
@@ -669,70 +386,58 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
               <ShieldCheck className="h-6 w-6 text-brand-green shrink-0" aria-hidden="true" />
               <p className="text-xs text-brand-muted">
                 {es
-                  ? 'Especificaciones técnicas por escrito. Criterios objetivos de aceptación de calidad acordados antes de la producción en masa.'
-                  : 'Clear written specifications. Objective quality acceptance criteria agreed prior to committing mass production capital.'}
+                  ? 'Especificaciones escritas y criterios de aceptación acordados antes de la producción.'
+                  : 'Written specifications and acceptance criteria agreed before production.'}
               </p>
             </div>
-            <Link href="/china-to-us-procurement#order-terms" className="editorial-text-link">
-              {es ? 'Conocer las condiciones de pedido y suministro' : 'Review our supply terms & order process'}
+            <Link href="/how-we-work" className="editorial-text-link">
+              {es ? 'Cómo trabajamos' : 'How we work'}
               <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
           </div>
         </div>
       </section>
 
-      {/* CORE SERVICES GRID */}
-      <section id="services" className="editorial-section py-24">
+      {/* WHAT WE SUPPLY */}
+      <section id="supply" className="editorial-section py-24">
         <div className="editorial-container">
           <div className="section-heading-row">
             <div>
               <p className="editorial-kicker">
                 <span className="launch-dot" aria-hidden="true" />
-                {es ? '04 — CATÁLOGO DE SERVICIOS' : '04 — STRATEGIC SERVICES'}
+                {es ? '04 — LO QUE SUMINISTRAMOS' : '04 — WHAT WE SUPPLY'}
               </p>
               <h2 className="editorial-title">
-                {es ? 'Servicios especializados.' : 'Specialized services.'}
+                {es ? 'Packaging y textiles.' : 'Packaging and textiles.'}
                 <br />
-                <em>{es ? 'Cada área con su propia experiencia y ejecución.' : 'Each with dedicated expertise and execution.'}</em>
+                <em>{es ? 'Fabricados según su especificación.' : 'Made to your specification.'}</em>
               </h2>
             </div>
-            <p className="editorial-body">
-              {es
-                ? 'No acumulamos materias dispares en una sola propuesta genérica. Cada servicio cuenta con estándares técnicos, directrices documentadas y entregables verificables.'
-                : 'We avoid generic broad-brush consulting. Every strategic capability is backed by dedicated methodologies, verifiable inspection checklists, and transparent pricing.'}
-            </p>
+            <p className="editorial-body">{PROMISE[locale]}</p>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {primaryServices.map((service) => (
+            {supplyLines.map((line) => (
               <article
-                key={service.href}
+                key={line.href}
                 className="group flex flex-col justify-between rounded-xl border border-brand-line bg-white p-6 transition hover:border-brand-ink/50 hover:shadow-md"
               >
                 <div>
-                  <div className="flex items-center justify-between">
-                    <span className="rounded-md bg-brand-surface px-2.5 py-1 text-[10px] font-semibold text-brand-ink border border-brand-line">
-                      {service.tag}
-                    </span>
-                    <ArrowUpRight
-                      size={16}
-                      className="text-brand-muted transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-brand-ink"
-                      aria-hidden="true"
-                    />
-                  </div>
+                  <span className="rounded-md bg-brand-surface px-2.5 py-1 text-[10px] font-semibold text-brand-ink border border-brand-line">
+                    {line.tag}
+                  </span>
                   <h3 className="mt-4 text-lg font-semibold tracking-tight text-brand-ink">
-                    <Link href={service.href} className="focus:outline-hidden">
-                      {service.title}
-                    </Link>
+                    <Link href={line.href}>{line.title}</Link>
                   </h3>
-                  <p className="mt-2 text-xs leading-relaxed text-brand-muted">{service.desc}</p>
+                  <p className="mt-2 text-xs leading-relaxed text-brand-muted">{line.body}</p>
                 </div>
                 <div className="mt-6 pt-4 border-t border-brand-line/60">
                   <Link
-                    href={service.href}
+                    href={line.href}
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-green hover:underline"
+                    aria-label={`${es ? 'Ver' : 'View'} ${line.title}`}
                   >
-                    {es ? 'Ver servicio y metodología' : 'View service & methodology'}
+                    {es ? 'Ver la página' : 'View the page'}
                     <ArrowRight size={13} aria-hidden="true" />
                   </Link>
                 </div>
@@ -742,105 +447,49 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
         </div>
       </section>
 
-      {/* GEO / GENERATIVE ENGINE OPTIMIZATION DIRECT-ANSWER KNOWLEDGE BASE */}
+      {/* SHORT ANSWERS */}
       <section id="knowledge-base" className="editorial-section border-t border-brand-line bg-brand-surface/40 py-24">
         <div className="editorial-container">
           <div className="mb-14 max-w-3xl">
             <p className="editorial-kicker">
               <HelpCircle className="h-3.5 w-3.5 text-brand-green" aria-hidden="true" />
-              {es ? '05 — BASE DE CONOCIMIENTO GEO & IA' : '05 — DIRECT ANSWERS & GEO KNOWLEDGE BASE'}
+              {es ? '05 — RESPUESTAS BREVES' : '05 — SHORT ANSWERS'}
             </p>
             <h2 className="editorial-title">
-              {es ? 'Respuestas claras y directas.' : 'Direct, factual answers.'}
+              {es ? 'Respuestas directas.' : 'Direct answers.'}
               <br />
-              <em>{es ? 'Información verificable para directivos e inteligencias artificiales.' : 'Verifiable insights for executives and AI search engines.'}</em>
+              <em>{es ? 'Que se sostienen por sí solas.' : 'That stand on their own.'}</em>
             </h2>
-            <p className="editorial-body mt-4 text-base">
-              {es
-                ? 'Definiciones autónomas y fácticas diseñadas para responder a las preguntas más frecuentes sobre el comercio internacional entre Estados Unidos, China y Europa.'
-                : 'Self-contained, factual definitions crafted to answer core questions on international trade, factory verification, landed costs, and U.S. market entry.'}
-            </p>
           </div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            {geoAnswers.map((item) => (
-              <div
-                key={item.q}
-                className="rounded-xl border border-brand-line bg-white p-7 shadow-xs"
-              >
+            {shortAnswers.map((item) => (
+              <div key={item.q} className="rounded-xl border border-brand-line bg-white p-7 shadow-xs">
                 <h3 className="text-base font-semibold text-brand-ink">{item.q}</h3>
-                <p className="direct-answer mt-3 pl-3 text-xs leading-relaxed text-brand-muted">
-                  {item.a}
-                </p>
+                <p className="direct-answer mt-3 pl-3 text-xs leading-relaxed text-brand-muted">{item.a}</p>
               </div>
             ))}
           </div>
         </div>
       </section>
 
-      {/* INDUSTRY VERTICALS */}
-      <section id="industries" className="editorial-section py-24">
-        <div className="editorial-container">
-          <div className="section-heading-row">
-            <div>
-              <p className="editorial-kicker">
-                <Layers className="h-3.5 w-3.5 text-brand-green" aria-hidden="true" />
-                {es ? '06 — VERTICALES SECTORIALES' : '06 — INDUSTRY VERTICALS'}
-              </p>
-              <h2 className="editorial-title">
-                {es ? 'Especialización por industria.' : 'Specialized by industry.'}
-                <br />
-                <em>{es ? 'Conocimiento técnico de materiales y normativas.' : 'Deep knowledge of materials, tooling, and standards.'}</em>
-              </h2>
-            </div>
-            <p className="editorial-body">
-              {es
-                ? 'Cada industria tiene sus propios centros de producción, requerimientos de laboratorio y márgenes de tolerancia. Operamos en los sectores donde contamos con experiencia directa.'
-                : 'Each manufacturing sector operates with distinct industrial clusters, testing protocols, and tolerance standards. We focus on industries backed by deep technical experience.'}
-            </p>
-          </div>
-
-          <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-            {industryVerticals.map((ind) => (
-              <Link
-                key={ind.href}
-                href={ind.href}
-                className="group rounded-xl border border-brand-line bg-white p-6 transition hover:border-brand-ink/50 hover:shadow-sm"
-              >
-                <div className="flex items-center justify-between">
-                  <h3 className="text-base font-semibold text-brand-ink group-hover:text-brand-green">
-                    {ind.title}
-                  </h3>
-                  <ArrowUpRight
-                    size={16}
-                    className="text-brand-muted transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-brand-green"
-                    aria-hidden="true"
-                  />
-                </div>
-                <p className="mt-2 text-xs leading-relaxed text-brand-muted">{ind.body}</p>
-              </Link>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* COMPREHENSIVE FAQ SECTION */}
+      {/* QUESTIONS */}
       <section id="faq" className="editorial-section faq-section border-t border-brand-line bg-brand-surface/30 py-24">
         <div className="editorial-container faq-layout">
           <div>
             <p className="editorial-kicker">
               <span className="launch-dot" aria-hidden="true" />
-              {es ? '07 — PREGUNTAS FRECUENTES' : '07 — FREQUENTLY ANSWERED'}
+              {es ? '06 — PREGUNTAS FRECUENTES' : '06 — QUESTIONS'}
             </p>
             <h2 className="editorial-title">
               {es ? 'Preguntas antes de' : 'Questions before your'}
               <br />
-              <em>{es ? 'iniciar tu proyecto.' : 'procurement project.'}</em>
+              <em>{es ? 'su primer pedido.' : 'first order.'}</em>
             </h2>
             <p className="editorial-body">
               {es
-                ? 'Claridad absoluta sobre cómo trabajamos, cómo se estructuran los contratos y cómo protegemos tus intereses.'
-                : 'Complete clarity on our operating methodology, contracting entities, payment structures, and legal protections.'}
+                ? 'Quién factura, qué incluye un suministro, quién importa y qué queda fuera.'
+                : 'Who invoices, what a supply includes, who imports, and what stays outside.'}
             </p>
           </div>
           <div className="faq-list">
@@ -857,7 +506,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
         </div>
       </section>
 
-      {/* CONTACT / SOURCING BRIEF SUBMISSION */}
+      {/* BRIEF FORM */}
       <section id="contact" className="editorial-section contact-section border-t border-brand-line py-24">
         <div className="editorial-container">
           <div className="contact-panel">
@@ -867,14 +516,14 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                 {es ? 'COMENCEMOS' : 'START A PROJECT'}
               </p>
               <h2 className="editorial-title">
-                {es ? 'Cuéntanos sobre' : 'Tell us about'}
+                {es ? 'Cuéntenos sobre' : 'Tell us about'}
                 <br />
-                <em>{es ? 'tu próximo proyecto.' : 'your next project.'}</em>
+                <em>{es ? 'su próximo proyecto.' : 'your next project.'}</em>
               </h2>
               <p className="editorial-body">
                 {es
-                  ? 'Tanto si buscas fabricar un producto en el extranjero como si eres una empresa internacional expandiéndose a EE. UU., comparte tu brief y evaluaremos los siguientes pasos operativos.'
-                  : 'Whether you need to source and manufacture products overseas or enter the U.S. commercial market, submit your project details for an actionable assessment.'}
+                  ? 'Tanto si compra un producto como si prepara su venta en EE. UU., envíe su brief: confirmamos qué se puede cotizar y muestrear, y respondemos por correo.'
+                  : 'Whether you are buying a product or preparing to sell in the U.S., send your brief: we confirm what can be quoted and sampled, and reply by email.'}
               </p>
               <a href="mailto:contact@sourcinglabusa.com" className="contact-email">
                 contact@sourcinglabusa.com
@@ -882,8 +531,8 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
               </a>
               <p className="contact-note">
                 {es
-                  ? 'Atención en inglés y español · Ejecución operativa para el mercado estadounidense'
-                  : 'Bilingual support in English & Spanish · Operational execution for the U.S. market'}
+                  ? 'Atención en inglés y español · Facturación desde Francia o China'
+                  : 'Replies in English and Spanish · Invoicing from France or China'}
               </p>
             </div>
             <ContactForm locale={locale} appearance="editorial" />

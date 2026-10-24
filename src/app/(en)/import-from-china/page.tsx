@@ -1,144 +1,130 @@
 import { ServiceLandingPage, type ServicePageContent } from '@/components/ServiceLandingPage';
+import { NOT_AN_IMPORTER } from '@/lib/positioning';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Import from China to USA Guide & Consulting | Sourcing Lab USA',
+  title: 'Importing from China to the U.S.: Who Does What',
   description:
-    'Complete operational guide and consulting for importing goods from China to the United States. Customs clearance, tariffs, Incoterms, and logistics execution.',
+    'The roles in a China-to-U.S. import: supplier, freight forwarder, customs broker and importer of record. What Sourcing Lab USA carries on a supply, and what stays named in the quotation or on your side.',
   path: '/import-from-china',
 });
 
 const page: ServicePageContent = {
   path: '/import-from-china',
-  eyebrow: 'Cross-Border Trade · China to United States',
-  title: 'Importing from China to the USA: Procurement, Customs & Logistics',
+  eyebrow: 'Explainer · China to the United States',
+  title: 'Importing from China: who does what, before the order.',
   directAnswer:
-    'Importing from China to the United States requires managing five interconnected operational phases: commercial supplier contracting, product compliance testing, international freight booking under clear Incoterms (FOB, CIF, or DDP), regulatory customs entry with U.S. Customs and Border Protection (CBP including ISF 10+2 filings and tariff payments), and domestic inland drayage to U.S. distribution centers.',
+    'A China-to-U.S. import involves a supplier, a carrier or freight forwarder, a licensed customs broker and an importer of record, who is responsible for the entry and the duties. On a Sourcing Lab USA supply, we carry the supplier side: factory, price, samples, order and production follow-up. Transport, insurance and U.S. entry are named in the quotation or stay on your side. We are not a freight forwarder, a customs broker or an importer.',
   intro:
-    'For American businesses, importing from China provides manufacturing scale and competitive margins. However, navigating cross-border trade without experienced operational guidance introduces exposure to customs holds, detention fees, Section 301 tariffs, and regulatory non-compliance. Sourcing Lab USA helps coordinate each operational link in the China-to-U.S. supply chain.',
-  overviewTitle: 'End-to-end import execution without border surprises.',
+    'Most import problems are not caused by a bad factory but by a role nobody took: a filing nobody made, a duty nobody priced, a container nobody collected. Naming each role before the order is cheaper than discovering the gap at the port.',
+  overviewTitle: 'Four roles, named before the order.',
   overview:
-    'Successful importing begins long before goods reach the port. It requires accurate 10-digit HTS tariff classification, mandatory labeling compliance, continuous supplier oversight during production, pre-shipment quality verification, timely ocean container booking, and seamless customs brokerage coordination.',
-  processTitle: 'The 5 essential stages of China-to-U.S. importing.',
-  offerName: 'China-to-U.S. Import Consulting & Logistics Coordination',
+    'The supplier makes and packs the goods. The forwarder or carrier moves them. The customs broker files the U.S. entry for the importer. The importer of record answers to U.S. Customs and Border Protection (CBP) for the classification, the value, the duties and the compliance of the goods. The Incoterm in the contract says where the seller’s responsibility ends and the buyer’s begins.',
+  processTitle: 'Who carries each step.',
+  offerName: 'Supplier side of a China-to-U.S. supply',
   offerDescription:
-    'Comprehensive operational management for importing manufactured goods from China to U.S. ports and distribution centers, covering compliance, tariffs, freight, and customs.',
+    'Factory search, pricing, samples, order and production follow-up for products supplied from China, with transport and U.S. entry named in the quotation or left with the buyer.',
+  boundary: {
+    coordinate: [
+      'The supplier side: factory, price, samples, order and production follow-up',
+      'Export packing and the commercial documents for the goods we supply',
+      'Naming in the quotation who carries transport, insurance and U.S. entry',
+    ],
+    notDone: [
+      'Acting as importer of record',
+      'Filing U.S. customs entries or the Importer Security Filing',
+      'Booking freight as a forwarder or carrier',
+      'U.S. storage or final delivery',
+    ],
+  },
   focusAreas: [
     {
-      title: 'Commercial Incoterms Optimization',
-      body: 'We advise on and manage shipping under FOB (Free on Board), EXW (Ex Works), or DDP (Delivered Duty Paid), ensuring you retain complete control over ocean freight rates and container routing.',
+      title: 'Importer of record',
+      body: 'The party responsible to CBP for the entry: classification, declared value, duties and compliance of the goods. Usually the U.S. buyer; a foreign company can also act as importer of record through a customs broker.',
     },
     {
-      title: 'U.S. Customs Compliance & ISF 10+2',
-      body: 'We ensure mandatory Importer Security Filings (ISF) are lodged with CBP at least 24 hours prior to vessel departure, preventing automatic $5,000 CBP late-filing penalties.',
+      title: 'Customs broker',
+      body: 'Licensed by CBP to file entries on the importer’s behalf. The broker files; the importer remains responsible for what is declared.',
     },
     {
-      title: 'HTS Tariff & Section 301 Duty Analysis',
-      body: 'We classify your goods under the 10-digit Harmonized Tariff Schedule, calculating general duty rates, Section 301 retaliatory tariffs (List 1-4), and identifying legal duty reduction avenues.',
+      title: 'Freight forwarder',
+      body: 'Books the transport, consolidates documents and often coordinates the Importer Security Filing that CBP requires for ocean cargo, on the importer’s behalf.',
     },
     {
-      title: 'Mandatory U.S. Product Safety Standards',
-      body: 'We help identify applicable standards and coordinate testing with qualified laboratories for federal regulatory bodies: Consumer Product Safety Commission (CPSC/CPSIA), FDA requirements, FCC rules, and California Proposition 65.',
+      title: 'Incoterms',
+      body: 'FOB, EXW or DDP say who pays for and carries the goods at each point. Under DDP the seller’s side arranges the import and pays the duties; on our quotations, any party taking that role is named, and it is not Sourcing Lab USA.',
     },
   ],
   briefItems: [
-    'Product category, commercial description, and detailed material breakdown',
-    'Estimated shipment volume (Full Container Load FCL or Less than Container Load LCL)',
-    'Target destination city, state, or Amazon fulfillment center in the United States',
-    'Preferred Incoterms and target arrival deadline',
+    'The product and its materials',
+    'Quantity and target date',
+    'Who will import: your company, your broker, or still to be decided',
+    'Destination in the United States',
   ],
   workflow: [
     {
-      title: 'Pre-Import Classification & Compliance Review',
-      body: 'Before production begins, we classify your product under the US HTS code, verify applicable duty and tariff rates, and confirm mandatory labeling requirements.',
+      title: 'Supplier side — Sourcing Lab USA',
+      body: 'Factory, price, samples, order and production follow-up against the approved sample.',
     },
     {
-      title: 'Manufacturing & Pre-Shipment Inspection',
-      body: 'We coordinate on-site production monitoring and pre-shipment quality inspections according to agreed acceptance criteria before balance payments are authorized.',
+      title: 'Optional checks — if in the quotation',
+      body: 'A third-party inspection, a lab test, a working HS classification or a landed-cost model, each only when written into the quotation.',
     },
     {
-      title: 'Export Clearance & ISF 10+2 Submission',
-      body: 'Export customs documentation is cleared in China, bills of lading are issued, and the electronic ISF 10+2 filing is lodged with U.S. Customs prior to container loading.',
+      title: 'Transport — named in the quotation or yours',
+      body: 'The forwarder or carrier, the Incoterm and the insurance are named in the quotation, or arranged by you.',
     },
     {
-      title: 'Ocean/Air Transit & Customs Brokerage',
-      body: 'We monitor vessel passage across the Pacific. Prior to U.S. port arrival, qualified customs brokers file CBP entry documentation, duty payments are settled, and cargo releases are coordinated.',
-    },
-    {
-      title: 'Port Drayage & Final U.S. Warehouse Delivery',
-      body: 'Containers are retrieved from the marine terminal to avoid costly port demurrage and trucked directly to your fulfillment warehouse or 3PL.',
+      title: 'U.S. entry — the importer of record',
+      body: 'The importer of record, through its customs broker, files the entry and pays the duties. That is you or a party named in the quotation, never Sourcing Lab USA.',
     },
   ],
-  benchmarks: [
-    {
-      label: 'Ocean freight (West Coast)',
-      value: '14 to 20 days transit',
-      qualifier: 'Transit time from Shanghai/Shenzhen to Los Angeles/Long Beach, port-to-port.',
-    },
-    {
-      label: 'Ocean freight (East Coast)',
-      value: '28 to 35 days transit',
-      qualifier: 'Transit time through Panama Canal to New York/Savannah, port-to-port.',
-    },
-    {
-      label: 'Air freight expedited',
-      value: '5 to 8 days door-to-door',
-      qualifier: 'Commercial air cargo including origin pickup and destination customs clearance.',
-    },
-  ],
-  benchmarksNote:
-    'Customs clearance typically clears within 24 to 48 hours of vessel discharge provided ISF and entry filings are submitted on time.',
+  benchmarks: [],
   hideShowcase: true,
   faqs: [
     {
-      question: 'What documents are required to import goods from China to the United States?',
-      answer:
-        'The mandatory import documents include the Commercial Invoice, Packing List, Bill of Lading (or Air Waybill), Importer Security Filing (ISF 10+2), Customs Entry Summary (CBP Form 7501), and any product-specific certificates (such as Children’s Product Certificate CPC or FDA Prior Notice).',
+      question: 'Is Sourcing Lab USA the importer of record?',
+      answer: NOT_AN_IMPORTER.en,
     },
     {
-      question: 'What is Section 301 and how does it affect imports from China?',
+      question: 'Do I need a customs broker?',
       answer:
-        'Section 301 is a U.S. trade policy that imposes additional tariffs (ranging from 7.5% to 25% or higher) on thousands of Chinese-origin products across Lists 1 through 4. These tariffs are added on top of the base HTS duty rate and must be factored into your landed-cost calculations. The lists and rates change by executive action, so confirm your product’s current exposure with CBP or your customs broker rather than relying on a published range.',
+        'Most commercial importers use one. A licensed customs broker files the entry on the importer’s behalf; the importer remains responsible for what is declared.',
     },
     {
-      question: 'What is an Importer Security Filing (ISF 10+2)?',
+      question: 'What is the Importer Security Filing?',
       answer:
-        'ISF 10+2 is a mandatory electronic filing required by U.S. Customs for all ocean cargo entering the United States. It consists of 10 data elements from the importer/supplier and 2 from the ocean carrier, and must be submitted at least 24 hours prior to the cargo being loaded onto the vessel in China. Missing or late filings incur a $5,000 fine per shipment.',
+        'A filing CBP requires for import cargo arriving by vessel, made on the importer’s behalf, usually by its forwarder or broker, before the goods are loaded. Failure to comply can lead to penalties, more inspections and delays. Rule checked on cbp.gov on October 24, 2026.',
     },
     {
-      question: 'Should I buy from a Chinese supplier under DDP or FOB terms?',
+      question: 'Should I buy FOB or DDP?',
       answer:
-        'FOB (Free on Board) is generally recommended for experienced buyers because it allows you to select your own trusted freight forwarder, control transit times, and eliminate hidden shipping markups. DDP (Delivered Duty Paid) can be convenient for smaller trial orders but often masks true freight and duty costs.',
+        'FOB leaves the transport and the import with you and your forwarder, so their costs are visible. DDP puts them on the seller’s side, which is simpler but hides the freight and duty inside the price. Either way, the quotation names who carries them.',
     },
     {
-      question: 'Do I need an import license to import from China to the USA?',
+      question: 'How do I know the duties on my product?',
       answer:
-        'U.S. Customs and Border Protection does not require a general "import license" for most commercial goods. However, you must have an Employer Identification Number (EIN) or Customs Assigned Number to act as the Importer of Record (IOR), and you must secure a Continuous Customs Bond.',
+        'Duties follow the product’s HTS classification and origin, and additional tariffs on Chinese-origin goods change by government action. A working classification can be added to the quotation; the rate is confirmed by your customs broker or a CBP ruling.',
     },
   ],
-  briefTitle: 'Consult on your China-to-U.S. import project.',
+  briefTitle: 'Send your product brief.',
   briefIntro:
-    'Share your product details, order volume, and destination. We will calculate estimated duties, identify compliance requirements, and coordinate logistics.',
+    'Product, quantity and who will import. We confirm what can be quoted and name who carries each step.',
   relatedPages: [
     {
-      href: '/china-to-us-procurement',
-      title: 'China-to-U.S. Procurement Overview',
-      description: 'Our established procurement, supply terms, and ordering framework.',
-    },
-    {
       href: '/freight-logistics',
-      title: 'Freight Sourcing & Logistics',
-      description: 'Ocean container booking, air cargo, drayage, and warehouse coordination.',
+      title: 'Freight and customs: our limits',
+      description: 'What we coordinate on transport, and what we do not do.',
     },
     {
       href: '/hs-code-consulting',
-      title: 'HS Code & Tariff Consulting',
-      description: 'Accurate HTS classification and Section 301 tariff mitigation.',
+      title: 'HS code classification',
+      description: 'A working classification, added to the quotation on request.',
     },
     {
       href: '/landed-cost-analysis',
-      title: 'Landed Cost Analysis',
-      description: 'True landed cost modeling before ordering mass production.',
+      title: 'Landed-cost model',
+      description: 'The cost of the goods once transport and duties are added.',
     },
   ],
 };

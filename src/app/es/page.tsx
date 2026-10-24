@@ -7,12 +7,11 @@ import {
   faqSchema,
   serviceSchema,
 } from '@/lib/seo';
+import { PROMISE, PROMISE_STATEMENT } from '@/lib/positioning';
 
-const title = 'Sourcing Global y Entrada al Mercado de EE. UU.';
-const description =
-  'Ayudamos a empresas estadounidenses a buscar y fabricar en el extranjero, y ayudamos a fabricantes internacionales a entrar, distribuir y crecer en el mercado de Estados Unidos. Verificación directa de fábricas, control de calidad y representación comercial.';
-const homeAnswerES =
-  'Sourcing Lab USA es un socio operativo de comercio internacional y compras. Gestionamos el sourcing global de productos, auditorías de fábricas directas, negociación de precios y MOQ, control de calidad in situ y logística transfronteriza para marcas estadounidenses, al tiempo que ofrecemos consultoría de entrada al mercado de EE. UU., cumplimiento normativo y representación comercial para fabricantes internacionales.';
+const title = 'Packaging y textiles a medida fabricados en China';
+const description = PROMISE.es;
+const homeAnswerES = PROMISE_STATEMENT.es;
 
 export const metadata = pageMetadata({
   title,
@@ -32,11 +31,7 @@ export default function HomePageES() {
             webpageSchema('/es', title, description, 'es-US', {
               abstract: homeAnswerES,
             }),
-            serviceSchema(
-              '/es',
-              'Sourcing Global y Ejecución de Entrada al Mercado de EE. UU.',
-              'Sourcing integral de productos en el extranjero, auditorías de fábrica, control de calidad y análisis de costes en destino para marcas estadounidenses, junto con consultoría de entrada al mercado y representación comercial para fabricantes internacionales.',
-            ),
+            serviceSchema('/es', 'Suministro de packaging y textiles a medida', PROMISE_STATEMENT.es),
             faqSchema('/es', homeFaqsES, 'es-US'),
           ],
         }}

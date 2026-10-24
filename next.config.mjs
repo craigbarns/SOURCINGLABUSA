@@ -11,6 +11,13 @@ const nextConfig = {
   },
   async redirects() {
     return [
+      // Miami 2027 is a project stated on the About page only, never part of
+      // the promise (owner decision, 24 October 2026).
+      {
+        source: '/blog/miami-future-hub-sourcing',
+        destination: '/about',
+        permanent: true,
+      },
       // Two template duplicates of /custom-packaging, consolidated per the
       // no-doorway rule in AGENTS.md. Search Console (Jul-Oct 2026) never
       // showed /packaging-sourcing and gave /industries/packaging 3
@@ -57,6 +64,32 @@ const nextConfig = {
       {
         source: '/custom-paper',
         destination: '/custom-packaging',
+        permanent: true,
+      },
+      // Near-duplicates consolidated per the no-doorway rule (owner brief,
+      // 24 October 2026). /china-sourcing-agent is the pillar: it had the most
+      // Search impressions of the group. Supplier audits now live on
+      // /factory-verification, where audits are described as an option
+      // written into the quotation.
+      {
+        source: '/china-sourcing',
+        destination: '/china-sourcing-agent',
+        permanent: true,
+      },
+      {
+        source: '/supplier-sourcing',
+        destination: '/china-sourcing-agent',
+        permanent: true,
+      },
+      {
+        source: '/supplier-audit-china',
+        destination: '/factory-verification',
+        permanent: true,
+      },
+      // A second page on the same subject as /private-label-manufacturing.
+      {
+        source: '/industries/private-label',
+        destination: '/private-label-manufacturing',
         permanent: true,
       },
     ];

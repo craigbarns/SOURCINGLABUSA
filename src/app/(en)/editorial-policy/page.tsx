@@ -17,7 +17,7 @@ AI-assisted drafting is used for some planning resources. Authorship is not a cl
 
 ## How are facts and examples presented?
 
-Business descriptions follow the stated offer: clothing, textiles and packaging are core specialties, with other products assessed for feasibility. Current projects are contracted and invoiced through the company in France or China identified in the quotation. The Miami expansion is planned for 2027.
+Business descriptions follow the stated offer: clothing, textiles and packaging are core specialties, with other products assessed for feasibility. Current projects are contracted and invoiced through the company in France or China identified in the quotation.
 
 Original worksheets and frameworks are identified as editorial tools. They do not claim industry recognition, supplier certification or a validated predictive score. Numerical examples are labeled hypothetical and show their assumptions. They are not customer results, quoted prices, market averages or guaranteed savings.
 

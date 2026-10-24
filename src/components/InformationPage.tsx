@@ -3,15 +3,18 @@ import type { ReactNode } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { BriefSection } from '@/components/BriefSection';
+import { ScopeTable } from '@/components/ScopeTable';
 import { StructuredData } from '@/components/StructuredData';
 import { breadcrumbSchema, webpageSchema } from '@/lib/seo';
 
-export function InformationPage({ path, title, description, children, contact = false }: {
+export function InformationPage({ path, title, description, children, contact = false, scope = false }: {
   path: string;
   title: string;
   description: string;
   children: ReactNode;
   contact?: boolean;
+  /** Show the scope of a supply (three columns) after the text. */
+  scope?: boolean;
 }) {
   return (
     <div className="editorial-shell flex min-h-screen flex-col">
@@ -29,6 +32,7 @@ export function InformationPage({ path, title, description, children, contact = 
           <p className="direct-answer">{description}</p>
           <div className="prose editorial-prose mt-10 max-w-none">{children}</div>
         </article>
+        {scope && <ScopeTable />}
         {contact && <BriefSection formLocation="contact_page" title="Discuss your sourcing project." intro="Start with your product, quantity and contact details. Add budget, destination and timing if you know them; we will confirm what can be quoted and sampled." />}
       </main>
       <Footer />

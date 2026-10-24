@@ -8,12 +8,12 @@ const description = 'Sourcing Lab USA starts with your brief, reviews supplier o
 export const metadata = pageMetadata({ path, title, description });
 
 export default function HowWeWorkPage() {
-  return <InformationPage path={path} title={title} description={description}><GuideMarkdown>{`
+  return <InformationPage path={path} title={title} description={description} scope><GuideMarkdown>{`
 ## What do we supply, and who is it for?
 
 Sourcing Lab USA is a custom packaging and textile procurement partner for U.S. brands and business customers. We source, purchase and supply products through an established independent China sourcing partnership. Clothing, textiles, sportswear, packaging and labels are core specialties. Other products are reviewed for feasibility before a proposal is made.
 
-Projects can start now. The quotation identifies the company in France or China that contracts with you and invoices the goods. The Miami expansion is planned for 2027. Read [about the business](/about) and [the difference between an agent and a product supply arrangement](/china-sourcing-agent).
+Projects can start now. The quotation identifies the company in France or China that contracts with you and invoices the goods. Read [about the business](/about) and [the difference between an agent and a product supply arrangement](/china-sourcing-agent).
 
 ## What happens between a brief and an order?
 
@@ -38,13 +38,13 @@ Our [supplier evidence matrix](/blog/verify-chinese-supplier) and [quality check
 
 ## What does quality coordination mean?
 
-Quality follow-up means production coordination and the checkpoints agreed for the order. It is not an independent certified inspection service. If independent inspection, laboratory testing or technical review is needed, the provider, scope and costs must be identified separately in the project arrangements.
+Quality follow-up means following production against the approved sample and the checkpoints agreed for the order. A third-party inspection or a laboratory test is added only when it is written into the quotation, with its provider, scope and cost.
 
 A sample approval, a production photograph and a test report answer different questions. Define what each item is intended to establish before relying on it. Product compliance cannot be guaranteed by a generic sourcing checklist.
 
 ## Who handles transport and import responsibilities?
 
-Delivery may be direct from China under the agreed commercial terms. The quotation and order must identify the responsibilities for transport, import review and delivery. Sourcing Lab USA does not offer standalone customs brokerage or freight forwarding. Specialist work belongs with the appropriate appointed providers.
+Goods may ship directly from China under the agreed commercial terms. Sourcing Lab USA is not a freight forwarder, a customs broker or an importer. Transport, insurance and U.S. entry are named in your quotation, or stay on your side.
 
 Compare the [landed-cost inputs](/blog/calculating-landed-costs-merchandise) and [China-to-U.S. procurement scope](/china-to-us-procurement) before assuming that an amount includes delivery or import charges.
 

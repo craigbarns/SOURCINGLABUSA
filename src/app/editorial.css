@@ -1438,3 +1438,33 @@
   .collection-heading { padding-inline: 22px; }
   .collection-copy { padding: 16px 22px 24px; }
 }
+
+/* Two paths beside the hero (SourcingOverview). */
+.path-door { display: flex; gap: 16px; align-items: flex-start; padding: 20px 0; border-top: 1px solid #cdd3c5; }
+.path-door > div { flex: 1; min-width: 0; }
+.path-door h3 { font-size: 17px; line-height: 1.4; font-weight: 500; letter-spacing: -.025em; }
+.path-door h3 a { display: inline-flex; align-items: center; gap: 6px; text-decoration: underline; text-underline-offset: 4px; }
+.path-door p { margin-top: 5px; font-size: 12.5px; line-height: 1.65; color: #58645a; }
+.path-door p a { color: inherit; text-decoration: underline; text-underline-offset: 3px; }
+.path-door-limit { margin-top: 10px !important; padding-left: 10px; border-left: 2px solid var(--editorial-ink); color: var(--editorial-ink) !important; font-weight: 500; }
+
+/* Scope of a supply, three columns (ScopeTable). */
+.scope-grid { margin-top: 40px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.scope-column { border-top: 2px solid var(--editorial-ink); padding-top: 18px; }
+.scope-column--on-request { border-top-color: #8b9a80; }
+.scope-column--excluded { border-top-color: #a13d32; }
+.scope-column h3 { display: flex; align-items: center; gap: 8px; font-size: 15px; line-height: 1.4; font-weight: 600; color: var(--editorial-ink); }
+.scope-column--excluded h3 svg { color: #a13d32; }
+.scope-column ul { margin-top: 14px; }
+.scope-column li { padding: 9px 0; border-bottom: 1px solid var(--editorial-line); font-size: 14px; line-height: 1.5; color: var(--editorial-muted); }
+.scope-note { margin-top: 28px; max-width: 720px; font-size: 13.5px; line-height: 1.7; font-weight: 500; color: var(--editorial-ink); }
+@media (max-width: 767px) {
+  .scope-grid { grid-template-columns: 1fr; gap: 28px; }
+}
+
+/* First-screen limits on service pages outside the core supply. */
+.boundary-heading { margin-top: 22px; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: var(--editorial-ink); }
+.boundary-list { margin-top: 10px; }
+.boundary-list li { display: flex; gap: 10px; align-items: flex-start; padding: 7px 0; border-top: 1px solid #cdd3c5; font-size: 13px; line-height: 1.55; color: #3f4b42; }
+.boundary-list li svg { flex-shrink: 0; margin-top: 3px; color: var(--editorial-ink); }
+.boundary-list--no li svg { color: #a13d32; }

@@ -11,11 +11,8 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
   const serviceUrls = [
     '/product-sourcing',
-    '/china-sourcing',
     '/china-sourcing-agent',
-    '/supplier-sourcing',
     '/factory-verification',
-    '/supplier-audit-china',
     '/product-development',
     '/private-label-manufacturing',
     '/quality-control-china',
@@ -35,7 +32,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/industries/consumer-products',
     '/industries/building-materials',
     '/industries/furniture',
-    '/industries/private-label',
     '/tools/hs-code-finder',
   ].map((path) => ({
     url: `${marketingOrigin}${path}`,

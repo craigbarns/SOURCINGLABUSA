@@ -1,11 +1,13 @@
-import { SourcingOverview } from '@/components/SourcingOverview';
 import Link from 'next/link';
 import { ArrowUpRight } from 'lucide-react';
 
 import { Navbar } from '@/components/Navbar';
 import { EditorialFooter } from '@/components/EditorialFooter';
 import { CtaLink } from '@/components/CtaLink';
+import { ScopeTable } from '@/components/ScopeTable';
+import { SourcingOverview } from '@/components/SourcingOverview';
 import { StructuredData } from '@/components/StructuredData';
+import { NOT_AN_IMPORTER, PROMISE } from '@/lib/positioning';
 import {
   breadcrumbSchema,
   pageMetadata,
@@ -15,7 +17,7 @@ import {
 
 const title = 'About Our China Sourcing & Product Supply Business';
 const description =
-  'China sourcing projects available now, with invoicing from France or China. Clothing, sportswear, technical apparel and packaging. Miami expansion planned for 2027.';
+  'Custom packaging and textiles supplied under a written contract, invoiced from France or China. Founded by Gregory Baranes, in China sourcing since 2011.';
 export const metadata = pageMetadata({ title, description, path: '/about' });
 
 const facts = [
@@ -24,10 +26,13 @@ const facts = [
     'Gregory Baranes, who has managed China sourcing projects since 2011 through a company with an office in Shanghai, for French fashion and retail brands: apparel, leather jackets, bags, labels and hangtags, hangers, retail packaging and promotional products.',
   ],
   ['Current availability', 'Projects can start now. Contracting and invoicing from France or China, with the company identified in your quotation.'],
-  ['U.S. expansion', 'Planned for Miami in 2027.'],
+  [
+    'U.S. expansion',
+    'A project: a base in Miami is planned for 2027. It is not part of current orders, which are contracted and invoiced from France or China.',
+  ],
   [
     'Who the offer is for',
-    'U.S. brands, e-commerce businesses and other business customers.',
+    'U.S. brands and businesses buying packaging and textiles. As a second path, manufacturers already in production who want to sell in the United States.',
   ],
   [
     'Core specialties',
@@ -39,8 +44,9 @@ const facts = [
   ],
   [
     'Supply relationship',
-    'An established independent sourcing partnership in China.',
+    'An established independent sourcing partnership in Shanghai.',
   ],
+  ['Not included', NOT_AN_IMPORTER.en],
   [
     'Commercial model',
     'Product sourcing, purchase and supply. Current contracts and invoices are issued through France or China; the U.S. expansion is a separate planned step.',
@@ -83,12 +89,11 @@ export default function AboutPage() {
                   <br />
                   <em>From brief to product supply.</em>
                 </h1>
+                <p className="direct-answer">{PROMISE.en}</p>
                 <p className="editorial-body">
-                  Start your China sourcing project now. We work on clothing,
-                  sportswear, technical apparel and packaging, with other
-                  products assessed on request. Current projects are contracted
-                  and invoiced from France or China, through the company
-                  identified in your quotation.
+                  Clothing, sportswear, technical apparel and packaging are the
+                  business; other products are assessed for feasibility on
+                  request.
                 </p>
                 <CtaLink
                   href="/#contact"
@@ -120,6 +125,7 @@ export default function AboutPage() {
             </dl>
           </div>
         </section>
+        <ScopeTable />
         <section className="editorial-section">
           <div className="editorial-container about-details">
             <div>

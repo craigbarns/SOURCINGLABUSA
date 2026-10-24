@@ -2,138 +2,119 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Textile, Apparel & Garment Sourcing | Sourcing Lab USA',
+  title: 'Textile & Garment Production in China: Tech Packs, Lab Dips, Size Sets',
   description:
-    'Direct factory apparel and textile sourcing for U.S. fashion brands, athletic labels, and corporate uniform suppliers. Custom fabrics, tech packs, and production.',
+    'How a garment order is prepared and approved before bulk production: tech pack, fabric, lab dips, fit and size sets. Clothing and textiles supplied under a written contract, invoiced from France or China.',
   path: '/industries/textiles',
 });
 
 const page: ServicePageContent = {
   path: '/industries/textiles',
-  eyebrow: 'Industry Vertical · Textile & Apparel Manufacturing',
-  title: 'Textile, Apparel & Technical Garment Sourcing',
+  eyebrow: 'Clothing and textiles · How a garment order is approved',
+  title: 'Garment production: what gets approved before bulk.',
   directAnswer:
-    'Textile and apparel sourcing connects American fashion labels, sportswear brands, and uniform suppliers with specialized knitting, weaving, dyeing, and garment assembly factories overseas. It manages fabric yarn selection, custom dye lot matching (lab dips), tech pack grading, prototype sampling, FTC fiber labeling compliance, and mass garment production to deliver consistent fit and handfeel.',
+    'A garment order is decided before bulk production, through a sequence of approvals: the tech pack, the fabric, the lab dips for color, the fit sample and the size set. Sourcing Lab USA supplies clothing and textiles made in China under a written contract, and follows production against the approved pre-production sample. The contract and invoice come from the company in France or China named in the quotation.',
   intro:
-    'Textile manufacturing has the narrowest margin for error of any consumer goods category. Minor variations in fabric GSM (grams per square meter), shrinkage rates, dye lot batching, or seam stitching destroy consumer fit and trigger massive retail returns. Sourcing Lab USA delivers rigorous garment tech pack execution and on-site fabric inspection.',
-  overviewTitle: 'Fabric-first garment procurement across premier textile hubs.',
+    'Small variations in fabric weight, shrinkage, dye lot or stitching change how a garment fits and looks. Most of them are prevented by what is written and approved before cutting, not by what is checked after.',
+  overviewTitle: 'Fabric first.',
   overview:
-    'Garment quality is decided at the fabric mill, not at the cutting table. We source fabrics directly from specialized textile hubs in Zhejiang (Shaoxing Keqiao), Jiangsu, and Guangdong, verifying fabric composition, colorfastness, tensile strength, and shrinkage before cut-and-sew operations commence.',
-  processTitle: 'The complete apparel production lifecycle.',
-  offerName: 'Textile & Apparel Manufacturing Sourcing',
+    'Garment quality is largely decided at the fabric stage. Composition, weight, finish and shrinkage are agreed in the specification, and fabric is approved before cutting. Where a wash or colorfastness test is needed, it is done by the laboratory named in the quotation, when written into it.',
+  processTitle: 'The approvals, in order.',
+  offerName: 'Clothing and textile supply',
   offerDescription:
-    'Direct factory procurement of custom clothing collections, technical sportswear, workwear uniforms, knitted fabrics, and branded trims.',
+    'Custom clothing, sportswear and textile products made in China and supplied under a written contract, with tech pack, fabric, lab dip and sample approvals before bulk production.',
   focusAreas: [
     {
-      title: 'Custom Fabric Knitting & Dyeing',
-      body: 'Custom weaving, circular knitting, and piece dyeing for organic cotton, French terry, performance nylon/spandex blends, recycled polyester, and merino wool.',
+      title: 'Fabric',
+      body: 'Knits and wovens such as cotton, French terry, nylon or polyester blends with elastane, and recycled polyester. Composition, weight and finish are written into the specification.',
     },
     {
-      title: 'Sportswear & Performance Technical Apparel',
-      body: 'Moisture-wicking, four-way stretch, anti-microbial treatments, laser-cut ventilation, flatlock stitching, and heat-bonded taped seams for athletic apparel.',
+      title: 'Sportswear constructions',
+      body: 'Stretch fabrics, flatlock stitching, bonded or taped seams. A performance claim on the label needs evidence behind it, agreed before production.',
     },
     {
-      title: 'Tech Pack Execution & Pattern Grading',
-      body: 'Translating design sketches into production-ready tech packs with graded size charts (XS to 3XL), measurement tolerance tables, and construction diagrams.',
+      title: 'Tech pack and grading',
+      body: 'Flat sketches, a graded size chart with tolerances and construction details. Without them, the factory fills the gaps itself.',
     },
     {
-      title: 'Branding Trims, Hardware & Hang Tags',
-      body: 'Custom branded YKK zippers, embossed metal aglets, high-density silicone heat transfers, woven damask neck labels, and FSC-certified retail hang tags.',
+      title: 'Trims, labels and tags',
+      body: 'Zippers, heat transfers, woven labels and hang tags. A branded component or an FSC claim on a tag is specified and evidenced before the artwork is approved.',
     },
   ],
   briefItems: [
     'Garment style, tech pack, measurement specs, or physical reference garment',
     'Fabric composition, desired GSM weight, finish (brushed, peach, water-repellent)',
-    'Size breakdown, colorways, and total order volume (minimum 300–500 units per style)',
-    'Target FOB/DDP unit target price and seasonal delivery deadline',
+    'Size breakdown, colorways and quantity per style',
+    'Target unit price (FOB) and delivery date',
   ],
   workflow: [
     {
-      title: 'Tech Pack & Fabric Mill Alignment',
-      body: 'We review your tech pack specifications, source candidate fabric swatches, and negotiate yarn spinning and knitting parameters with primary textile mills.',
+      title: 'Tech pack and fabric',
+      body: 'We review your tech pack, propose fabric options and agree composition, weight and finish with the factory.',
     },
     {
-      title: 'Lab Dips & Pre-Production Proto Samples',
-      body: 'The factory submits Pantone lab dips (color swatches under D65 light) and constructs a complete prototype garment for fit and construction approval.',
+      title: 'Lab dips and fit sample',
+      body: 'The factory submits lab dips against your color references and makes a fit sample for construction and fit approval.',
     },
     {
-      title: 'Size-Set & Pre-Production (PP) Approval',
-      body: 'Full size sets are sewn across all sizes to verify grading accuracy, followed by formal Pre-Production (PP) golden sample sign-off.',
+      title: 'Size set and pre-production sample',
+      body: 'A size set checks the grading; the pre-production sample you approve becomes the reference for bulk.',
     },
     {
-      title: 'Bulk Cutting, Sewing & In-Line QC',
-      body: 'Fabric rolls are rested to prevent post-cutting shrinkage. Continuous in-line QC monitors seam strength, stitch tension (SPI), and print placement.',
+      title: 'Bulk production',
+      body: 'Production is followed against the approved pre-production sample: fabric, color, measurements, print placement and packing.',
     },
     {
-      title: 'AQL Garment Inspection & Packing',
-      body: 'Where the specification requires it, finished garments undergo metal detector needle checks, measurement tolerance audits, steam finishing, individual polybagging, and master carton packing.',
+      title: 'Inspection, if in the quotation',
+      body: 'A third-party inspection of finished garments, such as measurements, workmanship or needle detection, is added when written into the quotation.',
     },
   ],
   showcaseCategory: 'textile',
-  benchmarks: [
-    {
-      label: 'Minimum order quantity (MOQ)',
-      value: 'From 300 to 500 pcs/style',
-      qualifier: 'Driven by custom fabric knitting and minimum commercial dye vat capacities.',
-    },
-    {
-      label: 'Lab dips & fit sample',
-      value: '10 to 14 days',
-      qualifier: 'Includes physical color swatch submission and initial fit garment prototype.',
-    },
-    {
-      label: 'Bulk cut-and-sew production',
-      value: '35 to 50 days',
-      qualifier: 'Following Pre-Production (PP) sample and trim component approval.',
-    },
-  ],
-  benchmarksNote:
-    'All garments undergo mandatory needle-detector safety screening and ASTM wash shrinkage testing prior to export packing.',
   faqs: [
     {
       question: 'What is a tech pack and why is it necessary for clothing manufacturing?',
       answer:
-        'A tech pack (technical package) is the architectural blueprint for a garment. It contains flat technical sketches, detailed measurement charts with tolerance limits (+/- 0.5 cm), fabric specifications (composition, yarn count, GSM), stitch instructions (SPI), colorways, and trim details. Without a tech pack, factories will guess dimensions, resulting in inconsistent sizing.',
+        'A tech pack is the written specification of a garment: flat sketches, a measurement chart with tolerances, fabric composition and weight, construction details, colorways and trims. Without one, the factory decides what is missing, and sizing drifts.',
     },
     {
       question: 'What are lab dips in textile sourcing?',
       answer:
-        'Lab dips are small fabric swatches (typically 2x2 inches) dyed by the fabric mill to match your specified Pantone Textile (TCX/TPX) color codes under standardized light boxes (D65 daylight, CWF store light). You inspect and approve these before the mill dyes bulk fabric rolls.',
+        'Small fabric swatches dyed to match your color references, checked under agreed light sources. You approve them before the bulk fabric is dyed.',
     },
     {
-      question: 'What legal labels are mandatory on clothing imported into the United States?',
+      question: 'What labels does clothing sold in the United States need?',
       answer:
-        'Under FTC regulations, apparel sold in the U.S. must have a permanent label stating: (1) Fiber content percentages in descending order, (2) Country of Origin ("Made in China"), (3) RN or WPL number (or company legal name), and (4) Care instructions in accordance with the Care Labeling Rule.',
+        'Under FTC rules, most apparel needs fiber content, country of origin and the identity of the manufacturer or dealer (an RN number or company name), plus care instructions under the Care Labeling Rule. Check the FTC guidance for your product before artwork is approved.',
     },
     {
-      question: 'How do you prevent fabric shrinkage and color bleeding in bulk production?',
+      question: 'How are shrinkage and color bleeding handled?',
       answer:
-        'We mandate pre-shrinking processes (such as sanforization or compacting) at the fabric mill and conduct AATCC wash testing for colorfastness to washing and perspiration before bulk cutting begins.',
+        'Shrinkage limits and finishing are written into the fabric specification and checked on the approved samples. Where a wash or colorfastness test is needed, it is done by the laboratory named in the quotation, when written into it.',
     },
   ],
-  briefTitle: 'Submit your apparel sourcing brief.',
+  briefTitle: 'Send your garment brief.',
   briefIntro:
-    'Send your tech packs, reference garments, and volume projections. We will evaluate fabric sourcing and provide direct factory manufacturing options.',
+    'Tech pack or reference garment, quantity per style and target date. We confirm what can be quoted and sampled.',
   relatedPages: [
     {
       href: '/custom-textile',
-      title: 'Custom Clothing & Textiles',
-      description: 'Our established clothing and apparel procurement framework.',
+      title: 'Clothing and textiles',
+      description: 'The clothing and textile supply: scope, terms and what to send.',
     },
     {
       href: '/sportswear-sourcing',
-      title: 'Sportswear & Technical Apparel',
-      description: 'Performance fabrics, fit engineering, and activewear manufacturing.',
+      title: 'Sportswear',
+      description: 'Activewear and team apparel supplied under a written contract.',
     },
     {
       href: '/product-sourcing',
-      title: 'Product Sourcing Overview',
-      description: 'Direct overseas factory procurement and manufacturing execution.',
+      title: 'Other products',
+      description: 'How products outside packaging and textiles are reviewed.',
     },
     {
       href: '/quality-control-china',
-      title: 'Quality Control & Inspections',
-      description: 'Textile inspections, needle detection, and size-set audits.',
+      title: 'Inspections',
+      description: 'Third-party inspections, added when written into the quotation.',
     },
   ],
 };

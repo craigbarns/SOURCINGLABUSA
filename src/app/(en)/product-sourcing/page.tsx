@@ -1,124 +1,125 @@
 import { ServiceLandingPage, type ServicePageContent } from '@/components/ServiceLandingPage';
+import { NOT_AN_IMPORTER } from '@/lib/positioning';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Product Sourcing Company USA | Direct Overseas Procurement',
+  title: 'Product Sourcing in China: Other Products, Reviewed for Feasibility',
   description:
-    'End-to-end product sourcing for U.S. brands and enterprises. Direct manufacturer screening, price negotiation, factory audits, quality control, and delivered supply.',
+    'Products outside packaging and textiles are reviewed for feasibility before anything is quoted. If quoted, they follow the same supply: factory search, pricing, samples, order and production follow-up, invoiced from France or China.',
   path: '/product-sourcing',
 });
 
 const page: ServicePageContent = {
   path: '/product-sourcing',
-  eyebrow: 'Global Sourcing & Procurement · Built for U.S. Businesses',
-  title: 'Product Sourcing Company for U.S. Brands & Enterprises',
+  eyebrow: 'Other products · Feasibility review, then supply',
+  title: 'Other products: reviewed for feasibility, then supplied like the rest.',
   directAnswer:
-    'A product sourcing company identifies, evaluates, and manages overseas manufacturing partners on behalf of domestic businesses. Rather than relying on unverified online directories or trading intermediaries, an operational sourcing partner audits factory capabilities, negotiates direct manufacturer pricing, oversees sample prototyping, enforces quality control standards, and coordinates cross-border logistics through to final U.S. delivery.',
+    'Sourcing Lab USA’s business is custom packaging and textiles. Other products can be reviewed on request: we check whether the product, its specification, the quantity and the requirements that apply can be quoted through our partnership in China. If they can, the product is supplied like the rest: factory search, pricing, samples, order and production follow-up, under a contract and invoice from the company named in the quotation.',
   intro:
-    'Navigating international manufacturing requires technical verification, commercial discipline, and clear operational accountability. Sourcing Lab USA helps American companies connect directly with capable overseas manufacturers, ensuring transparent supplier economics and reduced supply chain vulnerabilities.',
-  overviewTitle: 'Direct factory procurement without middleman opacity.',
+    'Packaging and textiles are where the experience is deepest. Other products are not refused, but they start with a feasibility review rather than a promise, and the answer can be no.',
+  overviewTitle: 'What the feasibility review decides.',
   overview:
-    'Most cross-border sourcing failures happen before the first purchase order is signed. Misaligned technical drawings, unverified production capacity, unvetted subcontractors, and ambiguous commercial terms cause delays, cost overruns, and severe quality degradation. We operate as your dedicated procurement execution team, validating every manufacturer, engineering specification, and supply contract.',
-  processTitle: 'The 6-stage product sourcing workflow.',
-  offerName: 'Product Sourcing & Procurement Management',
+    'The review asks four questions before any quotation: can a manufacturer we can check make this product to your specification; does your quantity fit its minimums; which requirements apply to the product, and what evidence they call for; and does the price make sense once freight and duties are added. It ends with a clear answer: quoted, quoted with conditions, or declined.',
+  processTitle: 'From review to supply.',
+  offerName: 'Product supply for other products, after feasibility review',
   offerDescription:
-    'Comprehensive overseas manufacturer identification, factory auditing, commercial negotiation, sample development, quality assurance, and delivered international supply.',
+    'Feasibility review, then factory search, pricing, samples, order and production follow-up for products outside the core packaging and textile supply.',
   focusAreas: [
     {
-      title: 'Direct Manufacturer Identification',
-      body: 'We screen and bypass third-party trading brokers, locating direct industrial manufacturers with verifiable production lines, audited quality management systems, and relevant export experience.',
+      title: 'Specification',
+      body: 'Drawings, a reference product, materials and finish. The more of it is written down, the faster the review, and the clearer the sample to approve.',
     },
     {
-      title: 'Commercial Negotiation & Tooling',
-      body: 'We negotiate unit pricing, volume tiered thresholds, minimum order quantities (MOQs), payment terms, and tooling/mold ownership to protect your intellectual property and profit margins.',
+      title: 'Quantity',
+      body: 'Minimum quantities follow the process, the material and the number of versions. The review says what is realistic for your quantity.',
     },
     {
-      title: 'Technical Specification & Prototyping',
-      body: 'From bills of materials (BOM) and tech packs to golden samples, we ensure factory engineers reproduce your exact tolerances, dimensions, material grades, and cosmetic standards.',
+      title: 'Requirements and evidence',
+      body: 'Some products need a test or a certificate to be sold in the U.S. Which ones apply is confirmed per product; tests are done by the laboratory named in the quotation, when written into it.',
     },
     {
-      title: 'End-to-End Supply Accountability',
-      body: 'Specifications, sample sign-offs, production milestones, AQL quality inspections, and commercial terms are contractually locked before mass production commences.',
+      title: 'Tooling',
+      body: 'Where a product needs a mold or tooling, its cost, ownership and where it is kept are written into the quotation before anything is paid.',
     },
   ],
   briefItems: [
-    'Product category, functional requirements, and reference samples or 2D/3D CAD drawings',
-    'Target order volumes, annual forecast, and required packaging specifications',
-    'Benchmark unit target cost and landed cost expectations',
-    'Mandatory regulatory certifications, testing protocols, and delivery timeline',
+    'The product: drawings, photos or a reference product',
+    'Materials, finish and packaging',
+    'Quantity and target date',
+    'Any test or certificate your market or buyer requires',
   ],
   workflow: [
     {
-      title: 'Technical Brief & Feasibility Review',
-      body: 'We review your product specifications, bills of materials, volume requirements, and target pricing to assess manufacturing feasibility, tooling requirements, and applicable tariff brackets.',
+      title: 'Feasibility review',
+      body: 'We review the product, quantity and requirements with our partnership in China.',
     },
     {
-      title: 'Factory Screening & Background Audits',
-      body: 'We identify and evaluate multiple candidate manufacturers, validating business licenses, export records, machinery capacity, labor standards, and on-site production capabilities.',
+      title: 'A clear answer',
+      body: 'Quoted, quoted with conditions, or declined, with the reason.',
     },
     {
-      title: 'Commercial Terms & Prototyping',
-      body: 'We negotiate pricing, tooling costs, and production lead times, then coordinate sample production and laboratory testing until physical golden samples are formally approved.',
+      title: 'Factory search and pricing',
+      body: 'Checked manufacturers, prices and the terms of the quotation.',
     },
     {
-      title: 'Production Oversight & Quality Control',
-      body: 'During production and prior to shipment, on-site quality inspectors verify dimensions, workmanship, packaging, and safety standards against your signed golden sample.',
+      title: 'Samples',
+      body: 'Samples against your specification; the one you approve becomes the reference.',
     },
     {
-      title: 'Customs & Delivered Supply',
-      body: 'We coordinate freight booking, export documentation, US Customs clearance support, and final warehouse delivery under transparent Incoterms.',
+      title: 'Order and production follow-up',
+      body: 'Production is followed against the approved sample, with any inspection or test written into the quotation.',
     },
   ],
+  benchmarks: [],
   faqs: [
     {
-      question: 'What does a product sourcing company do?',
+      question: 'Do you source products other than packaging and textiles?',
       answer:
-        'A product sourcing company manages the entire supplier discovery, validation, and procurement lifecycle. This includes identifying legitimate manufacturers, auditing factories, negotiating pricing and MOQs, overseeing sample creation, enforcing quality control, and managing international shipping and import compliance.',
+        'On request, after a feasibility review. Packaging and textiles are the business; other products are reviewed before anything is quoted, and the answer can be no.',
     },
     {
-      question: 'How does Sourcing Lab USA differ from browsing Alibaba or Global Sources?',
+      question: 'Who do I contract with and pay?',
       answer:
-        'Online directories list thousands of trading middlemen, unverified workshops, and commission agents posing as direct factories. Sourcing Lab USA conducts on-site factory verification, verifies legal business registrations and machinery, tests physical samples, negotiates institutional terms, and maintains direct operational oversight throughout production.',
+        'The company named in your quotation, in France or China. It supplies the product; you do not pay an unknown factory account.',
     },
     {
-      question: 'Can you source custom OEM and ODM products?',
+      question: 'How is this different from buying on a B2B marketplace?',
       answer:
-        'Yes. We regularly manage custom tooling, mold fabrication, proprietary technical textiles, electronics housings, precision hardware, and bespoke retail packaging. All custom tooling and proprietary designs remain 100% your company property.',
+        'You buy from one named company under a written contract, against an approved sample, instead of choosing among listings and carrying the supplier risk yourself.',
     },
     {
-      question: 'How are sourcing services structured and priced?',
+      question: 'Who owns custom tooling?',
       answer:
-        'Depending on project scope and client requirements, engagements are structured as delivered product supply contracts (with transparent, all-inclusive product unit pricing) or dedicated procurement management agreements. All commercial terms and responsibilities are confirmed in writing before commitment.',
+        'It depends on the terms, which is why tooling cost, ownership and where it is kept are written into the quotation before anything is paid.',
     },
     {
-      question: 'What geographic regions do you cover?',
-      answer:
-        'Our primary manufacturing network spans China (Guangdong, Zhejiang, Jiangsu, Shandong, Fujian), Southeast Asia (Vietnam, Cambodia), and Europe, with centralized operations coordinating deliveries directly into North American distribution hubs.',
+      question: 'Who handles freight and the import?',
+      answer: NOT_AN_IMPORTER.en,
     },
   ],
-  briefTitle: 'Submit your product sourcing brief.',
+  briefTitle: 'Send your product brief.',
   briefIntro:
-    'Share your product specifications, target volumes, and delivery timeline. Our procurement team will review feasibility and respond with concrete manufacturing options.',
+    'Product, materials, quantity and any requirement. We confirm whether it can be quoted before anything else.',
   relatedPages: [
     {
-      href: '/china-sourcing',
-      title: 'China Sourcing Services',
-      description: 'On-the-ground manufacturing coordination and supplier verification across industrial clusters.',
+      href: '/industries/consumer-products',
+      title: 'Consumer products',
+      description: 'Why the U.S. requirements decide feasibility first.',
+    },
+    {
+      href: '/industries/furniture',
+      title: 'Furniture',
+      description: 'Bulky freight, hardware and materials rules, reviewed first.',
+    },
+    {
+      href: '/industries/building-materials',
+      title: 'Building materials',
+      description: 'Specification and standards evidence before any quotation.',
     },
     {
       href: '/factory-verification',
-      title: 'Factory Verification & Audits',
-      description: 'On-site factory inspections, license checks, and machinery verification before you wire funds.',
-    },
-    {
-      href: '/quality-control-china',
-      title: 'Quality Control & Inspections',
-      description: 'Pre-shipment inspections (PSI) and during-production audits using statistical sampling standards.',
-    },
-    {
-      href: '/landed-cost-analysis',
-      title: 'Landed Cost Analysis',
-      description: 'Accurate modeling of duty, ocean freight, drayage, and tariff impact on product margins.',
+      title: 'Factory checks',
+      description: 'How a manufacturer is checked before it is proposed.',
     },
   ],
 };

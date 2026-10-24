@@ -10,6 +10,7 @@ import { StructuredData } from '@/components/StructuredData';
 import { homeLanguages, organizationGraph } from '@/lib/seo';
 
 import '../globals.css';
+import { PROMISE } from '@/lib/positioning';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -32,11 +33,11 @@ export const metadata: Metadata = {
     telephone: false,
   },
   title: {
-    default: 'Sourcing Global y Entrada al Mercado de EE. UU. | Sourcing Lab USA',
+    default: 'Packaging y textiles a medida fabricados en China | Sourcing Lab USA',
     template: '%s | Sourcing Lab USA',
   },
   description:
-    'Ayudamos a empresas estadounidenses a buscar y fabricar en el extranjero, y ayudamos a fabricantes internacionales a entrar, distribuir y crecer en el mercado de Estados Unidos. Verificación directa de fábricas, control de calidad y representación comercial.',
+    PROMISE.es,
   alternates: {
     canonical: `${marketingOrigin}/es`,
     languages: homeLanguages,
@@ -64,15 +65,15 @@ export const metadata: Metadata = {
     alternateLocale: ['en_US'],
     siteName: 'Sourcing Lab USA',
     url: `${marketingOrigin}/es`,
-    title: 'Sourcing Global y Entrada al Mercado de EE. UU. | Sourcing Lab USA',
+    title: 'Packaging y textiles a medida fabricados en China | Sourcing Lab USA',
     description:
-      'Ayudamos a empresas estadounidenses a buscar y fabricar en el extranjero, y ayudamos a fabricantes internacionales a entrar, distribuir y crecer en el mercado de Estados Unidos. Verificación directa de fábricas, control de calidad y representación comercial.',
+      PROMISE.es,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Sourcing Global y Entrada al Mercado de EE. UU. | Sourcing Lab USA',
+    title: 'Packaging y textiles a medida fabricados en China | Sourcing Lab USA',
     description:
-      'Ayudamos a empresas estadounidenses a buscar y fabricar en el extranjero, y ayudamos a fabricantes internacionales a entrar, distribuir y crecer en el mercado de Estados Unidos. Verificación directa de fábricas, control de calidad y representación comercial.',
+      PROMISE.es,
   },
 };
 

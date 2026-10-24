@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 
+import { PROMISE, PROMISE_STATEMENT } from '@/lib/positioning';
 import { getDomainRoutingConfig } from '@/lib/routing/subdomains';
 
 export const SITE_NAME = 'Sourcing Lab USA';
@@ -7,8 +8,8 @@ export const { marketingOrigin: SITE_ORIGIN } = getDomainRoutingConfig();
 export const ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
 export const FOUNDER_ID = `${SITE_ORIGIN}/about#founder`;
 export const WEBSITE_ID = `${SITE_ORIGIN}/#website`;
-export const SITE_DESCRIPTION =
-  'Global sourcing, overseas manufacturing management, and U.S. market-entry execution for American brands and international manufacturers. Supplier verification, quality control, landed-cost modeling, and U.S. sales representation.';
+/** Default meta description: the promise, as worded in src/lib/positioning.ts. */
+export const SITE_DESCRIPTION = PROMISE.en;
 
 export const homeLanguages = {
   'en-US': `${SITE_ORIGIN}/`,
@@ -92,25 +93,14 @@ export const CONTACT_EMAIL = 'contact@sourcinglabusa.com';
  * to real published content rather than an ambition.
  */
 export const ORGANIZATION_TOPICS = [
-  'Global sourcing',
-  'Product sourcing',
-  'China sourcing company USA',
-  'China sourcing agent',
-  'Supplier sourcing USA',
-  'Factory verification',
-  'Supplier audit China',
-  'Quality control China USA',
-  'Private label manufacturing',
-  'Product development China USA',
+  'China sourcing',
   'Custom packaging sourcing',
-  'Textile and apparel sourcing',
-  'Freight and logistics sourcing',
-  'Customs compliance and HS code consulting',
-  'Landed cost analysis',
-  'China-to-United States procurement',
-  'U.S. market entry consulting',
-  'Manufacturer sales representative USA',
-  'U.S. sales representation for foreign manufacturers',
+  'Private label packaging',
+  'Clothing and textile sourcing',
+  'Sportswear and technical apparel sourcing',
+  'Product specification and sampling',
+  'Production follow-up',
+  'China-to-United States product supply',
 ];
 
 /**
@@ -131,7 +121,7 @@ export function organizationGraph() {
         name: SITE_NAME,
         alternateName: 'SourcingLab USA',
         url: absoluteUrl('/'),
-        description: SITE_DESCRIPTION,
+        description: PROMISE_STATEMENT.en,
         logo: {
           '@type': 'ImageObject',
           url: absoluteUrl('/sourcinglab-icon-512.png'),
@@ -164,7 +154,7 @@ export function organizationGraph() {
         name: 'Gregory Baranes',
         jobTitle: 'Founder',
         description:
-          'Founder of Sourcing Lab USA, with years of hands-on experience in international sourcing, product development and cross-border business.',
+          'Founder of Sourcing Lab USA, who has managed China sourcing projects since 2011.',
         knowsAbout: ORGANIZATION_TOPICS,
         worksFor: { '@id': ORGANIZATION_ID },
         mainEntityOfPage: absoluteUrl('/about'),

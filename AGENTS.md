@@ -1,97 +1,100 @@
 # Sourcing Lab USA business guardrails
 
-## Business model immutability
+## The promise is the contract's
 
 SEO must follow the business model. SEO must never redefine the business model.
 
-Sourcing Lab USA serves two commercial directions, confirmed by the owner on
-October 4, 2026:
+On October 24, 2026 the owner set one promise for the whole site, in every
+language. The site repeats it; it never promises more than a quotation and a
+contract can hold:
 
-1. **Outbound sourcing.** U.S. business customers sourcing, manufacturing and
-   buying products overseas, principally from China.
-2. **Inbound market entry.** International manufacturers preparing to enter,
-   distribute and sell in the United States.
+> Sourcing Lab USA has custom packaging and textiles made at the factory and
+> supplies them. The contract and the invoice come from a company in France or
+> China, named in the quotation.
 
-Clothing, textiles, and packaging remain the deepest specialties. Other
-products and industries may be served after the product scope and feasibility
-are confirmed.
+The wording used on the site lives in `src/lib/positioning.ts`. Change it
+there, not page by page.
 
-A Miami expansion is planned for 2027. Projects can be executed and invoiced
-now through France or China. Lead marketing with current project availability.
-Describe 2027 only as the planned U.S./Miami expansion, not the start of all
-commercial activity. The quotation must identify the contracting and invoicing
-company. Exact legal entity names have not yet been provided; do not invent
-them or imply that an American entity invoices current orders.
+Clothing, textiles, sportswear and packaging are the business. Other products
+are reviewed for feasibility on request; furniture and building materials are
+"other products", never a specialty.
 
-The core U.S. commercial model remains the purchase, supply, and resale of
-products. Products may be delivered directly from China to the customer;
-import and delivery responsibilities must be confirmed per order.
+## Two paths, not a catalogue
 
-## Services within the confirmed offer
+1. **Buying a product** (the business). Packaging, textiles, sportswear.
+   Deliverable: factory options, prices, a sample, then the order.
+2. **Selling in the United States** (a second path, not the core business).
+   For manufacturers already in production. Deliverable: a reading of the U.S.
+   compliance requirements that apply, a wholesale price, and targeted
+   introductions to U.S. buyers. Visible limit: no U.S. company is formed for
+   the manufacturer and nothing is imported in its name.
 
-The owner confirmed on October 4, 2026 that the offer now includes, alongside
-sourcing and product supply:
+## Scope, written the same way everywhere
 
-- Factory verification, supplier background checks and on-site supplier audits
-- Quality control and pre-shipment inspection in China
-- Freight sourcing and cross-border logistics coordination
-- HS code and tariff classification advisory, and landed cost analysis
-- U.S. market entry support and commercial representation for foreign
-  manufacturers
-- Product development and OEM/ODM coordination
+| Included in a supply | Only if written into the quotation | Outside the scope |
+|---|---|---|
+| Brief, factory search, pricing, samples, order and production follow-up | Third-party inspection, lab testing, HS code classification, landed-cost model | Customs clearance, freight forwarding, U.S. storage, a U.S. company |
 
-### Still required for each of these services
+Fixed line: Sourcing Lab USA is not a freight forwarder, a customs broker or an
+importer. Transport, insurance and U.S. entry are named in the quotation, or
+stay on the customer's side.
 
-**Say how the service is delivered.** For every service above, the published
-page must make clear whether Sourcing Lab USA performs the work itself or
-coordinates an appointed specialist. Do not imply employed staff, owned
-facilities, or in-house accreditation that has not been documented. Phrases
-such as "our inspectors", "our auditors", "certified inspector", "in-house
-laboratory" or "local American sales force" require documented personnel or
-must be rewritten as coordination of appointed specialists.
+## Verbs
 
-**Do not claim credentials that have not been evidenced.** "Certified",
-"accredited", "independent third-party", "legal", "licensed" and "expert"
-are credential claims. Publish them only where the credential is held and
-documented, or attribute them to the appointed specialist who holds them.
+| May say | Must not say |
+|---|---|
+| source, quote, sample, contract, follow production | "we clear customs", "we are your freight forwarder" |
+| coordinate an inspection or a test, when it is in the quotation | "AQL 2.5 on every order", inspections as a default |
+| estimate a landed cost; classify an HS code as working research | "we are the importer of record" |
+| introduce a qualified manufacturer to U.S. buyers | "Miami office", "U.S. legal representation", a local U.S. sales force |
 
-**Customs and tariff advisory is advisory.** Classification guidance must not
-be presented as a customs ruling, a legal determination, or a substitute for a
-licensed customs broker or CBP binding ruling. Keep this consistent with
-/tools/hs-code-finder, which states that it does not determine an HS code,
-duty rate, or import requirement.
+Pages for out-of-scope or second-path subjects keep their URLs. Their first
+screen states what is coordinated and what is not done.
 
-## Claims that are prohibited unless documented and operational
+## Company facts
+
+Projects are executed and invoiced now through a company in France or China,
+named in the quotation. Exact legal entity names have not been provided; do not
+invent them or imply that an American entity invoices orders.
+
+A Miami expansion is planned for 2027. It is a project, stated on the About
+page only, never part of the promise or of any other page.
+
+The China sourcing relationship is an established independent partnership in
+Shanghai, not a Sourcing Lab USA-owned factory network or a U.S. employee team.
+
+The founder, Gregory Baranes, has managed China sourcing projects since 2011.
+
+## Claims that need proof
 
 Do not claim existing U.S. offices, employees, warehouses, or inventory.
 
 Never publish client identities, results, savings, lead times, photos,
 certifications, or compliance claims without documented proof and approval.
-This includes published turnaround times ("within 24 hours", "within 24-48
-hours", "20 to 30 days") and savings or margin figures ("up to 20% savings",
-"55% to 75% gross margins", "70% lower tooling costs"). Each requires either a
+This includes turnaround times and savings or margin figures. Each requires a
 cited authoritative source or removal.
 
-The China sourcing relationship is an established independent partnership, not
-a Sourcing Lab USA-owned factory network or a U.S. employee team.
+"Certified", "accredited", "independent third-party", "legal", "licensed" and
+"expert" are credential claims. Publish them only where held and documented,
+or attribute them to the appointed specialist who holds them.
+
+Customs and tariff work is working research, never a ruling, a legal
+determination, or a substitute for a licensed customs broker. Keep this
+consistent with /tools/hs-code-finder.
+
+## Case studies
+
+Every case carries one of two labels. "Founder's record, before Sourcing Lab
+USA" for projects from the founder's earlier work. "Sourcing Lab USA project"
+only where a current project record exists. No invented metric.
 
 ## Content and SEO rules
 
-Present clothing/textiles and packaging as the deepest specialties within a
-broader sourcing, supply and market-entry business. Name additional categories
-only when the owner confirms them; do not imply an unlimited catalog or
-guaranteed feasibility. Keep dedicated category pages specific to the
-documented offer.
-
-**No doorway pages.** Service and industry pages must carry genuinely distinct
-substance. Pages generated from one template with substituted keywords, and
-adding no information a reader could not get from a sibling page, must be
-consolidated rather than published.
+**No doorway pages.** Pages generated from one template with substituted
+keywords, adding nothing a sibling page does not say, are consolidated.
 
 Before publishing time-sensitive, legal, customs, tariff, regulatory, or
 statistical claims, verify a current authoritative source and record the date
-checked on the page. Duty rates, Section 301 lists, MPF/HMF rates and
-compliance standards change; an unsourced figure is a liability. Clearly
-distinguish current capabilities from planned U.S. operations for 2027.
+checked on the page.
 
 Accuracy comes before optimization.

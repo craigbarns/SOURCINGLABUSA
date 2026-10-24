@@ -94,7 +94,7 @@ export const customPackagingPage: ServicePageContent = {
     {
       question: 'Can packaging be delivered to the United States?',
       answer:
-        'Products may be delivered directly from China to the agreed U.S. destination. Shipping terms and import responsibilities are confirmed for each order.',
+        'Yes, packaging can ship directly from China to your U.S. address. We are not a freight forwarder, a customs broker or an importer: transport, insurance and U.S. entry are named in your quotation, or stay on your side.',
     },
   ],
   showcaseCategory: 'packaging',
@@ -212,7 +212,7 @@ export const customTextilePage: ServicePageContent = {
     {
       question: 'How are quality requirements handled?',
       answer:
-        'Quality expectations and checkpoints are agreed for the specific order. They are part of production coordination, not an independent certified inspection service.',
+        'Quality expectations and checkpoints are agreed for the specific order, and production is followed against the approved sample. A third-party inspection is added only when it is written into the quotation.',
     },
   ],
   showcaseCategory: 'textile',
@@ -220,6 +220,11 @@ export const customTextilePage: ServicePageContent = {
   briefIntro:
     'Product, fabric or construction, branding, sizes, quantity, and destination. We confirm what can be quoted and sampled, and reply by email.',
   relatedPages: [
+    {
+      href: '/industries/textiles',
+      title: 'Garment approvals, step by step',
+      description: 'Tech pack, fabric, lab dips, fit sample and size set before bulk.',
+    },
     {
       href: '/sportswear-sourcing',
       title: 'Sportswear and technical apparel sourcing',
@@ -266,7 +271,7 @@ export const privateLabelPackagingPage: ServicePageContent = {
   intro:
     'Build packaging around your product and brand identity with the information, materials, print details, and presentation requirements documented in one project brief.',
   directAnswer:
-    'Private label packaging is packaging that carries your brand rather than the supplier brand. Sourcing Lab USA develops it from your artwork or references, confirming material, structure, print method, finish and quantity before production, then coordinates sampling and supply through an independent China partnership. Import and delivery responsibilities are confirmed per order in the quotation.',
+    'Private label packaging is packaging that carries your brand rather than the supplier brand. Sourcing Lab USA develops it from your artwork or references, confirming material, structure, print method, finish and quantity before production, then coordinates sampling and supply through an independent China partnership. Transport, insurance and U.S. entry are named in the quotation, or stay on your side.',
   overview:
     'Private label packaging is more than a logo on a box. The format, product fit, visual hierarchy, labels, inserts, and unboxing details all need to work together for the product you are placing on the market.',
   offerName: 'Private Label Packaging Development',
@@ -337,6 +342,11 @@ export const privateLabelPackagingPage: ServicePageContent = {
     'Product, artwork or references, material, finish, quantity, and destination. We confirm what can be quoted and sampled, and reply by email.',
   relatedPages: [
     {
+      href: '/private-label-manufacturing',
+      title: 'Private label products',
+      description: 'Your brand on the product itself: labels, colors, trims.',
+    },
+    {
       href: '/china-to-us-procurement',
       title: 'China-to-U.S. product supply and order terms',
       description: 'Understand the contracting company, product quotation and responsibilities agreed before your order.',
@@ -377,7 +387,7 @@ export const chinaToUsProcurementPage: ServicePageContent = {
   intro:
     'Start your China sourcing and product supply project now. Clothing, sportswear, technical apparel and packaging are our core specialties; other products are assessed on request. Your quote identifies the contracting and invoicing company in France or China.',
   directAnswer:
-    'China-to-U.S. procurement covers finding a supplier, agreeing a specification, approving a sample and having the goods produced and delivered. Sourcing Lab USA buys and supplies the products rather than acting only as an introducer: clothing, textiles and packaging are the core specialties, other products are reviewed for feasibility, and the quotation names the company in France or China that contracts and invoices.',
+    'China-to-U.S. procurement covers finding a supplier, agreeing a specification, approving a sample and having the goods produced and shipped. Sourcing Lab USA buys and supplies the products rather than acting only as an introducer: clothing, textiles and packaging are the core specialties, other products are reviewed for feasibility, and the quotation names the company in France or China that contracts and invoices.',
   overview:
     'China-to-U.S. procurement begins with a product brief and finishes with commercial terms that make the responsibilities clear. Product specifications, samples, production coordination, shipping terms, and importer responsibilities are confirmed order by order.',
   offerName: 'China-to-U.S. Product Procurement',
@@ -398,7 +408,7 @@ export const chinaToUsProcurementPage: ServicePageContent = {
     },
     {
       title: 'A U.S. destination',
-      body: 'Products may be delivered directly from China to the agreed U.S. destination under the commercial terms agreed for the order.',
+      body: 'Goods may ship directly from China to your U.S. destination. Transport, insurance and U.S. entry are named in the quotation, or stay on your side.',
     },
   ],
   briefItems: [
@@ -429,7 +439,7 @@ export const chinaToUsProcurementPage: ServicePageContent = {
     {
       question: 'Can you source products beyond clothing and packaging?',
       answer:
-        'Yes. Other products can be assessed on request, based on their specifications, quantity and production requirements. Our offer is product sourcing and supply; customs brokerage and freight forwarding are not standalone services.',
+        'On request, after a feasibility review of the specification, quantity and requirements. Packaging and textiles are the business, and the answer for another product can be no. We are not a freight forwarder, a customs broker or an importer.',
     },
     {
       question: 'Who is responsible for import requirements?',
@@ -439,7 +449,7 @@ export const chinaToUsProcurementPage: ServicePageContent = {
     {
       question: 'Is there already a U.S. office or warehouse?',
       answer:
-        'No. The Miami expansion is planned for 2027. You can already work with us through France or China; the company handling your contract and invoice is identified in your quotation.',
+        'No. There is no U.S. office, warehouse or inventory. Projects are contracted and invoiced from France or China, by the company identified in your quotation.',
     },
   ],
   briefTitle: 'Send your procurement brief.',

@@ -1,10 +1,27 @@
+import { Fragment } from 'react';
 import { ArrowDown, ArrowUpRight } from 'lucide-react';
+
 import { CtaLink } from './CtaLink';
 import { SourcingOverview } from './SourcingOverview';
+import {
+  DOORS,
+  MARKET_ENTRY_SUMMARY,
+  NOT_AN_IMPORTER,
+  PROMISE,
+} from '@/lib/positioning';
 
+/**
+ * English and Spanish open on the promise: product supply from the factory,
+ * under a written contract. The Chinese hub is aimed at manufacturers selling
+ * into the United States, so it opens on that path's limit instead.
+ * All three end on the same fixed line. Wording: src/lib/positioning.ts.
+ */
 export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' | 'zh' }) {
   const es = locale === 'es';
   const zh = locale === 'zh';
+  const { buy, sell } = DOORS[locale];
+  const contactHref = es ? '/es#contact' : '#contact';
+
   return (
     <section className="editorial-hero" aria-labelledby="hero-heading">
       <div className="editorial-container hero-layout sourcing-hero">
@@ -12,88 +29,77 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' | 'zh' }) {
           <p className="editorial-kicker">
             <span className="launch-dot" aria-hidden="true" />
             {zh
-              ? '全球制造出海 · 美国市场准入与商业代表'
+              ? '美国市场准入 · 边界先写清楚'
               : es
-                ? 'SOURCING GLOBAL & ENTRADA AL MERCADO DE EE. UU.'
-                : 'GLOBAL SOURCING & U.S. MARKET ENTRY'}
+                ? 'PACKAGING Y TEXTILES A MEDIDA · PROYECTOS ABIERTOS'
+                : 'CUSTOM PACKAGING & TEXTILES · PROJECTS OPEN NOW'}
           </p>
           <h1 id="hero-heading">
             {zh ? (
               <>
-                美国市场准入<br />
-                <em>&amp; 美国商业代表</em>
+                进入美国市场<br />
+                <em>先把边界写清楚。</em>
               </>
             ) : es ? (
               <>
-                Sourcing global<br />
-                <em>&amp; entrada al mercado de EE. UU.</em>
+                Suministro de producto,<br />
+                <em>desde la fábrica.</em>
               </>
             ) : (
               <>
-                Global Sourcing<br />
-                <em>&amp; Market Entry for the U.S.</em>
+                Product supply,<br />
+                <em>from the factory.</em>
               </>
             )}
           </h1>
           <p className="hero-description">
             {zh
-              ? '克服中美时差、语言壁垒与合规鸿沟。为中国优质制造企业与出海品牌提供端到端的美国落地执行：全美商业代表、B2B买家直采对接、FDA/CPSC/FCC法规映射、到岸关税测算及本土3PL海外仓履约协同。'
-              : es
-                ? 'Ayudamos a empresas estadounidenses a buscar, verificar y fabricar en el extranjero, y ayudamos a fabricantes internacionales a entrar, distribuir y crecer en el mercado de Estados Unidos.'
-                : 'We help U.S. companies source and manufacture overseas — and help international manufacturers enter, distribute, and grow in the United States.'}
+              ? MARKET_ENTRY_SUMMARY.zh
+              : PROMISE[locale]}
           </p>
           <div className="hero-actions">
             <CtaLink
-              href="#contact"
+              href={zh ? '#contact' : contactHref}
               location="hero"
-              label={zh ? '提交出海需求评估' : es ? 'Reservar una consulta' : 'Book a Sourcing Call'}
+              label={zh ? sell.button : buy.button}
               className="editorial-button"
             >
-              {zh ? '提交出海需求评估' : es ? 'Reservar una consulta' : 'Book a Sourcing Call'}
+              {zh ? sell.button : buy.button}
               <ArrowUpRight size={18} aria-hidden="true" />
             </CtaLink>
             <CtaLink
-              href="#representation"
+              href={zh ? '#scope' : sell.href}
               location="hero"
-              label={zh ? '了解核心能力' : es ? 'Cuéntanos qué buscas' : "Tell Us What You're Looking For"}
+              label={zh ? '查看服务边界' : sell.button}
               className="editorial-text-link"
             >
-              {zh ? '了解核心落地能力' : es ? 'Cuéntanos qué buscas' : "Tell Us What You're Looking For"}
-              <ArrowDown size={16} aria-hidden="true" />
+              {zh ? '查看服务边界' : sell.button}
+              {zh ? (
+                <ArrowDown size={16} aria-hidden="true" />
+              ) : (
+                <ArrowUpRight size={16} aria-hidden="true" />
+              )}
             </CtaLink>
           </div>
-          <p className="sourcing-launch-note">
-            {zh
-              ? '按美东/美西工作时间沟通 · FDA/CPSC/FCC法规映射 · 美国批发商对接 · 10位数HTS税号测算'
-              : es
-                ? 'Ejecución transparente de compras internacionales y apoyo comercial para empresas en el mercado de EE. UU.'
-                : 'Transparent procurement execution and commercial coordination for companies operating in the U.S. market.'}
-          </p>
+          <p className="sourcing-launch-note">{NOT_AN_IMPORTER[locale]}</p>
         </div>
         <SourcingOverview locale={locale} />
       </div>
       <div className="editorial-container specialty-strip flex-wrap gap-y-3">
-        <span className="specialty-label">{zh ? '服务重点' : es ? 'ÁREAS DE APOYO' : 'AREAS OF SUPPORT'}</span>
-        {zh ? (
-          <>
-            <span>全美商业代表</span><span aria-hidden="true">✳</span>
-            <span>B2B渠道直采对接</span><span aria-hidden="true">✳</span>
-            <span>FDA / CPSC准入合规</span><span aria-hidden="true">✳</span>
-            <span>HTS税号与关税筹划</span><span aria-hidden="true">✳</span>
-            <span>Section 301额外关税</span><span aria-hidden="true">✳</span>
-            <span>本土3PL海外仓协同</span>
-          </>
-        ) : (
-          <>
-            <span>{es ? 'Búsqueda de proveedores' : 'Supplier sourcing'}</span><span aria-hidden="true">✳</span>
-            <span>{es ? 'Verificación de fábricas' : 'Factory verification'}</span><span aria-hidden="true">✳</span>
-            <span>{es ? 'Negociación de precios' : 'Contract negotiation'}</span><span aria-hidden="true">✳</span>
-            <span>{es ? 'Desarrollo de producto' : 'Product development'}</span><span aria-hidden="true">✳</span>
-            <span>{es ? 'Control de calidad' : 'Quality inspection'}</span><span aria-hidden="true">✳</span>
-            <span>{es ? 'Logística y aranceles' : 'Logistics & tariffs'}</span><span aria-hidden="true">✳</span>
-            <span>{es ? 'Entrada al mercado de EE. UU.' : 'U.S. market entry'}</span>
-          </>
-        )}
+        <span className="specialty-label">
+          {zh ? '服务重点' : es ? 'LO QUE SUMINISTRAMOS' : 'WHAT WE SUPPLY'}
+        </span>
+        {(zh
+          ? ['合规要求解读', '批发价格体系', '美国买家引荐', '包装与纺织品供货']
+          : es
+            ? ['Packaging a medida', 'Cajas y etiquetas', 'Ropa', 'Ropa deportiva', 'Marca privada']
+            : ['Custom packaging', 'Boxes & labels', 'Clothing', 'Sportswear', 'Private label']
+        ).map((item, index, all) => (
+          <Fragment key={item}>
+            <span>{item}</span>
+            {index < all.length - 1 && <span aria-hidden="true">✳</span>}
+          </Fragment>
+        ))}
       </div>
     </section>
   );

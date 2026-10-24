@@ -1,97 +1,102 @@
+/**
+ * Homepage questions, also published as FAQPage structured data. Each answer
+ * stays inside the scope set in AGENTS.md: what a supply includes, what is
+ * added only when written into the quotation, and what is never done.
+ */
+
 export const homeFaqs = [
   [
-    'What does a global sourcing company do?',
-    'A global sourcing company identifies, vets, negotiates, and manages international manufacturers on behalf of domestic businesses. Rather than leaving buyers to navigate unverified online directories or trading brokers, an operational sourcing partner audits factory facilities, validates business licenses, negotiates direct manufacturing pricing, manages tooling and sample approvals, enforces on-site quality control, and coordinates cross-border freight and customs clearance to final delivery.',
+    'What does Sourcing Lab USA do?',
+    'Sourcing Lab USA has custom packaging and textiles made at the factory and supplies them. The contract and the invoice come from a company in France or China, named in your quotation. Clothing, sportswear and packaging are the business; other products are reviewed for feasibility on request.',
   ],
   [
-    'How does Sourcing Lab USA verify overseas manufacturers?',
-    'We conduct rigorous due diligence on the ground. We check official government corporate registries (such as China’s AIC system) to confirm active legal status, verify registered versus paid-in capital, inspect physical plant facilities and machinery ownership, examine worker headcount, and review past export customs records to ensure the supplier is a legitimate direct manufacturer rather than an unauthorized broker or middleman.',
+    'Who invoices my order, and who is the importer?',
+    'The company named in your quotation, in France or China, contracts with you and invoices the goods. Sourcing Lab USA is not the importer: the quotation names who handles transport, insurance and U.S. customs entry, or they stay on your side.',
   ],
   [
-    'How do you protect buyers against quality fade and defective shipments?',
-    'Quality fade can be reduced, not ruled out, with written manufacturing specifications that link payment milestones to inspection results against agreed acceptance criteria, such as an AQL (Acceptance Quality Limit) level set for the product. Approved golden samples are kept as the reference, and during-production (DUPRO) and pre-shipment (PSI) inspections are coordinated at the factory before the final balance is released, on the terms agreed in each quotation.',
+    'What is included in a supply, and what is added only on request?',
+    'Included: the brief, the factory search, pricing, samples, the order and production follow-up. Only if written into the quotation: a third-party inspection, lab testing, HS code classification or a landed-cost model. Outside the scope: customs clearance, freight forwarding, U.S. storage and forming a U.S. company.',
   ],
   [
-    'How do U.S. tariffs and Section 301 duties affect landed costs?',
-    'Imported goods are subject to base ad valorem customs duties under the U.S. Harmonized Tariff Schedule (HTSUS), and goods originating from China may be subject to additional Section 301 tariffs (typically 7.5% to 25%). We classify your product under the exact 10-digit HTS code, modeling all duties, harbor maintenance fees (HMF), and merchandise processing fees (MPF) to establish your true delivered landed cost before you order.',
+    'How do you check a manufacturer?',
+    'Manufacturers are identified through our independent partnership in Shanghai and checked against your brief: the business registration and scope, whether the company makes the product rather than reselling it, and samples made to your specification. A third-party audit or inspection is added when it is written into the quotation.',
   ],
   [
-    'How does Sourcing Lab USA help foreign manufacturers enter the U.S. market?',
-    'We provide comprehensive operational support for international manufacturers and global brands: mapping products against U.S. federal and state regulations (FDA, CPSC, FCC, California Prop 65), helping determine and coordinate an appropriate U.S. importer-of-record structure, onboarding domestic 3PL fulfillment warehouses, creating American-standard wholesale sales collateral, and facilitating outreach to qualified U.S. distributors and retailers.',
+    'How do you limit quality fade between sample and production?',
+    'Quality fade can be reduced, not ruled out. The written specification and the approved sample are the reference for production. Payment milestones are set in the quotation; when a pre-shipment inspection is written into it, the final balance can be tied to its report.',
   ],
   [
-    'Do you provide U.S. sales representation for international factories?',
-    'Yes. For qualified manufacturers with verified production facilities, competitive export pricing, and compliant products, we act as a dedicated U.S. commercial representative. We pitch American wholesale distributors and retail buyers, manage buyer communications in U.S. business hours, and secure recurring purchase orders.',
+    'How do U.S. duties affect the landed cost?',
+    'Imported goods pay duty under the U.S. Harmonized Tariff Schedule, and many goods of Chinese origin also carry a Section 301 duty. The importer pays them. A working HS classification and a landed-cost model can be written into the quotation; the customs broker confirms the classification at entry.',
   ],
   [
-    'What is the typical minimum order quantity (MOQ)?',
-    'MOQs vary by product category and customization level. For custom packaging and private label products, initial runs typically start between 500 and 1,000 units. For cut-and-sew apparel, MOQs start around 300 to 500 units per style. For custom injection molded hardgoods, initial runs typically start at 1,000 units. We review your specifications to negotiate the lowest viable threshold.',
+    'Can you help a manufacturer sell in the United States?',
+    'Yes, as a second path, for manufacturers already in production: a reading of the U.S. requirements that apply to the product, a wholesale price, and targeted introductions to U.S. buyers. No U.S. company is formed for the manufacturer, and nothing is imported in its name.',
   ],
   [
-    'Which entity invoices our order and how are contracts structured?',
-    'Contracts and invoicing are structured transparently based on client requirements. Sourcing and product supply projects are contracted through our established commercial entities in France or China, clearly identified in your formal quotation before you commit, with complete specification, pricing, sample, and delivery terms locked into your order.',
+    'What is the minimum order quantity?',
+    'As an indication, custom packaging and clothing commonly start around 500 units. The real minimum depends on the product, material, decoration and the split across sizes or colors, and it is confirmed in your quotation.',
   ],
 ] as const;
 
 export const homeFaqsES = [
   [
-    '¿Qué hace una empresa de sourcing global?',
-    'Una empresa de sourcing global identifica, audita, negocia y gestiona fabricantes internacionales para empresas locales. En lugar de depender de directorios online sin verificar, un socio operativo inspecciona instalaciones fabriles, verifica licencias legales, negocia precios directos de fábrica, supervisa muestras, ejecuta controles de calidad en fábrica y coordina el transporte y las aduanas hasta el destino final.',
+    '¿Qué hace Sourcing Lab USA?',
+    'Sourcing Lab USA hace fabricar packaging y textiles a medida y los suministra. El contrato y la factura proceden de una empresa en Francia o China, indicada en su cotización. Ropa, ropa deportiva y packaging son el negocio; otros productos se estudian bajo petición.',
   ],
   [
-    '¿Cómo verifica Sourcing Lab USA a los fabricantes extranjeros?',
-    'Realizamos una exhaustiva diligencia debida sobre el terreno. Consultamos los registros oficiales del gobierno para validar la vigencia legal, el capital registrado, la propiedad de las instalaciones y maquinaria, el número de empleados y los antecedentes aduaneros de exportación para asegurar que el proveedor es un fabricante directo legítimo.',
+    '¿Quién factura mi pedido y quién es el importador?',
+    'La empresa indicada en su cotización, en Francia o China, contrata con usted y factura la mercancía. Sourcing Lab USA no es el importador: la cotización indica quién se encarga del transporte, el seguro y la entrada aduanera en EE. UU., o quedan de su lado.',
   ],
   [
-    '¿Cómo protegen a los compradores contra defectos y bajadas de calidad?',
-    'Las bajadas de calidad se reducen, sin poder descartarse por completo, con especificaciones de fabricación por escrito que vinculan los pagos a los resultados de inspección frente a criterios de aceptación acordados, como un nivel AQL definido para el producto. Se conservan muestras de referencia aprobadas y se coordinan inspecciones previas al envío (PSI) en la fábrica antes de liberar el saldo final, según los términos de cada cotización.',
+    '¿Qué incluye un suministro y qué se añade solo bajo petición?',
+    'Incluido: el brief, la búsqueda de fábrica, el precio, las muestras, el pedido y el seguimiento de producción. Solo si figura en la cotización: una inspección por terceros, ensayos de laboratorio, la clasificación HS o un modelo de coste puesto en destino. Fuera del alcance: despacho de aduanas, transitario, almacenamiento en EE. UU. y constitución de una empresa en EE. UU.',
   ],
   [
-    '¿Cómo influyen los aranceles de EE. UU. en el coste puesto en destino?',
-    'Los productos importados están sujetos a aranceles según el Arancel Armonizado de EE. UU. (HTSUS), y los productos de origen chino pueden tener aranceles adicionales de la Sección 301 (7,5% al 25%). Clasificamos tu producto a 10 dígitos y calculamos todos los aranceles y tasas portuarias para determinar el coste total antes de producir.',
+    '¿Cómo comprueban a un fabricante?',
+    'Los fabricantes se identifican a través de nuestra colaboración independiente en Shanghái y se comprueban frente a su brief: registro y actividad de la empresa, que fabrique el producto en lugar de revenderlo, y muestras hechas según su especificación. Una auditoría o inspección por terceros se añade cuando figura en la cotización.',
   ],
   [
-    '¿Cómo ayudan a fabricantes extranjeros a entrar al mercado de EE. UU.?',
-    'Proporcionamos apoyo operativo integral: mapeo de requisitos normativos (FDA, CPSC, FCC, Prop 65 de California), determinación y coordinación de una estructura adecuada de importador de registro en EE. UU., integración con almacenes logísticos 3PL en EE. UU., desarrollo de presentaciones comerciales y facilitación de contactos comerciales con distribuidores y compradores estadounidenses.',
+    '¿Cómo limitan la bajada de calidad entre muestra y producción?',
+    'La bajada de calidad se puede reducir, no descartar. La especificación escrita y la muestra aprobada son la referencia de la producción. Los hitos de pago se fijan en la cotización; cuando incluye una inspección previa al envío, el saldo final puede vincularse a su informe.',
   ],
   [
-    '¿Ofrecen representación comercial en EE. UU. para fábricas internacionales?',
-    'Sí. Para fabricantes cualificados con instalaciones verificadas, precios competitivos y productos conformes, actuamos como representantes comerciales en EE. UU. Presentamos tus productos a distribuidores mayoristas, gestionamos la relación con compradores en horario local y cerramos pedidos de compra.',
+    '¿Cómo afectan los aranceles de EE. UU. al coste puesto en destino?',
+    'Las mercancías importadas pagan aranceles según el Arancel Armonizado de EE. UU., y muchas de origen chino pagan además un arancel de la Sección 301. Los paga el importador. Una clasificación HS de trabajo y un modelo de coste pueden figurar en la cotización; el agente de aduanas confirma la clasificación en la entrada.',
   ],
   [
-    '¿Cuál es la cantidad mínima de pedido (MOQ)?',
-    'El MOQ depende del producto y del grado de personalización. En empaques y marca privada suele comenzar entre 500 y 1.000 unidades; en prendas textiles, entre 300 y 500 unidades por modelo; y en artículos moldeados por inyección, a partir de 1.000 unidades. Negociamos siempre el mínimo más ventajoso para tu proyecto.',
+    '¿Pueden ayudar a un fabricante a vender en Estados Unidos?',
+    'Sí, como segundo recorrido, para fabricantes que ya están en producción: una lectura de los requisitos de EE. UU. aplicables al producto, un precio mayorista y presentaciones selectivas a compradores de EE. UU. No constituimos una empresa en EE. UU. por el fabricante ni importamos a su nombre.',
   ],
   [
-    '¿Qué empresa factura el pedido y cómo se formalizan los contratos?',
-    'La contratación y facturación se estructuran con total transparencia. Los proyectos se contratan a través de nuestras entidades en Francia o China, identificadas claramente en tu presupuesto antes de confirmar el pedido, con todas las especificaciones, precios y plazos acordados por escrito.',
+    '¿Cuál es la cantidad mínima de pedido?',
+    'Como indicación, el packaging y la ropa a medida suelen empezar en torno a 500 unidades. El mínimo real depende del producto, el material, la decoración y el reparto por tallas o colores, y se confirma en su cotización.',
   ],
 ] as const;
 
 export const homeFaqsZH = [
   [
-    'Sourcing Lab USA 如何协助中国工厂与出海品牌进入美国市场？',
-    '我们为国际制造企业与出海品牌提供端到端的美国落地运营支持：梳理并映射美国联邦与各州法规要求（FDA、CPSC、FCC、加州Prop 65等）、协助规划并协调合规的美国进口商架构（IOR）、协助对接并上线美国本土3PL海外仓储、制作符合美标的B2B英文商业宣传物料与产品手册，并协助对接合格的美国本土批发商、分销商与采购渠道。',
+    '你们如何协助中国制造企业进入美国市场？',
+    '先说边界：我们不为您在美国设立公司，也不以您的名义进口。在此前提下，我们为已投产的企业提供三项工作：解读适用于您产品的美国合规要求（如FDA、CPSC、FCC、加州65号提案），按美国渠道建立批发价格体系，以及向符合您品类的美国买家进行精准引荐。',
   ],
   [
-    '你们是否为中国制造企业提供美国市场商业代表与销售代理服务？',
-    '是的。针对具备实体工厂、产能稳定、价格具备出口竞争力且符合美国合规标准的优质制造企业，我们可以担任其美国市场商业代表。我们按美国工作时间联络美国批发商、零售采购商与工业买家，跟进样品评估、商业条款谈判与日常订单沟通，协助建立长期的直采合作关系。目前项目由报价单中注明的法国或中国签约公司执行并开具发票；美国（迈阿密）实体计划于2027年设立。',
+    '你们是否担任美国进口商、报关行或法定代表？',
+    '不。我们不是货运代理、报关行或进口商，也不在美国担任您的法定代表。我们的工作是引荐：把合格的制造企业介绍给有针对性的美国买家。运输、保险、进口与清关由买卖双方及其指定的服务商负责，并在报价单或合同中写明。',
   ],
   [
-    '中国制造出海美国，如何应对关税（Section 301）与到岸成本测算？',
-    '进入美国的所有货物均适用美国统一关税表（HTSUS），且来自中国的大多数工业品与消费品适用7.5%至25%不等的Section 301额外关税。我们在合作初期协助精准界定10位数海关税号，全面核算基础关税、附加关税、港口维护费（HMF）与货物处理费（MPF），协助测算真实的到岸成本模型，以便科学制定美国市场的批发与渠道定价。',
+    '关税（Section 301）与到岸成本如何考虑？',
+    '进入美国的货物按美国统一关税表（HTSUS）征税，许多中国原产商品还需缴纳Section 301附加关税，由进口商承担。如在报价单中写明，我们可提供HS税号归类研究和到岸成本模型；最终归类以报关行申报时确认为准。',
   ],
   [
-    '如何解决美国进口商（Importer of Record / IOR）资质与海关申报？',
-    '没有美国本土实体的外国企业进入美国市场，通常需要办理外国进口商备案（Foreign Importer of Record）或与符合资质的美国本土进口主体合作，并开立连续关税保函（Continuous Customs Bond）。我们协助企业规划最适宜的清关与进口商架构，并协助对接美国专业持牌报关行及海关合规机构完成正规清关申报。',
+    '没有美国公司，货物如何进口？',
+    '外国企业可以办理外国进口商备案（Foreign Importer of Record），也可以由美国买家担任进口商。具体方案请与持牌报关行确认。我们不担任进口商，也不代为申报。',
   ],
   [
-    '美国本土买家最看重中国制造企业的哪些核心能力？',
-    '除了核心的产品价格与制造工艺外，美国本土采购商尤其看重：① 美国本土工作时间的即时商务沟通与专业响应；② 严格符合美国标准的法规合规检测（如儿童产品CPC证书、FDA注册等）；③ 样品确认与大货批次的一致性；④ 本土仓储或稳定的交货周期。我们协助工厂补足这些关键环节，降低美国买家的采购决策门槛。',
+    '美国买家最看重什么？',
+    '大货与确认样品一致、合规检测文件齐全、批发价格与交货条件清晰、沟通及时。我们帮助您把这些整理成美国买家看得懂的资料，但不代替您承担合规责任。',
   ],
   [
-    '合作协议如何签署？企业如何结算与开具发票？',
-    '我们提供透明规范的商业合作协议。根据具体服务模式（如市场准入咨询、商业代表合作或供应链专项服务），合作协议由我们在法国或中国的成熟商业实体出具并签署，各项服务范围、交付标准与结算周期均在正式签署前明确约定，切实保障双方商业权益。',
+    '合同与发票由谁出具？',
+    '合同与发票由报价单中写明的法国或中国公司出具。服务范围、交付内容与费用在签署前写明。',
   ],
 ] as const;
-

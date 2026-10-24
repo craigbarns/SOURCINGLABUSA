@@ -7,15 +7,14 @@ import {
   faqSchema,
   serviceSchema,
 } from '@/lib/seo';
+import { PROMISE, PROMISE_STATEMENT } from '@/lib/positioning';
 
-const title = 'Global Sourcing & U.S. Market Entry | Sourcing Lab USA';
-const description =
-  'We help U.S. companies source and manufacture overseas — and help international manufacturers enter, distribute, and grow in the United States. Direct factory verification, quality control, and commercial representation.';
-const homeAnswer =
-  'Sourcing Lab USA is an operational international trade and procurement firm. We manage global product sourcing, direct factory audits, price and MOQ negotiations, on-site quality control, and cross-border logistics for American brands, while providing U.S. market-entry consulting, regulatory compliance, and commercial sales representation for international manufacturers.';
+const title = 'Custom Packaging & Textiles Sourced in China | Sourcing Lab USA';
+const description = PROMISE.en;
+const homeAnswer = PROMISE_STATEMENT.en;
 
 export const metadata = pageMetadata({
-  title: 'Global Sourcing & U.S. Market Entry',
+  title: 'Custom Packaging & Textiles Sourced in China',
   description,
   path: '/',
   locale: 'en-US',
@@ -32,11 +31,7 @@ export default function HomePage() {
             webpageSchema('/', title, description, 'en-US', {
               abstract: homeAnswer,
             }),
-            serviceSchema(
-              '/',
-              'Global Sourcing & U.S. Market Entry Execution',
-              'End-to-end overseas product sourcing, factory audits, quality control, and landed cost analysis for U.S. brands, plus U.S. market-entry consulting and sales representation for international manufacturers.',
-            ),
+            serviceSchema('/', 'Custom packaging and textile supply', PROMISE_STATEMENT.en),
             faqSchema('/', homeFaqs, 'en-US'),
           ],
         }}

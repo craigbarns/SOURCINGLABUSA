@@ -9,6 +9,7 @@ import { StructuredData } from '@/components/StructuredData';
 import {
   CASE_STUDIES,
   CASE_STUDY_CATEGORY_LABELS,
+  CASE_STUDY_RECORD_LABELS,
   caseStudySummary,
   getCaseStudy,
 } from '@/lib/case-studies';
@@ -34,7 +35,7 @@ export async function generateMetadata({
     title: study.title,
     // Provenance first: a search snippet is cut around 155 characters, and
     // where the project was delivered must survive the cut.
-    description: `${study.deliveredBy} (${study.year}): ${summaryLowerFirst(caseStudySummary(study))}`,
+    description: `${CASE_STUDY_RECORD_LABELS[study.record]} (${study.year}): ${summaryLowerFirst(caseStudySummary(study))}`,
     path: `/case-studies/${study.slug}`,
   });
 }
@@ -81,6 +82,7 @@ export default async function CaseStudyPage({
               <span>{study.title}</span>
             </nav>
             <p className="editorial-kicker">
+              {CASE_STUDY_RECORD_LABELS[study.record].toUpperCase()} ·{' '}
               {CASE_STUDY_CATEGORY_LABELS[study.category].toUpperCase()} · {study.year}
             </p>
             <h1 className="editorial-title page-title">{study.title}</h1>

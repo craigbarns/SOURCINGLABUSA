@@ -1,140 +1,121 @@
 import { ServiceLandingPage, type ServicePageContent } from '@/components/ServiceLandingPage';
+import { MARKET_ENTRY_LIMIT } from '@/lib/positioning';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'International Market Entry Strategy for the United States | Sourcing Lab USA',
+  title: 'U.S. Channel & Wholesale Price Strategy for Manufacturers',
   description:
-    'Tailored U.S. market entry strategy for European and Chinese manufacturers. Overcome regulatory barriers, optimize tariffs, and establish American commercial channels.',
+    'Choosing a U.S. sales channel and a wholesale price before approaching buyers: distributors, wholesalers and retail chains, and the margins each expects. No U.S. company, no importing in your name.',
   path: '/market-entry-consulting',
 });
 
 const page: ServicePageContent = {
   path: '/market-entry-consulting',
-  eyebrow: 'Cross-Border Advisory · European & Asian Manufacturers',
-  title: 'Strategic U.S. Market Entry for Global Manufacturers',
+  eyebrow: 'Second path · U.S. channel and price',
+  title: 'Choose the channel and the price before the first U.S. buyer.',
   directAnswer:
-    'International market entry strategy for the United States is the tailored commercial roadmap designed to help European, Asian, and global manufacturers expand into the American market profitably and compliantly. It bridges the critical cultural, legal, and operational divides: converting metric technical standards to imperial specifications, navigating Section 301 and antidumping trade regulations, structuring domestic wholesale pricing models, and establishing localized fulfillment and sales distribution.',
+    'Before approaching U.S. buyers, a manufacturer needs two decisions: which channel to sell through, and the wholesale price that channel can carry. Sourcing Lab USA helps manufacturers already in production make both, as part of its U.S. market path. No U.S. company is formed for the manufacturer, and nothing is imported in its name.',
   intro:
-    'Expanding into the United States is the ultimate milestone for ambitious global manufacturing enterprises. Yet what works in Berlin, Paris, Tokyo, or Shenzhen rarely transfers seamlessly to New York, Chicago, or Los Angeles. American buyers demand immediate product availability, transparent wholesale terms, aggressive warranty support, and absolute legal compliance.',
-  overviewTitle: 'Specialized playbooks for European and Chinese manufacturers.',
+    'A distributor, a wholesaler and a retail chain buy differently, expect different margins and ask for different documents. Approaching all of them with one price list is the most common way to lose the first conversations.',
+  overviewTitle: 'One channel, one price, one set of terms.',
   overview:
-    'European and Asian manufacturers face fundamentally distinct challenges when targeting the U.S. European firms often struggle with American commercial pacing, volume scaling, and high domestic logistics costs, while Chinese manufacturers face heightened tariff scrutiny, intellectual property skepticism, and complex brand localization hurdles. Sourcing Lab USA provides custom strategic roadmaps for both.',
-  processTitle: 'The 4-pillar international entry strategy.',
-  offerName: 'Cross-Border U.S. Market Entry Strategy',
+    'Each U.S. channel adds its own margin between your price and the shelf. A distributor needs room for its own resellers; a retail chain often expects to roughly double its cost price, the practice known as keystone pricing; a business buyer compares your landed price with a domestic supplier. The channel decides the price, and the price decides whether the product can sell at all.',
+  processTitle: 'From channel to price to terms.',
+  offerName: 'U.S. channel and price strategy',
   offerDescription:
-    'Strategic advisory, regulatory roadmap design, commercial pricing alignment, and partner matchmaking for foreign manufacturers entering North America.',
+    'Channel choice and wholesale price for manufacturers preparing to sell in the United States, as part of the U.S. market path.',
+  boundary: {
+    coordinate: [
+      'Comparing the channels that fit your product: distributors, wholesalers, retail chains, business buyers',
+      'A wholesale price and margin structure for the chosen channel',
+      'The terms a buyer in that channel will expect to read',
+    ],
+    notDone: [
+      'Forming a U.S. company or opening an office for you',
+      'Importing in your name or acting as importer of record',
+      'Signing contracts on your behalf',
+      'Market studies presented as guarantees of sales',
+    ],
+  },
   focusAreas: [
     {
-      title: 'Chinese Manufacturer Direct-to-U.S. Expansion',
-      body: 'We help Chinese factory owners move up the value chain from white-label contract manufacturing to direct U.S. commercial distribution, establishing independent brand equity and mitigating Section 301 exposure.',
+      title: 'Distributors',
+      body: 'Buy in volume and resell to their own customers. They need a price that leaves room for their margin and their resellers’ margin, and stable supply.',
     },
     {
-      title: 'European Industrial & Premium Brand Entry',
-      body: 'We guide European manufacturers through American commercial standardizations: ANSI/ASME engineering conversions, UL certifications, imperial packaging design, and multi-state sales tax compliance.',
+      title: 'Wholesalers',
+      body: 'Supply retailers from stock. They look at minimum quantities, carton configuration and how quickly a reorder arrives.',
     },
     {
-      title: 'Wholesale Pricing & Distributor Margin Architecture',
-      body: 'We structure competitive U.S. wholesale pricing tiers (MSRP, MAP policies, wholesale Keystone pricing, and distributor margin allowances) to ensure your products are commercially attractive to American trade buyers.',
+      title: 'Retail chains',
+      body: 'Often price at roughly twice their cost and ask for compliance documents, labeling and packaging to their own standards before a first order.',
     },
     {
-      title: 'Commercial Risk & Product Liability Preparation',
-      body: 'We help foreign principals understand common U.S. commercial insurance conventions, standard commercial terms, and state-level compliance mandates including California Prop 65, coordinating with legal counsel when specialized legal drafting is needed.',
+      title: 'Business buyers',
+      body: 'Compare your landed price with a domestic supplier and weigh lead time, quality consistency and who carries the import.',
     },
   ],
   briefItems: [
-    'Country of origin, manufacturing capacity, and current international export markets',
-    'Product category, existing European/Asian certifications, and patent status',
-    'Target entry segment (Industrial OEM, Commercial B2B, Retail Distribution, or Direct-to-Consumer)',
-    'Anticipated initial U.S. capital allocation and executive point of contact',
+    'Your product and its current export markets',
+    'Your factory price and the Incoterm you sell on',
+    'The U.S. channel you have in mind, if any',
+    'Certifications and test reports you already hold',
   ],
   workflow: [
     {
-      title: 'Competitive Landscape & Price Elasticity Audit',
-      body: 'We benchmark domestic U.S. competitors, analyzing their wholesale pricing structures, distribution channels, packaging aesthetics, and lead-time guarantees.',
+      title: 'Channel comparison',
+      body: 'We compare the channels that fit the product and say which one to approach first, and why.',
     },
     {
-      title: 'Regulatory & Certification Gap Review',
-      body: 'We review your existing CE, ISO, or CCC documentation to identify potential gaps against common U.S. compliance benchmarks (such as UL, ETL, NSF, FDA, or FCC standards).',
+      title: 'Price structure',
+      body: 'We build the wholesale price from your factory price, the landed cost and the margins the channel expects.',
     },
     {
-      title: 'Commercial Distribution Model Design',
-      body: 'We define the optimal commercial channel: direct sales rep networks, master stocking distributors, hybrid 3PL e-commerce fulfillment, or OEM partnership licensing.',
-    },
-    {
-      title: 'Go-to-Market Pilot Launch & Outreach',
-      body: 'We launch a structured 90-day pilot program targeting prospective commercial buyers with Americanized sales collateral and sample kits.',
+      title: 'Terms to present',
+      body: 'We set out the terms a buyer in that channel will read: quantities, lead time, Incoterm and who imports.',
     },
   ],
-  benchmarks: [
-    {
-      label: 'Strategic roadmap delivery',
-      value: '3 to 4 weeks',
-      qualifier: 'Full market analysis, regulatory audit, wholesale pricing matrix, and channel design.',
-    },
-    {
-      label: 'Wholesale pricing alignment',
-      value: 'Keystone margin standard',
-      qualifier: 'Modeling 50% retail margins and 20–35% distributor margins across all target SKUs.',
-    },
-    {
-      label: 'Pilot buyer outreach',
-      value: 'Month 2 to Month 3',
-      qualifier: 'Targeted outreach to prospective commercial distributors and relevant retail category buyers.',
-    },
-  ],
-  benchmarksNote:
-    'All strategic recommendations are accompanied by actionable operational blueprints and verified vendor contacts.',
+  benchmarks: [],
   hideShowcase: true,
   faqs: [
     {
-      question: 'How can a Chinese manufacturing company enter the U.S. market successfully?',
+      question: 'What is keystone pricing?',
       answer:
-        'A Chinese manufacturer can succeed in the U.S. by: (1) establishing a distinct, trademarked brand identity rather than selling unbranded commodities, (2) securing independent U.S. product liability insurance, (3) stocking inventory inside domestic U.S. warehouses to eliminate 40-day transpacific lead times for buyers, and (4) partnering with an experienced U.S.-based commercial partner to handle customer relationships and contract negotiation.',
+        'A retail practice of setting the shelf price at roughly twice the cost price. It is a convention, not a rule, but it explains why a factory price that looks competitive can be too high once a channel’s margin is added.',
     },
     {
-      question: 'What are the main regulatory hurdles for European companies entering the USA?',
+      question: 'Do we need a U.S. office or employees to sell in the U.S.?',
       answer:
-        'European companies frequently face hurdles with: (1) CE marking not being recognized by U.S. authorities (requiring OSHA Nationally Recognized Testing Laboratories like UL or ETL), (2) metric packaging violating the Fair Packaging and Labeling Act (requiring imperial units), and (3) stringent state-level regulations like California’s Safe Drinking Water and Toxic Enforcement Act (Prop 65).',
+        'Not to start. Many manufacturers sell through a U.S. buyer who imports, or register as a foreign importer of record through a licensed customs broker. We do not open an office or form a company for you.',
     },
     {
-      question: 'What is Keystone pricing and why is it important in the United States?',
+      question: 'Is this a separate service from introductions?',
       answer:
-        'Keystone pricing is the standard American retail pricing benchmark where a retail store marks up merchandise by 100% of wholesale cost (a 50% gross margin). Foreign manufacturers must price their goods so that after distributor cuts (20–30%) and retailer Keystone margins, the final retail price remains competitive in the marketplace.',
+        'It is the step before them. The channel and the price come first; introductions to buyers in that channel follow.',
     },
     {
-      question: 'How does Sourcing Lab USA support international companies entering the U.S.?',
-      answer:
-        'We support market entry through: market feasibility studies, regulatory compliance roadmaps, tariff classification assistance, 3PL warehouse onboarding support, commercial sales collateral development, and commercial representation support.',
-    },
-    {
-      question: 'Do we need a physical office or American employees to enter the U.S. market?',
-      answer:
-        'No. By coordinating an appropriate U.S. importer-of-record structure, domestic third-party logistics (3PL) warehousing, and independent commercial representation support, international manufacturers can achieve substantial commercial scale without the expense and complexity of physical American brick-and-mortar entities.',
+      question: 'What does this path not include?',
+      answer: `Forming a U.S. company, importing in your name, customs brokerage, freight forwarding and U.S. storage. ${MARKET_ENTRY_LIMIT.en}`,
     },
   ],
-  briefTitle: 'Request a U.S. market entry strategy session.',
+  briefTitle: 'Tell us about your product.',
   briefIntro:
-    'Tell us about your manufacturing capabilities, existing export markets, and U.S. expansion goals. We will review your product catalog and propose a strategic entry roadmap.',
+    'Product, current price and the channel you have in mind. We confirm whether the U.S. path fits and what it would include.',
   relatedPages: [
     {
       href: '/us-market-entry',
-      title: 'U.S. Market Entry Overview',
-      description: 'Comprehensive operational and regulatory execution for international companies.',
+      title: 'Selling in the U.S.',
+      description: 'The whole path: compliance reading, wholesale price, introductions.',
     },
     {
       href: '/us-sales-representation',
-      title: 'U.S. Sales Representation',
-      description: 'Dedicated commercial representation and buyer access for foreign manufacturers.',
+      title: 'Introductions to U.S. buyers',
+      description: 'What an introduction includes, and what it does not commit anyone to.',
     },
     {
       href: '/landed-cost-analysis',
-      title: 'Landed Cost Analysis',
-      description: 'Model wholesale margins, tariffs, and distribution costs.',
-    },
-    {
-      href: '/hs-code-consulting',
-      title: 'HS Code & Customs Consulting',
-      description: 'Optimize customs tariffs and maintain absolute U.S. trade compliance.',
+      title: 'Landed-cost model',
+      description: 'The cost a U.S. buyer will compare with a domestic supplier.',
     },
   ],
 };

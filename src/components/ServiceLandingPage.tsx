@@ -1,8 +1,9 @@
 import Link from 'next/link';
-import { ArrowRight, CheckCircle2, ClipboardList, Plus } from 'lucide-react';
+import { ArrowRight, Check, CheckCircle2, ClipboardList, Plus, X } from 'lucide-react';
 
 import { BriefSection } from '@/components/BriefSection';
 import { ProductShowcase } from '@/components/ProductShowcase';
+import { ScopeTable } from '@/components/ScopeTable';
 import { CtaLink } from '@/components/CtaLink';
 import { Footer } from '@/components/Footer';
 import { Navbar } from '@/components/Navbar';
@@ -13,6 +14,7 @@ import {
   SOURCING_BENCHMARKS,
   BENCHMARKS_NOTE,
 } from '@/lib/sourcing-benchmarks';
+import { NOT_AN_IMPORTER } from '@/lib/positioning';
 import type { ProductCategory } from '@/lib/product-media';
 
 type ContentBlock = {
@@ -58,6 +60,15 @@ export type ServicePageContent = {
   benchmarks?: typeof SOURCING_BENCHMARKS;
   /** Optional custom benchmark footnote */
   benchmarksNote?: string;
+  /**
+   * For subjects outside the core supply (freight, U.S. market entry, other
+   * products): the first screen states what is coordinated and what is not
+   * done, instead of a general project panel. See AGENTS.md.
+   */
+  boundary?: {
+    coordinate: string[];
+    notDone: string[];
+  };
   relatedPages: Array<{
     href: string;
     title: string;
@@ -112,25 +123,53 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
                   <ArrowRight size={17} aria-hidden="true" />
                 </CtaLink>
               </div>
-              <aside className="sourcing-overview" aria-label="Project and supply information">
-                <p className="editorial-kicker">SOURCING LAB USA / YOUR PROJECT</p>
-                <h2>{page.offerName}</h2>
-                <p className="editorial-body">{page.offerDescription}</p>
-                <p className="editorial-body mt-5">
-                  For U.S. business customers. Projects can start now through our
-                  independent China sourcing partnership.
-                </p>
-                <p className="sourcing-overview-note">
-                  Your quotation identifies the company in France or China that
-                  contracts with you and invoices the products.
-                </p>
-                <Link href="/about" className="editorial-text-link mt-5">
-                  About Sourcing Lab USA <ArrowRight size={16} aria-hidden="true" />
-                </Link>
-              </aside>
+              {page.boundary ? (
+                <aside className="sourcing-overview" aria-label="What we coordinate and what we do not do">
+                  <p className="editorial-kicker">SOURCING LAB USA / OUR LIMITS</p>
+                  <h2>{page.offerName}</h2>
+                  <h3 className="boundary-heading">What we coordinate</h3>
+                  <ul className="boundary-list">
+                    {page.boundary.coordinate.map((item) => (
+                      <li key={item}>
+                        <Check size={15} aria-hidden="true" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <h3 className="boundary-heading">What we do not do</h3>
+                  <ul className="boundary-list boundary-list--no">
+                    {page.boundary.notDone.map((item) => (
+                      <li key={item}>
+                        <X size={15} aria-hidden="true" />
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                  <p className="sourcing-overview-note">{NOT_AN_IMPORTER.en}</p>
+                </aside>
+              ) : (
+  <aside className="sourcing-overview" aria-label="Project and supply information">
+                  <p className="editorial-kicker">SOURCING LAB USA / YOUR PROJECT</p>
+                  <h2>{page.offerName}</h2>
+                  <p className="editorial-body">{page.offerDescription}</p>
+                  <p className="editorial-body mt-5">
+                    For U.S. business customers. Projects can start now through our
+                    independent China sourcing partnership.
+                  </p>
+                  <p className="sourcing-overview-note">
+                    Your quotation identifies the company in France or China that
+                    contracts with you and invoices the products.
+                  </p>
+                  <Link href="/about" className="editorial-text-link mt-5">
+                    About Sourcing Lab USA <ArrowRight size={16} aria-hidden="true" />
+                  </Link>
+                </aside>
+              )}
             </div>
           </div>
         </section>
+
+        <ScopeTable />
 
         <section className="editorial-section section-ruled">
           <div className="editorial-container service-overview-layout">
@@ -184,16 +223,21 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
                 </li>
               ))}
             </ol>
-            <dl className="sourcing-benchmarks">
-              {(page.benchmarks ?? SOURCING_BENCHMARKS).map((benchmark) => (
-                <div key={benchmark.label}>
-                  <dt>{benchmark.label}</dt>
-                  <dd className="benchmark-value">{benchmark.value}</dd>
-                  <dd className="benchmark-qualifier">{benchmark.qualifier}</dd>
-                </div>
-              ))}
-            </dl>
-            <p className="benchmarks-note">{page.benchmarksNote ?? BENCHMARKS_NOTE}</p>
+            {/* An empty list hides the figures, e.g. on the U.S. market path. */}
+            {(page.benchmarks ?? SOURCING_BENCHMARKS).length > 0 && (
+              <>
+                <dl className="sourcing-benchmarks">
+                  {(page.benchmarks ?? SOURCING_BENCHMARKS).map((benchmark) => (
+                    <div key={benchmark.label}>
+                      <dt>{benchmark.label}</dt>
+                      <dd className="benchmark-value">{benchmark.value}</dd>
+                      <dd className="benchmark-qualifier">{benchmark.qualifier}</dd>
+                    </div>
+                  ))}
+                </dl>
+                <p className="benchmarks-note">{page.benchmarksNote ?? BENCHMARKS_NOTE}</p>
+              </>
+            )}
             <p className="editorial-body mt-8">
               Review the product specifications, sample requirements, quantities,
               product pricing and payment terms before approving your order.

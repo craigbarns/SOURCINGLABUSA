@@ -1,10 +1,11 @@
 import { ServiceLandingPage, type ServicePageContent } from '@/components/ServiceLandingPage';
+import { NOT_AN_IMPORTER } from '@/lib/positioning';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'China Sourcing Agent vs Supplier for U.S. Companies',
+  title: 'China Sourcing: Agent, Trading Company or Supplier?',
   description:
-    'Sourcing agent, trading company or supplier: what each one does, who carries the risk, and how Sourcing Lab USA works. Projects open now — request a quotation.',
+    'Sourcing agent, trading company or supplier: who contracts with the factory, who carries the order and where your recourse sits. Sourcing Lab USA supplies custom packaging and textiles under a written contract, invoiced from France or China.',
   path: '/china-sourcing-agent',
 });
 
@@ -23,7 +24,7 @@ const page: ServicePageContent = {
     'The distinction matters before anything is ordered. Under an agency arrangement you contract with the factory directly and the agent is paid for the introduction and coordination. Where a company buys and resells, it contracts with the supplier and then sells the goods to you, so your commercial relationship and your recourse sit with that company. Sourcing Lab USA works the second way. Clothing, textiles and packaging are the core specialties; other products are reviewed for feasibility before anything is quoted.',
   offerName: 'China Sourcing and Product Supply',
   offerDescription:
-    'Sourcing, purchase and supply of clothing, textiles, sportswear, packaging and labels from China for U.S. business customers, from written brief through sampling to a delivered order.',
+    'Sourcing, purchase and supply of clothing, textiles, sportswear, packaging and labels from China for U.S. business customers, from the written brief through sampling to the order and production follow-up.',
   focusAreas: [
     {
       title: 'Who contracts with the factory',
@@ -94,14 +95,18 @@ const page: ServicePageContent = {
         'Minimum order quantities commonly start around 500 units. The real minimum follows the product, material, construction, decoration and the split across sizes or colours, so send the quantity you are considering and it can be reviewed against what the product actually requires.',
     },
     {
-      question: 'Do you handle customs clearance and freight forwarding?',
+      question: 'How are suppliers checked before they are proposed?',
       answer:
-        'We coordinate them rather than act as a licensed broker ourselves. Shipping terms and import responsibilities are confirmed in the commercial terms for each order. Freight is booked and the customs entry is filed by the licensed specialists appointed for that purpose, and we coordinate them alongside your order.',
+        'As part of the factory search: registration and business scope, whether the factory makes the product itself, and the samples it produces for your specification. An on-site audit by an appointed audit firm is added only when written into the quotation.',
+    },
+    {
+      question: 'Do you handle customs clearance and freight forwarding?',
+      answer: `No. ${NOT_AN_IMPORTER.en}`,
     },
     {
       question: 'Can I start a project now?',
       answer:
-        'Yes. Projects and invoicing are available now through France or China, with the contracting company identified in your quotation. You do not need to wait for the planned U.S. expansion in Miami in 2027. Submitting a brief does not place an order.',
+        'Yes. Projects and invoicing are available now through France or China, with the contracting company identified in your quotation. Submitting a brief does not place an order.',
     },
   ],
   briefTitle: 'Tell us what you need sourced.',
@@ -111,7 +116,12 @@ const page: ServicePageContent = {
     {
       href: '/china-to-us-procurement',
       title: 'China-to-U.S. procurement',
-      description: 'How a product moves from a brief to a delivered order.',
+      description: 'How a product moves from a brief to a supplied order.',
+    },
+    {
+      href: '/factory-verification',
+      title: 'Factory checks',
+      description: 'How a manufacturer is checked before it is proposed.',
     },
     {
       href: '/custom-textile',

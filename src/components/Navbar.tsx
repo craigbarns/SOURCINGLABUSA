@@ -15,14 +15,16 @@ interface NavbarProps {
   locale?: 'en' | 'es' | 'zh';
 }
 
+// The business first (packaging and textiles), the U.S. market path last:
+// two paths, not a catalogue. See AGENTS.md.
 const navigation = [
-  { label: 'Sourcing', href: '/product-sourcing' },
-  { label: 'U.S. Market Entry', href: '/us-market-entry' },
   { label: 'Packaging', href: '/custom-packaging' },
   { label: 'Clothing', href: '/custom-textile' },
   { label: 'Private label', href: '/private-label-packaging' },
   { label: 'How it works', href: '/#how-it-works' },
+  { label: 'Case studies', href: '/case-studies' },
   { label: 'Resources', href: '/resources' },
+  { label: 'Selling in the U.S.', href: '/us-market-entry' },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -66,10 +68,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const items = isChinese
     ? [
-        { label: '商业代表', href: '/zh#representation' },
-        { label: '法规合规', href: '/zh#compliance' },
-        { label: '到岸关税', href: '/zh#landed-cost' },
-        { label: '3PL海外仓', href: '/zh#fulfillment' },
+        { label: '服务边界', href: '/zh#scope' },
+        { label: '合规解读', href: '/zh#compliance' },
+        { label: '批发定价', href: '/zh#landed-cost' },
+        { label: '买家引荐', href: '/zh#representation' },
         { label: '出海流程', href: '/zh#workflow' },
         { label: '常见解答', href: '/zh#faq' },
       ]
@@ -77,13 +79,13 @@ export const Navbar: React.FC<NavbarProps> = ({
         ...item,
         label: isSpanish
           ? ({
-              Sourcing: 'Sourcing',
-              'U.S. Market Entry': 'Entrada a EE. UU.',
               Packaging: 'Empaques',
               Clothing: 'Prendas',
               'Private label': 'Marca privada',
               'How it works': 'Cómo funciona',
+              'Case studies': 'Casos',
               Resources: 'Recursos',
+              'Selling in the U.S.': 'Vender en EE. UU.',
             }[item.label] ?? item.label)
           : item.label,
         href:

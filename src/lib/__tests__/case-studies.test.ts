@@ -13,6 +13,7 @@ const valid: CaseStudy = {
   category: 'packaging',
   client: 'A U.S. cosmetics brand',
   deliveredBy: 'Led by the founder at a previous sourcing business',
+  record: 'founder',
   year: 2019,
   product: 'Magnetic-closure rigid boxes',
   quantity: '3,000 units in two sizes',
@@ -31,6 +32,15 @@ describe('case studies', () => {
 
   it('refuses a study that does not say where it was delivered', () => {
     expect(caseStudyProblems({ ...valid, deliveredBy: ' ' })).toContain('deliveredBy is empty');
+  });
+
+  it('labels a case as Sourcing Lab USA only with a current project record', () => {
+    expect(caseStudyProblems({ ...valid, record: 'current' })).toContain(
+      'a Sourcing Lab USA project needs a current project record',
+    );
+    expect(
+      caseStudyProblems({ ...valid, record: 'current', projectRecord: 'Quotation Q-2026-014' }),
+    ).toEqual([]);
   });
 
   it('refuses a study nobody approved', () => {

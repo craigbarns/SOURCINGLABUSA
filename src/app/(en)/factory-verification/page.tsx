@@ -2,139 +2,129 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Factory Verification & Background Check China | Sourcing Lab USA',
+  title: 'Factory Checks in China: Part of the Search, Audits on Request',
   description:
-    'Protect your investment with rigorous on-site factory verification, legal entity checks, machinery capacity audits, and anti-fraud screening across China and Asia.',
+    'How a manufacturer is checked before it is proposed for your supply: registration, business scope, the product it actually makes and the samples. An on-site audit by an appointed auditor is added only when written into the quotation.',
   path: '/factory-verification',
 });
 
 const page: ServicePageContent = {
   path: '/factory-verification',
-  eyebrow: 'Supplier Due Diligence · On-Site Verification & Anti-Fraud',
-  title: 'Factory Verification & Supplier Background Checks',
+  eyebrow: 'Factory search · Audits only if written into the quotation',
+  title: 'Factory checks: part of the search, before any factory is proposed.',
   directAnswer:
-    'Factory verification is a multi-layered due diligence process to evaluate whether an overseas supplier has the legal standing, operational infrastructure, machinery, and capacity to manufacture your goods. A thorough verification combines corporate registration checks, business-scope analysis, document and certification reviews, machinery assessments, sample validation, and physical on-site audits when appropriate.',
+    'Before a manufacturer is proposed for a Sourcing Lab USA supply, it is checked as part of the factory search: its registration and business scope, whether it makes the product itself, and the samples it produces. An on-site audit by an appointed auditor is added only when written into the quotation. You contract with and pay the company named in your quotation, not a factory account you have never checked.',
   intro:
-    'Wiring deposits to unverified overseas bank accounts carries severe financial and operational exposure. Fraudulent storefronts, phantom factories, and unvetted subcontractors are pervasive across online B2B directories. Sourcing Lab USA coordinates structured factory verification and corporate vetting to protect your company’s capital and brand reputation.',
-  overviewTitle: 'Multi-layered investigative verification for international suppliers.',
+    'The usual fear with an overseas supplier is paying a deposit to the wrong party: a trading company posing as a factory, a workshop that subcontracts, or an account that does not belong to the supplier. On a supply, that risk sits with us: we choose the factory, and the contract and invoice come from the company named in the quotation.',
+  overviewTitle: 'What is checked, and by whom.',
   overview:
-    'A supplier’s professional website or online badge does not guarantee manufacturing capability or legal solvency. Many overseas entities rent temporary office spaces or represent third-party factories. We apply a multi-layered verification framework: reviewing official corporate registrations, cross-referencing legal scope and litigation records, coordinating physical on-site audits when appropriate, and evaluating actual production machinery.',
-  processTitle: 'The 4-stage factory verification framework.',
-  offerName: 'Factory Verification & Due Diligence',
+    'The checks during the factory search are done with our partnership in Shanghai, from official records, the factory’s own documents and its samples. They answer one question: can this manufacturer make your product, at your quantity, to the approved sample? A physical audit of the premises, capacity or working conditions is a separate step, carried out by an appointed audit firm when the quotation includes it.',
+  processTitle: 'How a manufacturer gets onto your shortlist.',
+  offerName: 'Factory checks within the factory search',
   offerDescription:
-    'Independent legal background checks, physical factory audits, production machinery inspections, and anti-fraud verification for overseas suppliers.',
+    'Checks on the manufacturers proposed for a supply, with on-site audits by an appointed auditor when written into the quotation.',
+  boundary: {
+    coordinate: [
+      'Registration and business-scope checks on the factories we propose',
+      'Confirming the factory makes the product, through its documents and samples',
+      'An on-site audit by an appointed auditor, when written into the quotation',
+    ],
+    notDone: [
+      'Standalone verification reports on suppliers you contract directly',
+      'Audits performed or signed by Sourcing Lab USA itself',
+      'Certifying a factory or its compliance',
+      'Legal opinions on a supplier',
+    ],
+  },
   focusAreas: [
     {
-      title: 'Government Legal Registration & Business Scope Review',
-      body: 'We review official business records directly from government corporate registries to verify registered capital, legal representatives, operational scope, and recorded legal disputes.',
+      title: 'Registration and business scope',
+      body: 'The business license, the registered business scope and the legal representative are checked against official records, so the company proposed is the company that makes the product.',
     },
     {
-      title: 'Physical Premises & Production Asset Audit',
-      body: 'We coordinate on-site visits to verify whether the supplier operates the facility, inspect the active factory floor, and catalog primary machinery and tooling.',
+      title: 'Factory or trading company',
+      body: 'Trading companies are common and not always a problem, but you should know which one you are dealing with. The search confirms who actually makes the product.',
     },
     {
-      title: 'Bank Account & Beneficiary Authentication',
-      body: 'We cross-check bank accounts against registered corporate entities to prevent payment diversion fraud, confirming that payment beneficiary details match verified corporate accounts.',
+      title: 'Samples as evidence',
+      body: 'A factory is judged on the samples it produces for your specification, not on its catalog photos. The approved sample becomes the reference for production.',
     },
     {
-      title: 'Capacity, Workforce & Subcontractor Screening',
-      body: 'We review workforce scale, examine shift logs, and inspect raw material inventories to help verify that production will not be secretly outsourced to unvetted subcontractors.',
+      title: 'On-site audit, when needed',
+      body: 'For a large order, a new product category or a buyer who requires it, an audit of the premises, capacity or working conditions can be written into the quotation and carried out by an appointed audit firm.',
     },
   ],
   briefItems: [
-    'Supplier company name in both English and native language (Chinese / local characters)',
-    'Supplier contact information, factory address, and website URL',
-    'Intended product, order volume, and estimated purchase order value',
-    'Proposed bank details or proforma invoices received from the supplier',
+    'The product and its specification',
+    'Quantity and target date',
+    'Any requirement your buyers place on factories, such as a social audit',
+    'Whether you want an on-site audit written into the quotation',
   ],
   workflow: [
     {
-      title: 'Desk Audit & Corporate Records Search',
-      body: 'We pull official government corporate records, check tax status, operational licenses, unified social credit codes, and review any pending legal disputes. Desk-audit turnaround is confirmed when the engagement is scoped.',
+      title: 'Search',
+      body: 'Manufacturers that make your type of product are identified with our partnership in Shanghai.',
     },
     {
-      title: 'Physical On-Site Facility Inspection',
-      body: 'An experienced industrial auditor inspects the physical factory, photographing production lines, warehouses, raw material inventories, worker headcount, and safety conditions.',
+      title: 'Checks',
+      body: 'Registration, business scope and the product actually made are checked before a factory is proposed.',
     },
     {
-      title: 'Technical Capacity & Machinery Evaluation',
-      body: 'We verify the make, age, and operational status of key machinery, testing equipment, calibration records, and internal quality control stations.',
+      title: 'Samples',
+      body: 'Shortlisted factories produce samples against your specification; the one you approve becomes the reference.',
     },
     {
-      title: 'Comprehensive Verification Report & Risk Rating',
-      body: 'You receive a detailed report with geotagged photographs, document translations, legal findings, capacity benchmarks, and an explicit Go / No-Go risk assessment.',
+      title: 'Audit, if in the quotation',
+      body: 'Where the quotation includes it, an appointed audit firm visits the factory and issues its report before the order.',
     },
   ],
-  benchmarks: [
-    {
-      label: 'Desk audit turnaround',
-      value: '24 to 48 hours',
-      qualifier: 'Official government corporate registry search, license check, and initial risk screening.',
-    },
-    {
-      label: 'On-site factory audit',
-      value: '3 to 5 business days',
-      qualifier: 'Physical on-site inspection, photo documentation, and machine capacity verification.',
-    },
-    {
-      label: 'Risk rating report',
-      value: 'Delivered in 24 hours',
-      qualifier: 'Photo-documented report with an executive summary, delivered on the timeline agreed for the engagement.',
-    },
-  ],
-  benchmarksNote:
-    'Turnaround times depend on factory location, willingness to cooperate with on-site inspection, and regional travel logistics.',
+  benchmarks: [],
   hideShowcase: true,
   faqs: [
     {
-      question: 'How do you verify a Chinese manufacturer?',
+      question: 'Do I pay the factory directly?',
       answer:
-        'We verify Chinese manufacturers through a multi-layered framework: (1) corporate registration and business-scope review, (2) ownership and capital verification, (3) certification and document checks, (4) on-site factory and machinery audits when appropriate, and (5) sample validation and production inspection.',
+        'No. On a supply, you contract with and pay the company named in your quotation, in France or China. The factory is paid on our side.',
     },
     {
-      question: 'What is the risk of not conducting factory verification?',
+      question: 'Is an on-site audit included?',
       answer:
-        'Unverified buyers risk wiring money to fraudulent shell companies, falling victim to payment diversion fraud, working with insolvent workshops that shut down mid-production, or discovering that their order has been outsourced to a low-grade subcontractor with zero quality control.',
+        'No, not by default. Checks on registration, business scope, the product made and the samples are part of the factory search. An on-site audit is added when written into the quotation, and carried out by an appointed audit firm.',
     },
     {
-      question: 'Can a trading company pass itself off as a direct factory?',
+      question: 'Can a trading company pass itself off as a factory?',
       answer:
-        'Yes, this is very common. Intermediaries routinely use photos from real manufacturers, print marketing collateral with factory addresses, and stage showroom tours. Our multi-layered framework reviews business license registered scope, tax classifications, equipment ownership, and physical manufacturing activity to differentiate genuine production facilities from trading intermediaries.',
+        'Yes, it is common. The business scope, the documents and the samples usually show who actually makes the product, and that is checked before a factory is proposed.',
     },
     {
-      question: 'What documents should a legitimate Chinese factory be able to provide?',
+      question: 'What documents should a Chinese factory be able to show?',
       answer:
-        'A legitimate factory must provide a Unified Social Credit Business License (营业执照), foreign trade export registration, bank account registration certificate, ISO certifications (if claimed), and recent utility or tax bills demonstrating active operations.',
+        'At least its business license (营业执照) with a registered scope that covers the product, and any certificate it claims, which can be checked with the body that issued it.',
     },
     {
-      question: 'Can you verify suppliers outside of China?',
+      question: 'Can you check a supplier I found myself?',
       answer:
-        'Yes. While our primary audit coordination is centered across key manufacturing clusters in China, we can also coordinate supplier verifications across other Asian and international manufacturing markets through qualified audit partners.',
+        'Not as a standalone report. If you want that supplier considered for a supply, it goes through the same checks as any factory we propose.',
     },
   ],
-  briefTitle: 'Request a factory verification audit.',
+  briefTitle: 'Send your product brief.',
   briefIntro:
-    'Enter the supplier’s name, website, and address. We will verify their credentials, check government corporate databases, and provide a full risk assessment.',
+    'Tell us the product, the quantity and any requirement your buyers place on factories. We confirm what can be quoted and sampled.',
   relatedPages: [
     {
-      href: '/supplier-audit-china',
-      title: 'In-Depth Supplier Audits',
-      description: 'Comprehensive quality management, manufacturing capacity, and social compliance audits.',
-    },
-    {
       href: '/quality-control-china',
-      title: 'Quality Control Inspections',
-      description: 'Pre-shipment inspections and during-production quality control audits.',
+      title: 'Inspections',
+      description: 'Third-party inspections, added when written into the quotation.',
     },
     {
-      href: '/china-sourcing',
-      title: 'China Sourcing Services',
-      description: 'End-to-end direct factory procurement and supply management.',
+      href: '/china-sourcing-agent',
+      title: 'Agent or supplier?',
+      description: 'Who carries the order, and where your recourse sits.',
     },
     {
-      href: '/supplier-sourcing',
-      title: 'Supplier Sourcing & Vetting',
-      description: 'Strategic supplier identification, capacity screening, and negotiation.',
+      href: '/how-we-work',
+      title: 'How we work',
+      description: 'From the brief to the approved sample and the order.',
     },
   ],
 };

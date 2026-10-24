@@ -32,7 +32,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   title: {
-    default: 'Global Sourcing & U.S. Market Entry | Sourcing Lab USA',
+    default: 'Custom Packaging & Textiles Sourced in China | Sourcing Lab USA',
     template: '%s | Sourcing Lab USA',
   },
   description: SITE_DESCRIPTION,
@@ -58,12 +58,12 @@ export const metadata: Metadata = {
     locale: 'en_US',
     siteName: 'SourcingLab USA',
     url: marketingOrigin,
-    title: 'Global Sourcing & U.S. Market Entry | Sourcing Lab USA',
+    title: 'Custom Packaging & Textiles Sourced in China | Sourcing Lab USA',
     description: SITE_DESCRIPTION,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Global Sourcing & U.S. Market Entry | Sourcing Lab USA',
+    title: 'Custom Packaging & Textiles Sourced in China | Sourcing Lab USA',
     description: SITE_DESCRIPTION,
   },
 };

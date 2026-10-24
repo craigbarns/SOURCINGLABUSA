@@ -18,6 +18,18 @@
 
 export type CaseStudyCategory = 'packaging' | 'textile' | 'sportswear' | 'other';
 
+/**
+ * Every case carries one of two labels (AGENTS.md). "founder": a project from
+ * the founder's earlier work, before Sourcing Lab USA. "current": a Sourcing
+ * Lab USA project, allowed only with a current project record.
+ */
+export type CaseStudyRecord = 'founder' | 'current';
+
+export const CASE_STUDY_RECORD_LABELS: Record<CaseStudyRecord, string> = {
+  founder: 'Founder’s record, before Sourcing Lab USA',
+  current: 'Sourcing Lab USA project',
+};
+
 export interface CaseStudyFigure {
   /** e.g. "Unit cost change" or "Sample rounds". */
   label: string;
@@ -45,6 +57,12 @@ export interface CaseStudy {
    * previous sourcing business". Required.
    */
   deliveredBy: string;
+  record: CaseStudyRecord;
+  /**
+   * For a "current" case: the Sourcing Lab USA record it rests on, such as a
+   * quotation or order reference. Kept for the record and never rendered.
+   */
+  projectRecord?: string;
   year: number;
   product: string;
   /** As documented, e.g. "3,000 units in two sizes" or "two box sizes". */
@@ -80,6 +98,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'packaging',
     client: 'A French client',
     deliveredBy: 'Led by the founder through a sourcing company with an office in Shanghai, before Sourcing Lab USA was created',
+    record: 'founder',
     year: 2012,
     product: 'Rigid boxes',
     quantity: 'two sizes',
@@ -100,6 +119,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'other',
     client: 'A French menswear brand',
     deliveredBy: 'Led by the founder through a sourcing company with an office in Shanghai, before Sourcing Lab USA was created',
+    record: 'founder',
     year: 2019,
     product: 'Branded bags',
     quantity: 'one production order',
@@ -120,6 +140,7 @@ export const CASE_STUDIES: CaseStudy[] = [
     category: 'other',
     client: 'A fashion retail client',
     deliveredBy: 'Led by the founder through a sourcing company with an office in Shanghai, before Sourcing Lab USA was created',
+    record: 'founder',
     year: 2012,
     product: 'Retail hangers',
     quantity: '2,000 units: 500 standard and 1,500 lingerie hangers',
@@ -144,6 +165,9 @@ export function caseStudyProblems(study: CaseStudy): string[] {
     if (!study[field].trim()) problems.push(`${field} is empty`);
   }
   if (study.approach.length === 0) problems.push('approach has no steps');
+  if (study.record === 'current' && !study.projectRecord?.trim()) {
+    problems.push('a Sourcing Lab USA project needs a current project record');
+  }
   if (!study.approval.approvedBy.trim()) problems.push('publication has not been approved');
   if (!/^\d{4}-\d{2}-\d{2}$/.test(study.approval.date)) problems.push('approval date must be YYYY-MM-DD');
   for (const figure of study.figures ?? []) {

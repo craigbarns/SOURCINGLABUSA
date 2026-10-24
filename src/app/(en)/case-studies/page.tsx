@@ -10,6 +10,7 @@ import { StructuredData } from '@/components/StructuredData';
 import {
   CASE_STUDIES,
   CASE_STUDY_CATEGORY_LABELS,
+  CASE_STUDY_RECORD_LABELS,
 } from '@/lib/case-studies';
 import { breadcrumbSchema, pageMetadata, webpageSchema } from '@/lib/seo';
 
@@ -58,8 +59,10 @@ export default function CaseStudiesPage() {
               Each case is written from a real project’s email record: the
               product, what made it difficult and what was done. Where the record
               stops, the outcome adds only what the founder confirmed, and says
-              so. Clients are described, not named, and every case states the
-              business it was delivered through.
+              so. Clients are described, not named, and every case carries one of
+              two labels: “Founder’s record, before Sourcing Lab USA” for the
+              founder’s earlier projects, or “Sourcing Lab USA project” where a
+              current project record exists.
             </p>
           </div>
         </section>
@@ -75,8 +78,8 @@ export default function CaseStudiesPage() {
                 >
                   <h2>{study.title}</h2>
                   <p>
-                    {CASE_STUDY_CATEGORY_LABELS[study.category]} · {study.year} ·{' '}
-                    {study.deliveredBy}
+                    <strong>{CASE_STUDY_RECORD_LABELS[study.record]}</strong> ·{' '}
+                    {CASE_STUDY_CATEGORY_LABELS[study.category]} · {study.year}
                   </p>
                   <span aria-hidden="true">
                     <ArrowUpRight size={16} />

@@ -2,143 +2,138 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Freight Sourcing & Cross-Border Logistics USA | Sourcing Lab USA',
+  title: 'Freight & Customs on China Orders: What We Coordinate',
   description:
-    'Strategic international freight sourcing and cross-border logistics. Ocean freight (FCL/LCL), air cargo, U.S. customs clearance, port drayage, and warehouse delivery.',
+    'How transport, insurance and U.S. customs entry are handled on a China supply order: named in the quotation or left with you. We are not a freight forwarder, customs broker or importer.',
   path: '/freight-logistics',
 });
 
 const page: ServicePageContent = {
   path: '/freight-logistics',
-  eyebrow: 'Cross-Border Supply Chain · International Freight & Drayage',
-  title: 'Freight Sourcing & Cross-Border Logistics Management',
+  eyebrow: 'Freight and customs · Our limits',
+  title: 'Freight and customs: named in the quotation, not assumed.',
   directAnswer:
-    'Freight sourcing is the procurement and management of international transport services across ocean, air, and ground modes to move manufactured goods from overseas factories to domestic distribution centers. Professional freight management secures competitive container shipping contracts, coordinates origin port export handling, ensures compliant customs brokerage filings, and oversees port drayage to avoid demurrage penalties.',
+    'Sourcing Lab USA is not a freight forwarder, a customs broker or an importer. For each order, the quotation states the shipping terms (the Incoterm) and names who books and pays for transport and insurance and who files the U.S. customs entry. Where the quotation does not name them, transport, insurance and U.S. entry stay with you and the providers you appoint.',
   intro:
-    'Cross-border freight costs can represent anywhere from 15% to 40% of your total product landed cost. Fluctuating carrier spot rates, complex demurrage fees, port congestion, and unexpected fuel surcharges can wipe out operating margins if logistics are left unmanaged. Sourcing Lab USA optimizes international shipping lanes for cost, reliability, and speed.',
-  overviewTitle: 'Competitive international shipping without hidden carrier fees.',
+    'Many landed-cost surprises come from shipping terms nobody wrote down. This page explains what the quotation settles, what we coordinate with the parties it names, and what stays outside our scope.',
+  overviewTitle: 'What the quotation settles about shipping.',
   overview:
-    'Too many importers accept the supplier’s freight recommendation or pay retail spot rates to freight brokers. By benchmarking established NVOCCs (Non-Vessel Operating Common Carriers) and ocean liners across major global trade routes, we secure competitive contract rates for Full Container Loads (20GP, 40GP, 40HQ) and consolidated Less-than-Container Loads (LCL).',
-  processTitle: 'The end-to-end freight & logistics workflow.',
-  offerName: 'International Freight Sourcing & Logistics Coordination',
+    'The Incoterm decides where responsibility for the goods passes from seller to buyer. Under FOB, the goods are handed over on board at the port of export and you, or your forwarder, take over from there. Where the quotation goes further, it names who books the freight, who insures it and up to which point. U.S. customs entry is filed by a licensed customs broker for the importer of record, and the importer of record is never Sourcing Lab USA.',
+  processTitle: 'How transport is settled on a supply.',
+  offerName: 'Freight and customs: our limits',
   offerDescription:
-    'Global ocean freight, expedited air cargo, origin factory pickup, customs brokerage, and domestic U.S. drayage for manufactured commercial cargo.',
+    'How transport, insurance and U.S. customs entry are named in a supply quotation, and what Sourcing Lab USA coordinates with the parties named there.',
+  boundary: {
+    coordinate: [
+      'The shipping terms (Incoterm) written into your quotation',
+      'Packing and carton data passed to the forwarder you or the quotation names',
+      'Export documents from the factory side: commercial invoice and packing list',
+      'Handover of the goods at the point the Incoterm sets',
+    ],
+    notDone: [
+      'Booking or operating freight as a forwarder',
+      'Filing U.S. customs entries or acting as customs broker',
+      'Acting as importer of record',
+      'U.S. storage, drayage or Amazon FBA delivery',
+    ],
+  },
   focusAreas: [
     {
-      title: 'Ocean Freight Contracting (FCL & LCL)',
-      body: 'Direct booking of 20ft, 40ft, and 40ft High Cube containers, as well as consolidated LCL shipments, from major Asian ports directly to U.S. West Coast and East Coast container terminals.',
+      title: 'FOB: you take over at the port',
+      body: 'Under FOB, the goods are delivered on board at the port of export. Freight, insurance, U.S. entry and duties are then yours, through the forwarder and customs broker you appoint.',
     },
     {
-      title: 'Expedited Air Freight & Courier Services',
-      body: 'Commercial air freight and air express solutions for urgent product launches, high-value electronics, seasonal inventory replenishment, and time-sensitive marketing campaigns.',
+      title: 'Further terms: named in the quotation',
+      body: 'If the quotation goes beyond FOB, it names who books the freight and the insurance and up to which point. Anything the quotation does not name is not included.',
     },
     {
-      title: 'Demurrage & Detention Avoidance',
-      body: 'Proactive tracking of vessel arrival notices, pre-cleared customs documentation, and scheduled motor carrier drayage to prevent costly port demurrage and container detention penalties.',
+      title: 'Packing and carton data',
+      body: 'Carton count, dimensions and gross weight are confirmed with the factory before the goods are ready, so your forwarder can price and book the cargo.',
     },
     {
-      title: 'Inland Drayage & Amazon FBA Distribution',
-      body: 'Coordinated intermodal rail and flatbed/chassis trucking from U.S. container marine terminals directly to commercial warehouses, 3PL facilities, or Amazon fulfillment centers.',
+      title: 'Customs entry and duties',
+      body: 'Duties and the customs entry belong to the importer of record, and a licensed customs broker files the entry. A working HS classification can be added to the quotation as research, not as a ruling.',
     },
   ],
   briefItems: [
-    'Origin city/port and final U.S. delivery zip code or facility address',
-    'Total cargo volume (CBM / cubic meters), gross weight (kg), and carton count',
-    'Palletization requirements (standard 48x40 wooden pallets, plastic, or floor loaded)',
-    'Target cargo ready date (CRD) and required on-dock delivery date',
+    'The product and the quantity you plan to order',
+    'The delivery destination and the Incoterm you prefer',
+    'Whether you already work with a freight forwarder and a customs broker',
+    'Your target arrival date and how flexible it is',
   ],
   workflow: [
     {
-      title: 'Cargo Profiling & Shipping Lane Optimization',
-      body: 'We analyze your cargo dimensions, volumetric weight, and destination to determine the most cost-effective routing (all-water East Coast vs. West Coast intermodal rail).',
+      title: 'Shipping terms in the quotation',
+      body: 'The quotation states the Incoterm and names who handles transport, insurance and U.S. entry, or states that they stay with you.',
     },
     {
-      title: 'Carrier Tender & Booking Confirmation',
-      body: 'We benchmark spot and contract rates across top ocean carriers, locking in container allocation and issuing shipping orders (S/O) prior to factory cargo readiness.',
+      title: 'Packing confirmed',
+      body: 'Carton count, dimensions and weights are confirmed with the factory before the goods are ready.',
     },
     {
-      title: 'Origin Factory Pickup & Export Clearance',
-      body: 'Local origin drayage retrieves cargo from the manufacturing plant, delivers it to the port container yard, and clears export customs formalities.',
+      title: 'Export documents',
+      body: 'The commercial invoice and packing list are prepared for the shipment.',
     },
     {
-      title: 'Transpacific Passage & Customs Coordination',
-      body: 'We track real-time container vessel coordinates, coordinating U.S. Customs entry documentation with qualified customs brokers prior to port arrival to facilitate timely cargo release.',
+      title: 'Handover',
+      body: 'The goods are handed over at the point the Incoterm sets, to the forwarder named in the quotation or appointed by you.',
     },
     {
-      title: 'Terminal Drayage & Direct Warehouse Offloading',
-      body: 'Licensed motor carriers pick up the container from the marine terminal and deliver it directly to your receiving facility, returning the empty container promptly.',
+      title: 'Entry by the importer',
+      body: 'U.S. customs entry is filed for the importer of record through a licensed customs broker. Sourcing Lab USA does not file it.',
     },
   ],
-  benchmarks: [
-    {
-      label: 'Ocean transit (China to LA/Long Beach)',
-      value: '14 to 18 days',
-      qualifier: 'Direct port-to-port fast ocean service from Shenzhen/Ningbo to Southern California.',
-    },
-    {
-      label: 'Ocean transit (China to NY/Savannah)',
-      value: '28 to 32 days',
-      qualifier: 'All-water vessel service via the Panama Canal to U.S. East Coast ports.',
-    },
-    {
-      label: 'Air cargo transit',
-      value: '4 to 7 days',
-      qualifier: 'Standard commercial air freight airport-to-airport including customs clearance.',
-    },
-  ],
-  benchmarksNote:
-    'Freight rates fluctuate based on seasonal carrier general rate increases (GRI), bunker fuel adjustment factors (BAF), and peak shipping seasons.',
   hideShowcase: true,
   faqs: [
     {
-      question: 'What is the difference between FCL and LCL ocean shipping?',
+      question: 'Are you a freight forwarder or a customs broker?',
       answer:
-        'FCL (Full Container Load) reserves an entire shipping container (20ft, 40ft, or 40HQ) exclusively for your cargo. LCL (Less than Container Load) consolidates multiple buyers’ smaller shipments into one shared container, priced per cubic meter (CBM). FCL is faster, safer, and significantly cheaper per unit of volume once your cargo exceeds 15 CBM.',
+        'No. Sourcing Lab USA is not a freight forwarder, a customs broker or an importer. The quotation names who handles transport, insurance and U.S. entry, or they stay on your side.',
     },
     {
-      question: 'What are demurrage and detention fees, and how can they be avoided?',
+      question: 'What is the difference between FCL and LCL shipping?',
       answer:
-        'Demurrage is charged by the marine port terminal when a loaded container is not picked up within the free-time window (typically 3–5 days). Detention is charged by the ocean carrier when the empty container is not returned to the port within its designated time. We prevent these fees by pre-clearing customs and pre-booking drayage trucks prior to ship docking.',
+        'FCL (Full Container Load) reserves a whole container for your cargo. LCL (Less than Container Load) shares a container with other shipments and is priced by volume. Your forwarder advises which suits the volume and the timing.',
     },
     {
-      question: 'Should I let my overseas supplier arrange the shipping?',
+      question: 'What are demurrage and detention?',
       answer:
-        'Allowing suppliers to control shipping (CIF or DDP terms from unknown forwarders) frequently leads to surprise destination terminal fees, excessive handling surcharges, and a total lack of control if a container is held or delayed. Booking freight under FOB terms ensures transparent pricing and direct control.',
+        'Demurrage is charged by the terminal when a loaded container is not collected within its free time. Detention is charged by the carrier when the empty container is returned late. Both arise at destination and are managed by the importer and its forwarder.',
     },
     {
-      question: 'How do you calculate volumetric (chargeable) weight for air freight?',
+      question: 'Should the supplier arrange the shipping?',
       answer:
-        'For air freight, carriers charge based on either actual gross weight or volumetric weight, whichever is greater. Volumetric weight is calculated using the formula: (Length x Width x Height in cm) / 6,000 (or 5,000 for express couriers). Lightweight, bulky cargo is billed at its volumetric equivalent.',
+        'It can, if the quotation names the terms and what is paid up to which point. Under terms that leave destination charges unstated, they can arrive unannounced. Under FOB, your own forwarder controls the freight from the port of export.',
     },
     {
-      question: 'Can you deliver shipments directly into Amazon FBA warehouses?',
+      question: 'Can the goods be delivered to Amazon FBA?',
       answer:
-        'Yes. We coordinate Amazon-compliant FBA deliveries, booking carrier delivery appointments through Amazon Carrier Central, verifying box weight and pallet height restrictions, and attaching required FBA box and pallet labels.',
+        'Not by us. FBA preparation and delivery appointments are handled by your forwarder or a prep service. Carton labels and packing data can be written into your specification and confirmed with the factory.',
     },
   ],
-  briefTitle: 'Request a freight & logistics quote.',
+  briefTitle: 'Send your product brief.',
   briefIntro:
-    'Provide your cargo origin, destination address, and estimated volume. We will benchmark optimal carrier lanes and provide transparent shipping rates.',
+    'Tell us the product, quantity and destination, and whether you already have a forwarder. The quotation will name the shipping terms.',
   relatedPages: [
     {
       href: '/import-from-china',
-      title: 'Importing from China to USA',
-      description: 'Comprehensive guide to customs entry, tariffs, and shipping documentation.',
-    },
-    {
-      href: '/hs-code-consulting',
-      title: 'HS Code & Tariff Consulting',
-      description: 'Accurate tariff classification and duty optimization for imported goods.',
+      title: 'Importing from China to the U.S.',
+      description: 'What the importer of record carries: entry, duties and documents.',
     },
     {
       href: '/landed-cost-analysis',
-      title: 'Landed Cost Analysis',
-      description: 'Model exact shipping and duty expenses within your product margins.',
+      title: 'Landed-cost model',
+      description: 'Freight, insurance and duties added to the factory price, if written into the quotation.',
+    },
+    {
+      href: '/hs-code-consulting',
+      title: 'HS code classification',
+      description: 'Working classification research, confirmed by the customs broker at entry.',
     },
     {
       href: '/china-to-us-procurement',
-      title: 'China-to-U.S. Procurement Overview',
-      description: 'End-to-end procurement, supply terms, and delivered order management.',
+      title: 'China-to-U.S. product supply',
+      description: 'How a product moves from brief to a supplied order.',
     },
   ],
 };

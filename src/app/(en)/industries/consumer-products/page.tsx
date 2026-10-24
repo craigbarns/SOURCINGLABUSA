@@ -1,139 +1,121 @@
 import { ServiceLandingPage, type ServicePageContent } from '@/components/ServiceLandingPage';
+import { NOT_AN_IMPORTER } from '@/lib/positioning';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Consumer Products & Hardgoods Sourcing | Sourcing Lab USA',
+  title: 'Consumer Products from China: Feasibility Review on Request',
   description:
-    'Direct factory sourcing for consumer goods, housewares, lifestyle products, and hardware accessories. Quality control, CPSC compliance, and delivered supply.',
+    'Housewares, accessories and other consumer goods are not a specialty of Sourcing Lab USA. A project is reviewed for feasibility before anything is quoted, starting with the U.S. requirements the product must meet.',
   path: '/industries/consumer-products',
 });
 
 const page: ServicePageContent = {
   path: '/industries/consumer-products',
-  eyebrow: 'Industry Vertical · Consumer Hardgoods & Lifestyle',
-  title: 'Consumer Products & Hardgoods Manufacturing Sourcing',
+  eyebrow: 'Other products · Feasibility review',
+  title: 'Consumer products: reviewed for feasibility, not a specialty.',
   directAnswer:
-    'Consumer products sourcing manages the procurement of consumer hardgoods, housewares, kitchenware, fitness accessories, and lifestyle products from specialized factories overseas. It covers injection molding, metal stamping, precision assembly, U.S. CPSC and FDA compliance coordination, bespoke retail packaging, and comprehensive pre-shipment quality inspection.',
+    'Consumer goods such as housewares, drinkware or accessories are outside our core business, which is custom packaging and textiles. A project can be reviewed on request: we check whether the product, its materials, the quantity and the U.S. requirements that apply to it can be quoted through our partnership in China before anything is promised. If the answer is no, we say so.',
   intro:
-    'The consumer products landscape moves at breakneck speed. Brands that rely on domestic importers face thin margins and delayed product cycles, while those that navigate overseas manufacturing without local oversight risk safety recalls, customs holds, and quality inconsistencies. Sourcing Lab USA provides end-to-end procurement execution.',
-  overviewTitle: 'Multi-material manufacturing and strict consumer safety standards.',
+    'For consumer goods, feasibility is often decided by the rules rather than the factory. A product that touches food, is meant for children or plugs into a socket carries U.S. requirements and test evidence that must be planned before the sample, not after the order.',
+  overviewTitle: 'Requirements first, then the factory.',
   overview:
-    'Consumer hardgoods frequently combine diverse materials: molded plastics, stainless steel hardware, silicone seals, and printed packaging. Sourcing Lab USA coordinates specialized component suppliers into unified assembly lines, with part mating, surface finish and the applicable U.S. consumer safety requirements specified and checked against the approved sample.',
-  processTitle: 'The consumer goods manufacturing lifecycle.',
-  offerName: 'Consumer Products Sourcing & Production Management',
+    'The review starts with what the product is and who uses it, because that decides which U.S. requirements may apply and what evidence a buyer or marketplace will ask for. It then checks whether a manufacturer can make it to your specification and quantity, and ends with a clear answer: quoted, quoted with conditions, or declined.',
+  processTitle: 'How a consumer-product request is handled.',
+  offerName: 'Consumer products: feasibility review',
   offerDescription:
-    'Turnkey procurement of consumer goods, kitchenware, personal care accessories, hardware tools, and lifestyle products from verified overseas factories.',
+    'Feasibility review of a consumer-product project before any quotation, as an other product outside the core packaging and textile supply.',
+  boundary: {
+    coordinate: [
+      'A feasibility review of the product, its materials, quantity and likely U.S. requirements',
+      'If feasible: factory options, pricing and samples, as for any supply',
+      'Lab tests by the laboratory named in the quotation, when written into it',
+    ],
+    notDone: [
+      'Presenting consumer goods as a specialty or guaranteeing feasibility',
+      'Certifying products or issuing compliance certificates',
+      'Electrical or engineered products as a specialty',
+      'Freight forwarding, customs clearance or U.S. storage',
+    ],
+  },
   focusAreas: [
     {
-      title: 'Plastic Injection & Silicone Tooling',
-      body: 'High-precision multi-cavity injection molds, food-grade LFGB/FDA silicone compression molding, and overmolding for ergonomic consumer products.',
+      title: 'Food contact',
+      body: 'Drinkware, kitchenware and storage that touch food must use materials suitable for food contact. The evidence comes from tests on the actual materials, planned before production.',
     },
     {
-      title: 'Stainless Steel & Metal Fabrication',
-      body: 'Deep-draw hydroforming, precision CNC machining, aluminum extrusion, stamping, and electroplated / powder-coated finishes for durable hardgoods.',
+      title: 'Children’s products',
+      body: 'Products designed or intended mainly for children carry specific U.S. safety requirements. A project of this kind is reviewed with the evidence it will need in mind from the start.',
     },
     {
-      title: 'Consumer Safety & Regulatory Compliance',
-      body: 'We coordinate lab testing for FDA food contact compliance (21 CFR), CPSC lead and phthalate limits (CPSIA), California Proposition 65, and UL electrical safety.',
+      title: 'Electrical products',
+      body: 'Products with a plug, a battery or a radio module raise safety and certification questions that are outside our core business. They are reviewed case by case, and often declined.',
     },
     {
-      title: 'Retail-Ready Packaging & Barcoding',
-      body: 'Window boxes, blister cards, full-color litho-laminated cartons, bilingual compliance labeling, and GS1 scannable UPC/EAN barcodes.',
+      title: 'Packaging',
+      body: 'Retail boxes, blister cards and cartons are our specialty, and are specified with the product so the minimums line up.',
     },
   ],
   briefItems: [
-    'Product category, functional requirements, and 2D/3D CAD files or reference samples',
-    'Material specifications (plastic resin grade, metal alloy, surface coating)',
-    'Target order quantity (starting from 1,000 units), target unit cost, and retail price point',
-    'Required U.S. regulatory certifications (FDA, CPSC, Prop 65) and delivery deadline',
+    'The product: drawings, photos or a reference product',
+    'Materials, and whether it touches food or is meant for children',
+    'Quantity and target date',
+    'Any test or certificate your buyer or marketplace requires',
   ],
   workflow: [
     {
-      title: 'Technical Review & BOM Cost Benchmarking',
-      body: 'We review your product schematics, break down the bill of materials, and benchmark component costs across competing manufacturing clusters.',
+      title: 'Feasibility review',
+      body: 'We review the product, its likely U.S. requirements and the quantity with our partnership in China.',
     },
     {
-      title: 'Factory Selection & Tooling Engineering',
-      body: 'We audit qualified factories, review DFM adjustments with moldmakers, cut production tooling, and verify mold ownership covenants.',
+      title: 'A clear answer',
+      body: 'Quoted, quoted with conditions, or declined, with the reason.',
     },
     {
-      title: 'Functional Sample Prototyping & Lab Testing',
-      body: 'Off-tool prototypes are tested for mechanical endurance, food contact safety, impact resistance, and aesthetic finish approval.',
-    },
-    {
-      title: 'Mass Production & In-Process Inspection',
-      body: 'We monitor production milestones, verify raw resin purity, inspect assembly line jigs, and audit packaging line speeds.',
-    },
-    {
-      title: 'Final Quality Inspection & Container Dispatch',
-      body: 'Statistical sampling inspection verifies agreed specifications, drop-test performance, and barcode accuracy before export clearance.',
+      title: 'Supply as usual',
+      body: 'If quoted, the project follows the usual supply: factory options, pricing, samples, order and production follow-up, with any test written into the quotation.',
     },
   ],
-  benchmarks: [
-    {
-      label: 'Minimum order quantity',
-      value: 'From 1,000 units',
-      qualifier: 'Standard starting volume for custom plastic injection or metal hardgoods.',
-    },
-    {
-      label: 'Tooling & sampling',
-      value: '25 to 40 days',
-      qualifier: 'Includes steel mold fabrication and physical off-tool functional sample delivery.',
-    },
-    {
-      label: 'Mass production',
-      value: '30 to 45 days',
-      qualifier: 'Standard production cycle from golden sample sign-off to container loading.',
-    },
-  ],
-  benchmarksNote:
-    'All products intended for food contact, child safety, or electrical operation undergo accredited third-party lab testing prior to shipment release.',
+  benchmarks: [],
   hideShowcase: true,
   faqs: [
     {
-      question: 'What consumer product categories do you source most frequently?',
+      question: 'Are consumer products a specialty of Sourcing Lab USA?',
       answer:
-        'We source a broad range of consumer goods: kitchenware, drinkware (stainless steel vacuum bottles, glass, silicone), storage containers, fitness and sports accessories, personal care tools, pet accessories, home organization hardware, and travel accessories.',
+        'No. Our business is custom packaging and textiles. Consumer goods are reviewed for feasibility on request, before anything is quoted.',
     },
     {
-      question: 'How do you ensure consumer products comply with FDA food contact requirements?',
+      question: 'Who decides which U.S. requirements apply?',
       answer:
-        'For food-contact items, we specify certified virgin food-grade resins (such as Tritan, PP, or food-grade silicone) and submit finished production samples to accredited laboratories (SGS, Intertek) to test for heavy metal extraction, BPA presence, and FDA 21 CFR compliance.',
+        'You, as the party placing the product on the market, with the specialist or laboratory you appoint. The review flags the requirements that are likely to apply so they are planned before the sample.',
     },
     {
-      question: 'Can you source custom multi-material assembled products?',
+      question: 'Who owns custom tooling?',
       answer:
-        'Yes. We specialize in complex products combining plastic injection housings, metal brackets, silicone gaskets, and custom packaging, ensuring all parts fit with tight mechanical tolerances.',
+        'It depends on the terms, which is why tooling cost, ownership and where it is kept are written into the quotation before anything is paid.',
     },
     {
-      question: 'Who owns the custom tooling and molds created for our products?',
-      answer:
-        'Your company owns the tooling. We structure written manufacturing agreements confirming that molds and tooling funded by clients are client property and cannot be replicated or used for unauthorized third parties.',
+      question: 'Who handles freight and the import?',
+      answer: NOT_AN_IMPORTER.en,
     },
   ],
-  briefTitle: 'Submit your consumer product brief.',
+  briefTitle: 'Send your product brief.',
   briefIntro:
-    'Share your product concept, CAD drawings, and target quantities. We will evaluate manufacturing feasibility and provide direct factory pricing.',
+    'The product, materials, quantity and any requirement. We confirm whether it can be quoted before anything else.',
   relatedPages: [
     {
       href: '/product-sourcing',
-      title: 'Product Sourcing Overview',
-      description: 'End-to-end global procurement and direct factory management.',
+      title: 'Other products',
+      description: 'How products outside packaging and textiles are reviewed.',
     },
     {
-      href: '/product-development',
-      title: 'Product Development & Prototyping',
-      description: 'Convert CAD models into production-ready physical goods.',
+      href: '/custom-packaging',
+      title: 'Custom packaging',
+      description: 'Retail boxes and cartons for the product, a core specialty.',
     },
     {
       href: '/quality-control-china',
-      title: 'Quality Control & Inspections',
-      description: 'Pre-shipment inspections and functional safety testing.',
-    },
-    {
-      href: '/landed-cost-analysis',
-      title: 'Landed Cost Analysis',
-      description: 'Model complete delivered unit economics and import duties.',
+      title: 'Inspections',
+      description: 'Third-party inspections, added when written into the quotation.',
     },
   ],
 };
