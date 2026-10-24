@@ -4,6 +4,7 @@ import {
   AlertTriangle,
   ArrowRight,
   ArrowUpRight,
+  Check,
   FileCheck,
   FileText,
   HelpCircle,
@@ -16,7 +17,6 @@ import {
 import { ContactForm } from './ContactForm';
 import { ScopeTable } from './ScopeTable';
 import { homeFaqs, homeFaqsES } from '@/lib/home-faqs';
-import { MARKET_ENTRY_LIMIT, PROMISE } from '@/lib/positioning';
 
 /**
  * Homepage body, under the hero. The order follows the promise: what a supply
@@ -124,7 +124,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
         { step: '03', name: 'Cotizar', title: 'Precio y condiciones', body: 'Las opciones de fábrica se cotizan. La cotización indica la empresa contratante en Francia o China, los hitos de pago y las condiciones del utillaje.' },
         { step: '04', name: 'Muestrear', title: 'Muestras y aprobación', body: 'Las muestras se fabrican y se revisan frente al brief. Nada pasa a producción antes de aprobar una muestra.' },
         { step: '05', name: 'Producir', title: 'Pedido y seguimiento', body: 'Se emite el pedido y la producción se sigue frente a la muestra aprobada. Una inspección o un ensayo se añade solo si figura en la cotización.' },
-        { step: '06', name: 'Entregar', title: 'Condiciones de envío en la cotización', body: 'El transporte, el seguro y la entrada en EE. UU. se indican en la cotización con su responsable, o quedan de su lado. No somos transitario, agente de aduanas ni importador.' },
+        { step: '06', name: 'Enviar', title: 'Entrega', body: 'El flete, el seguro y la aduana se indican en el presupuesto o quedan de su lado. No reservamos flete ni despachamos la entrada.' },
       ]
     : [
         { step: '01', name: 'Define', title: 'Brief and target price', body: 'Product, references, materials, quantity by variant, destination and target price, written into one brief.' },
@@ -132,7 +132,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
         { step: '03', name: 'Quote', title: 'Pricing and terms', body: 'Factory options are priced. The quotation names the contracting company in France or China, the payment milestones and the tooling terms.' },
         { step: '04', name: 'Sample', title: 'Samples and approval', body: 'Samples are made and reviewed against the brief. Nothing goes into production before a sample is approved.' },
         { step: '05', name: 'Produce', title: 'Order and follow-up', body: 'The order is placed and production is followed against the approved sample. An inspection or a lab test is added only if written into the quotation.' },
-        { step: '06', name: 'Hand over', title: 'Shipping terms in the quotation', body: 'Transport, insurance and U.S. entry are named in the quotation with the party responsible, or stay on your side. We are not a freight forwarder, customs broker or importer.' },
+        { step: '06', name: 'Ship', title: 'Hand off', body: 'Freight, insurance, and customs are named in the quotation or stay with you. We do not book freight or clear the entry.' },
       ];
 
   const supplyLines = [
@@ -176,15 +176,19 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
         ? 'Otros productos se estudian para confirmar su viabilidad antes de cotizar nada.'
         : 'Other products are reviewed for feasibility before anything is quoted.',
     },
-    {
-      href: '/us-market-entry',
-      tag: es ? 'Segundo recorrido' : 'Second path',
-      title: es ? 'Vender en Estados Unidos' : 'Selling in the United States',
-      body: es
-        ? `Para fabricantes en producción: lectura de requisitos, precio mayorista y presentaciones selectivas. ${MARKET_ENTRY_LIMIT.es}`
-        : `For manufacturers already in production: a compliance reading, a wholesale price and targeted introductions. ${MARKET_ENTRY_LIMIT.en}`,
-    },
   ];
+
+  const brandPoints = es
+    ? [
+        'Precio de fábrica y el proveedor indicado en el presupuesto.',
+        'Aprobación de la muestra antes de producir.',
+        'Una inspección o un modelo de coste en destino solo cuando el presupuesto lo incluye.',
+      ]
+    : [
+        'Factory pricing and the supplier named in the quotation.',
+        'Sample approval before production.',
+        'An inspection or a landed-cost model only when the quotation includes it.',
+      ];
 
   const shortAnswers = es
     ? [
@@ -201,8 +205,8 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
           a: 'Se comprueba el registro y la actividad de la empresa, que fabrique el producto en lugar de revenderlo, y las muestras frente al brief. Cuando el riesgo lo justifica, una auditoría o inspección por terceros se añade a la cotización. Cada comprobación se acuerda por proyecto.',
         },
         {
-          q: '¿Cómo puede un fabricante extranjero acercarse a compradores de EE. UU.?',
-          a: `Conociendo los requisitos de EE. UU. aplicables a su producto, fijando un precio mayorista coherente con los márgenes del canal y presentándose a compradores seleccionados. Sourcing Lab USA hace estas tres cosas. ${MARKET_ENTRY_LIMIT.es}`,
+          q: '¿Quién se encarga del flete y la aduana?',
+          a: 'El flete, el seguro y la aduana se indican en el presupuesto o quedan de su lado. No reservamos flete ni despachamos la entrada: no somos transitario, ni agente de aduanas, ni el importador.',
         },
       ]
     : [
@@ -219,8 +223,8 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
           a: 'Check the company’s registration and business scope, confirm it makes the product rather than reselling it, and review samples against the brief. Where the stakes justify it, a third-party audit or inspection is added to the quotation. Each check is agreed per project.',
         },
         {
-          q: 'How can an overseas manufacturer approach U.S. buyers?',
-          a: `By knowing the U.S. requirements that apply to the product, setting a wholesale price that fits the channel’s margins, and being introduced to selected buyers. Sourcing Lab USA does those three things. ${MARKET_ENTRY_LIMIT.en}`,
+          q: 'Who handles freight and customs?',
+          a: 'Freight, insurance, and customs are named in the quotation or stay with you. We do not book freight or clear the entry: we are not a freight forwarder, a customs broker, or the importer.',
         },
       ];
 
@@ -413,7 +417,19 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                 <em>{es ? 'Fabricados según su especificación.' : 'Made to your specification.'}</em>
               </h2>
             </div>
-            <p className="editorial-body">{PROMISE[locale]}</p>
+            <div className="rounded-xl border border-brand-line bg-white p-6">
+              <p className="text-[10px] font-bold uppercase tracking-wider text-brand-muted">
+                {es ? 'Para marcas de EE. UU.' : 'For U.S. brands'}
+              </p>
+              <ul className="mt-3 space-y-2 text-sm text-brand-ink">
+                {brandPoints.map((point) => (
+                  <li key={point} className="flex gap-2">
+                    <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-green" aria-hidden="true" />
+                    <span>{point}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
 
           <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
@@ -522,8 +538,8 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
               </h2>
               <p className="editorial-body">
                 {es
-                  ? 'Tanto si compra un producto como si prepara su venta en EE. UU., envíe su brief: confirmamos qué se puede cotizar y muestrear, y respondemos por correo.'
-                  : 'Whether you are buying a product or preparing to sell in the U.S., send your brief: we confirm what can be quoted and sampled, and reply by email.'}
+                  ? 'Envíe su brief: confirmamos qué se puede cotizar y muestrear, y respondemos por correo.'
+                  : 'Send your brief: we confirm what can be quoted and sampled, and reply by email.'}
               </p>
               <a href="mailto:contact@sourcinglabusa.com" className="contact-email">
                 contact@sourcinglabusa.com

@@ -10,7 +10,7 @@ import { StructuredData } from '@/components/StructuredData';
 import { homeLanguages, organizationGraph } from '@/lib/seo';
 
 import '../globals.css';
-import { PROMISE } from '@/lib/positioning';
+import { HOME_DESCRIPTION } from '@/lib/positioning';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -37,7 +37,7 @@ export const metadata: Metadata = {
     template: '%s | Sourcing Lab USA',
   },
   description:
-    PROMISE.es,
+    HOME_DESCRIPTION.es,
   alternates: {
     canonical: `${marketingOrigin}/es`,
     languages: homeLanguages,
@@ -67,13 +67,13 @@ export const metadata: Metadata = {
     url: `${marketingOrigin}/es`,
     title: 'Packaging y textiles a medida fabricados en China | Sourcing Lab USA',
     description:
-      PROMISE.es,
+      HOME_DESCRIPTION.es,
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Packaging y textiles a medida fabricados en China | Sourcing Lab USA',
     description:
-      PROMISE.es,
+      HOME_DESCRIPTION.es,
   },
 };
 

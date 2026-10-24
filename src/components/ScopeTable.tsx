@@ -1,7 +1,6 @@
 import { Check, FileText, X } from 'lucide-react';
 
 import {
-  MARKET_ENTRY_SCOPE,
   NOT_AN_IMPORTER,
   SCOPE,
   type PositioningLocale,
@@ -16,14 +15,11 @@ import {
 export function ScopeTable({
   locale = 'en',
   id = 'scope',
-  path = 'supply',
 }: {
   locale?: PositioningLocale;
   id?: string;
-  /** "market-entry" shows the same columns for the U.S. path. */
-  path?: 'supply' | 'market-entry';
 }) {
-  const copy = (path === 'market-entry' ? MARKET_ENTRY_SCOPE : SCOPE)[locale];
+  const copy = SCOPE[locale];
   const columns: Array<[ScopeColumn, 'included' | 'on-request' | 'excluded']> = [
     [copy.included, 'included'],
     [copy.onRequest, 'on-request'],

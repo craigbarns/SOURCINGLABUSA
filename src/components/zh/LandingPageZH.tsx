@@ -1,6 +1,7 @@
 'use client';
 
-import { ArrowRight, CheckCircle2, Globe, Plus, Scale, ShieldCheck } from 'lucide-react';
+import { ArrowRight, Check, CheckCircle2, Plus } from 'lucide-react';
+import Link from 'next/link';
 import { ContactForm } from '@/components/ContactForm';
 import { EditorialFooter } from '@/components/EditorialFooter';
 import { Hero } from '@/components/Hero';
@@ -8,79 +9,36 @@ import { Navbar } from '@/components/Navbar';
 import { ScopeTable } from '@/components/ScopeTable';
 import { StickyMobileCta } from '@/components/StickyMobileCta';
 import { homeFaqsZH } from '@/lib/home-faqs';
-import { MARKET_ENTRY_LIMIT, NOT_AN_IMPORTER } from '@/lib/positioning';
+import { HERO_NOTE } from '@/lib/positioning';
 
-const PILLARS = [
-  {
-    id: 'compliance',
-    icon: ShieldCheck,
-    title: '美国合规要求解读',
-    subtitle: 'A reading of U.S. requirements',
-    description:
-      '梳理可能适用于您产品的美国联邦及州级要求（如FDA、CPSC、FCC、加州65号提案），以及美国买家通常会索取的证明文件。检测由您指定或报价单中写明的实验室完成。',
-    bullets: [
-      '列出可能适用的要求与所需证明文件',
-      '指出现有检测报告与证书的缺口',
-      '不发证，不出具法律意见',
-    ],
-  },
-  {
-    id: 'landed-cost',
-    icon: Scale,
-    title: '批发价格体系',
-    subtitle: 'Wholesale price',
-    description:
-      '按目标渠道（分销商、批发商、零售连锁、企业采购）建立批发价格与利润结构。HS税号归类研究与到岸成本模型仅在报价单写明时提供，税率以持牌报关行确认为准。',
-    bullets: [
-      '比较适合您产品的美国渠道',
-      '按渠道利润结构推算批发价格',
-      '到岸成本模型：仅在报价单写明时提供',
-    ],
-  },
-  {
-    id: 'representation',
-    icon: Globe,
-    title: '美国买家引荐',
-    subtitle: 'Introductions to U.S. buyers',
-    description:
-      '选择品类、采购量与渠道相匹配的美国买家，以英文资料呈现您的产品、合规证明与批发条款，并转达买家的问题与样品需求。引荐不保证订单。',
-    bullets: [
-      '按品类与采购量筛选买家',
-      '英文产品资料与批发条款',
-      '不是美国销售办公室、法定代表或独家代理',
-    ],
-  },
-];
+/**
+ * Chinese homepage. Same business as the English and Spanish sites: custom
+ * packaging and textiles sourced from factories, under a contract and invoice
+ * from France or China. The U.S. market-entry path was dropped on 24 October
+ * 2026. Wording shared with the other languages: src/lib/positioning.ts.
+ */
 
 const WORKFLOW_STEPS = [
-  {
-    step: '01',
-    name: '评估',
-    title: '确认是否适合',
-    description:
-      '审阅您的产品、产能、出口经验与现有检测文件，判断现在进入美国市场是否可行。',
-  },
-  {
-    step: '02',
-    name: '解读',
-    title: '合规要求解读',
-    description:
-      '列出可能适用的美国要求与买家会索取的证明文件，并指出缺口。',
-  },
-  {
-    step: '03',
-    name: '定价',
-    title: '渠道与批发价格',
-    description:
-      '选择首先接触的渠道，并按该渠道的利润结构建立批发价格与交易条款。',
-  },
-  {
-    step: '04',
-    name: '引荐',
-    title: '精准买家引荐',
-    description:
-      '向匹配的美国买家呈现产品与条款。之后的订单、合同、进口与付款由您与买家直接约定。',
-  },
+  { step: '01', name: '需求', title: '需求说明与目标价格', description: '产品、参考资料、材料、各款数量、目的地和目标价格，写进同一份需求说明。' },
+  { step: '02', name: '寻源', title: '工厂寻源', description: '通过我们在中国的独立合作伙伴寻找工厂，并按需求说明进行评估。' },
+  { step: '03', name: '报价', title: '价格与条款', description: '为工厂方案报价。报价单写明法国或中国的签约公司、付款节点和模具条款。' },
+  { step: '04', name: '打样', title: '样品与确认', description: '按需求说明制作并审核样品。样品确认之前，不进入生产。' },
+  { step: '05', name: '生产', title: '下单与跟进', description: '下单后按确认样品跟进生产。仅在报价单写明时，才增加验货或实验室检测。' },
+  { step: '06', name: '发运', title: '交接', description: '运费、保险和清关在报价单中写明，或由您负责。我们不订舱，也不办理入境清关。' },
+];
+
+const SUPPLY_LINES = [
+  { href: '/custom-packaging', tag: '核心', title: '定制包装', body: '精品盒、折叠盒、邮寄盒、袋子、标签和内衬，按您的规格制作。' },
+  { href: '/custom-textile', tag: '核心', title: '服装与纺织品', body: '系列服装、制服、面料与后整理，从工艺单到确认样品。' },
+  { href: '/sportswear-sourcing', tag: '核心', title: '运动服', body: '版型、面料和弹性按用途确定；功能性声明须有证明。' },
+  { href: '/private-label-packaging', tag: '核心', title: '自有品牌包装', body: '为您自己的产品线设计包装：结构、印刷和必须标注的信息。' },
+  { href: '/product-sourcing', tag: '按需', title: '其他产品', body: '其他产品在报价前先进行可行性评估。' },
+];
+
+const BRAND_POINTS = [
+  '工厂价格，以及报价单上写明的供应方。',
+  '生产前确认样品。',
+  '仅在报价单包含时，才提供验货或到岸成本模型。',
 ];
 
 export function LandingPageZH() {
@@ -94,74 +52,21 @@ export function LandingPageZH() {
       </a>
       <Navbar area="marketing" appearance="light" locale="zh" contactHref="#contact" />
       <main id="main-content" className="flex-1">
-        {/* HERO SECTION IN EDITORIAL STYLE */}
         <Hero locale="zh" />
 
-        <ScopeTable locale="zh" path="market-entry" />
+        <ScopeTable locale="zh" />
 
-        {/* THREE DELIVERABLES */}
-        <section id="deliverables" className="editorial-section border-t border-brand-line bg-brand-surface/30">
+        {/* HOW A PROJECT RUNS */}
+        <section id="how-it-works" className="process-section editorial-section scroll-mt-24">
           <div className="editorial-container">
             <div className="max-w-3xl">
-              <p className="editorial-kicker">三项交付内容</p>
+              <p className="editorial-kicker">合作流程</p>
               <h2 className="editorial-title">
-                面向已投产的制造企业。<br />
-                <em>{MARKET_ENTRY_LIMIT.zh}</em>
+                从需求说明<br />
+                <em>到确认的订单。</em>
               </h2>
               <p className="editorial-body mt-4 text-base">
-                展会与线上平台解决了产品展示，但美国买家在下单前还会看三件事：产品是否符合适用要求、价格是否适合他们的渠道、条款是否写得清楚。我们的工作围绕这三件事展开。
-              </p>
-            </div>
-
-            <div className="mt-14 grid gap-8 md:grid-cols-3">
-              {PILLARS.map((pillar) => {
-                const Icon = pillar.icon;
-                return (
-                  <div
-                    key={pillar.title}
-                    id={pillar.id}
-                    className="scroll-mt-24 flex flex-col justify-between rounded-2xl border border-brand-line bg-white p-8 shadow-sm"
-                  >
-                    <div>
-                      <div className="mb-4 inline-flex h-12 w-12 items-center justify-center rounded-xl bg-brand-green/10 text-brand-green">
-                        <Icon className="h-6 w-6" aria-hidden="true" />
-                      </div>
-                      <p className="text-xs font-bold tracking-wider text-brand-muted uppercase">
-                        {pillar.subtitle}
-                      </p>
-                      <h3 className="mt-2 text-2xl font-semibold tracking-tight text-brand-ink">
-                        {pillar.title}
-                      </h3>
-                      <p className="mt-4 text-sm leading-relaxed text-brand-muted">
-                        {pillar.description}
-                      </p>
-                      <ul className="mt-6 space-y-2.5 text-xs text-brand-ink">
-                        {pillar.bullets.map((b) => (
-                          <li key={b} className="flex items-center gap-2">
-                            <CheckCircle2 className="h-4 w-4 text-brand-green shrink-0" aria-hidden="true" />
-                            <span>{b}</span>
-                          </li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                );
-              })}
-            </div>
-          </div>
-        </section>
-
-        {/* WORKFLOW PROCESS SECTION */}
-        <section id="workflow" className="process-section editorial-section">
-          <div className="editorial-container">
-            <div className="max-w-3xl">
-              <p className="editorial-kicker">出海流程</p>
-              <h2 className="editorial-title">
-                四个步骤，<br />
-                <em>边界在每一步都写清楚。</em>
-              </h2>
-              <p className="editorial-body mt-4 text-base">
-                从可行性评估到买家引荐。运输、清关与进口不在流程之内，由买卖双方及其指定的服务商负责。
+                六个步骤，每一步都先写清楚，再开始下一步。
               </p>
             </div>
 
@@ -180,46 +85,70 @@ export function LandingPageZH() {
           </div>
         </section>
 
-        {/* TRUTHFUL SAFEGUARDS / INTEGRITY SECTION */}
-        <section className="editorial-section border-t border-brand-line bg-brand-paper py-16">
+        {/* WHAT WE SUPPLY */}
+        <section id="supply" className="editorial-section border-t border-brand-line bg-brand-surface/30 scroll-mt-24">
           <div className="editorial-container">
-            <div className="rounded-2xl border border-brand-line bg-white p-8 sm:p-10 shadow-sm">
-              <div className="flex flex-col gap-6 md:flex-row md:items-center md:justify-between">
-                <div className="max-w-3xl">
-                  <div className="inline-flex items-center gap-2 rounded-full border border-brand-line bg-brand-surface px-3 py-1 text-xs font-bold text-brand-green">
-                    <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-                    我们不做什么
-                  </div>
-                  <h3 className="mt-3 text-xl font-bold text-brand-ink sm:text-2xl">
-                    {MARKET_ENTRY_LIMIT.zh}
-                  </h3>
-                  <p className="mt-2 text-sm leading-relaxed text-brand-muted">
-                    {NOT_AN_IMPORTER.zh}我们不是律师事务所，也不是发证或检测机构。合同与发票由报价单中写明的法国或中国公司出具。
-                  </p>
-                </div>
-                <div className="shrink-0">
-                  <a
-                    href="#contact"
-                    className="editorial-button inline-flex items-center justify-center gap-2"
-                  >
-                    提交产品信息
-                    <ArrowRight size={16} aria-hidden="true" />
-                  </a>
-                </div>
+            <div className="grid gap-8 lg:grid-cols-12 items-start">
+              <div className="lg:col-span-7">
+                <p className="editorial-kicker">供货内容</p>
+                <h2 className="editorial-title">
+                  包装与纺织品。<br />
+                  <em>按您的规格制作。</em>
+                </h2>
               </div>
+              <div className="lg:col-span-5 rounded-xl border border-brand-line bg-white p-6">
+                <p className="text-[10px] font-bold uppercase tracking-wider text-brand-muted">面向美国品牌</p>
+                <ul className="mt-3 space-y-2 text-sm text-brand-ink">
+                  {BRAND_POINTS.map((point) => (
+                    <li key={point} className="flex gap-2">
+                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-brand-green" aria-hidden="true" />
+                      <span>{point}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+              {SUPPLY_LINES.map((line) => (
+                <article
+                  key={line.href}
+                  className="flex flex-col justify-between rounded-xl border border-brand-line bg-white p-6"
+                >
+                  <div>
+                    <span className="rounded-md bg-brand-surface px-2.5 py-1 text-[10px] font-semibold text-brand-ink border border-brand-line">
+                      {line.tag}
+                    </span>
+                    <h3 className="mt-4 text-lg font-semibold tracking-tight text-brand-ink">{line.title}</h3>
+                    <p className="mt-2 text-xs leading-relaxed text-brand-muted">{line.body}</p>
+                  </div>
+                  <div className="mt-6 pt-4 border-t border-brand-line/60">
+                    <Link
+                      href={line.href}
+                      className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-green hover:underline"
+                    >
+                      查看英文页面
+                      <ArrowRight size={13} aria-hidden="true" />
+                    </Link>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>
 
-        {/* DIRECT ANSWERS & GEO KNOWLEDGE BASE */}
-        <section id="faq" className="editorial-section border-t border-brand-line bg-brand-surface/40">
+        {/* QUESTIONS */}
+        <section id="faq" className="editorial-section border-t border-brand-line bg-brand-surface/40 scroll-mt-24">
           <div className="editorial-container">
             <div className="max-w-3xl">
-              <p className="editorial-kicker">常见解答</p>
+              <p className="editorial-kicker">常见问题</p>
               <h2 className="editorial-title">
-                出海前最常被问到的<br />
-                <em>问题</em>
+                首次下单前<br />
+                <em>常被问到的问题</em>
               </h2>
+              <p className="editorial-body mt-4 text-base">
+                谁开票、一次供货包含什么、谁负责进口，以及哪些不在范围内。
+              </p>
             </div>
 
             <div className="mt-12 space-y-4">
@@ -241,13 +170,13 @@ export function LandingPageZH() {
           <div className="editorial-container">
             <div className="grid gap-12 lg:grid-cols-12 lg:gap-16 items-start">
               <div className="lg:col-span-5">
-                <p className="editorial-kicker">立即提交出海需求</p>
+                <p className="editorial-kicker">开始一个项目</p>
                 <h2 className="editorial-title">
-                  告诉我们您的<br />
-                  <em>工厂实力与出海意向</em>
+                  告诉我们<br />
+                  <em>您的下一个项目</em>
                 </h2>
                 <p className="editorial-body mt-4 text-sm leading-relaxed">
-                  提交您的主营品类、产能规模与出海诉求。我们将进行初步可行性审阅，并通过邮件与您联系。
+                  发送您的产品需求：我们确认哪些可以报价和打样，并通过邮件回复。
                 </p>
 
                 <div className="mt-8 space-y-4 rounded-2xl border border-brand-line bg-white p-6 shadow-xs text-xs text-brand-ink">
@@ -257,16 +186,16 @@ export function LandingPageZH() {
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle2 className="h-4 w-4 text-brand-green shrink-0" aria-hidden="true" />
-                    <span>我们先判断美国路径是否适合您的产品</span>
+                    <span>合同和发票由法国或中国的公司开具</span>
                   </div>
                   <div className="flex items-center gap-3">
                     <CheckCircle2 className="h-4 w-4 text-brand-green shrink-0" aria-hidden="true" />
-                    <span>{MARKET_ENTRY_LIMIT.zh}</span>
+                    <span>{HERO_NOTE.zh}</span>
                   </div>
                 </div>
 
                 <div className="mt-8 border-t border-brand-line pt-6">
-                  <p className="text-xs text-brand-muted">直接商务联络邮箱：</p>
+                  <p className="text-xs text-brand-muted">直接联络邮箱：</p>
                   <a
                     href="mailto:contact@sourcinglabusa.com"
                     className="mt-1 inline-block text-base font-bold text-brand-ink hover:text-brand-green transition-colors"

@@ -86,6 +86,24 @@ const nextConfig = {
         destination: '/factory-verification',
         permanent: true,
       },
+      // The U.S. market-entry path was dropped by the owner on 24 October
+      // 2026: the site stays on sourcing. The three pages answer with a
+      // redirect to the homepage rather than a 404.
+      {
+        source: '/us-market-entry',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/market-entry-consulting',
+        destination: '/',
+        permanent: true,
+      },
+      {
+        source: '/us-sales-representation',
+        destination: '/',
+        permanent: true,
+      },
       // A second page on the same subject as /private-label-manufacturing.
       {
         source: '/industries/private-label',

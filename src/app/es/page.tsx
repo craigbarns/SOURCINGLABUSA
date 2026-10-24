@@ -7,10 +7,10 @@ import {
   faqSchema,
   serviceSchema,
 } from '@/lib/seo';
-import { PROMISE, PROMISE_STATEMENT } from '@/lib/positioning';
+import { HOME_DESCRIPTION, PROMISE_STATEMENT } from '@/lib/positioning';
 
 const title = 'Packaging y textiles a medida fabricados en China';
-const description = PROMISE.es;
+const description = HOME_DESCRIPTION.es;
 const homeAnswerES = PROMISE_STATEMENT.es;
 
 export const metadata = pageMetadata({

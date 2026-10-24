@@ -18,9 +18,9 @@ const COPY: Record<BriefLocale, { cta: string; email: string; subject: string }>
     subject: 'Proyecto de packaging o textil personalizado',
   },
   zh: {
-    cta: '提交出海需求评估',
+    cta: '提交产品需求',
     email: '邮件联络',
-    subject: '中国工厂出海美国市场合作意向',
+    subject: '定制包装或纺织品项目',
   },
 };
 

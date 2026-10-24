@@ -10,7 +10,7 @@ import { StructuredData } from '@/components/StructuredData';
 import { homeLanguages, organizationGraph } from '@/lib/seo';
 
 import '../globals.css';
-import { MARKET_ENTRY_SUMMARY } from '@/lib/positioning';
+import { HOME_DESCRIPTION } from '@/lib/positioning';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -33,11 +33,11 @@ export const metadata: Metadata = {
     telephone: false,
   },
   title: {
-    default: '进入美国市场：合规解读、批发定价与买家引荐 | Sourcing Lab USA',
+    default: '定制包装与纺织品：工厂生产，合同供货 | Sourcing Lab USA',
     template: '%s | Sourcing Lab USA',
   },
   description:
-    MARKET_ENTRY_SUMMARY.zh,
+    HOME_DESCRIPTION.zh,
   alternates: {
     canonical: `${marketingOrigin}/zh`,
     languages: homeLanguages,
@@ -65,15 +65,15 @@ export const metadata: Metadata = {
     alternateLocale: ['en_US', 'es_US'],
     siteName: 'Sourcing Lab USA',
     url: `${marketingOrigin}/zh`,
-    title: '进入美国市场：合规解读、批发定价与买家引荐 | Sourcing Lab USA',
+    title: '定制包装与纺织品：工厂生产，合同供货 | Sourcing Lab USA',
     description:
-      MARKET_ENTRY_SUMMARY.zh,
+      HOME_DESCRIPTION.zh,
   },
   twitter: {
     card: 'summary_large_image',
-    title: '进入美国市场：合规解读、批发定价与买家引荐 | Sourcing Lab USA',
+    title: '定制包装与纺织品：工厂生产，合同供货 | Sourcing Lab USA',
     description:
-      MARKET_ENTRY_SUMMARY.zh,
+      HOME_DESCRIPTION.zh,
   },
 };
 

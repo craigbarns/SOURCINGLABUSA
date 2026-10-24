@@ -15,8 +15,8 @@ interface NavbarProps {
   locale?: 'en' | 'es' | 'zh';
 }
 
-// The business first (packaging and textiles), the U.S. market path last:
-// two paths, not a catalogue. See AGENTS.md.
+// Sourcing only: packaging and textiles first, then how a project runs.
+// See AGENTS.md.
 const navigation = [
   { label: 'Packaging', href: '/custom-packaging' },
   { label: 'Clothing', href: '/custom-textile' },
@@ -24,7 +24,6 @@ const navigation = [
   { label: 'How it works', href: '/#how-it-works' },
   { label: 'Case studies', href: '/case-studies' },
   { label: 'Resources', href: '/resources' },
-  { label: 'Selling in the U.S.', href: '/us-market-entry' },
 ];
 
 export const Navbar: React.FC<NavbarProps> = ({
@@ -68,12 +67,10 @@ export const Navbar: React.FC<NavbarProps> = ({
 
   const items = isChinese
     ? [
-        { label: '服务边界', href: '/zh#scope' },
-        { label: '合规解读', href: '/zh#compliance' },
-        { label: '批发定价', href: '/zh#landed-cost' },
-        { label: '买家引荐', href: '/zh#representation' },
-        { label: '出海流程', href: '/zh#workflow' },
-        { label: '常见解答', href: '/zh#faq' },
+        { label: '供货范围', href: '/zh#scope' },
+        { label: '合作流程', href: '/zh#how-it-works' },
+        { label: '供货内容', href: '/zh#supply' },
+        { label: '常见问题', href: '/zh#faq' },
       ]
     : navigation.map((item) => ({
         ...item,
@@ -85,7 +82,6 @@ export const Navbar: React.FC<NavbarProps> = ({
               'How it works': 'Cómo funciona',
               'Case studies': 'Casos',
               Resources: 'Recursos',
-              'Selling in the U.S.': 'Vender en EE. UU.',
             }[item.label] ?? item.label)
           : item.label,
         href:
@@ -179,7 +175,7 @@ export const Navbar: React.FC<NavbarProps> = ({
               }}
               aria-label={
                 isChinese
-                  ? '提交出海需求'
+                  ? '提交产品需求'
                   : isSpanish
                     ? 'Enviar un proyecto'
                     : 'Send a project brief'
@@ -188,7 +184,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             >
               <span className="hidden sm:inline">
                 {isChinese
-                  ? '提交出海意向'
+                  ? '提交产品需求'
                   : isSpanish
                     ? 'Cuéntanos tu proyecto'
                     : 'Start a project'}

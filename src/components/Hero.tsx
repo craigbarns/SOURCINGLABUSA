@@ -3,24 +3,19 @@ import { ArrowDown, ArrowUpRight } from 'lucide-react';
 
 import { CtaLink } from './CtaLink';
 import { SourcingOverview } from './SourcingOverview';
-import {
-  DOORS,
-  MARKET_ENTRY_SUMMARY,
-  NOT_AN_IMPORTER,
-  PROMISE,
-} from '@/lib/positioning';
+import { HERO_NOTE, PROMISE } from '@/lib/positioning';
 
 /**
- * English and Spanish open on the promise: product supply from the factory,
- * under a written contract. The Chinese hub is aimed at manufacturers selling
- * into the United States, so it opens on that path's limit instead.
- * All three end on the same fixed line. Wording: src/lib/positioning.ts.
+ * Every language opens on the promise: custom packaging and textiles from the
+ * factory, under a contract and invoice from France or China. The line under
+ * the buttons says what we are not. Wording: src/lib/positioning.ts.
  */
 export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' | 'zh' }) {
   const es = locale === 'es';
   const zh = locale === 'zh';
-  const { buy, sell } = DOORS[locale];
   const contactHref = es ? '/es#contact' : '#contact';
+  const primary = zh ? '提交产品需求' : es ? 'Enviar un brief de producto' : 'Send a product brief';
+  const secondary = zh ? '查看供货范围' : es ? 'Ver qué incluye un suministro' : 'See what a supply includes';
 
   return (
     <section className="editorial-hero" aria-labelledby="hero-heading">
@@ -29,7 +24,7 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' | 'zh' }) {
           <p className="editorial-kicker">
             <span className="launch-dot" aria-hidden="true" />
             {zh
-              ? '美国市场准入 · 边界先写清楚'
+              ? '定制包装与纺织品 · 现已接受项目'
               : es
                 ? 'PACKAGING Y TEXTILES A MEDIDA · PROYECTOS ABIERTOS'
                 : 'CUSTOM PACKAGING & TEXTILES · PROJECTS OPEN NOW'}
@@ -37,8 +32,8 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' | 'zh' }) {
           <h1 id="hero-heading">
             {zh ? (
               <>
-                进入美国市场<br />
-                <em>先把边界写清楚。</em>
+                产品供货，<br />
+                <em>直接来自工厂。</em>
               </>
             ) : es ? (
               <>
@@ -53,47 +48,41 @@ export function Hero({ locale = 'en' }: { locale?: 'en' | 'es' | 'zh' }) {
             )}
           </h1>
           <p className="hero-description">
-            {zh
-              ? MARKET_ENTRY_SUMMARY.zh
-              : PROMISE[locale]}
+            {PROMISE[locale]}
           </p>
           <div className="hero-actions">
             <CtaLink
               href={zh ? '#contact' : contactHref}
               location="hero"
-              label={zh ? sell.button : buy.button}
+              label={primary}
               className="editorial-button"
             >
-              {zh ? sell.button : buy.button}
+              {primary}
               <ArrowUpRight size={18} aria-hidden="true" />
             </CtaLink>
             <CtaLink
-              href={zh ? '#scope' : sell.href}
+              href="#scope"
               location="hero"
-              label={zh ? '查看服务边界' : sell.button}
+              label={secondary}
               className="editorial-text-link"
             >
-              {zh ? '查看服务边界' : sell.button}
-              {zh ? (
-                <ArrowDown size={16} aria-hidden="true" />
-              ) : (
-                <ArrowUpRight size={16} aria-hidden="true" />
-              )}
+              {secondary}
+              <ArrowDown size={16} aria-hidden="true" />
             </CtaLink>
           </div>
-          <p className="sourcing-launch-note">{NOT_AN_IMPORTER[locale]}</p>
+          <p className="sourcing-launch-note">{HERO_NOTE[locale]}</p>
         </div>
         <SourcingOverview locale={locale} />
       </div>
       <div className="editorial-container specialty-strip flex-wrap gap-y-3">
         <span className="specialty-label">
-          {zh ? '服务重点' : es ? 'LO QUE SUMINISTRAMOS' : 'WHAT WE SUPPLY'}
+          {zh ? '服务范围' : es ? 'ÁREAS DE APOYO' : 'AREAS OF SUPPORT'}
         </span>
         {(zh
-          ? ['合规要求解读', '批发价格体系', '美国买家引荐', '包装与纺织品供货']
+          ? ['包装', '纺织品', '工厂方案', '样品', '书面报价', '由法国或中国开票']
           : es
-            ? ['Packaging a medida', 'Cajas y etiquetas', 'Ropa', 'Ropa deportiva', 'Marca privada']
-            : ['Custom packaging', 'Boxes & labels', 'Clothing', 'Sportswear', 'Private label']
+            ? ['Packaging', 'Textil', 'Opciones de fábrica', 'Muestras', 'Presupuesto por escrito', 'Facturado desde Francia o China']
+            : ['Packaging', 'Textiles', 'Factory options', 'Samples', 'Written quotation', 'Invoiced from France or China']
         ).map((item, index, all) => (
           <Fragment key={item}>
             <span>{item}</span>

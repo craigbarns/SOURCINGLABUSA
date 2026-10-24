@@ -8,9 +8,9 @@ On October 24, 2026 the owner set one promise for the whole site, in every
 language. The site repeats it; it never promises more than a quotation and a
 contract can hold:
 
-> Sourcing Lab USA has custom packaging and textiles made at the factory and
-> supplies them. The contract and the invoice come from a company in France or
-> China, named in the quotation.
+> We supply custom packaging and textiles, sourced from factories. The contract
+> and the invoice come from a company in France or China, named in your
+> quotation.
 
 The wording used on the site lives in `src/lib/positioning.ts`. Change it
 there, not page by page.
@@ -19,15 +19,17 @@ Clothing, textiles, sportswear and packaging are the business. Other products
 are reviewed for feasibility on request; furniture and building materials are
 "other products", never a specialty.
 
-## Two paths, not a catalogue
+## Sourcing only
 
-1. **Buying a product** (the business). Packaging, textiles, sportswear.
-   Deliverable: factory options, prices, a sample, then the order.
-2. **Selling in the United States** (a second path, not the core business).
-   For manufacturers already in production. Deliverable: a reading of the U.S.
-   compliance requirements that apply, a wholesale price, and targeted
-   introductions to U.S. buyers. Visible limit: no U.S. company is formed for
-   the manufacturer and nothing is imported in its name.
+The site sells one thing: custom packaging and textiles sourced from factories
+and supplied under a written order. Deliverable: factory options, prices, a
+sample, then the order. The pillars are product supply, factory checks, and the
+cost before ordering.
+
+The U.S. market-entry offer for foreign manufacturers (compliance reading,
+wholesale pricing, buyer introductions, sales representation) was dropped by
+the owner on October 24, 2026. Do not offer it on any page or in any language.
+Its former URLs redirect to the homepage.
 
 ## Scope, written the same way everywhere
 
@@ -46,10 +48,10 @@ stay on the customer's side.
 | source, quote, sample, contract, follow production | "we clear customs", "we are your freight forwarder" |
 | coordinate an inspection or a test, when it is in the quotation | "AQL 2.5 on every order", inspections as a default |
 | estimate a landed cost; classify an HS code as working research | "we are the importer of record" |
-| introduce a qualified manufacturer to U.S. buyers | "Miami office", "U.S. legal representation", a local U.S. sales force |
+| look up an HTS code and estimate duties before the order | "Miami office", "U.S. legal representation", a local U.S. sales force, market-entry or buyer-introduction services |
 
-Pages for out-of-scope or second-path subjects keep their URLs. Their first
-screen states what is coordinated and what is not done.
+Pages for out-of-scope subjects (freight, import, other products) keep their
+URLs. Their first screen states what is coordinated and what is not done.
 
 ## Company facts
 

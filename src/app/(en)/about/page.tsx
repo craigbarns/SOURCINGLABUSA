@@ -32,7 +32,7 @@ const facts = [
   ],
   [
     'Who the offer is for',
-    'U.S. brands and businesses buying packaging and textiles. As a second path, manufacturers already in production who want to sell in the United States.',
+    'U.S. brands and businesses buying custom packaging and textiles.',
   ],
   [
     'Core specialties',

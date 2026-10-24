@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 
-import { PROMISE, PROMISE_STATEMENT } from '@/lib/positioning';
+import { HOME_DESCRIPTION, PROMISE_STATEMENT } from '@/lib/positioning';
 import { getDomainRoutingConfig } from '@/lib/routing/subdomains';
 
 export const SITE_NAME = 'Sourcing Lab USA';
@@ -9,7 +9,7 @@ export const ORGANIZATION_ID = `${SITE_ORIGIN}/#organization`;
 export const FOUNDER_ID = `${SITE_ORIGIN}/about#founder`;
 export const WEBSITE_ID = `${SITE_ORIGIN}/#website`;
 /** Default meta description: the promise, as worded in src/lib/positioning.ts. */
-export const SITE_DESCRIPTION = PROMISE.en;
+export const SITE_DESCRIPTION = HOME_DESCRIPTION.en;
 
 export const homeLanguages = {
   'en-US': `${SITE_ORIGIN}/`,
@@ -43,7 +43,7 @@ export function pageMetadata({
       url: absoluteUrl('/opengraph-image'),
       width: 1200,
       height: 630,
-      alt: 'Sourcing Lab USA — Global Sourcing, Overseas Manufacturing & U.S. Market Entry Execution.',
+      alt: 'Sourcing Lab USA — custom packaging and textiles sourced from factories in China.',
     },
   ];
 

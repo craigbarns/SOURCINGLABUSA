@@ -7,11 +7,11 @@ import {
   serviceSchema,
   webpageSchema,
 } from '@/lib/seo';
-import { MARKET_ENTRY_SUMMARY } from '@/lib/positioning';
+import { HOME_DESCRIPTION, PROMISE_STATEMENT } from '@/lib/positioning';
 
-const title = '进入美国市场：合规解读、批发定价与买家引荐';
-const description = MARKET_ENTRY_SUMMARY.zh;
-const homeAnswerZH = MARKET_ENTRY_SUMMARY.zh;
+const title = '定制包装与纺织品：工厂生产，合同供货';
+const description = HOME_DESCRIPTION.zh;
+const homeAnswerZH = PROMISE_STATEMENT.zh;
 
 export const metadata = pageMetadata({
   title,
@@ -31,7 +31,7 @@ export default function HomePageZH() {
             webpageSchema('/zh', title, description, 'zh-Hans', {
               abstract: homeAnswerZH,
             }),
-            serviceSchema('/zh', '美国市场路径：合规解读、批发定价与买家引荐', MARKET_ENTRY_SUMMARY.zh),
+            serviceSchema('/zh', '定制包装与纺织品供货', PROMISE_STATEMENT.zh),
             faqSchema('/zh', homeFaqsZH, 'zh-Hans'),
           ],
         }}

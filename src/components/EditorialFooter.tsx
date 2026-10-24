@@ -1,14 +1,15 @@
 import Link from 'next/link';
 
 import { Logo } from './Logo';
-import { PROMISE } from '@/lib/positioning';
+import { FOOTER_LINE } from '@/lib/positioning';
 
 type FooterLink = { href: string; en: string; es: string; zh?: string };
 
 /**
  * Footer columns follow the scope of a supply: what is supplied, what is added
  * only when written into the quotation (and the pages that state our limits),
- * and the company. The tagline is the promise from src/lib/positioning.ts.
+ * and the company. The line under the logo is FOOTER_LINE from
+ * src/lib/positioning.ts.
  */
 const columns: Array<{ label: { en: string; es: string; zh: string }; links: FooterLink[] }> = [
   {
@@ -30,7 +31,6 @@ const columns: Array<{ label: { en: string; es: string; zh: string }; links: Foo
       { href: '/hs-code-consulting', en: 'HS code classification', es: 'Clasificación HS', zh: 'HS税号归类' },
       { href: '/landed-cost-analysis', en: 'Landed-cost model', es: 'Modelo de coste en destino', zh: '到岸成本模型' },
       { href: '/freight-logistics', en: 'Freight and customs: our limits', es: 'Flete y aduanas: nuestros límites', zh: '运输与清关：我们的边界' },
-      { href: '/us-market-entry', en: 'Selling in the U.S.', es: 'Vender en EE. UU.', zh: '在美国销售' },
     ],
   },
   {
@@ -66,7 +66,7 @@ export function EditorialFooter({
             <Link href={home}>
               <Logo appearance="light" />
             </Link>
-            <p>{PROMISE[locale]}</p>
+            <p>{FOOTER_LINE[locale]}</p>
           </div>
           {columns.map((column) => (
             <nav key={column.label.en} aria-label={text(column.label)}>

@@ -7,10 +7,10 @@ import {
   faqSchema,
   serviceSchema,
 } from '@/lib/seo';
-import { PROMISE, PROMISE_STATEMENT } from '@/lib/positioning';
+import { HOME_DESCRIPTION, PROMISE_STATEMENT } from '@/lib/positioning';
 
 const title = 'Custom Packaging & Textiles Sourced in China | Sourcing Lab USA';
-const description = PROMISE.en;
+const description = HOME_DESCRIPTION.en;
 const homeAnswer = PROMISE_STATEMENT.en;
 
 export const metadata = pageMetadata({

@@ -61,7 +61,7 @@ export type ServicePageContent = {
   /** Optional custom benchmark footnote */
   benchmarksNote?: string;
   /**
-   * For subjects outside the core supply (freight, U.S. market entry, other
+   * For subjects outside the core supply (freight, import, other
    * products): the first screen states what is coordinated and what is not
    * done, instead of a general project panel. See AGENTS.md.
    */
