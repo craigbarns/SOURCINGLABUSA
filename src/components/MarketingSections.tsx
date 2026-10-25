@@ -394,7 +394,7 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                   : 'Written specifications and acceptance criteria agreed before production.'}
               </p>
             </div>
-            <Link href="/how-we-work" className="editorial-text-link">
+            <Link href="/how-we-work" className="editorial-text-link text-brand-ink">
               {es ? 'Cómo trabajamos' : 'How we work'}
               <ArrowUpRight size={16} aria-hidden="true" />
             </Link>
@@ -451,9 +451,9 @@ export function MarketingSections({ locale = 'en' }: { locale?: 'en' | 'es' }) {
                   <Link
                     href={line.href}
                     className="inline-flex items-center gap-1.5 text-xs font-semibold text-brand-green hover:underline"
-                    aria-label={`${es ? 'Ver' : 'View'} ${line.title}`}
                   >
                     {es ? 'Ver la página' : 'View the page'}
+                    <span className="sr-only">: {line.title}</span>
                     <ArrowRight size={13} aria-hidden="true" />
                   </Link>
                 </div>
