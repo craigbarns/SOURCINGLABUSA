@@ -21,14 +21,14 @@
     "framer-motion": "^12.43.0",
     "gray-matter": "^4.0.3",
     "lucide-react": "^1.27.0",
-    "next": "^16.3.4",
+    "next": "~16.4.1",
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-markdown": "^10.1.0",
     "remark-gfm": "^4.0.1",
     "server-only": "^0.0.1",
     "tailwind-merge": "^3.6.0",
-    "zod": "^4.4.3"
+    "zod": "^4.6.6"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.3.3",
@@ -40,7 +40,7 @@
     "@types/react-dom": "^19.2.3",
     "autoprefixer": "^10.5.4",
     "eslint": "^9.39.5",
-    "eslint-config-next": "^16.3.4",
+    "eslint-config-next": "~16.4.1",
     "jsdom": "^27.0.1",
     "postcss": "^8.5.24",
     "tailwindcss": "^4.3.3",
@@ -49,6 +49,10 @@
   },
   "overrides": {
     "postcss": "$postcss",
-    "sharp": "0.35.4"
+    "sharp": "0.35.5",
+    "source-map-js": "^1.2.2",
+    "@tailwindcss/typography": {
+      "postcss-selector-parser": "7.1.6"
+    }
   }
 }
