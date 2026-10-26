@@ -12,16 +12,16 @@ export type PositioningLocale = 'en' | 'es' | 'zh';
 
 /** Hero paragraph, About and the opening of the homepage answers. */
 export const PROMISE: Record<PositioningLocale, string> = {
-  en: 'We supply custom packaging and textiles, sourced from factories. The contract and the invoice come from a company in France or China, named in your quotation.',
-  es: 'Suministramos packaging y textil a medida, producidos en fábrica. El contrato y la factura salen de una sociedad en Francia o en China, indicada en el presupuesto.',
-  zh: '我们供应定制包装和纺织品，由工厂生产。合同和发票由法国或中国的公司开具，公司名称写在报价单上。',
+  en: 'We supply custom packaging and textiles, sourced from factories — garments also through our partner in Bangladesh. The contract and the invoice come from a company in France or China, named in your quotation.',
+  es: 'Suministramos packaging y textil a medida, producidos en fábrica, y prendas de vestir también con nuestro socio en Bangladés. El contrato y la factura salen de una sociedad en Francia o en China, indicada en el presupuesto.',
+  zh: '我们供应定制包装和纺织品，由工厂生产，服装也可通过我们在孟加拉国的合作伙伴生产。合同和发票由法国或中国的公司开具，公司名称写在报价单上。',
 };
 
 /** The same promise with its subject, for structured data. */
 export const PROMISE_STATEMENT: Record<PositioningLocale, string> = {
-  en: 'Sourcing Lab USA supplies custom packaging and textiles, sourced from factories. The contract and the invoice come from a company in France or China, named in your quotation.',
-  es: 'Sourcing Lab USA suministra packaging y textil a medida, producidos en fábrica. El contrato y la factura salen de una sociedad en Francia o en China, indicada en el presupuesto.',
-  zh: 'Sourcing Lab USA 供应定制包装和纺织品，由工厂生产。合同和发票由法国或中国的公司开具，公司名称写在报价单上。',
+  en: 'Sourcing Lab USA supplies custom packaging and textiles, sourced from factories, and garment production through its partner in Bangladesh. The contract and the invoice come from a company in France or China, named in your quotation.',
+  es: 'Sourcing Lab USA suministra packaging y textil a medida, producidos en fábrica, y prendas de vestir a través de su socio en Bangladés. El contrato y la factura salen de una sociedad en Francia o en China, indicada en el presupuesto.',
+  zh: 'Sourcing Lab USA 供应定制包装和纺织品，由工厂生产，并通过其在孟加拉国的合作伙伴生产服装。合同和发票由法国或中国的公司开具，公司名称写在报价单上。',
 };
 
 /** Homepage meta description. */

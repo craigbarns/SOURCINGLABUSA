@@ -30,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/industries/building-materials',
     '/industries/furniture',
     '/tools/hs-code-finder',
+    '/bangladesh-garment-sourcing',
   ].map((path) => ({
     url: `${marketingOrigin}${path}`,
     changeFrequency: 'weekly' as const,

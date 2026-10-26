@@ -18,6 +18,7 @@ const sections = [
       ['/product-development', 'Product development', 'Specifications and samples before production.'],
       ['/china-sourcing-agent', 'China sourcing', 'Factory search through the independent China partnership and product supply.'],
       ['/china-to-us-procurement', 'China-to-U.S. procurement', 'Contracting company, invoicing and responsibilities agreed per order.'],
+      ['/bangladesh-garment-sourcing', 'Bangladesh garment sourcing', 'Clothing produced in Bangladesh through an established partner, under the same contracted model.'],
     ],
   },
   {
