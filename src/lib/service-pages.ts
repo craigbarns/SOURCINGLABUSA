@@ -142,6 +142,12 @@ export const customPackagingPage: ServicePageContent = {
 
 export const customTextilePage: ServicePageContent = {
   path: '/custom-textile',
+  visual: {
+    src: '/images/pages/custom-textile.webp',
+    alt: 'Illustrative photo: fabric rolls in a textile mill, checking weave density against daylight before approval',
+    width: 1200,
+    height: 900,
+  },
   overviewTitle: 'Define the clothing and textile specification.',
   processTitle: 'From garment references to production approval.',
   eyebrow: 'Custom textile for U.S. brands',

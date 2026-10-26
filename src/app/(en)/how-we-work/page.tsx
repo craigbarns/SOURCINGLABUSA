@@ -8,7 +8,7 @@ const description = 'Your brief, supplier options and samples are reviewed befor
 export const metadata = pageMetadata({ path, title, description });
 
 export default function HowWeWorkPage() {
-  return <InformationPage path={path} title={title} description={description} scope><GuideMarkdown>{`
+  return <InformationPage path={path} title={title} description={description} scope image={{ src: '/images/pages/how-we-work.webp', alt: 'Illustrative photo: a sourcing project desk with a factory quotation comparison sheet, fabric swatches and project notes', width: 1200, height: 938 }}><GuideMarkdown>{`
 ## What do we supply, and who is it for?
 
 Sourcing Lab USA is a custom packaging and textile procurement partner for U.S. brands and business customers. We source, purchase and supply products through an established independent China sourcing partnership. Clothing, textiles, sportswear, packaging and labels are core specialties. Other products are reviewed for feasibility before a proposal is made.

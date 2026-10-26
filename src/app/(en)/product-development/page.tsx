@@ -10,6 +10,12 @@ export const metadata = pageMetadata({
 
 const page: ServicePageContent = {
   path: '/product-development',
+  visual: {
+    src: '/images/pages/product-development.webp',
+    alt: 'Illustrative photo: packaging prototype iterations beside a technical dieline and material swatches',
+    width: 1200,
+    height: 900,
+  },
   eyebrow: 'Product development · Specification to sample',
   title: 'Product development: from your specification to an approved sample.',
   directAnswer:
