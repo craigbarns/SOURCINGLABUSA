@@ -488,3 +488,129 @@ export const chinaToUsProcurementPage: ServicePageContent = {
     },
   ],
 };
+
+export const bangladeshGarmentPage: ServicePageContent = {
+  path: '/bangladesh-garment-sourcing',
+  overviewTitle: 'Define the garment specification.',
+  processTitle: 'From garment brief to production approval.',
+  eyebrow: 'Bangladesh · Garments with a named partner',
+  title:
+    'Garment sourcing in Bangladesh, through an established partner.',
+  intro:
+    'Source clothing and garment programs produced in Bangladesh through our established partner there: brief, sampling, production follow-up and supply, with the contracting company named in the quotation.',
+  directAnswer:
+    'Bangladesh garment sourcing means having clothing produced in Bangladesh to your specification instead of buying from a catalog. Sourcing Lab USA works from a brief defining fabric, construction, sizing, branding and quantity, coordinates development and sampling with its established partner in Bangladesh, and supplies the approved production to U.S. business customers under the same contracted model as its China supply.',
+  overview:
+    'A useful garment brief makes the product decisions visible before production: the intended use, fabric and construction, measurements, labeling, decoration, quantity, and sample requirements.',
+  offerName: 'Bangladesh Garment Sourcing',
+  offerDescription:
+    'Clothing produced in Bangladesh through an established partner, to the product specification, supplied under contract.',
+  focusAreas: [
+    {
+      title: 'Product and use case',
+      body: 'Define what the garment needs to do, who will wear it, and the product details that matter to your brand.',
+    },
+    {
+      title: 'Fabric and construction',
+      body: 'Document fabric, weight, construction, measurements, washes, finishes and trims that influence the final product.',
+    },
+    {
+      title: 'Brand details',
+      body: 'Plan labels, hangtags, decoration, packaging and other visible elements from the start of the brief.',
+    },
+    {
+      title: 'Compliance documents',
+      body: 'Care labeling, fiber content and any test reports are agreed per destination market and confirmed in the quotation.',
+    },
+  ],
+  briefItems: [
+    'Product type, intended use, and reference images',
+    'Fabric, measurements, colors, and construction details',
+    'Branding, labels, or decoration requirements',
+    'Estimated quantity, destination, and target timing',
+  ],
+  workflow: [
+    {
+      title: 'Turn the idea into a specification',
+      body: 'Share the product concept, target user, reference materials, measurements, and brand requirements.',
+    },
+    {
+      title: 'Confirm the production basis',
+      body: 'Review product options, sample requirements, quantity, and the commercial basis for the exact garment program.',
+    },
+    {
+      title: 'Approve before production',
+      body: 'After the specification and the required samples are approved, agreed production checkpoints are followed for the order.',
+    },
+  ],
+  faqs: [
+    {
+      question: 'Why source garments in Bangladesh instead of China?',
+      answer:
+        'Bangladesh is one of the largest garment exporters, with deep specialization in cut-and-sew programs. Whether it fits a project depends on the style, quantity and requirements. The brief review compares the options, and the quotation states which production route is proposed.',
+    },
+    {
+      question: 'Who contracts with us for a Bangladesh order?',
+      answer:
+        'The quotation names the company that contracts with you and invoices the products, in the same way as for a China supply. Sourcing Lab USA stays a sourcing partner: it is not the importer of record and does not replace your customs broker.',
+    },
+    {
+      question: 'Are quality checks available for Bangladesh production?',
+      answer:
+        'Quality expectations and checkpoints are agreed for the specific order, and production is followed against the approved sample. A third-party inspection is added only when it is written into the quotation.',
+    },
+  ],
+  hideShowcase: true,
+  benchmarks: [
+    {
+      label: 'Minimum order quantity',
+      value: 'Confirmed per project',
+      qualifier:
+        'Garment minimums follow the style, the number of sizes and colors, and fabric sourcing. The brief review states what is realistic for your quantity.',
+    },
+    {
+      label: 'Samples',
+      value: '1 to 3 weeks',
+      qualifier:
+        'Once the specification is agreed. Fabric sourcing and the number of sampling rounds move it.',
+    },
+    {
+      label: 'Production',
+      value: 'Typically 60 to 90 days',
+      qualifier:
+        'Indicative range for garment programs, after sample approval and before shipping. The quotation confirms the timing for your project.',
+    },
+  ],
+  benchmarksNote:
+    'Indicative planning figures for garment programs, not commitments. The quantity, sampling scope and production timing for your project are confirmed in your quotation.',
+  briefTitle: 'Send your garment brief.',
+  briefIntro:
+    'Product, fabric or construction, branding, sizes, quantity, and destination. We confirm what can be quoted and sampled, and reply by email.',
+  relatedPages: [
+    {
+      href: '/custom-textile',
+      title: 'Clothing and textile sourcing',
+      description: 'Tech packs, materials, sizing, branding and sample approval.',
+    },
+    {
+      href: '/industries/textiles',
+      title: 'Garment approvals, step by step',
+      description: 'Tech pack, fabric, lab dips, fit sample and size set before bulk.',
+    },
+    {
+      href: '/quality-control-china',
+      title: 'Quality inspection',
+      description: 'Third-party inspections coordinated when written into the quotation.',
+    },
+    {
+      href: '/china-to-us-procurement',
+      title: 'China-to-U.S. procurement',
+      description: 'Confirm destination, commercial terms, and order responsibilities for a U.S.-bound project.',
+    },
+    {
+      href: '/blog/apparel-sourcing-tech-packs-moq',
+      title: 'Tech packs and clothing MOQ',
+      description: 'Prepare measurements, materials and quantities for a useful garment sourcing brief.',
+    },
+  ],
+};

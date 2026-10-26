@@ -97,6 +97,7 @@ export const ORGANIZATION_TOPICS = [
   'Custom packaging sourcing',
   'Private label packaging',
   'Clothing and textile sourcing',
+  'Bangladesh garment sourcing',
   'Sportswear and technical apparel sourcing',
   'Product specification and sampling',
   'Production follow-up',
