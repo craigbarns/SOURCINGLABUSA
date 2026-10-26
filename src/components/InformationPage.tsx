@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import type { ReactNode } from 'react';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
@@ -7,7 +8,7 @@ import { ScopeTable } from '@/components/ScopeTable';
 import { StructuredData } from '@/components/StructuredData';
 import { breadcrumbSchema, webpageSchema } from '@/lib/seo';
 
-export function InformationPage({ path, title, description, children, contact = false, scope = false }: {
+export function InformationPage({ path, title, description, children, contact = false, scope = false, image }: {
   path: string;
   title: string;
   description: string;
@@ -15,6 +16,8 @@ export function InformationPage({ path, title, description, children, contact = 
   contact?: boolean;
   /** Show the scope of a supply (three columns) after the text. */
   scope?: boolean;
+  /** Optional illustrative image shown under the intro paragraph. */
+  image?: { src: string; alt: string; width: number; height: number };
 }) {
   return (
     <div className="editorial-shell flex min-h-screen flex-col">
@@ -30,6 +33,20 @@ export function InformationPage({ path, title, description, children, contact = 
           </nav>
           <h1 className="mt-8">{title}</h1>
           <p className="direct-answer">{description}</p>
+          {image && (
+            <figure className="mt-8">
+              <Image
+                src={image.src}
+                alt={image.alt}
+                width={image.width}
+                height={image.height}
+                loading="lazy"
+                decoding="async"
+                sizes="(max-width: 1024px) 100vw, 860px"
+                className="w-full h-auto rounded-lg border border-brand-line"
+              />
+            </figure>
+          )}
           <div className="prose editorial-prose mt-10 max-w-none">{children}</div>
         </article>
         {scope && <ScopeTable />}

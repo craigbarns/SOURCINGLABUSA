@@ -11,6 +11,12 @@ export const metadata = pageMetadata({
 
 const page: ServicePageContent = {
   path: '/private-label-manufacturing',
+  visual: {
+    src: '/images/pages/private-label.webp',
+    alt: 'Illustrative photo: unbranded white packaging boxes on a production conveyor, ready for private label customization',
+    width: 1200,
+    height: 900,
+  },
   eyebrow: 'Private label · Product, labels and packaging',
   title: 'Private label: your brand on the product, not only the box.',
   directAnswer:

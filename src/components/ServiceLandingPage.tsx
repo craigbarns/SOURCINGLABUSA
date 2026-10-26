@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { ArrowRight, Check, CheckCircle2, ClipboardList, Plus, X } from 'lucide-react';
 
 import { BriefSection } from '@/components/BriefSection';
@@ -74,6 +75,8 @@ export type ServicePageContent = {
     title: string;
     description: string;
   }>;
+  /** Optional illustrative visual for this service, shown under the intro. */
+  visual?: { src: string; alt: string; width: number; height: number };
 };
 
 export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
@@ -168,6 +171,25 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
             </div>
           </div>
         </section>
+
+        {page.visual && (
+          <section className="editorial-section" aria-label="Illustration">
+            <div className="editorial-container">
+              <figure className="m-0">
+                <Image
+                  src={page.visual.src}
+                  alt={page.visual.alt}
+                  width={page.visual.width}
+                  height={page.visual.height}
+                  loading="lazy"
+                  decoding="async"
+                  sizes="(max-width: 1024px) 100vw, 1024px"
+                  className="w-full h-auto rounded-lg border border-brand-line"
+                />
+              </figure>
+            </div>
+          </section>
+        )}
 
         <ScopeTable />
 

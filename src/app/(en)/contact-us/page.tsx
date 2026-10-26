@@ -12,7 +12,7 @@ const description =
 export const metadata = pageMetadata({ path, title, description });
 
 export default function ContactPage() {
-  return <InformationPage path={path} title={title} description={description} contact scope><GuideMarkdown>{`
+  return <InformationPage path={path} title={title} description={description} contact scope image={{ src: '/images/pages/contact-us.webp', alt: 'Illustrative photo: a finished product sample packed with padding in a shipping carton for client approval', width: 1200, height: 900 }}><GuideMarkdown>{`
 ## What should you send first?
 
 Start with the product and estimated quantity. Reference images, a drawing, a tech pack or a packaging dieline can follow by email. If you know your purchasing budget, intended market, customization needs and target timing, include them. Tell us whether you already have a supplier or sample. Unresolved details can be clarified during the discussion.

@@ -9,6 +9,12 @@ export const metadata = pageMetadata({
 
 const page: ServicePageContent = {
   path: '/sportswear-sourcing',
+  visual: {
+    src: '/images/pages/sportswear-sourcing.webp',
+    alt: 'Illustrative photo: sportswear samples with flatlock stitching displayed in a garment factory sample room',
+    width: 1200,
+    height: 900,
+  },
   eyebrow: 'China sourcing · sportswear & technical apparel',
   overviewTitle: 'Specify fabric, fit and performance requirements.',
   processTitle: 'From sportswear brief to sampling and supply.',
