@@ -26,9 +26,9 @@ export const PROMISE_STATEMENT: Record<PositioningLocale, string> = {
 
 /** Homepage meta description. */
 export const HOME_DESCRIPTION: Record<PositioningLocale, string> = {
-  en: 'Custom packaging and textiles sourced from factories in China. Quotations, samples, and supply contracted and invoiced from France or China, with the company named in the quotation.',
-  es: 'Suministramos packaging y textil a medida, producidos en fábrica. El contrato y la factura salen de una sociedad en Francia o en China, indicada en el presupuesto. No somos transitario ni importador.',
-  zh: '我们供应定制包装和纺织品，由工厂生产。合同和发票由法国或中国的公司开具，公司名称写在报价单上。我们不是货代，也不是进口商。',
+  en: 'Custom packaging and textiles sourced from factories in China. Quotations, samples and supply, contracted and invoiced by the company named in your quotation.',
+  es: 'Packaging y textil a medida, producidos en fábrica en China. Presupuesto, muestras y suministro, con contrato y factura de la sociedad del presupuesto.',
+  zh: '我们供应定制包装和纺织品，由工厂直接生产。报价、打样和供货，合同与发票由报价单上写明的法国或中国的公司开具。我们不是货代，也不是进口商。',
 };
 
 /** The line under the hero buttons. */

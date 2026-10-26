@@ -3,9 +3,9 @@ import { NOT_AN_IMPORTER } from '@/lib/positioning';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Consumer Products from China: Feasibility Review on Request',
+  title: 'Consumer Products from China',
   description:
-    'Housewares, accessories and other consumer goods are not a specialty of Sourcing Lab USA. A project is reviewed for feasibility before anything is quoted, starting with the U.S. requirements the product must meet.',
+    'Housewares and other consumer goods are not a specialty. A project is reviewed for feasibility before it is quoted, then supplied under the same contract.',
   path: '/industries/consumer-products',
 });
 

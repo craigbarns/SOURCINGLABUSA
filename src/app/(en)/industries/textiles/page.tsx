@@ -2,9 +2,9 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Textile & Garment Production in China: Tech Packs, Lab Dips, Size Sets',
+  title: 'Textile & Garment Production China',
   description:
-    'How a garment order is prepared and approved before bulk production: tech pack, fabric, lab dips, fit and size sets. Clothing and textiles supplied under a written contract, invoiced from France or China.',
+    'How a garment order is prepared before bulk: tech pack, fabric, lab dips, fit and size sets. What gets approved, by whom, and when production may start.',
   path: '/industries/textiles',
 });
 

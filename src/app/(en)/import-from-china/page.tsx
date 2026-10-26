@@ -3,9 +3,9 @@ import { NOT_AN_IMPORTER } from '@/lib/positioning';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Importing from China to the U.S.: Who Does What',
+  title: 'Importing from China to the U.S.',
   description:
-    'The roles in a China-to-U.S. import: supplier, freight forwarder, customs broker and importer of record. What Sourcing Lab USA carries on a supply, and what stays named in the quotation or on your side.',
+    'The roles in a China-to-U.S. import: supplier, freight forwarder, customs broker and importer of record. Who does what is named in the quotation, not assumed.',
   path: '/import-from-china',
 });
 

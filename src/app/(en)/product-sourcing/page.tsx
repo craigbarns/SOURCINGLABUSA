@@ -3,9 +3,9 @@ import { NOT_AN_IMPORTER } from '@/lib/positioning';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Product Sourcing in China: Other Products, Reviewed for Feasibility',
+  title: 'Product Sourcing in China',
   description:
-    'Products outside packaging and textiles are reviewed for feasibility before anything is quoted. If quoted, they follow the same supply: factory search, pricing, samples, order and production follow-up, invoiced from France or China.',
+    'Products outside packaging and textiles are reviewed for feasibility first. If quoted, they follow the same supply: factories, samples, order, follow-up.',
   path: '/product-sourcing',
 });
 

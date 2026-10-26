@@ -8,7 +8,7 @@ import { HsCodeAnalyzer } from '@/components/tools/HsCodeAnalyzer';
 export const metadata: Metadata = {
   title: 'Preliminary HS Code Research Helper',
   description:
-    'An AI-assisted starting point for product-classification research. Verify classifications, duty rates, and import requirements with current official sources before importing.',
+    'An AI-assisted starting point for product-classification research. Verify classifications and duty rates with your customs broker before importing.',
   robots: {
     index: false,
     follow: false,

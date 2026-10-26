@@ -3,9 +3,9 @@ import { NOT_AN_IMPORTER } from '@/lib/positioning';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'China Sourcing: Agent, Trading Company or Supplier?',
+  title: 'Agent, Trading Company or Supplier?',
   description:
-    'Sourcing agent, trading company or supplier: who contracts with the factory, who carries the order and where your recourse sits. Sourcing Lab USA supplies custom packaging and textiles under a written contract, invoiced from France or China.',
+    'What changes when you hire an agent, a trading company or buy direct: who contracts with the factory, who carries the order, and who answers when it fails.',
   path: '/china-sourcing-agent',
 });
 

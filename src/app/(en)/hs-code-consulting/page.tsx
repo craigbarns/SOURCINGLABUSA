@@ -2,9 +2,9 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'HS Code Classification: Working Research, Not a Ruling',
+  title: 'HS Code Classification Research',
   description:
-    'A working HTS classification for a supplied product, added to the quotation on request: a proposed code, its reasoning and the published rulings consulted, for your customs broker to confirm. Not a CBP ruling or legal advice.',
+    'A working HTS classification for your product, added to the quotation on request: proposed code, duty rate and the reasoning, for your broker to confirm.',
   path: '/hs-code-consulting',
 });
 

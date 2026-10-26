@@ -2,7 +2,7 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Sportswear & Technical Apparel Sourcing from China',
+  title: 'Sportswear & Apparel Sourcing China',
   description: 'Custom sportswear and technical apparel sourcing from China. Fabrics, fit, size runs, labels and samples. Projects open now: request a sourcing quotation.',
   path: '/sportswear-sourcing',
 });

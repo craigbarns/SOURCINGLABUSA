@@ -3,9 +3,9 @@ import { NOT_AN_IMPORTER } from '@/lib/positioning';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Private Label Products from China: Your Brand, Under Contract',
+  title: 'Private Label Products from China',
   description:
-    'Garments, textile goods and their packaging made under your brand in China and supplied under a written contract, invoiced from France or China. Other products are reviewed for feasibility first.',
+    'Garments, textile goods and their packaging made under your brand in China, supplied under a written contract with sampling and approvals before bulk.',
   path: '/private-label-manufacturing',
 });
 

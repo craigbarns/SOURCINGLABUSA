@@ -3,8 +3,8 @@ import { GuideMarkdown } from '@/components/GuideMarkdown';
 import { pageMetadata } from '@/lib/seo';
 
 const path = '/editorial-policy';
-const title = 'Editorial Policy: Sources, Examples and Corrections';
-const description = 'Our sourcing resources distinguish business information, original planning tools, hypothetical examples and external rules. They help readers prepare decisions; they do not certify suppliers, products or import arrangements.';
+const title = 'Editorial Policy: Sources and Corrections';
+const description = 'What our pages state as business fact, what is an editorial tool or a hypothetical example, and what only the quotation confirms for an actual order.';
 export const metadata = pageMetadata({ path, title, description });
 
 export default function EditorialPolicyPage() {

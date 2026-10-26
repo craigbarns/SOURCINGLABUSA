@@ -15,9 +15,9 @@ import {
 } from '@/lib/seo';
 
 const path = '/resources';
-const title = 'China Sourcing Resources: Templates, Checklists and Guides';
+const title = 'China Sourcing Resources & Templates';
 const description =
-  'Free templates and practical guides for sourcing from China: the brief a supplier can quote, minimum quantities, landed cost, textile and packaging specifications.';
+  'Free templates and practical guides for sourcing from China: the brief a supplier can quote, MOQs, landed cost and product specifications.';
 
 const directAnswer =
   'These resources cover what a U.S. company needs before ordering from China: the brief a supplier can quote from, how minimum order quantities are set, how landed cost is built up, and what a clothing or packaging specification has to state. They are written to be used during a project rather than read once.';
