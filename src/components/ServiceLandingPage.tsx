@@ -251,6 +251,26 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
           </div>
         </section>
 
+        <section className="editorial-section" aria-label="Start your project">
+          <div className="editorial-container service-overview-layout">
+            <p className="editorial-body">
+              Ready to discuss your project? Send the brief: the answer states
+              what can be quoted and sampled, and what cannot.
+            </p>
+            <div>
+              <CtaLink
+                href="#contact"
+                location="service_midpage"
+                label="Share your project brief"
+                className="editorial-button"
+              >
+                Share your project brief{' '}
+                <ArrowRight size={17} aria-hidden="true" />
+              </CtaLink>
+            </div>
+          </div>
+        </section>
+
         <section className="editorial-section">
           <div className="editorial-container service-overview-layout">
             <div>

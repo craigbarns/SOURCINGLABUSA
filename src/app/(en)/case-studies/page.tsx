@@ -15,7 +15,7 @@ import {
 import { breadcrumbSchema, pageMetadata, webpageSchema } from '@/lib/seo';
 
 const path = '/case-studies';
-const title = 'Sourcing Case Studies: Real Projects, Documented';
+const title = 'China Sourcing Case Studies';
 const description =
   'Real sourcing projects written from their email record: rigid boxes, bags and retail hangers, what went wrong and what was done about it.';
 

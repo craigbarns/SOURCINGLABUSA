@@ -2,9 +2,9 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Freight & Customs on China Orders: What We Coordinate',
+  title: 'Freight & Customs on China Orders',
   description:
-    'How transport, insurance and U.S. customs entry are handled on a China supply order: named in the quotation or left with you. We are not a freight forwarder, customs broker or importer.',
+    'How transport, insurance and U.S. customs entry are handled on a China order: named in the quotation, coordinated, and never assumed.',
   path: '/freight-logistics',
 });
 

@@ -8,7 +8,7 @@ const path = '/contact-us';
 const title = 'Discuss Your China Sourcing Project';
 // The promise, word for word, as on the homepage, About and the footer.
 const description =
-  'Send a brief for custom packaging or textiles: product, quantity, references and destination. We confirm what can be quoted and sampled. Contract and invoice from a company in France or China, named in your quotation.';
+  'Send a brief for custom packaging or textiles: product, quantity, references, destination. We confirm what can be quoted and sampled before any order.';
 export const metadata = pageMetadata({ path, title, description });
 
 export default function ContactPage() {

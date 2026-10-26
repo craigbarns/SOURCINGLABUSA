@@ -15,7 +15,7 @@ import {
   ORGANIZATION_ID,
 } from '@/lib/seo';
 
-const title = 'About Our China Sourcing & Product Supply Business';
+const title = 'About Us: China Sourcing & Supply';
 const description =
   'Custom packaging and textiles supplied under a written contract, invoiced from France or China. Founded by Gregory Baranes, in China sourcing since 2011.';
 export const metadata = pageMetadata({ title, description, path: '/about' });

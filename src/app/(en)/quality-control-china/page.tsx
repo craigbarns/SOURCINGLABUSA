@@ -2,9 +2,9 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Quality Inspection in China: Added When Written into the Quotation',
+  title: 'Quality Inspection in China',
   description:
-    'Third-party inspections (during production, before shipment) coordinated on a supply when written into the quotation, with their scope and acceptance criteria. Not a default on every order.',
+    'Third-party inspections during production and before shipment, coordinated when written into the quotation. What is checked and what the report covers.',
   path: '/quality-control-china',
 });
 

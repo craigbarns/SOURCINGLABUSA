@@ -2,9 +2,9 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Landed-Cost Model: An Estimate Added to the Quotation',
+  title: 'Landed-Cost Model for China Orders',
   description:
-    'What a landed cost includes, from factory price to freight, duties and fees, and how a landed-cost estimate is added to a Sourcing Lab USA quotation on request. Rates are confirmed by your broker and forwarder.',
+    'What a landed cost includes, from factory price to freight, duties and fees, and how the estimate is built and added to your quotation on request.',
   path: '/landed-cost-analysis',
 });
 

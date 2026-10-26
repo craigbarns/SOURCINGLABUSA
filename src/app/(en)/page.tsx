@@ -9,12 +9,12 @@ import {
 } from '@/lib/seo';
 import { HOME_DESCRIPTION, PROMISE_STATEMENT } from '@/lib/positioning';
 
-const title = 'Custom Packaging & Textiles Sourced in China | Sourcing Lab USA';
+const title = 'Packaging & Textiles Sourced in China';
 const description = HOME_DESCRIPTION.en;
 const homeAnswer = PROMISE_STATEMENT.en;
 
 export const metadata = pageMetadata({
-  title: 'Custom Packaging & Textiles Sourced in China',
+  title: 'Packaging & Textiles Sourced in China',
   description,
   path: '/',
   locale: 'en-US',

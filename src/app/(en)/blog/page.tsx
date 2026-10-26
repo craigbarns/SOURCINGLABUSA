@@ -13,7 +13,7 @@ import { BriefSection } from '@/components/BriefSection';
 import { StickyMobileCta } from '@/components/StickyMobileCta';
 import { getAllPosts } from '@/lib/blog';
 
-const title = 'China Sourcing Guides: Clothing, Packaging & Product Briefs';
+const title = 'China Sourcing Guides & Briefs';
 const description =
   'Practical guides to China product sourcing, clothing specifications, custom packaging and quotation requests. Prepare your next product brief.';
 export const metadata = pageMetadata({ title, description, path: '/blog' });

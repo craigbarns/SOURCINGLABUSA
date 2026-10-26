@@ -3,8 +3,8 @@ import { GuideMarkdown } from '@/components/GuideMarkdown';
 import { pageMetadata } from '@/lib/seo';
 
 const path = '/how-we-work';
-const title = 'How Our China Sourcing and Product Supply Process Works';
-const description = 'Sourcing Lab USA starts with your brief, reviews supplier options and samples, and agrees product pricing, production checkpoints and order responsibilities before purchasing and supplying the goods.';
+const title = 'China Sourcing: How We Work';
+const description = 'Your brief, supplier options and samples are reviewed before pricing and production checkpoints are agreed. Here is how an order runs, step by step.';
 export const metadata = pageMetadata({ path, title, description });
 
 export default function HowWeWorkPage() {

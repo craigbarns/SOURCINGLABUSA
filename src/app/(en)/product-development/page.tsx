@@ -2,9 +2,9 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Product Development in China: From Specification to Approved Sample',
+  title: 'Product Development in China',
   description:
-    'How a new packaging or textile product goes from your specification to an approved sample with a factory in China, and what that does not include: in-house engineering, CAD design or certification.',
+    'How a new packaging or textile product goes from your specification to an approved sample with a factory, before any bulk order is placed.',
   path: '/product-development',
 });
 

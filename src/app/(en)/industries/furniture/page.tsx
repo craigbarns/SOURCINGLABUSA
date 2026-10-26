@@ -3,9 +3,9 @@ import { NOT_AN_IMPORTER } from '@/lib/positioning';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Furniture from China: Feasibility Review on Request',
+  title: 'Furniture Sourcing from China',
   description:
-    'Furniture is not a specialty of Sourcing Lab USA. A furniture project is reviewed for feasibility before anything is quoted: the piece, materials, quantity and U.S. requirements.',
+    'Furniture is not a specialty. A project is reviewed for feasibility first, then supplied like the rest: factory search, samples, order and follow-up.',
   path: '/industries/furniture',
 });
 

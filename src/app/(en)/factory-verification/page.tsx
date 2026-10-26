@@ -2,9 +2,9 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Factory Checks in China: Part of the Search, Audits on Request',
+  title: 'China Factory Checks & Verification',
   description:
-    'How a manufacturer is checked before it is proposed for your supply: registration, business scope, the product it actually makes and the samples. An on-site audit by an appointed auditor is added only when written into the quotation.',
+    'How a manufacturer is checked before it is proposed: registration, business scope, trade references and evidence, before any quotation is made.',
   path: '/factory-verification',
 });
 

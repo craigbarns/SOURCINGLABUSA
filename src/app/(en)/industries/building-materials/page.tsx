@@ -3,9 +3,9 @@ import { NOT_AN_IMPORTER } from '@/lib/positioning';
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'Building Materials from China: Feasibility Review on Request',
+  title: 'Building Materials from China',
   description:
-    'Building materials and hardware are not a specialty of Sourcing Lab USA. A project is reviewed for feasibility before anything is quoted: specification, tolerances, standards evidence and quantity.',
+    'Building materials and hardware are not a specialty. A project is reviewed for feasibility before it is quoted, then supplied under the same contract.',
   path: '/industries/building-materials',
 });
 

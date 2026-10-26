@@ -33,7 +33,7 @@ export const metadata: Metadata = {
     telephone: false,
   },
   title: {
-    default: 'Packaging y textiles a medida fabricados en China | Sourcing Lab USA',
+    default: 'Packaging y textil a medida desde China | Sourcing Lab USA',
     template: '%s | Sourcing Lab USA',
   },
   description:
