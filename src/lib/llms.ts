@@ -29,6 +29,7 @@ const sections = [
       ['/landed-cost-analysis', 'Landed-cost analysis', 'A cost model only when included in the quotation, with transport and duty assumptions made explicit.'],
       ['/hs-code-consulting', 'HS code research', 'Working classification research, subject to confirmation by the importer or customs broker.'],
       ['/tools/hs-code-finder', 'HS code preparation tool', 'Prepare product information for classification review; the tool does not determine a code, duty rate or import requirement.'],
+      ['/sourcing-timeline', 'Sourcing timeline', 'The stages from brief to delivered supply, what sets their length and what the quotation states.'],
       ['/how-we-work', 'How we work', 'The brief, factory search, quotation, samples, production follow-up and hand-off.'],
     ],
   },

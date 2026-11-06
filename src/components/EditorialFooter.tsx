@@ -40,6 +40,7 @@ const columns: Array<{ label: { en: string; es: string; zh: string }; links: Foo
       { href: '/about', en: 'About Sourcing Lab', es: 'Sobre nosotros', zh: '关于我们' },
       { href: '/case-studies', en: 'Case studies', es: 'Casos documentados', zh: '案例' },
       { href: '/resources', en: 'Templates & guides', es: 'Recursos y plantillas', zh: '模板与指南' },
+      { href: '/editorial-policy', en: 'Editorial policy', es: 'Política editorial', zh: '编辑方针' },
       { href: '/contact-us', en: 'Start a project', es: 'Contacto', zh: '联系我们' },
     ],
   },
