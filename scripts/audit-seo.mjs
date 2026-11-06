@@ -233,7 +233,7 @@ for (const path of ['/', '/es']) {
   );
   assert.equal(
     entry.getElementsByTagNameNS('http://www.w3.org/1999/xhtml', 'link').length,
-    3,
+    4, // en-US, es-US, zh-Hans and x-default (x-default added with the 2026 homepage hreflang set)
     `${path}: sitemap language alternates`,
   );
 }
