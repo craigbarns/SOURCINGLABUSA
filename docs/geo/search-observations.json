@@ -1,5 +1,5 @@
 {
-  "version": "2026-09-14",
+  "version": "2026-11-06",
   "note": "Search discovery baseline only. These results do not establish citations or recommendations by any named AI platform. Result order is the tool's order, not a Google position. Search volume and backlinks were not available.",
   "observations": [
     {
@@ -836,6 +836,78 @@
           "url": "https://www.lemonde.fr/en/economy/article/2025/04/18/basically-everything-is-made-in-china-at-the-canton-fair-the-world-s-factory-faces-the-tariff-war_6740365_19.html"
         }
       ]
+    },
+    {
+      "query": "site:sourcinglabusa.com (indexed footprint check)",
+      "channel": "available_web_search",
+      "observedDate": "2026-11-06",
+      "scope": "search results returned by the available tool, not a localized Google ranking or an AI answer",
+      "status": "completed",
+      "brandResultReturned": true,
+      "brandUrls": [
+        "https://sourcinglabusa.com/",
+        "https://sourcinglabusa.com/editorial-policy",
+        "https://sourcinglabusa.com/about",
+        "https://sourcinglabusa.com/how-we-work",
+        "https://sourcinglabusa.com/china-sourcing (stale cache; 301 to /china-sourcing-agent)",
+        "https://sourcinglabusa.com/china-to-us-procurement"
+      ],
+      "results": []
+    },
+    {
+      "query": "custom packaging sourcing from China supplier US importer",
+      "channel": "available_web_search",
+      "observedDate": "2026-11-06",
+      "scope": "search results returned by the available tool, not a localized Google ranking or an AI answer",
+      "status": "completed",
+      "brandResultReturned": true,
+      "brandUrls": [
+        "https://sourcinglabusa.com/custom-packaging (resultOrder 1)"
+      ],
+      "results": [
+        {
+          "resultOrder": 1,
+          "title": "Custom Packaging Sourcing from China | Sourcing Lab USA",
+          "url": "https://sourcinglabusa.com/custom-packaging"
+        },
+        {
+          "resultOrder": 2,
+          "title": "Custom Packaging in China — Retail-Ready & Branded · Silk Way Sourcing",
+          "url": "https://www.silkwaysourcing.com/service/custom-packaging"
+        },
+        {
+          "resultOrder": 3,
+          "title": "Packaging Sourcing Agent: Factory, QC & DDP Freight Handled",
+          "url": "https://completesourcing.com/packaging-sourcing-agent"
+        }
+      ]
+    },
+    {
+      "query": "\"sourcing lab usa\" (brand check)",
+      "channel": "available_web_search",
+      "observedDate": "2026-11-06",
+      "scope": "search results returned by the available tool, not a localized Google ranking or an AI answer",
+      "status": "completed",
+      "brandResultReturned": true,
+      "brandUrls": [
+        "https://sourcinglabusa.com/about",
+        "https://sourcinglabusa.com/how-we-work",
+        "https://sourcinglabusa.com/china-sourcing (stale cache)",
+        "https://sourcinglabusa.com/china-to-us-procurement",
+        "https://sourcinglabusa.com/"
+      ],
+      "results": []
+    },
+    {
+      "query": "note on stale SERP snippets",
+      "channel": "available_web_search",
+      "observedDate": "2026-11-06",
+      "scope": "live-site verification against owner guardrails of 2026-10-24",
+      "status": "completed",
+      "brandResultReturned": true,
+      "brandUrls": [],
+      "results": [],
+      "note": "Brave/other snippets for /about and / (footer) still show dropped US market-entry links and an 'AQL 2.5' phrase removed on 2026-10-24. Live HTML was checked 2026-11-06: homepage and /about contain no 'AQL', no market-entry or sales-representation links; /china-sourcing and /supplier-audit-china return 308 redirects. Cache will refresh."
     }
   ]
 }
