@@ -3,6 +3,7 @@ import Image from 'next/image';
 import { ArrowRight, Check, CheckCircle2, ClipboardList, Plus, X } from 'lucide-react';
 
 import { BriefSection } from '@/components/BriefSection';
+import { SERVICE_UPDATES } from '@/lib/service-updates';
 import { ProductShowcase } from '@/components/ProductShowcase';
 import { ScopeTable } from '@/components/ScopeTable';
 import { CtaLink } from '@/components/CtaLink';
@@ -33,6 +34,8 @@ export type ServicePageContent = {
   eyebrow: string;
   title: string;
   intro: string;
+  /** Optional explicit update date; falls back to src/lib/service-updates.ts. */
+  updated?: string;
   /**
    * A self-contained factual answer to the question this page exists for,
    * 40-80 words, placed directly under the H1 and mirrored into the page
@@ -116,6 +119,14 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
                 <h1 className="editorial-title page-title">{page.title}</h1>
                 <p className="direct-answer">{page.directAnswer}</p>
                 <p className="editorial-body page-intro">{page.intro}</p>
+                {(() => {
+                  const updated = page.updated ?? SERVICE_UPDATES[page.path];
+                  return updated ? (
+                    <p className="editorial-kicker mt-4 text-xs opacity-60">
+                      Page updated {updated}
+                    </p>
+                  ) : null;
+                })()}
                 <CtaLink
                   href="#contact"
                   location="service_hero"
