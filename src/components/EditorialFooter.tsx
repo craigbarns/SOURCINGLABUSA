@@ -29,6 +29,7 @@ const columns: Array<{ label: { en: string; es: string; zh: string }; links: Foo
       { href: '/factory-verification', en: 'Factory checks', es: 'Comprobación de fábricas', zh: '工厂核查' },
       { href: '/quality-control-china', en: 'Inspections', es: 'Inspecciones', zh: '验货' },
       { href: '/hs-code-consulting', en: 'HS code classification', es: 'Clasificación HS', zh: 'HS税号归类' },
+      { href: '/duty-calculator', en: 'Duty rate finder', es: 'Buscador de aranceles', zh: '关税查询工具' },
       { href: '/landed-cost-analysis', en: 'Landed-cost model', es: 'Modelo de coste en destino', zh: '到岸成本模型' },
       { href: '/freight-logistics', en: 'Freight and customs: our limits', es: 'Flete y aduanas: nuestros límites', zh: '运输与清关：我们的边界' },
     ],
