@@ -30,6 +30,7 @@ const sections = [
       ['/hs-code-consulting', 'HS code research', 'Working classification research, subject to confirmation by the importer or customs broker.'],
       ['/tools/hs-code-finder', 'HS code preparation tool', 'Prepare product information for classification review; the tool does not determine a code, duty rate or import requirement.'],
       ['/sourcing-timeline', 'Sourcing timeline', 'The stages from brief to delivered supply, what sets their length and what the quotation states.'],
+      ['/duty-calculator', 'Duty rate finder', 'Candidate HTS codes from an AI model; rates fetched live from the official USITC schedule with the date checked. Working research — a customs broker confirms.'],
       ['/how-we-work', 'How we work', 'The brief, factory search, quotation, samples, production follow-up and hand-off.'],
     ],
   },

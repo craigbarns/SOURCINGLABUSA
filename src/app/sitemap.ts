@@ -30,6 +30,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/industries/building-materials',
     '/industries/furniture',
     '/sourcing-timeline',
+    '/duty-calculator',
     '/bangladesh-garment-sourcing',
   ].map((path) => ({
     url: `${marketingOrigin}${path}`,
