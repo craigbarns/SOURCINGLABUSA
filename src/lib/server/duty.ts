@@ -54,11 +54,17 @@ async function classifyCandidates(
     (await openAiChatCompletion(CLASSIFICATION_SYSTEM_PROMPT, user));
   if (!raw) return null;
 
-  // Tolerant extraction: models sometimes wrap JSON in prose or fences.
+  // Tolerant extraction: models sometimes wrap JSON in prose or fences, or
+  // return malformed JSON — every failure falls back to the demo result
+  // rather than surfacing a 502 to the user.
   const match = raw.match(/\{[\s\S]*\}/);
   if (!match) return null;
-  const parsed = dutyClassificationSchema.safeParse(JSON.parse(match[0]));
-  return parsed.success ? parsed.data : null;
+  try {
+    const parsed = dutyClassificationSchema.safeParse(JSON.parse(match[0]));
+    return parsed.success ? parsed.data : null;
+  } catch {
+    return null;
+  }
 }
 
 async function openAiChatCompletion(
