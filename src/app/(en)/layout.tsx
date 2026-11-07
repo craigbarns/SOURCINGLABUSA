@@ -23,6 +23,11 @@ export const metadata: Metadata = {
   metadataBase: new URL(marketingOrigin),
   applicationName: 'SourcingLab USA',
   manifest: '/manifest.webmanifest',
+  alternates: {
+    types: {
+      'application/rss+xml': '/blog/feed.xml',
+    },
+  },
   authors: [{ name: 'SourcingLab USA' }],
   creator: 'SourcingLab USA',
   publisher: 'SourcingLab USA',
