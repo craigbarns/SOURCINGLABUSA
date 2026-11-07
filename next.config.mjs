@@ -110,6 +110,23 @@ const nextConfig = {
         destination: '/private-label-manufacturing',
         permanent: true,
       },
+      {
+        // Canonical feed lives at /blog/feed.xml; these root paths are the
+        // conventional discovery locations crawlers and agents probe.
+        source: '/feed.xml',
+        destination: '/blog/feed.xml',
+        permanent: true,
+      },
+      {
+        source: '/rss.xml',
+        destination: '/blog/feed.xml',
+        permanent: true,
+      },
+      {
+        source: '/feed',
+        destination: '/blog/feed.xml',
+        permanent: true,
+      },
     ];
   },
   async headers() {

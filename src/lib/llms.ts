@@ -74,6 +74,7 @@ export function getLlmsText() {
     '## Optional',
     `- [Extended overview](${absoluteUrl('/llms-full.txt')}): The published scope, answers to common questions and links to sourcing guides.`,
     `- [Sitemap](${absoluteUrl('/sitemap.xml')}): The current directory of public pages.`,
+    `- [Sourcing guides feed](${absoluteUrl('/blog/feed.xml')}): RSS feed of new sourcing guides with publication and update dates.`,
     '',
   ].join('\n\n');
 }
