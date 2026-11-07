@@ -91,7 +91,7 @@ export function DutyAnalyzer() {
       </form>
 
       {result ? (
-        <div className="mt-8 space-y-6">
+        <div className="mt-8 space-y-6" aria-live="polite">
           <p className="text-xs text-brand-ink/60">
             {result.sourceLabel} · Rates checked {result.dateChecked} ·{' '}
             Origin: {result.originCountryLabel}
