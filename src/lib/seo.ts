@@ -198,6 +198,30 @@ export function serviceSchema(path: string, name: string, description: string) {
   };
 }
 
+/**
+ * HowTo markup for a page that shows a real ordered how-it-works list. Steps
+ * carry the name and text the reader sees, so the markup mirrors the page
+ * rather than describing an invented procedure.
+ */
+export function howToSchema(
+  path: string,
+  name: string,
+  steps: ReadonlyArray<{ readonly name: string; readonly text: string }>,
+) {
+  return {
+    '@type': 'HowTo',
+    '@id': `${absoluteUrl(path)}#howto`,
+    name,
+    isPartOf: { '@id': `${absoluteUrl(path)}#webpage` },
+    step: steps.map((step, index) => ({
+      '@type': 'HowToStep',
+      position: index + 1,
+      name: step.name,
+      text: step.text,
+    })),
+  };
+}
+
 export function faqSchema(
   path: string,
   faqs: ReadonlyArray<readonly [string, string]>,

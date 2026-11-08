@@ -87,6 +87,9 @@ export default async function BlogPost({
           url: absoluteUrl('/about'),
         },
         publisher: { '@id': ORGANIZATION_ID },
+        // The same image the page declares as og:image, so crawlers reading
+        // only the markup get the article's real preview.
+        image: [absoluteUrl('/opengraph-image')],
         ...(post.updatedBy ? { contributor: { '@type': 'Organization', '@id': ORGANIZATION_ID, name: post.updatedBy } } : {}),
         isPartOf: { '@id': `${absoluteUrl('/resources')}#webpage` },
         citation: [...new Set([...post.content.matchAll(/\]\((https:\/\/[^\s)]+)\)/g)].map((match) => match[1]))],

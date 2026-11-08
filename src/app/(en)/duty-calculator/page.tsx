@@ -3,7 +3,18 @@ import type { Metadata } from 'next';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import { DutyAnalyzer } from '@/components/tools/DutyAnalyzer';
-import { pageMetadata } from '@/lib/seo';
+import { StructuredData } from '@/components/StructuredData';
+import {
+  breadcrumbSchema,
+  faqSchema,
+  howToSchema,
+  pageMetadata,
+  webpageSchema,
+} from '@/lib/seo';
+import {
+  dutyCalculatorFaqs,
+  dutyCalculatorSteps,
+} from '@/lib/duty-calculator-faqs';
 
 export const metadata = pageMetadata({
   title: 'Duty Rate Finder for U.S. Imports',
@@ -15,6 +26,28 @@ export const metadata = pageMetadata({
 export default function DutyCalculatorPage() {
   return (
     <div className="editorial-shell workspace-page flex min-h-screen flex-col">
+      <StructuredData
+        data={{
+          '@context': 'https://schema.org',
+          '@graph': [
+            webpageSchema(
+              '/duty-calculator',
+              'Duty Rate Finder for U.S. Imports',
+              'Enter a product and country of manufacture: candidate HTS codes from an AI model, rates fetched live from the official USITC tariff schedule, with the date checked. Working research — your customs broker confirms.',
+            ),
+            breadcrumbSchema([
+              { name: 'Home', path: '/' },
+              { name: 'Duty Rate Finder', path: '/duty-calculator' },
+            ]),
+            faqSchema('/duty-calculator', dutyCalculatorFaqs, 'en-US'),
+            howToSchema(
+              '/duty-calculator',
+              'How the duty rate finder works.',
+              dutyCalculatorSteps,
+            ),
+          ],
+        }}
+      />
       <Navbar area="marketing" contactHref="/contact-us#contact" />
       <main className="flex-1">
         <div className="mx-auto max-w-3xl px-4 py-16 sm:px-6">
@@ -40,31 +73,11 @@ export default function DutyCalculatorPage() {
               How the duty rate finder works.
             </h2>
             <ol className="mt-4 list-decimal space-y-3 pl-5 text-sm text-brand-ink/80">
-              <li>
-                <strong>The model classifies, it never prices.</strong> GLM,
-                our AI classification model, reads your product description
-                and proposes the most likely HTSUS candidate codes — material,
-                use and composition decide the chapter.
-              </li>
-              <li>
-                <strong>The rate comes from the official schedule.</strong>{' '}
-                Each candidate code is looked up in the U.S. International
-                Trade Commission&apos;s HTS at the moment of your request, and
-                the date of the check is shown with the result.
-              </li>
-              <li>
-                <strong>Additional tariffs stay a layer to verify.</strong>{' '}
-                Additional tariffs on Chinese-origin goods — Section 301 among
-                them — are set and changed by government action. They are
-                described, never hard-coded: your customs broker confirms the
-                layers in force for your code and origin.
-              </li>
-              <li>
-                <strong>Before an order, it is confirmed.</strong> A licensed
-                customs broker confirms classification and duty rates.
-                Sourcing Lab USA is not a customs broker and is not the
-                importer of record.
-              </li>
+              {dutyCalculatorSteps.map((step) => (
+                <li key={step.name}>
+                  <strong>{step.name}</strong> {step.text}
+                </li>
+              ))}
             </ol>
           </section>
 
@@ -114,51 +127,12 @@ export default function DutyCalculatorPage() {
               Questions and answers.
             </h2>
             <div className="mt-4 space-y-4 text-sm text-brand-ink/80">
-              <div>
-                <h3 className="font-semibold">
-                  Is the rate the tool shows the duty I will pay?
-                </h3>
-                <p>
-                  No. It is the HTSUS general rate for the candidate code as
-                  published by the USITC on the date shown. Your final duty
-                  depends on the confirmed classification, additional tariffs
-                  that apply to your origin, entry fees and your broker&apos;s
-                  fee.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold">
-                  Why does the country of manufacture matter?
-                </h3>
-                <p>
-                  Additional tariffs apply by origin, and origin follows where
-                  the goods are manufactured — not where they ship from. The
-                  base HTS rate can also differ between origins under special
-                  programs.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold">
-                  Does the AI model choose the tariff?
-                </h3>
-                <p>
-                  No. The model only proposes candidate classifications. Every
-                  rate on this page is fetched from the official USITC
-                  schedule, and the date of that lookup is displayed with the
-                  result.
-                </p>
-              </div>
-              <div>
-                <h3 className="font-semibold">
-                  Can Sourcing Lab USA classify my product for customs?
-                </h3>
-                <p>
-                  We provide working classification research, subject to
-                  confirmation by the importer or customs broker. On request,
-                  the working classification is written into your quotation —
-                  and a licensed customs broker confirms it.
-                </p>
-              </div>
+              {dutyCalculatorFaqs.map(([question, answer]) => (
+                <div key={question}>
+                  <h3 className="font-semibold">{question}</h3>
+                  <p>{answer}</p>
+                </div>
+              ))}
             </div>
           </section>
         </div>
