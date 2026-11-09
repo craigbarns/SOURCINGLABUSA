@@ -1,6 +1,6 @@
 ---
-title: "Tariffs on Chinese-Origin Packaging and Textiles: How to Find the Rate You Will Pay"
-excerpt: "Tariff rates on Chinese-origin goods are set and changed by government action. How to find the rate that applies to your HTS code, and which sources to check before you price an order."
+title: "Tariffs on Chinese Packaging and Textiles"
+excerpt: "Tariff rates on Chinese-origin goods change with government action. How to find the rate for your HTS code, and which official sources to check."
 date: "2026-11-06"
 updated: "2026-11-06"
 updatedBy: "SourcingLab USA"

@@ -1,5 +1,5 @@
 ---
-title: "Apparel Sourcing: Understanding Tech Packs and MOQ"
+title: "Apparel Sourcing: Tech Packs and MOQ"
 excerpt: "Learn why a clear tech pack is essential for negotiating Minimum Order Quantities (MOQ) and defining product requirements when sourcing custom textiles."
 date: "2026-09-03"
 updated: "2026-09-08"

@@ -5,7 +5,7 @@ import { pageMetadata } from '@/lib/seo';
 export const metadata = pageMetadata({
   title: 'Bangladesh Garment Sourcing',
   description:
-    'Clothing produced in Bangladesh through our established partner, to your specification. Brief, samples, production follow-up and contracted supply for U.S. brands.',
+    'Clothing produced in Bangladesh through our established partner, to your specification: brief, samples, follow-up and contracted supply.',
   path: '/bangladesh-garment-sourcing',
 });
 

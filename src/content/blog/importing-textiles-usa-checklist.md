@@ -1,5 +1,5 @@
 ---
-title: "U.S. Textile Import Planning: Labels, Documents and Product Review"
+title: "U.S. Textile Import Planning Checklist"
 excerpt: "Prepare a textile import review with product details, label artwork and documentation. Includes official FTC and CPSC resources for the U.S. market."
 date: "2026-09-03"
 updated: "2026-09-08"

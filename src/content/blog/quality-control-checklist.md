@@ -1,5 +1,5 @@
 ---
-title: "China Sourcing Quality Checklist: Samples to Shipment Decisions"
+title: "China Sourcing Quality Checklist"
 excerpt: "Create order-specific quality checkpoints for packaging and textiles, with a defect log, approval record and downloadable worksheet."
 date: "2026-09-14"
 author: "SourcingLab USA"

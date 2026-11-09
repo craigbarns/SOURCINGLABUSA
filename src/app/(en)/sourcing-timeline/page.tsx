@@ -2,7 +2,7 @@ import { ServiceLandingPage, type ServicePageContent } from '@/components/Servic
 import { pageMetadata } from '@/lib/seo';
 
 export const metadata = pageMetadata({
-  title: 'China Sourcing Timeline: From Brief to Delivered Supply',
+  title: 'China Sourcing Timeline: Brief to Supply',
   description:
     'The stages of a sourcing order — brief, factory options, samples, production and delivery — what sets the length of each stage, and what can move the date.',
   path: '/sourcing-timeline',

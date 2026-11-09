@@ -65,13 +65,13 @@ export const metadata: Metadata = {
     alternateLocale: ['en_US'],
     siteName: 'Sourcing Lab USA',
     url: `${marketingOrigin}/es`,
-    title: 'Packaging y textiles a medida fabricados en China | Sourcing Lab USA',
+    title: 'Packaging y textiles a medida en China | Sourcing Lab USA',
     description:
       HOME_DESCRIPTION.es,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Packaging y textiles a medida fabricados en China | Sourcing Lab USA',
+    title: 'Packaging y textiles a medida en China | Sourcing Lab USA',
     description:
       HOME_DESCRIPTION.es,
   },

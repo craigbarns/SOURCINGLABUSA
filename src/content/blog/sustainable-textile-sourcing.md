@@ -1,5 +1,5 @@
 ---
-title: "How to Discuss Material Claims When Sourcing Custom Textiles"
+title: "Discussing Material Claims for Textiles"
 excerpt: "A practical way to define textile material requirements, request supporting documents, and avoid making claims that the order cannot substantiate."
 date: "2026-08-25"
 updated: "2026-08-31"

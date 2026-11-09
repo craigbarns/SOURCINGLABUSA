@@ -1,5 +1,5 @@
 ---
-title: "Alibaba vs a Sourcing Company: Compare the Work and Order Terms"
+title: "Alibaba vs Sourcing Company: Order Terms"
 excerpt: "Decide between direct supplier sourcing and a product supply partner with a task-ownership matrix, quote comparison and a practical packaging example."
 date: "2026-09-14"
 author: "SourcingLab USA"
