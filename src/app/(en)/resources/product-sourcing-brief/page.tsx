@@ -21,7 +21,7 @@ import {
 const path = '/resources/product-sourcing-brief';
 const downloadPath = '/resources/product-sourcing-brief.txt';
 
-const title = 'Product Sourcing Brief Template (Free Download)';
+const title = 'Product Sourcing Brief Template';
 const description =
   'A free RFQ template for sourcing from China: the fields a supplier needs to quote, what to mark as to confirm, and the quantities and timing to plan around.';
 

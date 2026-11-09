@@ -1,5 +1,5 @@
 ---
-title: "How to Verify a Chinese Supplier: Evidence and Scorecard"
+title: "Verify a Chinese Supplier: Scorecard"
 excerpt: "A supplier qualification matrix that separates identity, capability, samples and order terms. Download the evidence worksheet before approving an order."
 date: "2026-09-14"
 author: "SourcingLab USA"

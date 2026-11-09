@@ -1,6 +1,6 @@
 ---
-title: "Which Incoterm Should a U.S. Buyer Choose? FOB, EXW and DDP Compared"
-excerpt: "The Incoterm decides where the supplier's costs stop and yours begin. What FOB, EXW and DDP actually mean for a U.S. buyer, and how to compare prices quoted on different terms."
+title: "Incoterms for U.S. Buyers: FOB, EXW, DDP"
+excerpt: "What FOB, EXW and DDP mean for a U.S. buyer, and how to compare prices quoted on different terms."
 date: "2026-11-06"
 updated: "2026-11-06"
 updatedBy: "SourcingLab USA"

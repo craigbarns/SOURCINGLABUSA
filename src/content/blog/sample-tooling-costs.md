@@ -1,5 +1,5 @@
 ---
-title: "Sample and Tooling Costs: What to Confirm Before You Approve Anything"
+title: "Sample and Tooling Costs Before Approval"
 excerpt: "What a sample costs, what tooling costs, and the three ownership questions to settle in writing before production starts."
 date: "2026-11-06"
 updated: "2026-11-06"

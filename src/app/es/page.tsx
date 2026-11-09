@@ -9,7 +9,7 @@ import {
 } from '@/lib/seo';
 import { HOME_DESCRIPTION, PROMISE_STATEMENT } from '@/lib/positioning';
 
-const title = 'Packaging y textiles a medida fabricados en China';
+const title = 'Packaging y textiles a medida en China';
 const description = HOME_DESCRIPTION.es;
 const homeAnswerES = PROMISE_STATEMENT.es;
 

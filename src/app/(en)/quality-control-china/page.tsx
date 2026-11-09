@@ -47,7 +47,7 @@ const page: ServicePageContent = {
     },
     {
       title: 'Acceptance criteria',
-      body: 'Sampling follows tables such as ISO 2859-1. The acceptable defect levels are set per product and per defect severity; a figure like AQL 2.5 is a common example, not a rule.',
+      body: 'Sampling follows tables such as ISO 2859-1. The acceptable defect levels are set per product, per defect severity and per risk, and written into the quotation.',
     },
     {
       title: 'Lab tests',
@@ -87,9 +87,9 @@ const page: ServicePageContent = {
         'No. Production is followed against the approved sample on every supply. A third-party inspection is added when it is written into the quotation, with its stage, scope and criteria.',
     },
     {
-      question: 'What is AQL 2.5, and is it used for every product?',
+      question: 'How are acceptable defect levels set?',
       answer:
-        'AQL (Acceptance Quality Limit) 2.5 is a commonly cited level for major defects in consumer goods, but it is not universal. Inspection levels and acceptable defect levels are set per product, defect severity and risk.',
+        'They are set per product, per defect severity and per risk, and stated in the quotation. No single sampling level applies to every product or every order.',
     },
     {
       question: 'When is the best time to inspect?',

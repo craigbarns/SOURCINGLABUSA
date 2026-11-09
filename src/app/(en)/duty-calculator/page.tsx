@@ -19,7 +19,7 @@ import {
 export const metadata = pageMetadata({
   title: 'Duty Rate Finder for U.S. Imports',
   description:
-    'Enter a product and country of manufacture: candidate HTS codes from an AI model, rates fetched live from the official USITC tariff schedule, with the date checked. Working research — your customs broker confirms.',
+    'Candidate HTS codes from an AI model, with duty rates fetched live from the official USITC schedule and the date checked. Your customs broker confirms.',
   path: '/duty-calculator',
 });
 
@@ -33,7 +33,7 @@ export default function DutyCalculatorPage() {
             webpageSchema(
               '/duty-calculator',
               'Duty Rate Finder for U.S. Imports',
-              'Enter a product and country of manufacture: candidate HTS codes from an AI model, rates fetched live from the official USITC tariff schedule, with the date checked. Working research — your customs broker confirms.',
+              'Candidate HTS codes from an AI model, with duty rates fetched live from the official USITC schedule and the date checked. Your customs broker confirms.',
             ),
             breadcrumbSchema([
               { name: 'Home', path: '/' },

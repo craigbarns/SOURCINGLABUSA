@@ -1,5 +1,5 @@
 ---
-title: "China Sourcing for U.S. Companies: A Decision-by-Decision Guide"
+title: "China Sourcing for U.S. Companies"
 excerpt: "Find manufacturers, qualify suppliers and compare quotes using a documented approval workflow, with RFQ, quality and landed-cost resources."
 date: "2026-09-14"
 author: "SourcingLab USA"

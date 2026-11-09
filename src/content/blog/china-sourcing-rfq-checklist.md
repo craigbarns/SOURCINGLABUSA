@@ -1,5 +1,5 @@
 ---
-title: "China Sourcing RFQ Checklist: How to Prepare a Product Brief"
+title: "China Sourcing RFQ Checklist"
 excerpt: "Prepare a China sourcing quotation request with product specs, quantities, samples and delivery requirements. Includes a free brief template."
 date: "2026-09-07"
 author: "Gregory Baranes"

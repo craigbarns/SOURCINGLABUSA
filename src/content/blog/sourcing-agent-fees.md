@@ -1,5 +1,5 @@
 ---
-title: "China Sourcing Agent Fees: Compare Scope Before Percentages"
+title: "Sourcing Agent Fees: Compare the Scope"
 excerpt: "Understand fixed fees, commissions and product supply pricing. Use a quote-completeness worksheet instead of assuming a universal sourcing fee."
 date: "2026-09-14"
 author: "SourcingLab USA"

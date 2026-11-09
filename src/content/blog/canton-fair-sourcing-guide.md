@@ -1,5 +1,5 @@
 ---
-title: "Canton Fair Sourcing Guide for U.S. Buyers: Brief to Follow-Up"
+title: "Canton Fair Sourcing Guide for Buyers"
 excerpt: "Prepare a comparable RFQ, record supplier conversations and qualify candidates after the Canton Fair. Includes a downloadable meeting worksheet."
 date: "2026-09-14"
 author: "SourcingLab USA"

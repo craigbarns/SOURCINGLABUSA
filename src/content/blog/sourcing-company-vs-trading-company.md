@@ -1,5 +1,5 @@
 ---
-title: "Sourcing Company vs Trading Company: Who You Contract With Matters"
+title: "Sourcing Company vs Trading Company"
 excerpt: "A sourcing company and a trading company both sell you finished goods, but the contract, the price and the accountability differ. What to check before you sign."
 date: "2026-11-06"
 updated: "2026-11-06"

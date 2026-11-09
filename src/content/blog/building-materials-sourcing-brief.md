@@ -1,5 +1,5 @@
 ---
-title: "Sourcing Furniture and Building Products from China: The Brief"
+title: "Furniture and Building Products Brief"
 excerpt: "Prepare a U.S. project sourcing brief for furniture, cabinets, tiles and fixtures, with a specification register and specialist review checkpoints."
 date: "2026-09-14"
 author: "SourcingLab USA"

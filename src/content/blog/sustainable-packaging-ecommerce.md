@@ -1,5 +1,5 @@
 ---
-title: "Sustainable Packaging Sourcing: Materials, Claims and a Better Brief"
+title: "Sustainable Packaging Sourcing Brief"
 excerpt: "Turn packaging sustainability goals into specific material and documentation requirements. Compare options for protection, structure and supported claims."
 date: "2026-09-03"
 updated: "2026-09-08"

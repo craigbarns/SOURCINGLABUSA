@@ -94,7 +94,7 @@ export const CASE_STUDY_CATEGORY_LABELS: Record<CaseStudyCategory, string> = {
 export const CASE_STUDIES: CaseStudy[] = [
   {
     slug: 'rigid-boxes-white-sample-corrections',
-    title: 'Rigid boxes corrected to the millimeter on the white sample',
+    title: 'Rigid Boxes Corrected on the White Sample',
     category: 'packaging',
     client: 'A French client',
     deliveredBy: 'Led by the founder through a sourcing company with an office in Shanghai, before Sourcing Lab USA was created',
@@ -115,7 +115,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: 'bag-color-complaint-retained-sample',
-    title: 'A color complaint checked against the retained production sample',
+    title: 'Bag Color Complaint vs Retained Sample',
     category: 'other',
     client: 'A French menswear brand',
     deliveredBy: 'Led by the founder through a sourcing company with an office in Shanghai, before Sourcing Lab USA was created',
@@ -136,7 +136,7 @@ export const CASE_STUDIES: CaseStudy[] = [
   },
   {
     slug: 'retail-hangers-approved-sample',
-    title: 'Retail hangers confirmed in writing against the approved sample',
+    title: 'Retail Hangers vs Approved Sample',
     category: 'other',
     client: 'A fashion retail client',
     deliveredBy: 'Led by the founder through a sourcing company with an office in Shanghai, before Sourcing Lab USA was created',

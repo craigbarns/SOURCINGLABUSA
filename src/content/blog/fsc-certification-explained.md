@@ -1,6 +1,6 @@
 ---
-title: "FSC Certified Packaging: Meaning, Labels, Chain of Custody and Sourcing from Asia"
-excerpt: "What FSC certification means for packaging: the three labels, how chain of custody works, how to verify a supplier in Asia, and what the certification does and does not prove for compliance."
+title: "FSC Packaging: Meaning, Labels and Proof"
+excerpt: "FSC on packaging: the three labels, chain of custody, how to verify a supplier in Asia, and what FSC does and does not prove for compliance."
 date: "2026-09-15"
 updated: "2026-11-07"
 updatedBy: "SourcingLab USA"

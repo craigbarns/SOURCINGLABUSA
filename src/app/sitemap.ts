@@ -3,6 +3,7 @@ import type { MetadataRoute } from 'next';
 import { getDomainRoutingConfig } from '@/lib/routing/subdomains';
 import { homeLanguages } from '@/lib/seo';
 import { getAllPosts } from '@/lib/blog';
+import { SERVICE_UPDATES } from '@/lib/service-updates';
 import { CASE_STUDIES } from '@/lib/case-studies';
 
 export default function sitemap(): MetadataRoute.Sitemap {
@@ -34,6 +35,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/bangladesh-garment-sourcing',
   ].map((path) => ({
     url: `${marketingOrigin}${path}`,
+    ...(SERVICE_UPDATES[path] ? { lastModified: SERVICE_UPDATES[path] } : {}),
     changeFrequency: 'weekly' as const,
     priority: 0.9,
   }));
