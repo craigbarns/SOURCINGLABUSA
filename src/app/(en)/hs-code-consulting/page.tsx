@@ -112,6 +112,11 @@ const page: ServicePageContent = {
     'Product, materials and photos. Ask for a working classification to be written into the quotation.',
   relatedPages: [
     {
+      href: '/duty-calculator',
+      title: 'Duty rate finder',
+      description: 'Look up a working HTS code and the published U.S. duty rates before you order.',
+    },
+    {
       href: '/tools/hs-code-finder',
       title: 'HS code research helper',
       description: 'Classification questions and a starting point for research.',

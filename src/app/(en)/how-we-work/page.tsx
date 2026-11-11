@@ -28,7 +28,7 @@ The process below explains the decisions described in our supply offer. Exact de
 | Production follow-up | Agreed checkpoints and changes affecting the order | Resolve issues and approve changes where required |
 | Delivery arrangements | Packing, shipping terms and import responsibilities | Confirm the agreed handoff and receiving arrangements |
 
-Submitting a brief requests a discussion; it does not place an order. [Prepare your RFQ](/blog/china-sourcing-rfq-checklist) or [send the details you have](/contact-us#contact).
+Submitting a brief requests a discussion; it does not place an order. See [how long each stage takes and what moves the date](/sourcing-timeline), then [prepare your RFQ](/blog/china-sourcing-rfq-checklist) or [send the details you have](/contact-us#contact).
 
 ## How should approvals be documented?
 

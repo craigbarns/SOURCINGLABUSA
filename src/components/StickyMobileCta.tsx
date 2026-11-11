@@ -6,20 +6,23 @@ import { useEffect, useState } from 'react';
 import { trackCtaClick } from '@/lib/analytics';
 import { BRIEF_CONTACT_EMAIL, type BriefLocale } from '@/lib/brief-copy';
 
-const COPY: Record<BriefLocale, { cta: string; email: string; subject: string }> = {
+const COPY: Record<BriefLocale, { cta: string; email: string; label: string; subject: string }> = {
   en: {
     cta: 'Send your project brief',
     email: 'Email us',
+    label: 'Quick contact',
     subject: 'Custom packaging or textile project',
   },
   es: {
     cta: 'Enviar su proyecto',
     email: 'Escríbanos',
+    label: 'Contacto rápido',
     subject: 'Proyecto de packaging o textil personalizado',
   },
   zh: {
     cta: '提交产品需求',
     email: '邮件联络',
+    label: '快速联系',
     subject: '定制包装或纺织品项目',
   },
 };
@@ -75,7 +78,8 @@ export function StickyMobileCta({ locale = 'en' }: StickyMobileCtaProps) {
       {/* Keeps the end of the footer reachable above the floating bar. */}
       <div aria-hidden="true" className="h-20 md:hidden" />
 
-      <div
+      <aside
+        aria-label={copy.label}
         className={`sticky-mobile-bar fixed inset-x-0 bottom-0 z-40 border-t border-white/[0.09] bg-[#070a09]/95 px-4 pb-[max(0.75rem,env(safe-area-inset-bottom))] pt-3 backdrop-blur-xl transition-transform duration-300 md:hidden ${
           isVisible ? 'translate-y-0' : 'pointer-events-none translate-y-full'
         }`}
@@ -100,7 +104,7 @@ export function StickyMobileCta({ locale = 'en' }: StickyMobileCtaProps) {
             <Mail className="h-[18px] w-[18px]" aria-hidden="true" />
           </a>
         </div>
-      </div>
+      </aside>
     </>
   );
 }

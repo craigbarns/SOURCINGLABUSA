@@ -232,6 +232,11 @@ export const customTextilePage: ServicePageContent = {
       description: 'Tech pack, fabric, lab dips, fit sample and size set before bulk.',
     },
     {
+      href: '/bangladesh-garment-sourcing',
+      title: 'Garments produced in Bangladesh',
+      description: 'Knit and woven clothing programs through our established partner, on the same written terms.',
+    },
+    {
       href: '/sportswear-sourcing',
       title: 'Sportswear and technical apparel sourcing',
       description: 'Review intended use, stretch, fit, size runs and the evidence needed for performance requirements.',
@@ -462,6 +467,11 @@ export const chinaToUsProcurementPage: ServicePageContent = {
   briefIntro:
     'Product, quantity, destination, target timing, and any specification you already have. We confirm the scope and reply by email.',
   relatedPages: [
+    {
+      href: '/sourcing-timeline',
+      title: 'How long a sourcing order takes',
+      description: 'The five stages from brief to delivery, and what moves the date at each one.',
+    },
     {
       href: '/blog/china-sourcing-rfq-checklist',
       title: 'China sourcing RFQ checklist',

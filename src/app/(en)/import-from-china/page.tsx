@@ -112,6 +112,11 @@ const page: ServicePageContent = {
     'Product, quantity and who will import. We confirm what can be quoted and name who carries each step.',
   relatedPages: [
     {
+      href: '/duty-calculator',
+      title: 'Duty rate finder',
+      description: 'Look up a working HTS code and the published U.S. duty rates before you order.',
+    },
+    {
       href: '/freight-logistics',
       title: 'Freight and customs: our limits',
       description: 'What we coordinate on transport, and what we do not do.',

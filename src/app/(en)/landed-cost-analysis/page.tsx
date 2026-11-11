@@ -111,6 +111,11 @@ const page: ServicePageContent = {
     'Product, quantity, Incoterm and destination. Ask for a landed-cost estimate to be written into the quotation.',
   relatedPages: [
     {
+      href: '/duty-calculator',
+      title: 'Duty rate finder',
+      description: 'Look up a working HTS code and the published U.S. duty rates before you order.',
+    },
+    {
       href: '/hs-code-consulting',
       title: 'HS code classification',
       description: 'The working classification behind the duty line.',

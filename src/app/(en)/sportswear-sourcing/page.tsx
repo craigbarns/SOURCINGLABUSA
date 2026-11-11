@@ -53,6 +53,7 @@ const page: ServicePageContent = {
   briefIntro: 'Start with the garment, intended use, approximate quantities and required timing. Add a reference or tech pack details if you have them. No order is placed by submitting this form.',
   relatedPages: [
     { href: '/custom-textile', title: 'Clothing and textile sourcing', description: 'Explore the broader clothing offer and the specification process.' },
+    { href: '/bangladesh-garment-sourcing', title: 'Garments produced in Bangladesh', description: 'Knit and woven clothing programs through our established partner.' },
     { href: '/custom-packaging', title: 'Boxes, packaging and labels', description: 'Plan the packaging and branded details alongside your garments.' },
     { href: '/blog/apparel-sourcing-tech-packs-moq', title: 'Tech packs and garment quantities', description: 'Prepare the information needed for a useful sourcing conversation.' },
     { href: '/blog/china-sourcing-rfq-checklist', title: 'Download the sourcing brief', description: 'Use a practical template to prepare your request.' },

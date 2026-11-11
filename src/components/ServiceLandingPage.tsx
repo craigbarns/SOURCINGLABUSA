@@ -122,7 +122,7 @@ export function ServiceLandingPage({ page }: { page: ServicePageContent }) {
                 {(() => {
                   const updated = page.updated ?? SERVICE_UPDATES[page.path];
                   return updated ? (
-                    <p className="editorial-kicker mt-4 text-xs opacity-60">
+                    <p className="editorial-kicker mt-4 text-xs">
                       Page updated {updated}
                     </p>
                   ) : null;

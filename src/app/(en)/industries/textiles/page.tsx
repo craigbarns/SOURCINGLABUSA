@@ -107,9 +107,9 @@ const page: ServicePageContent = {
       description: 'Activewear and team apparel supplied under a written contract.',
     },
     {
-      href: '/product-sourcing',
-      title: 'Other products',
-      description: 'How products outside packaging and textiles are reviewed.',
+      href: '/bangladesh-garment-sourcing',
+      title: 'Garments produced in Bangladesh',
+      description: 'Clothing programs through our established partner in Bangladesh.',
     },
     {
       href: '/quality-control-china',

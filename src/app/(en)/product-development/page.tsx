@@ -122,6 +122,11 @@ const page: ServicePageContent = {
     'Specification or tech pack, references, quantity and target date. We confirm what can be sampled and quoted.',
   relatedPages: [
     {
+      href: '/sourcing-timeline',
+      title: 'How long a sourcing order takes',
+      description: 'The stages from brief to delivery, and what sets the length of each.',
+    },
+    {
       href: '/custom-packaging',
       title: 'Custom packaging',
       description: 'Boxes, mailers, labels and inserts, a core specialty.',
