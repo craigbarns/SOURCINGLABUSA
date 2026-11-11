@@ -69,7 +69,7 @@ export default async function BlogPost({
       webpageSchema(path, post.title, post.excerpt),
       breadcrumbSchema([
         { name: 'Home', path: '/' },
-        { name: 'Sourcing guides', path: '/blog' },
+        { name: 'Sourcing resources', path: '/resources' },
         { name: post.title, path },
       ]),
       {
@@ -111,8 +111,8 @@ export default async function BlogPost({
               Home
             </Link>
             <span aria-hidden="true">/</span>
-            <Link href="/blog" className="hover:text-brand-ink">
-              Sourcing guides
+            <Link href="/resources" className="hover:text-brand-ink">
+              Sourcing resources
             </Link>
             <span aria-hidden="true">/</span>
             <span>Article</span>

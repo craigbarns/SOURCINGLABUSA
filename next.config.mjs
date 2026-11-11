@@ -110,6 +110,14 @@ const nextConfig = {
         destination: '/private-label-manufacturing',
         permanent: true,
       },
+      // The guide index repeated /resources: same guides, same summaries
+      // (0.80 word overlap in the 11 November 2026 crawl). Per the no-doorway
+      // rule, /resources carries the subject; guide URLs under /blog/ stay.
+      {
+        source: '/blog',
+        destination: '/resources',
+        permanent: true,
+      },
       {
         // Canonical feed lives at /blog/feed.xml; these root paths are the
         // conventional discovery locations crawlers and agents probe.

@@ -49,9 +49,8 @@ const sections = [
       ['/', 'English homepage', 'Custom packaging and textile supply for U.S. business buyers.'],
       ['/es', 'Spanish homepage', 'The same sourcing offer in Spanish for U.S. buyers.'],
       ['/zh', 'Simplified Chinese homepage', 'The same product supply and quotation scope in Simplified Chinese.'],
-      ['/resources', 'Sourcing resources', 'Briefs and worksheets for comparing offers and preparing an order.'],
+      ['/resources', 'Sourcing resources', 'Briefs, worksheets and guides on packaging, textiles, supplier checks and order preparation.'],
       ['/resources/product-sourcing-brief', 'Product sourcing brief', 'Product, material, quantity, sampling and destination requirements.'],
-      ['/blog', 'Sourcing guides', 'Packaging, textiles, supplier checks and order preparation.'],
     ],
   },
 ] as const;

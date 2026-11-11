@@ -10,6 +10,7 @@ import {
   CASE_STUDIES,
   CASE_STUDY_CATEGORY_LABELS,
   CASE_STUDY_RECORD_LABELS,
+  type CaseStudyCategory,
   caseStudySummary,
   getCaseStudy,
 } from '@/lib/case-studies';
@@ -22,6 +23,14 @@ function summaryLowerFirst(summary: string): string {
 export async function generateStaticParams() {
   return CASE_STUDIES.map((study) => ({ slug: study.slug }));
 }
+
+/** The service page that covers each category today. */
+const RELATED_SERVICE: Record<CaseStudyCategory, { href: string; label: string }> = {
+  packaging: { href: '/custom-packaging', label: 'custom packaging' },
+  textile: { href: '/custom-textile', label: 'clothing and textiles' },
+  sportswear: { href: '/sportswear-sourcing', label: 'sportswear' },
+  other: { href: '/product-sourcing', label: 'other products, reviewed on request' },
+};
 
 export async function generateMetadata({
   params,
@@ -129,6 +138,16 @@ export default async function CaseStudyPage({
                 )}
               </article>
             </div>
+            <p className="editorial-body mt-10">
+              Where this step sits in a supply today:{' '}
+              <Link href={RELATED_SERVICE[study.category].href}>
+                {RELATED_SERVICE[study.category].label}
+              </Link>
+              {' · '}
+              <Link href="/how-we-work">how an order runs, from brief to written order</Link>
+              {' · '}
+              <Link href="/case-studies">all documented cases</Link>
+            </p>
           </div>
         </section>
 

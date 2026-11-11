@@ -6,7 +6,7 @@
  * pages; the generated file is committed with the pages it describes.
  */
 import { execSync } from 'node:child_process';
-import { readdirSync, writeFileSync } from 'node:fs';
+import { readFileSync, readdirSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 
 const pagesDir = path.resolve('src/app/(en)');
@@ -24,6 +24,21 @@ function walk(dir) {
 
 walk(pagesDir);
 
+// Dates only move forward: several pages keep their content in
+// src/lib/service-pages.ts, so the commit date of page.tsx alone can be older
+// than the date already recorded for the page.
+const outputFile = path.resolve('src/lib/service-updates.ts');
+const recorded = {};
+try {
+  for (const [, route, date] of readFileSync(outputFile, 'utf8').matchAll(
+    /"([^"]+)": "(\d{4}-\d{2}-\d{2})"/g,
+  )) {
+    recorded[route] = date;
+  }
+} catch {
+  // First run: nothing recorded yet.
+}
+
 const updates = {};
 for (const file of pageFiles) {
   const rel = path.relative(process.cwd(), file);
@@ -40,7 +55,7 @@ for (const file of pageFiles) {
     .replace(/^src\/app\/\(en\)/, '')
     .replace(/\/page\.tsx$/, '')
     .replace(/^\/?$/, '/');
-  updates[route] = date;
+  updates[route] = recorded[route] > date ? recorded[route] : date;
 }
 
 const body = `/**
@@ -51,5 +66,5 @@ const body = `/**
 export const SERVICE_UPDATES: Record<string, string> = ${JSON.stringify(updates, null, 2)};
 `;
 
-writeFileSync(path.resolve('src/lib/service-updates.ts'), body);
+writeFileSync(outputFile, body);
 console.log(`recorded ${Object.keys(updates).length} pages`);

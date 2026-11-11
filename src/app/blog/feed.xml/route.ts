@@ -33,7 +33,7 @@ export function GET() {
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>${SITE_NAME} — sourcing guides</title>
-    <link>${absoluteUrl('/blog')}</link>
+    <link>${absoluteUrl('/resources')}</link>
     <description><![CDATA[Guides on custom packaging, textiles, supplier verification and order preparation, written by the Sourcing Lab USA team.]]></description>
     <language>en-US</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>

@@ -30,11 +30,16 @@ const directAnswer =
 const clusters = [
   {
     name: 'Find and qualify suppliers',
-    slugs: ['china-sourcing-guide-us-businesses', 'verify-chinese-supplier', 'alibaba-vs-sourcing-company'],
+    slugs: [
+      'china-sourcing-guide-us-businesses',
+      'verify-chinese-supplier',
+      'alibaba-vs-sourcing-company',
+      'sourcing-company-vs-trading-company',
+    ],
   },
   {
     name: 'Before you request a quotation',
-    slugs: ['china-sourcing-rfq-checklist', 'custom-packaging-moq-guide'],
+    slugs: ['china-sourcing-rfq-checklist', 'custom-packaging-moq-guide', 'sample-tooling-costs'],
   },
   {
     name: 'Clothing and textiles',
@@ -42,12 +47,18 @@ const clusters = [
   },
   {
     name: 'Packaging',
-    slugs: ['sustainable-packaging-ecommerce'],
+    slugs: [
+      'custom-packaging-mistakes',
+      'fsc-certification-explained',
+      'sustainable-packaging-ecommerce',
+    ],
   },
   {
     name: 'Cost, import and compliance',
     slugs: [
       'calculating-landed-costs-merchandise',
+      'incoterms-us-buyers-fob-exw-ddp',
+      'tariffs-chinese-packaging-textiles',
       'importing-textiles-usa-checklist',
       'sourcing-agent-fees',
     ],
