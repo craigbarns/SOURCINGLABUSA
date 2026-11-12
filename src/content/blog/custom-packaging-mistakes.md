@@ -37,6 +37,8 @@ Materials, inks and labelling for a U.S. retail product can carry requirements â
 
 The first order prices the setup: plates, dies, sampling, learning. The second order prices the production. If you plan repeat orders, say so in the brief â€” the quotation can spread setup economics differently when a run continues, and the unit price on a repeat order is the honest comparison point.
 
+For the full packaging brief, see [custom packaging sourcing from China](/custom-packaging): the formats, materials, print finishes and the information a quotation needs.
+
 ## The one-line version
 
 Write the complete brief, quote like against like, get the carton data, own your tooling, approve against checkpoints, check compliance early, and plan for the second order before the first one ships.
