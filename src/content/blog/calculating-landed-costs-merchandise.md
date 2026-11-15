@@ -2,7 +2,7 @@
 title: "Landed Costs: Packaging and Textiles"
 excerpt: "A practical checklist of the cost items to confirm before ordering custom packaging or textiles from China to the United States."
 date: "2026-08-20"
-updated: "2026-09-14"
+updated: "2026-11-15"
 updatedBy: "SourcingLab USA"
 author: "Gregory Baranes"
 ---
@@ -70,7 +70,7 @@ For several products, record the allocation method for shared freight or setup. 
 
 ## What makes a cost sheet ready for a decision?
 
-Every required amount should have a value or a clearly recorded unresolved item, an inclusion check, a source date and a responsible person. Check quotation validity and confirm changes to materials, packing or route before accepting the total. The [RFQ checklist](/blog/china-sourcing-rfq-checklist) and [fee comparison guide](/blog/sourcing-agent-fees) help align proposals before this calculation.
+Every required amount should have a value or a clearly recorded unresolved item, an inclusion check, a source date and a responsible person. Check quotation validity and confirm changes to materials, packing or route before accepting the total. The [RFQ checklist](/blog/china-sourcing-rfq-checklist) and [fee comparison guide](/blog/sourcing-agent-fees) help align proposals before this calculation. A blank [landed cost sheet (CSV)](/resources/landed-cost-sheet.csv) lists the fields above in a fixed order. It contains no duty rate: enter each rate from its official source, with the URL and the date you checked it.
 
 External sources rechecked September 14, 2026. The arithmetic is an original planning example, not customs, tax or financial advice for a specific order.
 
