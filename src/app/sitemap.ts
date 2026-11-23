@@ -57,12 +57,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 1,
     },
     {
-      url: `${marketingOrigin}/es`,
-      alternates: { languages: homeLanguages },
-      changeFrequency: 'weekly',
-      priority: 0.9,
-    },
-    {
       url: `${marketingOrigin}/zh`,
       alternates: { languages: homeLanguages },
       changeFrequency: 'weekly',

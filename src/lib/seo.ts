@@ -166,7 +166,7 @@ export function organizationGraph() {
         url: absoluteUrl('/'),
         name: SITE_NAME,
         publisher: { '@id': ORGANIZATION_ID },
-        inLanguage: ['en-US', 'es-US'],
+        inLanguage: ['en-US', 'es-US', 'zh-Hans'],
       },
     ],
   };

@@ -69,7 +69,7 @@ export const customPackagingPage: ServicePageContent = {
     {
       question: 'What is the minimum order quantity for custom packaging?',
       answer:
-        'As a starting point, custom printed packaging commonly starts around 500 units per design. The real minimum follows the format, material, print process and finish, and the split across sizes or artwork versions, and it is confirmed in your quotation.',
+        'The minimum depends on the format, material, print process and finish, and on how the quantity splits across sizes or artwork versions. It is confirmed for your project in the quotation, not assumed in advance.',
     },
     {
       question: 'Can you work from packaging we already use?',
